@@ -1,3 +1,9 @@
+/************************************************************
+LastModifiedDate : May 10, 2017
+LastModifiedBy   : Lokesh M
+Related JIRA     : SFDCJP-2100,SFDCJP-2000
+************************************************************/
+
 public with sharing class CustomerMymercInterfaceController {
     
     public list<Account_Link__c> acclist{get;set;}    
@@ -22,9 +28,10 @@ public with sharing class CustomerMymercInterfaceController {
     public String aclId;
     public String emailRegEx = '[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+';
     public Account_Link__c aLink{get;set;}
+    public User usr = new user();
     
     public CustomerMymercInterfaceController(ApexPages.StandardController controller) {
-        
+        usr = [Select Id,name,contact.AccountId from User WHERE ID =: UserInfo.getUserId() ];
         MyMercVar = false;
         MyMercEmailVar = true;
         RegOutlet  = 'No';
@@ -36,7 +43,7 @@ public with sharing class CustomerMymercInterfaceController {
         aclsize  = [select id, toRole__c  from Account_Link__c where toRole__c =: Accid ];
         if(aclsize.size() >0)
             accl = [select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Link__c where toRole__c =: Accid ];
-        accont = [select id,Gender__c,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
+        accont = [select id,Gender__c,Main_Dealer__c,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
         if(accl != null && !accl.isEmpty())
         {
             for(Account_Link__c acc: accl){
@@ -62,7 +69,7 @@ public with sharing class CustomerMymercInterfaceController {
 
      public pagereference createContractSector()
      {
-         user usr =[select id,profileId,contactId,Contact.AccountId from user where id =: userinfo.getUserId()];
+         //user usr =[select id,profileId,contactId,Contact.AccountId from user where id =: userinfo.getUserId()];
          Profile po = [SELECT Id,UserLicense.Name FROM Profile where id =: usr.profileId];         
          if(po.UserLicense.Name == 'Partner Community') {
          Contact con  = [select id,AccountId from Contact where Id =: usr.contactId ];
@@ -152,6 +159,11 @@ public with sharing class CustomerMymercInterfaceController {
                  accont.Portal_Apply_Date__c = system.today();
                  accont.Portal_Apply_Status__c = 'To be Sent';
                  accont.Portal_Apply_User__c = userinfo.getUserid();
+                 system.debug('accountMainDealer'+accont.main_dealer__C);
+                 if(accont.Main_Dealer__c == NULL || accont.Main_Dealer__c == ' '){
+                     system.debug('usrcontactaccountid'+usr.contact.AccountId);    
+                     accont.Main_Dealer__c = usr.contact.AccountId;
+                 }
                  update accont;
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Records Updated'));
              }

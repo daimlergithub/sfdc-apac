@@ -44,3 +44,4 @@ TriggerDMRequestTH,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMReque
 TriggerCampaignTH,TRUE,TRUE,TRUE,TriggerCampaign,TRUE,TRUE,TRUE,TriggerCampaignTriggerHandlerTH,TH
 TriggerCaseTH,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,CaseTriggerHandlerTH,TH
 TriggerDMRequestKR,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequestTriggerHandlerJP,KR
+TriggerLeadTH,TRUE,TRUE,TRUE,TriggerLead,TRUE,TRUE,TRUE,LeadTriggerHandlerTH,TH

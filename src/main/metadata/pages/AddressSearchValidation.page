@@ -97,7 +97,7 @@
                      <apex:outputLabel value="{!$Label.Touch_Point}" />       
                   <apex:outputText value="{!TouchPoint}"/>         
                   </apex:pageBlockSectionItem>
-					
+                    
                     <!-- <apex:inputField value="{!objAccount.Name}" /> -->
                     <apex:inputField value="{!objAccount.Company_Name__c}" />
                     <apex:inputField value="{!objAccount.Company_Name_Native_1__c}" />               
@@ -131,8 +131,8 @@
                         <apex:inputText value="{!objPersonAccount.FirstName}" />
                         
                     </apex:pageBlockSectionItem>
-					
-					<apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
+                    
+                    <apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
                      <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
                      <apex:outputPanel styleClass="requiredInput" layout="block">
                        <apex:outputPanel styleClass="requiredBlock" layout="block"/> 
@@ -143,7 +143,7 @@
                      <apex:outputLabel value="{!$Label.Touch_Point}" />       
                   <apex:outputText value="{!TouchPoint}"/>         
                   </apex:pageBlockSectionItem> 
-				  
+                  
                     <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
                 <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
@@ -161,7 +161,7 @@
                     </apex:pageBlockSection>
                     <apex:pageBlockSection id="PersonAccBlock1" title="{!$Label.Allow_data_sharing2}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'JP')) ,true,false)}">
                     <apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" /> 
-					<br>  </br>
+                    <br>  </br>
                     <apex:inputField value="{!objPersonAccount.Acquisition_Objective_Method__c}" />
                     <apex:inputField value="{!objPersonAccount.Details_of_Acquisition__c}" />
                 </apex:pageBlockSection>
@@ -295,31 +295,28 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
-                                <apex:selectOptions value="{!areacodeItems}"/>
-                            </apex:selectList>                                 
-                            <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:60px"/>
-                            <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3TH" style="width:60px"/>
+                              <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px"/>
+                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:30px"/>                                
+                            <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
+                            <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3TH" style="width:50px"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>   
                    <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!mobileAreaCode}" size="1" style="width:80px">
-                                <apex:selectOptions value="{!MobileAreacodeItems}"/>
-                            </apex:selectList>                       
-                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:60px"/>
-                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3TH" style="width:60px"/>
+                            <apex:inputText value="{!mbCountryCode}" id="mbCountryCode"  style="width:30px"/>
+                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode"  style="width:30px"/>                      
+                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
+                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3TH" style="width:50px"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>          
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
-                                <apex:selectOptions value="{!areacodeItems}"/>
-                           </apex:selectList>                                          
-                            <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2TH" style="width:60px"/>
-                            <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3TH" style="width:60px"/>
+                           <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
+                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" style="width:30px"/>                                         
+                            <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2TH" style="width:40px"/>
+                            <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3TH" style="width:50px"/>
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem> 
                    
@@ -346,31 +343,28 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
-                                <apex:selectOptions value="{!areacodeItems}"/>
-                            </apex:selectList>                                 
-                            <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:60px"/>
-                            <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3TH" style="width:60px"/>
+                           <apex:inputText value="{!hmCountryCode}" id="hmCountryCode"  style="width:30px"/>
+                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:30px"/>                               
+                            <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
+                            <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3TH" style="width:50px"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>                 
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!mobileAreaCode}" size="1" style="width:80px">
-                                <apex:selectOptions value="{!MobileAreacodeItems}"/>
-                            </apex:selectList>                       
-                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:60px"/>
-                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3TH" style="width:60px"/>
+                            <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px"/>
+                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode"  style="width:30px"/>                      
+                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
+                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3TH" style="width:50px"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />                        
                           <apex:outputPanel >
-                            <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
-                                <apex:selectOptions value="{!areacodeItems}"/>
-                           </apex:selectList>                                          
-                            <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2TH" style="width:60px"/>
-                            <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3TH" style="width:60px"/>
+                            <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
+                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode"  style="width:30px"/>                                               
+                            <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2TH" style="width:40px"/>
+                            <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3TH" style="width:50px"/>
                         </apex:outputPanel>                   
                     </apex:pageBlockSectionItem>                  
                                   
@@ -569,7 +563,7 @@
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>
                     <apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,addressIds,msgs" rendered="{!If(NOT(ISPICKVAL($User.Market__c,'TH')) ,true,false)}"/>
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(ISPICKVAL($User.Market__c,'TH')) ,true,false)}"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     
                     <apex:outputPanel rendered="{!firstsave}" >
@@ -662,7 +656,7 @@
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
                         <apex:outputField value="{!cr.Mobile__c}"/>
-					</apex:Column>
+                    </apex:Column>
                 </apex:PageBlockTable> 
                 </apex:PageBlock>                
                 <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!CompanyConfirmedMatch}"  >
