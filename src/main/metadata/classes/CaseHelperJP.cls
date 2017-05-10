@@ -772,7 +772,7 @@ List<Account> accUpdLst = new List<Account>();
             for(case cs: LstnewCase)
             {
                 if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c 
-                  && cs.OwnerId != oldValcase.get(cs.Id).ownerId)
+                  || cs.OwnerId != oldValcase.get(cs.Id).ownerId)
                 {
                     caseIds.add(cs.id);                
                 }

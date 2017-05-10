@@ -3,7 +3,7 @@
         <div align="Center">
             <apex:outputPanel >
                 <tb> <tb>   Dealer Outlet</tb>   </tb> 
-                <apex:inputField value=" {!Account.Company__c}">
+                <apex:inputField value=" {!Account.Main_Dealer__c}">
                     <apex:actionSupport event="onchange" action="{!getAccount }" rerender="Selected_PBS" >
                         <apex:param name="account" value="{!Account.Id}"/>
                     </apex:actionSupport>

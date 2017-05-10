@@ -18,12 +18,16 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
             
            if(trigger.isAfter && (trigger.isInsert))
             {
-                VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);                
+                VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
+				VehicleRelationshipHelperKR.afterInsertEvent(trigger.new);
+				VehicleRelationshipHelper.updateRecall(trigger.new);                
             }
             if(trigger.isAfter && Trigger.isUpdate) 
             {
                 Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
                 VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+                VehicleRelationshipHelperKR.afterUpdateEvent(Trigger.new,oldmapVehicleRelship);
+				VehicleRelationshipHelper.updateRecall(trigger.new);
             } 
            if(trigger.isAfter && Trigger.isDelete) {
               VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
@@ -35,15 +39,6 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
             if(trigger.isBefore && trigger.isUpdate)
             {
                 vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
-            }
-            if(trigger.isAfter && trigger.isUpdate || trigger.isAfter && trigger.isInsert)
-            {
-                VehicleRelationshipHelper.updateRecall(trigger.new);
-            }
-            if(trigger.isAfter && trigger.isInsert)
-            {
-                system.debug('VR ');
-                VehicleRelationshipHelperKR.afterInsertEvent(trigger.new);
             }
     }
 
