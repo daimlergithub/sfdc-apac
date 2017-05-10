@@ -24,7 +24,7 @@ public with sharing class AddressHelperTH {
     } 
      if(AccIdSet!=null && !AccIdSet.isEmpty())
      {
-          List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet];     
+          List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet Limit 10];     
           if(accList!=null && !accList.isEmpty())
           {
               for(Account acc : accList)

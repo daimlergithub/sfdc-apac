@@ -184,23 +184,28 @@ public class AccountHelperTH{
      //Gets the List of Active Contracts and set the value to the Active Contracts field.
      //Created By:Mohammed Touseef Ahmed
      //Date:12th Feb 2017
-     public static void activeContracts(list<Account> listNewAccounts){
-     integer actContract=0;
-     for(Account acc : listNewAccounts){
-           if(acc.MD__c == Label.TH){              
-                  List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id 
-                                         from contract where Account.id=:acc.id];
-                                         
-                  for(contract cntrct: lstCntrct){
-                  if(cntrct.EndDate.daysBetween(cntrct.StartDate)<cntrct.ContractTerm)
-                  {
-                     actContract=actContract+1;                   
-                  }
-              }                                     
-              acc.Active_Contracts__c=actContract;
-           }
-         }
-      
+	public static void activeContracts(list<Account> listNewAccounts)
+	{
+		integer actContract=0;
+		Set<Id> AccIdSet = new Set<Id>();
+		for(Account acc : listNewAccounts)
+		{                                  
+			AccIdSet.add(acc.id);          
+		}
+		List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id 
+										 from contract where Account.id in : AccIdSet];      
+
+		for(Account acc : listNewAccounts)
+		{                                  
+				  for(contract cntrct: lstCntrct)
+				  {
+					  if(cntrct.EndDate.daysBetween(cntrct.StartDate)<cntrct.ContractTerm)
+					  {
+						 actContract=actContract+1;                   
+					  }
+				  }                                     
+			  acc.Active_Contracts__c=actContract;           
+		 }
     }
     
      /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are updated.
