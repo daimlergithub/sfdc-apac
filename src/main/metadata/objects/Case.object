@@ -9441,7 +9441,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
     </fields>
     <fields>
         <fullName>Case_Topic_Details__c</fullName>
-        <description></description>
         <externalId>false</externalId>
         <label>Case Topic Details</label>
         <length>30</length>
