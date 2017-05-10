@@ -396,6 +396,30 @@ public class AccountHelperJP
         try
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class updatePrimaryContactInformationBeforeUpdate method '+'listNewAccounts= ' + listNewAccounts.size());
+			 //Below condition is added as part of SFDCJP-2279
+            /* Added By Venky @5/10/2017.
+                If the value in ""Allow Data Sharing(Allow_Data_Sharing2__c"" is changed from ""Yes"" to ""No"" in Person Account record type, the value which is stored in below field should be deleted.
+                
+                - Acquisition Objective & Method(Acquisition_Objdective_Method__c)""
+                - Details of The Acquisition(Details_of_Acquisition__c)
+                - Acquisition Record Date (Acquisition_Record_Date__c)
+                "
+                
+            */
+            If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
+               {
+                     for(Account a:listNewAccounts)
+                       {
+                           if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && (a.Allow_Data_Sharing2__c!= oldMap.get(a.id).Allow_Data_Sharing2__c && a.Allow_Data_Sharing2__c=='No'))
+                           {
+                           a.Acquisition_Objective_Method__c='';
+                           a.Details_of_Acquisition__c='';
+                           a.Acquisition_Record_Date__c=null;
+                           
+                           } 
+                       }
+               
+               }
             If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
             {
                 for(Account Acc : listNewAccounts)
