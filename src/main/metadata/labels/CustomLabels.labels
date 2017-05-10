@@ -7110,12 +7110,47 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>TH</shortDescription>
         <value>TH</value>
     </labels>
+	<labels>
+        <fullName>TH_CACPurchaseddateRequired_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_CACPurchaseddateRequired_Error</shortDescription>
+        <value>SARI changing lead statust ot purchased please enter Purchased CAC Date  Field</value>
+    </labels>
+    <labels>
+        <fullName>TH_CAC_LeadstatusPurchasedError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_CAC_LeadstatusPurchasedError</shortDescription>
+        <value>SARI changing lead statust ot “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
+    </labels>
     <labels>
         <fullName>TH_Not_authorized_to_create_MB_Vehicle_record</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH Not authorized to create MB Vehicle record</shortDescription>
         <value>You are not authorized to create MB Vehicle record. Please contact System Administrator</value>
+    </labels>
+	<labels>
+        <fullName>TH_SARIDealerlead_status_error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_SARIDealerlead status error</shortDescription>
+        <value>SARI changing lead statust to &quot;Purchased&quot; please enter Purchase Date</value>
+    </labels>
+    <labels>
+        <fullName>TH_SARI_DealerOrderplacedError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_SARI_DealerOrderplacedError</shortDescription>
+        <value>SARI changing lead statust to Order Placed,please enter OrderPlaced Date</value>
+    </labels>
+    <labels>
+        <fullName>TH_SERVICE_BOOKING</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_SERVICEBOOKING</shortDescription>
+        <value>SERVICE BOOKING</value>
     </labels>
     <labels>
         <fullName>TargetVIN</fullName>
