@@ -12928,8 +12928,8 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
         <label>Sales Address</label>
         <lookupFilter>
             <active>true</active>
-            <errorMessage>Please select the proper address.</errorMessage>
-            <filterItems>
+           <booleanFilter>1 OR 2</booleanFilter>
+             <filterItems>
                 <field>Address__c.Customer__c</field>
                 <operation>equals</operation>
                 <valueField>$Source.Id</valueField>
@@ -54665,6 +54665,13 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c=&quot;&quo
         <errorConditionFormula>AND(MD__c ='JP',NOT(ISPICKVAL( $User.User_Type__c , 'MBJ' )) ,ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>AtleastOneContact_TH</fullName>
+        <active>true</active>
+        <description>Please Enter Atleast one contact Information</description>
+        <errorConditionFormula>IF( AND(ISBLANK(Mobile__c),MD__c = &apos;TH&apos;,$Profile.Name !=&apos;IntegrationAPI&apos;,ISBLANK(Work_Phone__c),ISBLANK(Individual_Home_Phone__c),( OR(ISNULL(Email__c),ISBLANK(Email__c)) )) , true, false)</errorConditionFormula>
+        <errorMessage>Please Enter Atleast one contact Information</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Birthday</fullName>
         <active>true</active>
@@ -55122,46 +55129,28 @@ OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;))</errorConditionFormula>
         <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
     </validationRules>
 	<validationRules>
-		<fullName>HomePhone_Format_TH</fullName>
-		<active>true</active>
-		<description>Home Phone must be in any of the following formats :		
-		1. 0xx-xxxx-xxxx
-		2. blank-xxxxx-xxxxxx</description>
-		<errorConditionFormula>AND(
+        <fullName>HomePhone_Format_TH</fullName>
+        <active>true</active>
+        <description>Home Phone must be in any of the following formats :		
+1. Country code-Area Code-xxx-xxxx
+2. Country code-Area Code-xxx-xxx</description>
+        <errorConditionFormula>AND(
 		$Profile.Name != &apos;IntegrationAPI&apos;, 
 		MD__c = &apos;TH&apos;,
 		NOT(ISBLANK(Individual_Home_Phone__c)),
 		NOT(
 		OR(
-		REGEX(Individual_Home_Phone__c, &quot;[036]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[032]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[034]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[035]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[037]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[038]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[039]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[042]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[043]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[044]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[045]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[052]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[053]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[054]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[055]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[056]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[073]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[074]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[075]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[076]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[077]{3}-[0-9]{4}-[0-9]{4}&quot;),
-		REGEX(Individual_Home_Phone__c, &quot;[0-9]{5}-[0-9]{6}&quot;)
+		REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}&quot;),
+                REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}&quot;),
+                REGEX(Individual_Home_Phone__c, &quot;[0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}&quot;)
 		)
 		)
 		)</errorConditionFormula>
-		<errorMessage>Home Phone must be in any of the following formats :		
-		1. 0xx-xxxx-xxxx
-		2. blank-xxxxx-xxxxxx</errorMessage>
-   </validationRules>
+        <errorMessage>Home Phone must be in any of the following formats :		
+1. Country code-Area Code-xxx-xxxx
+2. Country code-Area Code-xxx-xxx</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>HomePhone2_Format_KR</fullName>
         <active>true</active>
@@ -55823,47 +55812,23 @@ MD__c = &apos;JP&apos;
 		<errorMessage>Once MBK Data Source has been set as Compass, it cannot be changed.</errorMessage>
 	</validationRules>
 	<validationRules>
-<fullName>Mobile_Format_TH</fullName>
-<active>true</active>
-<description>Phone must be in any of the following formats : 
-1. xxx-xxx-xxxxx 2. blank-xxxxxx-xxxxxx</description>
-<errorConditionFormula>AND(
+        <fullName>Mobile_Format_TH</fullName>
+        <active>true</active>
+        <description>Mobile Phone must be in any of the following formats : 
+1. Country code-Area Code-xxx-xxxx</description>
+        <errorConditionFormula>AND(
 $Profile.Name != &apos;IntegrationAPI&apos;, 
 MD__c = &apos;TH&apos;,
 NOT(ISBLANK(Mobile__c)),
 NOT(
 OR(
-REGEX(Mobile__c, &quot;[060]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[061]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[062]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[063]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[068]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[080]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[081]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[082]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[083]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[084]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[085]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[086]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[087]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[088]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[089]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[090]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[091]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[092]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[093]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[094]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[095]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[096]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[097]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[098]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[099]{3}-[0-9]{4}-[0-9]{5}&quot;),
-REGEX(Mobile__c, &quot;[0-9]{6}-[0-9]{6}&quot;)
+REGEX(Mobile__c, &quot;[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}&quot;),
+REGEX(Mobile__c, &quot;[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}&quot;)
 )
 )
 )</errorConditionFormula>
-<errorMessage>Mobile must be in any of the following formats : 
-1. xxx-xxx-xxxxx 2. blank-xxxxxx-xxxxxx</errorMessage>
+        <errorMessage>Mobile Phone must be in any of the following formats : 
+1. Country code-Area Code-xxx-xxxx</errorMessage>
     </validationRules>
 	<validationRules>
 		<fullName>Mobile_NoOfDigits_TH</fullName>
@@ -55877,47 +55842,28 @@ REGEX(Mobile__c, &quot;[0-9]{6}-[0-9]{6}&quot;)
 		<errorMessage>Mobile phone number must be digits, and should be minimum 12 digits</errorMessage>
 	</validationRules>
 	<validationRules>
-	<fullName>WorkPhone_Format_TH</fullName>
-	<active>true</active>
-	<description>Work Phone must be in any of the following formats : 			
-	1.  0xx-xxxx-xxxx
-	2.  blank-xxxxx-xxxxxx</description>
-	<errorConditionFormula>AND(
+        <fullName>WorkPhone_Format_TH</fullName>
+        <active>true</active>
+        <description>Work Phone must be in any of the following formats : 			
+1. Country code-Area Code-xxx-xxxx 
+2. Country code-Area Code-xxx-xxx</description>
+        <errorConditionFormula>AND(
 	$Profile.Name != &apos;IntegrationAPI&apos;, 
 	MD__c = &apos;TH&apos;,
 	NOT(ISBLANK(Work_Phone__c)),
 	NOT(
 	OR(
-	REGEX(Work_Phone__c, &quot;[036]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[052]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[039]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[053]{3}-[0-9]{4}-[0-9]{4}&quot;), 
-	REGEX(Work_Phone__c, &quot;[054]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[043]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[032]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[045]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[075]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[037]{3}-[0-9]{4}-[0-9]{4}&quot;), 
-	REGEX(Work_Phone__c, &quot;[044]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[038]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[056]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[073]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[035]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[042]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[034]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[074]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[076]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[077]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[055]{3}-[0-9]{4}-[0-9]{4}&quot;),
-	REGEX(Work_Phone__c, &quot;[0-9]{5}-[0-9]{6}&quot;)
+         REGEX(Work_Phone__c, &quot;[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}&quot;), 
+         REGEX(Work_Phone__c, &quot;[+0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}&quot;), 
+         REGEX(Work_Phone__c, &quot;[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}&quot;), 
+         REGEX(Work_Phone__c, &quot;[0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}&quot;) 
 	)
 	)
 	)</errorConditionFormula>
-	<errorDisplayField>Work_Phone__c</errorDisplayField>
-	<errorMessage>Work Phone must be in any of the following formats : 			
-	1.  0xx-xxxx-xxxx
-	2.  blank-xxxxx-xxxxxx</errorMessage>
-	</validationRules>
+        <errorMessage>Work Phone must be in any of the following formats : 			
+1. Country code-Area Code-xxx-xxxx 
+2. Country code-Area Code-xxx-xxx</errorMessage>
+    </validationRules>
 	<validationRules>
 		<fullName>Work_Phone_2_NoOfDigits_TH</fullName>
 		<active>true</active>
