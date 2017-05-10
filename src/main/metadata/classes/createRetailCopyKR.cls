@@ -26,7 +26,7 @@ public class createRetailCopyKR {
       
     public void  getAccount()
 	{ 
-		if(!CurrentUsr.isEmpty() && CurrentUsr!= null && account.Main_Dealer__c != null)
+		if(CurrentUsr!= null && account.Main_Dealer__c != null)
 		{
 			accc = [Select id,name,( Select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,
 					Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,City__c ,Preferred__c,
