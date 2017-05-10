@@ -3,54 +3,63 @@
   Created By: Kiran
   Date: 2016-9-23
 */
-public class LeadHelperAccountLinkCreateJP {
+public class LeadHelperAccountLinkCreateJP 
+{
     private static final String alkCompanyRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     private static final String alkpersonRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-   private static final String alkContactSectorRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
- private static final String PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
- private static final String AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-
-
+    private static final String alkContactSectorRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
+    private static final String PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    private static final String AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    
+    
     public static void leadAccountDetails(list<Lead__c> leadlst, map<id,Lead__c> leadOldMap, boolean isInsert, boolean isUpdate){
         
         if(leadutil.leadAccountDetails)
         {
-        
-        set<String> contactId = new set<String>();
-        set<Id> OldDealerID= new set<Id>();
-        set<Id> NewDealerID= new set<Id>();
-        
-        
-        for(Lead__c le : leadlst){
-             if(le.Assigned_Dealer__c != null && ((le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated' && leadOldMap.get(le.id).CAC_Lead_Status__c == 'Approved')) ||  
- (le.CAC_Lead_Status__c == 'Approved' || le.CAC_Lead_Status__c == 'Allocated' && (le.Assigned_Dealer__c !=null || leadOldMap.get(le.id).Assigned_Dealer__c  != le.Assigned_Dealer__c))) && (le.MD__c == label.MarketJP)){
-                if(isInsert || ((isUpdate && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c) ||  (isUpdate && leadOldMap.get(le.id).Assigned_Dealer__c !=le.Assigned_Dealer__c || leadOldMap.get(le.id).Contact__c !=le.Contact__c))) {
-                    System.debug('Is Insert OR Update called -----:::::');
-                    contactId.add(le.id);
-                    if(leadOldMap.get(le.id).Assigned_Dealer__c !=le.Assigned_Dealer__c || leadOldMap.get(le.id).Contact__c !=le.Contact__c)
-                      {
-                      System.debug('^&^&^&^&&^ l');
-                      contactId.add(le.id); 
+            
+            set<String> contactId = new set<String>();
+            set<Id> OldDealerID= new set<Id>();
+            set<Id> NewDealerID= new set<Id>();
+            
+            
+            for(Lead__c le : leadlst)
+            {
+                if(le.MD__c == label.MarketJP)
+                {
+                    if(le.Assigned_Dealer__c != null && ((le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated' && leadOldMap.get(le.id).CAC_Lead_Status__c == 'Approved')) ||  
+                                                         (le.CAC_Lead_Status__c == 'Approved' || le.CAC_Lead_Status__c == 'Allocated' && (le.Assigned_Dealer__c !=null || leadOldMap.get(le.id).Assigned_Dealer__c  != le.Assigned_Dealer__c))))
+                    {
+                        if(isInsert || ((isUpdate && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c) ||  (isUpdate && leadOldMap.get(le.id).Assigned_Dealer__c !=le.Assigned_Dealer__c || leadOldMap.get(le.id).Contact__c !=le.Contact__c))) 
+                        {
+                            System.debug('Is Insert OR Update called -----:::::');
+                            contactId.add(le.id);
+                            if(leadOldMap.get(le.id).Assigned_Dealer__c !=le.Assigned_Dealer__c || leadOldMap.get(le.id).Contact__c !=le.Contact__c)
+                            {
+                                System.debug('^&^&^&^&&^ l');
+                                contactId.add(le.id); 
+                            }
+                        }
+                    }
+                    if(le.Assigned_Dealer__c != null && ((le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated')) || (le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated') && (leadOldMap.get(le.id).Assigned_Dealer__c  != le.Assigned_Dealer__c  ) || leadOldMap.get(le.id).Contact__c !=le.Contact__c)) && (userinfo.getusertype()=='Powerpartner')) 
+                    {   
+                        contactId.add(le.id);
+                        
+                        if(leadOldMap.get(le.id).Assigned_Dealer__c !=le.Assigned_Dealer__c  || leadOldMap.get(le.id).Contact__c !=le.Contact__c)
+                        {
+                            contactId.add(le.id); 
+                        }
                     }
                 }
-            } else if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Qualified' && le.MD__c == Label.MarketKR){
-                if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)){
-                    System.debug('Is Insert OR Update called -----:::::');
-                    contactId.add(le.id);
+                else if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Qualified' && le.MD__c == Label.MarketKR)
+                {
+                    if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c))
+                    {
+                        System.debug('Is Insert OR Update called -----:::::');
+                        contactId.add(le.id);
+                    }
                 }
+                
             }
-            
-              
-      if(  le.Assigned_Dealer__c != null && ((le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated')) || (le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated') && (leadOldMap.get(le.id).Assigned_Dealer__c  != le.Assigned_Dealer__c  ) || leadOldMap.get(le.id).Contact__c !=le.Contact__c)) && (userinfo.getusertype()=='Powerpartner')) {
-        
-       contactId.add(le.id);
-       if(leadOldMap.get(le.id).Assigned_Dealer__c !=le.Assigned_Dealer__c  || leadOldMap.get(le.id).Contact__c !=le.Contact__c)
-       {
-       contactId.add(le.id); 
-        }
-       }
-            
-        }
         System.debug('^&^&^&^&&^ contactId'+contactId);
         if(! contactId.isEmpty() ){
             createAccountLinkRecord(contactId);

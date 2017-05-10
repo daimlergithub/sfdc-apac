@@ -63,7 +63,12 @@ public class AddressSearchValidationController
     public String zip {get;set;}
     public String province {get;set;}
     public boolean IsForeignNational{get; set;}
-    
+	public String mbCountryCode{get;set;}
+    public String mbAreaCode{get;set;} 
+    public String hmCountryCode{get;set;}
+    public String hmAreaCode{get;set;}
+    public String wkCountryCode{get;set;}
+    public String wkAreaCode{get;set;}
     Public User u{get;set;}
     
     // COnstructor
@@ -101,7 +106,10 @@ public class AddressSearchValidationController
          if(market==Label.TH)
         {
             firstsave = true;  
-            secondsave = false; 
+            secondsave = false;
+			mbCountryCode='+66';
+            hmCountryCode='+66';
+            wkCountryCode='+66';
         }
         else
         {
@@ -1839,74 +1847,71 @@ If the user is Saving  same address which matches the fields returned by toleran
                     objAccount.RecordTypeId = recordTypeId; 
                      
                     
-                    if(homePhoneAreaCodePart1.trim() != ''&& homePhoneAreaCodePart2.trim() != '' && homePhoneAreaCodePart3.trim() != '')
-                    {       
-                        system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
-                        objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-                        if(objAccount.Individual_Home_Phone__c.startsWith('-'))
-                        {
-                            objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
-                        }
-                    }   
-                    else if(homePhoneAreaCodePart1.trim() =='' && homePhoneAreaCodePart2.trim() != '' && homePhoneAreaCodePart3.trim() != '')
-                    {                           
-                        objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-                        if(objAccount.Individual_Home_Phone__c.startsWith('-'))
-                        {
-                            objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart('-');
-                        }
-                    }   
-                    else
-                    {
-                        system.debug('*$*$*$ Entered BLANK scenario'); 
-                        objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1;
-                    }
+                      if
+                      (
+                          (String.isBlank(hmAreaCode)) &&
+                          (String.isBlank(hmCountryCode)) && 
+                          (String.isBlank(homePhoneAreaCodePart2)) &&
+                          (String.isBlank(homePhoneAreaCodePart3))
+                      )
+                      
+                      {              
+                               objAccount.Individual_Home_Phone__c='';
+                      }
+                      else if(hmAreaCode!='' && hmCountryCode!='' && homePhoneAreaCodePart2!='' &&  homePhoneAreaCodePart3!='')
+                      {     
+                        if(hmAreaCode.startsWith('0'))
+                            hmAreaCode=hmAreaCode.removeStart('0');
+                               objAccount.Individual_Home_Phone__c=hmCountryCode+'-'+hmAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;             
+                      }        
+                      else
+                      {             
+                             objAccount.Individual_Home_Phone__c='';
+                      }               
+                      
+                    if
+                      (
+                          (String.isBlank(wkAreaCode)) &&
+                          (String.isBlank(wkCountryCode)) && 
+                          (String.isBlank(workPhoneAreaCodePart2)) &&
+                          (String.isBlank(workPhoneAreaCodePart3))
+                      )
+                      
+                      {              
+                               objAccount.Work_Phone__c='';
+                      }
+                      else if(wkCountryCode!='' && wkAreaCode!='' && workPhoneAreaCodePart2!='' &&  workPhoneAreaCodePart3!='')
+                      {     
+                        if(wkAreaCode.startsWith('0'))
+                            wkAreaCode=wkAreaCode.removeStart('0');
+                               objAccount.Work_Phone__c=wkCountryCode+'-'+wkAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;            
+                      }        
+                      else
+                      {             
+                             objAccount.Work_Phone__c='';
+                      } 
                     
-                    if(workPhoneAreaCodePart1.trim() != ''&& workPhoneAreaCodePart2.trim() != '' && workPhoneAreaCodePart3.trim() != '')
-                    {       
-                        system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
-                        objAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-                        if(objAccount.Work_Phone__c.startsWith('-'))
-                        {
-                            objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
-                        }
-                    }   
-                    else if(workPhoneAreaCodePart1.trim() =='' && workPhoneAreaCodePart2.trim() != '' && workPhoneAreaCodePart3.trim() != '')
-                    {                           
-                        objAccount.Work_Phone__c = workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-                        if(objAccount.Work_Phone__c.startsWith('-'))
-                        {
-                            objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart('-');
-                        }
-                    }   
-                    else
-                    {
-                        system.debug('*$*$*$ Entered BLANK scenario'); 
-                        objAccount.Work_Phone__c = workPhoneAreaCodePart1;
-                    }
-                    
-                    if(mobileAreaCode.trim() != ''&& mobileAreaCodePart2.trim() != '' && mobileAreaCodePart3.trim() != '')
-                    {       
-                        system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
-                        objAccount.Mobile__c = mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
-                        if(objAccount.Mobile__c.startsWith('-'))
-                        {
-                            objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
-                        }
-                    }   
-                    else if(mobileAreaCode.trim() =='' && mobileAreaCodePart2.trim() != '' && mobileAreaCodePart3.trim() != '')
-                    {                           
-                        objAccount.Mobile__c = mobileAreaCodePart2+'-'+mobileAreaCodePart3;
-                        if(objAccount.Mobile__c.startsWith('-'))
-                        {
-                            objAccount.Mobile__c = objAccount.Mobile__c.removeStart('-');
-                        }
-                    }   
-                    else
-                    {
-                        system.debug('*$*$*$ Entered BLANK scenario'); 
-                        objAccount.Mobile__c = mobileAreaCode;
-                    }
+                    if
+                      (
+                          (String.isBlank(mbAreaCode)) &&
+                          (String.isBlank(mbCountryCode)) && 
+                          (String.isBlank(mobileAreaCodePart2)) &&
+                          (String.isBlank(mobileAreaCodePart3))
+                      )
+                      
+                      {              
+                               objAccount.Mobile__c='';
+                      }
+                      else if(mbCountryCode!='' && mbAreaCode!='' && mobileAreaCodePart2!='' &&  mobileAreaCodePart3!='')
+                      {     
+                        if(mbAreaCode.startsWith('0'))
+                            mbAreaCode=mbAreaCode.removeStart('0');
+                               objAccount.Mobile__c=mbCountryCode+'-'+mbAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;              
+                      }        
+                      else
+                      {             
+                             objAccount.Mobile__c='';
+                      } 
                     
                     if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));

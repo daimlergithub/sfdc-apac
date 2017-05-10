@@ -93,20 +93,21 @@
                         </apex:outputField>
                     </apex:column>
                     
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}" rendered="{!IF(market != 'TH', true, false)}">
                         <apex:outputText value="{!row.City__c}" style="width:10%; white-space:nowrap;" >
                         </apex:outputText>
-                    </apex:column> 
+                    </apex:column>
                         
                    <!-- <apex:column headerValue="{!$ObjectType.Address__c.fields.City_Native__c.Label}" rendered="{!IF(market == 'JP', true, false)}">     
                         <apex:outputText value="{!row.City_Native__c}" style="width:10%; white-space:nowrap;" >     
                     </apex:outputText>
                     </apex:column>-->
                     
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.District__c.Label}" >
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.District__c.Label}" rendered="{!IF(market != 'TH', true, false)}">
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
+					
                     
                     
                     <!--<apex:column headerValue="{!$ObjectType.Address__c.fields.District_Native__c.Label}" rendered="{!IF(market == 'JP', true, false)}">
@@ -114,6 +115,15 @@
                     </apex:outputText>      
                     </apex:column> -->
                     
+					<apex:column headerValue="District" rendered="{!IF(market == 'TH', true, false)}">
+						<apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
+						</apex:outputText>
+					</apex:column>
+					
+					<apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}" rendered="{!IF(market == 'TH', true, false)}">
+                        <apex:outputText value="{!row.Sub_District__c}" style="width:10%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
                     
                     <apex:column headerValue="{!if(Market=='JP',$ObjectType.Address__c.fields.Block__c.Label,'')}">                                               
                         <apex:outputText value="{!if(Market=='JP',row.Block__c,'')}"/>          
@@ -146,7 +156,7 @@
                     </apex:column>-->
                     
 
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}"> 
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}" rendered="{!IF(market != 'TH', true, false)}"> 
                         <apex:outputText value="{!row.Company_Name__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
                     </apex:column> 
@@ -175,12 +185,12 @@
                         </apex:outputField>
                     </apex:column>
                     
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_ZipCode__c.Label}" >
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_ZipCode__c.Label}" rendered="{!IF(market != 'TH', true, false)}">
                         <apex:outputText value="{!row.Temp_ZipCode__c}" style="width:10%; white-space:none;" >
                         </apex:outputText>
                     </apex:column>
                     
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}" >
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}" rendered="{!IF(market != 'TH', true, false)}">
                         <apex:outputText value="{!row.Temp_Address__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
                     </apex:column>

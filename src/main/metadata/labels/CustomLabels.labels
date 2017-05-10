@@ -1735,6 +1735,13 @@
         <shortDescription>Criteria</shortDescription>
         <value>Criteria</value>
     </labels>
+	<labels>
+        <fullName>Current_Lead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Lead</shortDescription>
+        <value>Current Lead</value>
+    </labels>
     <labels>
         <fullName>Current_Vehicle1</fullName>
         <language>en_US</language>
@@ -6900,6 +6907,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>SlashPDF</shortDescription>
         <value>/</value>
     </labels>
+	<labels>
+        <fullName>Slave_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Slave Record</shortDescription>
+        <value>Slave Record</value>
+    </labels>
     <labels>
         <fullName>Somewhat_disappointed</fullName>
         <categories>Flows</categories>
@@ -7509,6 +7523,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>URL</shortDescription>
         <value>URL</value>
+    </labels>
+	<labels>
+        <fullName>Uncalculated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Uncalculated</shortDescription>
+        <value>Uncalculated</value>
     </labels>
     <labels>
         <fullName>Unknown</fullName>
