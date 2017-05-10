@@ -48,6 +48,10 @@
                 <behavior>Edit</behavior>
                 <field>FirstRegistrationDate__c</field>
             </layoutItems>
+           <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Class_and_Body__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

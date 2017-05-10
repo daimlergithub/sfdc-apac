@@ -21622,4 +21622,3 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
     </webLinks>
 </CustomObject>
-

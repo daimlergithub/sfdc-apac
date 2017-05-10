@@ -860,14 +860,6 @@
         <apexClass>LeadLatestPhaseUpdateJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<classAccesses>
-        <apexClass>LeadReassign</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LeadReassignTest</apexClass>
-		<enabled>true</enabled>
-    </classAccesses>
     <classAccesses>
         <apexClass>LeadMergeController</apexClass>
         <enabled>true</enabled>
@@ -10933,6 +10925,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Case_Topic_Details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Towing_Provider_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14029,6 +14026,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Credit_Limit_Request__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Cross_Point_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23686,6 +23688,11 @@
         <field>Vehicle_Relationship__c.Vehicle_Phone_picklist__c</field>
         <readable>true</readable>
     </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Vehicle_Range__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Vehicle_Status__c</field>
@@ -23839,6 +23846,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Class__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Class_and_Body__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -24755,7 +24767,7 @@
         <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
+        <layout>PersonAccount-Person Account Layout_KR</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>

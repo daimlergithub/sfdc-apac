@@ -4366,14 +4366,14 @@ This field is visible for Wholesale and Retail.</description>
     <fields>
         <fullName>Vehicle_Class__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(Vehicle_ID__r.Class__c)</formula>
+        <formula>IF( MD__c = 'JP', Vehicle_ID__r.Class_and_Body__c , TEXT(Vehicle_ID__r.Class__c))</formula>
         <label>Vehicle Class</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Vehicle_ID__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -4448,6 +4448,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+     <fields>
+        <fullName>Vehicle_Range__c</fullName>
+        <externalId>false</externalId>
+        <formula>Vehicle_ID__r.Range__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle Range</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Vehicle_Status__c</fullName>

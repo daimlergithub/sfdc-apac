@@ -65,7 +65,8 @@
                 <field>Vehicle_Need_Text__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Source_Campaign__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -78,6 +79,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Expected_Close_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Existing_Contract__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Existing_Contract_End_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Closing_Option__c</field>
             </layoutItems>
             <layoutItems>
                 <height>200</height>
@@ -98,7 +111,7 @@
                 <behavior>Edit</behavior>
                 <field>Case__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Campaign_Name__c</field>
             </layoutItems>
@@ -131,6 +144,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Expected_Registration_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Existing_Contract_No__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customer_Intention__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Closing_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -305,11 +330,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Existing_Contract__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Existing_Contract_End_Date__c</field>
+                <field>Finance_Product_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -326,12 +347,8 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Existing_Contract_No__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Finance_Product_Name__c</field>
+                <field>Cross_Point_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -669,7 +686,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	    <relatedLists>
+    <relatedLists>
         <customButtons>New_Campaign_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
@@ -691,7 +708,7 @@
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <fields>StepStatus</fields>
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
