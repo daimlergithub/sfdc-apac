@@ -569,7 +569,7 @@
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>
                     <apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,addressIds,msgs" rendered="{!If(NOT(ISPICKVAL($User.Market__c,'TH')) ,true,false)}"/>
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(ISPICKVAL($User.Market__c,'TH')) ,true,false)}"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     
                     <apex:outputPanel rendered="{!firstsave}" >
