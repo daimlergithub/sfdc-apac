@@ -161,7 +161,8 @@ public with sharing class CustomerMymercInterfaceController {
                  accont.Portal_Apply_User__c = userinfo.getUserid();
                  system.debug('accountMainDealer'+accont.main_dealer__C);
                  if(accont.Main_Dealer__c == NULL || accont.Main_Dealer__c == ' '){
-                     system.debug('usrcontactaccountid'+usr.contact.AccountId);    
+                     system.debug('usrcontactaccountid'+usr.contact.AccountId);  
+					if(usr.contact.accountId != NULL)
                      accont.Main_Dealer__c = usr.contact.AccountId;
                  }
                  update accont;
