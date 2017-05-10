@@ -2,7 +2,9 @@ public without sharing class VehicleRelationshipHelperKR
 { 
     public static Id vehicleRelationship_VRRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();
     public static Id vehicleRelationship_VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
-       
+    private static final String alkCompanyRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+    private static final String alkpersonRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+    
     public static void afterInsertEvent(List<Vehicle_Relationship__c> newList){
    
         Map<Id, List<Id>> map_AccountIdAndListVCId = new Map<Id, List<Id>>();
@@ -88,9 +90,11 @@ public without sharing class VehicleRelationshipHelperKR
             }
         }
        
-        if(set_AccountId!=null){
+        if(set_AccountId!=null)
+        {
             ListAlk=[select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:set_AccountId];
-            if(ListAlk.size() > 0){
+            if(ListAlk.size() > 0)
+            {
                 for(Account_Link__c  alk:ListAlk)
                 {
                     if(alk.fromRole__c!=null && alk.toRole__c!=null)
@@ -103,10 +107,10 @@ public without sharing class VehicleRelationshipHelperKR
                     // accNames.add(acc.Name);
                     GcNames.add(acc.Dealer_GC_Code__c );
                 }
-                List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
+                List<Account> accGCode = [select Name,Dealer_GC_Code__c,Dealer_ND_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
                 
                 for(Account accs : accGCode ){
-                    accNames.add(accs.Name);  
+                    accNames.add(accs.Dealer_ND_Code__c);  
                 }
             }
         }
@@ -134,19 +138,23 @@ public without sharing class VehicleRelationshipHelperKR
         }
     }
    
-    private static List<Vehicle_Relationship__Share> createDealerAccountSharing(Map<Id, List<Id>> map_AccountIdAndListVCId){
-       
+    private static List<Vehicle_Relationship__Share> createDealerAccountSharing(Map<Id, List<Id>> map_AccountIdAndListVCId)
+    {
         // START: Adding Similar GC Code related Account To Map which is sharing already.
         Set<Id> dealerAccIdSet = new Set<Id>();
-        for(Id dealerAccId : map_AccountIdAndListVCId.keySet()) {
+        for(Id dealerAccId : map_AccountIdAndListVCId.keySet()) 
+        {
             dealerAccIdSet.add(dealerAccId);
         }
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(dealerAccIdSet);
-       
-        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
-            if(map_AccountIdAndListVCId.containsKey(dealerId)) {
+        
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) 
+        {
+            if(map_AccountIdAndListVCId.containsKey(dealerId)) 
+            {
                 List<Id> vrIdList = map_AccountIdAndListVCId.get(dealerId);
-                for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) 
+                {
                     map_AccountIdAndListVCId.put(similarGCCodeDealerId, vrIdList);
                 }
             }
@@ -154,19 +162,22 @@ public without sharing class VehicleRelationshipHelperKR
         // END: Adding Similar GC Code related Account To Map which is sharing already.
         
         // Changing Sharing from User to Public Group
-        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListVCId.keySet()];
+        List<Account> dealerAccList = [select id,Name,Dealer_ND_Code__c from Account where Id IN: map_AccountIdAndListVCId.keySet()];
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
-        for(Account dealerRec : dealerAccList) {
-            dealerAccNameSet.add(dealerRec.Name);
-            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        for(Account dealerRec : dealerAccList) 
+        {
+            dealerAccNameSet.add(dealerRec.Dealer_ND_Code__c);
+            accNameToAccIdMap.put(dealerRec.Dealer_ND_Code__c, dealerRec.Id);
         }
-       
+        
         
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
-        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet])
+        {
             if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListVCId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
-                for(Id accountLinkId : map_AccountIdAndListVCId.get(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id accountLinkId : map_AccountIdAndListVCId.get(accNameToAccIdMap.get(groupRec.Name)))
+                {
                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                     vehicleRelationShare.AccessLevel = 'Read';
                     vehicleRelationShare.UserOrGroupId = groupRec.Id;
@@ -182,27 +193,34 @@ public without sharing class VehicleRelationshipHelperKR
     public static List<Vehicle_Relationship__Share> createPersonOrCompanyAccountSharing(Map<Id, List<Id>> map_AccountIdAndListVCwithVRrecordtypeId,Set<Id> currentVrId){
         system.debug('map_AccountIdAndListVCwithVRrecordtypeId :'+map_AccountIdAndListVCwithVRrecordtypeId);
         set<Id> toRoleIds = new Set<id>();
-        for(id i : map_AccountIdAndListVCwithVRrecordtypeId.keySet()){
-           system.debug(' >>> :'+i);
-           toRoleIds.add(i);
+        for(id i : map_AccountIdAndListVCwithVRrecordtypeId.keySet())
+        {
+            system.debug(' >>> :'+i);
+            toRoleIds.add(i);
         }
-     
+        
         Set<Id> DealerAccId=new Set<Id>();
         Set<Id> VrID=new Set<Id>();
         Map<id,Account_Link__c> ListAlk = new Map<id,Account_Link__c>([select id,fromRole__c,toRole__c from Account_Link__c where 
-                                   toRole__c IN : toRoleIds]);
+                                                                       toRole__c IN : toRoleIds AND (RecordTypeId =:alkCompanyRecordTypeId OR RecordTypeId =:alkpersonRecordTypeId)]);
         system.debug('ListAlk  >> :'+ListAlk);
-        for(Account_Link__c alk : ListAlk.values()) {
-             system.debug(' >>> 1 :'+alk);                         
-            DealerAccId.add(alk.fromRole__c);
+        if(!ListAlk.isEmpty() && ListAlk != null)
+        {
+            for(Account_Link__c alk : ListAlk.values()) 
+            {
+                system.debug(' >>> 1 :'+alk);                         
+                DealerAccId.add(alk.fromRole__c);
+            }
         }
         DealerAccId.remove(null);
-       
+        
         // Start: Share with all Dealer Account with same GC Code
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(DealerAccId);
         system.debug('dealerIdToSimilarGCCodeDealerAccountIdsMap :'+dealerIdToSimilarGCCodeDealerAccountIdsMap);
-        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
-            for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) 
+        {
+            for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) 
+            {
                 DealerAccId.add(similarGCCodeDealerId);
             }
         }
@@ -214,18 +232,22 @@ public without sharing class VehicleRelationshipHelperKR
         system.debug('dealerAccList :'+dealerAccList);
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
-        for(Account dealerRec : dealerAccList) {
+        for(Account dealerRec : dealerAccList) 
+        {
             dealerAccNameSet.add(dealerRec.Dealer_ND_Code__c);
             accNameToAccIdMap.put(dealerRec.Dealer_ND_Code__c, dealerRec.Id);
         }
-       
+        
         
         System.debug('DealerAccId  newList'+DealerAccId);
         System.debug('dealerAccNameSet : '+dealerAccNameSet);
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
-        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
-            if(currentVrId != null) {
-                for(Id ids:currentVrId) {
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) 
+        {
+            if(currentVrId != null) 
+            {
+                for(Id ids:currentVrId) 
+                {
                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                     vehicleRelationShare.AccessLevel = 'Edit';
                     vehicleRelationShare.UserOrGroupId = groupRec.Id;
