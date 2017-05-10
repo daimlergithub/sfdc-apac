@@ -19655,7 +19655,7 @@
     <fieldPermissions>
         <editable>True</editable>
         <field>Retail_Task__c.Special_Flag_Exclude__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
