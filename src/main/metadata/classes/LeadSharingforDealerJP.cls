@@ -49,14 +49,19 @@ public class LeadSharingforDealerJP{
         }
     }
     
-    public static void LeadSharing_Dealer(list<Lead__c> rtlst){       
+    public static void LeadSharing_Dealer(list<Lead__c> rtlst , map<id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate)
+    {       
         list<Lead__c> rtlst1 = new list<Lead__c>();
         Set<id> dealerAccountIds = new Set<id>();
         Set<id> LeadIds = new Set<id>();
         Set<String> groupNames = new Set<String>();
-        for (Lead__c Led : rtlst) {
-            dealerAccountIds.add(Led.Assigned_Dealer__C);
-            LeadIds.add(Led.Id);
+        for (Lead__c Led : rtlst) 
+        {
+            if(led.Assigned_Dealer__c != null && (isInsert || (isUpdate && led.Assigned_Dealer__c != leadOldMap.get(Led.Id).Assigned_Dealer__c || led.OwnerId != leadOldMap.get(Led.Id).OwnerId)))
+            {
+                LeadIds.add(Led.Id);
+                dealerAccountIds.add(Led.Assigned_Dealer__C);
+            }
         }
         UtilShare.groupmembersadd(LeadIds,dealerAccountIds);                 
      

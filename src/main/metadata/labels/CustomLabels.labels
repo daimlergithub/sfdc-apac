@@ -6106,6 +6106,20 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <shortDescription>Range Model</shortDescription>
         <value>Range Model</value>
     </labels>
+	<labels>
+        <fullName>To_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To Company</shortDescription>
+        <value>To Company</value>
+    </labels>
+	<labels>
+        <fullName>To_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To Person</shortDescription>
+        <value>To Person</value>
+    </labels>
     <labels>
         <fullName>S5_Q4_E_P1</fullName>
         <language>en_US</language>
@@ -8470,5 +8484,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Error Msg for Create Complex Execution</shortDescription>
         <value>This function available only for Japan user</value>
+    </labels>
+	<labels>
+        <fullName>korea_Business_Hours_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>korea Business Hours Id</shortDescription>
+        <value>01mp00000008Pbi</value>
     </labels>
 </CustomLabels>
