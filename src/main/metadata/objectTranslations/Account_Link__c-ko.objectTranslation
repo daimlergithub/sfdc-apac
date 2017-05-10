@@ -1372,6 +1372,17 @@
             <section>System Information</section>
         </sections>
     </layouts>
+	<layouts>
+        <layout>Company Retail Copy</layout>
+        <sections>
+            <label>연락처 정보</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>New Fields</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Contact Sector</layout>
         <sections>
@@ -1422,6 +1433,25 @@
         <sections>
             <label>정보</label>
             <section>Information</section>
+        </sections>
+    </layouts>
+	<layouts>
+        <layout>Person Retail Copy</layout>
+        <sections>
+            <label>주소</label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label>연락 방법</label>
+            <section>Contact Method</section>
+        </sections>
+        <sections>
+            <label>프로파일 정보</label>
+            <section>Profile Information</section>
+        </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
