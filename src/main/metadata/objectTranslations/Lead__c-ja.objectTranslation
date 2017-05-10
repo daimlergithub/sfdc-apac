@@ -2124,6 +2124,10 @@
         <label><!-- Credit Limit Request --></label>
         <name>Credit_Limit_Request__c</name>
     </fields>
+	<fields>
+        <label>クロスポイントモデル</label>
+        <name>Cross_Point_Model__c</name>
+    </fields>
     <fields>
         <label><!-- CurrentMileage --></label>
         <name>CurrentMileage__c</name>
@@ -8705,7 +8709,7 @@
         <name>Questionnair__c</name>
     </fields>
     <fields>
-        <label>初回見積金額</label>
+        <label>見積金額</label>
         <name>Quotation_Amount__c</name>
     </fields>
     <fields>
@@ -8713,7 +8717,7 @@
         <name>Quotation_Date__c</name>
     </fields>
     <fields>
-        <label>最新見積対象モデル</label>
+        <label>見積対象モデル</label>
         <name>Quotation_Model__c</name>
         <relationshipLabel><!-- Leads (Car Model) --></relationshipLabel>
     </fields>
@@ -8940,7 +8944,7 @@
         <name>Registration_Number__c</name>
     </fields>
     <fields>
-        <label>MB オンラインコード</label>
+        <label>MBオンラインコード</label>
         <name>Related_Configuration_Codes__c</name>
     </fields>
     <fields>
@@ -11882,7 +11886,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>簡易見積日</label>
+        <label>簡易見積書印刷日</label>
         <name>Simple_Estimation_Date__c</name>
     </fields>
     <fields>

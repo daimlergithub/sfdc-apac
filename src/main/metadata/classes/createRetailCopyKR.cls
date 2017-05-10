@@ -6,8 +6,10 @@ public class createRetailCopyKR {
     public List<Address__c> ress   {set;get;}
     public List<Address__c> sample1{set;get;}
     public List<Account> accc {set;get;}
-
+	public User  CurrentUsr{set;get;}
+		 
     public createRetailCopyKR(ApexPages.StandardController controller){
+		CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id =: UserInfo.getUserId() and Market__c = 'KR'];
         account = (Account)controller.getRecord();
         sample = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,
                   Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,
@@ -22,11 +24,15 @@ public class createRetailCopyKR {
         return null;
     }
       
-    public void  getAccount(){ 
-        accc = [Select id,name,( Select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,
-                Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,City__c ,Preferred__c,
-                Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c from Addresses__r LIMIT 1) from Account where id =: account.Company__c];
-        system.debug('accc $$$ :'+accc); 
+    public void  getAccount()
+	{ 
+		if(CurrentUsr!= null && account.Main_Dealer__c != null)
+		{
+			accc = [Select id,name,( Select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,
+					Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,City__c ,Preferred__c,
+					Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c from Addresses__r LIMIT 1) from Account where id =: account.Main_Dealer__c and MD__c =: CurrentUsr.Market__c];
+			system.debug('accc $$$ :'+accc); 
+		}
     }
     
     public PageReference Save(){

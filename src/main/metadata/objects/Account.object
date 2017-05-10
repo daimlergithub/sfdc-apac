@@ -2156,7 +2156,7 @@
 	<fields>
 		<fullName>CAC_PERSON_UID__c</fullName>
 		<externalId>false</externalId>
-		<label>CAC PERSON UID</label>
+		<label>Compass Customer ID</label>
 		<length>100</length>
 		<required>false</required>
 		<trackFeedHistory>false</trackFeedHistory>
@@ -10240,7 +10240,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
 	<fields>
         <fullName>MBC_USERID__c</fullName>
         <externalId>false</externalId>
-        <label>MBC USERID</label>
+        <label>CPD Customer ID</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10650,6 +10650,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compass</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -19363,6 +19367,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
+			<values>
+				<fullName>Compass</fullName>
+               <default>false</default>
+			</values>
             <values>
                 <fullName>Circle of excellence</fullName>
                 <default>false</default>
@@ -54644,7 +54652,7 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
 	<validationRules>
         <fullName>Acquisition_Object_Method_Cannot_Change</fullName>
         <active>true</active>
-        <description>Below rules need to be applied only for person account record type If "Acquisition Objective & Method(Acquisition_Objdective_Method__c)" is not null, "Acquisition Objective & Method(Acquisition_Objdective_Method__c)" cannot be changed</description>
+        <description>Below rules need to be applied only for person account record type If "Acquisition Objective &amp;&amp; Method(Acquisition_Objdective_Method__c)" is not null, "Acquisition Objective &amp;&amp; Method(Acquisition_Objdective_Method__c)" cannot be changed</description>
         <errorConditionFormula>IF(NOT(ISPICKVAL( PRIORVALUE(Acquisition_Objective_Method__c),'')) &amp;&amp; RecordType.DeveloperName = 'PersonAccount' &amp;&amp; !ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Allow_Data_Sharing2__c , 'Yes'),true,false)</errorConditionFormula>
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>You cannot change the Acquistion Objective Method</errorMessage>
