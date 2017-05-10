@@ -17117,9 +17117,9 @@ Modify Reason:
                     <label>Delay in Document Delivery</label>
                 </value>
                 <value>
-                    <fullName>Product & finanace interest rate</fullName>
+                    <fullName>Product &amp; finanace interest rate</fullName>
                     <default>false</default>
-                    <label>Product & finanace interest rate</label>
+                    <label>Product &amp; finanace interest rate</label>
                 </value>
                 <value>
                     <fullName>Service  Problem of FS</fullName>
@@ -17192,9 +17192,9 @@ Modify Reason:
                     <label>Operational Working Hours</label>
                 </value>
                 <value>
-                    <fullName>Sales & Marketing Event</fullName>
+                    <fullName>Sales &amp; Marketing Event</fullName>
                     <default>false</default>
-                    <label>Sales & Marketing Event</label>
+                    <label>Sales &amp; Marketing Event</label>
                 </value>
                 <value>
                     <fullName>Aftersales Event</fullName>
@@ -17303,7 +17303,7 @@ Modify Reason:
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Marketing</controllingFieldValue>
-                <valueName>Sales & Marketing Event</valueName>
+                <valueName>Sales &amp; Marketing Event</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Marketing</controllingFieldValue>
@@ -17334,7 +17334,7 @@ Modify Reason:
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Complaint_Finance</controllingFieldValue>
-                <valueName>Product & finanace interest rate</valueName>
+                <valueName>Product &amp; finanace interest rate</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Complaint_Finance</controllingFieldValue>
