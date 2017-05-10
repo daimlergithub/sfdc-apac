@@ -3180,6 +3180,10 @@
             <translation><!-- None --></translation>
         </picklistValues>
     </fields>
+   <fields>
+        <label>レンジ</label>
+        <name>Vehicle_Range__c</name>
+    </fields>
     <fields>
         <label><!-- Vehicle Status --></label>
         <name>Vehicle_Status__c</name>
