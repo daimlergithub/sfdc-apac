@@ -172,4 +172,39 @@ public class CaseHelperKR
         }
         Database.SaveResult[] lsr = Database.insert(CaseSharingRecord,false);       
     }  */
+	
+	public static void updateCaseDeadLine(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
+          List<Id> caseIds = new List<Id>();
+          Id caseMBRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+           if(action == 'isUpdate')
+        {
+            for(case cs: LstnewCase)
+            {
+                
+                if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Priority!= oldValcase.get(cs.id).Priority && cs.RecordTypeId == caseMBRecordTypeId)
+                {
+                    caseIds.add(cs.id);                
+                }
+            }        
+        }
+        if(action == 'isInsert')
+        {
+            for(case cs: LstnewCase)
+            {
+                
+                if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.RecordTypeId == caseMBRecordTypeId)
+                {
+                    caseIds.add(cs.id);                
+                }
+            }        
+        }       
+        
+        if(caseIds.size()>0)
+        {
+            string caseJsonStr = JSON.serialize(caseIds);            
+            system.debug('PSM caseJsonStr + caseIds '+'  '+caseJsonStr);
+            updateCaseDeadLine.caseDeadLinesetter(caseJsonStr);
+        }
+    
+    }
 }
