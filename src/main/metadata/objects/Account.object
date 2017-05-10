@@ -2156,7 +2156,7 @@
 	<fields>
 		<fullName>CAC_PERSON_UID__c</fullName>
 		<externalId>false</externalId>
-		<label>CAC PERSON UID</label>
+		<label>Compass Customer ID</label>
 		<length>100</length>
 		<required>false</required>
 		<trackFeedHistory>false</trackFeedHistory>
@@ -10240,7 +10240,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
 	<fields>
         <fullName>MBC_USERID__c</fullName>
         <externalId>false</externalId>
-        <label>MBC USERID</label>
+        <label>CPD Customer ID</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10650,6 +10650,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compass</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -19363,6 +19367,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
+			<values>
+				<fullName>Compass</fullName>
+               <default>false</default>
+			</values>
             <values>
                 <fullName>Circle of excellence</fullName>
                 <default>false</default>
