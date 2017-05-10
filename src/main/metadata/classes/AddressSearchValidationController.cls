@@ -96,8 +96,8 @@ public class AddressSearchValidationController
         if(market != Label.KR){
         if(u.ContactId !=null)
         {
-        TouchPoint='Dealers';
-       // objPersonAccount.Data_Source__c='Dealers';
+        TouchPoint='Dealer Outlet';
+       // objPersonAccount.Data_Source__c='Dealer Outlet';
         }
             mbkdatasource = false;
             datasource = true;
