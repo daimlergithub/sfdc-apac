@@ -2555,6 +2555,14 @@
         <label>必須項目を入力してください。</label>
         <name>Required_Information</name>
     </customLabels>
+	<customLabels>
+        <label>様</label>
+        <name>To_Person</name>
+    </customLabels>
+	<customLabels>
+        <label>御中</label>
+        <name>To_Company</name>
+    </customLabels>
     <customLabels>
         <label>情報源</label>
         <name>Resource</name>
