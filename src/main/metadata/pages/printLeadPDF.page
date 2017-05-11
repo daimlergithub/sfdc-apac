@@ -490,7 +490,7 @@ background-color: blue;
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
             <tr>
                 <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Date}</td>
-                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Person_Met_Contacted}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Person_to_meet_Contact}</td>
                 <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Lead_Activity_Type}</td>
                 <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Subject}</td>
                 <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Memo}</td>
@@ -940,7 +940,7 @@ background-color: blue;
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
             <tr>
                 <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Date}</td>
-                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Person_to_meet_Contact}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Person_Met_Contacted}</td>
                 <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Lead_Activity_Type}</td>
                 <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Subject}</td>
                 <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Memo}</td>
