@@ -1,0 +1,16 @@
+Dear After Sales manager,
+
+This is to inform you that {!Lead__c.Assigned_Dealer__c} has updated desired service and interested vehicle sections of the lead  . Kindly click on below link to access the lead directly. 
+ 
+{!Lead__c.Link}
+
+Lead no. :{!Lead__c.Name}
+Customer :{!Lead__c.Contact__c}
+ Date :{!Lead__c.CreatedDate}
+ Message :{!Lead__c.Dealer_DMS_Comments__c}
+
+
+Kind regards,
+Customer Contact Center,  Mercedes-Benz MBTh
+Phone : 1250 
+Email : CCC_mbth@daimler.com"
