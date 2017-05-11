@@ -6,8 +6,6 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Sales_Lead_WS</customButtons>
-		
-		<customButtons>New_AfterSales_Lead</customButtons>    
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
