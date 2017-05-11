@@ -20,6 +20,7 @@
         </primaryTabComponents>
     </customConsoleComponents>
     <excludeButtons>CloseCase</excludeButtons>
+	<excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>true</detailHeading>
