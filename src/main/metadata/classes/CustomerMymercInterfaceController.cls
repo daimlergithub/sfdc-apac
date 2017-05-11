@@ -131,6 +131,7 @@ public with sharing class CustomerMymercInterfaceController {
     }
  
     public PageReference mymercnew(){
+    try{
         Pattern MyPattern = Pattern.compile(emailRegex);
         if(!String.isBlank(accont.LastName_Native_1__c)){
         Matcher MyMatcher = MyPattern.matcher(accont.LastName_Native_1__c);
@@ -156,14 +157,16 @@ public with sharing class CustomerMymercInterfaceController {
         }
         if(accont.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account ) {
               if(accont.PersonBirthdate != NUll && accont.LastName_Native_1__c != NULL && accont.Gender__c!= NULL){
+              
                  accont.Portal_Apply_Date__c = system.today();
                  accont.Portal_Apply_Status__c = 'To be Sent';
                  accont.Portal_Apply_User__c = userinfo.getUserid();
                  system.debug('accountMainDealer'+accont.main_dealer__C);
-                 if(accont.Main_Dealer__c == NULL || accont.Main_Dealer__c == ' '){
+                 if(accont.Main_Dealer__c == NULL || accont.Main_Dealer__c == ''){
                      system.debug('usrcontactaccountid'+usr.contact.AccountId);    
                      accont.Main_Dealer__c = usr.contact.AccountId;
                  }
+                 
                  update accont;
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Records Updated'));
              }
@@ -172,6 +175,11 @@ public with sharing class CustomerMymercInterfaceController {
                  return null; 
             }
         }
+       }
+       catch(exception e){
+                 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.ERROR,e.getMessage()));
+       }
+       
         /* else
          {
              accont.Portal_Apply_Date__c = system.today();
@@ -182,6 +190,7 @@ public with sharing class CustomerMymercInterfaceController {
          pagereference pr = new pagereference ('/'+Accid);
          pr.setRedirect(true);
          return pr;
+         
      }
      
     public pagereference saveAndReturn(){

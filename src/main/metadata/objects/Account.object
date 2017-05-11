@@ -54653,7 +54653,7 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <fullName>Acquisition_Object_Method_Cannot_Change</fullName>
         <active>true</active>
         <description>Below rules need to be applied only for person account record type If "Acquisition Objective &amp;&amp; Method(Acquisition_Objdective_Method__c)" is not null, "Acquisition Objective &amp;&amp; Method(Acquisition_Objdective_Method__c)" cannot be changed</description>
-        <errorConditionFormula>IF(NOT(ISPICKVAL( PRIORVALUE(Acquisition_Objective_Method__c),'')) &amp;&amp; RecordType.DeveloperName = 'PersonAccount' &amp;&amp; !ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Allow_Data_Sharing2__c , 'Yes'),true,false)</errorConditionFormula>
+        <errorConditionFormula>IF(NOT(ISPICKVAL( PRIORVALUE(Acquisition_Objective_Method__c),'')) &amp;&amp; RecordType.DeveloperName = 'PersonAccount' &amp;&amp; !ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Allow_Data_Sharing2__c , 'Yes') &amp;&amp; ISCHANGED( Acquisition_Objective_Method__c),true,false)</errorConditionFormula>
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>You cannot change the Acquistion Objective Method</errorMessage>
     </validationRules>

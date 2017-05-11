@@ -10,7 +10,7 @@ public with sharing class MarketCheckOnVehiclePickerCon{
         if(usr.Market__c == 'KR'){
             marketChecker = true;  
         }
-        else if(usr.Market__c == 'TH'){
+        else if(usr.Market__c == System.label.MarketTH){
             marketCheckerTH= true; 
         }
         else if(usr.Market__c == 'JP'){
