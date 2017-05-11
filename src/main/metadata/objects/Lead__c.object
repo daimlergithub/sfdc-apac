@@ -79,6 +79,7 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+		
         <displayedFields>
             <field>Additional_Services__c</field>
             <isFieldManaged>false</isFieldManaged>

@@ -1292,15 +1292,6 @@ Modify Reason:
         <fullName>Lead__c</fullName>
         <externalId>false</externalId>
         <label>Lead</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Lead__c.CAC_Lead_Status__c</field>
-                <operation>equals</operation>
-                <value>Purchased(Only Non BDC)</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Lead__c</referenceTo>
         <relationshipLabel>Campaign Leads</relationshipLabel>
         <relationshipName>Campaign_Leads</relationshipName>
@@ -1547,12 +1538,34 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <availability>online</availability>
         <description>Requirement: US-Lead-001</description>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New Campaign Lead</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+
+{
+window.open("OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=012p00000008xgb&amp;ent=Campaign");
+
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Retail_Campaign_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Campaign Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+
+{ 
+window.open("{!URLFOR($Site.Prefix)}/a16/e?retURL=%2Fa16%2Fo&amp;RecordType=012p00000008xeL&amp;ent=01I28000000vWSm"); 
+
+
+}</url>
     </webLinks>
 </CustomObject>
