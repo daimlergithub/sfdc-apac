@@ -127,6 +127,7 @@
 						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
 						<sf:exclude name="LeadReassign"/>
 						<sf:exclude name="LeadReassignTest"/>
+						<sf:exclude name="LeadVehiclePickerTHControllerTests"/>
 					</sf:typeset>
 					<sf:typeset name="pages">
 						<sf:exclude name="MBJ_FS_Case_Request_Inline_Page"/>

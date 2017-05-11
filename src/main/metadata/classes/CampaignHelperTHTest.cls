@@ -6,6 +6,8 @@
     public static String complex = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
     public static String simple= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Simple').getRecordTypeId();
     public static String cacCampaign = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
+    public static String tesCampaign = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+
     public static string top = 'top';
     public static string Started = 'Started';
     public static string OB_Call = 'OB Call';
@@ -13,6 +15,7 @@
     public static Set<String> topCampaignIds;
    
     public static List<Campaign> listcampaigns;
+
     
      public static void preparedTestDataCustomsettings()
      {
@@ -23,8 +26,11 @@
     }
     
      public static void preparedTestData(){      
-       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
-       insert updatecustomsettings;
+       //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
+       //insert updatecustomsettings;
+ 
+Trigger__C casetrigger=new Trigger__C(name='TriggerCampaignTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='TriggerCampaignTriggerHandlerTH',Trigger_Name__c='TriggerCampaign',update__c=true);
+insert casetrigger;
        topCampaignIds = new Set<String>();
        listcampaigns=new list<Campaign>();
        
@@ -96,7 +102,27 @@
            preparedTestDataCustomsettings();     
     Test.StartTest();
    listcampaigns=new List<Campaign>();
-     Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+         //Kavya
+         Account dealer=new Account();
+         Map<String, Id>  recordTypeMap = new Map<String, Id>();
+            for (RecordType rt : [SELECT Id, Name, SobjectType FROM RecordType LIMIT 1000]) {
+                recordTypeMap.put(rt.Name + rt.SobjectType, rt.Id);
+            }
+        dealer.RecordTypeId = recordTypeMap.get('Dealer'  + 'Account');
+        dealer.Dealer_Alternate_Name__c = 'Test Alternate';
+        dealer.Phone = '021000000';
+        
+    
+    //acc.Mobile__c='123456789012';
+   // acc.Work_Phone__c='123456789012';
+    dealer.Individual_Home_Phone__c='+66-12-123-789';
+   // acc.Email__c='abc@gmail.com';
+         
+         //kavya
+         
+         
+         
         Contact contact = new Contact(
             AccountId = dealer.Id, 
             LastName = 'b', 
@@ -135,7 +161,7 @@
             StartDate = System.today(), 
             Execution_Type__c =OB_Call,
             EndDate = System.today(),
-            RecordTypeId = centralCampaignId
+            RecordTypeId = tesCampaign
         );
 
         insert objcampaign;
@@ -150,7 +176,7 @@
         update objcampaign;
       
        /*Create Participating Dealer*/
-       Participating_Dealer__c pd = new Participating_Dealer__c (
+      Participating_Dealer__c pd = new Participating_Dealer__c (
            Dealer__c = dealer.Id,
            Campaign__c = objcampaign.Id
        );
@@ -164,10 +190,11 @@
         CampaignHelperTH.beforeUpdateEvents(listcampaigns,oldMap);
         CampaignHelper.afterInsertEvents(listcampaigns);
        // CampaignHelperTH.afterUpdateEvents(listcampaigns,oldMap);
-        CampaignHelperTH.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
+        // CampaignHelperTH.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
         Test.StopTest();
+         //CampaignHelperTH.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
         system.assertNotEquals(null, listcampaigns[0].StartDate);
-     }
+     } 
     
      @isTest static void testbeforeUpdateEvents()
      {
@@ -562,4 +589,5 @@
         );
         insert testCampaign1;
      }
+   
 }
