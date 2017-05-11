@@ -395,8 +395,8 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	    <relatedLists>
-        <customButtons>New_Campaign_Lead</customButtons>
+    <relatedLists>
+        <customButtons>New_Retail_Campaign_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Campaign__c</fields>

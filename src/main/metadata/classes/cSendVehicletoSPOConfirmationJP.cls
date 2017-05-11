@@ -86,7 +86,7 @@ public Static Id accId {get; set;}
         
         vehId = ApexPages.currentPage().getParameters().get('vehicleid');
         accId = ApexPages.currentPage().getParameters().get('accountId');
-        List<Account> accList = New List<Account>();
+        Map<Id,Account> accList = New Map<Id,Account>();
          Id userId = userinfo.getuserid();
          User u = [SELECT Id,Name,Dealer_ND_Code__c FROM User WHERE Id =:userId];
         set<Id> asetId = New set<Id>();
@@ -143,32 +143,46 @@ public Static Id accId {get; set;}
     system.debug('++++++++++++++'+VehRelUpdated); 
       
       List<Account> abc = New List<Account>();
-      abc = [Select id ,Warranty_Apply_Status__c From Account Where Id =:asetId AND RecordType.Name IN('Person Account')];
+      abc = [Select id ,Warranty_Apply_Status__c,Data_Source__c,Allow_Data_Sharing2__c From Account Where Id =:asetId AND RecordType.Name IN('Person Account')];
      system.debug('++++++++++++++'+abc); 
      
      For(Account acc : abc ){
      
         acc.Warranty_Apply_Status__c = 'To be Sent';
-     accList.add(acc);
+     accList.put(acc.id,acc);
+      if(Acc.Allow_Data_Sharing2__c =='No' && Acc.Data_Source__c=='Dealer Outlet')
+    {
+    acc.Data_Source__c='Service Program';
+    acc.Allow_Data_Sharing2__c='Yes';
+    accList.put(acc.id,acc);
+    }
      }
      
      
       List<Account> abcone = New List<Account>();
      
     if(accId != null){
-       abcone  = [SELECT Id,Name,Warranty_Apply_Status__c From Account Where id =:accId ]; 
+       abcone  = [SELECT Id,Name,Warranty_Apply_Status__c,Data_Source__c,Allow_Data_Sharing2__c From Account Where id =:accId ]; 
     For(Account ac : abcone ){
      
         ac.Warranty_Apply_Status__c = 'To be Sent';
-     accList.add(ac);
-     } }else {
+     accList.put(ac.id,ac);
+     if(Ac.Allow_Data_Sharing2__c =='No' && Ac.Data_Source__c=='Dealer Outlet')
+    {
+    ac.Data_Source__c='Service Program';
+    ac.Allow_Data_Sharing2__c='Yes';
+    accList.put(ac.id,ac);
+    }
+     } 
+     }else 
+     {
      
      
      } 
     
     
     update VehRelUpdated;
-    update accList;
+    update accList.Values();
     //update accListone ;
      }             
   }

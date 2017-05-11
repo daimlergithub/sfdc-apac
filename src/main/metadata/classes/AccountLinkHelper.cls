@@ -891,7 +891,7 @@ if(LeadUtil.Retailcopy){
       */
  public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
  {
-  if(LeadUtil.AccountLinkTrigger){
+  //if(LeadUtil.AccountLinkTrigger){
  
  
   Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
@@ -1055,8 +1055,8 @@ if(LeadUtil.Retailcopy){
     }
  }
  }
- }
- LeadUtil.AccountLinkTrigger = false;
+ //}
+ //LeadUtil.AccountLinkTrigger = false;
  }
   public static void afterDeleteEvent(List<Account_Link__c>oldlist)
  {

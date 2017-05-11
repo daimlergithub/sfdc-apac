@@ -158,6 +158,9 @@
                 <field>Finance_Closing_Reason__c</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_DataSource__c</field>
             </layoutItems>
@@ -684,7 +687,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>New_Campaign_Lead</customButtons>
+        <customButtons>New_Retail_Campaign_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Campaign__c</fields>
