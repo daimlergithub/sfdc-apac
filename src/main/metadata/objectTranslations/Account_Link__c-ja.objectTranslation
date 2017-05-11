@@ -1486,31 +1486,31 @@
     </layouts>
     <nameFieldLabel>アカウントリンク名</nameFieldLabel>
     <recordTypes>
-        <label><!-- Company Customer External Link --></label>
+        <label>システムID情報</label>
         <name>CompanyExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Contact2Contact --></label>
+        <label>顧客間関係</label>
         <name>Contact2Contact</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- ContactSector --></label>
+        <label>販売店情報</label>
         <name>ContactSector</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Individual Customer External Link --></label>
+        <label>システムID情報</label>
         <name>IndividualExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Retail Company --></label>
+        <label>顧客情報（自法人のみ参照可）</label>
         <name>Retail_Company</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Retail Person --></label>
+        <label>顧客情報（自法人のみ参照可）</label>
         <name>Retail_Person</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Vehicle External Link --></label>
+        <label>顧客情報（自法人のみ参照可）</label>
         <name>Vehicle_External_Link</name>
     </recordTypes>
     <sharingReasons>
