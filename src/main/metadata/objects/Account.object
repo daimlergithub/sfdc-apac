@@ -54657,6 +54657,14 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>You cannot change the Acquistion Objective Method</errorMessage>
     </validationRules>
+	 <validationRules>
+        <fullName>Details_of_The_Acquisition</fullName>
+        <active>true</active>
+        <description>If Acquisition Objective and  Method picklist value is other Details of The Acquisition mandatory  </description>
+        <errorConditionFormula>AND(MD__c ='JP', $Profile.Name !="IntegrationAPI", RecordType.DeveloperName = 'PersonAccount', ISPICKVAL( Acquisition_Objective_Method__c , "Others"), ISBLANK( Details_of_Acquisition__c ) )</errorConditionFormula>
+        <errorDisplayField>Details_of_Acquisition__c</errorDisplayField>
+        <errorMessage>Please enter Value for Details of Acquisition</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
         <active>true</active>
