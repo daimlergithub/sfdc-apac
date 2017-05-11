@@ -421,6 +421,13 @@ public class AccountHelperJP
                {
                      for(Account a:listNewAccounts)
                        {
+					   
+					    //Changes as part of SFDCJP-2404
+                       if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && a.Allow_Data_Sharing2__c=='Yes'  && a.Acquisition_Record_Date__c ==null )
+                       { 
+                       a.Acquisition_Record_Date__c =System.today(); 
+                       }
+					   
                            if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && (a.Allow_Data_Sharing2__c!= oldMap.get(a.id).Allow_Data_Sharing2__c && a.Allow_Data_Sharing2__c=='No'))
                            {
                            a.Acquisition_Objective_Method__c='';
