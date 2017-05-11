@@ -54,6 +54,14 @@
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
+            </layoutItems>					
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Acquisition_Objective_Method__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Acquisition_Record_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -100,6 +108,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Details_of_Acquisition__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
