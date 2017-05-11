@@ -3,6 +3,7 @@
     <customButtons>New_Sales_Lead_Wholesale</customButtons>
     <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
     <customButtons>Generate_Pdf</customButtons>
+	<customButtons>New_DM_Request</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -585,6 +586,8 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+		<customButtons>New_DM_Request</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>
         <fields>Status__c</fields>

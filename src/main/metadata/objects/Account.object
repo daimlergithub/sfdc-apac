@@ -56716,14 +56716,14 @@ if (sforce.console.isInConsole()) {
         <masterLabel>View Hierarchy</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>if(&apos;{!Account.MD__c}&apos; == &apos;JP&apos;) 
-			 {
-			   window.location.href = &apos;/apex/ViewHierarchy?id={!Account.Id}&apos; ;
-			}
-			else
-			{
-			alert(&apos;{!$Label.Insufficient_privilege}&apos;);
-        }</url>
+        <url>if('{!Account.MD__c}' == 'JP') 
+	{
+	var myWindow = window.open( '/apex/ViewHierarchy?id={!Account.Id}',"_blank","resizable=yes,top=250,left=500,width=400,height=400") ;
+	}
+	else
+	{
+		alert('{!$Label.Insufficient_privilege}');
+	}</url>
     </webLinks>
     <webLinks>
         <fullName>View_Retail_Copies</fullName>
