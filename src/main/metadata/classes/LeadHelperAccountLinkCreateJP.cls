@@ -50,7 +50,7 @@ public class LeadHelperAccountLinkCreateJP
                         }
                     }
                 }
-                else if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Qualified' && le.MD__c == Label.MarketKR)
+                else if(le.Assigned_Dealer__c != null && le.MD__c == Label.MarketKR)
                 {
                     if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c))
                     {
