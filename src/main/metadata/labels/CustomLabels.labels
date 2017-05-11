@@ -3913,6 +3913,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>New Customer Acquisition</value>
     </labels>
     <labels>
+        <fullName>New_DM_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New DM Request</shortDescription>
+        <value>New DM Request</value>
+    </labels>
+    <labels>
         <fullName>New_Value</fullName>
         <language>en_US</language>
         <protected>false</protected>
