@@ -5,6 +5,7 @@
     <customButtons>New_Task</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
+	<customButtons>New_DM_Request</customButtons>
     <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -597,6 +598,8 @@
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+		<customButtons>New_DM_Request</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Status__c</fields>
         <fields>Expected_DM_Material1__c</fields>
