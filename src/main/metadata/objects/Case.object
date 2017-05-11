@@ -16632,7 +16632,6 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <!--
     <fields>
         <fullName>MBTH_Case_Class__c</fullName>
         <description>Specific Thailand Market</description>
@@ -17883,7 +17882,6 @@ Modify Reason:
             </valueSettings>
         </valueSet>
     </fields>
-	-->
     <fields>
         <fullName>Support_Dealer_1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
