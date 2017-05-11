@@ -174,7 +174,7 @@ public with sharing class SendToMyMercController {
                 }   
             }
             if(accset !=null && !accset.isEmpty() ){
-                for(Account eachAcc : [select id,Portal_Apply_Status__c,Main_Dealer__c,recordtypeid,Email3__c,PersonBirthdate,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
+                for(Account eachAcc : [select id,Allow_Data_Sharing2__c,Data_Source__C,Portal_Apply_Status__c,Main_Dealer__c,recordtypeid,Email3__c,PersonBirthdate,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
                     for(Account_link__c accLink : eachAcc.Account_Links__r){
                         if(accLink.RecordTypeId == IndividualCustomerExternaLink && accLink.System__c == 'My Mercedes' && accLink.toRole__c == eachAcc.Id && accLink.Primary__c == True){
                             myMercAcc.put(eachAcc.Id,eachAcc);
@@ -208,6 +208,10 @@ public with sharing class SendToMyMercController {
                             System.debug('usr.contact.AccountId'+usr.contact.AccountId);
                             if(acct.Main_Dealer__c == NULL )
                             acct.Main_Dealer__c = usr.contact.AccountId;
+                        }
+                        if(acct.Allow_Data_Sharing2__c == 'No' && acct.Data_Source__C == 'Dealer Outlet'){
+                             acct.Allow_Data_Sharing2__c= 'Yes';
+                             acct.Data_Source__C = 'My Mercedes';
                         }
                         acct.Portal_Apply_Status__c = 'To be Sent';
                         acct.Portal_Apply_Date__c = System.today();
