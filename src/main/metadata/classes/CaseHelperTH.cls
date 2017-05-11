@@ -17,33 +17,32 @@ public class CaseHelperTH {
     Set<Id> parentIds = new Set<Id>();
     public static final String NOT_PRIMARY_REMINDER = 'This Complaint is not a primary complaint, please find the primary complaint.';
             
+    //Calculate total number of repeated MB complaints per account
     public void calculateComplaintAmount(List<Case> cases){
       
         Set<Id> accounts = new Set<Id>();
         List<Account> accRecords;
         for(Case c : cases){
-            if(c.MD__C=='TH'){
-                accounts.add (c.AccountId);
-                system.debug('Accounts...' +c.accountid+'   '+c.md__c+'  '+c.case_class__c+'  '+c.recordtypeid);
-            } 
+            if(c.MD__C == System.Label.MarketTH)
+                accounts.add (c.AccountId);   
         }                       
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                      Where (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
-                                       and MD__c = 'TH')]; 
+                                      Where (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id and MD__c =: System.Label.MarketTH) LIMIT 50000]; 
         if (case_acc != null && !case_acc.isEmpty()){                                         
             for(Case c : case_acc){
                 tmpCaseIds = accountCaseMap.get(c.AccountId);
                 if (tmpCaseIds == null){
                     accountCaseMap.put(c.AccountId, new List<Id>{c.Id});
-                }else{
+                }
+                else{
                     tmpCaseIds.add(c.Id);
                 }
             }
             
             accounts = new Set<Id>();
             accounts = accountCaseMap.keySet();
-            accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accounts];
+            accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accounts LIMIT 50000];
             for (Account acc : accRecords){
                List<Id> caseIds = accountCaseMap.get(acc.Id);
                acc.Complaint_Amount__c = caseIds.size();
@@ -64,66 +63,51 @@ public class CaseHelperTH {
         update updateAccount;                                                                                                                 
     }
     
+    //Calculate the number of Repeated Case for an account 
     public  void countRepeatComplaintCase (List<case> cases,boolean isInsert) {
-     for(Case caseNew : cases) {
-                if (caseMBComplaintRec_Id == caseNew.RecordTypeId&&caseNew.md__c=='TH'){
-                    if (isInsert) {
-                        if(caseNew.ParentId != null){
-                            parentIds.add(caseNew.ParentId);
-                        }
-                        
-                    }
+        for(Case caseNew : cases) {
+            if (isInsert){
+                if (caseMBComplaintRec_Id == caseNew.RecordTypeId && caseNew.md__c == System.Label.MarketTH && caseNew.ParentId != null){    
+                    parentIds.add(caseNew.ParentId);   
                 }
             }
+        }
         if (parentIds.size()>0){
-                for(Case ca :[select Id, ParentId from Case where ParentId in :parentIds] ) {
-                    if(!parentIdChildIds.containsKey(ca.ParentId)) {
-                        parentIdChildIds.put(ca.ParentId, new List<Id>());
-                    }
-                    parentIdChildIds.get(ca.ParentId).add(ca.Id);
+            for(Case ca :[select Id, ParentId from Case where ParentId in :parentIds] ) {
+                if(!parentIdChildIds.containsKey(ca.ParentId)) {
+                    parentIdChildIds.put(ca.ParentId, new List<Id>());
                 }
-
-                for(Case ca :[select Id, ParentId from Case where Id in :parentIds] ) {
-                    if(ca.ParentId != null) {
-                        parenthasParents.add(ca.Id);
-                    }
-                }
+                parentIdChildIds.get(ca.ParentId).add(ca.Id);
             }
 
-                for(Case caseNew : cases) {
-                
-                if (caseMBComplaintRec_Id == caseNew.RecordTypeId &&caseNew.MD__c=='TH'){
+            for(Case ca :[select Id, ParentId from Case where Id in :parentIds] ) {
+                if(ca.ParentId != null) {
+                    parenthasParents.add(ca.Id);
+                }
+            }
+        }
+
+        for(Case caseNew : cases) {
             if(isInsert) {
-                            caseNew.Repeat_Complaint_Times__c = 0;
+                if (caseMBComplaintRec_Id == caseNew.RecordTypeId &&caseNew.MD__c == System.Label.MarketTH){
+                    caseNew.Repeat_Complaint_Times__c = 0;
 
              
-                if (caseNew.ParentId != null){
-                    if(parenthasParents.contains(caseNew.ParentId)) {
-                        caseNew.addError(NOT_PRIMARY_REMINDER );
-                    }
-                    else
-                    {
-                        if(parentIdChildIds.containsKey(caseNew.ParentId)) {
-                            caseNew.Repeat_Complaint_Times__c = parentIdChildIds.get(caseNew.ParentId).size() + 1;
+                    if (caseNew.ParentId != null){
+                        if(parenthasParents.contains(caseNew.ParentId)) {
+                            caseNew.addError(NOT_PRIMARY_REMINDER );
                         }
-                        else {
-                            caseNew.Repeat_Complaint_Times__c = 1;
+                        else
+                        {
+                            if(parentIdChildIds.containsKey(caseNew.ParentId))
+                                caseNew.Repeat_Complaint_Times__c = parentIdChildIds.get(caseNew.ParentId).size() + 1;
+                            else
+                                caseNew.Repeat_Complaint_Times__c = 1;
                         }
-                       
                     }
                 }
+        
             }
-        
-        }
         }
     }
-    public  void updateCase (List<case> caseSta) {
-
-   
-        
-    }
-   
-      
-      
-   
- }
+}
