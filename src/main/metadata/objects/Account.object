@@ -7947,11 +7947,11 @@ Attribute in Data Dictionary object Contact is &quot;Contact_FaxValidity&quot;</
         <label>Fax Validity</label>
         <picklist>
             <picklistValues>
-                <fullName>Invalid</fullName>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Valid</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11247,11 +11247,11 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <label>SMS / MMS / IM Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Invalid</fullName>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Valid</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -13915,11 +13915,11 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <label>SMS / MMS / IM Status 2</label>
         <picklist>
             <picklistValues>
-                <fullName>Invalid</fullName>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Valid</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
