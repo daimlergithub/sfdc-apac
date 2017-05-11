@@ -14,7 +14,7 @@ JIRA NO             :    SFDCJP-682,631
 public class SendAccountInfoToSPO {
     Public String AccId{get;set;}
     Public Account Acclist { get; set; }
-    Public List<Account> Accupdate { get; set; }
+    Public Map<Id,Account> Accupdate { get; set; }
     Public List<Account> listAcc { get; set; }
     Public Address__c Addlist{get;set;}
     Public String redirectUrl{get;set;}
@@ -53,7 +53,7 @@ public class SendAccountInfoToSPO {
     Public void SendTOSpo()
     {
     Usr=new User(); 
-    Accupdate=new List<Account>();
+    Accupdate=new Map<Id,Account>();
   
      User  CurrentUsr=[SELECT Market__c,contactid,Id FROM User WHERE Id = : UserInfo.getUserId()];
      if(CurrentUsr.contactid!=null)
@@ -72,7 +72,7 @@ public class SendAccountInfoToSPO {
      ShowHideError=false; 
     }
     System.debug('response $%$%$%$%$%$$'+response);
-    listAcc =[select id,Warranty_Apply_Status__c from Account where id=:AccId];
+    listAcc =[select id,Warranty_Apply_Status__c,Data_Source__c,Allow_Data_Sharing2__c from Account where id=:AccId];
     System.debug('$%$%$%$%$%$$'+listAcc );
     If(response!=null)
    {
@@ -84,13 +84,22 @@ public class SendAccountInfoToSPO {
     if((Acc.Warranty_Apply_Status__c ==null) || (Acc.Warranty_Apply_Status__c=='none') )
     {
     acc.Warranty_Apply_Status__c='To be Sent';
-    Accupdate.add(acc);
+    Accupdate.put(acc.id,acc);
      System.debug('acc Accupdate'+Accupdate);
     }
+    if(Acc.Allow_Data_Sharing2__c =='No' && Acc.Data_Source__c=='Dealer Outlet')
+    {
+    acc.Data_Source__c='Service Program';
+    acc.Allow_Data_Sharing2__c='Yes';
+    Accupdate.put(acc.id,acc);
     }
     }
     }
-    update Accupdate;  // Update account object Warranty_Apply_Status field
+    }
+	if(Accupdate !=null)
+	{
+    update Accupdate.values(); 
+}	// Update account object Warranty_Apply_Status field
      System.debug('acc Accupdate'+Accupdate);
      
    
