@@ -16491,6 +16491,49 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Inquiry Layout Dealer KR</layout>
+        <sections>
+            <label>문의 피드백</label>
+            <section>Case Feedback</section>
+        </sections>
+        <sections>
+            <label>사례 정보</label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>설명 정보</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>문의 정보</label>
+            <section>Inquiry Information</section>
+        </sections>
+        <sections>
+            <label>기타 정보</label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>JP Inquiry Layout - CAC(IB/OB)</layout>
         <sections>
             <label><!-- Case Feedback --></label>
@@ -16780,6 +16823,41 @@
         <sections>
             <label>차량 소유자 세부정보</label>
             <section>Vehicle Owner Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MB Complaint Layout Dealer KR</layout>
+        <sections>
+            <label>케이스 세부정보</label>
+            <section>Case Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label>반복 불만건</label>
+            <section>Repeat Complaint</section>
+        </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>System Info</section>
+        </sections>
+        <sections>
+            <label>차량 정보</label>
+            <section>Vehicle Info</section>
         </sections>
     </layouts>
     <layouts>
