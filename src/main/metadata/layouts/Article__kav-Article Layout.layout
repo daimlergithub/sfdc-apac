@@ -45,7 +45,7 @@
             <layoutItems>
                 <field>Attachment_5__c</field>
             </layoutItems>
-            <!--<layoutItems>
+            <layoutItems>
                 <field>Attachment_6__c</field>
             </layoutItems>
             <layoutItems>
@@ -59,7 +59,7 @@
             </layoutItems>
             <layoutItems>
                 <field>Attachment_10__c</field>
-            </layoutItems>-->
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
