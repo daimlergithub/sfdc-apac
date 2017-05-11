@@ -92,6 +92,17 @@ public class AccountHelperJP
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
+				if(Acc.Fax != Null && Acc.Fax != '')
+                {                    
+					Acc.Fax_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
+                {     
+					Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();				
+                    Acc.Fax2_Last_Modified_Date__c = System.now();
+                }
             }
         }
     }
@@ -410,6 +421,13 @@ public class AccountHelperJP
                {
                      for(Account a:listNewAccounts)
                        {
+					   
+					    //Changes as part of SFDCJP-2404
+                       if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && a.Allow_Data_Sharing2__c=='Yes'  && a.Acquisition_Record_Date__c ==null )
+                       { 
+                       a.Acquisition_Record_Date__c =System.today(); 
+                       }
+					   
                            if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && (a.Allow_Data_Sharing2__c!= oldMap.get(a.id).Allow_Data_Sharing2__c && a.Allow_Data_Sharing2__c=='No'))
                            {
                            a.Acquisition_Objective_Method__c='';

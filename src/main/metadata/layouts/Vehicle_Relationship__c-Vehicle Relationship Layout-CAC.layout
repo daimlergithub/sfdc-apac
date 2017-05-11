@@ -104,6 +104,10 @@
                 <behavior>Readonly</behavior>
                 <field>Vehicle_Model__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_Range__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

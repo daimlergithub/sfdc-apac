@@ -7947,11 +7947,11 @@ Attribute in Data Dictionary object Contact is &quot;Contact_FaxValidity&quot;</
         <label>Fax Validity</label>
         <picklist>
             <picklistValues>
-                <fullName>Invalid</fullName>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Valid</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11247,11 +11247,11 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <label>SMS / MMS / IM Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Invalid</fullName>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Valid</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -13915,11 +13915,11 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <label>SMS / MMS / IM Status 2</label>
         <picklist>
             <picklistValues>
-                <fullName>Invalid</fullName>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Valid</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -54656,6 +54656,14 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <errorConditionFormula>IF(NOT(ISPICKVAL( PRIORVALUE(Acquisition_Objective_Method__c),'')) &amp;&amp; RecordType.DeveloperName = 'PersonAccount' &amp;&amp; !ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Allow_Data_Sharing2__c , 'Yes') &amp;&amp; ISCHANGED( Acquisition_Objective_Method__c),true,false)</errorConditionFormula>
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>You cannot change the Acquistion Objective Method</errorMessage>
+    </validationRules>
+	 <validationRules>
+        <fullName>Details_of_The_Acquisition</fullName>
+        <active>true</active>
+        <description>If Acquisition Objective and  Method picklist value is other Details of The Acquisition mandatory  </description>
+        <errorConditionFormula>AND(MD__c ='JP', $Profile.Name !="IntegrationAPI", RecordType.DeveloperName = 'PersonAccount', ISPICKVAL( Acquisition_Objective_Method__c , "Others"), ISBLANK( Details_of_Acquisition__c ) )</errorConditionFormula>
+        <errorDisplayField>Details_of_Acquisition__c</errorDisplayField>
+        <errorMessage>Please enter Value for Details of Acquisition</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
