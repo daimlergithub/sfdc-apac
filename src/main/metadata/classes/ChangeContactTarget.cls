@@ -1,4 +1,4 @@
-public with Sharing class ChangeContactTarget {
+public class ChangeContactTarget {
 
 private static final String VehicleExternalLinkRT = Schema.sObjectType.account_link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
    
@@ -152,9 +152,9 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
         if (fMap != null){
             for (Schema.SObjectField ft : fMap.values()){ // loop through all field tokens (ft)
                 Schema.DescribeFieldResult fd = ft.getDescribe(); // describe each field (fd)
-                if (fd.isCreateable()){ // field is creatable
+                //if (fd.isCreateable()){ // field is creatable
                     selectFields.add(fd.getName());
-                }
+                //}
             }
         }
         if (!selectFields.isEmpty()){
