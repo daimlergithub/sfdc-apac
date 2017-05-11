@@ -8595,6 +8595,10 @@ Modify Reason:
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -16628,7 +16632,8 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <!--
+    <fields>
         <fullName>MBTH_Case_Class__c</fullName>
         <description>Specific Thailand Market</description>
         <externalId>false</externalId>
@@ -17878,6 +17883,7 @@ Modify Reason:
             </valueSettings>
         </valueSet>
     </fields>
+	-->
     <fields>
         <fullName>Support_Dealer_1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
