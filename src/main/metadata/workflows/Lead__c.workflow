@@ -504,6 +504,16 @@ Lost_CAC_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
 	<fieldUpdates>
+        <fullName>MBTH_update_recordowner_email</fullName>
+        <description>update record owner email id</description>
+        <field>MBTH_record_Owner_Manager_Email__c</field>
+        <formula>Owner:User.Email</formula>
+        <name>MBTH_update_recordowner_email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
         <fullName>MBTH_Update_Test_Drive_Date_Time</fullName>
         <field>Test_Drive_Date_Time__c</field>
         <formula>IF(ISBLANK(Test_Drive_Date_Time__c),NOW(),Test_Drive_Date_Time__c)</formula>

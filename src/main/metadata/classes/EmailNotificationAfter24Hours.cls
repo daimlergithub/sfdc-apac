@@ -1,7 +1,14 @@
+/**
+** This class is created as part of lead Escalation after 24 hours if dealer  is not contatcted the lead
+
+** Created By: Dhanamjaya .
+** Date:  3/3/2017
+**/
 public class EmailNotificationAfter24Hours{
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static final String retailSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.RETAIL_SALES_LEADS).getRecordTypeId();
+   
    @InvocableMethod
     public static void SendEmails(List<String> ListID){ 
         List<String> ToAdd=new List<String>();
@@ -17,6 +24,7 @@ public class EmailNotificationAfter24Hours{
         List<Lead__c> leadList=[select id,RecordTypeID,lead_desired_service__c,name,createdbyid,assigned_dealer__r.Dealer_Aftersales_Manager_Email__c,assigned_dealer__r.Dealer_Sales_Manager_Email__c,ownerId from Lead__c where id=:ListId ];
         message.setTargetObjectId(leadList[0].ownerid);
         message.setSaveAsActivity(false);
+        //it will call from Process Builder so at any time one record will come to the method.so i am assigning afterSalesmanagermail..values in for loop
         for(Lead__c l:leadList){
              afterSalesmanagermail=l.assigned_dealer__r.Dealer_Aftersales_Manager_Email__c;
              salesManagermail=l.assigned_dealer__r.Dealer_Sales_Manager_Email__c;
