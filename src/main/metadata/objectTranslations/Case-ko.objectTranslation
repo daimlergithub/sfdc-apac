@@ -16529,7 +16529,7 @@
             <section>System Information</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Select --></label>
+            <label>차량 선택</label>
             <section>Vehicle Select</section>
         </sections>
     </layouts>

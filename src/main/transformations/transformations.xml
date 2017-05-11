@@ -151,6 +151,16 @@
 		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
 	</changetext>
 	<changetext>
+      <filename>objects\Lead__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='Print_PDF']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+    </changetext>
+    <changetext>
+        <filename>objects\Lead__c.object</filename>
+        <xpath>/CustomObject/webLinks[fullName/text()='Print_PDF']/url/text()</xpath>
+        <token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+    </changetext>
+	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID</token>
