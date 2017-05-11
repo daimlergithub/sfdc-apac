@@ -1292,15 +1292,6 @@ Modify Reason:
         <fullName>Lead__c</fullName>
         <externalId>false</externalId>
         <label>Lead</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Lead__c.CAC_Lead_Status__c</field>
-                <operation>equals</operation>
-                <value>Purchased(Only Non BDC)</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Lead__c</referenceTo>
         <relationshipLabel>Campaign Leads</relationshipLabel>
         <relationshipName>Campaign_Leads</relationshipName>
