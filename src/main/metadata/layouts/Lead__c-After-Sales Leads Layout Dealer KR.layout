@@ -137,30 +137,30 @@
                 <behavior>Edit</behavior>
                 <field>Invoice_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Latest_Phase__c</field>
-			</layoutItems>
-			<layoutItems>
-				<behavior>Edit</behavior>
-				<field>Quotation_Number__c</field>
-			</layoutItems>
-			<layoutItems>
-				<behavior>Edit</behavior>
-				<field>Quotation_Print_Date__c</field>
-			</layoutItems>
-			<layoutItems>
-				<behavior>Edit</behavior>
-				<field>Quotation_Amount__c</field>
-			</layoutItems>
-			<layoutItems>
-				<behavior>Edit</behavior>
-				<field>Order_No__c</field>
-			</layoutItems>
-			<layoutItems>
-				<behavior>Edit</behavior>
-				<field>Order_Confirmation_Date__c</field>
-			</layoutItems>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Quotation_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Quotation_Print_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Quotation_Amount__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_No__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_Confirmation_Date__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
