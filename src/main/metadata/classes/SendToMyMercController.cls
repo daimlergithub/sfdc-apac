@@ -206,7 +206,7 @@ public with sharing class SendToMyMercController {
                         System.debug('accountMainDealer.contains'+accountMainDealer.contains(acct.Id));
                         if(accountMainDealer.contains(acct.Id)){
                             System.debug('usr.contact.AccountId'+usr.contact.AccountId);
-                            if(acct.Main_Dealer__c == NULL || acct.Main_Dealer__c ==  '')
+                            if(acct.Main_Dealer__c == NULL )
                             acct.Main_Dealer__c = usr.contact.AccountId;
                         }
                         acct.Portal_Apply_Status__c = 'To be Sent';
