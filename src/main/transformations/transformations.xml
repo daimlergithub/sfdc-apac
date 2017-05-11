@@ -755,6 +755,21 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_DATASUBSOURCE_FIELD_ID</token>
 	</changetext>
+			<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_CREATE_RETAIL_CAMPAIGN_ID</token>
+	</changetext>
+			<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX</token>
+	</changetext>
 	
 	<changetext>
 		<filename>objects\QC__c.object</filename>

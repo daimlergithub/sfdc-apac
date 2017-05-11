@@ -11,7 +11,7 @@ public without sharing class  LeadHelperTH{
             List<lead__c> leadslist=new List<lead__c>();
             for(Lead__c lead:leads){
                
-                if((lead.RecordTypeId==salesRecordTypeId || lead.RecordTypeId==afterSalesRecordTypeId || lead.RecordTypeId==retailSalesRecordTypeId) && lead.md__c=='TH'){
+                if((lead.RecordTypeId==salesRecordTypeId || lead.RecordTypeId==afterSalesRecordTypeId || lead.RecordTypeId==retailSalesRecordTypeId) && lead.md__c==System.label.MarketTH){
                     accId.add(lead.assigned_dealer__c);    
                 }
             }
@@ -26,7 +26,7 @@ public without sharing class  LeadHelperTH{
             }
             for(Lead__c lead:leads){
               
-                    if((lead.RecordTypeId==salesRecordTypeId || lead.RecordTypeId==afterSalesRecordTypeId || lead.RecordTypeId==retailSalesRecordTypeId) && lead.md__c=='TH'){
+                    if((lead.RecordTypeId==salesRecordTypeId || lead.RecordTypeId==afterSalesRecordTypeId || lead.RecordTypeId==retailSalesRecordTypeId) && lead.md__c==System.label.MarketTH){
                        if(accUserMap.get(lead.assigned_dealer__c) !=null){
                             lead.ownerID = accUserMap.get(lead.assigned_dealer__c); 
                         }   
@@ -41,11 +41,11 @@ public without sharing class  LeadHelperTH{
     public void updateOwner(List<lead__c> leads){  
     
         for(Lead__c l:leads){
-        if(((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c!=((Lead__c)Trigger.oldMap.get(l.id)).assigned_dealer__c && l.md__c=='TH' &&(l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
+        if(l.md__c==System.label.MarketTH){
+        if(((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c!=((Lead__c)Trigger.oldMap.get(l.id)).assigned_dealer__c  &&(l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
             if(((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c!=null){
             newmapid.add(((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c);
             l.Received_Date_Time__c=null;
-            //l.Assigned_Date_Time__c=null;
             l.Accepted_Date_Time__c=null;
             l.dealer_lead_status__c='';
             }
@@ -57,19 +57,19 @@ public without sharing class  LeadHelperTH{
             }
         
         }
-         else if(((Lead__c)Trigger.newMap.get(l.id)).ownerid!=((Lead__c)Trigger.oldMap.get(l.id)).ownerid && l.md__c=='TH' &&(l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
+         else if(((Lead__c)Trigger.newMap.get(l.id)).ownerid!=((Lead__c)Trigger.oldMap.get(l.id)).ownerid && (l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
         l.ownerID=((Lead__c)Trigger.newMap.get(l.id)).ownerid;
         }
         
-        else if(l.md__c=='TH'&&(l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
+        else if((l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
                 if(l.assigned_dealer__c==null){
                     l.ownerID=l.createdbyId;
-                    //l.dealer_lead_status__c='';
+                  
                     
                     }
                else{
-                    if(l.assigned_dealer__c!=null && l.Received_Date_Time__c!=null/*&&l.Assigned_Date_Time__c!=null*/&&l.Accepted_Date_Time__c!=null){
-                        if(l.dealer_lead_status__c!='Accepted'){
+                    if(l.assigned_dealer__c!=null && l.Received_Date_Time__c!=null&&l.Accepted_Date_Time__c!=null){
+                        if(l.dealer_lead_status__c!=System.label.Accepted){
                                
                                l.ownerID=l.createdbyId;
                                l.assigned_dealer__c=null;
@@ -89,6 +89,7 @@ public without sharing class  LeadHelperTH{
     if(newmapid.size()>0){
         updateOwnership(newmapid,leads);
     }
+    }
 
     }
     
@@ -96,32 +97,29 @@ public without sharing class  LeadHelperTH{
     Id profileId=userinfo.getProfileId();
 String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
         for(Lead__c listlead:leadlist){
-        
-                system.debug('validationsTH.leadValidation'+listlead.CAC_Lead_Status__c+listlead.recordtypeid+ listlead.md__c=='TH'+listlead.Purchased_CAC_Date__c);
-            if((listlead.recordtypeid==afterSalesRecordTypeId || listlead.recordtypeid==salesRecordTypeId) && listlead.md__c=='TH'&& profileName!='IntegrationAPI'){
-                if(listlead.CAC_Lead_Status__c=='Purchased' && listlead.Purchased_CAC_Date__c==null ){
-                system.debug('validationsTH.leadValidation');
-                listlead.CAC_Lead_Status__c.adderror('SARI changing lead statust ot purchased please enter Purchased CAC Date  Field');
-                
-                
+           if(listlead.md__c==System.label.MarketTH){
+            if((listlead.recordtypeid==afterSalesRecordTypeId || listlead.recordtypeid==salesRecordTypeId)&& profileName!='IntegrationAPI'){
+                if(listlead.CAC_Lead_Status__c==System.label.Purchased && listlead.Purchased_CAC_Date__c==null ){
+                listlead.CAC_Lead_Status__c.adderror(system.label.TH_CACPurchaseddateRequired_Error);
                 }
-                if(listlead.recordtypeid==salesRecordTypeId && listlead.CAC_Lead_Status__c=='Purchased' && (listlead.Purchased_CAC_Date__c==null||listlead.Bought_Vehicle_Brand__c==null||listlead.Bought_Vehicle_Class__c==null||listlead.Bought_Vehicle_Model__c==null) ){
-                listlead.CAC_Lead_Status__c.adderror('SARI changing lead statust ot “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle');
+                if(listlead.recordtypeid==salesRecordTypeId && listlead.CAC_Lead_Status__c==System.label.Purchased && (listlead.Purchased_CAC_Date__c==null||listlead.Bought_Vehicle_Brand__c==null||listlead.Bought_Vehicle_Class__c==null||listlead.Bought_Vehicle_Model__c==null) ){
+                listlead.CAC_Lead_Status__c.adderror(system.label.TH_CAC_LeadstatusPurchasedError);
                 
                 }
             
             }
-            if((listlead.recordtypeid==retailSalesRecordTypeId||listlead.recordtypeid==afterSalesRecordTypeId || listlead.recordtypeid==salesRecordTypeId) && listlead.md__c=='TH'&& profileName!='IntegrationAPI'){
+            if((listlead.recordtypeid==retailSalesRecordTypeId||listlead.recordtypeid==afterSalesRecordTypeId || listlead.recordtypeid==salesRecordTypeId) && profileName!='IntegrationAPI'){
             if(listlead.Dealer_Lead_Status__c=='Order Placed' && listlead.Order_Placed_Date__c==null&&listlead.recordtypeid!=retailSalesRecordTypeId){
-            listlead.Order_Placed_Date__c.adderror('SARI changing lead statust to Order Placed,please enter OrderPlaced Date');
+            listlead.Order_Placed_Date__c.adderror(system.label.TH_SARI_DealerOrderplacedError);
             
             }
-             if(listlead.Dealer_Lead_Status__c=='Purchased' && listlead.Purchased_Date__c==null){
-            listlead.Dealer_Lead_Status__c.adderror('SARI changing lead statust to "Purchased" please enter Purchase Date');
+             if(listlead.Dealer_Lead_Status__c==System.label.Purchased && listlead.Purchased_Date__c==null){
+            listlead.Dealer_Lead_Status__c.adderror(system.label.TH_SARIDealerlead_status_error);
             
             } 
             }
         
+        }
         }
     
 }
@@ -143,7 +141,7 @@ if(acc.size()>0){
     }
     for(Lead__c lists:leadlist){
     
-        if(accUserMap.get(lists.assigned_dealer__c) !=null && lists.md__c=='TH'){
+        if(accUserMap.get(lists.assigned_dealer__c) !=null && lists.md__c==System.label.MarketTH){
                             lists.ownerID = accUserMap.get(lists.assigned_dealer__c); 
                          
                            
