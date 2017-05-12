@@ -292,11 +292,7 @@
     <fields>
         <label><!-- *Survey Result Id --></label>
         <name>Survey_Result_Id__c</name>
-    </fields>
-    <fields>
-        <label><!-- Survey Result Link --></label>
-        <name>Survey_Result_Link__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Task RecordType Name --></label>
         <name>Task_RecordType_Name__c</name>

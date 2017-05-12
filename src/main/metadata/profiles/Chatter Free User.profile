@@ -10868,11 +10868,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Survey_Result_Link__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Task_RecordType_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -19259,11 +19254,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Survey_Result_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Survey_Result_Link__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
