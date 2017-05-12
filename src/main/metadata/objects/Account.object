@@ -3978,22 +3978,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</d
                 <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </picklistValues>			
-			<picklistValues>
-                <fullName>CA Status</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance Contract</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -16574,22 +16558,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CA Status</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance Contract</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45882,10 +45850,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -56312,7 +56276,7 @@ MD__c = &apos;JP&apos;
 		<fullName>Invalid_ZipCode_TH</fullName>
 		<active>true</active>
 		<description>Zipcode is not 5 digits long</description>
-		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[09]{5}&quot;)), 
+		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[0-9]{5}&quot;)), 
 		$Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;TH&apos;)</errorConditionFormula>
 		<errorDisplayField>ZipCode__c</errorDisplayField>
 		<errorMessage>Zipcode is not 5 digits long</errorMessage>
@@ -56759,7 +56723,7 @@ alert('This function available only for Japan user');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT($Site.Prefix & "/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 if(typeof(srcUp) == 'function') {
 
@@ -56789,7 +56753,7 @@ window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT($Site.Prefix & "/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
 

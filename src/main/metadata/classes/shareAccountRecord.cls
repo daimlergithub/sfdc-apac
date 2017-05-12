@@ -1,6 +1,6 @@
 public class shareAccountRecord
-{    
-    @future 
+{
+    public static Id dealerRecordTypeId = Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
     public static void shareAccountRecordNow(List<Id> caseIds)
     {
         List<User> gateKeeperList = new List<User>();
@@ -35,6 +35,7 @@ public class shareAccountRecord
                 dealerGCCodeSet.add(cs.Case_Dealer__r.Dealer_GC_Code__c);
             }
         }
+        system.debug('dealerGCCodeSet>>>>' + dealerGCCodeSet);
         system.debug('caseDealerAccName PSM '+ caseDealerAccName);
         system.debug('caseCustAccId PSM '+ caseCustAccId);
         if(!dealerCompanyIds.isEmpty() && dealerCompanyIds != null)
@@ -72,13 +73,19 @@ public class shareAccountRecord
         }
         system.debug('DelarNDCode>>>>>' + DealerNDCode);
         system.debug('dealerAccNameCustomerAccid PSM '+ dealerAccNameCustomerAccid);
-        List<Account> caseDealerAccountLst = new List<Account>([select id, Name, Dealer_ND_Code__c from Account where Dealer_GC_Code__c in: dealerGCCodeSet and RecordType.Name = 'Dealer']);
+        List<Account> caseDealerAccountLst = new List<Account>([select id, Name, Dealer_GC_Code__c,Dealer_ND_Code__c from Account where RecordTypeId =:dealerRecordTypeId]);
         List<Account> accPartnerLst = new List<Account>([select id, Name from Account where id in: caseCustAccId.values()]);
         if(!caseDealerAccountLst.isEmpty() && caseDealerAccountLst != null)
         {
-            for(Account allacc : caseDealerAccountLst)
+            for(case cse: lstCase)
             {
-                allDealerNdCode.add(allacc.Dealer_ND_Code__c);   
+                for(Account allacc : caseDealerAccountLst)
+                {
+                    if(cse.case_Dealer__r.Dealer_GC_Code__c == allacc.Dealer_GC_Code__c)
+                    {
+                        allDealerNdCode.add(allacc.Dealer_ND_Code__c);
+                    }
+                }
             }
         }
         List<Group> grpLst = new List<Group>([select id, Name from Group where Name in: allDealerNdCode]);
@@ -108,7 +115,7 @@ public class shareAccountRecord
             TriggerCaseTriggerHandlerKR.isFutureUpdate = true;
             update caseUpdLst;
         }
-    for(Case Cashre :lstCase)
+        for(Case Cashre :lstCase)
         {
             if(grpLst.size()>0)
             {
