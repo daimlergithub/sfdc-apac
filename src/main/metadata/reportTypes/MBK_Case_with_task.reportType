@@ -2776,17 +2776,13 @@
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Subject</field>
-            <table>Case.Activities</table>
-<<<<<<< HEAD
-        </columns>  
-=======
+            <table>Case.Activities</table> 
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Survey_Result_Link__c</field>
             <table>Case.Activities</table>
-        </columns>
->>>>>>> parent of f0fb12b... Removed survey_result_link__c field from task object
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IsTask</field>
