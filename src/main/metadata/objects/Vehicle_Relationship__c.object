@@ -5393,18 +5393,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Work address</fullName>
                 <default>false</default>
             </values> 
-			</picklistValues>
-		<picklistValues>
-            <picklist>vehicle_fax_picklist__c</picklist>		      
-            <values>
-                <fullName>FAX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work FAX</fullName>
-                <default>false</default>
-            </values> 
-		</picklistValues>
+			</picklistValues> 
         <picklistValues>
             <picklist>Vehicle_Phone_picklist__c</picklist>
             <values>
