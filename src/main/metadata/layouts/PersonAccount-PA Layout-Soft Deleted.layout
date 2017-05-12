@@ -275,6 +275,10 @@
                 <field>AnnualRevenue</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Annual_Income_Range__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Country__c</field>
             </layoutItems>

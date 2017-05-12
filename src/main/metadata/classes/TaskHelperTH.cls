@@ -1,3 +1,10 @@
+/**
+* Utility for Trigger on Task for TH(Thailand)
+* Author: Bhushan K
+* Created Date : 2017-03-02
+*/
+
+
 public class TaskHelperTH {
     // Get Task record type ids
     private static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();

@@ -504,6 +504,16 @@ Lost_CAC_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
 	<fieldUpdates>
+        <fullName>MBTH_update_recordowner_email</fullName>
+        <description>update record owner email id</description>
+        <field>MBTH_record_Owner_Manager_Email__c</field>
+        <formula>Owner:User.Email</formula>
+        <name>MBTH_update_recordowner_email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
         <fullName>MBTH_Update_Test_Drive_Date_Time</fullName>
         <field>Test_Drive_Date_Time__c</field>
         <formula>IF(ISBLANK(Test_Drive_Date_Time__c),NOW(),Test_Drive_Date_Time__c)</formula>
@@ -1227,8 +1237,8 @@ Purchased_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
-        <formula>AND( or($Profile.Name = 'Dealer Community User',$Profile.Name='Dealer Delegate Admin'),MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
+        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like &quot;Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
+        <formula>AND($Profile.Name = &apos;Thailand Dealer Delegate Admin&apos;,MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c=&apos;TH&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1249,8 +1259,8 @@ Purchased_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
-        <formula>AND(or($Profile.Name  = 'Dealer Community User',$Profile.Name='Dealer Delegate Admin'),MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
+        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like &quot;Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
+        <formula>AND($Profile.Name = &apos;Thailand Dealer Delegate Admin&apos;,MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c=&apos;TH&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1338,7 +1348,7 @@ Purchased_Date_Time__c
         </actions>
         <active>true</active>
         <description>If it is created by wholesale and not assigned to dealer, if untouched for 1 hour. Email to be sent to CCC Manager</description>
-        <formula>AND(MD__c  = 'TH', OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'), Assigned_Dealer__c ='',CreatedBy.Profile.Name ='Thailand Call Center')</formula>
+        <formula>AND(MD__c  = &apos;TH&apos;, OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;), Assigned_Dealer__c =&apos;&apos;,OR(CreatedBy.Profile.Name =&apos;Thailand Call Center&apos;,CreatedBy.Profile.Name=&apos;Thailand CRM&apos;))</formula>
         <triggerType>onCreateOnly</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -1940,11 +1950,11 @@ Note: lost status will be updated in auto line  (part of sari)</description>
     <rules>
         <fullName>MBTH_update DealerName</fullName>
         <actions>
-            <name>Update_MBTH_dealer_name</name>
+            <name>MBTH_update_recordowner_email</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
-        <formula>AND(MD__c='TH',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'))</formula>
+        <active>false</active>
+        <formula>AND(MD__c=&apos;TH&apos;,or(RecordType.Name=&apos;Sales Leads&apos;,RecordType.Name=&apos;Aftersales Leads&apos;,RecordType.Name=&apos;Retail Sales Leads&apos;))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
