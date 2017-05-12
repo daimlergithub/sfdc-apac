@@ -1898,4 +1898,75 @@ else if(result == "false")
 alert('{!$Label.Error_Message_2}');
 }</url>
     </webLinks>
+    <webLinks>
+        <fullName>New_DM_Request</fullName>
+        <availability>online</availability>
+        <description>For Case Object Related List</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New DM Request</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if('{!Case.RecordTypeId}' == '012280000006I86') 
+{	
+sforce.console.openPrimaryTab(result.id,'/a12/e?&amp;CF00N2800000A9CiT={!Case.Account}&amp;CF00N2800000A9CiT_lkid={!Case.AccountId}&amp;CF00N2800000A9CiN={!Case.CaseNumber}&amp;CF00N2800000A9CiN_lkid={!Case.Id}&amp;CF00N2800000A9Cie={!Case.Lead__c}&amp;CF00N2800000A9Cie_lkid={!Case.LeadId__c}&amp;saveURL={!Case.Id}&amp;retURL={!Case.Id}&amp;cancelURL={!Case.Id}',true, '{!$Label.New_DM_Request}'); 
+} 
+} 
+) 
+}	
+else { 
+if('{!Case.RecordTypeId}' == '012280000006I86') 
+{	
+window.open("/a12/e?&amp;CF00N2800000A9CiT={!Case.Account}&amp;CF00N2800000A9CiT_lkid={!Case.AccountId}&amp;CF00N2800000A9CiN={!Case.CaseNumber}&amp;CF00N2800000A9CiN_lkid={!Case.Id}&amp;CF00N2800000A9Cie={!Case.Lead__c}&amp;CF00N2800000A9Cie_lkid={!Case.LeadId__c}&amp;saveURL={!Case.Id}&amp;retURL={!Case.Id}&amp;cancelURL={!Case.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+}  
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_DM_Request_Lead</fullName>
+        <availability>online</availability>
+        <description>For Lead Object Related List</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New DM Request</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if('{!Lead__c.RecordTypeId}' == '012280000006I7s') 
+{	
+sforce.console.openPrimaryTab(result.id,'/a12/e?&amp;CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9CiN={!Lead__c.Case__c}&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+} 
+else if ('{!Lead__c.RecordTypeId}' == '012280000006I7q') 
+{ 
+sforce.console.openPrimaryTab(result.id,'/a12/e?&amp;CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9CiN={!Lead__c.Case__c}&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+} 
+
+} 
+) 
+}	
+else { 
+if('{!Lead__c.RecordTypeId}' == '012280000006I7s') 
+{	
+window.open("/a12/e?&amp;CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9CiN={!Lead__c.Case__c}&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+else if ('{!Lead__c.RecordTypeId}' == '012280000006I7q') 
+{ 
+window.open("/a12/e?&amp;CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9CiN={!Lead__c.Case__c}&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+}</url>
+    </webLinks>
 </CustomObject>

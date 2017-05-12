@@ -23,7 +23,7 @@ User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
                 usr.localesidkey='en_US';
                 usr.isActive = true;
                 Database.insert(usr); 
-                system.debug('!!!!! User Records'+usr); 
+               
         }
         
    personAcc = new Account(Dealer_Default_Flag__c=false,
@@ -53,17 +53,20 @@ User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
 @isTest
 public static void calculateCaseAmountTest(){
 init();
- Account newAccount = (Account)UtilTestData.createSObject(new Account(), 'Person Account');
  List<case> caselist = new List<case>();
- Case c1 = new Case();
+ 		
+    	Case c1 = new Case();
          c1.Subject='testing';
          c1.accountid=personAcc.id;
         c1.Recordtypeid=MBRecordtypeid ;
          c1.MD__c='TH';
          insert c1;
+    	
          
          Case c3 = new Case();
          c3.Subject='testing';
+        c3.parentId=c1.id;
+        c3.Case_RepeatCause__c='2=Others';
          c3.accountid=personAcc.id;
         c3.Recordtypeid=MBRecordtypeid ;
          c3.MD__c='TH';
@@ -75,7 +78,12 @@ init();
         c2.Recordtypeid=MBRecordtypeid ;
          c2.MD__c='KR';
          insert c2;
-         
+         caselist.add(c1);
+    	caselist.add(c2);
+    	caselist.add(c3);
+    CaseHelperTH cht = new CaseHelperTH();
+    cht.calculateComplaintAmount(caselist);
+    cht.countRepeatComplaintCase(caselist,true);
           
          system.assertequals([select id from case where id=:c1.id].size(),1);
          delete c1;

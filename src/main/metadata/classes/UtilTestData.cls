@@ -130,7 +130,7 @@ Public class UtilTestData {
        // Create Test portal User
     private static User createPortalUser(Id userRoleId, Id profileId) {   
        User thisUser = [ select Id,UserRoleId from User where Id = :UserInfo.getUserId() ];        
-        Account acc = new Account ( Name = 'dummtyTestAcc',Mobile__c = '00000009642',OwnerId = thisUser.Id); 
+        Account acc = new Account ( Name = 'dummtyTestAcc',Mobile__c = '00000009642',OwnerId = thisUser.Id,Work_Phone__c='+66037779999',Individual_Home_Phone__c='+66037773999'); 
         acc.RecordTypeId = 
             getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);     
         insert acc;      
@@ -236,12 +236,18 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
     
     private static Sobject initiateSobject(Sobject so, String recordTypeName) {
         if (so instanceof Account) {
+			Account acc=(Account)so;
             if (recordTypeName == ACCOUNT_RT_PERSON_ACCOUNT) {
                 initiatePersonAccount(so);
             }
             else if (recordTypeName == ACCOUNT_RT_DEALER) {
-                initiateDealer(so);
-            }
+				if(acc.MD__C=='TH'){
+					initiateDealer1(so);
+                }
+                else{
+					initiateDealer(so);
+				}
+			}
         }
         else if (so instanceof Contact) {
             initiateContact(so);
@@ -346,6 +352,25 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
             'North1' : acc.Dealer_MB_Sub_Region__c;
     }
     
+	//campaignhelperth
+    private static void initiateDealer1(Sobject so) {
+        Account acc = (Account)so;
+        acc.RecordTypeId = 
+            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);
+        acc.Dealer_Alternate_Name__c = 'Test Alternate';
+        acc.Phone = '021000000';
+        acc.Dealer_GC_Code__c = 'gc code';
+        acc.Dealer_GS_Code__c = 'gs code';
+        acc.Name = acc.Name == null ? 'test dealer' : acc.Name;
+        acc.Dealer_MB_Sub_Region__c = acc.Dealer_MB_Sub_Region__c == null ?
+            'North1' : acc.Dealer_MB_Sub_Region__c;
+    
+		//acc.Mobile__c='123456789012';
+		// acc.Work_Phone__c='123456789012';
+		acc.Individual_Home_Phone__c='+66-12-123-789';
+		// acc.Email__c='abc@gmail.com';
+    }
+	
     // Create Unsaved Person Account
     // N.B. Name is read only for Person Account
     private static void initiatePersonAccount(Sobject so) {
