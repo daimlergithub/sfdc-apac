@@ -41,7 +41,8 @@ global class CampaignMemberDisribution{
                       dlist.Campaign__c = camNew.id;
                       dlist.Participating_Dealer__c = par.id;
                       dlist.Campaign_Member__c = CamMem.id;
-                      dlist.Name = CamMem.Name; 
+                      dlist.Name = CamMem.Name;
+                      dlist.List_Maintenance_CM_Status__c ='Ready'; 
                    dealerMainList.add(dlist);
                    
                    }
