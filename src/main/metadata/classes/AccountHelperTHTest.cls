@@ -169,6 +169,7 @@ public with sharing class AccountHelperTHTest
         AccountHelperTH.calculateAgeRange(57);
         AccountHelperTH.calculateAgeRange(67);
         AccountHelperTH.updateRetailCopy(True,True,True,list2);
+        AccountHelperTH.updateRetailCopy(True,True,True,list3);
         AccountHelperTH.createUCID(list2,True);
         //AddressHelperTH.updateAddressOnAccount(list1);
         //AddressHelperTH.validateSameAddressType(list1,addmap,true,true);
@@ -407,6 +408,8 @@ public with sharing class AccountHelperTHTest
     }
   }
   
+  
+  
 static testMethod void testAccAssignment1_1() {
 
     
@@ -444,7 +447,7 @@ static testMethod void testAccAssignment1_1() {
                                Province__c = 'Beijing',
                                ZipCode__c= '32703',
                                Mobile__c = '+66-23-597-1651',
-                               //Mobile2__c = '918-197-597-1651',
+                               Mobile2__c = '+66-19-597-1651',
                                Primary_Email__c = 'Email1',
                                Primary_Fax__c = 'FAX2',
                                Primary_Phone__c ='Other2',
@@ -592,7 +595,7 @@ static testMethod void testAccAssignment1_1() {
         AccountHelperTH.calculateAgeRange(67);
         AccountHelperTH.calculateAgeRange(29);
         AccountHelperTH.createUCID(list2,True);
-        //AccountHelperTH.updateRetailCopy(True,True,True,list2);
+        AccountHelperTH.updateRetailCopy(True,True,True,list2);
         //AddressHelperTH.updateAddressOnAccount(list1);
         //AddressHelperTH.validateSameAddressType(list1,addmap,true,true);
         //AddressHelperTH.validateSameAddressType(list1,addmap,False,False);
@@ -639,7 +642,7 @@ static testMethod void testAccAssignment1_1() {
                                Province__c = 'Shanghai',
                                ZipCode__c= '32703',
                                //Mobile__c = '918197597651',
-                               //Mobile2__c = '+66-03-777-9999',
+                               Mobile2__c = '+66-03-777-9999',
                                /*Email__c ='Dhanamjaya1@gmail.com',
                                Email2__c='Dhanamjaya2@gmail.com',
                                Email3__c='Dhanamjaya3@gmail.com',*/
@@ -654,11 +657,14 @@ static testMethod void testAccAssignment1_1() {
                                PersonBirthdate=date.today(),
                                Foundation_Date__c=date.today()+1,
                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
-        //insert acc;
+        insert acc;
+        
+        Contract contr=new Contract(AccountId=acc.id,StartDate=date.today(),ContractTerm=4,Status='Draft');
+        insert contr;
         
         list<Account> list1=new list<Account>();       
         list1.add(acc);
-        insert list1;
+        //insert list1;
         
         map<id,Account> addmap1=new map<id,Account>();
         addmap1.put(acc.id,acc);
@@ -673,10 +679,11 @@ static testMethod void testAccAssignment1_1() {
         update acc;
         list<Account> list2=new list<Account>();       
         list2.add(acc);
-        upsert list2;
+        //upsert list2;
         
                               
         AccountHelperTH.updateAccountFieldsBeforeUpdate(List2,addmap1,true);
+        AccountHelperTH.activeContracts(list1);
         test.stopTest();
         }
     }

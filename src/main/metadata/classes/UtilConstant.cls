@@ -1,5 +1,6 @@
 Global with sharing class UtilConstant {
-    private static Map<String, Id> roleMap;
+    public final static String EMAILSUB='Lead assigned to dealer is untouched for 24 Hrs';
+	private static Map<String, Id> roleMap;
     private static Map<String, Id> profileMap;
     public final static String Ingretion_Profile = 'IntegrationAPI';
     public final static String DEALER_DELEGATE_ADMIN = 'Dealer Delegate Admin';
