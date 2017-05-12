@@ -102,6 +102,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Lead_Type__c</field>
             </layoutItems>
             <layoutItems>
@@ -136,10 +140,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Invoice_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lead_Latest_Phase__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
