@@ -55357,7 +55357,7 @@ NOT(Dealer_Active__c)
     <validationRules>
         <fullName>Data_Source_other_than_Dealer</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( NOT(ISPICKVAL( Data_Source__c , "Dealer Outlet")), NOT( ISPICKVAL( Acquisition_Objective_Method__c , "") ), MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
+        <errorConditionFormula>AND( NOT(ISPICKVAL( Data_Source__c , "Dealer Outlet")), ISCHANGED(Acquisition_Objective_Method__c) , NOT( ISPICKVAL( Acquisition_Objective_Method__c , "") ), RecordType.DeveloperName = 'PersonAccount', MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>You cant select value for Acquisition Objective &amp; Method if date source is not Dealer Out.</errorMessage>
     </validationRules>	
@@ -56276,7 +56276,7 @@ MD__c = &apos;JP&apos;
 		<fullName>Invalid_ZipCode_TH</fullName>
 		<active>true</active>
 		<description>Zipcode is not 5 digits long</description>
-		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[09]{5}&quot;)), 
+		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[0-9]{5}&quot;)), 
 		$Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;TH&apos;)</errorConditionFormula>
 		<errorDisplayField>ZipCode__c</errorDisplayField>
 		<errorMessage>Zipcode is not 5 digits long</errorMessage>
