@@ -514,7 +514,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Contact_Type__c</field>
             <table>Case</table>
-        </columns> 
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contract_document_requested_date__c</field>
@@ -2771,13 +2771,13 @@
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Subject</field>
-            <table>Case.Activities</table> 
+            <table>Case.Activities</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Survey_Result_Link__c</field>
             <table>Case.Activities</table>
-        </columns> 
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IsTask</field>
