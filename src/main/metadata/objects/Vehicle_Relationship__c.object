@@ -4700,6 +4700,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Home Address</fullName>
                 <default>false</default>
             </picklistValues>
+			 <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Other Address 1</fullName>
                 <default>false</default>
@@ -5364,11 +5368,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
 		<picklistValues>
-            <picklist>vehicle_address_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            <picklist>vehicle_address_picklist__c</picklist>		    
             <values>
                 <fullName>Home Address</fullName>
                 <default>false</default>
@@ -5389,28 +5389,9 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Work address</fullName>
                 <default>false</default>
             </values> 
-			</picklistValues>
-		<picklistValues>
-            <picklist>vehicle_fax_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FAX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work FAX</fullName>
-                <default>false</default>
-            </values> 
-		</picklistValues>
+			</picklistValues> 
         <picklistValues>
             <picklist>Vehicle_Phone_picklist__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Home Phone</fullName>
                 <default>false</default>
@@ -5423,28 +5404,9 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Home Phone 2</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues> 
 		<picklistValues>
-            <picklist>vehicle_fax_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FAX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work FAX</fullName>
-                <default>false</default>
-            </values> 
-		</picklistValues>
-		<picklistValues>
-            <picklist>vehicle_mail_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            <picklist>vehicle_mail_picklist__c</picklist> 
             <values>
                 <fullName>Email Home</fullName>
                 <default>false</default>
@@ -5459,11 +5421,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
 			</picklistValues>
 			<picklistValues>
-            <picklist>vehicle_fax_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            <picklist>vehicle_fax_picklist__c</picklist> 
             <values>
                 <fullName>FAX</fullName>
                 <default>false</default>
@@ -5472,26 +5430,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Work FAX</fullName>
                 <default>false</default>
             </values> 
-			</picklistValues>
-			<picklistValues>
-            <picklist>Vehicle_Phone_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Work</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyMercedes Email</fullName>
-                <default>false</default>
-            </values>
-			</picklistValues>
+			</picklistValues> 
         <picklistValues>
             <picklist>Warranty_Apply_Status__c</picklist>
             <values>
@@ -6051,11 +5990,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
 		<picklistValues>
-            <picklist>vehicle_mail_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
+            <picklist>vehicle_fax_picklist__c</picklist> 
+            <values>
+                <fullName>FAX</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Work FAX</fullName>
+                <default>false</default>
+            </values> 
+			</picklistValues>
+		<picklistValues>
+            <picklist>vehicle_mail_picklist__c</picklist> 
             <values>
                 <fullName>Email Home</fullName>
                 <default>false</default>
@@ -6087,32 +6033,9 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Home Phone 2</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Vehicle_Phone_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Work</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyMercedes Email</fullName>
-                <default>false</default>
-            </values>
-			</picklistValues>
+        </picklistValues> 
 			<picklistValues>
-            <picklist>vehicle_address_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            <picklist>vehicle_address_picklist__c</picklist> 
             <values>
                 <fullName>Home Address</fullName>
                 <default>false</default>
@@ -6729,11 +6652,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
 		<picklistValues>
-            <picklist>vehicle_mail_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            <picklist>vehicle_mail_picklist__c</picklist> 
             <values>
                 <fullName>Email Home</fullName>
                 <default>false</default>
@@ -6747,12 +6666,19 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
 			</picklistValues>
-		<picklistValues>
-            <picklist>vehicle_address_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
+			<picklistValues>
+            <picklist>vehicle_fax_picklist__c</picklist> 
+            <values>
+                <fullName>FAX</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Work FAX</fullName>
+                <default>false</default>
+            </values> 
+			</picklistValues>
+		<picklistValues>
+            <picklist>vehicle_address_picklist__c</picklist> 
             <values>
                 <fullName>Home Address</fullName>
                 <default>false</default>

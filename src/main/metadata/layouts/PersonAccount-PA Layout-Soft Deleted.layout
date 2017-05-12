@@ -25,21 +25,18 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>FirstName_Native_1__c</field>
-            </layoutItems>
+            </layoutItems>			
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>UCID__c</field>
-            </layoutItems>
+                <field>Status__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Amount__c</field>
+            </layoutItems>			
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Customer_Lifecycle_Phase__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Special_Mark_on_Account__c</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
+                <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -62,7 +59,7 @@
                 <field>Complaint_Amount__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
+		<layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
@@ -70,22 +67,21 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>OwnerId</field>
+            </layoutItems> 
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>UCID__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Customer_Lifecycle_Phase__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Customer_Number__c</field>
-            </layoutItems>
+                <field>Special_Mark_on_Account__c</field>
+            </layoutItems>			
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Amount__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Data_Source__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

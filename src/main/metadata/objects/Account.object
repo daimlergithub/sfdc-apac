@@ -3978,22 +3978,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</d
                 <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </picklistValues>			
-			<picklistValues>
-                <fullName>CA Status</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance Contract</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -16574,22 +16558,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CA Status</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance Contract</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45882,10 +45850,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -55393,7 +55357,7 @@ NOT(Dealer_Active__c)
     <validationRules>
         <fullName>Data_Source_other_than_Dealer</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( NOT(ISPICKVAL( Data_Source__c , "Dealer Outlet")), NOT( ISPICKVAL( Acquisition_Objective_Method__c , "") ), MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
+        <errorConditionFormula>AND( NOT(ISPICKVAL( Data_Source__c , "Dealer Outlet")), ISCHANGED(Acquisition_Objective_Method__c) , NOT( ISPICKVAL( Acquisition_Objective_Method__c , "") ), RecordType.DeveloperName = 'PersonAccount', MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>You cant select value for Acquisition Objective &amp; Method if date source is not Dealer Out.</errorMessage>
     </validationRules>	
@@ -56312,7 +56276,7 @@ MD__c = &apos;JP&apos;
 		<fullName>Invalid_ZipCode_TH</fullName>
 		<active>true</active>
 		<description>Zipcode is not 5 digits long</description>
-		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[09]{5}&quot;)), 
+		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[0-9]{5}&quot;)), 
 		$Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;TH&apos;)</errorConditionFormula>
 		<errorDisplayField>ZipCode__c</errorDisplayField>
 		<errorMessage>Zipcode is not 5 digits long</errorMessage>
@@ -56759,14 +56723,14 @@ alert('This function available only for Japan user');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 if(typeof(srcUp) == 'function') {
 
 if (sforce.console.isInConsole()) {
 var showTabId = function showTabId(result) {
 var tabid = result.id;
-sforce.console.openPrimaryTab(tabid, '{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType=012280000006I86&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&amp;ent=Case&amp;tabId='+tabid, true);
+sforce.console.openPrimaryTab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType=012280000006I86&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&amp;ent=Case&amp;tabId='+tabid, true);
 };
 sforce.console.getEnclosingPrimaryTabId(showTabId);
 }
@@ -56789,7 +56753,7 @@ window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
 
@@ -56800,7 +56764,7 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) {
 var showTabId = function showTabId(result) {
 var tabid = result.id;
-sforce.console.openPrimaryTab(tabid, '{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case');
+sforce.console.openPrimaryTab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case');
 };
 sforce.console.getEnclosingPrimaryTabId(showTabId);
 }
@@ -57285,3 +57249,5 @@ window.open(&quot;/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Ac
 }</url>
     </webLinks>
 </CustomObject>
+
+

@@ -128,6 +128,7 @@ public class AccountLinkHelper
       
       
     public static void afterInsertEvent(List<Account_Link__c> list_AccountLink){
+		 if(leadUtil.SharingReuleissue == true){
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> SharingVrsFromAlk = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountIdAndListToAccountId = new Map<Id, List<Id>>();
@@ -317,6 +318,8 @@ public class AccountLinkHelper
         if(CompanyPersonVehicleLinkALK.size() > 0){
             SharePersonCompanyVehicleALK(CompanyPersonVehicleLinkALK,set_ToAccountId);
         }
+		}
+		LeadUtil.SharingReuleissue = false;
     }
     
     public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -1245,7 +1248,8 @@ if(LeadUtil.Retailcopy){
      Set<Id> accountId = new Set<Id>();
      List<Account_Link__c> accountList = new List<Account_Link__c>();
      List<Account_Link__c> accountList1 = new List<Account_Link__c>();
-     for(Account_Link__c acc :list_AccountLink)
+     if(LeadUtil.updateprimaryAddressAccounlink  == true){
+	 for(Account_Link__c acc :list_AccountLink)
      {
          if(acc.Retail_Address_Reference__c != null && acc.MD__c == label.MarketJP){
                 if(isInsert || (isUpdate && acc.Retail_Address_Reference__c != oldMap.get(acc.id).Retail_Address_Reference__c)){
@@ -1289,7 +1293,8 @@ if(LeadUtil.Retailcopy){
                 update accountList1; 
             }
   }
-  
+	LeadUtil.updateprimaryAddressAccounlink = false;
+  }
   /*
     LastModifiedDate : 3rd Mar, 2017
     LastModifedBY    : Lokesh M

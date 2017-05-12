@@ -389,10 +389,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Postal_Opt_Out__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Postal_Opt_Out_Reason__c</field>
             </layoutItems>
             <layoutItems>
@@ -871,7 +867,6 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>
