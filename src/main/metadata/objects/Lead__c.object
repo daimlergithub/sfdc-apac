@@ -41275,20 +41275,8 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
-            <values>
-                <fullName>Cash</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Cheque</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Credit Card</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Debit Card</fullName>
                 <default>false</default>
             </values>
 			<values>
@@ -41309,10 +41297,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -80007,20 +79991,8 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
-			<values>
-                <fullName>Cash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-				<fullName>Cheque</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Credit Card</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Debit Card</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -80037,10 +80009,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -92582,20 +92550,8 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
-            <values>
-                <fullName>Cash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cheque</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Credit Card</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Debit Card</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92616,10 +92572,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
