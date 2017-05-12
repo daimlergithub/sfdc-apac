@@ -103,6 +103,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Next_Contact_Customer_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -157,10 +161,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Handover_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lead_Latest_Phase__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

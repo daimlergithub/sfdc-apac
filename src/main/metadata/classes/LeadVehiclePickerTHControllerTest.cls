@@ -5,7 +5,9 @@ Created by  : Manjunath C Sarashetti
 
 @isTest
 public without sharing class LeadVehiclePickerTHControllerTest{
-    
+    /***************************************************
+    This method is used to test clearVehicleFromLead
+    ****************************************************/
     public static testMethod void TestCase(){
         Profile profile = [Select Id from Profile where Name = 'System Administrator'];
         User us = TestClassHelper.createUser('User1PH',profile,'TH');
@@ -43,27 +45,32 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.clear();
             clearVehicleDetails.put('VehicleType','CurrentVehicle1');
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'CurrentVehicle1');
             LeadVehiclePickerTHController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
             clearVehicleDetails.put('VehicleType','CurrentVehicle2');
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'CurrentVehicle2');
             LeadVehiclePickerTHController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
             clearVehicleDetails.put('VehicleType','TradeIn');
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'TradeIn');
             LeadVehiclePickerTHController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
             clearVehicleDetails.put('VehicleType','Purchased');
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'Purchased');
             LeadVehiclePickerTHController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
         }
     } 
     
-    
-    // updateVehicleDetails
+    /***************************************************
+    This method is used to test updateVehicleDetails
+    ****************************************************/
     public static testMethod void TestCase1(){
         Profile profile = [Select Id from Profile where Name = 'System Administrator'];
         User us = TestClassHelper.createUser('User2PH',profile,'TH');
@@ -93,6 +100,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
             clearVehicleDetails.put('Lookup','true');
             clearVehicleDetails.put('Id', vhCompetitor.id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'Interested Vehicle');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
@@ -100,6 +108,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
             clearVehicleDetails.put('Lookup','true');
             clearVehicleDetails.put('Id', vhCompetitor.id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'CurrentVehicle1');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
@@ -107,6 +116,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
             clearVehicleDetails.put('Lookup','true');
             clearVehicleDetails.put('Id', vhCompetitor.id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'CurrentVehicle2');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
@@ -114,6 +124,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
             clearVehicleDetails.put('Lookup','true');
             clearVehicleDetails.put('Id', vhCompetitor.id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'TradeIn');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
@@ -121,11 +132,13 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
             clearVehicleDetails.put('Lookup','true');
             clearVehicleDetails.put('Id', vhCompetitor.id);
+            system.assertEquals(clearVehicleDetails.get('VehicleType'),'Purchased');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
         }
     } 
-    
-    // updateVehicleDetails new
+    /***************************************************
+    This method is used to test updateVehicleDetails - New version
+    ****************************************************/
     public static testMethod void TestCase3(){
         Profile profile = [Select Id from Profile where Name = 'System Administrator'];
         User us = TestClassHelper.createUser('User3PH',profile,'TH');
@@ -165,6 +178,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('Mileage','100');
             clearVehicleDetails.put('Operation','New');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
+            system.assertEquals(clearVehicleDetails.get('Operation'),'New');
             
             clearVehicleDetails.clear();
             clearVehicleDetails.put('LeadVehicleType','CurrentVehicle1');
@@ -178,6 +192,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('Model','A00');
             clearVehicleDetails.put('Mileage','100');
             clearVehicleDetails.put('Operation','New');
+            system.assertEquals(clearVehicleDetails.get('Operation'),'New');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
@@ -192,6 +207,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('Model','A00');
             clearVehicleDetails.put('Mileage','100');
             clearVehicleDetails.put('Operation','New');
+            system.assertEquals(clearVehicleDetails.get('Operation'),'New');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
@@ -223,6 +239,9 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
         }
     } 
+    /***************************************************
+    This method is used to test updateVehicleDetails - Edit 
+    ****************************************************/
     // updateVehicleDetails edit
     public static testMethod void TestCase4(){
         Profile profile = [Select Id from Profile where Name = 'System Administrator'];
@@ -263,6 +282,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('Model','A00');
             clearVehicleDetails.put('Mileage','100');
             clearVehicleDetails.put('Operation','Edit');
+            system.assertEquals(clearVehicleDetails.get('Operation'),'Edit');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
@@ -277,6 +297,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             clearVehicleDetails.put('Model','A00');
             clearVehicleDetails.put('Mileage','100');
             clearVehicleDetails.put('Operation','Edit');
+            system.assertEquals(clearVehicleDetails.get('Operation'),'Edit');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
             
             clearVehicleDetails.clear();
@@ -322,7 +343,10 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
         }
     } 
-    // updateVehicleDetails edit
+    /***************************************************
+    This method is used to test searchVehicles
+    ****************************************************/
+   
     public static testMethod void TestCase5(){
         Profile profile = [Select Id from Profile where Name = 'System Administrator'];
         User us = TestClassHelper.createUser('User5PH',profile,'TH');
@@ -366,6 +390,7 @@ public without sharing class LeadVehiclePickerTHControllerTest{
             lookupSearchDetails.put('Lookup','false');
             lookupSearchDetails.put('VehicleType','Interested Vehicle');
             lookupSearchDetails.put('VIN','');
+            system.assertEquals(lookupSearchDetails.get('Lookup'),'false');
             LeadVehiclePickerTHController.searchVehicles(JSON.serialize(lookupSearchDetails));
             
             lookupSearchDetails.clear();

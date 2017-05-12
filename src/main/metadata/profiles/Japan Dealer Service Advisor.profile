@@ -2068,7 +2068,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Acquisition_Record_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -1246,7 +1246,7 @@ public static Contact contactObj;
            al1.Retail_ZipCode__c='1003465';
            update al1;
            update listcampaigns1;
-           AccountLinkHelper.updateRetailCopy(false,true,false,listcampaigns1);
+           //AccountLinkHelper.updateRetailCopy(false,true,false,listcampaigns1);
            AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
           AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
@@ -1352,7 +1352,7 @@ public static Contact contactObj;
            update al1;
            update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
-           AccountLinkHelper.updateRetailCopy(false,true,false,listcampaigns1);
+           //AccountLinkHelper.updateRetailCopy(false,true,false,listcampaigns1);
            AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
           AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
           
