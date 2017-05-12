@@ -113,7 +113,7 @@ public static  testmethod void afterInsertEvent_test1()
         insert DealerAccount;
         
         DealerAccount1= new Account();
-        DealerAccount.RecordtypeId=DealerAccRecordTypeId;
+        DealerAccount1.RecordtypeId=DealerAccRecordTypeId;
         DealerAccount1.Name='Test Person';
         DealerAccount1.Type='Personal';
         DealerAccount1.Status__c='Active';
