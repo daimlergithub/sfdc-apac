@@ -26,8 +26,7 @@ public with sharing class SelectAddressController {
     
  addressSelectOptionList.add(new SelectOption('None', '--None--'));
     for(Address__c addressRec : addressList) {         
-          String addressType = addressRec.Address_Type__c;       
-                        
+          String addressType = addressRec.Address_Type__c; 
          addressSelectOptionList.add(new SelectOption(addressRec.Id, addressType));     
     }    
     
