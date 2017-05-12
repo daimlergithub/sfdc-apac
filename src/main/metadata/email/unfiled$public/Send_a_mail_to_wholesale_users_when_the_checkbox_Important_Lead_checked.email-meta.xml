@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Send a mail to wholesale users when the checkbox &quot;Important Lead&quot; checked</name>
+    <style>none</style>
+    <subject>Email notification as dealer has updated desired service and interested vehicle-LeadiD</subject>
+    <type>text</type>
+</EmailTemplate>

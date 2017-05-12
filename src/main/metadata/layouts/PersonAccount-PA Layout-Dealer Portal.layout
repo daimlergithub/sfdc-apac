@@ -130,10 +130,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Sales_Sanction_Comment__c</field>
             </layoutItems>
             <layoutItems>
@@ -345,10 +341,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing__c</field>                
-            </layoutItems>			
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Annual_Income_Range__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -386,6 +378,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>AnnualRevenue</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Annual_Income_Range__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

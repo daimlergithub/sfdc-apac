@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>If dealer interested vehicle has changed then email should go to the lead owner</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Email notification when interested vehicle have changed</name>
+    <style>none</style>
+    <subject>Dealer Interested vehicle has changed ( {!Lead__c.R_Lead18ID__c} )</subject>
+    <type>text</type>
+</EmailTemplate>
