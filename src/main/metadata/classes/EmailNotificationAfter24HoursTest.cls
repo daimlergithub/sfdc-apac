@@ -61,7 +61,6 @@ static testMethod void testAccAssignment() {
        List<String> li=new List<String>();
        Lead__c lead = new Lead__c();
         lead.Contact__c = perAcc.Id;
-        //lead.recordTypeId =Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
         lead.CAC_Lead_Status__c = 'Qualified';
         lead.Lead_Type__c = 'New Car';
         lead.Relation_With_The_Leads__c = 'testR';
@@ -84,7 +83,7 @@ static testMethod void testAccAssignment() {
         EmailNotificationAfter24Hours.SendEmails(li);
          Lead__c lead1 = new Lead__c();
         lead.Contact__c = perAcc.Id;
-        //lead.recordTypeId =Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
+       
         lead1.CAC_Lead_Status__c = 'Qualified';
         lead1.Lead_Type__c = 'New Car';
         lead1.Relation_With_The_Leads__c = 'testR';
@@ -108,7 +107,6 @@ static testMethod void testAccAssignment() {
     
          Lead__c lead2 = new Lead__c();
         lead.Contact__c = perAcc.Id;
-        //lead.recordTypeId =Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
         lead2.CAC_Lead_Status__c = 'Qualified';
         lead2.Lead_Type__c = 'New Car';
         lead2.Relation_With_The_Leads__c = 'testR';
@@ -132,4 +130,6 @@ static testMethod void testAccAssignment() {
     }
     
     }
+
+
 }
