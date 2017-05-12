@@ -377,10 +377,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AnnualRevenue</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Annual_Income_Range__c</field>
             </layoutItems>
             <layoutItems>

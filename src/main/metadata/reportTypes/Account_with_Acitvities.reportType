@@ -3447,7 +3447,12 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Survey_Result_Id__c</field>
             <table>Account.Activities</table>
-        </columns> 
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Survey_Result_Link__c</field>
+            <table>Account.Activities</table>
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Task_RecordType_Name__c</field>

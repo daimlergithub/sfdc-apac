@@ -12118,6 +12118,7 @@
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Status__c</picklist>
+
             <values>
                 <fullName>Completed</fullName>
                 <default>false</default>
@@ -21141,11 +21142,22 @@ if(("{!Campaign.RecordType}" == "Central Marketing Campaign" || "{!Campaign.Reco
         <masterLabel>Distribution to Dealer</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+        <url>	{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var campaignID = "{!Campaign.Id}"; 
+var qre = sforce.connection.query("Select id,Distribution_is_completed__c From Campaign WHERE Id = '{!Campaign.Id}' AND Distribution_is_completed__c = false "); 
+
+var qrerecords = qre.getArray("records"); 
+
+if(qrerecords.length>0){ 
+
 var show = sforce.apex.execute("CampaignMemberDisribution","cmDistributionToDealer",{camid:campaignID}); 
-location.reload();</url>
+location.reload(); 
+
+}else 
+{ 
+alert("Already Completed"); 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Generate_Retail_BP</fullName>
