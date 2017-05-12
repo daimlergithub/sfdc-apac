@@ -40,7 +40,7 @@ public class LeadHelperAccountLinkCreateJP
                             }
                         }
                     }
-                    if(le.Assigned_Dealer__c != null && ((le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated')) || (le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated') && (leadOldMap.get(le.id).Assigned_Dealer__c  != le.Assigned_Dealer__c  ) || leadOldMap.get(le.id).Contact__c !=le.Contact__c)) && (userinfo.getusertype()=='Powerpartner')) 
+                    if(le.Assigned_Dealer__c != null && isUpdate && ((le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated')) || (le.CAC_Lead_Status__c == 'Approved' || (le.CAC_Lead_Status__c == 'Allocated') && (leadOldMap.get(le.id).Assigned_Dealer__c  != le.Assigned_Dealer__c  ) || leadOldMap.get(le.id).Contact__c !=le.Contact__c)) && (userinfo.getusertype()=='Powerpartner')) 
                     {   
                         contactId.add(le.id);
                         
