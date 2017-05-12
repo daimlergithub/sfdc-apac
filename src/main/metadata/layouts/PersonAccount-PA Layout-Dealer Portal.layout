@@ -345,10 +345,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing__c</field>                
-            </layoutItems>			
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Annual_Income_Range__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
