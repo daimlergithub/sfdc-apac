@@ -41372,14 +41372,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Phone and Email</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Post</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Negotiation_Place__c</picklist>
@@ -80084,14 +80076,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Phone and Email</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Post</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Negotiation_Place__c</picklist>
@@ -92641,14 +92625,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Post</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
