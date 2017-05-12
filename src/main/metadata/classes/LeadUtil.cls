@@ -20,5 +20,7 @@ public class LeadUtil {
      public static boolean  createAccountLinkRecord= true;
     public static boolean updatingleadAccountDetails= true;
     public static boolean createContactToContactAccounlink =true;
+	public static boolean updateprimaryAddressAccounlink =true;
+    public static boolean SharingReuleissue =true;
     
 }

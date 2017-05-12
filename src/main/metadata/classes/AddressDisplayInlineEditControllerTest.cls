@@ -300,6 +300,101 @@ public class AddressDisplayInlineEditControllerTest
         
     }
     
+	/**    
+     * @Description : For creation of Account and Address record
+     * @author      : Sanjay
+     * @Date        : 12/7/2015 
+   **/
+    
+   public static void initUpdated(String MD)
+    {    
+        // Fetch Profile Id
+        Id sysAdminProfileId = [SELECT Id FROM Profile WHERE Name = 'System Administrator' limit 1].ID;
+        
+        // Create User
+        List<User> userList = new List<User>();
+        sysAdminUser1 = new User ( Alias = 'sysA1'
+                                        , Email='sysAdmin1@dialmer.com'
+                                        , EmailEncodingKey='UTF-8'
+                                        , LastName='Adminstrator'
+                                        , FirstName='System'
+                                        , LanguageLocaleKey='en_US'
+                                        , LocaleSidKey='en_US'
+                                        , ProfileId = sysAdminProfileId
+                                        , TimeZoneSidKey='America/Los_Angeles'
+                                        , Market__c = MD
+                                        , UserName='sysAdmin1@mbj.daimler-apac.com.asiadev1');
+        userList.add(sysAdminUser1);
+        sysAdminUser2 = new User ( Alias = 'sysA2'
+                                        , Email='sysAdmin2@dialmer.com'
+                                        , EmailEncodingKey='UTF-8'
+                                        , LastName='Adminstrator'
+                                        , FirstName='System'
+                                        , LanguageLocaleKey='en_US'
+                                        , LocaleSidKey='en_US'
+                                        , ProfileId = sysAdminProfileId
+                                        , TimeZoneSidKey='America/Los_Angeles'
+                                        , Market__c = MD
+                                        , UserName='sysAdmin2@mbj.daimler-apac.com.asiadev1');
+        userList.add(sysAdminUser2);
+        
+        insert userList;
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        List<Trigger__c> updatecustomsettingsTH =  UtilCustomSettingTH.customSettingDetails();
+        insert updatecustomsettingsTH;
+        
+        objAccount= new Account();
+        objAccount.RecordtypeId=PersonaccRTId;
+        objAccount.Firstname='Test Person';
+        objAccount.LastName='1st';
+        objAccount.salutation='Mr.';
+        objAccount.Type='Personal';
+        objAccount.Status__c='Active';
+        objAccount.Province__c='Province1';
+        objAccount.City__c='Test';
+        objAccount.Email__c='test@mbau.com';
+        objAccount.Email2__c = 'testemail2@test.com';
+        //objAccount.Home_Phone_2__c = '098-876-4134';    
+        objAccount.PersonMobilePhone ='8884545243';
+        objAccount.Partner_Surname__c='Test Person';
+        objAccount.MBK_Data_Source__c ='Email';
+        objAccount.MD__c = MD;
+        //objAccount.Mobile__c = '999999999';
+        
+        
+        insert objAccount;
+        
+        
+        objAddress= new Address__c();
+        objAddress.Customer__c=objAccount.Id;
+        objAddress.TitleOfHonor__c = 'To Person';       
+        objAddress.Preferred__c=true;
+        objAddress.Province__c='ACT'; 
+        objAddress.Address_Type__c = 'Home';  
+        objAddress.ZipCode__c ='1234567'; 
+        objAddress.MD__c = MD;
+        objAddress.Address_Line_1__c = 'Banglore';
+        objAddress.Address_Line_2__c = 'Test Address 2';
+        objAddress.Block__c = 'Test Block';
+        objAddress.City__c = 'Test City';
+        objAddress.District__c = 'Test District';
+        insert objAddress;
+        
+        
+        
+        system.debug('objAddress>>>>>'+objAddress.Id);
+        
+     /*  editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+                  Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Id =:objAddress.Id];
+        editadds[0].Preferred__c=false;
+        editadds[0].Province__c='NSW';
+          
+        update editadds;
+        */
+        
+    }
+	
     public static testMethod void testMethod1(){
         
         
@@ -403,4 +498,109 @@ public class AddressDisplayInlineEditControllerTest
         system.assertNotEquals(objAddress.ZipCode__c,null);  
     }
     
+	/**    
+     * @Description : Converage of the code for SaveAddressTH where all the validation is false
+     * @author      : Sanjay (SN20170510)
+     * @Date        : 10/05/2017 
+   **/
+    public static testMethod void testSaveAddressTHValidation()
+    {
+        //init();
+        initUpdated('TH');      
+        
+        //SN20170511- Added a logic to add a new user for Thailand
+                
+       system.RunAs(sysAdminUser1){        
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+         
+        objAddressDisplayInlineEditController.saveAddressTH();
+        objAddress.ZipCode__c='56789';
+        objAddress.Address_Line_1__c='Sanjay ,bangalore';
+        objAddress.District__c='Sathorn';
+        objAddress.Sub_District__c='Sathorn abc';
+        objAddress.Address_Line_2__c='Sathorns';
+        update objAddress;
+        objAddressDisplayInlineEditController.SaveAddressTH();
+        //Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        
+        test.stopTest();
+      //  system.assertEquals(null, editaddressId, objaddress);
+        }  
+    }
+    
+    /**    
+     * @Description : Converage of the code for SaveAddressTH
+     * @author      : Sanjay (SN20170510)
+     * @Date        : 10/05/2017 
+   **/
+    public static testMethod void testSaveAddressTHValidationSuccess()
+    {
+        //init(); 
+        initUpdated('TH');       
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        objAddress.MD__c='TH';
+        objAddress.ZipCode__c='56789';
+        objAddress.Address_Line_1__c='Sanjay ,bangalore';
+        objAddress.District__c='Sathorn';
+        objAddress.Sub_District__c='Sathorn abc';
+        objAddress.Address_Line_2__c='Sathorns';
+        update objAddress;
+         ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        system.RunAs(sysAdminUser1){        
+        test.startTest();
+       AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+       objAddressDisplayInlineEditController.editaddressId= objAddress.id;
+       objAddressDisplayInlineEditController.EditOptions();
+       objAddressDisplayInlineEditController.SaveAddressTH();
+       objAddress.preferred__c=False;
+       update objAddress;  
+       objAddressDisplayInlineEditController.EditOptions();
+       objAddressDisplayInlineEditController.SaveAddressTH();
+       objAddressDisplayInlineEditController.addressId=null;
+       objAddressDisplayInlineEditController.SaveAddressTH();
+        //Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+       
+        test.stopTest();
+        }
+        
+    }   
+	public static testMethod void testValidateAddressSearchCalloutInValidAddressUpdated(){  
+			init(); 
+			ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+			ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+			AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+			objAddressDisplayInlineEditController.addressobj=objAddress;
+		   objAddressDisplayInlineEditController.market='JP';
+			test.startTest();
+			 //system.RunAs(sysAdminUser1){
+			   Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+				objAddressDisplayInlineEditController.ValidateAddressSearch(); 
+				objAddressDisplayInlineEditController.mapAddressResponse[0].isselected=true;
+				objAddressDisplayInlineEditController.SelectedAddress();
+				system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+		   // }
+		test.stopTest(); 
+    }
+    public static testMethod void testValidateAddressSearchCalloutNotValidAddressUpdated2(){  
+		init(); 
+		ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+		ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+		AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+		objAddressDisplayInlineEditController.addressobj=objAddress;
+		objAddressDisplayInlineEditController.market='KR';
+		test.startTest();
+		 //system.RunAs(sysAdminUser1){
+		   Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+			objAddressDisplayInlineEditController.ValidateAddressSearch(); 
+			objAddressDisplayInlineEditController.SelectedAddress();
+			system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+	   // }
+		test.stopTest(); 
+    }
+	
 }

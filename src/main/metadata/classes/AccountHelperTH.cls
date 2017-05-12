@@ -184,28 +184,28 @@ public class AccountHelperTH{
      //Gets the List of Active Contracts and set the value to the Active Contracts field.
      //Created By:Mohammed Touseef Ahmed
      //Date:12th Feb 2017
-	public static void activeContracts(list<Account> listNewAccounts)
-	{
-		integer actContract=0;
-		Set<Id> AccIdSet = new Set<Id>();
-		for(Account acc : listNewAccounts)
-		{                                  
-			AccIdSet.add(acc.id);          
-		}
-		List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id 
-										 from contract where Account.id in : AccIdSet];      
-
-		for(Account acc : listNewAccounts)
-		{                                  
-				  for(contract cntrct: lstCntrct)
-				  {
-					  if(cntrct.EndDate.daysBetween(cntrct.StartDate)<cntrct.ContractTerm)
-					  {
-						 actContract=actContract+1;                   
-					  }
-				  }                                     
-			  acc.Active_Contracts__c=actContract;           
-		 }
+     public static void activeContracts(list<Account> listNewAccounts)
+     {
+         integer actContract=0;
+         Set<Id> AccIdSet = new Set<Id>();
+         for(Account acc : listNewAccounts)
+         {                                  
+                  AccIdSet.add(acc.id);          
+         }
+          List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id 
+                                             from contract where Account.id in : AccIdSet];      
+          
+          for(Account acc : listNewAccounts)
+          {                                  
+                      for(contract cntrct: lstCntrct)
+                      {
+                          if(cntrct.EndDate.daysBetween(cntrct.StartDate)<cntrct.ContractTerm)
+                          {
+                             actContract=actContract+1;                   
+                          }
+                      }                                     
+                  acc.Active_Contracts__c=actContract;           
+             }
     }
     
      /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are updated.
@@ -219,17 +219,6 @@ public class AccountHelperTH{
             for(Account Acc : listNewAccounts)
             {
                 Account OldAcc = accountOldMap.get(Acc.id);
-                if(Acc.Mobile__c != OldAcc.Mobile__c)
-                {
-                    Acc.SMS_Last_Modified_By__c = UserInfo.getName();
-                    Acc.SMS_Last_Modified_Date__c = System.now();
-                }   
-                
-                if(Acc.Mobile2__c!= OldAcc.Mobile2__c )
-                {
-                    Acc.SMS_Last_Modified_By2__c = UserInfo.getName();
-                    Acc.SMS_Last_Modified_Date2__c = System.now();
-                }
                 
                 if(Acc.Individual_Home_Phone__c!= OldAcc.Individual_Home_Phone__c)
                 {
@@ -272,6 +261,19 @@ public class AccountHelperTH{
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
+                
+                if(Acc.Mobile__c != OldAcc.Mobile__c)
+                {
+                    Acc.SMS_Last_Modified_By__c = UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date__c = System.now();
+                }   
+                
+                if(Acc.Mobile2__c!= OldAcc.Mobile2__c )
+                {
+                    Acc.SMS_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date2__c = System.now();
+                }
+                
                 
             }
             
