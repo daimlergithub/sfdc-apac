@@ -2077,6 +2077,10 @@
         <name>New_Value</name>
     </customLabels>
     <customLabels>
+        <label>新規カタログリクエスト</label>
+        <name>New_DM_Request</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Next Activity --></label>
         <name>Next_Activity</name>
     </customLabels>
