@@ -488,7 +488,9 @@ insert casetrigger;
         );
         insert testCampaign1;
         campaignList.add(testCampaign1);
-        
+        testCampaign1.IsActive=true;
+        update testCampaign1;
+        campaignList.add(testCampaign1);
         
         Campaign cpn = [Select Id,Create_Task__c,Task_Created_By__c from Campaign Where Name = 'Test Campaign'];
         cpn.IsActive = false;                

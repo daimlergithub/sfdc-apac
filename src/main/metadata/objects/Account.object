@@ -56759,14 +56759,14 @@ alert('This function available only for Japan user');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 if(typeof(srcUp) == 'function') {
 
 if (sforce.console.isInConsole()) {
 var showTabId = function showTabId(result) {
 var tabid = result.id;
-sforce.console.openPrimaryTab(tabid, '{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType=012280000006I86&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&amp;ent=Case&amp;tabId='+tabid, true);
+sforce.console.openPrimaryTab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType=012280000006I86&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&amp;ent=Case&amp;tabId='+tabid, true);
 };
 sforce.console.getEnclosingPrimaryTabId(showTabId);
 }
@@ -56789,7 +56789,7 @@ window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
 
@@ -56800,7 +56800,7 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) {
 var showTabId = function showTabId(result) {
 var tabid = result.id;
-sforce.console.openPrimaryTab(tabid, '{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case');
+sforce.console.openPrimaryTab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case');
 };
 sforce.console.getEnclosingPrimaryTabId(showTabId);
 }
