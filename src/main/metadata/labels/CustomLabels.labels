@@ -2354,6 +2354,13 @@ please contact the number below.</value>
         <shortDescription>For Vehicle Picker</shortDescription>
         <value>Enter VIN number</value>
     </labels>
+	<labels>
+        <fullName>Equals</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Equals</shortDescription>
+        <value>Equals</value>
+    </labels>
     <labels>
         <fullName>Error_Message_1</fullName>
         <language>en_US</language>
@@ -2419,6 +2426,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Exception message</shortDescription>
         <value>DM Request Status could not be Updated Please contact System Administrator.</value>
+    </labels>
+	<labels>
+        <fullName>Exclude</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exclude</shortDescription>
+        <value>Exclude</value>
     </labels>
     <labels>
         <fullName>FAXCover</fullName>
@@ -2698,6 +2712,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Grand Total</shortDescription>
         <value>Grand Total</value>
+    </labels>
+	<labels>
+        <fullName>Greater_Than</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Greater Than</shortDescription>
+        <value>Greater Than</value>
     </labels>
     <labels>
         <fullName>Hand_Over</fullName>
@@ -3468,6 +3489,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Leagl Owner</shortDescription>
         <value>Leagl Owner</value>
+    </labels>
+	<labels>
+        <fullName>Less_Than</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Less Than</shortDescription>
+        <value>Less Than</value>
     </labels>
     <labels>
         <fullName>LimitQueries</fullName>
