@@ -389,10 +389,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Postal_Opt_Out__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Postal_Opt_Out_Reason__c</field>
             </layoutItems>
             <layoutItems>
