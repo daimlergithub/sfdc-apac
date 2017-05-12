@@ -111536,6 +111536,32 @@ window.open("OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJEC
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>New_DM_Request</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New DM Request</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>"{!URLFOR($Site.Prefix)}/a12/e? 
+retURL=%2Fa12%2Fo
+&amp;ent=Lead__c&amp;CF00N2800000A9CiT={!Lead__c.Contact__c}
+&amp;ent=Lead__c&amp;CF00N2800000A9CiT_lkid={! Lead__c.ContactId__c}
+&amp;ent=Lead__c&amp;CF00N2800000A9CiN={!Lead__c.Case__c} 
+&amp;ent=Lead__c&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c }
+&amp;ent=Lead__c&amp;CF00N2800000A9Cie={!Lead__c.Name}
+&amp;ent=Lead__c&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}"</url>
+    </webLinks>
+    <webLinks>
         <fullName>New_Sales_Lead</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>

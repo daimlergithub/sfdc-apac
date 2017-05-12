@@ -1,3 +1,9 @@
+/**
+* Utility for Trigger on Lead__c for TH(Thailand)
+*It will handle the lead reassinment funtionality and validation rules of TH market
+* Author: Dhanamjaya
+* Created Date : 2017-01-23
+*/
 public without sharing class  LeadHelperTH{
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
@@ -6,6 +12,7 @@ public without sharing class  LeadHelperTH{
     set<id> newmapid= new set<id>();
     
     Map<id, id> accUserMap = new Map<id, id>();
+    //it will handle the lead reassign functionality befor insert the lead  
         public void updateOwnerwithDealer(List<lead__c> leads){  
                        
             List<lead__c> leadslist=new List<lead__c>();
@@ -36,8 +43,27 @@ public without sharing class  LeadHelperTH{
             }
             
         }
+        //this will update dealername once the dealer is assigned.
+    public void updateAllWorkflowsActionsAfterInsert(List<lead__c> leads,boolean flag){
+    List<Lead__c> leadlist=[select id,RecordTypeID,md__c,assigned_dealer__c,Assigned_Dealer__r.Name from Lead__c where id=:leads];
+    List<lead__c> updatelist=new List<lead__c>();
+        for(Lead__c leadlst:leadlist){
+            if(leadlst.md__c=='TH'){
+                if(leadlst.assigned_dealer__c!=null){
+                    if(leadlst.RecordTypeId==salesRecordTypeId || leadlst.RecordTypeId==afterSalesRecordTypeId || leadlst.RecordTypeId==retailSalesRecordTypeId){
+                          
+                          leadlst.MBTH_Assigned_Dealer_Name__c=leadlst.Assigned_Dealer__c;
+                          updatelist.add(leadlst);
+                    }
+                }
+            }
+        }
+        if(updatelist.size()>0 && !flag ){
+            update updatelist;      
+        }
+    }
         
-    
+  //it will handle the lead reassign functionality befor update the lead  
     public void updateOwner(List<lead__c> leads){  
     
         for(Lead__c l:leads){
@@ -92,10 +118,10 @@ public without sharing class  LeadHelperTH{
     }
 
     }
-    
-                public  void leadValidation(List<lead__c> leadlist){
+    //it will handle all SARI validations of lead module
+  public  void leadValidation(List<lead__c> leadlist){
     Id profileId=userinfo.getProfileId();
-String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+    String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
         for(Lead__c listlead:leadlist){
            if(listlead.md__c==System.label.MarketTH){
             if((listlead.recordtypeid==afterSalesRecordTypeId || listlead.recordtypeid==salesRecordTypeId)&& profileName!='IntegrationAPI'){
@@ -125,7 +151,7 @@ String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
 }
 
     
-    
+ //this method is common for before update and before insert of leadreassigning functionality   
  public Static void updateOwnership(set<id> acc,List<Lead__c> leadlist){
 Map<id, id> accUserMap = new Map<id, id>();
 if(acc.size()>0){

@@ -45,3 +45,4 @@ TriggerCampaignTH,TRUE,TRUE,TRUE,TriggerCampaign,TRUE,TRUE,TRUE,TriggerCampaignT
 TriggerCaseTH,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,CaseTriggerHandlerTH,TH
 TriggerDMRequestKR,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequestTriggerHandlerJP,KR
 TriggerLeadTH,TRUE,TRUE,TRUE,TriggerLead,TRUE,TRUE,TRUE,LeadTriggerHandlerTH,TH
+TriggerSurveyTakerKR,TRUE,TRUE,TRUE,TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTakerTriggerHandlerKR,KR

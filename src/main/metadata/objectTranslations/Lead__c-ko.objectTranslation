@@ -1993,7 +1993,7 @@
     </fields>
     <fields>
         <help><!-- System filed, please ignore. System field , please do not bother. --></help>
-        <label><!-- Case --></label>
+        <label>Case</label>
         <name>Case__c</name>
         <relationshipLabel><!-- Leads --></relationshipLabel>
     </fields>
@@ -2214,6 +2214,10 @@
     <fields>
         <label><!-- Dealer Audit --></label>
         <name>Dealer_Audit__c</name>
+    </fields>
+    <fields>
+        <label>딜러 코멘트</label>
+        <name>Dealer_Comment__c</name>
     </fields>
     <fields>
         <label>딜러 코멘트</label>
@@ -15538,6 +15542,45 @@
         <name>X72H_Untouched__c</name>
     </fields>
     <layouts>
+        <layout>After-Sales Leads Layout Dealer KR</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Detail Information --></label>
+            <section>Detail Information</section>
+        </sections>
+        <sections>
+            <label>리드 고객 정보</label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label>리드 정보</label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label>리드 처리 정보</label>
+            <section>Lead Process Information</section>
+        </sections>
+        <sections>
+            <label>리드 요청 정보</label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>AfterSales Lead</layout>
         <sections>
             <label>사용자 지정 링크</label>
@@ -15805,6 +15848,49 @@
         <sections>
             <label><!-- Reference Information --></label>
             <section>Reference Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Sales Leads Layout Dealer KR</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>리드 고객 정보</label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label>리드 정보</label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label>리드 처리 정보</label>
+            <section>Lead Process information</section>
+        </sections>
+        <sections>
+            <label>리드 요청 정보</label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label>소개/추천인 정보</label>
+            <section>Reference Information</section>
+        </sections>
+        <sections>
+            <label>차량 정보</label>
+            <section>Vehicle Information</section>
         </sections>
     </layouts>
     
