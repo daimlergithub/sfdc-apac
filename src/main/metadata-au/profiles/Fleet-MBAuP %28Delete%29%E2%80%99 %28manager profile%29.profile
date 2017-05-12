@@ -11028,7 +11028,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Aftersales_VIN__c</field>
+        <field>Lead__c.AfterSales_VIN__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11038,7 +11038,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Aftersales_Vehicle__c</field>
+        <field>Lead__c.AfterSales_Vehicle__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
