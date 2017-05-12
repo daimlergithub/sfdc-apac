@@ -2773,6 +2773,11 @@
             <field>Subject</field>
             <table>Case.Activities</table>
         </columns> 
+		 <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Survey_Result_Link__c</field>
+            <table>Case.Activities</table>
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IsTask</field>
