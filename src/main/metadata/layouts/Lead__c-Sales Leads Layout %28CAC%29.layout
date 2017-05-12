@@ -5,6 +5,7 @@
     <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
+    <customButtons>New_DM_Request</customButtons>
     <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -940,6 +941,8 @@
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_DM_Request_Lead</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>
         <fields>Status__c</fields>

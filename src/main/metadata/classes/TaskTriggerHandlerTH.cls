@@ -1,3 +1,8 @@
+/**
+* Handler for Trigger on Task for TH(Thailand)
+* Author: Bhushan
+* Created Date : 2017-03-07
+*/
 public class TaskTriggerHandlerTH implements TriggerHandlerIf {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
     if(trigger.isInsert || trigger.isUpdate){
@@ -22,12 +27,12 @@ public class TaskTriggerHandlerTH implements TriggerHandlerIf {
          if(trigger.isBefore && trigger.isInsert)
         {
             TaskHelperTH.updateAccountMobile(trigger.new); 
-           // TaskHelperKR.CustomerConsenment(trigger.new);
+           
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
             TaskHelperTH.updateAccountMobile(trigger.new); 
-            //TaskHelperKR.CustomerConsenment(trigger.new);  
+             
         }
     }
     

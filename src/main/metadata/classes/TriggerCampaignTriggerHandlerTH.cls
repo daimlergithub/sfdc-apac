@@ -1,8 +1,13 @@
+/**
+* Handler for Trigger on Campaign for TH(Thailand)
+* Author: Bhushan
+* Created Date : 2017-03-02
+*/
 public class TriggerCampaignTriggerHandlerTH implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        system.debug('@@@');
+        
         Map<Id,Campaign> oldmap = (Map<Id,Campaign>)trigger.oldmap;
         Map<Id,Campaign> newmap = (Map<Id,Campaign>)trigger.newmap;
          
@@ -16,9 +21,9 @@ public class TriggerCampaignTriggerHandlerTH implements TriggerHandlerIf
         }
         if(trigger.isAfter && trigger.isInsert)
         {
-        system.debug('@@@11');
+        
             CampaignHelperTH.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate); 
-            CampaignHelperTH.afterInsertEvents_CampaignShare(Trigger.new,oldmap);
+         //   CampaignHelperTH.afterInsertEvents_CampaignShare(Trigger.new,oldmap);
                  
         }
         if(trigger.isAfter && trigger.isUpdate)

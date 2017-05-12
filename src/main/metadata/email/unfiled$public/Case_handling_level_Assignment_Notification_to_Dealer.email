@@ -1,0 +1,17 @@
+Dear {!Case.Case_Dealer__c},
+CCC user has changed the handling level to Dealer  for this case .  . Below are the details and the URL :
+
+{!Case.Link}
+
+     Case no. : {!Case.CaseNumber} 
+     Customer : {!Case.Contact} 
+     Chassis no. / Registration Plate no. : {!Case.Registration_Number__c} 
+     Date : {!Case.CreatedDate} 
+     Message : {!Case.MPC_Internal_Notes__c}
+
+Please provide us with feedback on this case and let us know whether you contacted the customer.  Kindly update customer data in DMS and note in attached excel file if customer data has been changed.  Thank you in advance for your kind cooperation. 
+
+Best regards,
+Customer Contact Center,  Mercedes-Benz MBTh
+Phone : 1250 
+Email : CCC_mbth@daimler.com"
