@@ -9597,34 +9597,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Product Information</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Broucher</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Information</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Book-in</fullName>
                 <default>false</default>
             </picklistValues>
@@ -10014,39 +9986,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Job Card Issue</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Handover</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WIP Linkage</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Check Out</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Registration</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lost</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -12350,20 +12294,8 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Payment Mode</label>
         <picklist>
-			<picklistValues>
-                <fullName>Cash</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Cheque</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>Credit Card</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Debit Card</fullName>
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
@@ -12384,10 +12316,6 @@ Modify Reason:
             </picklistValues>
 			<picklistValues>
                 <fullName>Transfer</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Voucher</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12592,16 +12520,8 @@ Modify Reason:
                 <fullName>Phone</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
-                <fullName>Post</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>Phone and Email</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12977,42 +12897,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Range 17</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>&lt;2.0 Million THB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.0-2.99 Million THB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3.0-4.99 Million THB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5.0-6.99 Million THB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>7.0-8.99 Million THB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>9.0-10.99 Million THB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>11.0-12.99 Million THB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>13.0-14.99 Million THB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>&gt;= 15 Million THB</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
