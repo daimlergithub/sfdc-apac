@@ -599,7 +599,7 @@ public class LeadHelperJP
                     }      
                 }
             }
-            else if(isInsert || (isUpdate && (led.Company_Account__c != oldLeadmap.get(led.id).Company_Account__c || led.Contact__c != oldLeadmap.get(led.id).Contact__c))){
+            else if(isInsert || (isUpdate && (led.Company_Account__c != oldLeadmap.get(led.id).Company_Account__c || led.Contact__c != oldLeadmap.get(led.id).Contact__c || led.CAC_Lead_Status__c != oldLeadmap.get(led.id).CAC_Lead_Status__c))){
                 system.debug('Conditions are saisfied11111111'+led.Retail_Contact__c);
                 if(led.Contact__c != null && led.Company_Account__c != null && led.CAC_Lead_Status__c == 'Allocated' && (led.RecordtypeId == salesRecordTypeId || led.RecordtypeId == afterSalesRecordTypeId )){
                 //&& (RecordType.DeveloperName == 'Sales_Leads' || RecordType.DeveloperName == 'Aftersales_Leads') && led.Company_Account__c != null
