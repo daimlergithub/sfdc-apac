@@ -1,3 +1,8 @@
+/**
+* Utility for Trigger on DM Request for TH(Thailand)
+* Author: Bhushan K
+* Created Date : 2017-03-08
+*/
 public with sharing class  DMRequestHelperTH {
     
      
@@ -11,7 +16,7 @@ public with sharing class  DMRequestHelperTH {
         string nullValue ='';
         String province;
         Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-        UtilAddressTranslation.gettranslatedvalues('JP');
+        UtilAddressTranslation.gettranslatedvalues('TH');
                  //get the accountIds 
                 for(DM_Request__c lstDMR:triggerNew){
                     CustomerId.add(lstDMR.Customer_Name__c);
@@ -134,13 +139,8 @@ public with sharing class  DMRequestHelperTH {
                 }  
               
         //query for DM_Request__c 
-                if(Usr.Market__C=='JP'){
-                    DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_90_DAYS and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
-                }
-                else If(Usr.Market__C=='KR'){
-                    DMList=[select Id,Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c <= LAST_N_DAYS:60 and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
-                }  
-                 else If(Usr.Market__C=='TH'){
+               
+                  If(Usr.Market__C=='TH'){
                     DMList=[select Id,Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c <= LAST_N_DAYS:90 and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
                 }  
              for(DM_Request__c lstDMR:DMList){

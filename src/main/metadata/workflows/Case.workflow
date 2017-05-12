@@ -89,7 +89,7 @@
             <type>email</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TH_Case_Escalation_Email</template>
+        <template>unfiled$public/Case_escalation_Inquiry_after_24_hours_TH</template>
     </alerts>
     <alerts>
         <fullName>Case_escalation_for_MB_Complaint_TH</fullName>
@@ -100,7 +100,7 @@
             <type>email</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TH_Case_Escalation_Email</template>
+        <template>unfiled$public/Case_escalation_MB_Complaint_after_72_hours_TH</template>
     </alerts>
     <alerts>
         <fullName>Case_handing_level_email_to_Notification</fullName>
@@ -1382,7 +1382,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1414,7 +1414,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1446,7 +1446,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1478,7 +1478,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1510,7 +1510,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1542,7 +1542,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1574,7 +1574,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1606,7 +1606,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
