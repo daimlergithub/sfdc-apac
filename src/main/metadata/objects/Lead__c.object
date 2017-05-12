@@ -27570,10 +27570,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Leasing</fullName>
                 <default>false</default>
             </values>
@@ -39969,10 +39965,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Book-in</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Broucher</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
@@ -39981,24 +39973,8 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Campaign</fullName>
 				<default>false</default>
             </values>
-            <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Product Information</fullName>
                 <default>false</default>
             </values>
 			<values>
@@ -40007,10 +39983,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
 			<values>
                 <fullName>Service Booking</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Service Information</fullName>
                 <default>false</default>
             </values>
 			<values>
@@ -40023,10 +39995,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Used Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -52684,35 +52652,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Broucher</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Information</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52725,10 +52669,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -65500,35 +65440,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Broucher</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Information</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -65541,10 +65457,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -78837,14 +78749,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Service Booking</fullName>
                 <default>false</default>
@@ -91409,10 +91313,6 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
 			<values>
-                <fullName>Broucher</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
@@ -91424,28 +91324,8 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Catalogue</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-				<default>false</default>
-            </values>
-            <values>
-                <fullName>Product Information</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Information</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91454,10 +91334,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
