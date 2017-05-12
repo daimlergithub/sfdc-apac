@@ -55436,7 +55436,7 @@ AND(RecordType.DeveloperName = &apos;Dealer&apos;, ISCHANGED(Name), $Profile.Nam
     </validationRules>
     <validationRules>
         <fullName>Details_of_The_Acquisition_mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>"Details of The Acquisition" need to be mandatory only if "Acquisition Objective &amp; Method" is "Others"</description>
         <errorConditionFormula>AND(ISPICKVAL( Acquisition_Objective_Method__c , 'Others'), ISBLANK( Details_of_Acquisition__c ) , MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
         <errorDisplayField>Details_of_Acquisition__c</errorDisplayField>
