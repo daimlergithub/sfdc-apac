@@ -5,7 +5,6 @@
     <customButtons>Print_Dealer_PDF</customButtons>
 	<excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>	
     <excludeButtons>ChangeOwnerOne</excludeButtons>
 	<excludeButtons>Clone</excludeButtons>
