@@ -56759,7 +56759,7 @@ alert('This function available only for Japan user');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT($Site.Prefix & "/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 if(typeof(srcUp) == 'function') {
 
@@ -56789,7 +56789,7 @@ window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT($Site.Prefix & "/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
 
