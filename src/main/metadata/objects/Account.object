@@ -56312,7 +56312,7 @@ MD__c = &apos;JP&apos;
 		<fullName>Invalid_ZipCode_TH</fullName>
 		<active>true</active>
 		<description>Zipcode is not 5 digits long</description>
-		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[09]{5}&quot;)), 
+		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[0-9]{5}&quot;)), 
 		$Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;TH&apos;)</errorConditionFormula>
 		<errorDisplayField>ZipCode__c</errorDisplayField>
 		<errorMessage>Zipcode is not 5 digits long</errorMessage>
