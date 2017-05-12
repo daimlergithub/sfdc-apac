@@ -5396,10 +5396,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
 			</picklistValues>
 		<picklistValues>
             <picklist>vehicle_fax_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+		      
             <values>
                 <fullName>FAX</fullName>
                 <default>false</default>
@@ -5459,11 +5456,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
 			</picklistValues>
 			<picklistValues>
-            <picklist>vehicle_fax_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            <picklist>vehicle_fax_picklist__c</picklist> 
             <values>
                 <fullName>FAX</fullName>
                 <default>false</default>
@@ -5472,26 +5465,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Work FAX</fullName>
                 <default>false</default>
             </values> 
-			</picklistValues>
-			<picklistValues>
-            <picklist>Vehicle_Phone_picklist__c</picklist>
-		    <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Work</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyMercedes Email</fullName>
-                <default>false</default>
-            </values>
-			</picklistValues>
+			</picklistValues> 
         <picklistValues>
             <picklist>Warranty_Apply_Status__c</picklist>
             <values>
