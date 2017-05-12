@@ -515,6 +515,11 @@
             <field>Contact_Type__c</field>
             <table>Case</table>
         </columns>
+		      <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Survey_Result_Link__c</field>
+             <table>Case.Activities</table>
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contract_document_requested_date__c</field>
@@ -2772,12 +2777,16 @@
             <checkedByDefault>true</checkedByDefault>
             <field>Subject</field>
             <table>Case.Activities</table>
+<<<<<<< HEAD
+        </columns>  
+=======
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Survey_Result_Link__c</field>
             <table>Case.Activities</table>
         </columns>
+>>>>>>> parent of f0fb12b... Removed survey_result_link__c field from task object
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IsTask</field>

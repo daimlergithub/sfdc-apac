@@ -55357,7 +55357,7 @@ NOT(Dealer_Active__c)
     <validationRules>
         <fullName>Data_Source_other_than_Dealer</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( NOT(ISPICKVAL( Data_Source__c , "Dealer Outlet")), NOT( ISPICKVAL( Acquisition_Objective_Method__c , "") ), MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
+        <errorConditionFormula>AND( NOT(ISPICKVAL( Data_Source__c , "Dealer Outlet")), ISCHANGED(Acquisition_Objective_Method__c) , NOT( ISPICKVAL( Acquisition_Objective_Method__c , "") ), RecordType.DeveloperName = 'PersonAccount', MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>You cant select value for Acquisition Objective &amp; Method if date source is not Dealer Out.</errorMessage>
     </validationRules>	

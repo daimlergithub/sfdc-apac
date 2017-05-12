@@ -219,6 +219,7 @@
         <customButtons>New_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
+		<customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Upload_Campaign_Member_Response</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_DM_Request</customButtons>
