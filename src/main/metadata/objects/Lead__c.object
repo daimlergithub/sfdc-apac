@@ -80097,42 +80097,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Price_Range__c</picklist>
-            <values>
-                <fullName>%3C2%2E0 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>%3E%3D 15 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%2E0-12%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>13%2E0-14%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%2E0-2%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>3%2E0-4%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%2E0-6%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>7%2E0-8%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%2E0-10%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
@@ -92652,42 +92616,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Price_Range__c</picklist>
-            <values>
-                <fullName>%3C2%2E0 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>%3E%3D 15 Million THB</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>11%2E0-12%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>13%2E0-14%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>2%2E0-2%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%2E0-4%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>5%2E0-6%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>7%2E0-8%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%2E0-10%2E99 Million THB</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
