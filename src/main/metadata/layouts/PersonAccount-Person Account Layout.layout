@@ -867,7 +867,6 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>

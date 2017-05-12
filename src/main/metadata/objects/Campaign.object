@@ -12118,6 +12118,7 @@
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Status__c</picklist>
+
             <values>
                 <fullName>Completed</fullName>
                 <default>false</default>
