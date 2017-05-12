@@ -5274,6 +5274,16 @@
         <field>Address__c.Address_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Address_Type_Last_Modified_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Address_Last_Modified_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Block_Native__c</field>
@@ -11783,7 +11793,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Aftersales_VIN__c</field>
+        <field>Lead__c.AfterSales_VIN__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11793,7 +11803,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Aftersales_Vehicle__c</field>
+        <field>Lead__c.AfterSales_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12684,6 +12694,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Last_Successful_Call__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Lead_Last_Modified_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
