@@ -27394,10 +27394,10 @@
         <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>CreateCustomizeReports</name>
-    </userPermissions>
+    </userPermissions>-->
     <userPermissions>
         <enabled>true</enabled>
         <name>CreateTopics</name>
