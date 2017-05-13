@@ -897,10 +897,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadVehiclePickerTHControllerTests</apexClass>
-		<enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadcustomClone</apexClass>
         <enabled>true</enabled>
     </classAccesses>

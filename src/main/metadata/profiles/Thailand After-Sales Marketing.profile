@@ -176,11 +176,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__LightningService</application>
         <default>false</default>
         <visible>true</visible>
@@ -972,10 +967,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadVehiclePickerTHControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LeadVehiclePickerTHControllerTests</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
