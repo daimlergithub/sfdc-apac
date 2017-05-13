@@ -23,8 +23,8 @@ public class TaskHelperTHTest {
     public static Case aCase;
     public static string acme = 'Acme';
     public static String Unknown = 'Unknown';
-    /*Trigger__C taskTrigger = new Trigger__C(name='TaskTriggerTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='TaskTriggerHandlerTH',Trigger_Name__c='TaskTrigger',update__c=true);
-    insert taskTrigger;*/
+    /*Trigger__C taskTrigger = new Trigger__C(name='TaskTriggerTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='TaskTriggerHandlerTH',Trigger_Name__c='TaskTrigger',update__c=true);
+    insert taskTrigger;*/
     /*Trigger__C TaskTrigger=new Trigger__C(name='TaskTrigger',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='TaskTriggerHandlerTH',Trigger_Name__c='TaskTrigger',update__c=true);
      insert TaskTrigger;*/
     private static testMethod void testGenerateMultipleQCs()
@@ -108,39 +108,40 @@ public class TaskHelperTHTest {
     
     @isTest
     public static void testCopyCampaignName() {
-        //Gets Task record type ids
-        String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-        createTestData();
+        Profile taskprofile = [select id from profile where Name='System Administrator' limit 1];
+        User userTask = new User(LastName='TaskUser',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='samTask@usgboral.com.dev01',Market__c = 'TH');
+        insert userTask;
+        System.runas(userTask){
+            //Gets Task record type ids
+            String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+            createTestData();
+            
+            Test.startTest();
+            //Inserts test data
+            Account acc = new Account(LastName = acme,FirstName = 'Firstname2',Salutation = Unknown, Area_Code__c = '0102',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau2.com',Email2__c = 'testemail2@test2.com',Home_Phone_2__c = '0987654132');
+            insert acc;
+            Campaign cam1 = new Campaign(Name = 'acmeCam1');
+            insert cam1;
+            Campaign cam2 = new Campaign(Name = 'acmeCam2');
+            insert cam2;
+            Task task = new Task(Subject = acme,QC_Quantity__c=2,RecordTypeId = IBTaskRecordTypeId, WhatId = cam1.Id);
+            insert task;
+            List<Task> tasks = new List<Task>();
         
-        Test.startTest();
-        //Inserts test data
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname2',Salutation = Unknown, Area_Code__c = '0102',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau2.com',Email2__c = 'testemail2@test2.com',Home_Phone_2__c = '0987654132');
-        insert acc;
-        Campaign cam1 = new Campaign(Name = 'acmeCam1');
-        insert cam1;
-        Campaign cam2 = new Campaign(Name = 'acmeCam2');
-        insert cam2;
-        Task task = new Task(Subject = acme,QC_Quantity__c=2,RecordTypeId = IBTaskRecordTypeId, WhatId = cam1.Id);
-        insert task;
-        List<Task> tasks = new List<Task>();
-        
-       
-        
-        
-        task.WhatId = cam2.Id;
-        update task;
-        
-         Task taskcam2 = new Task(Subject = acme,QC_Quantity__c=2,RecordTypeId = OBTaskRecordTypeId, WhatId = cam2.Id);
-        insert taskcam2;
-        
-        tasks.add(task);
-        tasks.add(taskcam2);
-        
-        Map<Id, Task> TaskMap = new Map<Id, Task>(); 
-        TaskMap.put(task.id, task);
-        TaskMap.put(taskcam2.id, taskcam2);
-       
-        taskHelper.FillintheCampaignNameBasedontheRelatedtoObject(tasks, taskMap, true, false);
+            task.WhatId = cam2.Id;
+            update task;
+            
+             Task taskcam2 = new Task(Subject = acme,QC_Quantity__c=2,RecordTypeId = OBTaskRecordTypeId, WhatId = cam2.Id);
+            insert taskcam2;
+            
+            tasks.add(task);
+            tasks.add(taskcam2);
+            
+            Map<Id, Task> TaskMap = new Map<Id, Task>(); 
+            TaskMap.put(task.id, task);
+            TaskMap.put(taskcam2.id, taskcam2);
+           
+            taskHelper.FillintheCampaignNameBasedontheRelatedtoObject(tasks, taskMap, true, false);
         // TaskHelper.Reply_TD_unsubscribeForeachSMScontent(tasks, TaskMap, true, false);
             system.debug('%%%%%%%'+tasks);
             system.debug('#######'+taskMap);
@@ -149,10 +150,10 @@ public class TaskHelperTHTest {
         
         
         
-        Test.stopTest();
-        system.assertEquals(acc.LastName,acme);
-        system.assert(cam1.id!=null);
-        
+            Test.stopTest();
+            system.assertEquals(acc.LastName,acme);
+            system.assert(cam1.id!=null);
+        }
     }
     
   /*  @isTest
@@ -239,19 +240,33 @@ public class TaskHelperTHTest {
     }
     
     
-    static testmethod void testrecordTypeUpdate_Generaltask()
+   /* static testmethod void testrecordTypeUpdate_Generaltask()
     {
       User userobj = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
-      
+      userobj.market__c = 'TH';
+      update userobj;
       System.runAs(userobj) 
       {
           Test.startTest();
           
           createTestData();
-          // Person Contact                
-          Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);    
+          // Person Contact 
           
-          Contact conComplaint = new Contact(AccountId = dealer.Id, Salutation='Attorney',FirstName='testFirstname',LastName = 'testLastname', Phone = '0123456789', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
+        account= new Account();
+        account.Phone='09844650654';
+          account.Email__c = 'testemail@test.com';
+       
+        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account); 
+                         
+        /*  Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+          dealer.md__c='TH';
+          dealer.Mobile__c = '+66-03-777-9999';
+          dealer.Individual_Home_Phone__c = '000-00-000-964';
+          dealer.Home_Phone_2__c = '000-00-000-962';
+          dealer.Work_Phone__c = '000-00-000-942';
+          dealer.Email__c = 'testing.test@test.com';
+          insert dealer;*/
+       /*   Contact conComplaint = new Contact(AccountId = dealer.Id, Salutation='Attorney',FirstName='testFirstname',LastName = 'testLastname', Phone = '0123456789', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true,md__c='TH');
           insert conComplaint;
             Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                                Message_Detail__c = '{DEALER_name}', Name = 'lai');
@@ -276,7 +291,7 @@ public class TaskHelperTHTest {
             TaskHelper.autoUpdateSSITask(userID);
             system.assertEquals(dealer.id, conComplaint.AccountId);
         } 
-    }
+    }*/
     
     static testmethod void testcreateSMSTaskAfterIBCall()
     {
@@ -317,7 +332,7 @@ public class TaskHelperTHTest {
     static void createTestData()
     {
         
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingTH.customSettingDetails();
         insert updatecustomsettings;
         
         personAccount = new Account(LastName='TEST ACC',
