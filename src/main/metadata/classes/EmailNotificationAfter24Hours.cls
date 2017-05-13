@@ -21,9 +21,25 @@ public class EmailNotificationAfter24Hours{
         String afterSalesmanagermail;
         String salesManagermail;
         Id leadOwnerIDs;
+        String communityName='Daimler Community Thailand';
+        boolean flag1=false;
+        String commubaseurl;
         List<Lead__c> leadList=[select id,RecordTypeID,assigned_dealer__r.name,lead_desired_service__c,Contact__r.name,name,Dealer_DMS_Comments__c,createddate,createdbyid,assigned_dealer__r.Dealer_Aftersales_Manager_Email__c,assigned_dealer__r.Dealer_Sales_Manager_Email__c,ownerId from Lead__c where id=:ListId ];
-       Network myNetwork = [SELECT Id FROM Network WHERE Name ='Daimler Community Thailand' limit 1];
-       String commurl=Network.getLoginUrl(myNetwork.id)+'/'+leadList[0].id;
+       List<Network>  myNetwork = [SELECT Id,Name FROM Network];
+       for(Network net:myNetwork){
+           if(net.name==communityName){
+           flag1=true;
+           commubaseurl=Network.getLoginUrl(net.id)+'/';
+           break;
+           }
+       }
+       String commurl;
+       if(flag1){
+       commurl=commubaseurl+''+leadList[0].id;
+       }
+       else{
+       commurl='No Thailand community Exists';
+       }
         message.setTargetObjectId(leadList[0].ownerid);
         message.setSaveAsActivity(false);
         String name=leadlist[0].name;
