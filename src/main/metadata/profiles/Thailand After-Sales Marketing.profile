@@ -935,10 +935,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadReassign</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
