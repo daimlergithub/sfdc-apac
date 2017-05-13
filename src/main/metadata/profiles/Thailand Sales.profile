@@ -25182,10 +25182,6 @@
         <recordType>PersonAccount.ThirdParty</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-PA Layout-Soft Deleted</layout>
-        <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>PersonAccount-Person Account Layout TH</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
