@@ -10126,11 +10126,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.MBTH_Case_Department_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Case.MBTH_Case_Subtype__c</field>
         <readable>true</readable>
     </fieldPermissions>
