@@ -27,7 +27,7 @@ public class TaskHelperTHTest {
     insert taskTrigger;*/
     /*Trigger__C TaskTrigger=new Trigger__C(name='TaskTrigger',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='TaskTriggerHandlerTH',Trigger_Name__c='TaskTrigger',update__c=true);
      insert TaskTrigger;*/
-    private static testMethod void testGenerateMultipleQCs()
+  /*  private static testMethod void testGenerateMultipleQCs()
     {
         //Gets Task record type ids
         
@@ -104,7 +104,7 @@ public class TaskHelperTHTest {
         system.assert(ssi.id!=null);
         system.assertEquals(task.WhatId,ssi.id);
         system.assertEquals(task.Activity_Status__c,'Successful');
-    }
+    } */
     
     @isTest
     public static void testCopyCampaignName() {
@@ -141,61 +141,13 @@ public class TaskHelperTHTest {
             TaskMap.put(task.id, task);
             TaskMap.put(taskcam2.id, taskcam2);
            
-            taskHelper.FillintheCampaignNameBasedontheRelatedtoObject(tasks, taskMap, true, false);
-        // TaskHelper.Reply_TD_unsubscribeForeachSMScontent(tasks, TaskMap, true, false);
-            system.debug('%%%%%%%'+tasks);
-            system.debug('#######'+taskMap);
-     
-       // taskHelperTH.GenerateMultipleQCs(tasks);
-        
-        
-        
             Test.stopTest();
             system.assertEquals(acc.LastName,acme);
             system.assert(cam1.id!=null);
         }
     }
     
-  /*  @isTest
-    public static void testCreatSMSTask() {
-        //Gets Task record type ids
-       
-        String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
-        Test.startTest();
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname3',Salutation = Unknown, Area_Code__c = '0103', Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130111',PersonOtherPhone = '130112',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '0987654134');
-        Account acccase = new Account(LastName = acme,FirstName = 'Firstname4',Salutation = Unknown, Area_Code__c = '0104',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130112',PersonOtherPhone = '130113',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '0987654135');
-        insert acc;
-        insert acccase;
-        
-        String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        
-        Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '0123456789', Name = 'testdealer');
-        insert dealer;
-        
-     /*   Case c1 = new Case(RecordTypeId = MBRecordtypeid, Contact_Number__c = '13701270002', Case_Dealer__c = dealer.Id);
-        c1.AccountId = acccase.id;
-        insert c1;*/
-        
-     /*   Task task1 = new Task(RecordTypeId = IBTaskRecordTypeId, IB_Call_Type__c = 'Inbound', IB_Status__c = 'Valid');
-        Task task2 = new Task(RecordTypeId = IBTaskRecordTypeId, IB_Call_Type__c = 'Inbound', IB_Status__c = 'Valid');
-        task1.WhatId = acc.id;
-      //  task2.WhatId = c1.id;
-        task1.IB_Status__c='You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188';
-        insert task1;
-        insert task2;
-        
-     //   task2.InteractionIds__c=c1.id;
-        task2.Status = 'Closed';
-        update task2;
-        List<Task> tasks1 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
-            IB_Status__c = 'You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188' 
-            AND Phone__c = '13701270000'];
-       
-        Test.stopTest();   
-        system.assertEquals(dealer.RecordTypeId,DealerRecordtypeid);
-        system.assertEquals(task1.WhatId,acc.id);
-        system.assert(tasks1!=null);
-    } */
+ 
     
     static testmethod void testTaskFailBlacklistTrigger_Insert()
     {
@@ -240,58 +192,7 @@ public class TaskHelperTHTest {
     }
     
     
-   /* static testmethod void testrecordTypeUpdate_Generaltask()
-    {
-      User userobj = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
-      userobj.market__c = 'TH';
-      update userobj;
-      System.runAs(userobj) 
-      {
-          Test.startTest();
-          
-          createTestData();
-          // Person Contact 
-          
-        account= new Account();
-        account.Phone='09844650654';
-          account.Email__c = 'testemail@test.com';
-       
-        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account); 
-                         
-        /*  Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-          dealer.md__c='TH';
-          dealer.Mobile__c = '+66-03-777-9999';
-          dealer.Individual_Home_Phone__c = '000-00-000-964';
-          dealer.Home_Phone_2__c = '000-00-000-962';
-          dealer.Work_Phone__c = '000-00-000-942';
-          dealer.Email__c = 'testing.test@test.com';
-          insert dealer;*/
-       /*   Contact conComplaint = new Contact(AccountId = dealer.Id, Salutation='Attorney',FirstName='testFirstname',LastName = 'testLastname', Phone = '0123456789', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true,md__c='TH');
-          insert conComplaint;
-            Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                               Message_Detail__c = '{DEALER_name}', Name = 'lai');
-            insert tem1;
-            
-          list<task> lstTask= new List<task>();
-          for(integer i=0;i<5;i++)
-          {
-            Task testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
-                                        WhoId=conComplaint.id,
-                                        Activity_Status__c='Sent',SMSTemplateID__c=tem1.id,SMS_Content__c='Thank you for your call,your feedback from the Mercedes-Benz customer service hotline has received, officials will continue to investigate the situation,get in touch with you ASAP.['+'Mercedes-Benz Service Center 4008181188'+']'
-                                        );
-                
-            lstTask.add(testSMSTask);                             
-          }
-          insert lstTask;
-            
-          //TaskHelperTH.recordTypeUpdate_Generaltask(lstTask);  
-          Test.stopTest();
-            set<id> userID =new set<id>();
-            userID.add(userobj.id);
-            TaskHelper.autoUpdateSSITask(userID);
-            system.assertEquals(dealer.id, conComplaint.AccountId);
-        } 
-    }*/
+   
     
     static testmethod void testcreateSMSTaskAfterIBCall()
     {
