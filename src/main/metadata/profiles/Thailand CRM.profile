@@ -362,10 +362,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AddressValidationControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AnnouncementController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
