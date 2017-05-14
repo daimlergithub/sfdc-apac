@@ -122,6 +122,9 @@
 						<sf:include name="Retail_Campaigns"/>
 					</sf:typeset>
 					<sf:typeset name="classes">
+						<sf:include name="WSMockAddressValidationRespAddrSucess"/>
+						<sf:include name="WSMockAddressValidationRespInvalidAddrTH"/>
+						<sf:include name="AddressSearchValidationControllerTest"/>
 						<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
