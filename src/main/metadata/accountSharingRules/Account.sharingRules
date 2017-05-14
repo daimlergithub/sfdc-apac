@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <criteriaBasedRules>
+    <sharingCriteriaRules>
+        <fullName>Account_Sharing_Rule_TH</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>Account Sharing Rule TH</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH_Call_Center</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>1</booleanFilter>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+	<criteriaBasedRules>
         <fullName>Dealer_Account_Edit_Only_for_CRM</fullName>
         <sharedTo>
             <role>MBJ_CRM_Department_Approver</role>
@@ -534,6 +553,24 @@
         <name>Test</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
+	<sharingCriteriaRules>
+        <fullName>TH_Account_Sharing_ReadAccess</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>TH_Account Sharing_ReadAccess</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MPC</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
     <criteriaBasedRules>
         <fullName>VIP_CUSTOMER_Share_with_RW</fullName>
         <sharedTo>
