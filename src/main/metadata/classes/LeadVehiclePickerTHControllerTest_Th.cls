@@ -24,6 +24,7 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
         User us = TestClassHelper.createUser('User1PH',profile,'TH');
         insert US;
         system.runAs(US){
+        test.starttest();
             Lead__c Ld = TestClassHelper.CreateLeadRec();
             ld.MD__c='TH';
             insert ld;
@@ -75,7 +76,9 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
             clearVehicleDetails.put('VehicleType','Purchased');
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
             system.assertEquals(clearVehicleDetails.get('VehicleType'),'Purchased');
+            test.stoptest();
             LeadVehiclePickerTHController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
+            
         }
     } 
     
@@ -87,6 +90,7 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
         User us = TestClassHelper.createUser('User2PH',profile,'TH');
         insert US;
         system.runAs(US){
+        test.starttest();
             Lead__c Ld = TestClassHelper.CreateLeadRec();
             ld.MD__c='TH';
             insert ld;
@@ -143,8 +147,10 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
             clearVehicleDetails.put('CurrentRecordId',ld.Id);
             clearVehicleDetails.put('Lookup','true');
             clearVehicleDetails.put('Id', vhCompetitor.id);
+            test.stoptest();
             system.assertEquals(clearVehicleDetails.get('VehicleType'),'Purchased');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
+            
         }
     } 
     /***************************************************
@@ -155,6 +161,7 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
         User us = TestClassHelper.createUser('User3PH',profile,'TH');
         insert US;
         system.runAs(US){
+        test.starttest();
             Lead__c Ld = TestClassHelper.CreateLeadRec();
             ld.MD__c='TH';
             insert ld;
@@ -247,6 +254,7 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
             clearVehicleDetails.put('Model','A00');
             clearVehicleDetails.put('Mileage','100');
             clearVehicleDetails.put('Operation','New');
+            test.stoptest();
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
         }
     } 
@@ -256,10 +264,12 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
     // updateVehicleDetails edit
     public static testMethod void TestCase4(){
         Profile profile = [Select Id from Profile where Name = 'System Administrator'];
+         test.starttest();
         User us = TestClassHelper.createUser('User4PH',profile,'TH');
         insert US;
         system.runAs(US){
             Lead__c Ld = TestClassHelper.CreateLeadRec();
+           
             ld.MD__c='TH';
             insert ld;
             ApexPages.StandardController sc = new ApexPages.StandardController(ld);
@@ -352,6 +362,7 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
             clearVehicleDetails.put('Mileage','100');
             clearVehicleDetails.put('Operation','Edit');
             LeadVehiclePickerTHController.updateVehicleDetails(JSON.serialize(clearVehicleDetails));
+            test.stoptest();
         }
     } 
     /***************************************************
@@ -360,6 +371,7 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
    
     public static testMethod void TestCase5(){
         Profile profile = [Select Id from Profile where Name = 'System Administrator'];
+        test.starttest();
         User us = TestClassHelper.createUser('User5PH',profile,'TH');
         insert US;
         system.runAs(US){
@@ -412,6 +424,7 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
             lookupSearchDetails.put('VehicleType','Competitor Vehicle');
             lookupSearchDetails.put('VIN','');
             LeadVehiclePickerTHController.searchVehicles(JSON.serialize(lookupSearchDetails));
+            test.stoptest();
         }
      }
      //dhanam
@@ -421,24 +434,22 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
     /********************* CREATING TEST DATA : START **************************/
         
        Id devRecordTypeId  = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-  system.debug('id is'+devRecordTypeId);
-   Account dealer=new Account();
+
+       Account dealer=new Account();
          
         dealer.RecordTypeId = devRecordTypeId;
         dealer.Dealer_Alternate_Name__c = 'Test Alternate';
         dealer.Phone = '+66-03-777-9999';
         dealer.LastName='test';
         dealer.email__c='Dhanamjaya@gmail.com';
-         dealer.Individual_Home_Phone__c='+66-12-123-789';
-         insert dealer;
-
-   testLead=new Lead__c();
-
-    insert testLead;
-    con = new Contact (LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
+        dealer.Individual_Home_Phone__c='+66-12-123-789';
+        insert dealer;
+        testLead=new Lead__c();
+        insert testLead;
+        con = new Contact (LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
         insert con;  
         vehicle=new vehicle__c();
-    vehicle.UsVIN__c = 'usvin111111111111'; 
+        vehicle.UsVIN__c = 'usvin111111111111'; 
         vehicle.EuroVIN__c = 'eurovin1234567890';
         vehicle.Brand__c = 'MB';
         vehicle.Class__c = 'A-Class';
@@ -446,32 +457,19 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
         vehicle.Colour__c = 'white';
         vehicle.CommissionNumber__c = '123456';
         insert vehicle;    
-   
-   
         UtilConstant utilConst = new UtilConstant();     
-
-        
         testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
-        system.debug('Test Vehicle1' +testVehicleMB);                                              
-        
         testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), utilConst.VEHICLE_PRODUCT);
-        system.debug('Test Vehicle2' +testVehicle_VehicleProduct);
-        
-        //Create Car Models
         List<String> carStatus = new List<String>{'Own Sellable', 'Own Non Sellable','Competitor'};
         List<String> brands = new List<String>{'AMG','Others','TRUCKS','Maybach'};
         List<String> classes = new List<String>{'A-CLASS','B-CLASS','C-CLASS','C-CLASS'};
         List<String> models = new List<String>{'A160','A180','B200','C200K Elegance'};
-        
         carModels = new List<Car_Model__c>();
         for (Integer i=0; i<4; i++){
             carModels.add(new Car_Model__c());
         }
-        carModels = (List<Car_Model__c>)UtilTestData.createSobjects(carModels, '');
-        system.debug('Car Models :' +carModels);
-        
+        carModels = (List<Car_Model__c>)UtilTestData.createSobjects(carModels, '');      
         for (Integer i=0; i<4; i++){
-        
             if (i<3){
                 carModels[i].Status__c = carStatus[i];
             }
@@ -481,21 +479,25 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
             carModels[i].Name = models[i];
         }
         update carModels;
-        system.debug('Updated Car Models...' +carModels);
     }
-    
-    
+
     public static testMethod void testCarModels(){
         UtilConstant utilConst = new UtilConstant();
+        test.starttest();
+        Profile profile = [Select Id from Profile where Name = 'System Administrator'];
+        User us = TestClassHelper.createUser('User1PH',profile,'TH');
+        insert US;
         createTestData();
-        test.StartTest();
+        system.runAs(US){
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerTHController vpc = new LeadVehiclePickerTHController(sc);
         carModelMap = LeadVehiclePickerTHController.getCarModels('None');
         Map<String, Set<String>> tempMap = carModelmap[0];
         test.StopTest();
         System.assertEquals(tempMap.size(),4);
-          
+        
+        }
+     
     }
     
     public static testMethod void error(){
@@ -510,11 +512,10 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
         update testLead;
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerTHController vpc = new LeadVehiclePickerTHController(sc);
-        test.StopTest();
-        
         testLead.Lead_Desired_Service__c='Trade-In';
-      update testlead;
-    ApexPages.StandardController sc1 = new ApexPages.StandardController(testLead);
+        update testlead;
+        test.StopTest();
+        ApexPages.StandardController sc1 = new ApexPages.StandardController(testLead);
         LeadVehiclePickerTHController vpc1 = new LeadVehiclePickerTHController(sc);
     
     }

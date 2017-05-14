@@ -73,7 +73,7 @@ public class MarketCheckOnVehiclePickerConTest{
     System.RunAs(usr){
       ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
       MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
-      system.assertEquals(usr.Market__c,System.label.marketKR);
+      system.assertEquals(usr.Market__c,System.label.marketTH);
         } 
   }
 }
