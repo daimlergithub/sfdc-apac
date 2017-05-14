@@ -561,7 +561,7 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
-        <accountAccessLevel>Read<accountAccessLevel>
+        <accountAccessLevel>Read</accountAccessLevel>
 		<caseAccessLevel>None</caseAccessLevel>
 		<contactAccessLevel>Read</contactAccessLevel>
 		<name>TH_Account Sharing_ReadAccess</name>
