@@ -618,7 +618,7 @@ public class AddressSearchValidationControllerTest
     } 
      static testmethod void AddressSearchValidationControllerTestonLineDeduplicationKR(){
         createTestData();
-    ApexPages.currentPage().getParameters().put('recordType','company');
+		ApexPages.currentPage().getParameters().put('recordType','company');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount1);
         AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
         JPAcccontroller.market = 'KR';
@@ -708,6 +708,5 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.validateAddressByZipCode();
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
-        
     } 
 }
