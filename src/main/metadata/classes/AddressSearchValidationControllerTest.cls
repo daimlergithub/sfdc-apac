@@ -607,7 +607,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.RecordType = 'Company';
        
         test.startTest();      
-          Test.setMock(WebServiceMock.class, new WSMockAddressValidationRespInvalidAddrTH ());  
+        //  Test.setMock(WebServiceMock.class, new WSMockAddressValidationRespInvalidAddrTH ());  
     //jpAcccontroller.onLineDeduplicationTH();
          JPAcccontroller.AddressObj.ZipCode__c='12345';
          JPAcccontroller.objPersonAccount.lastname = 'Company'; 
@@ -636,7 +636,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.RecordType = 'Company';
        
         test.startTest();      
-          Test.setMock(WebServiceMock.class, new WSMockAddressValidationRespInvalidAddrTH ());  
+        //  Test.setMock(WebServiceMock.class, new WSMockAddressValidationRespInvalidAddrTH ());  
     //jpAcccontroller.onLineDeduplicationTH();
          JPAcccontroller.AddressObj.ZipCode__c='12345';
          JPAcccontroller.objPersonAccount.lastname = 'Company'; 
