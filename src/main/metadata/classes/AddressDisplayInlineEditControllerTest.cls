@@ -286,7 +286,9 @@ public class AddressDisplayInlineEditControllerTest
         objAddress.Block__c = 'Test Block';
         objAddress.City__c = 'Test City';
         objAddress.District__c = 'Test District';
-        insert objAddress;
+        objAddress.Language__c = 'English';
+        objAddress.Sub_District__c = 'Test Sub District';
+    insert objAddress;
         
         system.debug('objAddress>>>>>'+objAddress.Id);
         
@@ -301,9 +303,9 @@ public class AddressDisplayInlineEditControllerTest
         RegionMasterInfo__c RMObj=new RegionMasterInfo__c();
     RMObj.Province__c = 'NSW';
     RMObj.District__c = 'Test District';
-    RMObj.Language__c = 'english';
+    RMObj.Language__c = 'English';
     RMObj.Sub_DIstrict__c = 'Test Sub District';
-
+    RMObj.ZipCode__c = '1234567';
     insert RMObj;
     
     }
