@@ -2165,10 +2165,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>WSMockAddressValidationRespInvalidAddrTH</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>WSMockAddressValidationResponseFailure</apexClass>
         <enabled>false</enabled>
     </classAccesses>
