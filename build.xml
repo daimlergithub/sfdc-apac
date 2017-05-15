@@ -126,6 +126,7 @@
 						<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+						<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Test"/>
 						<sf:exclude name="LeadReassign"/>
 						<sf:exclude name="LeadReassignTest"/>
 						<sf:exclude name="LeadVehiclePickerTHControllerTest"/>
@@ -185,7 +186,10 @@
 					<sf:typeset name="caseSharingRules"/>
 					<sf:typeset name="customObjectSharingRules"/>
 					<sf:typeset name="reportTypes"/>
-					<sf:typeset name="reports"/>
+					<sf:typeset name="reports">
+						<sf:include name="MBTH_DM_Tasks_Company"  force="true"/>
+						<sf:include name="MBTH_DM_Tasks_Person"  force="true"/>
+					</sf:typeset>
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
 					</sf:typeset>
