@@ -184,8 +184,8 @@
 					<sf:typeset name="campaignSharingRules"/>
 					<sf:typeset name="caseSharingRules"/>
 					<sf:typeset name="customObjectSharingRules"/>
-					<sf:typeset name="reports"/>
 					<sf:typeset name="reportTypes"/>
+					<sf:typeset name="reports"/>
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
 					</sf:typeset>
