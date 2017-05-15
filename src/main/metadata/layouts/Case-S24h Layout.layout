@@ -37,7 +37,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>EuroVIN__c</field>
+                <field>EU_VIN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -97,6 +97,10 @@
                 <behavior>Readonly</behavior>
                 <field>Customer_Statement__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Cause__c</field>
+            </layoutItems>	
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
