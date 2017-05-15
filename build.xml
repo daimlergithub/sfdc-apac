@@ -123,23 +123,9 @@
 					</sf:typeset>
 					<sf:typeset name="classes">
 						<sf:exclude name="WSMockAddressValidationRespInvalidAddrTH"/>
-						<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
-						<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
-						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
-						<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Test"/>
-						<sf:exclude name="LeadReassign"/>
-						<sf:exclude name="LeadReassignTest"/>
-						<sf:exclude name="LeadVehiclePickerTHControllerTest"/>
-						<sf:exclude name="LeadVehiclePickerTHControllerTests"/>
-						<sf:exclude name="VehicleRelationshipHelperTH"/>
-						<sf:exclude name="VehicleRelationshipHelperTHTest"/>
 					</sf:typeset>
-					<sf:typeset name="pages">
-						<sf:exclude name="MBJ_FS_Case_Request_Inline_Page"/>
-						<sf:exclude name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
-						<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Page"/>
-					</sf:typeset>
-					<sf:typeset name="triggers">								
+					<sf:typeset name="pages"/>
+					<sf:typeset name="triggers"/>								
 					</sf:typeset>
 					<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>-->		
 				</deploy>
