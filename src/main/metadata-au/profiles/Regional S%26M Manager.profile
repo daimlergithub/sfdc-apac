@@ -10560,7 +10560,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Behavioral_Group__c</field>
+        <field>Lead__c.Behavioural_Group__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
