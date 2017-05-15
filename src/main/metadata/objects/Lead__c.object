@@ -111056,14 +111056,14 @@ window.open("OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJEC
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>"{!URLFOR($Site.Prefix)}/a12/e? 
+        <url>"{!URLFOR($Site.Prefix)}OBJECT_DM_REQUEST_ID? 
 retURL=%2Fa12%2Fo
-&amp;ent=Lead__c&amp;CF00N2800000A9CiT={!Lead__c.Contact__c}
-&amp;ent=Lead__c&amp;CF00N2800000A9CiT_lkid={! Lead__c.ContactId__c}
-&amp;ent=Lead__c&amp;CF00N2800000A9CiN={!Lead__c.Case__c} 
-&amp;ent=Lead__c&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c }
-&amp;ent=Lead__c&amp;CF00N2800000A9Cie={!Lead__c.Name}
-&amp;ent=Lead__c&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}"</url>
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={! Lead__c.ContactId__c}
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c} 
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c }
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}"</url>
     </webLinks>
     <webLinks>
         <fullName>New_Sales_Lead</fullName>

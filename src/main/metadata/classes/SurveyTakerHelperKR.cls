@@ -6,6 +6,8 @@ public class SurveyTakerHelperKR
     public static void shareSurverTakertoDealer(List<SurveyTaker__c> surveyTkrList)
     {
         set<id> surAccId = new set<id>();
+        set<id> surTakerId = new set<id>();
+        List<SurveyTaker__c> surTakerList = new List<SurveyTaker__c>();
         List<Account_Link__c> accLnkList = new List<Account_Link__c>();
         set<id> dealerIds = new set<id>();
         List<Account> dealerAccountList = new List<Account>();
@@ -14,10 +16,29 @@ public class SurveyTakerHelperKR
         List<SurveyTaker__Share> shreSurTkerList = new List<SurveyTaker__Share>();
         
         for(SurveyTaker__c surtk : surveyTkrList)
-        {   
-            if(surtk.Account__c != null)
+        {
+            if(surtk.Account__c != null || surtk.Lead__c != null)
             {
-                surAccId.add(surtk.Account__c);
+                surTakerId.add(surtk.Id);
+            }
+        }
+        
+        if(!surTakerId.isEmpty() && surTakerId != null)
+        {
+            surTakerList = [select id, Account__c ,Lead__c, Lead__r.Contact__c from SurveyTaker__c where id =:surTakerId];
+        }
+        if(!surTakerList.isEmpty() && surTakerList != null)
+        {
+            for(SurveyTaker__c surtker : surTakerList)
+            {
+                if(surtker.Account__c != null)
+                {
+                    surAccId.add(surtker.Account__c);
+                }
+                if(surtker.Lead__c != null)
+                {
+                    surAccId.add(surtker.Lead__r.Contact__c);
+                }
             }
         }
         system.debug('surAccId>>>>' + surAccId);
@@ -59,7 +80,7 @@ public class SurveyTakerHelperKR
             system.debug('dealergrps>>>>>' + dealergrps);
             for(SurveyTaker__c shrSt : surveyTkrList)
             {
-                if(shrSt.Account__c != null)
+                if(shrSt.Account__c != null || shrSt.Lead__c != null)
                 {
                     for(group g : dealergrps)
                     {

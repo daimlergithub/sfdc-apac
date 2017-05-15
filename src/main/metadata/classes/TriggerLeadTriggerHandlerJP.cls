@@ -11,9 +11,15 @@ public class TriggerLeadTriggerHandlerJP
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];   
         System.debug('Handletrigger----->');
         
-        if(isAfter && (isUpdate || isInsert)){
-        System.debug('welcome');
-          LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);}
+        if(isAfter && isUpdate)
+		{
+		    if(LeadUtil.handleAfterInsert)
+		    {
+                System.debug('welcome');
+                LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
+		    }
+		  LeadUtil.handleAfterInsert = false;
+		}
         
         if(isBefore && isInsert && usr.Profile.Name != 'IntegrationAPI')
         {           
@@ -55,9 +61,10 @@ public class TriggerLeadTriggerHandlerJP
 		 if(isAfter && isInsert){
            LeadHelperJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
         }
-        if(isAfter && isUpdate){
+        if(isAfter && isUpdate && LeadUtil.isupdated){
             system.debug('#####$$$$$$$'+isUpdate);
             LeadHelperJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            LeadUtil.isupdated = false;
         }
 
         
