@@ -186,10 +186,7 @@
 					<sf:typeset name="caseSharingRules"/>
 					<sf:typeset name="customObjectSharingRules"/>
 					<sf:typeset name="reportTypes"/>
-					<sf:typeset name="reports">
-						<sf:include name="MBTH_DM_Tasks_Company"  force="true"/>
-						<sf:include name="MBTH_DM_Tasks_Person"  force="true"/>
-					</sf:typeset>
+					<sf:typeset name="reports" force="true"/>
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
 					</sf:typeset>
