@@ -30,10 +30,15 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	<applicationVisibilities>
+        <application>MBF_Call_Center</application>
+        <default>true</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <applicationVisibilities>
         <application>MBJ_Call_Center</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBJ_Catalogue_Operation</application>
