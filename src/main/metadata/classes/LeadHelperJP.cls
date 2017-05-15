@@ -1,4 +1,3 @@
-
 /**
 ** Utility for Lead trigger for Japan 
 ** Updation of â€œCustomer_Lifecycle_Phase__câ€ on Account related to lead based on CAC Lead Status
@@ -38,7 +37,7 @@ public class LeadHelperJP
         List<Lead__c> Leads = new List<Lead__c>();
         
         
-        
+        if(LeadUtil.updateCustomerStageMethod){
         for(Lead__C lead : listNewLeads)
         {
             if(lead.MD__c == 'JP')
@@ -161,6 +160,8 @@ public class LeadHelperJP
         if(!contactIdsUpd.isEmpty()){
             //createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
         }
+        LeadUtil.updateCustomerStageMethod = false;
+        }//
     }
     
      /** Create AccountLink with reocrdtype contact2contact wherever lead is created with contact and company account field is not null
@@ -237,7 +238,7 @@ public class LeadHelperJP
    */
      public static void handleAfterInsertOrUpdate(list<lead__c> leadlist1,Map<Id,Lead__C> leadOldMap)
     {
-     if(LeadUtil.handleAfterInsert){
+    // if(LeadUtil.handleAfterInsert){
      Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      list<lead__c> leadlist = new list<lead__c>();
      list<account> dealerAccountList =new list<account>();
@@ -376,8 +377,8 @@ public class LeadHelperJP
         {
           update leads.values();
         }
-        }
-        LeadUtil.handleAfterInsert=false;
+      //  }
+       // LeadUtil.handleAfterInsert=false;
     }
     
     /*DesCription : Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
@@ -558,8 +559,8 @@ public class LeadHelperJP
                     } 
                 } */
         }   
-		
-		 public static void updateAssignedDealer(List<Lead__c> dealerLeadList)
+        
+         public static void updateAssignedDealer(List<Lead__c> dealerLeadList)
     {
         List<User> userList = new List<User>();
         set<id> userid = new set<id>();
@@ -580,6 +581,7 @@ public class LeadHelperJP
         }
     }    
         
+  public Static boolean isCreated =false;
   public static void populateRetailCompany(List<Lead__c> LeadLst, Map<Id,Lead__c> oldLeadmap, boolean isInsert, boolean isUpdate){
         system.debug('====#####'+isInsert);
         system.debug('====#####'+isUpdate);
@@ -590,19 +592,25 @@ public class LeadHelperJP
         set<string> AssignedDealerId = new set<string>();
         set<String> retailconctId = new set<String>();
         for(Lead__C led : LeadLst){
-            if(Userinfo.getUserType() == 'PowerPartner' && (isInsert || (isUpdate && led.CAC_Lead_Status__c != oldLeadmap.get(led.id).CAC_Lead_Status__c))){
+            
+            /*if(Userinfo.getUserType() == 'PowerPartner' && (isInsert || (isUpdate && led.CAC_Lead_Status__c != oldLeadmap.get(led.id).CAC_Lead_Status__c || led.Retail_Contact__c != oldLeadmap.get(led.id).Retail_Contact__c))){
                 if(led.Company_Account__c != null && led.Contact__c != null && led.CAC_Lead_Status__c == 'Allocated'){
+                    isCreated = true;
                     companyId.add(led.Company_Account__c);
                     AssignedDealerId.add(led.Assigned_Dealer__c);
                     if(led.Retail_Contact__c != null){                        
                         retailconctId.add(led.Retail_Contact__c);
-                    }      
+                    }  
+                      
                 }
             }
-            else if(isInsert || (isUpdate && (led.Company_Account__c != oldLeadmap.get(led.id).Company_Account__c || led.Contact__c != oldLeadmap.get(led.id).Contact__c || led.CAC_Lead_Status__c != oldLeadmap.get(led.id).CAC_Lead_Status__c))){
+            else*/
+            system.debug(led.Company_Account__c +'    '+ oldLeadmap.get(led.id).Company_Account__c +'    '+ led.Contact__c +'    '+ oldLeadmap.get(led.id).Contact__c +'    '+ led.CAC_Lead_Status__c +'    '+ oldLeadmap.get(led.id).CAC_Lead_Status__c +'    '+ led.Retail_Contact__c +'    '+ oldLeadmap.get(led.id).Retail_Contact__c);
+             if(isInsert || (isUpdate && (led.Company_Account__c != oldLeadmap.get(led.id).Company_Account__c || led.Contact__c != oldLeadmap.get(led.id).Contact__c ))){
                 system.debug('Conditions are saisfied11111111'+led.Retail_Contact__c);
                 if(led.Contact__c != null && led.Company_Account__c != null && led.CAC_Lead_Status__c == 'Allocated' && (led.RecordtypeId == salesRecordTypeId || led.RecordtypeId == afterSalesRecordTypeId )){
                 //&& (RecordType.DeveloperName == 'Sales_Leads' || RecordType.DeveloperName == 'Aftersales_Leads') && led.Company_Account__c != null
+                    isCreated = true;
                     system.debug('Recordype.developerName'+led.Recordtype.Developername);
                     companyId.add(led.Company_Account__c);
                     AssignedDealerId.add(led.Assigned_Dealer__c);
@@ -622,25 +630,33 @@ public class LeadHelperJP
                 AccounliunkRetailUpdate.add(acc);
             }
         }
+        
         if(AccountLink.isEmpty()){
+            
             for(Lead__C led : LeadLst){
                 //Account_Link__C acclnk = new Account_Link__C(RecordtypeId = CompanyRecordTypeId, toRole__c = (led.Company_Account__c!=null?led.Company_Account__c : ''), fromRole__c = (led.Assigned_Dealer__c!=null?led.Assigned_Dealer__c : ''), Retail_Address_Reference__c =  (led.Company_Account__r.Primary_Address_Reference__c!= null ? led.Company_Account__r.Primary_Address_Reference__c : '') 
                 //);
-                Account_Link__C acclnk = new Account_Link__C(RecordtypeId = CompanyRecordTypeId, toRole__c = led.Company_Account__c, fromRole__c = led.Assigned_Dealer__c, Retail_Address_Reference__c =  led.Company_Account__r.Primary_Address_Reference__c);
-                AccounliunkUpdate.add(acclnk);
+                if(isCreated == true){
+                    Account_Link__C acclnk = new Account_Link__C(RecordtypeId = CompanyRecordTypeId, toRole__c = led.Company_Account__c, fromRole__c = led.Assigned_Dealer__c, Retail_Address_Reference__c =  led.Company_Account__r.Primary_Address_Reference__c);
+                    AccounliunkUpdate.add(acclnk);
+                    
+                }
+                
             }
-            insert AccounliunkUpdate;
+                if(!AccounliunkUpdate.isEmpty()){
+                    insert AccounliunkUpdate;
             
             for(Account_Link__c acc1:AcclkLst){
                 system.debug('updared_______>');
                 acc1.Retail_Related_Company__c  = AccounliunkUpdate[0].id;
                 AccounliunkRetailUpdate.add(acc1);
             }
-        }
-        
+            }
+            
+       
         update AccounliunkRetailUpdate;
+        }
     }
           
         
    }
-   

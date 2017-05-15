@@ -23756,6 +23756,10 @@
         <layout>Case-MB Complaint Layout - CAC</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Case-MBF Complaint Management Case</layout>
+        <recordType>Case.MBF_Complaint</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Case-MBF Contract Closing Cases</layout>
         <recordType>Case.MBF_Contract_Closing_Case</recordType>
@@ -26124,6 +26128,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>AllowViewKnowledge</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>ApiEnabled</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

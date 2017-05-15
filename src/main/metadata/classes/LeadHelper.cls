@@ -41,19 +41,22 @@ public class LeadHelper
        }
        system.debug('dealerIdGateKeeperIds>>>' + dealerIdGateKeeperIds);
        for(Lead__c lead : leadsForUpdate) 
-       {
+       {   
             if(lead.Assigned_Dealer__c != null && (isInsert || (isUpdate && lead.Assigned_Dealer__c != oldValLead.get(lead.id).Assigned_Dealer__c)))
             {
-                if(lead.RecordTypeId == salesRecordTypeId)
+                if(!dealerIdGateKeeperIds.isEmpty() && dealerIdGateKeeperIds != null)
                 {
-                    lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
-                    leadForUpdate.add(lead);
-                } 
-                if(lead.RecordTypeId == afterSalesRecordTypeId)
-                {
-                    lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
-                    leadForUpdate.add(lead);
-                }               
+                    if(lead.RecordTypeId == salesRecordTypeId)
+                    {
+                        lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
+                        leadForUpdate.add(lead);
+                    } 
+                    if(lead.RecordTypeId == afterSalesRecordTypeId)
+                    {
+                        lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
+                        leadForUpdate.add(lead);
+                    }
+                }
             }
            else
            {  

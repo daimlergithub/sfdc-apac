@@ -68,6 +68,7 @@ dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
 dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
+dev_sb_asiaDevTh4=pavankumar_d01@infosys.com.asiadevth4
 
 # Asia Korea Dev Sandboxes
 dev_sb_asia_dev11=
