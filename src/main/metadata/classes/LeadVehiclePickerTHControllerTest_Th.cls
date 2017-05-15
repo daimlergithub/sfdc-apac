@@ -487,8 +487,9 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
         Profile profile = [Select Id from Profile where Name = 'System Administrator'];
         User us = TestClassHelper.createUser('User1PH',profile,'TH');
         insert US;
-        createTestData();
+        
         system.runAs(US){
+        createTestData();
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerTHController vpc = new LeadVehiclePickerTHController(sc);
         carModelMap = LeadVehiclePickerTHController.getCarModels('None');
