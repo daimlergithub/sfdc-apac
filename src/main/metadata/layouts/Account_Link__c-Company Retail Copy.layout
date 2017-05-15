@@ -2,7 +2,8 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Delete_retail_copy</customButtons>
     <customButtons>Send_To_AutoLine</customButtons>
-    <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>Clone</excludeButtons> 
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -263,6 +264,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+	    <excludeButtons>NewTask</excludeButtons>
         <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
