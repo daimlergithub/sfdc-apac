@@ -23776,6 +23776,7 @@
     <layoutAssignments>
         <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
     </layoutAssignments>
+	<!--MBF Layout Assignments-->
     <layoutAssignments>
         <layout>Case-MBF Complaint Management Case</layout>
         <recordType>Case.MBF_Complaint</recordType>

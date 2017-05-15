@@ -237,7 +237,7 @@ public class LeadHelperJP
    */
      public static void handleAfterInsertOrUpdate(list<lead__c> leadlist1,Map<Id,Lead__C> leadOldMap)
     {
-     if(LeadUtil.handleAfterInsert){
+    // if(LeadUtil.handleAfterInsert){
      Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      list<lead__c> leadlist = new list<lead__c>();
      list<account> dealerAccountList =new list<account>();
@@ -376,8 +376,8 @@ public class LeadHelperJP
         {
           update leads.values();
         }
-        }
-        LeadUtil.handleAfterInsert=false;
+      //  }
+       // LeadUtil.handleAfterInsert=false;
     }
     
     /*DesCription : Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
