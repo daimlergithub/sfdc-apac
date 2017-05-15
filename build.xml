@@ -126,7 +126,6 @@
 					</sf:typeset>
 					<sf:typeset name="pages"/>
 					<sf:typeset name="triggers"/>								
-					</sf:typeset>
 					<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>-->		
 				</deploy>
 			</target>
