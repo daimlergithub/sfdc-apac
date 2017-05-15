@@ -29,14 +29,14 @@ public class MarketCheckOnVehiclePickerConTest{
     }
     
     public static testMethod void MarketCheckOnVehicleTest(){
-		testlead = new Lead__c();
-		ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
-		MarketCheckOnVehiclePickerCon mvp = new MarketCheckOnVehiclePickerCon(sc);
-		//Dhanamjaya code
-		mvp.marketChecker2=true;
-		mvp.marketChecker=false;
+    testlead = new Lead__c();
+    ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
+    MarketCheckOnVehiclePickerCon mvp = new MarketCheckOnVehiclePickerCon(sc);
+    //Dhanamjaya code
+    mvp.marketChecker2=true;
+    mvp.marketChecker=false;
 
-		profile = [select id, name from profile where name = 'Thailand Call Center'];
+    profile = [select id, name from profile where name = 'Thailand Call Center'];
        
         // tried the below code to use the util to input the data, but this method is marked private
         // usr = UtilTestData.createUser(role.id, profile.id);
@@ -54,19 +54,26 @@ public class MarketCheckOnVehiclePickerConTest{
         usr.localesidkey=languageString;
         usr.isActive = true;
         insert usr;
-		usr.Market__c='JP';
-		update usr;
-		System.RunAs(usr){
-			ApexPages.StandardController sc1 = new ApexPages.StandardController(testLead);
-			MarketCheckOnVehiclePickerCon mvp1 = new MarketCheckOnVehiclePickerCon(sc);
-			system.assertEquals(usr.Market__c,System.label.marketJP);
-		}
-		usr.Market__c='KR';
-		update usr;
-		System.RunAs(usr){
-			ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
-			MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
-			system.assertEquals(usr.Market__c,System.label.marketKR);
+    usr.Market__c='JP';
+    update usr;
+    System.RunAs(usr){
+      ApexPages.StandardController sc1 = new ApexPages.StandardController(testLead);
+      MarketCheckOnVehiclePickerCon mvp1 = new MarketCheckOnVehiclePickerCon(sc);
+      system.assertEquals(usr.Market__c,System.label.marketJP);
+    }
+    usr.Market__c='KR';
+    update usr;
+    System.RunAs(usr){
+      ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
+      MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
+      system.assertEquals(usr.Market__c,System.label.marketKR);
         }     
-	}
+        usr.Market__c='TH';
+    update usr;
+    System.RunAs(usr){
+      ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
+      MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
+      system.assertEquals(usr.Market__c,System.label.marketTH);
+        } 
+  }
 }

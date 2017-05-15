@@ -45,7 +45,7 @@
                 
                 
                 <!--PageBlockTable  starts here-->
-                <apex:pageBlockTable id="acc_address" value="{!adds}" var="row" style="width:900px;">                                                                    
+                <apex:pageBlockTable id="acc_address" value="{!adds}" var="row" style="width:900px;" rendered="{!IF(market != 'TH', true, false)}">                                                                    
                     
                     <apex:column width="8%">
                         
@@ -107,7 +107,7 @@
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
-					
+                    
                     
                     
                     <!--<apex:column headerValue="{!$ObjectType.Address__c.fields.District_Native__c.Label}" rendered="{!IF(market == 'JP', true, false)}">
@@ -115,12 +115,12 @@
                     </apex:outputText>      
                     </apex:column> -->
                     
-					<apex:column headerValue="District" rendered="{!IF(market == 'TH', true, false)}">
-						<apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
-						</apex:outputText>
-					</apex:column>
-					
-					<apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}" rendered="{!IF(market == 'TH', true, false)}">
+                    <apex:column headerValue="District" rendered="{!IF(market == 'TH', true, false)}">
+                        <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}" rendered="{!IF(market == 'TH', true, false)}">
                         <apex:outputText value="{!row.Sub_District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
@@ -198,6 +198,101 @@
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.LastModifiedDate.Label}" >
                         <apex:outputField value="{!row.LastModifiedDate}" style="width:10%; white-space:nowrap;" >
                         </apex:outputField>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+                
+                
+                
+                <apex:pageBlockTable id="acc_addressTH" value="{!adds}" var="row" style="width:900px;" rendered="{!IF(market == 'TH', true, false)}">                                                                    
+                    
+                    <apex:column width="8%">
+                        
+                        <!--Link to  edit a address record -->
+                        <apex:commandLink action="{!EditOptions}" value="{!$Label.Edit}" style="color:blue;white-space:nowrap;">
+                            <!--pass row id parameter to controller  -->
+                            <apex:param name="edit" value="{!row.Id}" assignTo="{!editaddressId}"/>
+                        </apex:commandLink>&nbsp;|&nbsp; 
+                        
+                        <!--Link to  delete a address record -->
+                        <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('{!$Label.Confirmation_for_delete_address}')" value="{!$Label.Delete}" style="color:blue;white-space:nowrap;">
+                            <!--pass row id parameter to controller  -->
+                            <apex:param name="delete" value="{!row.Id}" assignTo="{!addressId}"/>
+                        </apex:commandLink>                                                           
+                        
+                    </apex:column>
+                   
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
+                        <!--out put field to display address Type  --> 
+                        <apex:outputField value="{!row.Address_Type__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                        
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}" >
+                        <apex:outputText value="{!row.Address_Line_1__c}" style="width:10%; white-space:none;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}" >
+                        <apex:outputText value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                     <apex:column headerValue="Nationals">
+                        <apex:outputText value="{!row.Foreign_Nationals__c}"  style="width:8%; white-space:none;">                              
+                        </apex:outputText>
+                    </apex:column> 
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Language__c.Label}">
+                        <apex:outputText value="{!row.Language__c}"  style="width:8%; white-space:none;">                              
+                        </apex:outputText>
+                    </apex:column> 
+                    
+                    <apex:column headerValue="Province" >
+                        <apex:outputField value="{!row.Province__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                     <apex:column headerValue="District" >
+                        <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}" >
+                        <apex:outputText value="{!row.Sub_District__c}" style="width:10%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
+                        <apex:outputText value="{!row.ZipCode__c}"  style="width:8%; white-space:none;">                              
+                        </apex:outputText>
+                    </apex:column> 
+                    
+                    <apex:column headerValue="Country" >
+                        <apex:outputField value="{!row.Country__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                  
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
+                        <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>     
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Status__c.Label}">
+                        <apex:outputField value="{!row.Status__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>                    
+                                   
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.LastModifiedDate.Label}" >
+                        <apex:outputField value="{!row.LastModifiedDate}" style="width:10%; white-space:nowrap;" >
+                        </apex:outputField>
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Name.Label}">
+                        <!--out put field to display address Name  --> 
+                        <apex:outputText value="{!row.Name}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
                     </apex:column>
                     
                 </apex:pageBlockTable>

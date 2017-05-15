@@ -56,7 +56,7 @@ public class TestClassHelper{
         objAccount.City__c='Beijing';
         objAccount.Gender__c = 'Male';
         objAccount.Phone = '000-090-000-9661';
-        objAccount.Mobile__c = '000-090-000-1644';
+        objAccount.Mobile__c = '+66-03-777-9999';
         objAccount.Mobile2__c = '000-080-000-2644';
         objAccount.Area_code__c = '0101';
         objAccount.MD__c = Md;

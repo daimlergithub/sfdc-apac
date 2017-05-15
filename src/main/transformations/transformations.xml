@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformations>
 	<changetext>
+      <filename>objects\DM_Request__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+    </changetext>
+	<changetext>
+      <filename>objects\DM_Request__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+    </changetext>
+	<changetext>
+      <filename>objects\DM_Request__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+      <token tokenonly="true">CASE_INQUIRY_TYPE_RECORDTYPEID</token>
+    </changetext>
+	<changetext>
 		<filename>objects\DM_Request__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_DM_REQUEST_ID</token>

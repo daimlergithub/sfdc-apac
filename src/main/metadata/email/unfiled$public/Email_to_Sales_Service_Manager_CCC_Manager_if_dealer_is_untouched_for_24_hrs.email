@@ -1,13 +1,14 @@
 Dear Sales and Service manager ,
 
-This is to inform you that dealer {!Lead__c.Assigned_Dealer__c} has not touched the lead which is assigned to him for 24 Hrs. Kindly click on below link to access the lead directly. 
+This is to inform you that dealer {Lead__c.Assigned_Dealer__c} has not touched the lead which is assigned to him for 24 Hrs. Kindly click on below link to access the lead directly. 
  
-{!Lead__c.Link}
+Sales force Users: {Lead__c.Link}
+Community User: {Lead__c.Link1}
 
-Lead no.  :{!Lead__c.Name}
-Customer : {!Lead__c.Contact__c}
- Date :{!Lead__c.CreatedDate}
- Message :{!Lead__c.Dealer_DMS_Comments__c}
+Lead no.  :{Lead__c.Name}
+Customer : {Lead__c.Contact__c}
+ Date :{Lead__c.CreatedDate}
+ Message :{Lead__c.Dealer_DMS_Comments__c}
 
 Kind regards,
 Customer Contact Center,  Mercedes-Benz MBTh
