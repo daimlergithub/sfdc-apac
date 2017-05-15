@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
     <backgroundEndColor>#FFFFFF</backgroundEndColor>
     <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
@@ -22,7 +22,7 @@
             <groupingColumn>CUST_CREATED_DATE</groupingColumn>
             <groupingColumn>Lead__c.Lead_Priority__c</groupingColumn>
             <legendPosition>Right</legendPosition>
-            <report>unfiled$public/Created_lead_number_by_customer_status</report>
+            <report>MBK_CRM_Reports/Created_lead_number_by_customer_status</report>
             <showPercentage>false</showPercentage>
             <showValues>false</showValues>
             <sortBy>RowLabelAscending</sortBy>
