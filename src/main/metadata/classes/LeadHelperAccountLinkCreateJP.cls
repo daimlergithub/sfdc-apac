@@ -11,7 +11,7 @@ public class LeadHelperAccountLinkCreateJP
     private static final String PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     private static final String AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     
-    
+    static user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];   
     public static void leadAccountDetails(list<Lead__c> leadlst, map<id,Lead__c> leadOldMap, boolean isInsert, boolean isUpdate){
         
         if(leadutil.leadAccountDetails)
@@ -64,7 +64,8 @@ public class LeadHelperAccountLinkCreateJP
         if(! contactId.isEmpty() ){
             createAccountLinkRecord(contactId);
         }
-     }    
+     }  
+		if(usr.profile.Name.contains('Japan Dealer'))    
      leadutil.leadAccountDetails = false;  
     }
     
