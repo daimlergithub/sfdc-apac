@@ -27176,6 +27176,14 @@
         <tab>Retail_Task__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+        <tab>DM_Material__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>DM_Request__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>SurveyQuestionResponse__c</tab>
         <visibility>DefaultOn</visibility>

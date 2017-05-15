@@ -71,7 +71,7 @@ public class AddressHelperJPTest {
          
         
        
-        User u =[select id,name from user where profile.name='IntegrationAPI' limit 1];
+        User u =[select id,name from user where profile.name='IntegrationAPI' and Isactive=true limit 1];
         
         system.runas(u){
         Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');

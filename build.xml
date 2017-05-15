@@ -126,6 +126,7 @@
 						<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+						<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Test"/>
 						<sf:exclude name="LeadReassign"/>
 						<sf:exclude name="LeadReassignTest"/>
 						<sf:exclude name="LeadVehiclePickerTHControllerTest"/>
@@ -147,9 +148,9 @@
 				<deploy runAllTests="${sfdc.runAllTests}">
 					<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
-					<sf:exclude name="selectAllChkBox"/>
-					<sf:exclude name="selectAllChkBox"/>
-					<sf:exclude name="Retail_Campaigns"/>                                                 
+						<sf:exclude name="selectAllChkBox"/>
+						<sf:exclude name="selectAllChkBox"/>
+						<sf:exclude name="Retail_Campaigns"/>                                                 
 					</sf:typeset>                   
 					<sf:typeset name="layouts"/>
 					<sf:typeset name="groups"/>
@@ -220,7 +221,7 @@
 </target>
 
 <property name="typesets.circle">
-			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,Report,ReportType,DataCategoryGroup,
+			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,Report,DataCategoryGroup,
 
 			Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard
 </property>
