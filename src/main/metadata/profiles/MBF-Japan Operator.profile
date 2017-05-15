@@ -23762,7 +23762,7 @@
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
 	<layoutAssignments>
-        <layout>Case-MBF Complaint Management Case</layout>
+        <layout>Case-MBF Complaint Management Case Operator</layout>
         <recordType>Case.MBF_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
