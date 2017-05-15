@@ -147,9 +147,9 @@
 				<deploy runAllTests="${sfdc.runAllTests}">
 					<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
-					<sf:exclude name="selectAllChkBox"/>
-					<sf:exclude name="selectAllChkBox"/>
-					<sf:exclude name="Retail_Campaigns"/>                                                 
+						<sf:exclude name="selectAllChkBox"/>
+						<sf:exclude name="selectAllChkBox"/>
+						<sf:exclude name="Retail_Campaigns"/>                                                 
 					</sf:typeset>                   
 					<sf:typeset name="layouts"/>
 					<sf:typeset name="groups"/>
@@ -184,8 +184,13 @@
 					<sf:typeset name="campaignSharingRules"/>
 					<sf:typeset name="caseSharingRules"/>
 					<sf:typeset name="customObjectSharingRules"/>
-					<sf:typeset name="reportTypes"/>
-					<sf:typeset name="reports"/>
+					<sf:typeset name="reportTypes">
+						<sf:include name="MBTH_DM_Request_and_Associated_tasks"/>
+					</sf:typeset>
+					<sf:typeset name="reports">
+						<sf:include name="MBTH_DM_Tasks_Company"/>
+						<sf:include name="MBTH_DM_Tasks_Person"/>
+					</sf:typeset>
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
 					</sf:typeset>
