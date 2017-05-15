@@ -122,7 +122,6 @@
 						<sf:include name="Retail_Campaigns"/>
 					</sf:typeset>
 					<sf:typeset name="classes">
-						<sf:exclude name="WSMockAddressValidationRespInvalidAddrTH"/>
 						<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
@@ -184,13 +183,8 @@
 					<sf:typeset name="campaignSharingRules"/>
 					<sf:typeset name="caseSharingRules"/>
 					<sf:typeset name="customObjectSharingRules"/>
-					<sf:typeset name="reportTypes">
-						<sf:include name="MBTH_DM_Request_and_Associated_tasks"/>
-					</sf:typeset>
-					<sf:typeset name="reports">
-						<sf:include name="MBTH_DM_Tasks_Company"/>
-						<sf:include name="MBTH_DM_Tasks_Person"/>
-					</sf:typeset>
+					<sf:typeset name="reportTypes"/>
+					<sf:typeset name="reports"/>
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
 					</sf:typeset>
@@ -224,7 +218,7 @@
 </target>
 
 <property name="typesets.circle">
-			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,Report,ReportType,DataCategoryGroup,
+			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,Report,DataCategoryGroup,
 
 			Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow
 </property>
