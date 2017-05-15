@@ -105,8 +105,8 @@ public class contactTableControllerTest {
     }
     // Manjunath  - This is used for TH
     public static testMethod void EditAccountTHTest() {
-        Profile profile = [Select Id from Profile where Name = 'System Administrator'];
-        User us = TestClassHelper.createUser('User1TH',profile,'TH');
+        Profile prof = [Select Id from Profile where Name = 'System Administrator'];
+        User us = TestClassHelper.createUser('User1TH',prof,'TH');
         insert US;
         system.runAs(US){
             //createTestData();
