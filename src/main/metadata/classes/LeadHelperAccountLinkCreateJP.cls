@@ -65,7 +65,7 @@ public class LeadHelperAccountLinkCreateJP
             createAccountLinkRecord(contactId);
         }
      }    
-       
+     leadutil.leadAccountDetails = false;  
     }
     
     public static void createAccountLinkRecord(set<String> contactId){
