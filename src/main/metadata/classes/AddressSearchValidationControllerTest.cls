@@ -585,67 +585,7 @@ public class AddressSearchValidationControllerTest
   Description:Added to update the code coverage of the method
   Modified Date: 2017-05-15
   */
-  
-  
-   static testmethod void AddressSearchValidationControllerTestonLineDeduplicationTH(){
-        createTestData();
-    ApexPages.currentPage().getParameters().put('recordType','company');
-        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount1);
-        AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
-        JPAcccontroller.market = 'TH';
-        //JPAcccontroller.Address_Validated_Flag = true;
-        JPAcccontroller.objAccount = objAccount1;
-        JPAcccontroller.objAccount.Individual_Home_Phone__c=null;
-         JPAcccontroller.objAccount.id=null;
-     JPAcccontroller.objAccount.LastName='sanjay';
-     JPAcccontroller.objAccount.Mobile__c='+66-03-777-9999';         
-         JPAcccontroller.objAccount.Work_Phone__c=null; 
-         JPAcccontroller.objAccount.Home_Phone_2__c=null; 
-         JPAcccontroller.objAccount.Phone=null; 
-         JPAcccontroller.objAccount.Email__c=null; 
-         
-        JPAcccontroller.RecordType = 'Company';
-       
-        test.startTest();      
-        //  Test.setMock(WebServiceMock.class, new WSMockAddressValidationRespInvalidAddrTH ());  
-    //jpAcccontroller.onLineDeduplicationTH();
-         JPAcccontroller.AddressObj.ZipCode__c='12345';
-         JPAcccontroller.objPersonAccount.lastname = 'Company'; 
-         jpAcccontroller.onLineDeduplicationTH();
-        test.stopTest();
-        //system.assertNotEquals(null, objAccount.id);
-        
-    } 
-     static testmethod void AddressSearchValidationControllerTestonLineDeduplicationKR(){
-        createTestData();
-		ApexPages.currentPage().getParameters().put('recordType','company');
-        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount1);
-        AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
-        JPAcccontroller.market = 'KR';
-        //JPAcccontroller.Address_Validated_Flag = true;
-        JPAcccontroller.objAccount = objAccount1;
-        JPAcccontroller.objAccount.Individual_Home_Phone__c=null;
-         JPAcccontroller.objAccount.id=null;
-     JPAcccontroller.objAccount.LastName='sanjay';
-     JPAcccontroller.objAccount.Mobile__c='+66-03-777-9999';         
-         JPAcccontroller.objAccount.Work_Phone__c=null; 
-         JPAcccontroller.objAccount.Home_Phone_2__c=null; 
-         JPAcccontroller.objAccount.Phone=null; 
-         JPAcccontroller.objAccount.Email__c=null; 
-         
-        JPAcccontroller.RecordType = 'Company';
-       
-        test.startTest();      
-        //  Test.setMock(WebServiceMock.class, new WSMockAddressValidationRespInvalidAddrTH ());  
-    //jpAcccontroller.onLineDeduplicationTH();
-         JPAcccontroller.AddressObj.ZipCode__c='12345';
-         JPAcccontroller.objPersonAccount.lastname = 'Company'; 
-         jpAcccontroller.onLineDeduplication();
-        test.stopTest();
-        //system.assertNotEquals(null, objAccount.id);
-        
-    } 
-    
+          
      static testmethod void AddressSearchValidationControllerTestonLineDeduplicationKRSucess(){
         createTestData();
     ApexPages.currentPage().getParameters().put('recordType','company');
@@ -708,5 +648,6 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.validateAddressByZipCode();
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
+        
     } 
 }

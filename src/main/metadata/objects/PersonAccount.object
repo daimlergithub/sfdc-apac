@@ -973,22 +973,6 @@
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>CA Status</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance Contract</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
