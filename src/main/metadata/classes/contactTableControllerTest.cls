@@ -121,8 +121,8 @@ public class contactTableControllerTest {
         }
     }
     public static testMethod void UpdateAccountTHTest() {
-        Profile profile = [Select Id from Profile where Name = 'System Administrator'];
-        User us = TestClassHelper.createUser('User2TH',profile,'TH');
+        Profile profl = [Select Id from Profile where Name = 'System Administrator'];
+        User us = TestClassHelper.createUser('User2TH',profl,'TH');
         insert US;
         system.runAs(US){
             objAccount = TestClassHelper.CreateAccount(US.Market__c,'FirstName','LastName');
@@ -154,8 +154,8 @@ public class contactTableControllerTest {
         }
     }
     public static testMethod void AreacodeItemsKRTest() {
-        Profile profile = [Select Id from Profile where Name = 'System Administrator'];
-        User us = TestClassHelper.createUser('User1KRAcode',profile,'KR');
+        Profile profiles = [Select Id from Profile where Name = 'System Administrator'];
+        User us = TestClassHelper.createUser('User1KRAcode',profiles,'KR');
         insert US;
         system.runAs(US){
             objAccount = TestClassHelper.CreateAccount(US.Market__c,'FirstName','LastName');
