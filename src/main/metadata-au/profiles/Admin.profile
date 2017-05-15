@@ -11858,7 +11858,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Behavioral_Group__c</field>
+        <field>Lead__c.Behavioural_Group__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
