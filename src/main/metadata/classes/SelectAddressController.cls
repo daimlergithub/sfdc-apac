@@ -41,7 +41,9 @@ public with sharing class SelectAddressController {
         if(selectedAddress != 'None' )  
         accRec.Primary_Address_Reference__c = selectedAddress;  
         else
-            accRec.Primary_Address_Reference__c = null;       
+            accRec.Primary_Address_Reference__c = null;   
+			// Added by Rakesh for CISM # 0037692303
+            accRec.Primary_Address_Display__c = null;     
         update accRec;       
         return null;
     }

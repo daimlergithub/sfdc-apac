@@ -55164,7 +55164,7 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c=&quot;&quo
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
 OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()),
-$Profile.Name != &apos;IntegrationAPI&apos;) &amp;&amp; (OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;))</errorConditionFormula>
+$Profile.Name != &apos;IntegrationAPI&apos;) &amp;&amp; (OR(MD__c = &apos;JP&apos;,MD__c = &apos;TH&apos;,MD__c = &apos;KR&apos;))</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>
         <errorMessage>Birthdate is not allowed to be later than today or earlier than 150 years.</errorMessage>
     </validationRules>
@@ -57249,3 +57249,5 @@ window.open(&quot;/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Ac
 }</url>
     </webLinks>
 </CustomObject>
+
+
