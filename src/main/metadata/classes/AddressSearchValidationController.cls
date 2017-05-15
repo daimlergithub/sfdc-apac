@@ -1174,7 +1174,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         system.debug('addtrmapUpdate1 >> :'+objPersonAccount.LastName);
         system.debug('addtrmapUpdate1 << :'+objAccount.Name);      
          System.debug('@@@@@@@ objPersonAccount.Name    '+objAccount.Name);
-        if(objPersonAccount.LastName !=null || objAccount.Name !=null) 
+        if(objPersonAccount.LastName !=null) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
