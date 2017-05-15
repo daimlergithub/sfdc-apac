@@ -592,7 +592,7 @@ public class LeadHelperJP
         set<String> retailconctId = new set<String>();
         for(Lead__C led : LeadLst){
             
-            if(Userinfo.getUserType() == 'PowerPartner' && (isInsert || (isUpdate && led.CAC_Lead_Status__c != oldLeadmap.get(led.id).CAC_Lead_Status__c))){
+            if(Userinfo.getUserType() == 'PowerPartner' && (isInsert || (isUpdate && led.CAC_Lead_Status__c != oldLeadmap.get(led.id).CAC_Lead_Status__c || led.Retail_Contact__c != oldLeadmap.get(led.id).Retail_Contact__c))){
                 if(led.Company_Account__c != null && led.Contact__c != null && led.CAC_Lead_Status__c == 'Allocated'){
                     isCreated = true;
                     companyId.add(led.Company_Account__c);
@@ -603,7 +603,7 @@ public class LeadHelperJP
                       
                 }
             }
-            else if(isInsert || (isUpdate && (led.Company_Account__c != oldLeadmap.get(led.id).Company_Account__c || led.Contact__c != oldLeadmap.get(led.id).Contact__c || led.CAC_Lead_Status__c != oldLeadmap.get(led.id).CAC_Lead_Status__c))){
+            else if(isInsert || (isUpdate && (led.Company_Account__c != oldLeadmap.get(led.id).Company_Account__c || led.Contact__c != oldLeadmap.get(led.id).Contact__c || led.CAC_Lead_Status__c != oldLeadmap.get(led.id).CAC_Lead_Status__c || led.Retail_Contact__c != oldLeadmap.get(led.id).Retail_Contact__c))){
                 system.debug('Conditions are saisfied11111111'+led.Retail_Contact__c);
                 if(led.Contact__c != null && led.Company_Account__c != null && led.CAC_Lead_Status__c == 'Allocated' && (led.RecordtypeId == salesRecordTypeId || led.RecordtypeId == afterSalesRecordTypeId )){
                 //&& (RecordType.DeveloperName == 'Sales_Leads' || RecordType.DeveloperName == 'Aftersales_Leads') && led.Company_Account__c != null
