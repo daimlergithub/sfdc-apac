@@ -126,6 +126,7 @@
 						<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+						<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Test"/>
 						<sf:exclude name="LeadReassign"/>
 						<sf:exclude name="LeadReassignTest"/>
 						<sf:exclude name="LeadVehiclePickerTHControllerTest"/>
@@ -186,6 +187,7 @@
 					<sf:typeset name="customObjectSharingRules"/>
 					<sf:typeset name="reportTypes"/>
 					<sf:typeset name="reports"/>
+					<sf:typeset name="dashboards"/>
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
 					</sf:typeset>
@@ -221,7 +223,7 @@
 <property name="typesets.circle">
 			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,Report,DataCategoryGroup,
 
-			Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow
+			Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard
 </property>
 
 <property name="typesets.not-ready">
