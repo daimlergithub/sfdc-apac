@@ -205,6 +205,14 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Primary_Phone__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Agreement_Info_Processing__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -221,6 +229,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Visit_OptOut__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Information_Third_Party_Release__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Abroad_Agreement__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
