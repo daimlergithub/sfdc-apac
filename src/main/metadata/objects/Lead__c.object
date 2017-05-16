@@ -98382,14 +98382,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Buy new vehicle</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Others</fullName>
-				<default>false</default>
-            </values>
-            <values>
-                <fullName>Refinance existing vehicle</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Replace existing vehicle</fullName>
                 <default>false</default>
