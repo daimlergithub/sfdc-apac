@@ -977,10 +977,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MBJ_FS_Case_ContractClosing_InlineTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MBJ_FS_Case_Inquiry_Controller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -994,14 +990,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_Intermediate_ControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Quotation_Inline_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Request_InlineTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
