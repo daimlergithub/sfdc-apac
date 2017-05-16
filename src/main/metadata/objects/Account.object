@@ -8994,7 +8994,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_HouseholdAmount&quo
     <fields>
         <fullName>Household_Children__c</fullName>
         <externalId>false</externalId>
-        <label>Household Amount</label>
+        <label>Children Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>

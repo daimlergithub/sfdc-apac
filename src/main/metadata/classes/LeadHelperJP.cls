@@ -493,8 +493,10 @@ public class LeadHelperJP
                          for(Lead__c led : Leadlist)
                          {
                              system.debug('++++++++++'+Leadlist);
-                             if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )))
-                             {                                 
+                         //  if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )))
+                          if(isInsert || (isUpdate && ((led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )||(led.Service_Advisor__c != null && leadOldMap.get(led.id).Service_Advisor__c == null))))  
+                           
+						   {                                 
                                  if(isNotificationSendtosalesmanager == true){
                                     led.Lead_Assignment_Notification_Done__c = True;
                                 }
@@ -518,7 +520,7 @@ public class LeadHelperJP
                                      mails.add(mail);
                                  }                                 
                                  LeadUpdate.add(led);
-                             }
+                            }
                          }                         
                      }                                          
                  }
