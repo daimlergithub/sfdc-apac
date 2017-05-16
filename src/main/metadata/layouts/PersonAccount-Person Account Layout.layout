@@ -19,10 +19,10 @@
                 <sidebarComponents>
                     <componentType>RelatedList</componentType>
                     <label>Related Lists</label>
-                    <relatedLists>
+                    <!--<relatedLists>
                         <hideOnDetail>false</hideOnDetail>
                         <name>Vehicle_Relationship__c.Contact__c</name>
-                    </relatedLists>
+                    </relatedLists>-->
                     <relatedLists>
                         <hideOnDetail>false</hideOnDetail>
                         <name>RelatedCaseList</name>
@@ -31,10 +31,10 @@
                         <hideOnDetail>false</hideOnDetail>
                         <name>RelatedHistoryList</name>
                     </relatedLists>
-                    <relatedLists>
+                    <!--<relatedLists>
                         <hideOnDetail>false</hideOnDetail>
                         <name>Lead__c.Contact__c</name>
-                    </relatedLists>
+                    </relatedLists>-->
                     <unit>Pixel</unit>
                 </sidebarComponents>
                 <style>Stack</style>
