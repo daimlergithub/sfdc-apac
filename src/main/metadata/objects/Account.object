@@ -56790,7 +56790,7 @@ alert("MB complaint can't be used.Please contact System Administrator");
         <masterLabel>New AfterSales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
 if('{!User.ContactId}' ==null) { 
 if (sforce.console.isInConsole()) { 
@@ -56840,7 +56840,7 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
         <masterLabel>New After Sales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
  var AccountObject = sforce.connection.query("SELECT Name, FROM Account, WHERE Id = '{!Account.Id}'");
     records = AccountObject.getArray("records");
@@ -56947,7 +56947,7 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
