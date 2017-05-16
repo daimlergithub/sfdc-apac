@@ -9989,7 +9989,11 @@ Modify Reason:
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </picklistValues>
-			             <picklistValues>
+	      <picklistValues>
+                <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
                 <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </picklistValues>
@@ -40233,6 +40237,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Invoiced</fullName>
+                <default>false</default>
+            </values>
+			             <values>
+                <fullName>Job Card Issue</fullName>
                 <default>false</default>
             </values>
             <values>
