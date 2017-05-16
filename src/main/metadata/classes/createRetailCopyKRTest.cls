@@ -448,7 +448,7 @@ public class createRetailCopyKRTest {
          createRetailCopyKR add=new createRetailCopyKR(sc);
        
          add.getDealer();       
-         add.CreateRetailCopy();
+         add.CreateRetailCopy(); 
          test.StopTest();
          system.assertNotEquals(companyacc,null);
          }

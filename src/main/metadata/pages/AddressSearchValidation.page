@@ -86,11 +86,8 @@
                     </apex:pageBlockSectionItem> 
                      
                       <apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
-                     <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
-                     <apex:outputPanel styleClass="requiredInput" layout="block">
-                       <apex:outputPanel styleClass="requiredBlock" layout="block"/> 
-                  <apex:inputfield value="{!objAccount.Data_Source__c}"  id="mId" required="true"/>   
-                  </apex:outputPanel>
+                     <apex:outputLabel value="{!$Label.Touch_Point}"/>   
+                  <apex:inputfield value="{!objAccount.Data_Source__c}"  id="mId" /> 
                   </apex:pageBlockSectionItem>
                    
                    <apex:pageBlockSectionItem rendered="{!u.ContactId !=null}">        
@@ -136,7 +133,7 @@
                      <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
                      <apex:outputPanel styleClass="requiredInput" layout="block">
                        <apex:outputPanel styleClass="requiredBlock" layout="block"/> 
-                  <apex:inputfield value="{!objPersonAccount.Data_Source__c}"  id="mId" required="true"/>   
+                  <apex:inputfield value="{!objPersonAccount.Data_Source__c}"  id="mId" />   
                   </apex:outputPanel>
                   </apex:pageBlockSectionItem> 
                    <apex:pageBlockSectionItem rendered="{!u.ContactId !=null}">        
