@@ -30,10 +30,15 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	<applicationVisibilities>
+        <application>MBF_Call_Center</application>
+        <default>true</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <applicationVisibilities>
         <application>MBJ_Call_Center</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBJ_Catalogue_Operation</application>
@@ -42,7 +47,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBJ_Data_Management</application>
-        <default>true</default>
+        <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -23756,6 +23761,10 @@
         <layout>Case-MB Complaint Layout - CAC</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Case-MBF Complaint Management Case Operator</layout>
+        <recordType>Case.MBF_Complaint</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Case-MBF Contract Closing Cases</layout>
         <recordType>Case.MBF_Contract_Closing_Case</recordType>
@@ -24423,9 +24432,9 @@
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
@@ -26124,6 +26133,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>AllowViewKnowledge</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>ApiEnabled</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

@@ -867,7 +867,6 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>
@@ -883,6 +882,11 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
+	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.TYPE</fields>
         <fields>Activity_Status__c</fields>
@@ -955,6 +959,8 @@
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
+	    <excludeButtons>NewTask</excludeButtons>
+	    <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>

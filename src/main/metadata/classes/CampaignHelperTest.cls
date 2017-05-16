@@ -1052,10 +1052,8 @@
         CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
         objcampaign.SegWorkingMonth__c  = 'May';
         update objcampaign;
-        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
-         objcampaign.SegWorkingMonth__c  = 'Jun';
-        update objcampaign;
-        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+       
+        
         Test.StopTest();
         system.assertNotEquals(null, listcampaigns[0].StartDate);
      }
@@ -1254,6 +1252,12 @@
         top2.Campaign_Type__c='After Sales';
         update top2;
         CampaignHelper.emailNotificationToDealer(listcampaigns,oldMap);
+        objcampaign.SegWorkingMonth__c  = 'May';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Jun';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
         Test.StopTest();
         system.assertNotEquals(null, listcampaigns[0].StartDate);
         }

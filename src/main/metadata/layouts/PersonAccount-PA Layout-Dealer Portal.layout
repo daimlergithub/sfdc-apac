@@ -336,6 +336,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Fax_Validity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Personal_Abroad_Agreement__c</field>
             </layoutItems>
             <layoutItems>
@@ -366,6 +374,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Household_Amount__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AnnualRevenue</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -555,17 +567,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>TASK.WHAT_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <relatedList>RelatedActivityList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <fields>Vehicle_Model__c</fields>
         <fields>UsVIN__c</fields>
@@ -687,6 +688,17 @@
         <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>MailMerge</excludeButtons>

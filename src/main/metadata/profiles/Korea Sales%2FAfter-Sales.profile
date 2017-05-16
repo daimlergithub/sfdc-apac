@@ -6916,7 +6916,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Cause__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6951,12 +6951,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Complaint_Contact_FirstName__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Complaint_Contact_LastName__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -7106,7 +7106,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Customer_Title__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
