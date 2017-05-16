@@ -9989,7 +9989,11 @@ Modify Reason:
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </picklistValues>
-			             <picklistValues>
+	      <picklistValues>
+                <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
                 <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </picklistValues>
@@ -40217,7 +40221,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+			        <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
                 <fullName>Contact</fullName>
@@ -40235,36 +40239,16 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
+			             <values>
+                <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Order Confirmed</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Service Program Proposal</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Simple Estimation</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Vehicle Registration</fullName>
                 <default>false</default>
             </values>
             <values>
