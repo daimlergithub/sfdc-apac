@@ -86,10 +86,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Allow_Data_Sharing__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Preferred_Contact_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -164,10 +160,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allow_Data_Sharing2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -415,15 +407,11 @@
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
-    <relatedLists>
-	    <excludeButtons>NewTask</excludeButtons>
-	    <excludeButtons>NewEvent</excludeButtons>
+    <relatedLists> 
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
-    <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
-        <excludeButtons>MailMerge</excludeButtons>
+    <relatedLists> 
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
@@ -493,3 +481,5 @@
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
+
+
