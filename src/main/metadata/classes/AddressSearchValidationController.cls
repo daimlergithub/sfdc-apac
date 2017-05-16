@@ -1162,7 +1162,12 @@ If the user is Saving  same address which matches the fields returned by toleran
            return options;
     }
      
-    public void onLineDeduplication(){  
+    public void onLineDeduplication(){
+        if(recordType == 'Person Account' && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C))){ 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
+        }else if(recordType == 'Company' && (objAccount.Name == NULL||String.isBlank(objAccount.Name))){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
+        }else{
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1174,7 +1179,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         system.debug('addtrmapUpdate1 >> :'+objPersonAccount.LastName);
         system.debug('addtrmapUpdate1 << :'+objAccount.Name);      
          System.debug('@@@@@@@ objPersonAccount.Name    '+objAccount.Name);
-        if(objPersonAccount.LastName !=null) 
+        if(objPersonAccount.LastName !=null ) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
@@ -1539,6 +1544,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         }       
         firstsave = true;       
         secondsave = false;         
+    }
     }
     //Introduced for TH Market
     public void onLineDeduplicationTH(){  
