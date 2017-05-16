@@ -582,7 +582,7 @@ public class LeadHelperJP
             }
         }
     }    
-        
+   /*     
   public Static boolean isCreated =false;
   public static void populateRetailCompany(List<Lead__c> LeadLst, Map<Id,Lead__c> oldLeadmap, boolean isInsert, boolean isUpdate){
         system.debug('====#####'+isInsert);
@@ -659,6 +659,6 @@ public class LeadHelperJP
         update AccounliunkRetailUpdate;
         }
     }
-          
+     */     
         
    }
