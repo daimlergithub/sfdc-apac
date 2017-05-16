@@ -40235,10 +40235,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
-			             <values>
-                <fullName>Job Card Issue</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Needs Check</fullName>
                 <default>false</default>
