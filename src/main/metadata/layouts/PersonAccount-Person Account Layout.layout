@@ -19,10 +19,10 @@
                 <sidebarComponents>
                     <componentType>RelatedList</componentType>
                     <label>Related Lists</label>
-                    <!--<relatedLists>
+                    <relatedLists>
                         <hideOnDetail>false</hideOnDetail>
                         <name>Vehicle_Relationship__c.Contact__c</name>
-                    </relatedLists>-->
+                    </relatedLists>
                     <relatedLists>
                         <hideOnDetail>false</hideOnDetail>
                         <name>RelatedCaseList</name>
@@ -881,12 +881,7 @@
         <sortField>CASES.CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-    <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
-        <excludeButtons>MailMerge</excludeButtons>
-        <excludeButtons>RequestUpdate</excludeButtons>
-        <excludeButtons>SendEmail</excludeButtons>
-        <excludeButtons>ViewAll</excludeButtons>
+    <relatedLists> 
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.TYPE</fields>
         <fields>Activity_Status__c</fields>
@@ -958,9 +953,7 @@
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
-    <relatedLists>
-	    <excludeButtons>NewTask</excludeButtons>
-	    <excludeButtons>NewEvent</excludeButtons>
+    <relatedLists>  
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
