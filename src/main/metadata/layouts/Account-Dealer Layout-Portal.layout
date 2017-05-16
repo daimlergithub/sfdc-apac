@@ -526,8 +526,7 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>NewTask</excludeButtons>
-	    <excludeButtons>NewEvent</excludeButtons>
+	    <excludeButtons>NewMeetingRequest</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
@@ -539,7 +538,6 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>

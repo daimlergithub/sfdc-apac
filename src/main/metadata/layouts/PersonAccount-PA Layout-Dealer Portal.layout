@@ -555,19 +555,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-	    <excludeButtons>NewTask</excludeButtons>
-	    <excludeButtons>NewEvent</excludeButtons>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>TASK.WHAT_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <relatedList>RelatedActivityList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <fields>Vehicle_Model__c</fields>
         <fields>UsVIN__c</fields>
@@ -691,7 +678,18 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
+	    <excludeButtons>NewMeetingRequest</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
