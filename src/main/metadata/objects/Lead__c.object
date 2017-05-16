@@ -90459,10 +90459,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_DataSource__c</picklist>
-			<values>
-                <fullName>3rd party data</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
@@ -90605,10 +90601,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Outbound Call</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Partners</fullName>
                 <default>false</default>
             </values>
             <values>
