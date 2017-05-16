@@ -4,22 +4,25 @@ public class TriggerAccountLinkTriggerHandlerKR
     User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {   system.debug('Trigger 1 :');
-        if(Trigger.isAfter && Trigger.isInsert){
+        if(isAfter && isInsert){
             system.debug('Trigger 2 :');
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelperKR.afterInsertEvent(Trigger.new);
 			AccountLinkHelperKR.updateRetailPositionfromC2C(Trigger.isUpdate, Trigger.isAfter ,Trigger.isInsert, trigger.new);
             system.debug('Trigger 3 :');
         }
-        if(Trigger.isAfter && Trigger.isUpdate){
+        if(isAfter && isUpdate){
             system.debug('Trigger 4 :');
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelperKR.afterUpdateEvent(Trigger.new, oldmap);
 			AccountLinkHelperKR.updateRetailPositionfromC2C(Trigger.isUpdate, Trigger.isAfter ,Trigger.isInsert, trigger.new);
 			AccountLinkHelperKR.ExportNotification(Trigger.new, oldmap);
+			system.debug('Entered After TRIGGER');
+            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+            AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
             system.debug('Trigger 5 :');
         }     
-        if(Trigger.isBefore &&  Trigger.isInsert)
+        if(isBefore && isInsert)
         {        
             system.debug('Entered before TRIGGER');
             
@@ -28,17 +31,12 @@ public class TriggerAccountLinkTriggerHandlerKR
            
         }
                 
-        if(Trigger.isBefore && Trigger.isUpdate)
+        if(isBefore && isUpdate)
         {
             system.debug('Entered b efore update TRIGGER');
             AccountLinkHelperKR.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
             
-        }  
-        if(Trigger.isAfter && Trigger.isUpdate)
-        {   system.debug('Entered After TRIGGER');
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
-        }     
+        }    
     }        
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
