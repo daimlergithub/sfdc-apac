@@ -205,6 +205,30 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Annual_Call_Task_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Annual Call Task 1</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Annual_Call_Task_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Annual Call Task 2</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Annual_Call_Task_3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Annual Call Task 3</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Annual_Call__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1092,6 +1116,30 @@
     </fields>
     <fields>
         <fullName>EOC_Call_Task_3_del__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>EOC Call Task 3</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>EOC_Call_Task_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>EOC Call Task 1</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>EOC_Call_Task_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>EOC Call Task 2</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>EOC_Call_Task_3__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>EOC Call Task 3</label>
