@@ -2062,12 +2062,12 @@
 	<fieldPermissions>
 		<editable>false</editable>
 		<field>Account.CDM_UCID__c</field>
-		<readable>true</readable>
+		<readable>false</readable>
 	</fieldPermissions>
 	<fieldPermissions>
 		<editable>false</editable>
 		<field>Account.CAC_PERSON_UID__c</field>
-		<readable>true</readable>
+		<readable>false</readable>
 	</fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3537,7 +3537,7 @@
 		<fieldPermissions>
 		<editable>false</editable>
 		<field>Account.MBC_USERID__c</field>
-		<readable>true</readable>
+		<readable>false</readable>
 	</fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
