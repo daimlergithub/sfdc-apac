@@ -39966,15 +39966,7 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
-			<values>
-                <fullName>Book-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-			<values>
+ 			<values>
                 <fullName>Campaign</fullName>
 				<default>false</default>
             </values>
@@ -39987,15 +39979,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
 			<values>
-                <fullName>Service Booking</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
             <values>
