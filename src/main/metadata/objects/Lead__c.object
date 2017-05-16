@@ -9989,6 +9989,26 @@ Modify Reason:
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </picklistValues>
+			             <picklistValues>
+                <fullName>WIP Linkage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Check Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lost</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Handover</fullName>
                 <default>false</default>
@@ -39966,15 +39986,7 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
-			<values>
-                <fullName>Book-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-			<values>
+ 			<values>
                 <fullName>Campaign</fullName>
 				<default>false</default>
             </values>
@@ -39987,15 +39999,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
 			<values>
-                <fullName>Service Booking</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41294,10 +41298,6 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Payment_Mode__c</picklist>
 			<values>
                 <fullName>Credit Card</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>EFT</fullName>
                 <default>false</default>
             </values>
             <values>
