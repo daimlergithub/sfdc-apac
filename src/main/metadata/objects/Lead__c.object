@@ -36858,14 +36858,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Accepted</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Contact Failed For 3 Days</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
@@ -36896,10 +36888,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
 			<values>
                 <fullName>Order Placed%252FService Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
