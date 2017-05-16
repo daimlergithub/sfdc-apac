@@ -1,3 +1,8 @@
+/**
+* Handler for Trigger on DMRequest for TH(Thailand)
+* Author: Bhushan
+* Created Date : 2017-03-07
+*/
 public class TriggerDMRequestTriggerHandlerTH
     implements TriggerHandlerIf 
 {
@@ -16,17 +21,7 @@ public class TriggerDMRequestTriggerHandlerTH
         } 
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-    {
-        if(Trigger.isBefore && Trigger.isInsert)
-        {
-            DMRequestHelperTH.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
-            DMRequestHelperTH.InsertDMRequest(trigger.new,isInsert);
-        }
-        
-        if (Trigger.isBefore && Trigger.isUpdate)
-        { 
-            DMRequestHelperTH.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
-            DMRequestHelperTH.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isUpdate);                        
-        }
+	{
+      // Implementation to addedd as required in market
     }
 }

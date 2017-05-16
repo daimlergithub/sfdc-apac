@@ -1898,4 +1898,75 @@ else if(result == "false")
 alert('{!$Label.Error_Message_2}');
 }</url>
     </webLinks>
+    <webLinks>
+        <fullName>New_DM_Request</fullName>
+        <availability>online</availability>
+        <description>For Case Object Related List</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New DM Request</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if('{!Case.RecordTypeId}' == 'CASE_INQUIRY_TYPE_RECORDTYPEID') 
+{	
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Case.Account}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Case.AccountId}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Case.Lead__c}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Case.LeadId__c}&amp;saveURL={!Case.Id}&amp;retURL={!Case.Id}&amp;cancelURL={!Case.Id}',true, '{!$Label.New_DM_Request}'); 
+} 
+} 
+) 
+}	
+else { 
+if('{!Case.RecordTypeId}' == 'CASE_INQUIRY_TYPE_RECORDTYPEID') 
+{	
+window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Case.Account}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Case.AccountId}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Case.Lead__c}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Case.LeadId__c}&amp;saveURL={!Case.Id}&amp;retURL={!Case.Id}&amp;cancelURL={!Case.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+}  
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_DM_Request_Lead</fullName>
+        <availability>online</availability>
+        <description>For Lead Object Related List</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New DM Request</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
+{	
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+} 
+else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
+{ 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+} 
+
+} 
+) 
+}	
+else { 
+if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
+{	
+window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
+{ 
+window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+}</url>
+    </webLinks>
 </CustomObject>

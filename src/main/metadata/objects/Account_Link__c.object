@@ -505,7 +505,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -655,7 +655,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1353,7 +1353,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2591,6 +2591,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>CompanyExternalLink</fullName>
         <active>true</active>
+		<description>To link self-registered customer records</description>
         <label>Company Customer External Link</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -2823,6 +2824,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>Contact2Contact</fullName>
         <active>true</active>
+		<description>Company Account and Individual Account with Individual Account</description>
         <label>Contact2Contact</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -3023,6 +3025,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>ContactSector</fullName>
         <active>true</active>
+		<description>To link customer records with dealer records.</description>
         <label>ContactSector</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -3219,6 +3222,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>IndividualExternalLink</fullName>
         <active>true</active>
+        <description>To link self-registered customer records with which system in which the customer registration happened</description>
         <label>Individual Customer External Link</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -3419,6 +3423,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
      <recordTypes>
         <fullName>Retail_Company</fullName>
         <active>true</active>
+        <description>Customer Copy for Company Account</description>
         <label>Retail Company</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -4009,6 +4014,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>Retail_Person</fullName>
         <active>true</active>
+        <description>Customer Copy for Person Account</description>
         <label>Retail Person</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -4736,6 +4742,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>Vehicle_External_Link</fullName>
         <active>true</active>
+        <description>To capture the vehicle which were Imported</description>
         <label>Vehicle External Link</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>

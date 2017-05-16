@@ -92,6 +92,75 @@ public class AccountHelperJP
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
+				if(Acc.Fax != Null && Acc.Fax != '')
+                {                    
+					Acc.Fax_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
+                {     
+					Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();				
+                    Acc.Fax2_Last_Modified_Date__c = System.now();
+                }
+				if(Acc.Primary_Phone__c != Null && Acc.Primary_Phone__c != '')
+                {                    
+                    Acc.Primary_Phone_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Email__c != Null && Acc.Primary_Email__c != '')
+                {                    
+                    Acc.Primary_Email_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Fax__c != Null && Acc.Primary_Fax__c != '')
+                {                    
+                    Acc.Primary_Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Address__c != Null && Acc.Primary_Address__c != '')
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
+                {                    
+                    Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
+                }
+				if(Acc.PersonDoNotCall == true)
+                {                    
+                    Acc.PersonDoNotCall_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Visit_Opt_Out__c == true)
+                {                    
+                    Acc.Visit_Opt_Out_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Postal_Opt_Out__c == true)
+                {                    
+                    Acc.Postal_Opt_Out_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonHasOptedOutOfEmail == true)
+                {                    
+                    Acc.OptedOutOfEmail_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonHasOptedOutOfFax == true)
+                {                    
+                    Acc.OptedOutOfFax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.MB_Customer_Info_Remove__c == true)
+                {                    
+                    Acc.MB_CIR_Last_Modified_Date__c = System.now();
+                }
+                                
+                if(Acc.Data_Source__c != Null && Acc.Data_Source__c != '')
+                {                    
+                    Acc.Data_Source_Last_Modified_Date__c = System.now();
+                }
             }
         }
     }
@@ -410,6 +479,13 @@ public class AccountHelperJP
                {
                      for(Account a:listNewAccounts)
                        {
+					   
+					    //Changes as part of SFDCJP-2404
+                       if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && a.Allow_Data_Sharing2__c=='Yes'  && a.Acquisition_Record_Date__c ==null )
+                       { 
+                       a.Acquisition_Record_Date__c =System.today(); 
+                       }
+					   
                            if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && (a.Allow_Data_Sharing2__c!= oldMap.get(a.id).Allow_Data_Sharing2__c && a.Allow_Data_Sharing2__c=='No'))
                            {
                            a.Acquisition_Objective_Method__c='';

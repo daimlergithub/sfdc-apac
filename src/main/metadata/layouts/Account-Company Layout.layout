@@ -6,6 +6,7 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Sales_Lead_WS</customButtons>
+	<customButtons>New_Case</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -415,10 +416,14 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+	    <excludeButtons>NewTask</excludeButtons>
+	    <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>

@@ -72,10 +72,11 @@ public static Contact contactObj;
       string name =  'nameDMS-';
 
       String testStr = AccountLinkHelper.nameParsing('nameDMS-');
-      
+      String testStr1 = AccountLinkHelperKR.nameParsing('nameDMS-');
       name = name.substring(name.indexOf('DMS-'));
       crmCode = name.substring(name.lastIndexOf('-') - 2, name.lastIndexOf('-'));
       system.assertEquals(crmCode, testStr);
+      system.assertEquals(crmCode, testStr1);
       test.stopTest();
   }
     public static testMethod void test_nameParsing1()
@@ -151,7 +152,8 @@ public static Contact contactObj;
            update listcampaigns1;
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
-          
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.beforeInsertUpdateEvent(listcampaigns1,oldMap);
                 
          
                system.assertNotEquals('ggg',listcampaigns1[0].Name);
@@ -202,7 +204,7 @@ public static Contact contactObj;
            update listcampaigns1;
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
-          
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
                 
          
                system.assertNotEquals('ggg',listcampaigns1[0].Name);
@@ -254,6 +256,7 @@ public static Contact contactObj;
            update listcampaigns1;
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
           //AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -306,6 +309,7 @@ public static Contact contactObj;
            update listcampaigns1;
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -358,11 +362,13 @@ public static Contact contactObj;
            update listcampaigns1;
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                  al1.Retail_Preferred_Language__c='Japan';
            update al1;
            update listcampaigns1;
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
                system.assertNotEquals('ggg',listcampaigns1[0].Name);
            
        }
@@ -414,15 +420,19 @@ public static Contact contactObj;
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
            insert vecle;
            al1.Vehicle__c=vecle.id;
@@ -430,6 +440,7 @@ public static Contact contactObj;
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -484,21 +495,25 @@ public static Contact contactObj;
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
-           
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
            al1.Vehicle__c=vecle.id;
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+            AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -559,21 +574,26 @@ public static Contact contactObj;
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
-           
+            AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
            al1.Vehicle__c=vecle.id;
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -635,23 +655,29 @@ public static Contact contactObj;
            
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
           
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+            AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
            al1.Vehicle__c=vecle.id;
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -717,25 +743,32 @@ public static Contact contactObj;
            
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
           
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
            al1.Status__c='My Shops';
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
            al1.Vehicle__c=vecle.id;
             al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+            AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -800,14 +833,18 @@ public static Contact contactObj;
            
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
           
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
               update al1;
           update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
-           
+           AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
            al1.Vehicle__c=vecle.id;
@@ -815,6 +852,7 @@ public static Contact contactObj;
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -865,7 +903,8 @@ public static Contact contactObj;
            insert listcampaigns1;
            system.debug('listcampaigns1--'+listcampaigns1);
            AccountLinkHelper.updateRetailCopyfromC2C(true,true,true,listcampaigns1);
-           
+           AccountLinkHelperKR.updateRetailCopyfromC2C(true,true,true,listcampaigns1);
+           AccountLinkHelperKR.updateRetailPositionfromC2C(true,true,true,listcampaigns1);
            Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,fromRole__c,RecordTypeId,Retail_UCID__c,Retail_LastName__c,Status__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
            list<Account_Link__c> oldList = new  list<Account_Link__c>();
            oldList.add(listCampaign);
@@ -881,14 +920,18 @@ public static Contact contactObj;
           
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
           
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
               update al1;
           update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
-           
+           AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
            al1.Vehicle__c=vecle.id;
@@ -896,6 +939,7 @@ public static Contact contactObj;
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -961,7 +1005,10 @@ public static Contact contactObj;
           AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
-          
+          AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelper.afterInsertEvent(listcampaigns1);
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
               update al1;
@@ -1050,11 +1097,20 @@ public static Contact contactObj;
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          
+           AccountLinkHelperKR.afterInsertDeleteEvent(listcampaigns1);
+          AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
               update al1;
           update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            
           
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
@@ -1063,6 +1119,7 @@ public static Contact contactObj;
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+            AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -1148,11 +1205,24 @@ public static Contact contactObj;
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+           AccountLinkHelperKR.afterDeleteEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertDeleteEvent(listcampaigns1);
+          AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
               update al1;
           update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           
+           
+           AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            
           
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
@@ -1161,6 +1231,7 @@ public static Contact contactObj;
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+            AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -1246,18 +1317,28 @@ public static Contact contactObj;
            al1.Retail_ZipCode__c='1003465';
            update al1;
            update listcampaigns1;
-           AccountLinkHelper.updateRetailCopy(false,true,false,listcampaigns1);
-           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
+           //AccountLinkHelperKR.updateRetailCopy(true,true,true,listcampaigns1);
+          AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
           AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          
+          AccountLinkHelperKR.afterInsertDeleteEvent(listcampaigns1);
+          AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
               update al1;
           update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           
+            AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            
           
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
@@ -1266,6 +1347,7 @@ public static Contact contactObj;
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          
@@ -1352,18 +1434,31 @@ public static Contact contactObj;
            update al1;
            update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
-           AccountLinkHelper.updateRetailCopy(false,true,false,listcampaigns1);
+          
            AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
           AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          
+          
+          AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+          
+           AccountLinkHelperKR.afterInsertDeleteEvent(listcampaigns1);
+          AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          
+          AccountLinkHelperKR.ExportNotification(listcampaigns1,oldMap);
+          
+          AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
           al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
               update al1;
           update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           
+           AccountLinkHelperKR.afterUpdateEvent(listcampaigns1,oldMap);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
            
           
            Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
@@ -1372,6 +1467,7 @@ public static Contact contactObj;
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
          // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
                 
          

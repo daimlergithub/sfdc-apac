@@ -59,7 +59,7 @@ dev_sb_asia_dev20=sivaramakrishna.aduri@asia.daimler-apac.com.asiadev20
 dev_sb_asia_dev26=saranyavss.gotrala@nttdata.com.dev26
 dev_sb_asia_dev15=arun.iyer.ntt@mbj.daimler-apac.com.asiadev15,infosys_technolo.naga@daimler.com.daimler-apac.asiadev15
 dev_sb_asia_ssotest=arun.iyer.ntt@asia.daimler-apac.com.ssotest
-dev_sb_asia_mrdev=
+dev_sb_asia_mrdev=deployment.user@mbj.daimler-apac.com.mrdev
 dev_sb_asia_mr=arun.iyer.ntt@mbj.daimler-apac.com.mr
 dev_sb_asia_mrfull=arun.iyer.ntt@mbj.daimler-apac.com.mrfull
 dev_sb_asia_dev16=avishek.roy.ntt@mbj.daimler-apac.com.asiadev16
@@ -68,6 +68,7 @@ dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
 dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
+dev_sb_asiaDevTh4=pavankumar_d01@infosys.com.asiadevth4
 
 # Asia Korea Dev Sandboxes
 dev_sb_asia_dev11=
