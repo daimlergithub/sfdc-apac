@@ -88122,18 +88122,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+   <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88162,10 +88154,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
