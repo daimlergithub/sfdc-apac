@@ -36699,6 +36699,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>smart</fullName>
                 <default>false</default>
             </values>
+			</picklistValues>
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
