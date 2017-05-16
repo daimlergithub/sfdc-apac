@@ -65,7 +65,7 @@ public class LeadHelperAccountLinkCreateJP
             createAccountLinkRecord(contactId);
         }
      }  
-		if(usr.profile.Name.contains('Japan Dealer'))    
+        if(usr.profile.Name.contains('Japan Dealer'))    
      leadutil.leadAccountDetails = false;  
     }
     
@@ -190,13 +190,16 @@ public class LeadHelperAccountLinkCreateJP
         System.debug('^&^&^&&^&^&^&^& leadupdate.Values()'+leadupdate.Values());
     if(leadupdate !=null && leadupdate.Size()>0)
     {
+    LeadUtil.createAccountLinkRecord=false;
     Update leadupdate.Values();
+    
     //LeadHelperAccountLinkCreateJP.updatingleadAccountDetails(leadrecId, accountlnkid);
     System.debug('^&^&^&&^&^&^&^ venky& leadupdate.Values()'+leadupdate.Values());
     }
     System.debug('^&^&^&&^&^&^&^& outside leadupdate.Values()'+leadupdate.Values());
+    
     }
-        LeadUtil.createAccountLinkRecord=false;
+        
      system.debug('#$%^  LeadUtil.createAccountLinkRecord'+ LeadUtil.createAccountLinkRecord);
     }
     /*Update Retail_Contact__c with the record Id of retail copy of the corresponding Account linked to the Leads record that belongs to the assigned dealer
