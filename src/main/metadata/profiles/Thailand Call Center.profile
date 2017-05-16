@@ -2100,7 +2100,15 @@
         <apexClass>VehicleRelationshipHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+		    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTH</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTHTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	 <classAccesses>
         <apexClass>VehicleRelationshipSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
