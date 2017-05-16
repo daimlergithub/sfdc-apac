@@ -1941,10 +1941,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-		<apexClass>VehicleRelationshipHelperTH</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>VehicleRelationshipHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
