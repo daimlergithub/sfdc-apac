@@ -3,6 +3,7 @@
     <customButtons>New_Sales_Lead_Wholesale</customButtons>
     <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
     <customButtons>Generate_Pdf</customButtons>
+    <customButtons>Notify_to_Dealer</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
