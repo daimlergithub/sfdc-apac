@@ -12,8 +12,8 @@ public with sharing class VehicleRelationshipHelperTHTest{
        public static Lead__c leadObj;
        public static List<Lead__c> leadlst;
        static List<Vehicle_Relationship__c> vrlst;
-       public static void createTestData(Date startDate, Date endDate){ 
-           
+       public static void createTestData(Date startDate, Date endDate){
+	              
            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
            insert updatecustomsettings;
       
@@ -26,7 +26,6 @@ public with sharing class VehicleRelationshipHelperTHTest{
            update vehicle_relationship;
            system.assertNotEquals(vehicle_relationship,null);
        }
-       
        public static testMethod void testInsertValidation(){
            VehicleRelationshipHelperTH vrHelperTH = new VehicleRelationshipHelperTH();
            Date today = Date.today();
