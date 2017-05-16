@@ -36699,11 +36699,18 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>smart</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>		
-            <picklistValues>
+        <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
-           <values>
+            <values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved %28Waiting%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36711,18 +36718,39 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Distributed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28CAC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Not Allocated</fullName>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
-        </picklistValues><picklistValues>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
                 <fullName>Customer can not be reached</fullName>
