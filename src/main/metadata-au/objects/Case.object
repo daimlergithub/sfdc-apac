@@ -19171,6 +19171,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>E 350 e</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>E 63 AMG</fullName>
                 <default>false</default>
             </picklistValues>
@@ -46461,6 +46465,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Coronado SD 114</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E 350 e</fullName>
                 <default>false</default>
             </values>
             <values>
