@@ -1936,6 +1936,14 @@
         <apexClass>VehicleRelationshipHelperJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTH</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>VehicleRelationshipHelperTHTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>VehicleRelationshipHelperJPTest</apexClass>
         <enabled>true</enabled>

@@ -1830,6 +1830,14 @@
         <apexClass>VehicleRelationshipHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTH</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTHTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>VehicleRelationshipSharingTest</apexClass>
         <enabled>true</enabled>
