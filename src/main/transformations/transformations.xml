@@ -365,6 +365,21 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_ID</token>
 	</changetext>
+		<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_INQUIRY_RECORDTYPEID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_VEHICLE_RELATIONSHIP_LKIED</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_Vehicle_ID</token>
+	</changetext>
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
