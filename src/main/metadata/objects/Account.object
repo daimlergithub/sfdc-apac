@@ -12521,7 +12521,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is &quot;Contact_StopPostal&quot;</description>
         <externalId>false</externalId>
-        <label>DM Opt Out</label>
+        <label>Postal Opt Out</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -56448,7 +56448,7 @@ else {
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
 { 
-window.open('{!URLFOR($Site.Prefix)}/apex/CheckAccountDuplicatePage?id={!Account.Id}'); 
+window.open('{!URLFOR($Site.Prefix)}/apex/CheckAccountDuplicatePage?id={!Account.Id}');
 } 
 else 
 { 
