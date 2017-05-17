@@ -9,11 +9,19 @@
     <columns>
         <field>OPEN</field>
     </columns>
+    <columns>
+        <field>ALIAS</field>
+    </columns>
     <filter>
         <criteriaItems>
             <column>RECORDTYPE</column>
             <operator>equals</operator>
             <value>Case.Inquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>PRIORITY</column>
+            <operator>equals</operator>
+            <value>,A,B,C</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>

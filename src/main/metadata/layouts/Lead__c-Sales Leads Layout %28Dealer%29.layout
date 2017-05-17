@@ -93,6 +93,10 @@
                 <field>Finance_Closing_Option__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Appointment_DateTime__c</field>
+            </layoutItems>
+            <layoutItems>
                 <height>200</height>
                 <page>MarketCheckOnVehiclePicker</page>
                 <showLabel>false</showLabel>

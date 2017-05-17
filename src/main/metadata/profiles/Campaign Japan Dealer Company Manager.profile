@@ -24970,10 +24970,6 @@
         <enabled>true</enabled>
         <name>ChatterOwnGroups</name>
     </userPermissions>
-	<userPermissions>
-        <enabled>false</enabled>
-        <name>SubscribeToLightningReports</name>
-    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ConvertLeads</name>
