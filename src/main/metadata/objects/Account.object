@@ -56711,7 +56711,7 @@ srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&am
 
 else 
 { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&00N2800000A9Ctz_lkid={!Account.Id}&00N2800000A9Ctz={!Account.Name}" ) 
+window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}" ) 
 
 } 
 } 
