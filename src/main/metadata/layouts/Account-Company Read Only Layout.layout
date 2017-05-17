@@ -314,10 +314,10 @@
                 <behavior>Readonly</behavior>
                 <field>Personal_Information_Third_Party_Release__c</field>
             </layoutItems>
-            <layoutItems>
+            <!--<layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Consent__c</field>
-            </layoutItems>
+            </layoutItems>-->
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Recall__c</field>
@@ -465,8 +465,8 @@
                 <field>Annual_Mileage__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Annual_Income_Range__c</field>
+                <behavior>Readonly</behavior>
+                <field>AnnualRevenue</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
