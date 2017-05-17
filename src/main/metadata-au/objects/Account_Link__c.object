@@ -594,7 +594,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Retail_Agreement_info_processing__c</fullName>
+        <fullName>Retail_Agreement_Info_Processing__c</fullName>
         <externalId>false</externalId>
         <label>Retail Agreement info processing</label>
         <picklist>
@@ -1522,7 +1522,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Retail_Website__c</fullName>
+        <fullName>Retail_WebSite__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
         <label>Retail Web Site</label>
@@ -1934,7 +1934,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2200,7 +2200,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2450,7 +2450,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2708,7 +2708,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2978,7 +2978,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3250,7 +3250,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3629,7 +3629,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3986,7 +3986,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
