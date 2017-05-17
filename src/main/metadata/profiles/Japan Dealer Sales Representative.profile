@@ -26090,10 +26090,6 @@
         <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>
-	<userPermissions>
-        <enabled>false</enabled>
-        <name>SubscribeToLightningReports</name>
-    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>

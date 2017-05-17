@@ -103,6 +103,10 @@
                 <behavior>Edit</behavior>
                 <field>Next_Contact_Customer_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Appointment_DateTime__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
