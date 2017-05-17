@@ -173,7 +173,7 @@ window.location.href="/{!AccId}";
 
 </apex:pageBlockTable>
 <apex:pageBlockButtons location="bottom">
- <apex:commandButton value="Create Retail Copy" action="{!CreateRetailCopy}"  oncomplete="afterSave()" status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
+ <apex:commandButton value="Create Retail Copy" action="{!CreateRetailCopy}"  oncomplete="afterSave()" status="statusSaveTrip" reRender="Errormessage,pbid,jspanel,statusSaveTrip"/>
 <apex:commandButton value="cancel" action="{!cancel}"/>
         </apex:pageBlockButtons>
 
