@@ -55,7 +55,6 @@ public with sharing class VehicleRelationshipHelperTH
     } 
     
     Public static void OnAfterUpdate(List<Vehicle_Relationship__c> newVehicleRelRecords,Map<Id,Vehicle_Relationship__c> oldMapVR){     
-        System.debug("Vehicle Helper TH");
 		Set<Id> ContactIds=new Set<Id>();
         Set<Id> VehicleIds=new Set<Id>();       
         Set<Id> VehicleRelationshipIds=new Set<Id>(); 
