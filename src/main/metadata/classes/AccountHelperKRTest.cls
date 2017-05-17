@@ -245,7 +245,7 @@ public class AccountHelperKRTest {
       insert test;
         System.runAs (usr) {
            
-     Account personAcc = new Account(Dealer_Default_Flag__c=false,
+     personAcc = new Account(Dealer_Default_Flag__c=false,
                            Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '000-0000-9642',Home_Phone_2__c = '000-0000-9642',Work_Phone__c = '000-0000-9642',
                            Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
                            City__c='Beijing',
