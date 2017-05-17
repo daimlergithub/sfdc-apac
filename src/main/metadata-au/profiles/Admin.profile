@@ -18331,6 +18331,16 @@
         <field>SSI__c.VehicleUSvin__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Segmentation_Criteria__c.Criteria__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Segmentation_Criteria__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>ServiceContract.AccountId</field>
@@ -22015,6 +22025,9 @@
     <layoutAssignments>
         <layout>SSI__c-SSI Record Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Segmentation_Criteria__c-Segmentation Criteria Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>ServiceContract-Service Contract Layout</layout>
     </layoutAssignments>
@@ -22864,6 +22877,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>SSI__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Segmentation_Criteria__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
