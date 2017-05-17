@@ -105,7 +105,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>	Work_Phone_Status_2__c</field>
+                <field>Work_Phone_Status_2__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
