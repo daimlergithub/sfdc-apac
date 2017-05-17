@@ -121,11 +121,11 @@ public class contactTableControllerTest {
         }
     }
     public static testMethod void UpdateAccountTHTest() {
-        Profile profl = [Select Id from Profile where Name = 'System Administrator'];
-        User us = TestClassHelper.createUser('User2TH',profl,'TH');
-        insert US;
-        system.runAs(US){
-            objAccount = TestClassHelper.CreateAccount(US.Market__c,'FirstName','LastName');
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'TH');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
             insert objAccount;
             ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
             ContactTableController ctc = new ContactTableController(sc);
@@ -139,11 +139,11 @@ public class contactTableControllerTest {
     }
     // Home code is not null;
     public static testMethod void UpdateAccountTHPhoneTest() {
-        Profile profile = [Select Id from Profile where Name = 'System Administrator'];
-        User us = TestClassHelper.createUser('User2TH',profile,'TH');
-        insert US;
-        system.runAs(US){
-            objAccount = TestClassHelper.CreateAccount(US.Market__c,'FirstName','LastName');
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'TH');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
             insert objAccount;
             ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
             ContactTableController ctc = new ContactTableController(sc);
@@ -154,11 +154,11 @@ public class contactTableControllerTest {
         }
     }
     public static testMethod void AreacodeItemsKRTest() {
-        Profile profiles = [Select Id from Profile where Name = 'System Administrator'];
-        User us = TestClassHelper.createUser('User1KRAcode',profiles,'KR');
-        insert US;
-        system.runAs(US){
-            objAccount = TestClassHelper.CreateAccount(US.Market__c,'FirstName','LastName');
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+         usr = TestClassHelper.createUser('User1KRAcode',profile,'KR');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
             createTestData();
             ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
             ContactTableController ctc = new ContactTableController(sc);
