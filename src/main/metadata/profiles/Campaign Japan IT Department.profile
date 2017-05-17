@@ -707,24 +707,12 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MBJ_FS_Case_ContractClosing_InlineCntl</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MBJ_FS_Case_Inquiry_Controller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_Intermediate_Controller</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Quotation_InlineController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Request_InlineController</apexClass>
-        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MarketCheckOnVehiclePickerCon</apexClass>
@@ -23855,10 +23843,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>MBJ_FS_Case_ContractClosing_Inline_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MBJ_FS_Case_ContractClosing_Page</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -23879,20 +23863,12 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>MBJ_FS_Case_Quotation_Inline_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MBJ_FS_Case_Quotation_Page</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Request_Detail_Page</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MBJ_FS_Case_Request_Inline_Page</apexPage>
-        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Request_Page</apexPage>

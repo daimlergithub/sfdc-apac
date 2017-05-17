@@ -6,7 +6,7 @@
     3. Update Vehicle Amount
     4. Create Account Link
                 
-    Used By:  Mohammed Touseef Ahmed  
+    Used By:  Mohammed Touseef Ahmed
     ---------------------------------------------------------------
     History: 
     Created: 03-06-2017
@@ -55,7 +55,7 @@ public with sharing class VehicleRelationshipHelperTH
     } 
     
     Public static void OnAfterUpdate(List<Vehicle_Relationship__c> newVehicleRelRecords,Map<Id,Vehicle_Relationship__c> oldMapVR){     
-        Set<Id> ContactIds=new Set<Id>();
+		Set<Id> ContactIds=new Set<Id>();
         Set<Id> VehicleIds=new Set<Id>();       
         Set<Id> VehicleRelationshipIds=new Set<Id>(); 
         set<Id> ContactIdsforValidity=new Set<Id>();  

@@ -961,10 +961,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadVehiclePickerTHControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadVehiclePickerTHControllerTest_Th</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -974,10 +970,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadcustomClone_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_ContractClosing_InlineTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -994,14 +986,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_Intermediate_ControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Quotation_Inline_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Request_InlineTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2113,18 +2097,18 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>VehicleRelationshipHelperTH</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>VehicleRelationshipHelperTHTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>VehicleRelationshipHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+		    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTH</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTHTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	 <classAccesses>
         <apexClass>VehicleRelationshipSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -6724,72 +6708,7 @@
         <editable>false</editable>
         <field>Article__kav.PiC__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.AccountId</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.AssetLevel</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.AssetProvidedById</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.AssetServicedById</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.ContactId</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.Description</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.InstallDate</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.IsCompetitorProduct</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.IsInternal</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.Price</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.Product2Id</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.ProductCode</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.ProductDescription</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>issions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Asset.ProductFamily</field>
@@ -27230,10 +27149,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ContentWorkspaces</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
     </userPermissions>
     <!--<userPermissions>
@@ -27294,14 +27209,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>LightningConsoleAllowedForUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>LightningExperienceUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageCustomPermissions</name>
     </userPermissions>
     <userPermissions>
@@ -27343,10 +27250,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

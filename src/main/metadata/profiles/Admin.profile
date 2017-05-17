@@ -905,23 +905,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MBJ_FS_Case_ContractClosing_InlineCntl</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MBJ_FS_Case_Inquiry_Controller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_Intermediate_Controller</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Quotation_InlineController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Request_InlineController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1948,12 +1936,16 @@
         <apexClass>VehicleRelationshipHelperJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>VehicleRelationshipHelperJPTest</apexClass>
+	    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTH</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>VehicleRelationshipHelperTHTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-		<apexClass>VehicleRelationshipHelperTH</apexClass>
+        <apexClass>VehicleRelationshipHelperJPTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -26227,10 +26219,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>MBJ_FS_Case_ContractClosing_Inline_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MBJ_FS_Case_ContractClosing_Page</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -26251,20 +26239,12 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>MBJ_FS_Case_Quotation_Inline_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MBJ_FS_Case_Quotation_Page</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Request_Detail_Page</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MBJ_FS_Case_Request_Inline_Page</apexPage>
-        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Request_Page</apexPage>
@@ -27879,10 +27859,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

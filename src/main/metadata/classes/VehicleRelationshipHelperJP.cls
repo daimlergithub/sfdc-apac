@@ -382,9 +382,9 @@ public with sharing class VehicleRelationshipHelperJP
       system.debug('@@#@##@#@#@ vrList'+vrList);
       for(Vehicle_Relationship__c vRs : vrList)
       {
-        if(vRs.contact__r.Primary_Address_Reference__c != null)
+        if(vRs.contact__c != null)
         {
-          addressids.add(vRs.contact__r.Primary_Address_Reference__c);
+          addressids.add(vRs.contact__c);
         }
       }
           LeadUtil.verTrigger = false;
@@ -394,7 +394,7 @@ public with sharing class VehicleRelationshipHelperJP
         addresslist = [Select ID,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,
                        Province_Native__c,City__c,City_Native__c,District__c,District_Native__c,Block__c,Block_Native__c,
                        Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,
-                       Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Address__c where Id =: addressids];
+                       Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Address__c where customer__c =: addressids];
       }
       
       system.debug('++++++++++++++++++'+addresslist);
@@ -467,8 +467,8 @@ public with sharing class VehicleRelationshipHelperJP
                             
                         }
                         else if( vels.vehicle_address_picklist__c == 'Work address' && add.Address_Type__c == 'Business')
-                        {
-                            vels.vehicle_address__c = add.Id;
+                        { 
+                            vels.vehicle_address__c = add.Id; 
                             vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
                             vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         }

@@ -1163,7 +1163,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     }
      
     public void onLineDeduplication(){
-        if(recordType == 'Person Account' && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C))){ 
+        if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C))){ 
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
         }else if(recordType == 'Company' && (objAccount.Name == NULL||String.isBlank(objAccount.Name))){
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
