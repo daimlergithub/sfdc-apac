@@ -400,6 +400,36 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_FIRSTNAME_ID</token>
 	</changetext>
+		<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_LKID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext>
+			<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CASE_ID</token>
+	</changetext>
+				<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_VEHICLE</token>
+	</changetext>
+					<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_VEHICLE_LKID</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
@@ -1334,16 +1364,6 @@
                 <field>DurationInMinutes</field>
             </layoutItems></element>
 	</addelement>
-	<!-- remove as long as we don't have community licenses -->
-	<!-- Adding the below profiles into deployment process as we have community licenses now-->
-	<!-- remove as long as we don't have community licenses 
-	<skipfile retrieve="false">
-		<filename>profiles\Dealer Delegate Admin.profile</filename>
-	</skipfile>
-	<skipfile retrieve="false">
-		<filename>profiles\Dealer Community User.profile</filename>
-	</skipfile>
-	-->
 	<removeelement retrieve="false">
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/applicationVisibilities</xpath>
@@ -1364,6 +1384,17 @@
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/layoutAssignments</xpath>
 	</removeelement>
+	<!-- remove as long as we don't have community licenses -->
+	<!-- Adding the below profiles into deployment process as we have community licenses now-->
+	<!-- remove as long as we don't have community licenses 
+	<skipfile retrieve="false">
+		<filename>profiles\Dealer Delegate Admin.profile</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>profiles\Dealer Community User.profile</filename>
+	</skipfile>
+	-->
+	
 	<defaultpermissions>
 		<permissions>
 		ActivateContract,ActivateOrder,ApiEnabled,ApproveContract,AssignPermissionSets,AssignTopics,AuthorApex,BulkApiHardDelete,CanInsertFeedSystemFields,
