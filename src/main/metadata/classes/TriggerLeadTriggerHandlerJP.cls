@@ -54,9 +54,10 @@ public class TriggerLeadTriggerHandlerJP
            LeadUtil.LeadTrigger = false;
             
         }
-        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' ){
+        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.leadAccountlnktrigger){
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            //LeadUtil.leadAccountlnktrigger = false;
+            if(Userinfo.getUserType() != 'PowerPartner')
+			LeadUtil.leadAccountlnktrigger = false;
          }
          /*if(isAfter && isInsert){
            //LeadHelperJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);

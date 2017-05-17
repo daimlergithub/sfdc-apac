@@ -138,9 +138,15 @@ public with sharing class LeadHelperTest {
     
    public Static void preparedTestData()
    {
-   
+       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();   
+       insert updatecustomsettings; 
        
+       Trigger__c TriggerLeadJP=new Trigger__c(Name='TriggerLeadJP',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+       insert TriggerLeadJP;
         
+       Trigger__c TriggerLeadKR=new Trigger__c(Name='TriggerLeadKR',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+       insert TriggerLeadKR;
+       
         SmartDM = createUser(roleId1.Id,profileCAC.Id);
        
         dealer = new Account();
@@ -308,13 +314,14 @@ public with sharing class LeadHelperTest {
     
     public static void createuserrecord()
      {
-     user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichaof',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = en_US,
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = en_US);
-        insert user1;
-        
-       
+         
+         user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichaof',
+                          Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                          TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = en_US,
+                          EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = en_US);
+         insert user1;
+         
+         
        }
 
 }
