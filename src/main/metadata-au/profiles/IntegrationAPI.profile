@@ -17711,6 +17711,16 @@
         <field>Retail_Task__c.livetime__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Segmentation_Criteria__c.Criteria__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Segmentation_Criteria__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SMSReplyHistory__c.ContactName__c</field>
@@ -22011,6 +22021,9 @@
     <layoutAssignments>
         <layout>SMS__c-SMS Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Segmentation_Criteria__c-Segmentation Criteria Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>SR_History__c-SR History Layout</layout>
     </layoutAssignments>
@@ -22811,6 +22824,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>SMSReplyHistory__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Segmentation_Criteria__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
