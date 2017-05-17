@@ -8,13 +8,11 @@
             <axisBinding>y</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumnStackedTo100</chartType>
+        <chartType>VerticalColumn</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Campaign.Campaign_Channels__c</groupingColumn>
-        <legendPosition>Right</legendPosition>
         <location>CHART_TOP</location>
-        <secondaryGroupingColumn>MEMBER_ID</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -35,7 +33,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>MEMBER_ID</field>
+        <field>CREATED_DATE</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
@@ -53,6 +51,6 @@
         <value>1</value>
     </params>
     <reportType>CampaignWithCampaignMembers</reportType>
-    <scope>userActive</scope>
+    <scope>organization</scope>
     <showDetails>true</showDetails>
 </Report>

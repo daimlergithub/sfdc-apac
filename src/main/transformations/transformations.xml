@@ -1374,6 +1374,26 @@
 		<filename>profiles\Dealer Community User.profile</filename>
 	</skipfile>
 	-->
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/applicationVisibilities</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/classAccesses</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/pageAccesses</xpath>
+	</removeelement>	
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/tabVisibilities</xpath>
+	</removeelement>	
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/layoutAssignments</xpath>
+	</removeelement>
 	<defaultpermissions>
 		<permissions>
 		ActivateContract,ActivateOrder,ApiEnabled,ApproveContract,AssignPermissionSets,AssignTopics,AuthorApex,BulkApiHardDelete,CanInsertFeedSystemFields,
