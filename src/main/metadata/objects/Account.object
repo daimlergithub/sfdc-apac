@@ -56448,11 +56448,7 @@ else {
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
 { 
-if (sforce.console.isInConsole()) { 
-    srcUp('/apex/CheckAccountDuplicatePage?id={!Account.Id}&isdtp=vw');
-} else { 
-    window.open('/apex/CheckAccountDuplicatePage?id={!Account.Id}','_blank');
-}
+window.open('{!URLFOR($Site.Prefix)}/apex/CheckAccountDuplicatePage?id={!Account.Id}');
 } 
 else 
 { 
