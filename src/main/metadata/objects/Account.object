@@ -55072,6 +55072,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <lookupDialogsAdditionalFields>Dealer_Address_EN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
 		<lookupDialogsAdditionalFields>Dealer_ND_Code__c</lookupDialogsAdditionalFields>
+		<lookupDialogsAdditionalFields>Dealer_Active__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>Primary_Phone_Display__c</lookupFilterFields>
         <lookupFilterFields>Primary_Address_Display__c</lookupFilterFields>
