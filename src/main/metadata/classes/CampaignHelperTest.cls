@@ -25,7 +25,8 @@
         // public static id DealRecordtypeid= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
       public static Id camIdExec= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
       public static Id camIdPlan= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
-     
+     public static List<Campaign> campLstToDel = new List<Campaign>();
+      public static List<Campaign> campLstToDel1 = new List<Campaign>();
    
     public static List<Campaign> listcampaigns;
     public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -1408,5 +1409,44 @@
         //try{CampaignHelper.afterInsertUpdateCampaign(oldMap);}catch(Exception e){}
         Test.StopTest();
         system.assertNotEquals(null, listcampaigns[0].StartDate);
+     }
+     
+      @isTest static void deleteCampignMethodCoverage(){
+        
+        Trigger__c TriggerCampaignJP=new Trigger__c(Name='TriggerCampaignJP',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+        insert TriggerCampaignJP;
+        
+        
+        
+        Campaign camp = new Campaign();
+        camp.RecordTypeId = camIdExec;
+        camp.Child_Campaign_Status__c='Draft';
+        camp.Name = 'camptest1';
+        camp.Campaign_Type__c='After Sales';
+        camp.Type = 'Other';
+        camp.Segmentation_Date__c= System.today()+4;
+        camp.Execution_Start_Date__c = System.today()+10;
+        camp.Execution_Type__c= 'eMail';
+        camp.Description = 'testdescrip';
+        campLstToDel.add(camp);
+        
+        Campaign camp1 = new Campaign();
+        camp1.RecordTypeId = camIdPlan;
+        camp1.ParentId=camp.id;
+        camp1.Child_Campaign_Status__c='Draft';
+        camp1.Name = 'camptest1';
+        camp1.Campaign_Type__c='After Sales';
+        camp1.Type = 'Other';
+        camp1.Segmentation_Date__c= System.today()+4;
+        camp1.Execution_Start_Date__c = System.today()+10;
+        camp1.Execution_Type__c= 'eMail';
+        camp1.Description = 'testdescrip';
+        campLstToDel.add(camp1);
+        insert campLstToDel;
+        delete campLstToDel;
+        
+       
+       
+        
      }
 }
