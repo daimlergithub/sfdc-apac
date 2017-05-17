@@ -15,7 +15,7 @@ window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.
        
        <apex:pageBlock >
        
-           <apex:pageBlockSection title="Retail Copy View Area For Dealer User" columns="2">
+           <apex:pageBlockSection title="{!$Label.Retail_Copy_View_Area_For_Dealer_User}" columns="2">
            
             
        
