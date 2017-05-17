@@ -1364,16 +1364,6 @@
                 <field>DurationInMinutes</field>
             </layoutItems></element>
 	</addelement>
-	<!-- remove as long as we don't have community licenses -->
-	<!-- Adding the below profiles into deployment process as we have community licenses now-->
-	<!-- remove as long as we don't have community licenses 
-	<skipfile retrieve="false">
-		<filename>profiles\Dealer Delegate Admin.profile</filename>
-	</skipfile>
-	<skipfile retrieve="false">
-		<filename>profiles\Dealer Community User.profile</filename>
-	</skipfile>
-	-->
 	<removeelement retrieve="false">
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/applicationVisibilities</xpath>
@@ -1394,6 +1384,17 @@
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/layoutAssignments</xpath>
 	</removeelement>
+	<!-- remove as long as we don't have community licenses -->
+	<!-- Adding the below profiles into deployment process as we have community licenses now-->
+	<!-- remove as long as we don't have community licenses 
+	<skipfile retrieve="false">
+		<filename>profiles\Dealer Delegate Admin.profile</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>profiles\Dealer Community User.profile</filename>
+	</skipfile>
+	-->
+	
 	<defaultpermissions>
 		<permissions>
 		ActivateContract,ActivateOrder,ApiEnabled,ApproveContract,AssignPermissionSets,AssignTopics,AuthorApex,BulkApiHardDelete,CanInsertFeedSystemFields,
