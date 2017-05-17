@@ -4700,7 +4700,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Retail_Agreement_info_processing__c</field>
+        <field>Account_Link__c.Retail_Agreement_Info_Processing__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5025,7 +5025,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Retail_Website__c</field>
+        <field>Account_Link__c.Retail_WebSite__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
