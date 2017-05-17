@@ -56693,7 +56693,7 @@ alert('Error: Your Market Is Not defined ');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
-{!REQUIRESCRIPT($Site.Prefix  "/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
 var userid = "{!$User.Id}"; 
 var myCase= sforce.connection.query("Select Id ,IsPortalEnabled From user where id='{!Account.OwnerId}'" ); 
