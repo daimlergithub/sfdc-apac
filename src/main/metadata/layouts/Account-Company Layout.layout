@@ -14,7 +14,7 @@
                 <region>Right</region>
                 <sidebarComponents>
                     <componentType>RelatedList</componentType>
-                    <relatedLists>
+                     <relatedLists>
                         <hideOnDetail>false</hideOnDetail>
                         <name>RelatedHistoryList</name>
                     </relatedLists>
@@ -407,11 +407,11 @@
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
@@ -419,8 +419,6 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-		<customButtons>New_Sales_Lead</customButtons>		
-		<customButtons>New_AfterSales_Lead</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Lead_Desired_Service__c</fields>
@@ -450,7 +448,6 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>

@@ -31,10 +31,10 @@
                         <hideOnDetail>false</hideOnDetail>
                         <name>RelatedHistoryList</name>
                     </relatedLists>
-                    <!--<relatedLists>
+                    <relatedLists>
                         <hideOnDetail>false</hideOnDetail>
                         <name>Lead__c.Contact__c</name>
-                    </relatedLists>-->
+                    </relatedLists>
                     <unit>Pixel</unit>
                 </sidebarComponents>
                 <style>Stack</style>
@@ -789,7 +789,8 @@
                 <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
-    </relatedContent>
+    </relatedContent> 
+	
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
@@ -881,7 +882,7 @@
         <sortField>CASES.CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.TYPE</fields>
         <fields>Activity_Status__c</fields>
@@ -907,8 +908,6 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
-		<customButtons>New_Sales_Lead</customButtons>		
-		<customButtons>New_AfterSales_Lead</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Lead_Desired_Service__c</fields>
@@ -953,7 +952,7 @@
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
-    <relatedLists>  
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
@@ -967,6 +966,7 @@
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
+	
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>
