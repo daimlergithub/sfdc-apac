@@ -1160,7 +1160,7 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser1235684@Daimler-test.com',
+            Username = System.now().millisecond() + 'test1235684DaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -1250,7 +1250,7 @@ public static testmethod void testbatch2()
         INSERT testGroup;
         list<user> listcampaigns=new list<user>();
        User usr1 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'test123456DaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
