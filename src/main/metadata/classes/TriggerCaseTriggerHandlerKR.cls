@@ -12,37 +12,36 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             caseHelperJP.updateCaseDealer(Trigger.New);
             
         }
-        if(trigger.isAfter && trigger.isInsert)
-        {
-            CaseHelper.caseafterInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
-        }
-        
-        if(trigger.isBefore && trigger.isUpdate)
+        if(trigger.isBefore && trigger.isUpdate && isFutureUpdate != true)
         {
             System.debug('#########################################-->trigger.isBefore && trigger.isUpdate');
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
-          
+            
             caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
-            caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
+            //caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
             
         }
-        if(trigger.isAfter){
-             if (trigger.isDelete){               
-               caseHelperJP.calculateComplaintAmount(trigger.old);
-            } 
-            if (trigger.isInsert){
+        
+        if(trigger.isAfter)
+        {
+            if (trigger.isInsert)
+            {
+                CaseHelper.caseafterInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
                 caseHelperJP.calculateComplaintAmount(trigger.new);
                 caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
-               CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
-			   caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
-                
-            }
-            if (trigger.isUpdate){
-               caseHelperJP.calculateComplaintAmount(trigger.new);
-               caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
                 CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
-				caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
-               
+                caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
+            }
+            if (trigger.isUpdate)
+            {
+                caseHelperJP.calculateComplaintAmount(trigger.new);
+                caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
+                CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
+                caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
+            }
+            if (trigger.isDelete)
+            {               
+                caseHelperJP.calculateComplaintAmount(trigger.old);
             }
         }
         // Implementation to addedd as required in market
