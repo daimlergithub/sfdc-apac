@@ -1051,7 +1051,7 @@ public static testmethod void testbatch2()
         insert contact2;
         
        User usr2 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerjhhhh12User@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
