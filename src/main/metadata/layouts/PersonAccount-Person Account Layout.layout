@@ -789,8 +789,7 @@
                 <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
-    </relatedContent> 
-	
+    </relatedContent>	
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
