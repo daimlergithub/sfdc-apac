@@ -329,7 +329,7 @@
         <name>Button_Search</name>
     </customLabels>
     <customLabels>
-        <label><!-- CA --></label>
+        <label>審査申込済</label>
         <name>CA</name>
     </customLabels>
     <customLabels>
@@ -341,7 +341,7 @@
         <name>CL_Collectioner_Notes</name>
     </customLabels>
     <customLabels>
-        <label></label>
+        <label>コンタクト</label>
         <name>CL_Contact</name>
     </customLabels>
     <customLabels>
@@ -1294,7 +1294,7 @@
         <name>Error_This_name_already_exists</name>
     </customLabels>
     <customLabels>
-        <label><!-- Estimate --></label>
+        <label>本見積</label>
         <name>Estimate</name>
     </customLabels>
     <customLabels>
@@ -1369,7 +1369,7 @@
         <name>FinanceMethod</name>
     </customLabels>
     <customLabels>
-        <label><!-- Finance Estimate --></label>
+        <label>試乗</label>
         <name>Finance_Estimate</name>
     </customLabels>
     <customLabels>
@@ -1381,7 +1381,7 @@
         <name>Finance_Estimate_History</name>
     </customLabels>
     <customLabels>
-        <label><!-- Finance Proposal --></label>
+        <label>商品説明提案</label>
         <name>Finance_Proposal</name>
     </customLabels>
     <customLabels>
@@ -1445,7 +1445,7 @@
         <name>Grand_Total</name>
     </customLabels>
     <customLabels>
-        <label><!-- Hand Over --></label>
+        <label>納車</label>
         <name>Hand_Over</name>
     </customLabels>
     <customLabels>
@@ -1505,7 +1505,7 @@
         <name>Insurance_Promotion</name>
     </customLabels>
     <customLabels>
-        <label><!-- Insurance Proposal --></label>
+        <label>ファイナンス提案 </label>
         <name>Insurance_Proposal</name>
     </customLabels>
     <customLabels>
@@ -1521,7 +1521,7 @@
         <name>Interior</name>
     </customLabels>
     <customLabels>
-        <label><!-- Invoiced --></label>
+        <label>請求</label>
         <name>Invoiced</name>
     </customLabels>
     <customLabels>
@@ -1797,7 +1797,7 @@
         <name>Last_Modified_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Latest Phase History --></label>
+        <label>最新フェーズの経緯</label>
         <name>Latest_Phase_History</name>
     </customLabels>
     <customLabels>
@@ -2037,7 +2037,7 @@
         <name>Near_Dealer_Phone3</name>
     </customLabels>
     <customLabels>
-        <label><!-- Needs Check --></label>
+        <label>ニーズ把握</label>
         <name>Needs_Check</name>
     </customLabels>
     <customLabels>
@@ -2158,7 +2158,7 @@
         <name>OrderNumber</name>
     </customLabels>
     <customLabels>
-        <label><!-- Ordered --></label>
+        <label>注文書作成</label>
         <name>Ordered</name>
     </customLabels>
     <customLabels>
@@ -2328,7 +2328,7 @@
         <name>Product_ID</name>
     </customLabels>
     <customLabels>
-        <label><!-- Product Proposal --></label>
+        <label>商品説明提案</label>
         <name>Product_Proposal</name>
     </customLabels>
     <customLabels>
@@ -2364,7 +2364,7 @@
         <name>Purchase_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Purchased --></label>
+        <label>受注確定</label>
         <name>Purchased</name>
     </customLabels>
     <customLabels>
@@ -2464,7 +2464,7 @@
         <name>RecordTypeId</name>
     </customLabels>
     <customLabels>
-        <label><!-- Registered --></label>
+        <label>登録</label>
         <name>Registered</name>
     </customLabels>
     <customLabels>
@@ -2792,7 +2792,7 @@
         <name>Service_Product_Promotion</name>
     </customLabels>
     <customLabels>
-        <label><!-- Service Program Proposal --></label>
+        <label>自動車保険提案 </label>
         <name>Service_Program_Proposal</name>
     </customLabels>
     <customLabels>
@@ -2812,7 +2812,7 @@
         <name>Share</name>
     </customLabels>
     <customLabels>
-        <label><!-- Simple Estimation --></label>
+        <label>サービスプログラム提案</label>
         <name>Simple_Estimation</name>
     </customLabels>
     <customLabels>
@@ -3276,7 +3276,7 @@
         <name>ViewHierarchy</name>
     </customLabels>
     <customLabels>
-        <label><!-- Visited --></label>
+        <label>来店</label>
         <name>Visited</name>
     </customLabels>
     <customLabels>
@@ -3520,7 +3520,7 @@
         <name>rcc_TV</name>
     </customLabels>
     <customLabels>
-        <label><!-- Test Drive --></label>
+        <label>簡易見積</label>
         <name>rcc_Test_Drive</name>
     </customLabels>
     <customLabels>
