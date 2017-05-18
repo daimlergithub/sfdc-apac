@@ -2317,7 +2317,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <fields>
         <fullName>Sales_Person_Id__c</fullName>
         <externalId>false</externalId>
-        <label>Sales Representative</label>
+        <label>Sales Person Id</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
