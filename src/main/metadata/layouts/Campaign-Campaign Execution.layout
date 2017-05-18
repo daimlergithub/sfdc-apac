@@ -226,8 +226,15 @@
         <customButtons>Convert_To_Task</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
+		<fields>Contact_Id__c</fields>
         <fields>Status__c</fields>
-        <fields>RespondedDate__c</fields>
+		<fields>Company_Name__c</fields>
+        <fields>Contract_Number__c</fields>
+		<fields>Preferred_Dealer__c</fields>
+		<fields>Model__c</fields>
+		<fields>Sales_Representative__c</fields>
+		<fields>Service_Representative__c</fields>
+		<fields>Contract_Responsible_Person__c</fields>
         <relatedList>Campaign_Member__c.Campaign_ID__c</relatedList>
     </relatedLists>
     <relatedLists>

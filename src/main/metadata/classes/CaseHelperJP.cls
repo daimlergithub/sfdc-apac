@@ -360,7 +360,9 @@ public class CaseHelperJP
            }  
         }        
     }
-   public void updateCaseDeadline(List<Case> cases, Map<Id,SObject> case_Map){     
+/* This method is of not in use, There is new class written from updateCaseDeadline	*/
+   public void updateCaseDeadline(List<Case> cases, Map<Id,SObject> case_Map){  
+/*   
          for (Case c : cases){ 
                Case caseRec = (Case)case_Map.get(c.Id);
             if ((c.Priority == 'A' || c.Priority =='Red >= 4') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
@@ -373,8 +375,10 @@ public class CaseHelperJP
            if ((c.Priority == 'C' || c.Priority =='Green <= 2') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
                c.DeadLine__c= System.Now() + 10;          
             } 
-          }      
+          }    
+*/		  
        }  
+
 public  void updateCase (List<case> caseSta) {
 
 map<id, string> accidmap = new map<id, string>();

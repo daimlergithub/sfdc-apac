@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Create_Vehicle</customButtons>
-    <customButtons>New_Leads</customButtons>
-	<customButtons>New_AfterSales_Leads</customButtons>
+    <customButtons>New_Sales_Lead_WS</customButtons>
+	<customButtons>New_After_Sales_Lead_WS</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
@@ -11,38 +11,6 @@
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
 	<customButtons>New_Case</customButtons>
-    <customConsoleComponents>
-        <primaryTabComponents>
-            <containers>
-                <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
-                <region>Right</region>
-                <sidebarComponents>
-                    <componentType>RelatedList</componentType>
-                    <label>Related Lists</label>
-                    <relatedLists>
-                        <hideOnDetail>false</hideOnDetail>
-                        <name>Vehicle_Relationship__c.Contact__c</name>
-                    </relatedLists>
-                    <relatedLists>
-                        <hideOnDetail>false</hideOnDetail>
-                        <name>RelatedCaseList</name>
-                    </relatedLists>
-                    <relatedLists>
-                        <hideOnDetail>false</hideOnDetail>
-                        <name>RelatedHistoryList</name>
-                    </relatedLists>
-                    <!--<relatedLists>
-                        <hideOnDetail>false</hideOnDetail>
-                        <name>Lead__c.Contact__c</name>
-                    </relatedLists>-->
-                    <unit>Pixel</unit>
-                </sidebarComponents>
-                <style>Stack</style>
-                <unit>Pixel</unit>
-                <width>20</width>
-            </containers>
-        </primaryTabComponents>
-    </customConsoleComponents>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
@@ -881,7 +849,7 @@
         <sortField>CASES.CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.TYPE</fields>
         <fields>Activity_Status__c</fields>
@@ -953,7 +921,7 @@
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
-    <relatedLists>  
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>

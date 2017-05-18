@@ -37,7 +37,7 @@ Private Static  List<SelectOption> getItems;
             update con;
             
             system.runAs(u){
-                String acc3rdPartyRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
+                String acc3rdPartyRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                 String segmentationRTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Segmentation Only').getRecordTypeId();
                 
                 Account customer = new Account(Dealer_DMS_SR_Code__c='',Status__c='xCustomer',City__c='Beijing',phone = '1344444', PersonOtherPhone='0231456987',PersonHomePhone='0231456989',PersonMobilePhone='0231456439',

@@ -30,7 +30,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
         userid = Userinfo.getUserId();
         redirectCase.Retail_Task__c = retailTaskID ;
         
-/*************** If Case is created from "New Case" button in "Retail Task" record ***************/
+/************** If Case is created from "New Case" button in "Retail Task" record ***************/
         If(RecordTypeid!=Null && retailTaskID!=Null){
             RecordType rt=[Select id,Name from Recordtype WHERE id=:RecordTypeid limit 1];
               
@@ -338,7 +338,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     return p;
                     }
                     else{
-                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'retURL=/500/o');
+                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL=/500/o');
                     return p;
                     
                     }

@@ -7,33 +7,6 @@
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Sales_Lead_WS</customButtons>
 	<customButtons>New_Case</customButtons>
-    <customConsoleComponents>
-        <primaryTabComponents>
-            <containers>
-                <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
-                <region>Right</region>
-                <sidebarComponents>
-                    <componentType>RelatedList</componentType>
-                    <relatedLists>
-                        <hideOnDetail>false</hideOnDetail>
-                        <name>RelatedHistoryList</name>
-                    </relatedLists>
-                    <relatedLists>
-                        <hideOnDetail>false</hideOnDetail>
-                        <name>Lead__c.Company_Account__c</name>
-                    </relatedLists>
-                    <relatedLists>
-                        <hideOnDetail>false</hideOnDetail>
-                        <name>RelatedCaseList</name>
-                    </relatedLists>
-                    <unit>Percentage</unit>
-                </sidebarComponents>
-                <style>Stack</style>
-                <unit>Pixel</unit>
-                <width>20</width>
-            </containers>
-        </primaryTabComponents>
-    </customConsoleComponents>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
@@ -407,11 +380,11 @@
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
@@ -481,5 +454,3 @@
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
-
-
