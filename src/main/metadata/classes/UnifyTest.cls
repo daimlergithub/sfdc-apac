@@ -1,5 +1,5 @@
 @isTest(seeAllData=false)
-public with sharing class unifyTest{
+public with sharing class UnifyTest{
  
        public static testMethod void testUnify()
         {
