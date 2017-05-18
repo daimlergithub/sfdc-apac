@@ -20849,7 +20849,7 @@
         <recordType>ContentVersion.RecordType2</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-General</layout>
+        <layout>ContentVersion-Sales</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contract-Contract Layout</layout>
