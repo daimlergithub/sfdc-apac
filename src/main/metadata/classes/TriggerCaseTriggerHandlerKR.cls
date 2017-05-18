@@ -29,14 +29,12 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
                 CaseHelper.caseafterInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
                 caseHelperJP.calculateComplaintAmount(trigger.new);
                 caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
-                CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
                 caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
             }
             if (trigger.isUpdate)
             {
                 caseHelperJP.calculateComplaintAmount(trigger.new);
                 caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
-                CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
                 caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
             }
             if (trigger.isDelete)

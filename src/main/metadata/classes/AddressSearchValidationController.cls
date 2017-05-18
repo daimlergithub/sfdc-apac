@@ -1178,11 +1178,15 @@ If the user is Saving  same address which matches the fields returned by toleran
     }
      
     public void onLineDeduplication(){
-        if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C))){ 
+        if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
+        { 
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
-        }else if(recordType == 'Company' && (objAccount.Name == NULL||String.isBlank(objAccount.Name))){
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
+		{
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
-        }else{
+        }
+		else{
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1298,27 +1302,39 @@ If the user is Saving  same address which matches the fields returned by toleran
                     //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
-                        provincetmp = provincetmp.toLowerCase();
-                        
-                        //provincetmp = provincetmp.subString(0,1).toUpperCase();
-                        Integer     i=0;
-                        List<String> newString =  new List<String>();
-                        String[] s= provincetmp.split(' ');
+                    { 
+						string provincetmp;
+                        String[] s;
                         String x,y,finalstring;
-                        for(String str  : s)
+                        if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc != null)
                         {
-                            i=str.length();
-                            //String x,y,finalstring;
-                            x= str.substring(0,1).toUpperCase();
-                            y= str.substring(1,i) ;
-                            finalstring = x + y  ;
-                            newString.add(finalstring);
-                        }                        
+                            provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                            provincetmp = provincetmp.toLowerCase();
+                        }
+                        //provincetmp = provincetmp.subString(0,1).toUpperCase();
+                        Integer i=0;
+                        List<String> newString =  new List<String>();
+                        if(provincetmp != null && provincetmp != '')
+                        {
+                        	s= provincetmp.split(' ');
+                        }
+                        if(provincetmp != null && provincetmp != '')
+                        {
+                            for(String str  : s)
+                            {
+                                i=str.length();
+                                //String x,y,finalstring;
+                                x= str.substring(0,1).toUpperCase();
+                                y= str.substring(1,i) ;
+                                finalstring = x + y  ;
+                                newString.add(finalstring);
+                            }
+                        }
                         provincetmp = String.valueOf(finalstring);
-                        provincetmp  =provincetmp.replace(',','');
-                      
-                        
+                        if(provincetmp != null && provincetmp != '')
+                        {
+                        	provincetmp  =provincetmp.replace(',','');
+                        }
                        // province1 = addtrmapUpdate1.get(provincetmp);
                         if(addtrmapUpdate1.containsKey(provincetmp)){
                             province1 = addtrmapUpdate1.get(provincetmp);
