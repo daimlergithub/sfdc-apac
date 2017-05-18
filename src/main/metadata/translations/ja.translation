@@ -2680,7 +2680,7 @@
         <name>Sales_Mail</name>
     </customLabels>
     <customLabels>
-        <label>メール区分<label>
+        <label>メール区分</label>
         <name>Sales_Mail_Type</name>
     </customLabels>
     <customLabels>
