@@ -3,7 +3,7 @@
     <customButtons>Create_Retail_Copy_kr</customButtons>
     <customButtons>Create_Vehicle</customButtons>
     <customButtons>New_Sales_Lead_WS</customButtons>
-    <customButtons>New_AfterSales_Leads</customButtons>
+    <customButtons>New_After_Sales_Lead_WS</customButtons>
     <customButtons>New_Inquiry</customButtons>
     <customButtons>New_MB_Complaint</customButtons>
     <customButtons>Merge</customButtons>
