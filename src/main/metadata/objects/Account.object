@@ -56697,8 +56697,8 @@ alert('Error: Your Market Is Not defined ');
         <masterLabel>New Case</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
 var userid = "{!$User.Id}"; 
@@ -56733,8 +56733,8 @@ alert('This function available only for Japan user');
         <masterLabel>New Inquiry</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/xdomain/xdomain.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/26.0/connection.js")}
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 if(typeof(srcUp) == 'function') {
@@ -56763,8 +56763,8 @@ window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00
         <masterLabel>New MB Complaint</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/xdomain/xdomain.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/26.0/connection.js")}
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
@@ -56804,7 +56804,7 @@ alert("MB complaint can't be used.Please contact System Administrator");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
-if('{!User.ContactId}' ==null) { 
+if('{!User.ContactId}' =='') { 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -56822,7 +56822,7 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_A
 } 
 }	
 else { 
-if('{!User.ContactId}' !=null) { 
+if('{!User.ContactId}' !='') { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
 window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
@@ -56937,7 +56937,7 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-if('{!User.ContactId}' ==null){ 
+if('{!User.ContactId}' ==''){ 
 if(sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -56956,7 +56956,7 @@ sforce.console.openPrimaryTab(result.id,"{!JSENCODE($Site.BaseUrl)}" +'OBJECT_LE
 } 
 
 else { 
-if('{!User.ContactId}' !=null) 
+if('{!User.ContactId}' !='') 
 { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 { 
