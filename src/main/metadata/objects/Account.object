@@ -56804,7 +56804,7 @@ alert("MB complaint can't be used.Please contact System Administrator");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
-if('{!User.ContactId}' ==null) { 
+if('{!User.ContactId}' =='') { 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -56822,7 +56822,7 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_A
 } 
 }	
 else { 
-if('{!User.ContactId}' !=null) { 
+if('{!User.ContactId}' !='') { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
 window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
@@ -56896,7 +56896,7 @@ alert("{!$Label.NewCaseErrorMsg}");
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-if('{!User.ContactId}' ==null){ 
+if('{!User.ContactId}' ==''){ 
 if(sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -56915,7 +56915,7 @@ sforce.console.openPrimaryTab(result.id,"{!JSENCODE($Site.BaseUrl)}" +'OBJECT_LE
 } 
 
 else { 
-if('{!User.ContactId}' !=null) 
+if('{!User.ContactId}' !='') 
 { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 { 
