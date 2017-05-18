@@ -137,10 +137,7 @@
 						<sf:exclude name="selectAllChkBox"/>
 						<sf:exclude name="Retail_Campaigns"/>                                                 
 					</sf:typeset>                   
-					<sf:typeset name="layouts">
-					<sf:exclude name="Account-Company Layout"/>
-					<sf:exclude name="PersonAccount-Person Account Layout"/>
-					</sf:typeset>
+					<sf:typeset name="layouts" /> 
 					<sf:typeset name="groups"/>
 					<sf:typeset name="approvalProcesses"/>
 					<sf:typeset name="workflows"/>
@@ -179,10 +176,11 @@
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
 					</sf:typeset>
-					<sf:typeset name="objectTranslations">
+					<!--<sf:typeset name="objectTranslations">
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
-					</sf:typeset>
+					</sf:typeset> -->
+					
 					<sf:typeset name="translations"/>
 				</deploy>
 			</target>

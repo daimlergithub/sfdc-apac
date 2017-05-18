@@ -338,7 +338,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     return p;
                     }
                     else{
-                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'retURL=/500/o');
+                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL=/500/o');
                     return p;
                     
                     }

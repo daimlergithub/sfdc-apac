@@ -17459,6 +17459,11 @@
         <editable>true</editable>
         <field>Campaign_Member__c.Bonus_Month2__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Campaign_Execution_Type__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
