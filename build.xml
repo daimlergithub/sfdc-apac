@@ -137,7 +137,10 @@
 						<sf:exclude name="selectAllChkBox"/>
 						<sf:exclude name="Retail_Campaigns"/>                                                 
 					</sf:typeset>                   
-					<sf:typeset name="layouts"/>
+					<sf:typeset name="layouts">
+					<sf:exclude name="Account-Company Layout"/>
+					<sf:exclude name="PersonAccount-Person Account Layout"/>
+					</sf:typeset>
 					<sf:typeset name="groups"/>
 					<sf:typeset name="approvalProcesses"/>
 					<sf:typeset name="workflows"/>
