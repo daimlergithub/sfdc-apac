@@ -176,10 +176,11 @@
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
 					</sf:typeset>
-					<sf:typeset name="objectTranslations">
+					<!--<sf:typeset name="objectTranslations">
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
-					</sf:typeset>
+					</sf:typeset> -->
+					
 					<sf:typeset name="translations"/>
 				</deploy>
 			</target>
