@@ -407,11 +407,11 @@
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
@@ -481,5 +481,3 @@
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
-
-
