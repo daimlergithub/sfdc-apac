@@ -56697,8 +56697,8 @@ alert('Error: Your Market Is Not defined ');
         <masterLabel>New Case</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
 var userid = "{!$User.Id}"; 
@@ -56733,8 +56733,8 @@ alert('This function available only for Japan user');
         <masterLabel>New Inquiry</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/xdomain/xdomain.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/26.0/connection.js")}
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 if(typeof(srcUp) == 'function') {
@@ -56763,8 +56763,8 @@ window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00
         <masterLabel>New MB Complaint</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/xdomain/xdomain.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/26.0/connection.js")}
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 
 var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
