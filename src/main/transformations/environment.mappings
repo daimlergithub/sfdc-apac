@@ -76,7 +76,7 @@ dev_sb_asia_MBKKMgmt=shirish.kulkarni@mbj.daimler-apac.com.mbkmgmt
 
 
 # Asia MBKphase2 sandbox
-dev_sb_asia_mbkph2sb=psm@nttdata.com.mbkph2sb
+dev_sb_asia_mbkph2sb=psm@nttdata.com.mbkph2sb,sudhir.a@nttdata.com.mbkph2sb
 
 # Traning Sandbox
 dev_sb_TRN=deployment.user@mbj.daimler-apac.com.training
