@@ -654,8 +654,17 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
                         <apex:outputField value="{!cr.Mobile__c}"/>
                     </apex:Column>
-                </apex:PageBlockTable> 
-                </apex:PageBlock>                
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="Address for Address data">                    
+                        <apex:outputtext value="{!AddressDetails}"/>
+                    </apex:Column>
+                </apex:PageBlockTable>
+                </apex:PageBlock>              
                 <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!CompanyConfirmedMatch}"  >
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
                      
@@ -671,8 +680,8 @@
                     
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
-                    </apex:Column>
-                     -->
+                    </apex:Column>-->
+                     
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                    
                         <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>
                     </apex:Column>
