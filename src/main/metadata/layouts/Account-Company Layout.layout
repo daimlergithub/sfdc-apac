@@ -12,8 +12,17 @@
             <containers>
                 <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
                 <region>Right</region>
-                <sidebarComponents>  
-				<componentType>RelatedList</componentType>
+                <sidebarComponents>    				
+				<componentType>RelatedList</componentType>				
+                    <label>Related Lists</label> 
+                    <relatedLists>
+                        <hideOnDetail>false</hideOnDetail>
+                        <name>RelatedCaseList</name>
+                    </relatedLists>
+                    <relatedLists>
+                        <hideOnDetail>false</hideOnDetail>
+                        <name>RelatedHistoryList</name>
+                    </relatedLists>
 				<unit>Pixel</unit>
                 </sidebarComponents>
                 <style>Stack</style>
