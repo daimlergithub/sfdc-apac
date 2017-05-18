@@ -73,7 +73,7 @@
         <name>Accepted</name>
     </customLabels>
     <customLabels>
-        <label><!-- Accessory price +Dealer Option price --></label>
+        <label>付属品価格＋販売店装備品価格</label>
         <name>Accessory_price_Dealer_Option_price</name>
     </customLabels>
     <customLabels>
@@ -117,7 +117,7 @@
         <name>Accuracy</name>
     </customLabels>
     <customLabels>
-        <label><!-- Activity History --></label>
+        <label>活動実績</label>
         <name>Activity_History</name>
     </customLabels>
     <customLabels>
@@ -161,7 +161,7 @@
         <name>Address_Information</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address PrintPDF --></label>
+        <label>住所〒</label>
         <name>Address_PrintPDF</name>
     </customLabels>
     <customLabels>
@@ -189,7 +189,7 @@
         <name>Address_validation</name>
     </customLabels>
     <customLabels>
-        <label><!-- Advisor --></label>
+        <label>担当者</label>
         <name>Advisor</name>
     </customLabels>
     <customLabels>
@@ -225,7 +225,7 @@
         <name>Alert_Handling_Level</name>
     </customLabels>
     <customLabels>
-        <label><!-- Allow Data Sharing --></label>
+        <label>許諾フラグ</label>
         <name>Allow_Data_Sharing</name>
     </customLabels>
     <customLabels>
@@ -301,7 +301,7 @@
         <name>Backslash</name>
     </customLabels>
     <customLabels>
-        <label><!-- Birthdate --></label>
+        <label>生年月日</label>
         <name>Birthdate</name>
     </customLabels>
     <customLabels>
@@ -341,7 +341,7 @@
         <name>CL_Collectioner_Notes</name>
     </customLabels>
     <customLabels>
-        <label><!-- CL Contact --></label>
+        <label></label>
         <name>CL_Contact</name>
     </customLabels>
     <customLabels>
@@ -825,7 +825,7 @@
         <name>Cluster</name>
     </customLabels>
     <customLabels>
-        <label><!-- Color --></label>
+        <label>色</label>
         <name>Color</name>
     </customLabels>
     <customLabels>
@@ -841,7 +841,7 @@
         <name>Common_Filter_Name</name>
     </customLabels>
     <customLabels>
-        <label><!-- Company --></label>
+        <label>勤務先</label>
         <name>Company</name>
     </customLabels>
     <customLabels>
@@ -861,11 +861,11 @@
         <name>Company_Name_Department_Title</name>
     </customLabels>
     <customLabels>
-        <label><!-- Compared Vehicle Brand --></label>
+        <label>比較検討車メーカー</label>
         <name>Compared_Vehicle_Brand</name>
     </customLabels>
     <customLabels>
-        <label><!-- Compared Vehicle Model --></label>
+        <label>比較検討車モデル</label>
         <name>Compared_Vehicle_Model</name>
     </customLabels>
     <customLabels>
@@ -936,28 +936,28 @@
         <label><!-- Criteria --></label>
         <name>Criteria</name>
     </customLabels>
-	<customLabels>
+    <customLabels>
         <label>現在のリード</label>
         <name>Current_Lead</name>
     </customLabels>
     <customLabels>
-        <label><!-- Current Vehicle1 --></label>
+        <label>現有車情報</label>
         <name>Current_Vehicle1</name>
     </customLabels>
     <customLabels>
-        <label><!-- Current Vehicle2 --></label>
+        <label>現有車情報</label>
         <name>Current_Vehicle2</name>
     </customLabels>
     <customLabels>
-        <label><!-- Current Vehicle3 --></label>
+        <label>現有車情報</label>
         <name>Current_Vehicle3</name>
     </customLabels>
     <customLabels>
-        <label><!-- Current Vehicle Brand --></label>
+        <label>保有車１メーカー</label>
         <name>Current_Vehicle_Brand</name>
     </customLabels>
     <customLabels>
-        <label><!-- Current Vehicle Model --></label>
+        <label>保有者１モデル</label>
         <name>Current_Vehicle_Model</name>
     </customLabels>
     <customLabels>
@@ -985,7 +985,7 @@
         <name>Customer_Filter</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer Information --></label>
+        <label>お客様情報</label>
         <name>Customer_Information</name>
     </customLabels>
     <customLabels>
@@ -993,15 +993,15 @@
         <name>Customer_Issue</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer Name --></label>
+        <label>会社名</label>
         <name>Customer_Name</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer Name Kana --></label>
+        <label>顧客名（カナ）</label>
         <name>Customer_Name_Kana</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer Profile --></label>
+        <label>個人氏名</label>
         <name>Customer_Profile</name>
     </customLabels>
     <customLabels>
@@ -1021,7 +1021,7 @@
         <name>DMRequest_validation_error</name>
     </customLabels>
     <customLabels>
-        <label><!-- Date for PrintPDF --></label>
+        <label>日付</label>
         <name>Date</name>
     </customLabels>
     <customLabels>
@@ -1057,7 +1057,7 @@
         <name>Dealer_Code</name>
     </customLabels>
     <customLabels>
-        <label><!-- Dealer Company --></label>
+        <label>販売会社</label>
         <name>Dealer_Company</name>
     </customLabels>
     <customLabels>
@@ -1069,7 +1069,7 @@
         <name>Dealer_Internal_Comment</name>
     </customLabels>
     <customLabels>
-        <label><!-- Dealer Memo --></label>
+        <label>販売店コメント</label>
         <name>Dealer_Memo</name>
     </customLabels>
     <customLabels>
@@ -1077,7 +1077,7 @@
         <name>Dealer_Name</name>
     </customLabels>
     <customLabels>
-        <label><!-- Dealer Outlet --></label>
+        <label>拠点名</label>
         <name>Dealer_Outlet</name>
     </customLabels>
     <customLabels>
@@ -1125,7 +1125,7 @@
         <name>Discardit</name>
     </customLabels>
     <customLabels>
-        <label><!-- Discount Total --></label>
+        <label>値引合</label>
         <name>Discount_Total</name>
     </customLabels>
     <customLabels>
@@ -1298,7 +1298,7 @@
         <name>Estimate</name>
     </customLabels>
     <customLabels>
-        <label><!-- Estimate Number History --></label>
+        <label>見積番号履歴</label>
         <name>Estimate_Number_History</name>
     </customLabels>
     <customLabels>
@@ -1337,7 +1337,7 @@
         <name>Familiarization_workshop_for_new_vehicle_owners</name>
     </customLabels>
     <customLabels>
-        <label><!-- Family Number --></label>
+        <label>同居家族人数（合計）</label>
         <name>Family_Number</name>
     </customLabels>
     <customLabels>
@@ -1357,7 +1357,7 @@
         <name>Fields</name>
     </customLabels>
     <customLabels>
-        <label><!-- Fiinance Estimate Number --></label>
+        <label>ファイナンス見積番号</label>
         <name>Fiinance_Estimate_Number</name>
     </customLabels>
     <customLabels>
@@ -1373,11 +1373,11 @@
         <name>Finance_Estimate</name>
     </customLabels>
     <customLabels>
-        <label><!-- Finance Estimate Creation Date --></label>
+        <label>ファイナンス見積作成日</label>
         <name>Finance_Estimate_Creation_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Finance Estimate History --></label>
+        <label>ファイナンス見積履歴</label>
         <name>Finance_Estimate_History</name>
     </customLabels>
     <customLabels>
@@ -1385,15 +1385,15 @@
         <name>Finance_Proposal</name>
     </customLabels>
     <customLabels>
-        <label><!-- First Estimate Amount --></label>
+        <label>初回見積もり金額</label>
         <name>First_Estimate_Amount</name>
     </customLabels>
     <customLabels>
-        <label><!-- First Estimate Number --></label>
+        <label>初回見積もり番号</label>
         <name>First_Estimate_Number</name>
     </customLabels>
     <customLabels>
-        <label><!-- First Estimate Print --></label>
+        <label>初回見積もり印刷</label>
         <name>First_Estimate_Print</name>
     </customLabels>
     <customLabels>
@@ -1405,7 +1405,7 @@
         <name>Garage_information_and_specifications_have_you_heard</name>
     </customLabels>
     <customLabels>
-        <label><!-- Gender --></label>
+        <label>性別</label>
         <name>Gender</name>
     </customLabels>
     <customLabels>
@@ -1441,7 +1441,7 @@
         <name>GrandParent</name>
     </customLabels>
     <customLabels>
-        <label><!-- Grand Total --></label>
+        <label>合計</label>
         <name>Grand_Total</name>
     </customLabels>
     <customLabels>
@@ -1465,7 +1465,7 @@
         <name>Highly_interesed</name>
     </customLabels>
     <customLabels>
-        <label><!-- Hobby --></label>
+        <label>趣味</label>
         <name>Hobby</name>
     </customLabels>
     <customLabels>
@@ -1473,11 +1473,11 @@
         <name>Home_Email</name>
     </customLabels>
     <customLabels>
-        <label>自宅電話番号</label>
+        <label>電話番号(固定）</label>
         <name>Home_Phone</name>
     </customLabels>
     <customLabels>
-        <label><!-- Home Type --></label>
+        <label>住居の形態・車庫</label>
         <name>Home_Type</name>
     </customLabels>
     <customLabels>
@@ -1509,7 +1509,7 @@
         <name>Insurance_Proposal</name>
     </customLabels>
     <customLabels>
-        <label><!-- Interest --></label>
+        <label>仕様</label>
         <name>Interest</name>
     </customLabels>
     <customLabels>
@@ -1517,7 +1517,7 @@
         <name>Interest_Filter</name>
     </customLabels>
     <customLabels>
-        <label><!-- Interior --></label>
+        <label>内張り仕</label>
         <name>Interior</name>
     </customLabels>
     <customLabels>
@@ -1793,7 +1793,7 @@
         <name>Last_Modified_By</name>
     </customLabels>
     <customLabels>
-        <label>最終更新日付</label>
+        <label>最終更新日</label>
         <name>Last_Modified_Date</name>
     </customLabels>
     <customLabels>
@@ -1805,15 +1805,15 @@
         <name>LeadId</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead Activity Type --></label>
+        <label>リード活動種別</label>
         <name>Lead_Activity_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead Assigned Date --></label>
+        <label>リード作成/展開日</label>
         <name>Lead_Assigned_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead Conditions --></label>
+        <label>商談条件</label>
         <name>Lead_Conditions</name>
     </customLabels>
     <customLabels>
@@ -1821,15 +1821,15 @@
         <name>Lead_Filter</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead Memo --></label>
+        <label>リードメモ</label>
         <name>Lead_Memo</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead Process Sheet --></label>
+        <label>商談プロセスシート</label>
         <name>Lead_Process_Sheet</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead Type --></label>
+        <label>商談タイプ</label>
         <name>Lead_Type</name>
     </customLabels>
     <customLabels>
@@ -1841,7 +1841,7 @@
         <name>Lead_to_be_Merged</name>
     </customLabels>
     <customLabels>
-        <label><!-- Leagl Owner --></label>
+        <label>車検証使用者</label>
         <name>Leagl_Owner</name>
     </customLabels>
     <customLabels>
@@ -1861,7 +1861,7 @@
         <name>Lookup_Button</name>
     </customLabels>
     <customLabels>
-        <label><!-- MBJ support --></label>
+        <label>MBJ対策支援</label>
         <name>MBJ_support</name>
     </customLabels>
     <customLabels>
@@ -1941,7 +1941,7 @@
         <name>Media_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Memo --></label>
+        <label>コメント</label>
         <name>Memo</name>
     </customLabels>
     <customLabels>
@@ -2041,7 +2041,7 @@
         <name>Needs_Check</name>
     </customLabels>
     <customLabels>
-        <label><!-- Needs Problem Points --></label>
+        <label>ニーズ・問題点の整理 要点：ﾆｰｽﾞの優先順位、明確化、背景･状況の予測　⇒　最終確認</label>
         <name>Needs_Problem_Points</name>
     </customLabels>
     <customLabels>
@@ -2081,7 +2081,7 @@
         <name>New_DM_Request</name>
     </customLabels>
     <customLabels>
-        <label><!-- Next Activity --></label>
+        <label>次の活動予定</label>
         <name>Next_Activity</name>
     </customLabels>
     <customLabels>
@@ -2182,7 +2182,7 @@
         <name>Others</name>
     </customLabels>
     <customLabels>
-        <label><!-- Outlet --></label>
+        <label>販売店</label>
         <name>Outlet</name>
     </customLabels>
     <customLabels>
@@ -2226,7 +2226,7 @@
         <name>Parts_Fax</name>
     </customLabels>
     <customLabels>
-        <label><!-- Payment Total --></label>
+        <label>支払合</label>
         <name>Payment_Total</name>
     </customLabels>
     <customLabels>
@@ -2246,15 +2246,15 @@
         <name>Person_Account_Record_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Person Met (Contacted) --></label>
+        <label>面談者(ｺﾝﾀｸﾄ相手)</label>
         <name>Person_Met_Contacted</name>
     </customLabels>
     <customLabels>
-        <label><!-- Person Or Company --></label>
+        <label>個人・法人識別</label>
         <name>Person_Or_Company</name>
     </customLabels>
     <customLabels>
-        <label><!-- Person to meet (Contact) --></label>
+        <label>面談者(ｺﾝﾀｸﾄ相手)</label>
         <name>Person_to_meet_Contact</name>
     </customLabels>
     <customLabels>
@@ -2272,7 +2272,7 @@
         <name>PhoneService</name>
     </customLabels>
     <customLabels>
-        <label><!-- Planned Purchase Time --></label>
+        <label>ご購入予定</label>
         <name>Planned_Purchase_Time</name>
     </customLabels>
     <customLabels>
@@ -2300,7 +2300,7 @@
         <name>Pleasetakecautiontheinformation</name>
     </customLabels>
     <customLabels>
-        <label><!-- Possibility : --></label>
+        <label>ホット度　：　</label>
         <name>Possibility</name>
     </customLabels>
     <customLabels>
@@ -2312,7 +2312,7 @@
         <name>Previous</name>
     </customLabels>
     <customLabels>
-        <label><!-- Printed Date --></label>
+        <label>印刷日</label>
         <name>Printed_Date</name>
     </customLabels>
     <customLabels>
@@ -2336,19 +2336,19 @@
         <name>Promotion_on_Technical_accessories_and_collections</name>
     </customLabels>
     <customLabels>
-        <label><!-- Proposed Date(1): --></label>
+        <label>提示日(１)： </label>
         <name>Proposed_Date_1</name>
     </customLabels>
     <customLabels>
-        <label><!-- Proposed Date(2): --></label>
+        <label>提示日(2)： </label>
         <name>Proposed_Date_2</name>
     </customLabels>
     <customLabels>
-        <label><!-- Proposed Date(3): --></label>
+        <label>提示日(3)： </label>
         <name>Proposed_Date_3</name>
     </customLabels>
     <customLabels>
-        <label><!-- Pruchase Plan Date --></label>
+        <label>成約予定日</label>
         <name>Pruchase_Plan_Date</name>
     </customLabels>
     <customLabels>
@@ -2360,7 +2360,7 @@
         <name>Purchase_Reason</name>
     </customLabels>
     <customLabels>
-        <label><!-- Purchase Type --></label>
+        <label>購入方法</label>
         <name>Purchase_Type</name>
     </customLabels>
     <customLabels>
@@ -2368,7 +2368,7 @@
         <name>Purchased</name>
     </customLabels>
     <customLabels>
-        <label><!-- Purchased Date --></label>
+        <label>受注確定日</label>
         <name>Purchased_Date</name>
     </customLabels>
     <customLabels>
@@ -2440,7 +2440,7 @@
         <name>RET_02_01_ServiceAmountView</name>
     </customLabels>
     <customLabels>
-        <label><!-- Range Model --></label>
+        <label>車種</label>
         <name>Range_Model</name>
     </customLabels>
     <customLabels>
@@ -2480,19 +2480,19 @@
         <name>RegistrationNo</name>
     </customLabels>
     <customLabels>
-        <label><!-- Registration Date --></label>
+        <label>登録日</label>
         <name>Registration_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Registration Date / Inspection Date --></label>
+        <label>登録年月日/車検日</label>
         <name>Registration_Date_Inspection_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Registration Date / Milage --></label>
+        <label>初年度登録/走行距離</label>
         <name>Registration_Date_Milage</name>
     </customLabels>
     <customLabels>
-        <label><!-- Registration Plan Date --></label>
+        <label>登録予定日</label>
         <name>Registration_Plan_Date</name>
     </customLabels>
     <customLabels>
@@ -2520,15 +2520,15 @@
         <name>Report_Title2_TA_Tracing</name>
     </customLabels>
     <customLabels>
-        <label><!-- Representative --></label>
+        <label>担当者</label>
         <name>Representative</name>
     </customLabels>
     <customLabels>
-        <label><!-- Representative Information --></label>
+        <label>担当者情報</label>
         <name>Representative_Information</name>
     </customLabels>
     <customLabels>
-        <label>受付</label>
+        <label>リクエスト</label>
         <name>Request</name>
     </customLabels>
     <customLabels>
@@ -2544,7 +2544,7 @@
         <name>Request_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Request Details --></label>
+        <label>入庫リクエスト詳細</label>
         <name>Request_Details</name>
     </customLabels>
     <customLabels>
@@ -2552,7 +2552,7 @@
         <name>Request_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Requested Date --></label>
+        <label>リクエスト日付</label>
         <name>Requested_Date</name>
     </customLabels>
     <customLabels>
@@ -2676,11 +2676,11 @@
         <name>Sales_Contact_Target_Sales_Responsible_Person</name>
     </customLabels>
     <customLabels>
-        <label><!-- Sales Mail --></label>
+        <label>セールスメール</label>
         <name>Sales_Mail</name>
     </customLabels>
     <customLabels>
-        <label><!-- Sales Mail Type --></label>
+        <label>メール区分</label>
         <name>Sales_Mail_Type</name>
     </customLabels>
     <customLabels>
@@ -2692,11 +2692,11 @@
         <name>Sales_Phone</name>
     </customLabels>
     <customLabels>
-        <label><!-- Sales TEL --></label>
+        <label>セールス電話</label>
         <name>Sales_TEL</name>
     </customLabels>
     <customLabels>
-        <label><!-- Sales TEL Type --></label>
+        <label>電話区分</label>
         <name>Sales_TEL_Type</name>
     </customLabels>
     <customLabels>
@@ -2776,7 +2776,7 @@
         <name>ServicePersonnel</name>
     </customLabels>
     <customLabels>
-        <label><!-- Service Advisor --></label>
+        <label>担当者情報</label>
         <name>Service_Advisor</name>
     </customLabels>
     <customLabels>
@@ -2864,7 +2864,7 @@
         <name>SurveyCompleted</name>
     </customLabels>
     <customLabels>
-        <label><!-- SurveyID --></label>
+        <label>アンケート</label>
         <name>SurveyID</name>
     </customLabels>
     <customLabels>
@@ -3084,7 +3084,7 @@
         <name>Total_Amount_Spend_On_Car_Service_is_Greater_Than</name>
     </customLabels>
     <customLabels>
-        <label><!-- Total Price --></label>
+        <label>諸費用合計</label>
         <name>Total_Price</name>
     </customLabels>
     <customLabels>
@@ -3096,11 +3096,11 @@
         <name>Trade_In_related_information</name>
     </customLabels>
     <customLabels>
-        <label><!-- Trade-in Price --></label>
+        <label>下取価</label>
         <name>Trade_in_Price</name>
     </customLabels>
     <customLabels>
-        <label><!-- Trade-in Vehicle Remaining --></label>
+        <label>下取車両残</label>
         <name>Trade_in_Vehicle_Remaining</name>
     </customLabels>
     <customLabels>
@@ -3256,7 +3256,7 @@
         <name>Vehicle_Picker_TradeIn</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Price +Maker option price --></label>
+        <label>車両価格 ＋ﾒｰｶｰｵﾌﾟｼｮﾝ価格</label>
         <name>Vehicle_Price_Maker_option_price</name>
     </customLabels>
     <customLabels>
@@ -3292,7 +3292,7 @@
         <name>Work_Phone</name>
     </customLabels>
     <customLabels>
-        <label><!-- Year --></label>
+        <label>年式</label>
         <name>Year</name>
     </customLabels>
     <customLabels>
@@ -3836,7 +3836,7 @@
                 <name>Latest Service Dealer</name>
             </columns>
             <columns>
-                <label><!-- Mobile --></label>
+                <label>電話番号(携帯）</label>
                 <name>Mobile</name>
             </columns>
             <columns>
