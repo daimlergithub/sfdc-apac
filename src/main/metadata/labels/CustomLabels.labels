@@ -8521,6 +8521,27 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>&amp;retURL=/apex/SelectSlaveAccount?Id=</value>
     </labels>
     <labels>
+        <fullName>Retail_Copy_View_Area_For_Dealer_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Copy View Area For Dealer User</shortDescription>
+        <value>Retail Copy View Area For Dealer User</value>
+    </labels>
+    <labels>
+        <fullName>List_of_Service_Retail_Task_Only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>List of Service Retail Task Only</shortDescription>
+        <value>List of Service Retail Task Only</value>
+    </labels>
+    <labels>
+        <fullName>DeleteretailcopyErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DeleteretailcopyErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+    <labels>
         <fullName>send_to_spo_active</fullName>
         <language>en_US</language>
         <protected>false</protected>
