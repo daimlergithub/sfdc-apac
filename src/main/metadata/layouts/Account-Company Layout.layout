@@ -13,6 +13,8 @@
                 <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
                 <region>Right</region>
                 <sidebarComponents>  
+				<componentType>RelatedList</componentType>
+				<unit>Pixel</unit>
                 </sidebarComponents>
                 <style>Stack</style>
                 <unit>Pixel</unit>

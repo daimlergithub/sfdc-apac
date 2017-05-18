@@ -16,7 +16,9 @@
             <containers>
                 <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
                 <region>Right</region>
-                <sidebarComponents> 
+                <sidebarComponents>  
+				<componentType>RelatedList</componentType>
+				<unit>Pixel</unit>
                 </sidebarComponents>
                 <style>Stack</style>
                 <unit>Pixel</unit>
@@ -771,7 +773,6 @@
             </layoutItem>
         </relatedContentItems>
     </relatedContent> 
-	 
 	
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
