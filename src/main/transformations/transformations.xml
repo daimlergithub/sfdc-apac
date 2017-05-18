@@ -1364,26 +1364,6 @@
                 <field>DurationInMinutes</field>
             </layoutItems></element>
 	</addelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/applicationVisibilities</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/classAccesses</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/pageAccesses</xpath>
-	</removeelement>	
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/tabVisibilities</xpath>
-	</removeelement>	
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/layoutAssignments</xpath>
-	</removeelement>
 	<!-- remove as long as we don't have community licenses -->
 	<!-- Adding the below profiles into deployment process as we have community licenses now-->
 	<!-- remove as long as we don't have community licenses 

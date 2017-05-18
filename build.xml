@@ -112,7 +112,7 @@
 				</deploy>
 			</target>
 			<target name="deploy05">
-				<deploy transformations="transformations.xml" runAllTests="${sfdc.runAllTests}">
+				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
 					<sf:typeset name="objects"/>
 					<sf:typeset name="queues"/>
 					<sf:typeset name="email"/>
@@ -137,7 +137,10 @@
 						<sf:exclude name="selectAllChkBox"/>
 						<sf:exclude name="Retail_Campaigns"/>                                                 
 					</sf:typeset>                   
-					<sf:typeset name="layouts"/>
+					<sf:typeset name="layouts">
+					<sf:exclude name="Account-Company Layout"/>
+					<sf:exclude name="PersonAccount-Person Account Layout"/>
+					</sf:typeset>
 					<sf:typeset name="groups"/>
 					<sf:typeset name="approvalProcesses"/>
 					<sf:typeset name="workflows"/>
