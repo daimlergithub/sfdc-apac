@@ -111019,8 +111019,14 @@ window.location.reload();
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Lead__c.Id}", "_parent","resizable=yes")</url>
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/SelectSlaveLead?Id={!Lead__c.Id}&amp;isdtp=vw');
+}
+else {
+	var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Lead__c.Id}", "_parent","resizable=yes");
+	}</url>
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
