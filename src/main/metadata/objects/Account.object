@@ -12521,7 +12521,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is &quot;Contact_StopPostal&quot;</description>
         <externalId>false</externalId>
-        <label>DM Opt Out</label>
+        <label>Postal Opt Out</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -56448,7 +56448,11 @@ else {
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
 { 
-window.open('{!URLFOR($Site.Prefix)}/apex/CheckAccountDuplicatePage?id={!Account.Id}'); 
+if (sforce.console.isInConsole()) { 
+    srcUp('/apex/CheckAccountDuplicatePage?id={!Account.Id}&amp;isdtp=vw');
+} else { 
+    window.open('/apex/CheckAccountDuplicatePage?id={!Account.Id}','_blank');
+}
 } 
 else 
 { 
@@ -56693,25 +56697,30 @@ alert('Error: Your Market Is Not defined ');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
-var userid = "{!$User.Id}";
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+
+var userid = "{!$User.Id}"; 
 var myCase= sforce.connection.query("Select Id ,IsPortalEnabled From user where id='{!Account.OwnerId}'" ); 
-var records = myCase.getArray("records");
-var market = "{!Account.MD__c}";
-if(market == 'JP'){
-if(records[0].IsPortalEnabled=true) 
+var records = myCase.getArray("records"); 
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+
+{ 
+if (sforce.console.isInConsole()) 
 { 
 
-window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&amp;00N2800000A9Cty_lkid={!Account.OwnerId}&amp;00N2800000A9Cty ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};" )
+srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&amp;00N2800000A9Cty_lkid={!Account.OwnerId}&amp;00N2800000A9Cty ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};'); 
 
 } 
+
 else 
 { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}" )
+window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}" ) 
 
-}
-}
-else if(market == 'KR'){
-alert('This function available only for Japan user');
+} 
+} 
+else if(market == 'KR'){ 
+alert('This function available only for Japan user'); 
 }</url>
     </webLinks>
     <webLinks>

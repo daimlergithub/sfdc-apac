@@ -21034,7 +21034,7 @@ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/701/e?RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -21083,7 +21083,7 @@ alert('something has gone wrong please contact your Administrator');
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;00N2800000A9CfQ=&amp;CF00N2800000IkqW9_lkid={!Campaign.Id}&amp;CF00N2800000IkqW9={!Campaign.Name}</url>
+        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_ID=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_LKID={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONES_ID={!Campaign.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>

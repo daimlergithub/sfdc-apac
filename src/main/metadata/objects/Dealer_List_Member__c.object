@@ -207,7 +207,7 @@
         <picklist>
             <picklistValues>
                 <fullName>Ready</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Removed</fullName>
