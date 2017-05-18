@@ -343,7 +343,8 @@ createTestData();
     cm1.Status__c = 'Ready';
     cm1.Special_Flag_to_Include__c='true';
     cm1.Auto_creation_of_tasks__c=true;
-    cm1.Auto_creation_of_DM_requests__c=true;
+    cm1.Auto_creation_of_DM_requests__c=true; 
+	
    
     //cm.contact_Id__c = accobj.Id;   
     insert cm1;    
