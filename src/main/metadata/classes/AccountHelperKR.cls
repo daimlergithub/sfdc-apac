@@ -396,7 +396,10 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                                 {
                                     acclnk.Retail_Province__c = addtrmap1.get(add.Province__c);
                                 }
-                                acclnk.Retail_Province__c = acclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
+                                if(acclnk.Retail_Province__c != null && acclnk.Retail_Province__c != '')
+                                {
+                                    acclnk.Retail_Province__c = acclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
+                                }
                             }
                         }
                     }
