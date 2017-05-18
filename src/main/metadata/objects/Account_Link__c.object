@@ -5085,7 +5085,7 @@ else {
 alert("{!$Label.AlreadyProcessed}"); 
 } 
 }else if(market == 'KR'){ 
-alert('This function available only for Japan user'); 
+alert("{!$Label.DeleteretailcopyErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>
