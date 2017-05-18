@@ -18,7 +18,7 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
             
             caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
-            caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
+            //caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
             
         }
         

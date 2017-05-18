@@ -360,6 +360,7 @@ public class CaseHelperJP
            }  
         }        
     }
+/* This method is of not in use, There is new class written from updateCaseDeadline	
    public void updateCaseDeadline(List<Case> cases, Map<Id,SObject> case_Map){     
          for (Case c : cases){ 
                Case caseRec = (Case)case_Map.get(c.Id);
@@ -375,6 +376,7 @@ public class CaseHelperJP
             } 
           }      
        }  
+*/
 public  void updateCase (List<case> caseSta) {
 
 map<id, string> accidmap = new map<id, string>();
