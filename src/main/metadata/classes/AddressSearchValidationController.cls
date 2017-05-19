@@ -29,6 +29,7 @@ public class AddressSearchValidationController
     
     // KOREA related parameters - Start
     public String market{get;set;}
+    public String LanguageLocaleKey{get;set;}
     public String homePhoneAreaCodePart1{get;set;}   
     public String homePhoneAreaCodePart2{get;set;}
     public String homePhoneAreaCodePart3{get;set;}
@@ -90,8 +91,9 @@ public class AddressSearchValidationController
         IsForeignNational=false;
         
         // refreshPage = false;        
-        u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        u = [SELECT Id,Market__c,ContactId,LanguageLocaleKey  FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
+        LanguageLocaleKey=u.LanguageLocaleKey;
         objPersonAccount.Allow_Data_Sharing2__c = 'No';
         if(market == Label.KR){
             mbkdatasource = true;
@@ -131,8 +133,8 @@ public class AddressSearchValidationController
         }
         else{
             try{
-                if(UserInfo.getLocale()=='ja_JP')
-                  AddressOptions.add(new SelectOption('--None--','--ãªã—--'));
+                if(LanguageLocaleKey=='ja')
+                  AddressOptions.add(new SelectOption('--None--','--なし--'));
                 else
                   AddressOptions.add(new SelectOption('--None--','--None--'));  
                 Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
@@ -1183,10 +1185,10 @@ If the user is Saving  same address which matches the fields returned by toleran
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
         }
         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
-		{
+        {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
         }
-		else{
+        else{
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1303,7 +1305,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
                     { 
-						string provincetmp;
+                        string provincetmp;
                         String[] s;
                         String x,y,finalstring;
                         if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc != null)
@@ -1316,7 +1318,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         List<String> newString =  new List<String>();
                         if(provincetmp != null && provincetmp != '')
                         {
-                        	s= provincetmp.split(' ');
+                            s= provincetmp.split(' ');
                         }
                         if(provincetmp != null && provincetmp != '')
                         {
@@ -1333,7 +1335,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         provincetmp = String.valueOf(finalstring);
                         if(provincetmp != null && provincetmp != '')
                         {
-                        	provincetmp  =provincetmp.replace(',','');
+                            provincetmp  =provincetmp.replace(',','');
                         }
                        // province1 = addtrmapUpdate1.get(provincetmp);
                         if(addtrmapUpdate1.containsKey(provincetmp)){

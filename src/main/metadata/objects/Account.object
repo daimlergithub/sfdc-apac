@@ -56434,8 +56434,9 @@ true, &apos;Car Model Comparison&apos;);
 else {
     window.open(&quot;/apex/CarModelComparison?retURL=/{!Account.Id}&quot;, &quot;&quot;, &quot;width = 800, height = 600&quot;);
 }</url>
-    </webLinks>
-    <webLinks>
+    </webLinks> 
+	
+     <webLinks>
         <fullName>Check_Duplicates</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -56443,17 +56444,25 @@ else {
         <masterLabel>Check Duplicates</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>
-{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
 { 
+
+if(typeof(srcUp) == 'function') 
+		{ 
 if (sforce.console.isInConsole()) { 
     srcUp('/apex/CheckAccountDuplicatePage?id={!Account.Id}&amp;isdtp=vw');
 } else { 
-    window.open('/apex/CheckAccountDuplicatePage?id={!Account.Id}','_blank');
+ window.open('/apex/CheckAccountDuplicatePage?id={!Account.Id}','_blank');
+   
+}
+}
+else { 
+  window.open("{!URLFOR($Site.Prefix)}/apex/CheckAccountDuplicatePage?id={!Account.Id}",'_blank');
 }
 } 
 else 
