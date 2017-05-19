@@ -1280,8 +1280,8 @@ Purchased_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <formula>IF((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Service Completed') &amp;&amp; RecordType.Name == 'Sales Leads') || 
-(ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Service Completed') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads'), 
+        <formula>IF((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Service Completed') &amp;&amp; RecordType.Name == 'Aftersales Leads') || 
+(ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Service Completed') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Aftersales Leads') &amp;&amp; MD__c = 'KR', 
 true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1297,7 +1297,7 @@ true, false)</formula>
         </actions>
         <active>false</active>
         <formula>IF((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; RecordType.Name == 'Sales Leads') || 
-(ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads'), 
+(ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads') &amp;&amp; MD__c = 'KR', 
 true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
