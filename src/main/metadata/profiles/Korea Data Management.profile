@@ -22174,6 +22174,10 @@
         <apexPage>VehiclePickerforCaseKR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>ViewRetailCopiesPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
