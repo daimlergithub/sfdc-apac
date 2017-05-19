@@ -110715,7 +110715,7 @@ ISNULL(Lost_Dealer_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>On change of status to "Lost(CAC)" there is no validation of entering the Lost Reason &amp; "Lost(CAC) Date" is not updated</description>
         <errorConditionFormula>AND( OR(ISBLANK( Lost_CAC_Date__c ),(ISBLANK( Lost_Comment__c ))),ISPICKVAL(CAC_Lead_Status__c,"Lost(CAC)"), 
 AND($Profile.Name != 'IntegrationAPI'),MD__c="JP")</errorConditionFormula>
@@ -111173,20 +111173,33 @@ var RTs = sforce.connection.query("Select Id, Name from RecordType where sObject
 var rt = RTs.getArray("records"); 
 window.location.href  = '{!URLFOR($Site.Prefix)}/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id</url>
     </webLinks>
-    <webLinks>
+	<webLinks>
         <fullName>Print_PDF</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
         <masterLabel>Print PDF</masterLabel>
         <openType>onClickJavaScript</openType>
-        <page>LeadPrintPDF</page>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
- 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 
+if(market== 'JP')
+{
+if(typeof(srcUp) == 'function') 
+{    
+if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID'} &amp;&amp; sforce.console.isInConsole() )
+{ 
+srcUp('/apex/printAfterSaleLeadPdf?id={!Lead__c.Id}&amp;isdtp=vw');
+} 
+else if ({!Lead__c.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID'})
+{ 
+ window.open('/apex/printLeadPdf?id={!Lead__c.Id}','_blank');
+}
+}
+else{
 if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID'})
 { 
 var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/printAfterSaleLeadPdf?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
@@ -111195,7 +111208,10 @@ else if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID'})
 { 
 var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/printLeadPdf?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
 } 
-else{ 
+}
+}
+else
+{ 
 alert("{!$Label.Authorization}"); 
 }</url>
     </webLinks>
