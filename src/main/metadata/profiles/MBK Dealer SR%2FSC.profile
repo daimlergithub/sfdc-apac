@@ -23032,19 +23032,19 @@
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Company Retail Copy Dealer KR</layout>
+        <layout>Account_Link__c-Company Retail Copy</layout>
         <recordType>Account_Link__c.Retail_Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Person Retail Copy Dealer KR</layout>
+        <layout>Account_Link__c-Contact2Contact</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Person Retail Copy Dealer KR</layout>
+        <layout>Account_Link__c-Individual Customer External Link</layout>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Person Retail Copy Dealer KR</layout>
+        <layout>Account_Link__c-Person Retail Copy</layout>
         <recordType>Account_Link__c.Retail_Person</recordType>
     </layoutAssignments>
     <layoutAssignments>
