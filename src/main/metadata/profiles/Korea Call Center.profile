@@ -22170,8 +22170,12 @@
         <apexPage>MarketCheckOnVehiclePickerCase</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-	 <pageAccesses>
+	<pageAccesses>
         <apexPage>VehiclePickerforCaseKR</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>ViewRetailCopiesPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
