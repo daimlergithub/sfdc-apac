@@ -1239,67 +1239,169 @@
 		<token>SETTING_DEFAULT_CASE_USER</token>
 	</changetext>
 	
-	
-    <changetext>
-		<filename>objects\Lead__c.object</filename>
+	 <changetext>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_ID</token>
 	</changetext>
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID</token>
 	</changetext>
 	
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
 	</changetext>
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_FIRSTNAME_ID</token>
 	</changetext>
 	
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_LASTNAME_ID</token>
 	</changetext>
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_NATIVE_FIRSTNAME_ID</token>
 	</changetext>
 	
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_NATIVE_LASTNAME_ID</token>
 	</changetext>
 	
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_ADDRESS_ID</token>
 	</changetext>
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_PHONE_ID</token>
 	</changetext>
 	
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_FAX_ID</token>
 	</changetext>
 	 <changetext>
-		<filename>objects\Lead__c.object</filename>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID</token>
 	</changetext>
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID_lkid</token>
+	</changetext>
+	
+	
+	
+    <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID</token>
+	</changetext>	
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_FIRSTNAME_ID</token>
+	</changetext>	
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_LASTNAME_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_NATIVE_FIRSTNAME_ID</token>
+	</changetext>
+	
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_NATIVE_LASTNAME_ID</token>
+	</changetext>
+	
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ADDRESS_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_PHONE_ID</token>
+	</changetext>
+	
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_FAX_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID</token>
+	</changetext>
+	
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID_lkid</token>
+	</changetext>
+	
 	
 	<!-- remove tab visibility for SocialPersona from profiles -->
 	<removeelement deploy="false">
