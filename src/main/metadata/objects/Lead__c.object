@@ -22666,12 +22666,12 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>AMGã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
+            <value>AMGセントラルDM2016</value>
         </filters>
-        <label>AMGã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</label>
+        <label>AMGセントラルDM2016</label>
         <language>ja</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22690,17 +22690,17 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>AMGã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
+            <value>AMGセントラルDM2016_GTR</value>
         </filters>
         <filters>
             <field>LAST_UPDATE</field>
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>AMGã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016_GTR</label>
+        <label>AMGセントラルDM2016_GTR</label>
         <language>ja</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
 	<listViews>
@@ -23140,7 +23140,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>notEqual</operation>
             <value>Not Allocated</value>
         </filters>
-        <label>æœªå±•é–‹ãƒªãƒ¼ãƒ‰</label>
+        <label>未展開リード</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23297,7 +23297,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>001_æœ¬æ—¥ã®ãƒªãƒ¼ãƒ‰</label>
+        <label>001_本日のリード</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23338,7 +23338,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>LAST_N_DAYS:7</value>
         </filters>
-        <label>002_éŽåŽ»7æ—¥é–“ã®ãƒªãƒ¼ãƒ‰</label>
+        <label>002_過去7日間のリード</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23390,7 +23390,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>My Mercedes</value>
         </filters>
-        <label>001_æœ¬æ—¥ã®ãƒªãƒ¼ãƒ‰(My Mercedes)</label>
+        <label>001_本日のリード(My Mercedes)</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23439,9 +23439,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
+            <value>SクラスセントラルDM2016</value>
         </filters>
-        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</label>
+        <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>

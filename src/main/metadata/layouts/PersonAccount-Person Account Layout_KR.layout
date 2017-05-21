@@ -770,21 +770,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <fields>Competitor_Brand__c</fields>
-        <fields>Competitor_Model__c</fields>
-        <fields>BodyType__c</fields>
-        <fields>ModelYear__c</fields>
-        <fields>NextInspectionDate__c</fields>
-        <fields>Related_From__c</fields>
-        <fields>Related_To__c</fields>
-        <fields>FirstRegistrationDate__c</fields>
-        <fields>NAME</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <relatedList>Vehicle__c.Related_contact__c</relatedList>
-        <sortField>Related_From__c</sortField>
-        <sortOrder>Desc</sortOrder>
-    </relatedLists>
-    <relatedLists>
         <customButtons>New_Inquiry</customButtons>
         <customButtons>New_MB_Complaint</customButtons>
         <excludeButtons>NewCase</excludeButtons>
