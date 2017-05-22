@@ -4131,7 +4131,7 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
-                <fullName>Order Placed%2FService Requested</fullName>
+                <fullName>Order Placed/Service Requested</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
