@@ -33,7 +33,7 @@ global with sharing class VehiclePickerForCaseControllerKR {
     public VehiclePickerForCaseControllerKR(ApexPages.StandardController controller) {
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
-        if(p.Name.contains('Dealer')){
+        if(p.Name.equals('Dealer Community User')){
             disableButtons = false;
         }        
         currentRecordId  = controller.getId();
@@ -68,7 +68,7 @@ global with sharing class VehiclePickerForCaseControllerKR {
             }
             if(!vehicleIds.isEmpty()){
                 System.debug('Vehicle Ids' +vehicleIds);
-                caseOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
+                caseOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, EuroVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
                 System.debug('Case Owner vehicles...:' +caseOwnerVehicles);
                 System.debug('Each Case Vehicle type...' +case_Vehicles.Interested_Vehicle__c); 
             }
@@ -371,7 +371,7 @@ global with sharing class VehiclePickerForCaseControllerKR {
         Set<Id> allVehicleIds = new Set<Id>();
         
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
             system.debug('Vehicle for If' +vehicle);
         }
         else{
@@ -405,7 +405,7 @@ global with sharing class VehiclePickerForCaseControllerKR {
                 system.debug('Default Vehicle Records...' +vehicle);
             }
             else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
             }                 
             system.debug('Vehicle for else' +vehicle); 
         }

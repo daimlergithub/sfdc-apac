@@ -24681,7 +24681,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Tasks</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>TerminateVehicleRelationship</apexPage>
