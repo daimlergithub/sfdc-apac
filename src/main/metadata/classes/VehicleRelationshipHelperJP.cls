@@ -382,7 +382,7 @@ public with sharing class VehicleRelationshipHelperJP
       system.debug('@@#@##@#@#@ vrList'+vrList);
       for(Vehicle_Relationship__c vRs : vrList)
       {
-        if(vRs.contact__c != null)
+        if(vRs.contact__r.Primary_Address_Reference__c != null)
         {
           addressids.add(vRs.contact__c);
         }
