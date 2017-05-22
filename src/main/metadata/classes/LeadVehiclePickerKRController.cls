@@ -50,7 +50,7 @@ global without sharing class LeadVehiclePickerKRController {
         //profileName = userinfo.getprofilename();
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
-        if(p.Name.contains('Dealer')){
+        if(p.Name.contains('Dealer Community User')){
             disableButtons = false;
         }
         currentRecordId  = controller.getId();
