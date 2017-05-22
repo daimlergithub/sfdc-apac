@@ -178,7 +178,7 @@ public class AddressDisplayInlineEditController {
     @TestVisible private void loadData() {
         adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
                 Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,       
-                Address_Line_2_Native__c  from Address__c where Customer__c =: aid];
+                Address_Line_2_Native__c,Foreign_Nationals__c,Language__c,Country__c,Sub_District__c  from Address__c where Customer__c =: aid];
     }
     
     /**    
@@ -214,7 +214,7 @@ public class AddressDisplayInlineEditController {
     public void addEditOptions(){    
         Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
         adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,Sub_District__c,
-               Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c=:acc.id Limit 10];
+               Address_Line_2__c ,Address_Line_1__c,District__c,City__c,Language__c,Country__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Foreign_Nationals__c from Address__c where Customer__c=:acc.id Limit 10];
         if(adds.size()>=5){
             ShowpageBlockFlag=false;
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,system.label.Account_cannot_have_more_than_5_Address));
