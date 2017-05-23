@@ -105,10 +105,10 @@ global without sharing class LeadVehiclePickerKRController {
             if(!vehicleIds.isEmpty()){
                 System.debug('Vehicle Ids' +vehicleIds);
                 if(!Test.isRunningTest()){
-                leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, EuroVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
+                leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
                 }
                 else{
-                     leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, EuroVIN__c From Vehicle__c Where Id IN :vehicleIds];
+                     leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds];
                 }
                 System.debug('Lead Owner vehicles...:' +leadOwnerVehicles);
                 System.debug('Each Lead Vehicle type...' +lead_Vehicles.Interested_Vehicle__c); 
@@ -431,10 +431,10 @@ global without sharing class LeadVehiclePickerKRController {
         
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
             if(!Test.isRunningTest()){
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
                 system.debug('Vehicle for If' +vehicle);
             }else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where EuroVIN__c =:vin_number];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number];
             }
         }
         else{
