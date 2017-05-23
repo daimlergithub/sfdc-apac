@@ -9,7 +9,7 @@
 
     07-Mar-2013 Sinow zhang (Nttdata)    Created
 */
-@isTest(SeeAllData=true)
+@isTest(SeeAllData=false)
 public class SMSControllerExtensionTest {
     //RecordType Declaration
     static String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();

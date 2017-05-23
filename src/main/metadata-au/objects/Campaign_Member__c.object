@@ -78,6 +78,24 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Add_Service_Staff__c</fullName>
         <defaultValue>false</defaultValue>

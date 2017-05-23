@@ -414,6 +414,44 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Acquisition_Record_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Acquisition Record Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Acquisition_Objective_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Acquisition Objective &amp; Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Order Confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>	
     <fields>
         <fullName>Activation_Date__c</fullName>
         <externalId>false</externalId>
@@ -570,13 +608,33 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>All_Channel_opt_out__c</fullName>
+        <fullName>All_channel_opt_out__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( NOT( AND( Opt_In_Email__c , Opt_In_Home_Phone__c ,  Opt_In_SMS__c ,  Opt_In_Work_Phone__c ) ),true,false )</formula>
+        <formula>IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>All Channel opt-out</label>
+        <label>All channel opt-out</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>OptedOutOfEmail_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>OptedOutOfEmail Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+	<fields>
+        <fullName>Fax2_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Fax2 Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Alliance_Offered_Service__c</fullName>
@@ -2605,7 +2663,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
         <description>DFE Requirement to capture the dealer segment (This is in CISM CR)</description>
         <externalId>false</externalId>
         <label>Dealer Segment</label>
-        <length>100</length>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -4149,6 +4207,26 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Details_of_Acquisition__c</fullName>
+        <externalId>false</externalId>
+        <label>Details of The Acquisition</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Manual_Create__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dealer Manual Create</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Dealer_Marketing_Manager_Email__c</fullName>
         <externalId>false</externalId>
@@ -4687,6 +4765,16 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+	<fields>
+        <fullName>Data_Source_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Data Source Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Dealer_Trucks_Dlr_Class_Sales__c</fullName>
@@ -6249,6 +6337,16 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Fax_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Fax Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Fuso_Offered_Service__c</fullName>
@@ -8333,6 +8431,16 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
+	 <fields>
+        <fullName>MB_CIR_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>MB CIR Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>Minimum_per_Dealer__c</fullName>
         <externalId>false</externalId>
@@ -8671,6 +8779,16 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>OptedOutOfFax_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>OptedOutOfFax Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>Opt_In_Contact_Reason__c</fullName>
         <externalId>false</externalId>
@@ -8925,6 +9043,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Postal_Opt_Out_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Postal Opt Out Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>PC_Tenure__c</fullName>
         <externalId>false</externalId>
@@ -8973,6 +9101,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Primary_Address_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Primary Address Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Partner_Title__c</fullName>
@@ -9383,6 +9521,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Primary_Fax_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Primary Fax Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
         <externalId>false</externalId>
@@ -9511,6 +9659,16 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>PersonDoNotCall_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>PersonDoNotCall Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>PreferredName__c</fullName>
@@ -9957,6 +10115,26 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Primary_Phone_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Primary Phone Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+	<fields>
+        <fullName>Primary_Email_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Primary Email Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Primary_Segment__c</fullName>
@@ -10785,6 +10963,16 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Sales_Sanction_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Sales Sanction Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Sales_Sanction__c</fullName>
@@ -11912,6 +12100,16 @@ To indicate that the dealer need to update their external systems</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	 <fields>
+        <fullName>Visit_Opt_Out_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Visit Opt Out Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Vehicle_Amount__c</fullName>

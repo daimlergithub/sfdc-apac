@@ -507,6 +507,9 @@
         <required>false</required>
         <type>Date</type>
     </fields>
+	
+	
+	
     <fields>
         <fullName>Activity_Info__c</fullName>
         <externalId>false</externalId>
@@ -2224,7 +2227,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     </fields>
     <fields>
         <fullName>Source_ID__c</fullName>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Source ID</label>
         <length>40</length>
         <required>false</required>
