@@ -69,7 +69,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Age --></label>
+        <label>나이</label>
         <name>Age__c</name>
     </fields>
     <fields>
@@ -77,15 +77,15 @@
         <name>Agreement_to_commit_info_processing__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
+            <translation>미동의</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Withdrawn</masterLabel>
-            <translation><!-- Withdrawn --></translation>
+            <translation>보류</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>동의</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -161,7 +161,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>동의</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -613,7 +613,7 @@
         <name>Company_Name_Native_2__c</name>
     </fields>
     <fields>
-        <label>회사 이름</label>
+        <label>사업자 등록명</label>
         <name>Company_Name__c</name>
     </fields>
     <fields>
@@ -5072,7 +5072,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Oriental Medical Doctor</masterLabel>
-            <translation>Oriental Medical Doctor</translation>
+            <translation>한의사</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
@@ -5968,15 +5968,15 @@ Allows up to 240 characters --></help>
         <name>Personal_Abroad_Agreement__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
+            <translation>미동의</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Withdrawn</masterLabel>
-            <translation><!-- Withdrawn --></translation>
+            <translation>보류</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>동의</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5984,31 +5984,31 @@ Allows up to 240 characters --></help>
         <name>Personal_Agreement__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
+            <translation>미동의</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Withdrawn</masterLabel>
-            <translation><!-- Withdrawn --></translation>
+            <translation>보류</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>동의</translation>
         </picklistValues>
     </fields>
     <fields>
         <label>개인 정보 제 3자 제공 동의</label>
         <name>Personal_Information_Third_Party_Release__c</name>
-        <picklistValues>
+       	<picklistValues>
             <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
+            <translation>미동의</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Withdrawn</masterLabel>
-            <translation><!-- Withdrawn --></translation>
+            <translation>보류</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>동의</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -8286,7 +8286,7 @@ Allows up to 240 characters --></help>
         <name>Car_Model_Comparison</name>
     </webLinks>
     <webLinks>
-        <label><!-- Check_Duplicates --></label>
+        <label>MBJ 사용 기능</label>
         <name>Check_Duplicates</name>
     </webLinks>
     <webLinks>
@@ -8354,12 +8354,20 @@ Allows up to 240 characters --></help>
         <name>New_After_Sales_Leads</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Case --></label>
+        <label>MBJ 사용 기능</label>
         <name>New_Case</name>
     </webLinks>
     <webLinks>
         <label><!-- New_Case_Dealer --></label>
         <name>New_Case_Dealer</name>
+    </webLinks>
+    <webLinks>
+        <label>신규 문의</label>
+        <name>New_Inquiry</name>
+    </webLinks>
+    <webLinks>
+        <label>신규 고객불만</label>
+        <name>New_MB_Complaint</name>
     </webLinks>
     <webLinks>
         <label>세일즈 리드 생성</label>
@@ -8390,15 +8398,15 @@ Allows up to 240 characters --></help>
         <name>Search_Dealers</name>
     </webLinks>
     <webLinks>
-        <label><!-- Send_to_JPOS --></label>
+        <label>MBJ 사용 기능</label>
         <name>Send_to_JPOS</name>
     </webLinks>
     <webLinks>
-        <label><!-- Send_to_MyMercedes --></label>
+        <label>MBJ 사용 기능</label>
         <name>Send_to_MyMercedes</name>
     </webLinks>
     <webLinks>
-        <label><!-- Send_to_SPO --></label>
+        <label>MBJ 사용 기능</label>
         <name>Send_to_SPO</name>
     </webLinks>
     <webLinks>

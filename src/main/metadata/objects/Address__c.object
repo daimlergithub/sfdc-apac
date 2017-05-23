@@ -290,6 +290,26 @@
                 <fullName>New Zealand</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Laos</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -386,6 +406,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Foreign_Nationals__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Foreign Nationals is a checkbox field needed for Thailand ,</description>
+        <externalId>false</externalId>
+        <label>Foreign Nationals</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Hardcopy_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
         <label>Mail Last Modified By</label>
@@ -417,12 +447,25 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Language__c</fullName>
+        <description>The language in which address is submitted.This is created for Thailand.</description>
+        <externalId>false</externalId>
+        <label>Language</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 	IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 	IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+        IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 	IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
-	)))</defaultValue>
+	))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -702,6 +745,17 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Sub_District__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub District</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Temp_Address__c</fullName>
         <externalId>false</externalId>
         <label>Unnormalized Address</label>
@@ -821,6 +875,26 @@
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1080,6 +1154,26 @@
                 <fullName>Japan</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Laos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Province__c</picklist>
@@ -1337,6 +1431,26 @@
                 <fullName>Japan</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Laos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Province__c</picklist>
@@ -1584,6 +1698,19 @@
         <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>AddressLine1_NoOfDigit_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;,UPPER(MD__c) = &apos;TH&apos; ,IF( LEN(  Address_Line_1__c  ) &gt; 100 ,true,false) )</errorConditionFormula>
+        <errorDisplayField>Address_Line_1__c</errorDisplayField>
+        <errorMessage>Address Line 1 should be less than or equal to 100 characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AddressLine2_NoOfDigit_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;,UPPER(MD__c) = &apos;TH&apos;,IF( LEN( Address_Line_2__c ) &gt; 100 ,true,false))</errorConditionFormula>
+        <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Address_Line_1_Native_Kana</fullName>
         <active>false</active>
         <errorConditionFormula>AND(NOT(
@@ -1779,13 +1906,13 @@ MD__c = 'JP',
         <fullName>TitleOfHonor_is_Required</fullName>
         <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; MD__c = 'JP' &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; </errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Town_Native_Kana</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(District_Native__c),
@@ -1793,5 +1920,5 @@ REGEX(District_Native__c, "[ァアィイゥウェエォオカガキギクグケ�
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>District_Native__c</errorDisplayField>
         <errorMessage>It should be "Kana" characters.</errorMessage>
-    </validationRules>
+    </validationRules>    
 </CustomObject>

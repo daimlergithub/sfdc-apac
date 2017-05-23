@@ -127,14 +127,14 @@
                 <behavior>Edit</behavior>
                 <field>CallDisposition</field>
             </layoutItems>
-			<layoutItems>
-                <behavior>Edit</behavior>
-                <field>AES_CNTR__Called__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AES_CNTR__Caller__c</field>
-            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AES_CNTR__Called__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AES_CNTR__Caller__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

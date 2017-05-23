@@ -39,37 +39,6 @@
         <name>JP_MarketVehicle_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>JP_Vehicle_Readable_to_MBJ_Dealers</fullName>
-        <sharedTo>
-            <roleAndSubordinates>Central</roleAndSubordinates>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Vehicle Soft Deleted</value>
-        </criteriaItems>
-        <accessLevel>Read</accessLevel>
-        <name>JP Vehicle Readable to MBJ Dealers</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MBK_Vehicle_Sharing_Rule</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <accessLevel>Edit</accessLevel>
-        <name>MBK Vehicle Sharing Rule</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
         <fullName>READ_WRITE_for_Vehicle_to_CAC</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
@@ -113,6 +82,24 @@
         <accessLevel>Edit</accessLevel>
         <description>Vehicle with record-type = &apos;Vehicle Soft Deleted&apos; and MD__c = &apos;JP&apos;, can only be modified by IT Dept. and Data Management User</description>
         <name>SoftDelete_Vehicles__Only_for_IT</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Vehicle_Sharing_for_MBK</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Vehicle Soft Deleted</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Vehicle Sharing for MBK</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>soft_deleted_V_share_read_with_data_mgr</fullName>

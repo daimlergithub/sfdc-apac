@@ -25,7 +25,6 @@ public class DeleteRetailCopyTest{
         ApexPages.currentPage().getParameters().put('id',alklink.id);
         DeleteRetailCopy obj = new DeleteRetailCopy();
         DeleteRetailCopy.updateRetailCopy();
-        DeleteRetailCopy.updateAccoutOwner(dealerId);
-        
+       
     }
 }

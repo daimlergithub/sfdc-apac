@@ -19,6 +19,69 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>First_Consent_Date</fullName>
+        <field>First_Consent_Date__c</field>
+        <formula>Today()</formula>
+        <name>First Consent Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>First_Consent_User</fullName>
+        <field>First_Consent_User__c</field>
+        <formula>$User.Username</formula>
+        <name>First Consent User</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>MBTH_UpdateDataSource</fullName>
+        <field>System_Data_Source__c</field>
+        <formula>&apos;Salesforce&apos;</formula>
+        <name>MBTH_UpdateDataSource</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MBTH_UpdatedConsentUser</fullName>
+        <field>Updated_Consent_User__c</field>
+        <formula>$User.Username</formula>
+        <name>MBTH_UpdatedConsentUser</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MBTH_Updated_Consent_Date</fullName>
+        <field>Updated_Consent_Date__c</field>
+        <formula>today()</formula>
+        <name>MBTH_Updated Consent Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>System_Data_Source</fullName>
+        <field>System_Data_Source__c</field>
+        <formula>&apos;Salesforce&apos;</formula>
+        <name>System Data Source</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateDataSource</fullName>
+        <field>System_Data_Source__c</field>
+        <formula>&apos;Salesforce&apos;</formula>
+        <name>UpdateDataSource</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Country_Field_JP</fullName>
         <field>Country__c</field>
@@ -37,6 +100,16 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>	
+	<fieldUpdates>
+        <fullName>Update_Country_Field_TH</fullName>
+        <field>Country__c</field>
+        <literalValue>Thailand</literalValue>
+        <name>Update Country Field TH</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Customer_LastUpdatedDate</fullName>
         <field>Customer_LastUpdatedDate__c</field>
@@ -64,6 +137,34 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Preferred_Language_Field_TH</fullName>
+        <field>Preferred_Language__c</field>
+        <literalValue>Thai</literalValue>
+        <name>Update Preferred Language Field TH</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdatedConsentDate</fullName>
+        <field>Updated_Consent_Date__c</field>
+        <formula>today()</formula>
+        <name>UpdatedConsentDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdatedConsentUser</fullName>
+        <field>Updated_Consent_User__c</field>
+        <formula>$User.Username</formula>
+        <name>UpdatedConsentUser</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
@@ -74,6 +175,63 @@
         <description>When field “Preferred contact method” value is set to others from “Phone”,the field value changes to null</description>
         <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>MBTH_Update_Consent_data_Source</fullName>
+        <actions>
+            <name>First_Consent_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>First_Consent_User</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>System_Data_Source</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Account.Personal_Agreement__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;YES&quot;</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>MBTH_Update_consent_Information</fullName>
+        <actions>
+            <name>MBTH_UpdateDataSource</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MBTH_UpdatedConsentUser</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MBTH_Updated_Consent_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Personal_Agreement__c</field>
+            <operation>equals</operation>
+            <value>Withdrawn</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <description>If personal agreement value change to ‘Withdrawn’ by dealer then will update the updated consent date and updated consent user field and also source field.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Update Customer LastUpdatedDate when I%2FF fields changed</fullName>
@@ -141,5 +299,20 @@ Modify Reason:
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for KR</description>
         <formula>ISPICKVAL($User.Market__c,&apos;KR&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Preferred Language and Country TH</fullName>
+        <actions>
+            <name>Update_Country_Field_TH</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Preferred_Language_Field_TH</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for TH</description>
+        <formula>ISPICKVAL($User.Market__c,&apos;TH&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

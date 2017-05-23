@@ -74,7 +74,7 @@
         <label>Campaign</label>
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Dealer List Members</relationshipLabel>
-        <relationshipName>Dealer_List_Members</relationshipName>
+        <relationshipName>Dealer_List_Members1</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -207,7 +207,7 @@
         <picklist>
             <picklistValues>
                 <fullName>Ready</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Removed</fullName>

@@ -6,4 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>MBJ IT Department</name>
     <opportunityAccessLevel>None</opportunityAccessLevel>
+	<parentRole>Daimler_APAC</parentRole>
 </Role>

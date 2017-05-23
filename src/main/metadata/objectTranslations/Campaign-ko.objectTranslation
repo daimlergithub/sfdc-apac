@@ -1714,7 +1714,7 @@
         <name>Create_Complex_Execution</name>
     </webLinks>
     <webLinks>
-        <label><!-- Create_Simple_Execution --></label>
+        <label>단순 실행 생성</label>
         <name>Create_Simple_Execution</name>
     </webLinks>
     <webLinks>

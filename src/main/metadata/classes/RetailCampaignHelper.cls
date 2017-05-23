@@ -188,11 +188,11 @@ delete Parentcamp;
 
    if(cam.RecordTypeId == camIdExec && cam.Child_Campaign_Status__c != 'planning'){
           
-            cam.addError('You Cant Delete  The Campaign');
+            cam.addError(System.Label.deleting_campaign);
     
     }else if(cam.RecordTypeId == camIdPlan && cam.Status__c != 'Draft'){
    
-            cam.addError('You Cant Delete  The Campaign');
+            cam.addError(System.Label.deleting_campaign);
             
     
     }
@@ -355,13 +355,13 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                
                  If(rect.Start_Date__c < System.Today()){
                  
-                   rect.addError('Start Date cant be Lesser Than Today');   
+                   rect.addError(system.Label.Campaign_Date_1 );   
                  
                  }
                  
                  If(rect.Close_Date__c < rect.Start_Date__c){
                  
-                       rect.addError('End Date cant be Lesser Than Start Date');
+                       rect.addError(system.Label.Campaign_Date_2);
                  }
                   
            
@@ -405,9 +405,9 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                      For(Retail_Campaign__c recta : retListMain ){
                      
                      system.debug('+++++++++++++++'+rec.Start_Date__c );
-                     if(recta.Segmentation_Date__c < System.Today() ||recta.Segmentation_Date__c > rec.Close_Date__c ||recta.Segmentation_Date__c <= rec.Start_Date__c  ){
+                     if(recta.Segmentation_Date__c < System.Today() ||recta.Segmentation_Date__c > rec.Close_Date__c ||recta.Segmentation_Date__c < rec.Start_Date__c  ){
                      
-                         recta.addError('Segmentation Date Error');
+                         recta.addError(System.Label.Campaign_Date_3);
                          
                      
                      }
@@ -415,12 +415,12 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                      if(recta.Execution_Start_Date__c < System.Today()  || recta.Execution_Start_Date__c > rec.Close_Date__c || recta.Execution_Start_Date__c <= recta.Segmentation_Date__c ){
                      
                      
-                            recta.addError('Execution Date Error');
+                            recta.addError(System.Label.Campaign_Date_4);
                      }
                   if(recta.Response_Date__c < System.Today()  || recta.Response_Date__c  > rec.Close_Date__c ||recta.Response_Date__c < recta.Execution_Start_Date__c   ){
                      
                      
-                            recta.addError('Response Date Error');
+                            recta.addError(System.Label.Campaign_Date_5);
                      }
                   }
                }

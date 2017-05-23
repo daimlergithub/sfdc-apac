@@ -13272,6 +13272,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <searchLayouts>
         <customTabListAdditionalFields>Record_Type_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+		<customTabListAdditionalFields>Child_Campaign_Status__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Close_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Type__c</customTabListAdditionalFields>

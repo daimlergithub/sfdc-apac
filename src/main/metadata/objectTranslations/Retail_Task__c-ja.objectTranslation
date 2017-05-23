@@ -2420,6 +2420,10 @@
     </fields>
     <layouts>
         <layout>Retail Task Layout (Insurance)</layout>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
 		<sections>
             <label>基本情報</label>
             <section>Basic Information</section>
@@ -2434,6 +2438,10 @@
         <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
+        </sections> 
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
         </sections>
 		<sections>
             <label>ファイナンス詳細情報</label>
@@ -2441,16 +2449,16 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Task Layout (Loan)</layout>
-		<sections>
-            <label>基本情報</label>
-            <section>Basic Information</section>
-        </sections>
+        <layout>Retail Task Layout (Loan)</layout> 
         <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
-        </sections>
+        </sections> 
         <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+		</sections>
+		<sections>		
             <label>ファイナンス詳細情報</label>
             <section>Finance Detail Information</section>
         </sections>
@@ -2470,6 +2478,134 @@
             <section>System Information</section>
         </sections>
     </layouts>
+	<layouts>
+        <layout>Retail Task Layout(Contract) for MBJ</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>車検情報</label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label>主要な情報</label>
+            <section>Main Information</section>
+        </sections>
+    </layouts>
+	<layouts>
+        <layout>Retail Task Layout(Insurance) for MBJ</layout>
+        <sections>
+            <label>コメント</label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label>契約者情報</label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>保証/契約の詳細</label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+	<layouts>
+        <layout>Retail Task Layout(Lease) for MBJ</layout>
+        <sections>
+            <label>口座情報</label>
+            <section>Bank Account Information</section>
+        </sections>
+        <sections>
+            <label>コメント</label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label>契約ステータス</label>
+            <section>Contract Status</section>
+        </sections>
+        <sections>
+            <label>契約者情報</label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>フラグ情報</label>
+            <section>Flags</section>
+        </sections>
+        <sections>
+            <label>保証人情報</label>
+            <section>Guarantor Information</section>
+        </sections>
+        <sections>
+            <label>保証/契約の詳細</label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
+            <label>支払条件</label>
+            <section>Payment Conditions</section>
+        </sections>
+        <sections>
+            <label>残高情報</label>
+            <section>Remaining Balance Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+	<layouts>
+        <layout>Retail Task Layout(Loan) for MBJ</layout>
+        <sections>
+            <label>口座情報</label>
+            <section>Bank Account Information</section>
+        </sections>
+        <sections>
+            <label>コメント</label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label>契約ステータス</label>
+            <section>Contract Status</section>
+        </sections>
+        <sections>
+            <label>契約者情報</label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>フラグ情報</label>
+            <section>Flags</section>
+        </sections>
+        <sections>
+            <label>保証人情報</label>
+            <section>Guarantor Information</section>
+        </sections>
+        <sections>
+            <label>保証/契約の詳細</label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
+            <label>支払条件</label>
+            <section>Payment Conditions</section>
+        </sections>
+        <sections>
+            <label>残高情報</label>
+            <section>Remaining Balance Information</section>
+        </sections>
+	</layouts>
     <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>
     </layouts>

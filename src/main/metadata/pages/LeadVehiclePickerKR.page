@@ -8,6 +8,7 @@
     <apex:includeScript value="{!$Resource.jQueryCSV}" />
     <apex:includeScript value="{!$Resource.JSforce}" />
     <apex:includeScript value="/support/console/25.0/integration.js"/>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-sanitize.min.js"></script>
     <html>
     <head>
     <style type="text/css">
@@ -22,8 +23,9 @@
     </head>
     <body>
        <script type="text/javascript">
-       var app = angular.module('VehiclePickerApp', ['ui.bootstrap']);      
-       app.controller('LeadVehiclePickerKRController', ['$scope', '$filter', function($scope, $filter) {
+        var jq = $.noConflict();
+       var app = angular.module('VehiclePickerApp', ['ui.bootstrap', 'ngSanitize']);      
+       app.controller('LeadVehiclePickerKRController', ['$scope', '$filter','$sce','$sanitize',function($scope, $filter, $sce, $sanitize) {
        var orderBy = $filter('orderBy');
        $scope.vehicleDetailText = "New";
        $scope.vehicleDetailCompetitorText = "New";
@@ -60,7 +62,7 @@
        /*INTERESTED VEHICLE : Vehicle Intitialization details*/
        if($scope.leadVehicles.InterestedVehicle != undefined){
            $scope.vehicleDetailText = "Edit";
-           $scope.interestedVehicleDetails = $scope.leadVehicles.InterestedVehicle.Brand +' ' +$scope.leadVehicles.InterestedVehicle.Class + ' ' + $scope.leadVehicles.InterestedVehicle.Model+ ' ' + $scope.leadVehicles.InterestedVehicle.Colour;
+           $scope.interestedVehicleDetails = $scope.leadVehicles.InterestedVehicle.Brand +' ' +$scope.leadVehicles.InterestedVehicle.Class + ' ' + $scope.leadVehicles.InterestedVehicle.Model+ ' ' + $sanitize($scope.leadVehicles.InterestedVehicle.Colour);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -280,12 +282,13 @@
         }
         
         // This was added to get colour as picklist values instead of text
-        $scope.getCarModelsForLeadInterestedVehicle = function(status_type, selected_Brand, selected_Class, selectedModel){
+        $scope.getCarModelsForLeadInterestedVehicle = function(status_type, selected_Brand, selected_Class, selectedModel, selectedColour){
             $scope.brands = [];
             $scope.relatedClasses = [];
             $scope.models = [];
             $scope.realtedColours = [];
             $scope.colours = [];
+            $scope.escapedColours = [];
             /*VF Remoting to fetch car models based on status type*/
             Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.LeadVehiclePickerKRController.getCarModels}',status_type,
@@ -300,17 +303,11 @@
                         $scope.models = $scope.classModel[selected_Class];
                         $scope.colorModel = $scope.brand_class_modelWrap[3];
                         $scope.realtedColours = $scope.colorModel[selectedModel];
-                        if($scope.realtedColours != undefined){
-                            var temVar;
-                            for(var i = 0; i < $scope.realtedColours.length; i++){
-                                //console.log($scope.realtedColours[i].trim()+' '+$scope.selectedColour.trim());
-                                if(angular.equals($scope.realtedColours[i].trim().toLowerCase(), $scope.selectedColour.trim().toLowerCase())){
-                                    temVar = i;
-                                    //console.log(temVar);
-                                }
+                       if($scope.realtedColours != undefined){
+                            for(var i=0; i<$scope.realtedColours.length; i++){
+                                $scope.escapedColours.push($sanitize($scope.realtedColours[i]));
                             }
-                                $scope.selectedColour = $scope.realtedColours[temVar];
-                            }
+                        }
                         $scope.$apply();
              });
         }
@@ -333,7 +330,12 @@
 
         $scope.setSelectedColour = function(model_selected){
             $scope.realtedColours = $scope.colorModel[model_selected];
-            $scope.sortedColours = orderBy( $scope.realtedColours, '-' , false);
+            if($scope.realtedColours != undefined){
+                for(var i=0; i<$scope.realtedColours.length; i++){
+                    $scope.escapedColours.push($sanitize($scope.realtedColours[i]));
+                }
+            }
+            $scope.sortedColours = orderBy($scope.escapedColours, '-' , false);
             $scope.Colours = [];
             
          }
@@ -482,12 +484,12 @@
                 
           } 
 
-           $scope.showDetailforInterestedVehicle = function(vehicle_type, selectedBrand, selectedClass, selectedModel){
+           $scope.showDetailforInterestedVehicle = function(vehicle_type, selectedBrand, selectedClass, selectedModel, selectedColour){
                 //console.log('This method was called on click');
                 $scope.status_type = 'Own Sellable';
                 $scope.vehicleDetail = true;
                 $scope.vehicleLookup = false;
-                //console.log(vehicle_type +' '+ selectedBrand +' '+ selectedClass +' '+ selectedModel);
+                //console.log(vehicle_type +' '+ selectedBrand +' '+ selectedClass +' '+ selectedModel +' '+selectedColour);
                 //Others
                 $scope.vehicleDetailCompetitor = false;
                 $scope.vehicleLookupCompetitor = false;
@@ -499,7 +501,7 @@
                 $scope.TradeInLookup = false;
                 $scope.vehicleDetailPurchased = false;
                 $scope.PurchasedLookup = false;
-                $scope.getCarModelsForLeadInterestedVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand,selectedModel);
+                $scope.getCarModelsForLeadInterestedVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand,selectedModel,selectedColour);
            }
           
           $scope.selectBrandAction = function () {
@@ -515,15 +517,15 @@
               $scope.vehicleDetail = false;
               $scope.leadVehicletype = vehicleType; 
               $scope.recordId = '{!currentRecordId}';             
-              $scope.brandVal = document.getElementById("brandItems").value;
-              $scope.classVal = document.getElementById("classItems").value;
+              $scope.brandVal = jq('#brandItems :selected').text(); //document.getElementById("brandItems").value;
+              $scope.classVal = jq('#classItems :selected').text();//document.getElementById("classItems").value;
               $scope.colourVal = document.getElementById("colourValue").value;
               $scope.trimVal = document.getElementById("trimValue").value;
-              $scope.modelVal = document.getElementById("modelItems").value;
+              $scope.modelVal = jq('#modelItems :selected').text();//document.getElementById("modelItems").value;
               $scope.mileage = document.getElementById("mileageValue").value;               
               $scope.vehicleAttributes = [ { 
-                                             Brand:$scope.brands[parseInt($scope.brandVal)], Class:$scope.relatedClasses[parseInt($scope.classVal)],
-                                             Colour:$scope.colourVal, Model:$scope.models[$scope.modelVal],
+                                             Brand:$scope.brandVal, Class:$scope.classVal,
+                                             Colour:$scope.colourVal, Model:$scope.modelVal,
                                              Trim:$scope.trimVal,Mileage:$scope.mileage, LeadVehicleType:$scope.leadVehicletype,
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
@@ -545,7 +547,12 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }                            
               });
           };
@@ -560,16 +567,17 @@
               }
               $scope.vehicleDetail = false;
               $scope.leadVehicletype = vehicleType; 
-              $scope.recordId = '{!currentRecordId}';             
-              $scope.brandVal = document.getElementById("brandItems").value;
-              $scope.classVal = document.getElementById("classItems").value;
-              $scope.colourVal = document.getElementById("colourItems").value;
+              $scope.recordId = '{!currentRecordId}';  
+                         
+              $scope.brandVal = jq('#brandItems :selected').text();//document.getElementById("brandItems").value;
+              $scope.classVal = jq('#classItems :selected').text();//document.getElementById("classItems").value;
+              $scope.colourVal = jq('#colourItems :selected').text();//document.getElementById("colourItems").value;
               $scope.trimVal = document.getElementById("trimValue").value;
-              $scope.modelVal = document.getElementById("modelItems").value;
+              $scope.modelVal = jq('#modelItems :selected').text();//document.getElementById("modelItems").value;
               $scope.mileage = document.getElementById("mileageValue").value;               
               $scope.vehicleAttributes = [ { 
-                                             Brand:$scope.brands[parseInt($scope.brandVal)], Class:$scope.relatedClasses[parseInt($scope.classVal)],
-                                              Colour:$scope.realtedColours[parseInt($scope.colourVal)], Model:$scope.models[$scope.modelVal],
+                                             Brand:$scope.brandVal, Class:$scope.classVal,
+                                              Colour:$scope.colourVal, Model:$scope.modelVal,
                                              Trim:$scope.trimVal,Mileage:$scope.mileage, LeadVehicleType:$scope.leadVehicletype,
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
@@ -591,7 +599,12 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }                            
               });
           };
@@ -618,7 +631,12 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }
               });
           };
@@ -791,7 +809,12 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }
               });
           }
@@ -834,7 +857,11 @@
                     <td>{!$label.Model}</td>
                     <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedModel);setSelectedColour(selectedModel)" ng-model="selectedModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Colour}</td>
-                      <td><select id="colourItems" style="width:150px" ng-model="selectedColour" ng-change="getSelectedColour(selectedColour)" ng-options="colour for colour in realtedColours | orderBy:'toString()'"></select></td>                   
+                    <td>
+                       <select style="width:150px" ng-change="getSelectedColour(selectedColour)" id="colourItems" ng-model="selectedColour">
+                                <option ng-repeat="colour in escapedColours" ng-selected="selectedColour == colour" ng-bind-html="colour" value="{{colour}}"></option>
+                       </select>
+                    </td>       
                 </tr>
                 <tr>
                     <td>{!$label.Trim}</td>

@@ -50,10 +50,6 @@
                 <behavior>Edit</behavior>
                 <field>IsAutoSegmentationExecuted__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>hasError__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -92,6 +88,10 @@
                 <behavior>Edit</behavior>
                 <field>Segmentation_Criteria__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>hasError__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -115,8 +115,15 @@
         <customButtons>Convert_To_Task</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
+ 		<fields>Contact_Id__c</fields>
         <fields>Status__c</fields>
-        <fields>RespondedDate__c</fields>
+		<fields>Company_Name__c</fields>
+        <fields>Contract_Number__c</fields>
+		<fields>Preferred_Dealer__c</fields>
+		<fields>Model__c</fields>
+		<fields>Sales_Representative__c</fields>
+		<fields>Service_Representative__c</fields>
+		<fields>Contract_Responsible_Person__c</fields>   
         <relatedList>Campaign_Member__c.Retail_Campaign_Id__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -159,7 +166,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h28000006jLP4</masterLabel>
+        <masterLabel>00hp0000000OGxb</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

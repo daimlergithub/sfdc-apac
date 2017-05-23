@@ -6,9 +6,6 @@
     <columns>
         <field>SUBJECT</field>
     </columns>
-    <columns>
-        <field>CREATED_DATE</field>
-    </columns>
     <filter>
         <criteriaItems>
             <column>Case.MD__c</column>
@@ -20,7 +17,12 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>STATUS</field>
+        <field>CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>RECORDTYPE</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Open Status Of Case Management</name>

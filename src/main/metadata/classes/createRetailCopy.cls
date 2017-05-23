@@ -22,7 +22,7 @@ public without sharing class createRetailCopy {
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-
+    public String MarketDiscriminator;
     // Constructor
     public createRetailCopy(ApexPages.StandardController controller) {
      AccId=ApexPages.currentPage().getParameters().get('id');
@@ -30,7 +30,8 @@ public without sharing class createRetailCopy {
      SelectedAdd=new List<Address__c>();
      InsertAlk=new List<Account_Link__c> ();
      account=new Account();
-       ShowHideError=false;
+     ShowHideError=false; 
+     
      CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
      account = (Account)controller.getRecord();
      if(AccId!=null)
@@ -40,6 +41,10 @@ public without sharing class createRetailCopy {
     
      system.debug('+++++++++++++'+account);
      system.debug('++++++++++++++'+AccId);
+    MarketDiscriminator = 'JP';
+    if(CurrentUsr.Market__c== 'KR'){
+        MarketDiscriminator = CurrentUsr.Market__c; 
+    }       
 
     } // Constructor  end
     
@@ -61,7 +66,7 @@ public without sharing class createRetailCopy {
           Dealeracc=new List<Account>();
           AccId=ApexPages.currentPage().getParameters().get('id'); 
           // DealerID=ApexPages.currentPage().getParameters().get('DealerID');  
-           accc=[Select id from account where id=:account.Main_Dealer__c];  
+           accc=[Select id from account where id=:account.Main_Dealer__c and MD__c =: MarketDiscriminator];  
            System.debug('^&^&^&^&^&^&^&^ accc'+accc);
             System.debug('^&^&^&^&^&^&^&^ AccId '+AccId);
            System.debug('^&^&^ DealerID.Main_Dealer__c '+account.Main_Dealer__c);
@@ -81,7 +86,7 @@ public without sharing class createRetailCopy {
     System.debug('#################'+ AccId);
     if(addId !=null)
     {
-    SelectedAdd= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City__c,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId Limit 1];
+    SelectedAdd= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId Limit 1];
     }
     CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
  
@@ -143,7 +148,7 @@ public without sharing class createRetailCopy {
     } else if(Accountlinklist !=null)
     {
     ShowHideError=true;  
-    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
+    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.Retail_copy_is_already_present));
     }
    
     
@@ -203,7 +208,7 @@ public without sharing class createRetailCopy {
     } else if(Accountlinklist !=null && account.Main_Dealer__c !=null )
     {
      ShowHideError=true;  
-    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
+    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.Retail_copy_is_already_present));
     }
     
     }  

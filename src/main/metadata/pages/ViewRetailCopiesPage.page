@@ -1,0 +1,27 @@
+<apex:page standardController="Account" extensions="ViewRetailCopiespageController">
+     <apex:form >
+        <apex:pageBlock >    
+            <apex:pageMessages id="showmsg"></apex:pageMessages>    
+            <apex:pageBlockTable value="{!accLnkList}" var="acc" id="table"> 
+                <apex:column headerValue="Name">
+                    <apex:outputField value="{!acc.Name}" style="width:90%;" />                    
+                </apex:column>              
+                <apex:column headerValue="Account 1">
+                    <apex:outputField value="{!acc.fromRole__c}" style="width:50%;"/>
+                </apex:column>
+                <apex:column headerValue="Account 2">
+                    <apex:outputField value="{!acc.toRole__c}" style="width:50%;"/>
+                </apex:column>               
+                <apex:column headerValue="Record Type">
+                    <apex:outputField value="{!acc.RecordType.Name}" style="width:90%;">                        
+                    </apex:outputField>
+                </apex:column>               
+                
+                <apex:column headerValue="Market Discriminator">
+                    <apex:outputField value="{!acc.MD__c}" style="width:50%;"/>
+                </apex:column>
+                                 
+            </apex:pageBlockTable>     
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -89,7 +89,7 @@
     <fields>
         <fullName>Address_Flag__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Address__r.TitleOfHonor__c)</formula>
+        <formula>IF(ISPICKVAL(Address__r.TitleOfHonor__c , 'To Person'),$Label.To_Person,IF(ISPICKVAL(Address__r.TitleOfHonor__c , 'To Company'),$Label.To_Company,'') )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Address Flag</label>
         <required>false</required>
@@ -847,6 +847,15 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Preferred Dealer</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Campaign Members (Preferred Dealer)</relationshipLabel>
         <relationshipName>Campaign_Members3</relationshipName>
@@ -1238,12 +1247,12 @@
         <fullName>StatusChangingFromExecuted</fullName>
         <active>true</active>
         <description>Camapaign Member Status can be only updated from Executed to Responded, Bounced or No Response</description>
-        <errorConditionFormula>AND(
-    ISPICKVAL( PRIORVALUE( Status__c ) , "Executed"),  
-    OR(  
-      ISPICKVAL( Status__c , "Removed") ,
-      ISPICKVAL( Status__c , "Ready"),MD__c = 'JP', $Profile.Name != 'IntegrationAPI' 
-    ) 
+        <errorConditionFormula>AND( 
+ISPICKVAL(PRIORVALUE(Status__c) , "Executed"),MD__c = 'JP', $Profile.Name != 'IntegrationAPI', 
+OR( 
+ISPICKVAL( Status__c , "Removed"), 
+ISPICKVAL( Status__c , "Ready") 
+) 
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
     </validationRules>
@@ -1414,7 +1423,7 @@ location.reload();</url>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -1431,7 +1440,7 @@ alert('You cannot create campaign members for this campaign status');
         <requireRowSelection>false</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Retail_Campaign_Member</fullName>
@@ -1446,7 +1455,7 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/MBJapan/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else
 {
 alert('You cannot create campaign members for this campaign status');

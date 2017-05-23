@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customButtons>Create_Retail_Copy_kr</customButtons>
     <customButtons>Create_Vehicle</customButtons>
     <customButtons>New_Sales_Lead_WS</customButtons>
-    <customButtons>New_After_Sales_Lead_WS</customButtons>
+    <customButtons>New_AfterSales_Leads</customButtons>
+    <customButtons>New_Inquiry</customButtons>
+    <customButtons>New_MB_Complaint</customButtons>
     <customButtons>View_Hierarchy</customButtons>
+    <customButtons>View_Retail_Copies</customButtons>
     <customButtons>Merge</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
@@ -149,6 +153,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Loyalty_Card_No__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -573,8 +581,9 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Inquiry</customButtons>
         <excludeButtons>NewCase</excludeButtons>
+		<customButtons>New_Inquiry</customButtons>
+		<customButtons>New_MB_Complaint</customButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>

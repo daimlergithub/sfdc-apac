@@ -417,13 +417,6 @@
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>Case_Dealer__c</fields>
-        <fields>CASES.RECORDTYPE</fields>
-        <fields>Vehicle_Brand__c</fields>
-        <fields>Vehicle_Model__c</fields>
-        <fields>Vehicle_Class__c</fields>
-        <fields>Repeat_Complaint_Times__c</fields>
         <relatedList>RelatedChildCaseList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -435,6 +428,9 @@
         <sortField>Date__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
@@ -444,7 +440,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h28000006j53J</masterLabel>
+        <masterLabel>00hO0000000WCTO</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

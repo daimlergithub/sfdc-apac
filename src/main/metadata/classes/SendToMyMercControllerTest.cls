@@ -43,20 +43,31 @@ SendToMyMercController sendmerobj1 = new SendToMyMercController(sc1);
 ApexPages.currentPage().getParameters().put('recordID', vehicalrelobj.Id);
 ApexPages.currentPage().getParameters().put('recordID', vehicalrelobj1.Id);
 sendmerobj.showPopup();
+sendmerobj.Submit();
+//SendToMyMercController.AccountWrapper accwrapins= new SendToMyMercController.AccountWrapper (vehicalrelobj.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj.Id,true,true);
 sendmerobj1.showPopup();
 SendToMyMercController.AccountWrapper accwrapins= new SendToMyMercController.AccountWrapper (vehicalrelobj.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj.Id,true);
-SendToMyMercController.AccountWrapper accwrapins1= new SendToMyMercController.AccountWrapper (vehicalrelobj1.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj1.Id,true);
+//SendToMyMercController.AccountWrapper accwrapins1= new SendToMyMercController.AccountWrapper (vehicalrelobj1.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj1.Id,true);
+SendToMyMercController.AccountWrapper accwrapins1= new SendToMyMercController.AccountWrapper (vehicalrelobj1.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,null,true);
+
 accwrapins.isSelect = true;
-accwrapins1.isSelect = true;
+accwrapins1.isSelect = false;
+accwrapins1.OptOutReason = 'Test';
 sendmerobj.lstAccountWrapper.add(accwrapins);
 sendmerobj1.lstAccountWrapper.add(accwrapins1);
 sendmerobj.Submit();
 sendmerobj1.Submit();
 sendmerobj.closePopup();
-sendmerobj1.closePopup();
+
 //sendmerobj.savepop();
 //sendmerobj.cancel();
 
+
+sendmerobj1.closePopup();
+sendmerobj1.Submit();
+//sendmerobj.savepop();
+//sendmerobj.cancel();
+
+
 }
-    
 }

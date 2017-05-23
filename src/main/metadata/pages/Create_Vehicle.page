@@ -206,9 +206,10 @@
                 </apex:pageBlockSection>
                 
              <div ng-switch="selectedRecordType">
-             <span ng-switch-when="MB">
-               
-                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}"> 
+                 
+             <span ng-switch-when="MB">                    
+                    <apex:outputLabel value="{!$Label.TH_Not_authorized_to_create_MB_Vehicle_record}" rendered="{!Not(nonThaiUserLoggedIn)}" style="font-weight: bold; color: red; font-size: 14px"/>
+                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}" rendered="{!nonThaiUserLoggedIn}"> 
                              
                                 
                                     <!--Custom brand picklist to get the values from carmodal object-->
@@ -282,7 +283,7 @@
                 </span>
                  
                 <span ng-switch-when="MB">
-                   <apex:pageBlockSection title="{!$Label.Vehicle_Detail}"> 
+                   <apex:pageBlockSection title="{!$Label.Vehicle_Detail}" rendered="{!nonThaiUserLoggedIn}"> 
                         <apex:inputField value="{!vehicle.OptionCode__c}"/> 
                         <apex:inputField value="{!vehicle.Colour__c}"/>
                         <apex:inputField value="{!vehicle.EngineNumber__c}"/>
@@ -303,8 +304,8 @@
                  </span>
                
                  <span ng-switch-when="MB">
-                    <apex:pageBlockSection title="{!$Label.Date_Information}">
-                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                    <apex:pageBlockSection title="{!$Label.Date_Information}" rendered="{!nonThaiUserLoggedIn}">
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}" required="true"/>
                         <apex:inputField value="{!vehicle.ProductionDate__c}"/>
                         <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
                         <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
@@ -315,7 +316,7 @@
                  </span>
                 
                  <span ng-switch-when="MB">
-                    <apex:pageBlockSection title="{!$Label.Other_Information}">
+                    <apex:pageBlockSection title="{!$Label.Other_Information}" rendered="{!nonThaiUserLoggedIn}">
                         <apex:inputField value="{!vehicle.Transmission__c}"/>
                         <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
                         <apex:inputField value="{!vehicle.System_Data_Source__c}"/>
@@ -384,13 +385,13 @@
                          <apex:inputField value="{!vehicle.Portal_Vehicle_ID__c}"/>
                     </apex:pageBlockSection>
                 </span>
-                     
-                <apex:pageBlockButtons >
-                        <apex:commandButton value="{!$Label.Save_Button}" onclick="saveDetail();return false;"/>
-                        <apex:commandButton value="{!$Label.Save_New_Button}"  onclick="saveAndNewDetail();return false;" />
-                        <apex:commandButton action="{!Cancel}" value="{!$Label.Cancel_Button}"/>                    
-                </apex:pageBlockButtons>
-                                         
+                 
+                 <apex:pageBlockButtons >
+                     <apex:commandButton value="{!$Label.Save_Button}" onclick="saveDetail();return false;"/>
+                     <apex:commandButton value="{!$Label.Save_New_Button}"  onclick="saveAndNewDetail();return false;"/>
+                     <apex:commandButton action="{!Cancel}" value="{!$Label.Cancel_Button}"/>                    
+                 </apex:pageBlockButtons>
+                
               </div>
                 
             </apex:pageBlock>

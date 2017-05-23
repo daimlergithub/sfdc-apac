@@ -2713,6 +2713,14 @@
         <name>SellingDealer</name>
     </customLabels>
     <customLabels>
+        <label><!-- SendToJPOSErrorMsg --></label>
+        <name>SendToJPOSErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendToSPOErrorMSG --></label>
+        <name>SendToSPOErrorMSG</name>
+	</customLabels>
+    <customLabels>
         <label><!-- Selling Dealer --></label>
         <name>Selling_Dealer</name>
     </customLabels>
@@ -3548,7 +3556,7 @@
             <label><!-- Accounts --></label>
             <name>Accounts</name>
         </sections>
-    </reportTypes>
+    </reportTypes>    
     <reportTypes>
         <description><!-- Account with Account Link and Retail Task --></description>
         <label><!-- Account with Account Link and Retail Task --></label>
@@ -3672,19 +3680,6 @@
         <sections>
             <label><!-- Leads (Contact) --></label>
             <name>Leads (Contact)</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
-        <description><!-- Campaign Member --></description>
-        <label><!-- Campaign Member --></label>
-        <name>Campaign_Member</name>
-        <sections>
-            <label><!-- Campaign Members --></label>
-            <name>Campaign Members</name>
-        </sections>
-        <sections>
-            <label><!-- Campaigns --></label>
-            <name>Campaigns</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -3832,7 +3827,7 @@
             <label><!-- Leads --></label>
             <name>Leads</name>
         </sections>
-    </reportTypes>
+    </reportTypes>    
     <reportTypes>
         <description><!-- Happy Calls Report for aftersales Lead --></description>
         <label><!-- Happy Calls Report for aftersales Lead --></label>

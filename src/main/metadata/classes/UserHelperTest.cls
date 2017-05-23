@@ -431,7 +431,7 @@ public static testmethod void testbatch2()
         User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
         System.runAs (thisUser) {
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser212121@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -665,7 +665,7 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser54545@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -702,7 +702,7 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser64646@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -729,7 +729,7 @@ public static testmethod void testbatch2()
         insert contact2;
         
        User usr2 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'tes34345tDaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -776,7 +776,7 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'test54556DaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -803,7 +803,7 @@ public static testmethod void testbatch2()
         insert contact2;
         
        User usr2 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser76867@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -853,7 +853,7 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'test12656DaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -880,7 +880,7 @@ public static testmethod void testbatch2()
         insert contact2;
         
        User usr2 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser88554@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -939,7 +939,7 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'test11226DaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -966,7 +966,7 @@ public static testmethod void testbatch2()
         insert contact2;
         
        User usr2 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'test07079DaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -1024,7 +1024,7 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser996655@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -1051,7 +1051,7 @@ public static testmethod void testbatch2()
         insert contact2;
         
        User usr2 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerjhhhh12User@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -1114,7 +1114,7 @@ public static testmethod void testbatch2()
         INSERT testGroup;
         list<user> listcampaigns=new list<user>();
        User usr1 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser010176@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -1160,7 +1160,11 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
+<<<<<<< HEAD
             Username = System.now().millisecond() + 'testDaimlerUser1235684@Daimler-test.com',
+=======
+            Username = System.now().millisecond() + 'test1235684DaimlerUser@Daimler-test.com',
+>>>>>>> asia-uat
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -1187,7 +1191,7 @@ public static testmethod void testbatch2()
         insert contact2;
         
        User usr2 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'test098188DaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
@@ -1250,7 +1254,7 @@ public static testmethod void testbatch2()
         INSERT testGroup;
         list<user> listcampaigns=new list<user>();
        User usr1 = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'test123456DaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',

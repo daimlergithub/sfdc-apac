@@ -1,7 +1,7 @@
 <apex:page standardController="Account"  extensions="ServiceRetailTask" showHeader="true" sidebar="true">
 
     <apex:form >
-        <apex:pageBlock id="ServiceRetailTask" title="List of Service Retail Task Only " >
+        <apex:pageBlock id="ServiceRetailTask" title="{!$Label.List_of_Service_Retail_Task_Only}" >
          <apex:outputPanel id="myPanel">       
           
                   
@@ -110,3 +110,4 @@
             </apex:pageBlock>
     </apex:form>
 </apex:page>
+                       

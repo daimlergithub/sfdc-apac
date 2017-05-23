@@ -1486,31 +1486,31 @@
     </layouts>
     <nameFieldLabel>アカウントリンク名</nameFieldLabel>
     <recordTypes>
-        <label><!-- Company Customer External Link --></label>
+        <label><!--CompanyExternalLink--></label>
         <name>CompanyExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Contact2Contact --></label>
+        <label><!--Contact2Contact00--></label>
         <name>Contact2Contact</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- ContactSector --></label>
+        <label><!--ContactSector--></label>
         <name>ContactSector</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Individual Customer External Link --></label>
+        <label><!--IndividualExternalLink--></label>
         <name>IndividualExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Retail Company --></label>
+        <label><!--Retail_Company--></label>
         <name>Retail_Company</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Retail Person --></label>
+        <label><!--Retail_Person--></label>
         <name>Retail_Person</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Vehicle External Link --></label>
+        <label><!--Vehicle_External_Link--></label>
         <name>Vehicle_External_Link</name>
     </recordTypes>
     <sharingReasons>

@@ -162,7 +162,7 @@ public without sharing class AddressSelectionforExistingCustomer {
     } else if(Accountlinklist !=null)
     {
     ShowHideError=true;  
-    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
+    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.Retail_copy_is_already_present));
     }
    
     
@@ -222,7 +222,7 @@ public without sharing class AddressSelectionforExistingCustomer {
     } else if(Accountlinklist !=null && account.Main_Dealer__c !=null )
     {
      ShowHideError=true;  
-    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
+    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.Retail_copy_is_already_present));
     }
     
     }  

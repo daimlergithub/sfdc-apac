@@ -12,7 +12,12 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.Data_Source__c</field>
+        <field>CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.MBK_Data_Source__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>New account number by data source</name>

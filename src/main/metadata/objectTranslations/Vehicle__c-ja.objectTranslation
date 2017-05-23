@@ -3846,6 +3846,10 @@
         <name>Retail_LastModifiedDate__c</name>
     </fields>
     <fields>
+        <label>クラス</label>
+        <name>Class_and_Body__c</name>
+    </fields>
+    <fields>
         <label>乗車定員</label>
         <name>RidingCapacity__c</name>
     </fields>

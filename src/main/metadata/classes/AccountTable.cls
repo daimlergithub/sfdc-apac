@@ -6,7 +6,7 @@ Usage               :    The functionality of this Class is to display All Deale
                           * Search Filter to get All Dealers Account Which Will Be Added As Participating Dealer                      
 JIRA NO             :    SFDCJP-1606                                               
 ************************************************************************************/
-Public class AccountTable{
+Public With Sharing class AccountTable{
     public String size { get; set; }
 
     //This is Our collection of the class/wrapper objects AddingParticipatingDealer 
@@ -45,7 +45,7 @@ Public class AccountTable{
         else if(regionValue == 'aid' ){
             panelStopper = false;
             //SearchLogic();
-        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' ])); 
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP'])); 
         setCon.setpagesize(10);
         }
     }
@@ -56,21 +56,21 @@ Public class AccountTable{
         
           if(!String.isBlank(dealerType) && !String.isBlank(dealerCode) ) {
           system.debug('+++++'+'First');
-        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' ]));
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' AND MD__c ='JP' ]));
         } else if(!String.isBlank(dealerType) && String.isBlank(dealerCode) ){
            system.debug('+++++'+'Second');
-        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType  AND RecordType.Name = 'Dealer' ]));
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType  AND RecordType.Name = 'Dealer' AND MD__c ='JP']));
         
         } else if(String.isBlank(dealerType) && !String.isBlank(dealerCode) ){
         system.debug('+++++'+'Third');
         
-       Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_GC_Code__c=:dealerCode  AND RecordType.Name = 'Dealer' ]));
+       Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_GC_Code__c=:dealerCode  AND RecordType.Name = 'Dealer' AND MD__c ='JP' ]));
        
         }
         
         
         else {
-        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer'])); 
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP'])); 
         
         }
         setCon.setpagesize(10);

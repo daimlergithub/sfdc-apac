@@ -20,6 +20,29 @@
         <name>JP_MarketLeads_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Lead_Sharing_to_Wholesale_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH_Whole_Sale_MBLT_Call_Center</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MBTH_Assigned_Dealer_Name__c</field>
+            <operation>notEqual</operation>
+            <value>''</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Leads,Sales Leads</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>Lead Sharing to Wholesale Users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>MBK_Leads_Sharing_Rule</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>

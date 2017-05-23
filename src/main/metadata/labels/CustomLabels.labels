@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>A6_Contact_as_part_of_visiting_a_car_dealership</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Contact as part of visiting a car dealership</shortDescription>
+        <value>Contact as part of visiting a car dealership</value>
+    </labels>
+    <labels>
+        <fullName>A6_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6  Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>A6_Invitation_to_an_event_event_at_the_car_dealership</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Invitation to an event / event at the car dealership</shortDescription>
+        <value>Invitation to an event / event at the car dealership</value>
+    </labels>
+    <labels>
+        <fullName>A6_Other_contact_channels</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Other contact channels</shortDescription>
+        <value>Other contact channels</value>
+    </labels>
+    <labels>
+        <fullName>A6_Personal_email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Personal email</shortDescription>
+        <value>Personal email</value>
+    </labels>
+    <labels>
+        <fullName>A6_Promotional_emails</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Promotional emails</shortDescription>
+        <value>Promotional emails</value>
+    </labels>
+    <labels>
+        <fullName>A6_Query_via_website</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Query via website</shortDescription>
+        <value>Query via website</value>
+    </labels>
+    <labels>
+        <fullName>A6_Request_for_a_test_drive_via_website</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Request for a test drive via website</shortDescription>
+        <value>Request for a test drive via website</value>
+    </labels>
+    <labels>
+        <fullName>A6_Telephone_call</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Telephone call</shortDescription>
+        <value>Telephone call</value>
+    </labels>
+    <labels>
+        <fullName>A6_Visit_to_a_car_dealership</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A6 Visit to a car dealership</shortDescription>
+        <value>Visit to a car dealership</value>
+    </labels>
+    <labels>
         <fullName>Accepted</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -434,6 +504,22 @@
         <protected>false</protected>
         <shortDescription>Birthdate</shortDescription>
         <value>Birthdate</value>
+	</labels>
+    <labels>	
+        <fullName>Average</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Average</shortDescription>
+        <value>Average</value>
+    </labels>
+    <labels>
+        <fullName>Beyond_expectation</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Beyond expectation</shortDescription>
+        <value>Beyond expectation</value>
     </labels>
     <labels>
         <fullName>Brand</fullName>
@@ -1371,6 +1457,13 @@
         <value>Case received by Phone etc</value>
     </labels>
     <labels>
+        <fullName>Check_DuplicatesErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Check DuplicatesErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+    <labels>
         <fullName>Child</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1585,6 +1678,13 @@
         <shortDescription>Convert To Task</shortDescription>
         <value>Convert To Task</value>
     </labels>
+	<labels>
+        <fullName>Converted_to_After_Sales_Leads</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Converted to After-Sales Leads</shortDescription>
+        <value>Converted to After-Sales Leads</value>
+    </labels>
     <labels>
         <fullName>Copy</fullName>
         <language>en_US</language>
@@ -1598,6 +1698,13 @@
         <protected>false</protected>
         <shortDescription>Could not explain</shortDescription>
         <value>Could not explain</value>
+    </labels>
+    <labels>
+        <fullName>CountryTH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CountryTH</shortDescription>
+        <value>Thailand</value>
     </labels>
     <labels>
         <fullName>Create_Vehicle</fullName>
@@ -1614,11 +1721,26 @@
         <value>Created Date</value>
     </labels>
     <labels>
+        <fullName>Credible</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Credible</shortDescription>
+        <value>Credible</value>
+    </labels>
+    <labels>
         <fullName>Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Criteria</shortDescription>
         <value>Criteria</value>
+    </labels>
+	<labels>
+        <fullName>Current_Lead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Lead</shortDescription>
+        <value>Current Lead</value>
     </labels>
     <labels>
         <fullName>Current_Vehicle1</fullName>
@@ -1967,11 +2089,42 @@
         <value>Downloaded file:</value>
     </labels>
     <labels>
+        <fullName>Driving_experience</fullName>
+        <categories>flow</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Driving experience</shortDescription>
+        <value>Driving experience</value>
+    </labels>
+    <labels>
+        <fullName>Dynamic</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dynamic</shortDescription>
+        <value>Dynamic</value>
+    </labels>
+    <labels>
         <fullName>Edit</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Edit</shortDescription>
         <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Eight</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Eight</shortDescription>
+        <value>8</value>
+    </labels>
+    <labels>
+        <fullName>Elegance</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Elegance</shortDescription>
+        <value>Elegance</value>
     </labels>
     <labels>
         <fullName>Email_Assignment</fullName>
@@ -2201,6 +2354,13 @@ please contact the number below.</value>
         <shortDescription>For Vehicle Picker</shortDescription>
         <value>Enter VIN number</value>
     </labels>
+	<labels>
+        <fullName>Equals</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Equals</shortDescription>
+        <value>Equals</value>
+    </labels>
     <labels>
         <fullName>Error_Message_1</fullName>
         <language>en_US</language>
@@ -2252,12 +2412,27 @@ please contact the number below.</value>
         <value>Event Type:</value>
     </labels>
     <labels>
+        <fullName>Event_venue</fullName>
+        <categories>flow</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Event venue</shortDescription>
+        <value>Event venue</value>
+    </labels>
+    <labels>
         <fullName>Exception_message</fullName>
         <categories>Catalogue Download</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Exception message</shortDescription>
         <value>DM Request Status could not be Updated Please contact System Administrator.</value>
+    </labels>
+	<labels>
+        <fullName>Exclude</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exclude</shortDescription>
+        <value>Exclude</value>
     </labels>
     <labels>
         <fullName>FAXCover</fullName>
@@ -2316,6 +2491,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Family, company, hobby have you heard</shortDescription>
         <value>Family, company, hobby have you heard?</value>
+	</labels>
+    <labels>
+        <fullName>Favorite_Model</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Favorite Model</shortDescription>
+        <value>Favorite Model</value>
     </labels>
     <labels>
         <fullName>Fax</fullName>
@@ -2407,6 +2590,21 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>First Estimate Print</shortDescription>
         <value>First Estimate Print</value>
+	</labels>
+    <labels>
+        <fullName>Five</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Five</shortDescription>
+        <value>5</value>
+    </labels>
+    <labels>
+        <fullName>Food_beverage</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Food &amp; beverage</shortDescription>
+        <value>Food &amp; beverage</value>
     </labels>
     <labels>
         <fullName>For_Vehicle_Picker</fullName>
@@ -2428,6 +2626,21 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Gender</shortDescription>
         <value>Gender</value>
+	</labels>
+    <labels>
+        <fullName>Four</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Four</shortDescription>
+        <value>4</value>
+    </labels>
+    <labels>
+        <fullName>From_the_experience_with_Mercedes_Benz_during_this_event_which_word_would_best</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>From the experience with Mercedes-Benz during this event, which word would best</shortDescription>
+        <value>From the experience with Mercedes-Benz during this event, which word would best describe Mercedes-Benz? (Max.3 attributes)</value>
     </labels>
     <labels>
         <fullName>GenericUploaderErrorMsg</fullName>
@@ -2472,6 +2685,14 @@ please contact the number below.</value>
         <value>The records are more than 10000, can not upload.</value>
     </labels>
     <labels>
+        <fullName>Good</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Good</shortDescription>
+        <value>Good</value>
+    </labels>
+    <labels>
         <fullName>GrandChild</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2491,6 +2712,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Grand Total</shortDescription>
         <value>Grand Total</value>
+    </labels>
+	<labels>
+        <fullName>Greater_Than</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Greater Than</shortDescription>
+        <value>Greater Than</value>
     </labels>
     <labels>
         <fullName>Hand_Over</fullName>
@@ -2555,6 +2783,27 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Home Type</shortDescription>
         <value>Home Type</value>
+	</labels>
+    <labels>
+        <fullName>Home_Phone_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Home Phone 2</shortDescription>
+        <value>Home Phone 2</value>
+    </labels>
+    <labels>
+        <fullName>I_don_t_know_no_statement</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I don’t know / no statement</shortDescription>
+        <value>I don’t know / no statement</value>
+    </labels>
+    <labels>
+        <fullName>I_don_t_remember_no_statement</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I don’t remember / no statement</shortDescription>
+        <value>I don’t remember / no statement</value>
     </labels>
     <labels>
         <fullName>Id</fullName>
@@ -2572,11 +2821,41 @@ please contact the number below.</value>
         <value>Idle Hour Promotion</value>
     </labels>
     <labels>
+        <fullName>If_No_specify_Why</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>If No, specify Why</shortDescription>
+        <value>If No, specify Why</value>
+    </labels>
+    <labels>
+        <fullName>If_Yes_specify_favorite_model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>If Yes, specify favorite model</shortDescription>
+        <value>If Yes, specify favorite model</value>
+    </labels>
+    <labels>
+        <fullName>If_yes_within_which_period_do_you_plan_to_purchase</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>If yes, within which period do you plan to purchase</shortDescription>
+        <value>If yes, within which period do you plan to purchase</value>
+    </labels>
+    <labels>
         <fullName>Informationsharing</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Information sharing</shortDescription>
         <value>Information sharing to Dealer/ Internal related department</value>
+    </labels>
+    <labels>
+        <fullName>Instructor_team</fullName>
+        <categories>flow</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Instructor team</shortDescription>
+        <value>Instructor team</value>
     </labels>
     <labels>
         <fullName>InsufficientAccessToCreate</fullName>
@@ -2634,6 +2913,21 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Invoiced</shortDescription>
         <value>Invoiced</value>
+	</labels>
+    <labels>
+        <fullName>Interesting_Event</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interesting Event</shortDescription>
+        <value>Interesting Event</value>
+    </labels>
+    <labels>
+        <fullName>JP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>JP</shortDescription>
+        <value>JP</value>
     </labels>
     <labels>
         <fullName>KR</fullName>
@@ -3196,6 +3490,13 @@ please contact the number below.</value>
         <shortDescription>Leagl Owner</shortDescription>
         <value>Leagl Owner</value>
     </labels>
+	<labels>
+        <fullName>Less_Than</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Less Than</shortDescription>
+        <value>Less Than</value>
+    </labels>
     <labels>
         <fullName>LimitQueries</fullName>
         <language>en_US</language>
@@ -3259,6 +3560,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>MarketKR</shortDescription>
         <value>KR</value>
+    </labels>
+    <labels>
+        <fullName>MarketTH</fullName>
+        <categories>MBTH</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketTH</shortDescription>
+        <value>TH</value>
     </labels>
     <labels>
         <fullName>Marketing_survey</fullName>
@@ -3443,7 +3752,7 @@ please contact the number below.</value>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Label for Mobile fields which are referenced in VF pages</shortDescription>
-        <value>Mobile(Fixed)</value>
+        <value>Mobile</value>
     </labels>
     <labels>
         <fullName>Model</fullName>
@@ -3486,6 +3795,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>My shop Name</value>
+    </labels>
+    <labels>
+        <fullName>NA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NA</shortDescription>
+        <value>N.A.</value>
     </labels>
     <labels>
         <fullName>Near_Dealer_1</fullName>
@@ -3573,6 +3889,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>New Account</value>
     </labels>
     <labels>
+        <fullName>NewCaseErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewCaseErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+    <labels>
         <fullName>NewLead</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3618,6 +3941,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>New Customer Acquisition</value>
     </labels>
     <labels>
+        <fullName>New_DM_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New DM Request</shortDescription>
+        <value>New DM Request</value>
+    </labels>
+    <labels>
         <fullName>New_Value</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3630,10 +3960,16 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Next Activity</shortDescription>
         <value>Next Activity</value>
+	</labels>
+    <labels>
+        <fullName>Nine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Nine</shortDescription>
+        <value>9</value>
     </labels>
     <labels>
         <fullName>No</fullName>
-        <categories>Flows</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>No</shortDescription>
@@ -3676,6 +4012,27 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>There were no target catalogues to be printed.</value>
     </labels>
     <labels>
+        <fullName>No_Thai</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Thai</shortDescription>
+        <value>ไม่ได้</value>
+    </labels>
+    <labels>
+        <fullName>No_busy_right_now</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No, busy right now</shortDescription>
+        <value>No, busy right now</value>
+    </labels>
+    <labels>
+        <fullName>No_don_t_want_to_talk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No, don’t want to talk</shortDescription>
+        <value>No, don’t want to talk</value>
+    </labels>
+    <labels>
         <fullName>None</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3690,11 +4047,40 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Not-Accepted</value>
     </labels>
     <labels>
+        <fullName>Not_easy_to_talk_thai</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not easy to talk thai</shortDescription>
+        <value>ไม่ใช่ หรือไม่สะดวกคุย</value>
+    </labels>
+    <labels>
         <fullName>Not_found_QC</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Not found QC</shortDescription>
         <value>Not Found QC</value>
+    </labels>
+    <labels>
+        <fullName>Not_yet_decided</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not yet decided</shortDescription>
+        <value>Not yet decided</value>
+    </labels>
+    <labels>
+        <fullName>Notify_To_Dealer1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notify To Dealer1</shortDescription>
+        <value>Please fill out Primary Case Dealer</value>
+    </labels>
+    <labels>
+        <fullName>Notify_To_Dealer2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notify To Dealer2</shortDescription>
+        <value>Have you checked with supervisor to notify the dealer?</value>
     </labels>
     <labels>
         <fullName>Occupation</fullName>
@@ -3723,6 +4109,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Onchu</shortDescription>
         <value>Onchu</value>
+    </labels>
+    <labels>
+        <fullName>One</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>One</shortDescription>
+        <value>1</value>
     </labels>
     <labels>
         <fullName>Online_Dedup_callout_failure</fullName>
@@ -3809,6 +4202,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Owner Sales Responsible Person</shortDescription>
         <value>Owner Sales Responsible Person</value>
+	</labels>
+    <labels>
+        <fullName>Overall_impression</fullName>
+        <categories>flow</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Overall impression</shortDescription>
+        <value>Overall impression</value>
     </labels>
     <labels>
         <fullName>POM_advertisement</fullName>
@@ -3817,6 +4218,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>POM/advertisement</shortDescription>
         <value>POM/advertisement</value>
+    </labels>
+    <labels>
+        <fullName>PR_to_promote_this_event</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PR to promote this event</shortDescription>
+        <value>PR to promote this event</value>
     </labels>
     <labels>
         <fullName>Page_Element_Next</fullName>
@@ -3934,7 +4343,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Phone</shortDescription>
-        <value>Phone(Fixed)</value>
+        <value>Phone</value>
     </labels>
     <labels>
         <fullName>PhoneSales</fullName>
@@ -4127,12 +4536,129 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Purchased Date</value>
     </labels>
     <labels>
+        <fullName>Q10_Describe_MB</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q10 Describe MB</shortDescription>
+        <value>From the experience with Mercedes-Benz during this event, which word would best describe Mercedes-Benz? (Max.3 attributes)</value>
+    </labels>
+    <labels>
+        <fullName>Q10_Were_you_contacted_by_your_Mercedes_Benz_service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q10 Were you contacted by your Mercedes-Benz service</shortDescription>
+        <value>Were you contacted by your Mercedes-Benz service center after the service in 5 days?</value>
+    </labels>
+    <labels>
+        <fullName>Q11_recommendation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q11 recommendation</shortDescription>
+        <value>Would you recommend your family or friends join this event in the future?</value>
+    </labels>
+    <labels>
+        <fullName>Q12_Test_drive</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q12 Test drive</shortDescription>
+        <value>After test driving, would you recommend your family or friends to purchase MB car in the future?</value>
+    </labels>
+    <labels>
+        <fullName>Q13_Period</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q13 Period</shortDescription>
+        <value>If yes, within which period do you plan to purchase?</value>
+    </labels>
+    <labels>
+        <fullName>Q14_Activity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q14 Activity</shortDescription>
+        <value>Which activity would you like to join in the future? / Your suggestions</value>
+    </labels>
+    <labels>
+        <fullName>Q1_Overall_impression</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q1_Overall impression</shortDescription>
+        <value>Overall impression</value>
+    </labels>
+    <labels>
+        <fullName>Q1_Overall_satisfaction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q1 Overall satisfaction</shortDescription>
+        <value>Overall satisfaction</value>
+    </labels>
+    <labels>
+        <fullName>Q1_Please_rate_your_satisfaction_toward_call_agent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q1 Please rate your satisfaction toward call agent</shortDescription>
+        <value>Please rate your satisfaction toward call agent on a scale from 1 to 5, with 5 as very satisfied</value>
+    </labels>
+    <labels>
+        <fullName>Q1_Satisfied_with_initiating_the_service_visit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q1 Satisfied with initiating the service visit.</shortDescription>
+        <value>Satisfied with initiating the service visit.</value>
+    </labels>
+    <labels>
+        <fullName>Q1_Your_Current_Cars</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q1 Your Current Cars</shortDescription>
+        <value>Q1 Your Current Cars</value>
+    </labels>
+    <labels>
         <fullName>Q1_service_quality</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Q1_ service quality</shortDescription>
         <value>Q1 . Are you happy with the repair service quality?</value>
+    </labels>
+    <labels>
+        <fullName>Q2_Driving_experience</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q2 Driving experience</shortDescription>
+        <value>Driving experience</value>
+    </labels>
+    <labels>
+        <fullName>Q2_Event_venue</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q2_Event venue</shortDescription>
+        <value>Event venue</value>
+    </labels>
+    <labels>
+        <fullName>Q2_Other_Cars_in_House</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q2_Other Cars in household</shortDescription>
+        <value>Q2_Other Cars in household</value>
+    </labels>
+    <labels>
+        <fullName>Q2_Politeness_of_staff_Receiving</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q2 Politeness of staff Receiving</shortDescription>
+        <value>Politeness of staff Receiving</value>
+    </labels>
+    <labels>
+        <fullName>Q2_Satisfied_with_Service_advisor_Dealer_staffs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q2 Satisfied with Service advisor/Dealer staffs</shortDescription>
+        <value>Satisfied with Service advisor/Dealer staffs</value>
     </labels>
     <labels>
         <fullName>Q2_Service_center_employee</fullName>
@@ -4143,12 +4669,139 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Q2 . Are you satisfied with the kindness of 000 service center employee?</value>
     </labels>
     <labels>
+        <fullName>Q2_Will_you_recommend_improvement_area_for_Star_Assist_service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q2 Will you recommend improvement area for Star Assist service</shortDescription>
+        <value>Will you recommend improvement area for Star Assist service, please fill in answer in open questions</value>
+    </labels>
+    <labels>
+        <fullName>Q2_Will_you_recommend_product_and_service_of_Mercedes_Benz_Thailand</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q2 Will you recommend product and service of Mercedes-Benz Thailand</shortDescription>
+        <value>Will you recommend product and service of Mercedes-Benz Thailand to your friends and family, please scale form 1-10, with 10 is highly recommend</value>
+    </labels>
+    <labels>
         <fullName>Q3_Delivery_Service</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Q3_Delivery_Service</shortDescription>
         <value>Q3 . Are you satisfied with the overall Pick up &amp; Delivery service ?</value>
+    </labels>
+    <labels>
+        <fullName>Q3_Instructor_Team</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q3 Instructor Team</shortDescription>
+        <value>Instructor team</value>
+    </labels>
+    <labels>
+        <fullName>Q3_Interesting_event</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q3_Interesting event</shortDescription>
+        <value>Interesting event</value>
+    </labels>
+    <labels>
+        <fullName>Q3_Satisfied_with_aftersales_facility</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q3 Satisfied with aftersales facility</shortDescription>
+        <value>Satisfied with aftersales facility</value>
+    </labels>
+    <labels>
+        <fullName>Q3_Towing_staff_uniform_appearance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q3 Towing staff uniform/appearance</shortDescription>
+        <value>Towing staff uniform/appearance</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Appropriated_tool_Towed_truck</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Appropriated tool &amp; Towed truck</shortDescription>
+        <value>Appropriated tool &amp; Towed truck</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Contemporary</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Contemporary</shortDescription>
+        <value>Contemporary</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Credible</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Credible</shortDescription>
+        <value>Credible</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Dynamic</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Dynamic</shortDescription>
+        <value>Dynamic</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Elegance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Elegance</shortDescription>
+        <value>Elegance</value>
+    </labels>
+    <labels>
+        <fullName>Q4_If_others_please_specify</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 If others, please specify</shortDescription>
+        <value>If others, please specify</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Luxury</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Luxury</shortDescription>
+        <value>Luxury</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Modern</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Modern</shortDescription>
+        <value>Modern</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Others</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Others</shortDescription>
+        <value>Others</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Quality</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Quality</shortDescription>
+        <value>Quality</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Safety</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Safety</shortDescription>
+        <value>Safety</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Satisfied_with_vehicle_pickup_process</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Satisfied with vehicle pickup process</shortDescription>
+        <value>Satisfied with vehicle pickup process</value>
     </labels>
     <labels>
         <fullName>Q4_Service_Center_Information</fullName>
@@ -4159,12 +4812,123 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Q4 . Through what channel did you get 000 service center information?</value>
     </labels>
     <labels>
+        <fullName>Q4_Staff_hospitality</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Staff hospitality</shortDescription>
+        <value>Staff hospitality</value>
+    </labels>
+    <labels>
+        <fullName>Q4_Valuable_alternative</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q4 Valuable alternative</shortDescription>
+        <value>Valuable alternative</value>
+    </labels>
+    <labels>
+        <fullName>Q5_Food_beverage</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q5 Food &amp; beverage</shortDescription>
+        <value>Food &amp; beverage</value>
+    </labels>
+    <labels>
+        <fullName>Q5_Proactive_Offering</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q5 Proactive Offering</shortDescription>
+        <value>Proactive Offering all alternatives to customers in case of vehicle cannot be repair within same day, or within 4 hours for more than 100 km. away from the usual residence</value>
+    </labels>
+    <labels>
+        <fullName>Q5_Satisfied_with_service_quality</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q5 Satisfied with service quality</shortDescription>
+        <value>Satisfied with service quality</value>
+    </labels>
+    <labels>
         <fullName>Q5_Service_Center</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Q5_Service_Center</shortDescription>
-        <value>Q5 .  Recommend the best employee in 000 service center.</value>
+        <value>Q5 . Recommend the best employee in 000 service center.</value>
+    </labels>
+    <labels>
+        <fullName>Q6_Coordination</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q6 Coordination</shortDescription>
+        <value>Coordination between customer and towing truck or replacement car</value>
+    </labels>
+    <labels>
+        <fullName>Q6_PR_to_promote_this_event</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q6 PR to promote this event</shortDescription>
+        <value>PR to promote this event</value>
+    </labels>
+    <labels>
+        <fullName>Q6_Satisfied_with_building_up_relationship_to_customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q6 Satisfied with building  up relationship to customer</shortDescription>
+        <value>Satisfied with building  up relationship to customer</value>
+    </labels>
+    <labels>
+        <fullName>Q7_Coordination_during_the_event</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q7 Coordination during the event</shortDescription>
+        <value>Coordination during the event</value>
+    </labels>
+    <labels>
+        <fullName>Q7_Satisfied_with_Overall_service_experience</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q7 Satisfied with Overall service experience</shortDescription>
+        <value>Satisfied with Overall service experience</value>
+    </labels>
+    <labels>
+        <fullName>Q7_Waiting_time</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q7 Waiting time</shortDescription>
+        <value>Waiting time to get onsite service</value>
+    </labels>
+    <labels>
+        <fullName>Q8_Interesting_Event</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q8 Interesting Event</shortDescription>
+        <value>Interesting Event</value>
+    </labels>
+    <labels>
+        <fullName>Q8_Would_you_go_back_to_the_service_center</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q8 Would you go back to the service center</shortDescription>
+        <value>Would you go back to the service center for service work in the future?</value>
+    </labels>
+    <labels>
+        <fullName>Q9_Would_you_recommend_this_service_center</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q9 Would you recommend this service center</shortDescription>
+        <value>Would you recommend this service center to a friend or relative for service work in the future?</value>
+    </labels>
+    <labels>
+        <fullName>Q9_Your_suggestion_Open_ended_question</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q9 Your suggestion (Open-ended question)</shortDescription>
+        <value>Your suggestion</value>
     </labels>
     <labels>
         <fullName>QCMassCalibrationNotice</fullName>
@@ -4256,18 +5020,33 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Inspection tasks</value>
     </labels>
     <labels>
-        <fullName>RET_02_01_ServiceAmountView</fullName>
+        <fullName>Quality</fullName>
+        <categories>flows</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
-        <value>RET_02_01_ServiceAmountView</value>
+        <shortDescription>Quality</shortDescription>
+        <value>Quality</value>
     </labels>
     <labels>
-        <fullName>Range_Model</fullName>
+        <fullName>Rating</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Range Model</shortDescription>
-        <value>Range Model</value>
+        <shortDescription>Rating</shortDescription>
+        <value>Please rate your Mercedes-Benz service center on the following service initiation aspects using a 1 to 10 scale where 1 is Unacceptable, 5 is Average, and 10 is Outstanding</value>
+    </labels>
+    <labels>
+        <fullName>Rating1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rating1</shortDescription>
+        <value>Rating</value>
+    </labels>
+    <labels>
+        <fullName>Rating_reason</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rating reason</shortDescription>
+        <value>If rating is between 1-5, please specify reason</value>
     </labels>
     <labels>
         <fullName>Received_By</fullName>
@@ -4291,26 +5070,12 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>If you are not the recipient of this FAX</value>
     </labels>
     <labels>
-        <fullName>RecordType</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Record Type</shortDescription>
-        <value>Record Type</value>
-    </labels>
-    <labels>
         <fullName>RecordTypeId</fullName>
         <categories>Address Search</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>RecordTypeId</shortDescription>
         <value>RecordTypeId</value>
-    </labels>
-    <labels>
-        <fullName>Registered</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registered</shortDescription>
-        <value>Registered</value>
     </labels>
     <labels>
         <fullName>Registration</fullName>
@@ -4332,34 +5097,6 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Registration No</shortDescription>
         <value>Registration No</value>
-    </labels>
-    <labels>
-        <fullName>Registration_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Date</shortDescription>
-        <value>Registration Date</value>
-    </labels>
-    <labels>
-        <fullName>Registration_Date_Inspection_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Date / Inspection Date</shortDescription>
-        <value>Registration Date / Inspection Date</value>
-    </labels>
-    <labels>
-        <fullName>Registration_Date_Milage</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Date / Milage</shortDescription>
-        <value>Registration Date / Milage</value>
-    </labels>
-    <labels>
-        <fullName>Registration_Plan_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Plan Date</shortDescription>
-        <value>Registration Plan Date</value>
     </labels>
     <labels>
         <fullName>Reject</fullName>
@@ -4384,13 +5121,6 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Related Account field is empty</value>
     </labels>
     <labels>
-        <fullName>Related_Dealer_View_for_Contract</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Related Dealer View for Contract</shortDescription>
-        <value>Related Dealer View for Contract</value>
-    </labels>
-    <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
         <categories>Report</categories>
         <language>en_US</language>
@@ -4405,20 +5135,6 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Report Title2 TA Tracing</shortDescription>
         <value>Yearly Budget,Actual Expense</value>
-    </labels>
-    <labels>
-        <fullName>Representative</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Representative</shortDescription>
-        <value>Representative</value>
-    </labels>
-    <labels>
-        <fullName>Representative_Information</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Representative Information</shortDescription>
-        <value>Representative Information</value>
     </labels>
     <labels>
         <fullName>Request</fullName>
@@ -4440,34 +5156,6 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>RequestPDF</shortDescription>
         <value>Request</value>
-    </labels>
-    <labels>
-        <fullName>Request_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Request Date</shortDescription>
-        <value>Request Date</value>
-    </labels>
-    <labels>
-        <fullName>Request_Details</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Request Details</shortDescription>
-        <value>Request Details</value>
-    </labels>
-    <labels>
-        <fullName>Request_Type</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Request Type</shortDescription>
-        <value>Request Type</value>
-    </labels>
-    <labels>
-        <fullName>Requested_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Requested Date</shortDescription>
-        <value>Requested Date</value>
     </labels>
     <labels>
         <fullName>Required_Information</fullName>
@@ -4527,6 +5215,1300 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Retail Campaign Canlender Page SM Media</shortDescription>
         <value>S&amp;M Media Retail Campaign</value>
+    </labels>
+	<labels>
+        <fullName>Retail_copy_is_already_present</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail copy is already present</shortDescription>
+        <value>Retail copy is already present</value>
+    </labels>
+    <labels>
+        <fullName>S5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Address Type</shortDescription>
+        <value>Address Type / ประเภทที่อยู่</value>
+    </labels>
+    <labels>
+        <fullName>S5_A1_TE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A1 TE</shortDescription>
+        <value>-	ใช่ และ สะดวกคุย  
+-	ไม่ใช่ หรือไม่สะดวกคุย  ( จบการสนทนา และ Agent กล่าวขอบคุณลูกค้า) 
+ (ต้องขอขอบพระคุณที่กรุณาสละเวลาในวันนี้ค่ะ และขอบพระคุณที่ใช้บริการ เมอร์เซเดส-เบนซ์  ประเทศไทย สวัสดีค่ะ)
+
+
+
+
+
+-       Yes:	Thank you Sir/ Madam. 
+-       No:	(busy right now): Can I call you back at any time Sir/Madam?
+-       No:	(don’t want to talk): I am sorry for your inconvenient Sir/ Madam.     Thank you. Bye.</value>
+    </labels>
+    <labels>
+        <fullName>S5_A3_4_I_don_t_know_yet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A3.4 I don’t know (yet)</shortDescription>
+        <value>I don’t know (yet)</value>
+    </labels>
+    <labels>
+        <fullName>S5_A3_4_I_will_primarily_use_the_car_for_business</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A3.4 I will primarily use the car for business</shortDescription>
+        <value>I will primarily use the car for business</value>
+    </labels>
+    <labels>
+        <fullName>S5_A3_4_I_will_primarily_use_the_car_privately</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A3.4 I will primarily use the car privately</shortDescription>
+        <value>I will primarily use the car privately</value>
+    </labels>
+    <labels>
+        <fullName>S5_A3_4_I_will_use_the_car_privately_and_for_business_in_roughly_equal_parts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A3.4 I will use the car privately and for business in roughly equal parts</shortDescription>
+        <value>I will use the car privately and for business in roughly equal parts</value>
+    </labels>
+    <labels>
+        <fullName>S5_A4_1_1_Online_Survey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A4.1.1 Online Survey</shortDescription>
+        <value>Online Survey</value>
+    </labels>
+    <labels>
+        <fullName>S5_A4_1_2_Telephone_Survey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A4.1.2 Telephone Survey</shortDescription>
+        <value>Telephone Survey</value>
+    </labels>
+    <labels>
+        <fullName>S5_A6_1_I_contacted_my_dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A6.1 I contacted my dealer</shortDescription>
+        <value>I contacted my dealer</value>
+    </labels>
+    <labels>
+        <fullName>S5_A6_1_My_dealer_contacted_me</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 A6.1 My dealer contacted me</shortDescription>
+        <value>My dealer contacted me</value>
+    </labels>
+    <labels>
+        <fullName>S5_Address_Line_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Address Line 1</shortDescription>
+        <value>Address Line 1 / ที่อยู่บรรทัดที่ 1</value>
+    </labels>
+    <labels>
+        <fullName>S5_Address_Line_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Address Line 2</shortDescription>
+        <value>Address Line 2 / ที่อยู่บรรทัดที่ 2</value>
+    </labels>
+    <labels>
+        <fullName>S5_Block</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Block</shortDescription>
+        <value>Block /  ปิดกั้น</value>
+    </labels>
+    <labels>
+        <fullName>S5_City</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 City</shortDescription>
+        <value>City / เมือง</value>
+    </labels>
+    <labels>
+        <fullName>S5_Company_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Company Name</shortDescription>
+        <value>Company Name / ชื่อ บริษัท</value>
+    </labels>
+    <labels>
+        <fullName>S5_Date_of_Birth</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Date of Birth</shortDescription>
+        <value>Date of Birth / วันเกิด</value>
+    </labels>
+    <labels>
+        <fullName>S5_First_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 First name</shortDescription>
+        <value>First name / ชื่อจริง</value>
+    </labels>
+    <labels>
+        <fullName>S5_Home_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Home Phone</shortDescription>
+        <value>Home Phone / โทรศัพท์บ้าน</value>
+    </labels>
+    <labels>
+        <fullName>S5_Home_Phone_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Home Phone 2</shortDescription>
+        <value>Home Phone 2 / โทรศัพท์บ้าน 2</value>
+    </labels>
+    <labels>
+        <fullName>S5_L_Contract_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 L Contract Type</shortDescription>
+        <value>Contract Type / ประเภทสัญญา</value>
+    </labels>
+    <labels>
+        <fullName>S5_L_Date_of_Payment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 L Date of Payment</shortDescription>
+        <value>Date of Payment / วันที่ชำระเงิน</value>
+    </labels>
+    <labels>
+        <fullName>S5_L_Installment_amount_month</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 L Installment amount/month</shortDescription>
+        <value>Installment amount/month / จำนวนเงินผ่อนชำระ / เดือน</value>
+    </labels>
+    <labels>
+        <fullName>S5_L_No_of_months_of_contract_term</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 L No of months of contract term</shortDescription>
+        <value>No of months of contract term / จำนวนเดือนที่ทำสัญญา</value>
+    </labels>
+    <labels>
+        <fullName>S5_L_Please_enter_the_information_to_be_updated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 L Please enter the information to be updated</shortDescription>
+        <value>Please enter the information to be updated (If required)</value>
+    </labels>
+    <labels>
+        <fullName>S5_L_Preferred_payment_channel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 L Preferred payment channel</shortDescription>
+        <value>Preferred payment channel / ช่องทางการชำระเงินที่ต้องการ</value>
+    </labels>
+    <labels>
+        <fullName>S5_L_Vehicle_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 L Vehicle Model</shortDescription>
+        <value>Vehicle Model / โมเดลรถ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Last_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Last name</shortDescription>
+        <value>Last name / นามสกุล</value>
+    </labels>
+    <labels>
+        <fullName>S5_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Mobile</shortDescription>
+        <value>Mobile / มือถือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Mobile_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Mobile 2</shortDescription>
+        <value>Mobile 2 / มือถือ 2</value>
+    </labels>
+    <labels>
+        <fullName>S5_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5  Name</shortDescription>
+        <value>Name / ชื่อ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Phone</shortDescription>
+        <value>Phone/ โทรศัพท์</value>
+    </labels>
+    <labels>
+        <fullName>S5_Post_Code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Post Code</shortDescription>
+        <value>Post Code / รหัสไปรษณีย์</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_1_E_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1.1 E LT P1</shortDescription>
+        <value>Thank you for having Mercedes-Benz Leasing as your financial service.  We have sent the welcome package including your financial contract on</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_1_E_LT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1.1 E LT P2</shortDescription>
+        <value>The welcome package is received on</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_1_E_LT_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1.1 E LT P3</shortDescription>
+        <value>by</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_1_T_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1.1 T LT P1</shortDescription>
+        <value>ขอขอบพระคุณและรู้สึกเป็นเกียรติที่ท่านได้ให้ความไว้วางใจใช้บริการด้านการเงินกับเมอร์เซเดส-เบนซ์ ลิสซิ่ง และขอเรียนให้ท่านทราบว่าบริษัทฯ ได้จัดส่งสำเนาคู่ฉบับให้กับท่านเรียบร้อยแล้ว  ในวันที่</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_1_T_LT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1.1 T LT P2</shortDescription>
+        <value>และแจ้งชื่อบุคคลผู้รับ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E LT P1</shortDescription>
+        <value>Good morning/afternoon sir/madam, may I speak to</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_LT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E LT P2</shortDescription>
+        <value>, please.</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_LT_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E LT P3</shortDescription>
+        <value>Hi, my name is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_LT_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E LT P4</shortDescription>
+        <value>, calling from Mercedes-Benz Group. May I take a few minutes with you to review your financial contract information , as well as  conducting a few questions about the experience you had from the latest purchase on Mercedes-Benz vehicle?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 E MBLT P1</shortDescription>
+        <value>Thank you for taking the time to answer our questions. Your responses are much appreciated for further service improvement.
+		
+For additional information, you can contact the authorized dealer</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P10</shortDescription>
+        <value>application, by downloading from Google Play or App Store. 
+		
+Thank you for choosing our Mercedes-Benz product and service. We look forward to serving you in the future.   After this conversation, please score your satisfaction for this call for future improvement. Have a pleasant day.</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P2</shortDescription>
+        <value>or our Customer Contact Center at</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P3</shortDescription>
+        <value>‘1250’</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P4</shortDescription>
+        <value>, or you may leave enquiry via our website “www.myMBLT.com”, or ‘myMBFS’ application for financial service’s enquiry, and for future vehicle service maintenance, you can make an appointment at ‘myservice’ application, by downloading from Google Play or App Store. 
+		
+Thank you for choosing our Mercedes-Benz product and service. We look forward to serving you in the future.   After this conversation, please score your satisfaction for this call for future improvement. Have a pleasant day.</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P5</shortDescription>
+        <value>“www.myMBLT.com”</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P6</shortDescription>
+        <value>”, or</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P7</shortDescription>
+        <value>‘myMBFS’</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P8</shortDescription>
+        <value>application for financial service’s enquiry, and for future vehicle service maintenance, you can make an appointment at</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBLT_P9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBLT P9</shortDescription>
+        <value>‘myservice’</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBTH_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 E MBTH P1</shortDescription>
+        <value>Thank you for taking the time to answer our questions. Your responses are much appreciated for further service improvement.
+	
+Please be informed that our company will make Satisfaction Survey of our Dealership in a few weeks via phone call.
+Please also feel free to contact with the dealership or via our Customer Contact Center at</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBTH_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E MBTH P2</shortDescription>
+        <value>1250.</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_MBTH_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 E MBTH P3</shortDescription>
+        <value>Thank you very much for your time.  After this call the line will be transferred to automatic customer satisfaction survey. Please rate you score for our contact today.
+	
+Thank you</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_TH_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E TH P1</shortDescription>
+        <value>Good morning/ Good afternoon/ Good evening, My Name is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_E_TH_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 E TH P2</shortDescription>
+        <value>I am calling from Mercedes- Benz Thailand (and apologize for calling you on mobile phone).
+We would like to thank you that you chose our brand.  May I confirm your personal information? Are you available at the moment?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_T_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 T LT P1</shortDescription>
+        <value>สวัสดีค่ะ ดิฉัน</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_T_LT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 T LT P2</shortDescription>
+        <value>ในนามของบริษัทในเครือเมอร์เซเดส-เบนซ์   ขอเรียนสายคุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_T_LT_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 T LT P3</shortDescription>
+        <value>ค่ะ   ดิฉันขออนุญาตรบกวนเวลาสักครู่  เพื่อเรียนแจ้งเกี่ยวกับข้อมูลของสัญญา และขออนุญาตประเมินความพึงพอใจที่มีต่อการซื้อรถยนต์เมอร์เซเดส-เบนซ์ ไม่ทราบว่าตอนนี้คุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_T_LT_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 T LT P4</shortDescription>
+        <value>สะดวกคุยสายหรือเปล่าคะ/ครับ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_T_TH_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 T TH P1</shortDescription>
+        <value>สวัสดีค่ะ ขอเรียนสายคุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_T_TH_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 T TH P2</shortDescription>
+        <value>ค่ะ ต้องขอประทานโทษที่ติดต่อเข้าเบอร์โทรศัพท์มือถือนะคะ ดิฉัน</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q1_T_TH_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q1 T TH P3</shortDescription>
+        <value>จากเมอร์เซเดส-เบนซ์ (ประเทศไทย) ขอขอบพระคุณที่ท่านไว้วางใจซื้อรถยนต์เมอร์เซเดส-เบนซ์ จากเรานะคะ ดิฉันขออนุญาตทวนข้อมูลเพื่อความถูกต้องในการติดต่อท่านในอนาคต ขออนุญาตรบกวนเวลาสักครู่นะคะ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2</shortDescription>
+        <value>Check Customer’s info (Name-surname/DOB/Telephone no./Address/E-mail)</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_E_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 E P1</shortDescription>
+        <value>Your name is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_E_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 E P2</shortDescription>
+        <value>Only for company customers</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_E_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 E P3</shortDescription>
+        <value>Please confirm about the title</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_E_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 E P4</shortDescription>
+        <value>Your company name is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_E_P5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 E P5</shortDescription>
+        <value>Your company&apos;s registration type is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_T_Is_that_correct</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 T Is that correct</shortDescription>
+        <value>ข้อมูลถูกต้องหรือไม่คะ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_T_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 T P1</shortDescription>
+        <value>ชื่อ-นามสกุลของคุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_T_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 T P2</shortDescription>
+        <value>รวมถึงคำนำหน้านาม (Title)  เพศ (Gender) ต้องถูกต้อง</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_T_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 T P3</shortDescription>
+        <value>ชื่อ บริษัท ของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_T_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 T P4</shortDescription>
+        <value>ประเภทการลงทะเบียนของ บริษัท ของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_T_P5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.1 T P5</shortDescription>
+        <value>เฉพาะสำหรับลูกค้า บริษัท เท่านั้น</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_2_E_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.2 E P1</shortDescription>
+        <value>Your Date of Birth is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_2_T_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.2 T P1 DOB</shortDescription>
+        <value>วันเกิดของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_3_E_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.3 E P1</shortDescription>
+        <value>Your passport number is / หมายเลขหนังสือเดินทางของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_4_E_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.4 E LT P1</shortDescription>
+        <value>Is there any other number that we can contact you Sir/Madame?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_5_E_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.5 E P1</shortDescription>
+        <value>Your address is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_5_T_P1_your_address_is</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.5 T P1 your address is</shortDescription>
+        <value>ที่อยู่ของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_6_E_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.6 E LT P1</shortDescription>
+        <value>May I confirm your e-mail address? Your e-mail address is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_6_E_TH_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.6 E TH P1</shortDescription>
+        <value>Can you give me your e-mail address please?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_6_T_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.6 T LT P1</shortDescription>
+        <value>ขอทราบ E-mail ของคุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_6_T_LT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.6 T LT P2</shortDescription>
+        <value>e-mail ของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_6_T_TH_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.6 T TH P1</shortDescription>
+        <value>ขอทราบ Email address ของคุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_E_LT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 E LT</shortDescription>
+        <value>Thank you for confirming your personal information.  May I also confirm the contract information with you.</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_E_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 E LT P1</shortDescription>
+        <value>Your contract type is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_E_LT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 E LT P2</shortDescription>
+        <value>for</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_E_LT_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 E LT P3</shortDescription>
+        <value>, under the contract term of</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_E_LT_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 E LT P4</shortDescription>
+        <value>,  with installment amount of</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_E_LT_P5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 E LT P5</shortDescription>
+        <value>, and to be paid  on</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_E_LT_P6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 E LT P6</shortDescription>
+        <value>of each month.</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT</shortDescription>
+        <value>ขอบคุณสำหรับข้อมูลค่ะ  ดิฉันขออนุญาตเรียนชี้แจงรายละเอียดสัญญานะคะ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P1</shortDescription>
+        <value>สัญญาของคุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P2</shortDescription>
+        <value>เป็นสัญญาแบบ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P3</shortDescription>
+        <value>สำหรับ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P4</shortDescription>
+        <value>โดยผ่อนชำระทั้งหมด</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P5</shortDescription>
+        <value>เป็นจำนวนเงินค่างวด</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P6</shortDescription>
+        <value>, ซึ่งมีกำหนดชำระทุกวันที่</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P7</shortDescription>
+        <value>ของแต่ละเดือน</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P8</shortDescription>
+        <value>ลูกค้าเลือกวิธีชำระผ่านทางช่องทาง</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_7_T_LT_P9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.7 T LT P9</shortDescription>
+        <value>รายละเอียดสัญญาถูกต้องไหมค่ะ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_8_E_LT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.8 E LT</shortDescription>
+        <value>Are this contract information correct?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_8_E_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.8 E LT P1</shortDescription>
+        <value>And your preferred payment channel is</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_8_T_LT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2.8 T LT</shortDescription>
+        <value>ข้อมูลสัญญาถูกต้องหรือไม่</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_E</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2 E</shortDescription>
+        <value>Is that correct?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_T</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2 T</shortDescription>
+        <value>ถูกต้องหรือไม่</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_1_1_What_is_the_relationship_of_the_car_owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.1.1 What is the relationship of the car owner?</shortDescription>
+        <value>What is the relationship of the car owner?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_1_2_Check_contact_person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.1.2. Check contact person</shortDescription>
+        <value>Check contact person</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_1_2_Who_is_After_sales_contact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.1.2 Who is After sales contact?</shortDescription>
+        <value>Who is After sales contact?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_1_2_Who_is_Owner_of_the_car</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.1.2 Who is Owner of the car?</shortDescription>
+        <value>Who is Owner of the car?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_1_2_Who_is_sales_contact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.1.2 Who is sales contact?</shortDescription>
+        <value>Who is sales contact?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_1_2_Who_is_the_driver_if_any</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.1.2 Who is the driver? (if any)</shortDescription>
+        <value>Who is the driver? (if any)</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_1_Are_you_the_main_user_of_the_car</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.1	Are you the main user of the car?</shortDescription>
+        <value>Are you the main user of the car?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_2_Age_of_car_user</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.2 Age of car user</shortDescription>
+        <value>Age of car user</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_4_How_do_you_primarily_use_your_new_car</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.4 How do you primarily use your new car?</shortDescription>
+        <value>How do you wish to primarily use your new car?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_7_Did_you_buy_a_MB_at_the_dealership</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3.7 Did you buy a MB at the dealership</shortDescription>
+        <value>Did you and your family buy a MB vehicle at the dealership in the past and repurchased at the same dealership?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_E</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3 E</shortDescription>
+        <value>Check Vehicle’ s info / Additional info</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_E_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3 E P1</shortDescription>
+        <value>Have you or anyone in your family ever bought the car from this dealer</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_E_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3 E P2</shortDescription>
+        <value>before?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_T_TH_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3 T TH P1</shortDescription>
+        <value>คุณซื้อรถยนต์คันนี้กับผู้จำหน่ายฯ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q3_T_TH_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q3 T TH P2</shortDescription>
+        <value>รายเดิมที่คุณหรือครอบครัวเคยซื้อใช่หรือไม่ค่ะ/ครับ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_1_Which_channel_do_you_prefer_to_do_the_CSI_survey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4.1 Which channel do you prefer to do the CSI survey?</shortDescription>
+        <value>Which channel do you prefer to do the CSI survey?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_2_When_will_your_prefer_to_do_the_telephone_survey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4.2 When will your prefer to do the telephone survey?</shortDescription>
+        <value>When will your prefer to do the telephone survey?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_E</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 E</shortDescription>
+        <value>MercedesCard</value>
+    </labels>
+    <labels>
+        <fullName>RET_02_01_ServiceAmountView</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
+        <value>RET_02_01_ServiceAmountView</value>
+    </labels>
+    <labels>
+        <fullName>Range_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Range Model</shortDescription>
+        <value>Range Model</value>
+    </labels>
+	<labels>
+        <fullName>To_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To Company</shortDescription>
+        <value>To Company</value>
+    </labels>
+	<labels>
+        <fullName>To_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To Person</shortDescription>
+        <value>To Person</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_E_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 E P1</shortDescription>
+        <value>Did the salesperson inform you about MercedesCard?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_E_P1A</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 E P1A</shortDescription>
+        <value>The card is only for Mercedes car owner and also can apply for supplementary card for your family. The card member would get a discount for the spare part and labor cost, including hotels, restaurants and also the right to participate in any company special activities. There is no annual fee.</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_E_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 E P2</shortDescription>
+        <value>Are you interested to apply the card?</value>
+    </labels>
+    <labels>
+        <fullName>RecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Type</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_T_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 T P1</shortDescription>
+        <value>ไม่ทราบว่าพนักงานขายได้แจ้งสิทธิพิเศษของบัตรเครดิตเมอร์เซเดสการ์ดให้คุณ</value>
+    </labels>
+    <labels>
+        <fullName>Registered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registered</shortDescription>
+        <value>Registered</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_T_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 T P2</shortDescription>
+        <value>ทราบหรือยังค่ะ/ครับ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_T_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 T P3</shortDescription>
+        <value>ขออนุญาตแจ้งสิทธิพิเศษเกี่ยวกับบัตรเมอร์เซเดส-การ์ดนะคะ
+สิทธิพิเศษนี้ บัตรหลักสำหรับเจ้าของรถยนต์เมอเซเดส-เบนซ์ที่ซื้อจากผู้จำหน่ายเมอเซเดส-เบนซ์อย่างเป็นทางการเท่านั้น และบัตรเสริมท่านสามารถสมัครให้สมาชิกในครอบครัวได้ ซึ่งผู้ถือบัตรจะได้รับส่วนลดค่าแรงและค่าอะไหล่ รวมถึงส่วนลดโรงแรม ที่พัก ร้านอาหารต่างๆ พร้อมสิทธิ์ในการเข้าร่วมกิจกรรมที่ทางบริษัทฯจัดขึ้น
+โดยบัตรนี้ฟรีค่าธรรมเนียมตลอดชีพ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_T_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 T P4</shortDescription>
+        <value>คุณ</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date</shortDescription>
+        <value>Registration Date</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date_Inspection_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date / Inspection Date</shortDescription>
+        <value>Registration Date / Inspection Date</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date_Milage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date / Milage</shortDescription>
+        <value>Registration Date / Milage</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Plan_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Plan Date</shortDescription>
+        <value>Registration Plan Date</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q4_T_P5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q4 T P5</shortDescription>
+        <value>สนใจสมัครหรือไม่คะ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_1_Did_sales_representative_inform_you_about_benefit_of_MercedesCard</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5.1 Did sales representative inform you about benefit of MercedesCard ?</shortDescription>
+        <value>Did sales representative inform you about benefit of MercedesCard ?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_2_Will_you_apply_for_the_MercedesCard_membership</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5.2 Will you apply for the MercedesCard membership?</shortDescription>
+        <value>Will you apply for the MercedesCard membership?</value>
+    </labels>
+    <labels>
+        <fullName>Related_Dealer_View_for_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Dealer View for Contract</shortDescription>
+        <value>Related Dealer View for Contract</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_E</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 E</shortDescription>
+        <value>Ending / Thank you message</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_LT_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T LT P1</shortDescription>
+        <value>ทางเมอร์เซเดส-เบนซ์ ขอขอบพระคุณที่คุณ</value>
+    </labels>
+    <labels>
+        <fullName>Representative</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Representative</shortDescription>
+        <value>Representative</value>
+    </labels>
+    <labels>
+        <fullName>Representative_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Representative Information</shortDescription>
+        <value>Representative Information</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_LT_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T LT P2</shortDescription>
+        <value>สละเวลาในการตอบคำถามซึ่งจะเป็นประโยชน์ในการปรับปรุงการบริการต่อไป
+
+หากคุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_LT_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T LT P3</shortDescription>
+        <value>ต้องการคำแนะนำ หรือสอบถามข้อมูลเพิ่มเติมสามารถติดต่อผู้จำหน่ายฯอย่างเป็นทางการได้โดยตรงที่หมายเลข .</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_LT_P3_A</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T LT P3 A</shortDescription>
+        <value>หรือติดต่อ Customer Contact Center ที่หมายเลข</value>
+    </labels>
+    <labels>
+        <fullName>Request_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Date</shortDescription>
+        <value>Request Date</value>
+    </labels>
+    <labels>
+        <fullName>Request_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Details</shortDescription>
+        <value>Request Details</value>
+    </labels>
+    <labels>
+        <fullName>Request_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Type</shortDescription>
+        <value>Request Type</value>
+    </labels>
+    <labels>
+        <fullName>Requested_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requested Date</shortDescription>
+        <value>Requested Date</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_LT_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T LT P4</shortDescription>
+        <value>หรือ สอบถามผ่านwebsite: www.myMBLT.com หรือ Application “myMBFS”สำหรับบริการด้าน Leasing และเพื่ออำนวยความสะดวกในการนัดหมายการเข้ารับบริการเช็คระยะ สามารถดาว์นโหลด Application “myservice” โดยดาว์นโหลด application ได้ที่ Google play หรือ App Store 
+
+ในนามของ เมอร์เซเดส-เบนซ์ ขอขอบพระคุณ ที่ท่านได้ให้ความไว้วางใจและให้โอกาสเราได้ดูแล และเพื่อเป็นการพัฒนาการให้บริการของ Call Center รบกวนสละเวลาประเมินความพึงพอใจในการติดต่อกับเจ้าหน้าที่ครั้งนี้ด้วยค่ะ สวัสดีคะ/ครับ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_TH_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T TH P1</shortDescription>
+        <value>ทางเมอร์เซเดส-เบนซ์ ขอขอบพระคุณที่คุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_TH_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T TH P2</shortDescription>
+        <value>สละเวลาในการตอบคำถามซึ่งจะเป็นประโยชน์ในการปรับปรุงการบริการต่อไป
+	
+ขออนุญาตแจ้งข้อมูลเพิ่มเติมนะคะ คุณ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_TH_P3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T TH P3</shortDescription>
+        <value>สามารถติดต่อผู้จำหน่ายฯอย่างเป็นทางการได้โดยตรงที่หมายเลข .(แจ้งเบอร์ของผู้จำหน่ายฯที่ลูกค้าซื้อรถ) หรือติดต่อกับบริษัทฯ ได้ที่หมายเลข Customer Contact Center</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q5_T_TH_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q5 T TH P4</shortDescription>
+        <value>ในนามของ บริษัท เมอร์เซเดส-เบนซ์ ประเทศไทย และผู้จำหน่าย เมอร์เซเดส-เบนซ์อย่างเป็นทางการ ขอขอบพระคุณ ที่ไว้วางใจและให้โอกาสเราได้ดูแลคุณ    เพื่อพัฒนาการให้บริการ รบกวนสละเวลาประเมินความพึงพอใจในการติดต่อกับเจ้าหน้าที่ครั้งนี้ด้วยค่ะ สวัสดีคะ/ครับ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q6_1_How_was_the_first_contact_made</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q6.1 How was the first contact made</shortDescription>
+        <value>Please think about the time before you decided to buy your new Mercedes-Benz. How was the first contact made with your Mercedes-Benz dealer regarding the new vehicle purchase?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q6_2_What_were_the_contact_channels</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q6.2 What were the contact channels</shortDescription>
+        <value>What were the contact channels through which your initial contact regarding your new vehicle purchase was established?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q7_1_Processing_speed_how_quick_entire_process_was</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q7.1 Processing speed how quick entire process was?</shortDescription>
+        <value>1. Processing speed how quick entire process was?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q7_2_Thoroughness_of_processing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q7.2 Thoroughness of processing</shortDescription>
+        <value>2. Thoroughness of processing</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q7_3_Completeness_of_processing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q7.3 Completeness of processing</shortDescription>
+        <value>3. Completeness of processing</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q7_4_Selected_contact_channel_for_the_processing_convenience</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q7.4 Selected contact channel for the processing convenience</shortDescription>
+        <value>4. Selected contact channel for the processing convenience</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q7_5_Content_format_of_the_processing_convenience</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q7.5 Content format of the processing convenience</shortDescription>
+        <value>5. Content format of the processing convenience</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q7_Rotation_of_items_1_5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q7  Rotation of items 1-5</shortDescription>
+        <value>How satisfied are you with the contact process with regard to: Rotation of items 1-5
+
+5=extremely satisfied, 4=very satisfied, 3=satisfied, 2=less satisfied, 1=not satisfied at all, 9= I don’t know/No statement</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q9_1_Please_give_a_satisfaction_score_for_service_of_Call_agent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q9.1 Please give a satisfaction score for service of Call agent</shortDescription>
+        <value>1. Please rate the satisfaction of the service staff this time. Grades 1-10, 10 mean the most satisfied?</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q9_Call_Center_Evaluation_NPS_via_IVR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q9 Call Center Evaluation / NPS via IVR</shortDescription>
+        <value>Call Center Evaluation / NPS via IVR
+
+To develop service Transfer permission, assess the service of the staff and the company with it.</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q_9_2_Would_you_recommend_product_and_service_of_Mercedes_Benz</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q 9.2 Would you recommend product and service of Mercedes-Benz</shortDescription>
+        <value>2. Would you recommend product and service of Mercedes-Benz Thailand to your friends and acquaintances? Grades 1-10, 10 means strongly agree, 1 means strongly disagree</value>
+    </labels>
+    <labels>
+        <fullName>S5_Town</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Town</shortDescription>
+        <value>Town / เมือง</value>
+    </labels>
+    <labels>
+        <fullName>S5_Work_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Work Phone</shortDescription>
+        <value>Work Phone / โทรศัพท์ที่ทำงาน</value>
+    </labels>
+    <labels>
+        <fullName>S5_Your_Nationaliy_is</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Your Nationaliy is</shortDescription>
+        <value>Your Nationaliy is /  สัญชาติของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_company_s_registration_type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 company&apos;s registration type</shortDescription>
+        <value>Company&apos;s registration type / ประเภทการลงทะเบียนของ บริษัท</value>
+    </labels>
+    <labels>
+        <fullName>S5_title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 title</shortDescription>
+        <value>Title / หัวข้อ</value>
     </labels>
     <labels>
         <fullName>SMS_Reply_History_Respond_Content</fullName>
@@ -4726,6 +6708,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Same</value>
     </labels>
     <labels>
+        <fullName>Satisfaction_towards_this_event</fullName>
+        <categories>flow</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Satisfaction towards this event</shortDescription>
+        <value>Satisfaction towards this event</value>
+    </labels>
+    <labels>
         <fullName>Save_Button</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4805,6 +6795,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Please select the users</value>
     </labels>
     <labels>
+        <fullName>Select_dropdown</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select dropdown</shortDescription>
+        <value>---Select---</value>
+    </labels>
+    <labels>
         <fullName>SellingDealer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4817,6 +6814,27 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Selling Dealer</shortDescription>
         <value>Selling Dealer</value>
+    </labels>
+    <labels>
+        <fullName>SendToJPOSErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SendToJPOSErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+    <labels>
+        <fullName>SendToMyMercedesErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SendToMyMercedesErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+    <labels>
+        <fullName>SendToSPOErrorMSG</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SendToSPOErrorMSG</shortDescription>
+        <value>This function available only for Japan user</value>
     </labels>
     <labels>
         <fullName>Send_to_spo_translate</fullName>
@@ -4902,6 +6920,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Service responsible Person</shortDescription>
         <value>Service responsible Person</value>
+	</labels>
+    <labels>
+        <fullName>Seven</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Seven</shortDescription>
+        <value>7</value>
     </labels>
     <labels>
         <fullName>Share</fullName>
@@ -4916,6 +6941,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Simple Estimation</shortDescription>
         <value>Simple Estimation</value>
+	</labels>
+    <labels>
+        <fullName>Six</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Six</shortDescription>
+        <value>6</value>
     </labels>
     <labels>
         <fullName>SlashPDF</fullName>
@@ -4923,6 +6955,21 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>SlashPDF</shortDescription>
         <value>/</value>
+    </labels>
+	<labels>
+        <fullName>Slave_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Slave Record</shortDescription>
+        <value>Slave Record</value>
+    </labels>
+    <labels>
+        <fullName>Somewhat_disappointed</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Somewhat disappointed</shortDescription>
+        <value>Somewhat disappointed</value>
     </labels>
     <labels>
         <fullName>Special_Filters</fullName>
@@ -4996,7 +7043,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>SurveyCompleted</shortDescription>
-        <value>Thank you so much !!!! You Survey has been completed.</value>
+        <value>Thank you so much !!!! Your survey has been completed.</value>
     </labels>
     <labels>
         <fullName>SurveyID</fullName>
@@ -5077,11 +7124,68 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Survey Name</value>
     </labels>
     <labels>
+        <fullName>Survey_Response</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Survey Response</shortDescription>
+        <value>Survey Response</value>
+    </labels>
+    <labels>
         <fullName>Suspected_Duplicates</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Suspected Duplicates</shortDescription>
         <value>Suspected Duplicates</value>
+    </labels>
+    <labels>
+        <fullName>TH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH</shortDescription>
+        <value>TH</value>
+    </labels>
+	<labels>
+        <fullName>TH_CACPurchaseddateRequired_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_CACPurchaseddateRequired_Error</shortDescription>
+        <value>SARI changing lead statust ot purchased please enter Purchased CAC Date  Field</value>
+    </labels>
+    <labels>
+        <fullName>TH_CAC_LeadstatusPurchasedError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_CAC_LeadstatusPurchasedError</shortDescription>
+        <value>SARI changing lead statust ot “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
+    </labels>
+    <labels>
+        <fullName>TH_Not_authorized_to_create_MB_Vehicle_record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH Not authorized to create MB Vehicle record</shortDescription>
+        <value>You are not authorized to create MB Vehicle record. Please contact System Administrator</value>
+    </labels>
+	<labels>
+        <fullName>TH_SARIDealerlead_status_error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_SARIDealerlead status error</shortDescription>
+        <value>SARI changing lead statust to &quot;Purchased&quot; please enter Purchase Date</value>
+    </labels>
+    <labels>
+        <fullName>TH_SARI_DealerOrderplacedError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_SARI_DealerOrderplacedError</shortDescription>
+        <value>SARI changing lead statust to Order Placed,please enter OrderPlaced Date</value>
+    </labels>
+    <labels>
+        <fullName>TH_SERVICE_BOOKING</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_SERVICEBOOKING</shortDescription>
+        <value>SERVICE BOOKING</value>
     </labels>
     <labels>
         <fullName>TargetVIN</fullName>
@@ -5299,6 +7403,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>TEL: 03-5958-6369 FAX: 03-4334-2503</value>
     </labels>
     <labels>
+        <fullName>Ten</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ten</shortDescription>
+        <value>10</value>
+    </labels>
+    <labels>
         <fullName>TerminateVehicleRelationship</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5347,6 +7458,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>The filter count is greater than 15</shortDescription>
         <value>The filter count is greater than 20</value>
+    </labels>
+    <labels>
+        <fullName>Three</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Three</shortDescription>
+        <value>3</value>
     </labels>
     <labels>
         <fullName>Title_Retail_Campaigns_Mass_Approve</fullName>
@@ -5469,6 +7587,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Trim</value>
     </labels>
     <labels>
+        <fullName>Two</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Two</shortDescription>
+        <value>2</value>
+    </labels>
+    <labels>
         <fullName>UCID</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5477,10 +7602,18 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
     </labels>
     <labels>
         <fullName>URL</fullName>
+        <categories>Flows</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>URL</shortDescription>
         <value>URL</value>
+    </labels>
+	<labels>
+        <fullName>Uncalculated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Uncalculated</shortDescription>
+        <value>Uncalculated</value>
     </labels>
     <labels>
         <fullName>Unknown</fullName>
@@ -5758,6 +7891,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Vehicle Retail copy Filter</shortDescription>
         <value>Vehicle Retail copy Filter</value>
+	</labels>
+    <labels>
+        <fullName>Very_disappointed</fullName>
+        <categories>Flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Very disappointed</shortDescription>
+        <value>Very disappointed</value>
     </labels>
     <labels>
         <fullName>ViewHierarchy</fullName>
@@ -5772,6 +7913,22 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Visited</shortDescription>
         <value>Visited</value>
+	</labels>
+    <labels>	
+        <fullName>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Which activity would you like to join in the future? / Your suggestions</shortDescription>
+        <value>Which activity would you like to join in the future? / Your suggestions</value>
+    </labels>
+    <labels>
+        <fullName>Why</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Why</shortDescription>
+        <value>Why</value>
     </labels>
     <labels>
         <fullName>Work_Fax</fullName>
@@ -5800,6 +7957,73 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Year</shortDescription>
         <value>Year</value>
+	</labels>
+    <labels>	
+        <fullName>Would_you_recommend_your_family_or_friends_join_this_event_in_the_future</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Would you recommend your family or friends join this event in the future?</shortDescription>
+        <value>Would you recommend your family or friends join this event in the future?</value>
+    </labels>
+    <labels>
+        <fullName>X10_to_less_than_20_years</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>10 to less than 20 years</shortDescription>
+        <value>10 to less than 20 years</value>
+    </labels>
+    <labels>
+        <fullName>X1_year</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>1 year</shortDescription>
+        <value>1 year</value>
+    </labels>
+    <labels>
+        <fullName>X20_years_and_more</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>20 years and more</shortDescription>
+        <value>20 years and more</value>
+    </labels>
+    <labels>
+        <fullName>X2_year</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>2 year</shortDescription>
+        <value>2 year</value>
+    </labels>
+    <labels>
+        <fullName>X3_years</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>3 years</shortDescription>
+        <value>3 years</value>
+    </labels>
+    <labels>
+        <fullName>X4_years</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>4 years</shortDescription>
+        <value>4 years</value>
+    </labels>
+    <labels>
+        <fullName>X5_to_less_than_10_years</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>5 to less than 10 years</shortDescription>
+        <value>5 to less than 10 years</value>
+    </labels>
+    <labels>
+        <fullName>Year_of_Purchase</fullName>
+        <categories>flow</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Year of Purchase</shortDescription>
+        <value>Year of Purchase</value>
     </labels>
     <labels>
         <fullName>Yearly_TA_Apply_deadline</fullName>
@@ -5913,6 +8137,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Yes</value>
     </labels>
     <labels>
+        <fullName>Yes_Thai</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes Thai</shortDescription>
+        <value>ใช่</value>
+    </labels>
+    <labels>
+        <fullName>Your_Current_car_s</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Q.Your Current car(s)</shortDescription>
+        <value>Q.Your Current Car(s)</value>
+    </labels>
+    <labels>
         <fullName>Zipcode</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5960,6 +8198,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>applicationpdf</shortDescription>
         <value>application/pdf</value>
+    </labels>
+    <labels>
+        <fullName>checkSum</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>checkSum</shortDescription>
+        <value>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</value>
     </labels>
     <labels>
         <fullName>contact_information</fullName>
@@ -6102,6 +8347,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>master</value>
     </labels>
     <labels>
+        <fullName>months</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>3 months</shortDescription>
+        <value>3 months</value>
+    </labels>
+    <labels>
         <fullName>purchased_vehicle_related_information</fullName>
         <categories>VehiclePicker</categories>
         <language>en_US</language>
@@ -6197,6 +8450,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>OOH</shortDescription>
         <value>OOH</value>
     </labels>
+	 <labels>
+        <fullName>Account_Name</fullName>
+        <categories>This was added to correct the Korean value for Account name, Account name is a standard field thus we will not be able to modify korean value</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressSearchValidation</shortDescription>
+        <value>Account Name</value>
+    </labels>
     <labels>
         <fullName>rcc_Prints_relevant</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -6260,6 +8521,27 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>&amp;retURL=/apex/SelectSlaveAccount?Id=</value>
     </labels>
     <labels>
+        <fullName>Retail_Copy_View_Area_For_Dealer_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Copy View Area For Dealer User</shortDescription>
+        <value>Retail Copy View Area For Dealer User</value>
+    </labels>
+    <labels>
+        <fullName>List_of_Service_Retail_Task_Only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>List of Service Retail Task Only</shortDescription>
+        <value>List of Service Retail Task Only</value>
+    </labels>
+    <labels>
+        <fullName>DeleteretailcopyErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DeleteretailcopyErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+    <labels>
         <fullName>send_to_spo_active</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6286,5 +8568,19 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
+    </labels>
+	<labels>
+        <fullName>Error_Msg_for_KR_Users</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Msg for Create Complex Execution</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+	<labels>
+        <fullName>korea_Business_Hours_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>korea Business Hours Id</shortDescription>
+        <value>01mp00000008Pbi</value>
     </labels>
 </CustomLabels>

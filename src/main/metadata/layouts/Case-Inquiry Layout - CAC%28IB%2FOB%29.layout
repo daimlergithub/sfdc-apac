@@ -3,6 +3,8 @@
     <customButtons>New_Sales_Lead_Wholesale</customButtons>
     <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
     <customButtons>Generate_Pdf</customButtons>
+    <customButtons>Notify_to_Dealer</customButtons>
+    <customButtons>New_DM_Request</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -20,7 +22,7 @@
         </primaryTabComponents>
     </customConsoleComponents>
     <excludeButtons>CloseCase</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
+	<excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>true</detailHeading>
@@ -358,7 +360,7 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
+    </layoutSections>	
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -586,6 +588,8 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+		<customButtons>New_DM_Request</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>
         <fields>Status__c</fields>
