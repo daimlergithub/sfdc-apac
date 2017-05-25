@@ -264,6 +264,22 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'JP'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>NextInspectionDate__c</fullName>
         <externalId>false</externalId>
         <label>Next Inspection Date</label>
@@ -317,22 +333,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
-IF(ISPICKVAL($User.Market__c, 'JP'), 'TH',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market Discriminator</label>
-        <length>2</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
         <fullName>Personal_Abroad_Agreement__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -341,7 +341,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Personal_Agreement__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -350,16 +350,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
-        <fullName>Retail_Email_OptOut__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Email OptOut</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-	<fields>
+    <fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -378,7 +369,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <type>Email</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Portal_ID__c</fullName>
         <externalId>false</externalId>
         <label>My Mercedes Id</label>
@@ -505,7 +496,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -630,7 +620,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -655,7 +644,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -968,6 +956,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <description>Readyonly</description>
         <externalId>false</externalId>
         <label>Retail Duplicate Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Email_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Email OptOut</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1353,7 +1350,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1922,6 +1918,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bumi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -1952,8 +1960,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields> 
- <fields>
+    </fields>
+    <fields>
         <fullName>Retail_Responsible__c</fullName>
         <externalId>false</externalId>
         <label>Retail Responsible</label>
@@ -2136,7 +2144,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields><fields>
+    </fields>
+    <fields>
         <fullName>Role2__c</fullName>
         <externalId>false</externalId>
         <label>Role2</label>
@@ -2205,8 +2214,29 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Spouse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Son</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daughter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Boyfriend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Girlfriend</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2368,14 +2398,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-        <unique>false</unique>
     </fields>
-     <fields>
+    <fields>
         <fullName>Selling_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Selling Dealer</label>
-       <lookupFilter>
+        <lookupFilter>
             <active>true</active>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
@@ -2591,7 +2620,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>CompanyExternalLink</fullName>
         <active>true</active>
-		<description>To link self-registered customer records</description>
+        <description>To link self-registered customer records</description>
         <label>Company Customer External Link</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -2665,7 +2694,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Role2__c</picklist>            
+            <picklist>Role2__c</picklist>
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>
@@ -2824,7 +2853,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>Contact2Contact</fullName>
         <active>true</active>
-		<description>Company Account and Individual Account with Individual Account</description>
+        <description>Company Account and Individual Account with Individual Account</description>
         <label>Contact2Contact</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -2898,7 +2927,26 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Retail_Race__c</picklist>
+            <values>
+                <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Role2__c</picklist>
+            <values>
+                <fullName>Boyfriend</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>
@@ -2912,11 +2960,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daughter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Girlfriend</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2945,6 +3001,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Son</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spouse</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3025,7 +3089,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <recordTypes>
         <fullName>ContactSector</fullName>
         <active>true</active>
-		<description>To link customer records with dealer records.</description>
+        <description>To link customer records with dealer records.</description>
         <label>ContactSector</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
@@ -3099,7 +3163,26 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Retail_Race__c</picklist>
+            <values>
+                <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Role2__c</picklist>
+            <values>
+                <fullName>Boyfriend</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>
@@ -3113,11 +3196,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daughter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Girlfriend</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3146,6 +3237,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Son</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spouse</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3420,7 +3519,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
     </recordTypes>
-     <recordTypes>
+    <recordTypes>
         <fullName>Retail_Company</fullName>
         <active>true</active>
         <description>Customer Copy for Company Account</description>
@@ -3429,6 +3528,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             <picklist>Portal_Source__c</picklist>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Type__c</picklist>
+            <values>
+                <fullName>M-Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal %28M-Care%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3448,21 +3562,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_Info_Processing__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
             <picklist>Retail_Address_Type__c</picklist>
             <values>
                 <fullName>Business</fullName>
@@ -3486,6 +3585,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Retail_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3500,7 +3614,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Retail_Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3542,6 +3656,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Retail_Country__c</picklist>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Retail_CustomerType__c</picklist>
             <values>
                 <fullName>C</fullName>
@@ -3560,548 +3689,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
-            <picklist>Retail_Industry__c</picklist>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity production and supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mass and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ship building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Retail_OptOutContact_Reason__c</picklist>
-            <values>
-                <fullName>Campaign %28Aftersales%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign %28Finance%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign %28New Car%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event %28Aftersales%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event %28New Car%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fair</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gift</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MOT Car inspection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Info %28Aftersales%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Info %28Finance%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Info %28New Car%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>        
-		<picklistValues>
-            <picklist>Retail_Preferred_Contact_Method__c</picklist>
-            <values>
-                <fullName>Direct Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fax</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Preferred_Language__c</picklist>
-            <values>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>English</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>French</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>German</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hindhi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Italian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portuguese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spanish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tagalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turkey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Retail_Special_Needs_Class__c</picklist>
-            <values>
-                <fullName>A</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>D</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Role2__c</picklist>
-            <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Role__c</picklist>
-            <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sector__c</picklist>
-            <values>
-                <fullName>Passenger Car</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Status__c</picklist>
-            <values>
-                <fullName>My Shop</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Shops</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Retail_Person</fullName>
-        <active>true</active>
-        <description>Customer Copy for Person Account</description>
-        <label>Retail Person</label>
-        <picklistValues>
-            <picklist>Portal_Source__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Agreement_Info_Processing__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Retail_Address_Type__c</picklist>
-            <values>
-                <fullName>Business</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Address 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Address 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Address 3</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Agreement__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Allow_Data_Sharing__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Retail_Gender__c</picklist>
             <values>
@@ -4117,7 +3704,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Retail_Industry__c</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -4426,7 +4013,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Retail_OptOutContact_Reason__c</picklist>
             <values>
                 <fullName>Campaign %28Aftersales%29</fullName>
@@ -4491,7 +4078,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
-
             <values>
                 <fullName>Fax</fullName>
                 <default>false</default>
@@ -4505,7 +4091,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Retail_Preferred_Language__c</picklist>
             <values>
                 <fullName>Chinese</fullName>
@@ -4563,7 +4149,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Tagalogue</fullName>
                 <default>false</default>
             </values>
-
             <values>
                 <fullName>Thai</fullName>
                 <default>false</default>
@@ -4576,14 +4161,55 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>	
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Primary_Phone__c</picklist>
+            <values>
+                <fullName>Home Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Race__c</picklist>
+            <values>
+                <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
                 <fullName>A</fullName>
                 <default>false</default>
             </values>
-
             <values>
                 <fullName>B</fullName>
                 <default>false</default>
@@ -4602,6 +4228,111 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Role2__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Boyfriend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Girlfriend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Son</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spouse</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>My Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Shops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Retail_Person</fullName>
+        <active>true</active>
+        <description>Customer Copy for Person Account</description>
+        <label>Retail Person</label>
+        <picklistValues>
+            <picklist>Portal_Source__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Type__c</picklist>
             <values>
                 <fullName>M-Care</fullName>
@@ -4613,6 +4344,85 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
             <values>
                 <fullName>Normal %28M-Care%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Address_Type__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Allow_Data_Sharing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4647,6 +4457,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Retail_Country__c</picklist>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Retail_CustomerType__c</picklist>
             <values>
                 <fullName>C</fullName>
@@ -4666,10 +4491,551 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-			
+            <picklist>Retail_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Industry__c</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical fiber manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical materials manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal mining and washing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction and installation industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crafts and other manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity production and supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferrous metal mining industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fisheries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gas Production and Supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonferrous Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other financial activities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and paper products industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum processing industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmaceutical Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Securities Industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ship building</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Equipment Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urban public transport sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warehousing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housekeeping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pensioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_OptOutContact_Reason__c</picklist>
+            <values>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Preferred_Contact_Method__c</picklist>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Preferred_Language__c</picklist>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>English</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Primary_Phone__c</picklist>
+            <values>
+                <fullName>Home Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Race__c</picklist>
+            <values>
+                <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Special_Needs_Class__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Boyfriend</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4677,7 +5043,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daughter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Girlfriend</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4690,6 +5064,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
             <values>
                 <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Son</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spouse</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4816,7 +5198,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Role2__c</picklist>           
+            <picklist>Role2__c</picklist>
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>
@@ -5005,7 +5387,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <fullName>External_Link_Share__c</fullName>
         <label>External Link Share</label>
     </sharingReasons>
-	<validationRules>
+    <validationRules>
         <fullName>Account_1_Account_2_cannot_be_same</fullName>
         <active>true</active>
         <description>Cannot link same accounts</description>
@@ -5036,7 +5418,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Retail_FirstName_Native__c</errorDisplayField>
         <errorMessage>IT Should be KANA Characters</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Retail_Full_Name_Native_Kana</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
@@ -5137,5 +5519,5 @@ else
 alert("Web service callout failed");
 }
 }</url>
-</webLinks>
+    </webLinks>
 </CustomObject>

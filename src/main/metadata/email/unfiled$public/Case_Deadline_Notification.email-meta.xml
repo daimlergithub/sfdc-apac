@@ -5,6 +5,6 @@
     <encodingKey>UTF-8</encodingKey>
     <name>Case Deadline Notification</name>
     <style>none</style>
-    <subject>{!Case.CaseNumber} 고객 {!IF(Case.RecordTypeId = '012280000006I86', '문의', IF(Case.RecordType = '012280000006I8A', '불만', '사례'))} 기한 완료 알림</subject>
+    <subject>{!Case.CaseNumber} 고객 {!IF(Case.RecordTypeId = &apos;012280000006I86&apos;, &apos;문의&apos;, IF(Case.RecordType = &apos;012280000006I8A&apos;, &apos;불만&apos;, &apos;사례&apos;))} 기한 완료 알림</subject>
     <type>text</type>
 </EmailTemplate>

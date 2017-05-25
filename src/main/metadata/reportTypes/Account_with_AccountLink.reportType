@@ -247,6 +247,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Portal_ID__c</field>
+            <table>Account.Account_Links__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>BillingStreet</field>
             <table>Account</table>
         </columns>

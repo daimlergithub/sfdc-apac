@@ -114,7 +114,7 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>NAME</fields> 
+        <fields>NAME</fields>
         <relatedList>Participating_Dealer__c.Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>

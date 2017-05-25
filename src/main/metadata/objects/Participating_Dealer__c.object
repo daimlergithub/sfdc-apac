@@ -313,7 +313,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 	
+    </fields>
     <fields>
         <fullName>Range__c</fullName>
         <externalId>false</externalId>
@@ -473,6 +473,3 @@ alert("Already True");
         <url>/apex/CampaignPlanning?scontrolCaching=1&amp;id={!Campaign.Id}</url>
     </webLinks>
 </CustomObject>
-
-
-

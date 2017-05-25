@@ -79,7 +79,6 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		
         <displayedFields>
             <field>Additional_Services__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -3090,11 +3089,11 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Lost((CCC)</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </picklistValues>
@@ -3701,9 +3700,9 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
-       <fullName>Cross_Point_Model__c</fullName>
-       <externalId>false</externalId>
+    <fields>
+        <fullName>Cross_Point_Model__c</fullName>
+        <externalId>false</externalId>
         <label>Cross Point Model</label>
         <length>255</length>
         <required>false</required>
@@ -3984,7 +3983,7 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
         <type>Email</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Dealer_Assigned_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Assigned Date Time</label>
@@ -4130,7 +4129,7 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Order Placed/Service Requested</fullName>
                 <default>false</default>
             </picklistValues>
@@ -4138,7 +4137,7 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
                 <fullName>Purchased(Only Non BDC)</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Purchased</fullName>
                 <default>false</default>
             </picklistValues>
@@ -4190,7 +4189,7 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </picklistValues>
@@ -4334,7 +4333,7 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
                 <fullName>Quotation request from other dealer</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Bought MB Parts elsewhere</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5911,7 +5910,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue（Light colors）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7738,7 +7737,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
                 <controllingFieldValues>G-Class</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>CLA 250 AMG</fullName>
                 <default>false</default>
                 <controllingFieldValues>CLA-Class</controllingFieldValues>
@@ -8122,7 +8121,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue（Light colors）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8678,7 +8677,7 @@ Modify Reason:
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Mercedes Card</fullName>
                 <default>false</default>
             </picklistValues>
@@ -9600,7 +9599,7 @@ Modify Reason:
                 <fullName>Book-in</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </picklistValues>
@@ -9989,11 +9988,11 @@ Modify Reason:
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </picklistValues>
-	      <picklistValues>
+            <picklistValues>
                 <fullName>Job Card Issue</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </picklistValues>
@@ -10270,7 +10269,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>New Car</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Daimler Employee</fullName>
                 <default>false</default>
             </picklistValues>
@@ -10898,109 +10897,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
         <type>MultiselectPicklist</type>
         <visibleLines>5</visibleLines>
     </fields>
-	<fields>
-        <fullName>MBTH_Important_Lead__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>MBTH_Important_Lead</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>MBTH_Interested_Insurance__c</fullName>
-        <externalId>false</externalId>
-        <label>MBTH_Interested_Insurance</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Comprehensive Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PPI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tyre and Rims</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RTI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PPI Life</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>MBTH_FnI_Consultant__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Contact</label>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Leads (Contact)</relationshipLabel>
-        <relationshipName>Leads1</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-	<fields>
-        <fullName>MBTH_Pre_Approved_Finance_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>MBTH_Pre_Approved_Finance_Amount</label>
-        <precision>12</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-	<fields>
-        <fullName>MBTH_Preferred_drop_by__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Drop Time</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-	<fields>
-        <fullName>MBTH_Total_Interest_Charged_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>MBTH_Total_Interest_Charged_Amount</label>
-        <precision>12</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-	<fields>
-        <fullName>MBTH_record_Owner_Manager_Email__c</fullName>
-        <externalId>false</externalId>
-        <label>MBTH_record Owner Manager Email</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
     <fields>
         <fullName>MBK_Lost_Situation__c</fullName>
         <externalId>false</externalId>
@@ -11034,7 +10930,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>MBTH_Assigned_Dealer_Name__c</fullName>
         <externalId>false</externalId>
         <label>MBTH Assigned Dealer Name</label>
@@ -11046,7 +10942,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>MBTH_Customer_Classification__c</fullName>
         <externalId>false</externalId>
         <label>MBTH_Customer_Classification</label>
@@ -11071,6 +10967,109 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_FnI_Consultant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Leads (Contact)</relationshipLabel>
+        <relationshipName>Leads1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Important_Lead__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>MBTH_Important_Lead</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Interested_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH_Interested_Insurance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Comprehensive Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PPI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tyre and Rims</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RTI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PPI Life</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Pre_Approved_Finance_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH_Pre_Approved_Finance_Amount</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Preferred_drop_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Drop Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Total_Interest_Charged_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH_Total_Interest_Charged_Amount</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_record_Owner_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH_record Owner Manager Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>MB_Vehicle_Interest__c</fullName>
@@ -12322,11 +12321,11 @@ Modify Reason:
                 <fullName>Credit Card</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>EFT</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Financed</fullName>
                 <default>false</default>
             </picklistValues>
@@ -12338,8 +12337,24 @@ Modify Reason:
                 <fullName>Loan</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Transfer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voucher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Debit Card</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12540,12 +12555,20 @@ Modify Reason:
                 <fullName>Fax</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Phone</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Phone and Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>post</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sms</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12921,6 +12944,42 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Range 17</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>&lt;2.0 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2.0-2.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3.0-4.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.0-6.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7.0-8.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9.0-10.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11.0-12.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>13.0-14.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>&gt;= 15 Million THB</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -22703,7 +22762,22 @@ Company_Account__r.Work_Phone__c  ,
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
-	<listViews>
+    <listViews>
+        <fullName>All_Lead</fullName>
+        <columns>RECORDTYPE</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Mine</filterScope>
+        <label>All Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Retail</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All_Leads_Retail</fullName>
         <columns>NAME</columns>
         <filterScope>Everything</filterScope>
@@ -22898,6 +22972,27 @@ Company_Account__r.Work_Phone__c  ,
         <sharedTo>
             <role>Central</role>
             <role>Central_Sales_Marketing</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>C</fullName>
+        <columns>NAME</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>軽井沢・プリンスショッピングプラザ 展示イベント</value>
+        </filters>
+        <label>軽井沢・プリンスショッピングプラザ 展示イベント</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -23249,7 +23344,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>新型Sクラス カブリオレ／新型SL／新型SLC Tポイントカード保有者向けセント</label>
         <language>ja</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -24578,7 +24673,7 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
-           <values>
+            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
@@ -24664,7 +24759,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event/Sâ€™Ship</fullName>
+                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24781,7 +24876,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Accepted</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
@@ -24805,7 +24900,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>On-going</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
@@ -25366,7 +25461,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25386,7 +25481,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26746,7 +26841,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28295,7 +28390,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28323,7 +28418,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28331,7 +28426,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28399,7 +28494,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28554,7 +28649,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28582,7 +28677,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28590,7 +28685,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28658,7 +28753,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29774,7 +29869,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>CLA 220 4MATIC</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>CLA 260 4MATIC</fullName>
@@ -36723,7 +36818,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>smart</fullName>
                 <default>false</default>
             </values>
-			</picklistValues>
+        </picklistValues>
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
@@ -36775,21 +36870,21 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
                 <fullName>Customer can not be reached</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Interest Lost</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Non-Daimler Purchase</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
             </values>
@@ -36910,8 +37005,8 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Order Placed/Service Requested</fullName>
+            <values>
+                <fullName>Order Placed%2FService Requested</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36945,7 +37040,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Bought MB Parts elsewhere</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Bought MB elsewhere</fullName>
                 <default>false</default>
             </values>
@@ -36962,18 +37057,18 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Invalid customer data</fullName>
+                <fullName>ISP to Purchased under Service Contract</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>ISP to Purchased under Service Contract</fullName>
+            <values>
+                <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Lead Merge</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Location is not convenient</fullName>
                 <default>false</default>
             </values>
@@ -37419,7 +37514,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37439,7 +37534,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39031,7 +39126,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39273,27 +39368,27 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>1 Year Inspection</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>6 month Inspection</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Body %26 Paint</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Car Wash</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Extended Warranty</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>General Car Care</fullName>
                 <default>false</default>
             </values>
@@ -39301,31 +39396,31 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>General Repair</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Inspection</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Insurance %28Accident%29</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>MOT</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Paint</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Part %26 Accessories</fullName>
                 <default>false</default>
             </values>
@@ -39335,13 +39430,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Plus Check</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Recall</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Repair</fullName>
                 <default>false</default>
             </values>
@@ -39404,7 +39499,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Media advertisement</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Mercedes Card</fullName>
                 <default>false</default>
             </values>
@@ -39990,19 +40085,19 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
- 			<values>
+            <values>
                 <fullName>Campaign</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Quotation</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
@@ -40221,8 +40316,12 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-			        <picklistValues>
+        <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
+            <values>
+                <fullName>Check Out</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
@@ -40239,7 +40338,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
-			             <values>
+            <values>
                 <fullName>Job Card Issue</fullName>
                 <default>false</default>
             </values>
@@ -40253,6 +40352,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Visited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -40732,7 +40835,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40760,7 +40863,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40768,7 +40871,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40836,7 +40939,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40991,7 +41094,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41019,7 +41122,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41027,7 +41130,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41095,7 +41198,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41280,8 +41383,20 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
-			<values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Debit Card</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41298,6 +41413,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -41361,7 +41480,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Fax</fullName>
                 <default>false</default>
             </values>
@@ -41371,6 +41490,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Phone and Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sms</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -41402,6 +41529,42 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Price_Range__c</picklist>
+            <values>
+                <fullName>%3C2%2E0 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E%3D 15 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%2E0-12%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13%2E0-14%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%2E0-2%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%2E0-4%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%2E0-6%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%2E0-8%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E0-10%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
@@ -49377,7 +49540,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
@@ -49447,7 +49610,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event/Sâ€™Ship</fullName>
+                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50077,7 +50240,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50097,7 +50260,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51689,7 +51852,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53334,7 +53497,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53362,7 +53525,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53370,7 +53533,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53438,7 +53601,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53593,7 +53756,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53621,7 +53784,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53629,7 +53792,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53697,7 +53860,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62154,6 +62317,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lost%28%28CCC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
             </values>
@@ -62179,10 +62346,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Completed</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Lost%28%28CCC%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62219,7 +62382,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event/Sâ€™Ship</fullName>
+                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62336,7 +62499,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Accepted</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
@@ -62853,7 +63016,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62873,7 +63036,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown(Dark)</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -64465,7 +64628,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66110,7 +66273,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66138,7 +66301,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66146,7 +66309,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66214,7 +66377,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66369,7 +66532,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66397,7 +66560,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66405,7 +66568,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66473,7 +66636,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75078,11 +75241,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Approved</fullName>
+                <fullName>Allocated</fullName>
                 <default>false</default>
             </values>
-			<values>
-				<fullName>Allocated</fullName>
+            <values>
+                <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75093,7 +75256,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
@@ -75106,11 +75269,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lost%28CAC%29</fullName>
+                <fullName>Lost%28%28CCC%29</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Lost%28%28CCC%29</fullName>
+            <values>
+                <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75121,7 +75284,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>New</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Not Allocated</fullName>
                 <default>false</default>
             </values>
@@ -75129,7 +75292,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
@@ -75145,7 +75308,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Received</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
@@ -75209,7 +75372,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Company Sales</fullName>
+                <fullName>Company Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75261,7 +75424,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
@@ -75293,7 +75456,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
@@ -75863,7 +76026,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75883,7 +76046,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown(Dark)</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -77687,7 +77850,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -77961,7 +78124,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_DataSource__c</picklist>
             <values>
-				<fullName>24 hours Touring Support</fullName>
+                <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -77973,7 +78136,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Campaign</fullName>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -77985,7 +78148,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>English Customer Desk</fullName>
+                <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78001,7 +78164,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Letter</fullName>
+                <fullName>Letter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78017,7 +78180,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>MCare</fullName>
+                <fullName>MCare</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78028,8 +78191,8 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Media advertisement</fullName>
                 <default>false</default>
             </values>
-			<values>
-				<fullName>Mercedes Call Catalogue</fullName>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78037,7 +78200,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Mercedes Magainze Survey</fullName>
+                <fullName>Mercedes Magainze Survey</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78048,15 +78211,15 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Mercedes-Benz School of Excelence</fullName>
                 <default>false</default>
             </values>
@@ -78069,7 +78232,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Mercedes-Benz phone</fullName>
+                <fullName>Mercedes-Benz phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78093,7 +78256,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Recall desk</fullName>
+                <fullName>Recall desk</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78106,7 +78269,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Social media</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Survey</fullName>
@@ -78670,7 +78833,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
@@ -78896,11 +79059,19 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Invoiced</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78913,6 +79084,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79056,7 +79231,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Sub_Type__c</picklist>
             <values>
-				<fullName>Alternative Car</fullName>
+                <fullName>Alternative Car</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79123,7 +79298,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Need Follow Up</fullName>
+                <fullName>Need Follow Up</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79131,7 +79306,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>No Need Follow Up</fullName>
+                <fullName>No Need Follow Up</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79436,7 +79611,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79464,7 +79639,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79472,7 +79647,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79540,7 +79715,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79695,7 +79870,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79723,7 +79898,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79731,7 +79906,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79799,7 +79974,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79985,7 +80160,19 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
             <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Debit Card</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -80002,6 +80189,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -80066,7 +80257,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Fax</fullName>
+                <fullName>Fax</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -80075,6 +80266,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Phone and Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sms</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -80098,7 +80297,43 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Price_Range__c</picklist>
-			<values>
+            <values>
+                <fullName>%3C2%2E0 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E%3D 15 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%2E0-12%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13%2E0-14%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%2E0-2%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%2E0-4%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%2E0-6%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%2E0-8%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E0-10%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
@@ -80185,12 +80420,12 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Four Weeks above</fullName>
+                <fullName>Four Weeks above</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>No Plans</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>One Week</fullName>
@@ -87879,7 +88114,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
@@ -87899,6 +88134,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87938,6 +88177,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Purchased</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -87961,11 +88204,11 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Visited Showroom%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-		<picklistValues>
+        </picklistValues>
+        <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-				<fullName>Customer can not be reached</fullName>
+                <fullName>Customer can not be reached</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87974,7 +88217,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Non-Daimler Purchase</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Out of Campaign Period</fullName>
@@ -88053,7 +88296,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Loan Return SWP</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -88123,7 +88366,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-   <picklistValues>
+        <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
@@ -88337,7 +88580,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Loan Return SWP</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -88803,7 +89046,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88823,7 +89066,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown(Dark)</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90155,7 +90398,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90465,11 +90708,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Campaign</fullName>
+                <fullName>CCC</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>CCC</fullName>
+            <values>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90496,11 +90739,11 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Friends recommend</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>IB Call</fullName>
                 <default>false</default>
             </values>
@@ -90512,7 +90755,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>MB Card</fullName>
                 <default>false</default>
             </values>
@@ -90520,11 +90763,11 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>MB Connection</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>MB website</fullName>
                 <default>false</default>
             </values>
@@ -90537,7 +90780,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Media advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Card</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90552,20 +90803,8 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Mercedes Card</fullName>
-                <default>false</default>
-            </values>
-			<values>
+            <values>
                 <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Mercedes-Benz driving Academy</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90577,11 +90816,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz phone</fullName>
+                <fullName>Mercedes-Benz driving Academy</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Media advertisement</fullName>
+            <values>
+                <fullName>Mercedes-Benz financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90592,7 +90835,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>OB Call</fullName>
                 <default>false</default>
             </values>
@@ -90612,11 +90855,11 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Response Sheet</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Searching engine</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Social media</fullName>
                 <default>false</default>
             </values>
@@ -90632,7 +90875,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Web%2FMobile Phone</fullName>
                 <default>false</default>
             </values>
@@ -91186,15 +91429,15 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
-			<values>
+            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Catalogue</fullName>
                 <default>false</default>
             </values>
@@ -91428,6 +91671,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -91452,6 +91699,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
@@ -91469,6 +91720,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91603,19 +91858,11 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Alternative Car</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>car care</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>collection</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Company Car</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Daimler Employee</fullName>
                 <default>false</default>
             </values>
@@ -91664,26 +91911,34 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>car care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>insurance</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>others</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>service contract</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>spare part</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>technical accessories</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>wear and tear</fullName>
                 <default>false</default>
             </values>
@@ -91691,7 +91946,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Type__c</picklist>
             <values>
-				<fullName>Activities</fullName>
+                <fullName>Activities</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91701,7 +91956,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>New Car</fullName>
                 <default>true</default>
-			</values>
+            </values>
             <values>
                 <fullName>No Need Follow Up</fullName>
                 <default>false</default>
@@ -92048,7 +92303,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92080,7 +92335,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92088,7 +92343,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92096,7 +92351,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92251,7 +92506,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92279,7 +92534,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92287,7 +92542,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92355,7 +92610,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92540,12 +92795,24 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
-			<values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Credit Card</fullName>
                 <default>false</default>
             </values>
             <values>
-				<fullName>EFT</fullName>
+                <fullName>Debit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EFT</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92562,6 +92829,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -92633,6 +92904,14 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sms</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Negotiation_Place__c</picklist>
@@ -92658,7 +92937,43 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Price_Range__c</picklist>
-			<values>
+            <values>
+                <fullName>%3C2%2E0 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E%3D 15 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%2E0-12%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13%2E0-14%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%2E0-2%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%2E0-4%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%2E0-6%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%2E0-8%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E0-10%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
@@ -92773,19 +93088,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>Four Weeks above</fullName>
+                <fullName>Four Weeks above</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Next Inspection Timing</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>No Plans</fullName>
                 <default>false</default>
             </values>
             <values>
-				<fullName>One Week</fullName>
+                <fullName>One Week</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92806,7 +93121,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>within 1 week</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>within 12 month</fullName>
@@ -98376,6 +98691,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Refinance existing vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Replace existing vehicle</fullName>
                 <default>false</default>
             </values>
@@ -100503,7 +100822,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100523,7 +100842,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown(Dark)</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101883,7 +102202,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors)</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103504,7 +103823,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103532,7 +103851,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103540,7 +103859,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103608,7 +103927,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103763,7 +104082,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103791,7 +104110,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103799,7 +104118,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103867,7 +104186,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -110339,6 +110658,18 @@ MD__c='KR'
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>CAC_Lead_Status_Check_After_Assigned_TH</fullName>
+        <active>true</active>
+        <description>This Rule is created for thailand</description>
+        <errorConditionFormula>AND( 
+OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),ispickval(CAC_Lead_Status__c,'Assigned'), 
+(ISBlank(Assigned_Date_Time__c)), 
+MD__c='TH', 
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
+        <errorMessage>If  Dealer is assigned and CAC lead status is “assigned” then assigned date &amp; time is required</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -110351,63 +110682,18 @@ RecordType.DeveloperName = 'Aftersales_Leads'
         <errorDisplayField>Service_Date__c</errorDisplayField>
         <errorMessage>If CAC Lead Status is Service Completed, Service Date is required.</errorMessage>
     </validationRules>
-	<validationRules>
-        <fullName>CAC_Lead_Status_Check_After_Assigned_TH</fullName>
-        <active>true</active>
-        <description>This Rule is created for thailand</description>
-        <errorConditionFormula>AND( 
-OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;),ispickval(CAC_Lead_Status__c,&apos;Assigned&apos;), 
-(ISBlank(Assigned_Date_Time__c)), 
-MD__c=&apos;TH&apos;, 
-$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
-        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If  Dealer is assigned and CAC lead status is “assigned” then assigned date &amp; time is required</errorMessage>
-    </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-ISNULL(Purchased_CAC_Date__c), OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;),
-ISPICKVAL(CAC_Lead_Status__c, &apos;Purchased&apos;), 
-$Profile.Name != &apos;IntegrationAPI&apos;, 
-MD__c=&apos;TH&apos;)</errorConditionFormula>
+ISNULL(Purchased_CAC_Date__c), OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),
+ISPICKVAL(CAC_Lead_Status__c, 'Purchased'), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c='TH')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CAC lead status is Purchased, then Purchased CAC Date and Time field is required</errorMessage>
     </validationRules>
-	<validationRules>
-        <fullName>CAC_Purchase_Check_Sales_Lead_TH</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, &quot;Purchased&quot;),RecordType.Name = &apos;Sales Leads&apos;,OR( 
-ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,&apos;&apos;),ISPICKVAL(Bought_Vehicle_Class__c,&apos;&apos;),ISPICKVAL(Bought_Vehicle_Model__c,&apos;&apos;))&amp;&amp;MD__c=&apos;TH&apos;)</errorConditionFormula>
-        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>IF CAC Lead status is “Purchased”, then Purchase Date ,Purchased time ,Bought vehicle brand ,Bought vehicle class and Bought Vehicle model are  required</errorMessage>
-    </validationRules>
-	 <validationRules>
-        <fullName>Dealer_Purchase_Check_Aftersales_Lead_TH</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'TH', 
-ISPICKVAL(Dealer_Lead_Status__c,"Purchased"), 
-OR ( 
-ISNULL(Purchased_Date__c), 
-ISBLANK(Purchased_Date__c))
-)</errorConditionFormula>
-        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
-        <errorMessage>If Dealer Lead Status is Purchased . Purchase Date is required.</errorMessage>
-    </validationRules>
-	<validationRules>
-        <fullName>First_Contact_Customer_Required_Check_TH</fullName>
-        <active>true</active>
-        <description>If Dealer Lead Status is &quot;First Contact Customer&quot;, and if &quot;First Contact Customer date and timeâ€ is blank then an error message is shown.</description>
-        <errorConditionFormula>AND ($Profile.Name != &apos;IntegrationAPI&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;), MD__c = &apos;TH&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;), 
-OR ( 
-ISNULL(First_Contact_Customer_Date_Time__c), 
-ISBLANK(First_Contact_Customer_Date_Time__c))
-)</errorConditionFormula>
-        <errorDisplayField>First_Contact_Customer_Date_Time__c</errorDisplayField>
-        <errorMessage>If Dealer Lead Status is First Contact Customer, First contact customer Date time is requiredÂ</errorMessage>
-    </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead</fullName>
         <active>true</active>
         <description>/* 
@@ -110428,6 +110714,14 @@ ISBLANK(Purchased_CAC_Date_Time__c)
 RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CACDealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CAC_Purchase_Check_Sales_Lead_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, "Purchased"),RecordType.Name = 'Sales Leads',OR( 
+ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,''),ISPICKVAL(Bought_Vehicle_Class__c,''),ISPICKVAL(Bought_Vehicle_Model__c,''))&amp;&amp;MD__c='TH')</errorConditionFormula>
+        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
+        <errorMessage>IF CAC Lead status is “Purchased”, then Purchase Date ,Purchased time ,Bought vehicle brand ,Bought vehicle class and Bought Vehicle model are  required</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Invoice_Number</fullName>
@@ -110458,10 +110752,10 @@ AND User profile is Call center agent"</description>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You can't change lead status to "Approval(waiting)" or "Allocated"</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Cannnot_Change_Lead_Status_TH</fullName>
         <active>false</active>
-        <errorConditionFormula>AND(OR($Profile.Name=&apos;Thailand Call Center&apos;,$Profile.Name=&apos;Thailand CRM&apos;),$Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL(CAC_Lead_Status__c,&apos;assigned&apos;),UPPER(MD__c)= &apos;TH&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND(OR($Profile.Name='Thailand Call Center',$Profile.Name='Thailand CRM'),$Profile.Name != 'IntegrationAPI',ISPICKVAL(CAC_Lead_Status__c,'assigned'),UPPER(MD__c)= 'TH',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>CCC  agent  cannot change the CAC lead status to assigned</errorMessage>
     </validationRules>
@@ -110523,6 +110817,18 @@ RecordType.Name == 'Aftersales Leads'
         <errorMessage>If Dealer Lead Status is Service Completed, Service Date is required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Dealer_Purchase_Check_Aftersales_Lead_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'TH', 
+ISPICKVAL(Dealer_Lead_Status__c,"Purchased"), 
+OR ( 
+ISNULL(Purchased_Date__c), 
+ISBLANK(Purchased_Date__c))
+)</errorConditionFormula>
+        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
+        <errorMessage>If Dealer Lead Status is Purchased . Purchase Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Dealer_Purchase_Check_Sales_Lead</fullName>
         <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
@@ -110577,6 +110883,19 @@ ISNULL(First_Contact_Customer_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>First_Contact_Customer_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is First Contact Customer, First Contact Customer Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>First_Contact_Customer_Required_Check_TH</fullName>
+        <active>true</active>
+        <description>If Dealer Lead Status is "First Contact Customer", and if "First Contact Customer date and timeâ€&#157; is blank then an error message is shown.</description>
+        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'TH', 
+ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), 
+OR ( 
+ISNULL(First_Contact_Customer_Date_Time__c), 
+ISBLANK(First_Contact_Customer_Date_Time__c))
+)</errorConditionFormula>
+        <errorDisplayField>First_Contact_Customer_Date_Time__c</errorDisplayField>
+        <errorMessage>If Dealer Lead Status is First Contact Customer, First contact customer Date time is requiredÂ</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Native_Single</fullName>
@@ -110667,7 +110986,7 @@ MD__c ='JP',
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
-        <errorMessage>Lead Latest Phase" cannot be changed into â€œWIP Linkageâ€, â€œJob Card Issueâ€, â€œInvoicedâ€</errorMessage>
+        <errorMessage>Lead Latest Phase" cannot be changed into â€œWIP Linkageâ€&#157;, â€œJob Card Issueâ€&#157;, â€œInvoicedâ€&#157;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Status_Lost_Check</fullName>
@@ -110729,7 +111048,7 @@ AND($Profile.Name != 'IntegrationAPI'),MD__c="JP")</errorConditionFormula>
  ISPICKVAL(Dealer_Lead_Status__c,'Lost'),$Profile.Name != 'IntegrationAPI',MD__c='KR'
 )</errorConditionFormula>
         <errorDisplayField>Lost_To__c</errorDisplayField>
-        <errorMessage>â€œLost Toâ€ field is mandatory when the lead has been lost</errorMessage>
+        <errorMessage>â€œLost Toâ€&#157; field is mandatory when the lead has been lost</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lost_To_Whom_CAC</fullName>
@@ -110738,7 +111057,7 @@ AND($Profile.Name != 'IntegrationAPI'),MD__c="JP")</errorConditionFormula>
 OR(ISBLANK(Lost_To__c), ISNULL(Lost_To__c)), 
 ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__c='KR')</errorConditionFormula>
         <errorDisplayField>Lost_To__c</errorDisplayField>
-        <errorMessage>â€œLost Toâ€ field is mandatory when the CAC lead status has been set to lost(CAC)</errorMessage>
+        <errorMessage>â€œLost Toâ€&#157; field is mandatory when the CAC lead status has been set to lost(CAC)</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
@@ -110774,11 +111093,11 @@ ISNULL(Order_Placed_Date__c)
         <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Order Placed, Order Placed Date is required.</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Order_Placed_Required_Check_Dealer_TH</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c = &apos;TH&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Order Placed&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c = 'TH', 
+ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), 
 ISNULL(Order_Placed_Date__c) 
 )</errorConditionFormula>
         <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
@@ -110849,11 +111168,11 @@ ISNULL(Test_Drive_Date__c)
         <errorDisplayField>Test_Drive_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Test Drive, Test Drive Date is required.</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Test_Drive_Required_Check_TH</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Test Drive&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'TH',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),
+ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"), 
 ISNULL(Test_Drive_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Test_Drive_Date__c</errorDisplayField>
@@ -111038,6 +111357,9 @@ else {
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
 
 if('{!User.ContactId}' =='') { 
 if (sforce.console.isInConsole()) { 
@@ -111045,36 +111367,47 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
-else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 
 } 
 ) 
+} 
+else 
+{ 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
+{	
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+} 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
+{ 
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+} 
 } 
 }	
 else { 
 if('{!User.ContactId}' !='') { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
-else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 } 
 else{ 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open("OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
-else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open("OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 } 
 }</url>
@@ -111115,6 +111448,9 @@ retURL=%2Fa12%2Fo
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
 
 if('{!User.ContactId}' ==''){ 
 if (sforce.console.isInConsole()) { 
@@ -111125,7 +111461,7 @@ if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 
 sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
-else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
 sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
@@ -111133,6 +111469,19 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_S
 } 
 ) 
 }	
+else 
+{ 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
+{	
+
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+} 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
+{ 
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+} 
+
+} 
 } 
 else { 
 if('{!User.ContactId}' !='') 
@@ -111141,7 +111490,7 @@ if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
 window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
-else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
 window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
@@ -111151,7 +111500,7 @@ if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
 window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
-else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
 window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
@@ -111173,7 +111522,7 @@ var RTs = sforce.connection.query("Select Id, Name from RecordType where sObject
 var rt = RTs.getArray("records"); 
 window.location.href  = '{!URLFOR($Site.Prefix)}/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Print_PDF</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -111364,5 +111713,3 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
-
-

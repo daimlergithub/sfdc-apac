@@ -35,9 +35,6 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>Account$Age__c</field>
-    </columns>
-    <columns>
         <field>Account.Vehicle_Relationships2__r$Point_of_Purchase__c</field>
     </columns>
     <description>MBK Reports - Vehicle Class and Models</description>

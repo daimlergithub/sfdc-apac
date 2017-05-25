@@ -709,7 +709,6 @@ Modify Reason:
                 <fullName>Mercedes Me</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1251,7 +1250,6 @@ Modify Reason:
         <label>All_temp</label>
         <language>en_US</language>
         <sharedTo>
-            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
@@ -1287,12 +1285,11 @@ Modify Reason:
         <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-            <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
             <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1302,12 +1299,11 @@ Modify Reason:
         <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-            <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
             <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1492,11 +1488,11 @@ Modify Reason:
         <label>My Mercedesからのリクエスト</label>
         <language>ja</language>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
             <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1591,19 +1587,18 @@ Modify Reason:
             <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
-   <listViews>
+    <listViews>
         <fullName>Supervisor_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
         <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-            <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
             <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>

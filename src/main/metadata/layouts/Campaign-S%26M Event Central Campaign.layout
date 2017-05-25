@@ -114,10 +114,6 @@
                 <behavior>Edit</behavior>
                 <field>Actual_Region_Expense__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Total_Budget__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

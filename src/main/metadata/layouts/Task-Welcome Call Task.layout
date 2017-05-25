@@ -48,6 +48,10 @@
                 <behavior>Readonly</behavior>
                 <field>SentTime__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Communication_date__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

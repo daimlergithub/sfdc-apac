@@ -54,4 +54,18 @@
         <accessLevel>Read</accessLevel>
         <name>MBK Car Model Sharing Rule</name>
     </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TH_CarModel_Readable_to_Thailand_Call_Centre</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>view all Car model records by Thailand Call Center agents if Market = TH</description>
+        <name>TH_CarModel_Readable_to_Thailand_Call_Centre</name>
+    </criteriaBasedRules>
 </CustomObjectSharingRules>

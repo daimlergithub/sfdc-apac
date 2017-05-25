@@ -1451,7 +1451,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Retail_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

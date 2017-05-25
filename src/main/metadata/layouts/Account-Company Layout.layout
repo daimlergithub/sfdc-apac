@@ -6,11 +6,37 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Sales_Lead_WS</customButtons>
-	<customButtons>New_Case</customButtons>
+    <customButtons>New_Case</customButtons>
+    <customConsoleComponents>
+        <primaryTabComponents>
+            <containers>
+                <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
+                <region>Right</region>
+                <sidebarComponents>
+                    <componentType>RelatedList</componentType>
+                    <relatedLists>
+                        <hideOnDetail>false</hideOnDetail>
+                        <name>RelatedHistoryList</name>
+                    </relatedLists>
+                    <relatedLists>
+                        <hideOnDetail>false</hideOnDetail>
+                        <name>Lead__c.Company_Account__c</name>
+                    </relatedLists>
+                    <relatedLists>
+                        <hideOnDetail>false</hideOnDetail>
+                        <name>RelatedCaseList</name>
+                    </relatedLists>
+                    <unit>Percentage</unit>
+                </sidebarComponents>
+                <style>Stack</style>
+                <unit>Pixel</unit>
+                <width>20</width>
+            </containers>
+        </primaryTabComponents>
+    </customConsoleComponents>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -169,7 +195,7 @@
                 <behavior>Edit</behavior>
                 <field>Vat_No__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CDM_UCID__c</field>
             </layoutItems>
@@ -381,10 +407,14 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
@@ -392,8 +422,8 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-		<customButtons>New_Sales_Lead</customButtons>		
-		<customButtons>New_AfterSales_Lead</customButtons>
+        <customButtons>New_Sales_Lead</customButtons>
+        <customButtons>New_AfterSales_Lead</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Lead_Desired_Service__c</fields>

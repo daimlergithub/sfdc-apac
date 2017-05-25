@@ -860,8 +860,8 @@
             <value>
                 <elementReference>formula_11_myRule_1_A1_Retail_Distinct_c</elementReference>
             </value>
-        </inputAssignments> 
-        <inputAssignments> 
+        </inputAssignments>
+        <inputAssignments>
             <processMetadataValues>
                 <name>dataType</name>
                 <value>
@@ -951,4 +951,3 @@
         </value>
     </variables>
 </Flow>
-

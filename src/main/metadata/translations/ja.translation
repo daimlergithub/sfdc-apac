@@ -21,6 +21,10 @@
         <name>Force_com</name>
     </customApplications>
     <customApplications>
+        <label><!-- MBF Call Center --></label>
+        <name>MBF_Call_Center</name>
+    </customApplications>
+    <customApplications>
         <label>カタログオペレーション</label>
         <name>MBJ_Catalogue_Operation</name>
     </customApplications>
@@ -61,6 +65,30 @@
         <name>MBK_Reports_and_Dashboards</name>
     </customApplications>
     <customApplications>
+        <label><!-- MBTH Call Center --></label>
+        <name>MBTH_Call_Center</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH Catalogue Operation --></label>
+        <name>MBTH_Catalogue_Operation</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH Data Management --></label>
+        <name>MBTH_Data_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH File Management --></label>
+        <name>MBTH_File_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH Master Data Management --></label>
+        <name>MBTH_Master_Data_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH Reports and Dashboards --></label>
+        <name>MBTH_Reports_and_Dashboards</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Private APP Exchange --></label>
         <name>Private_APP_Exchange</name>
     </customApplications>
@@ -68,6 +96,46 @@
         <label><!-- Retail CRM --></label>
         <name>Retail_CRM</name>
     </customApplications>
+    <customLabels>
+        <label><!-- A6 Contact as part of visiting a car dealership --></label>
+        <name>A6_Contact_as_part_of_visiting_a_car_dealership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6  Email --></label>
+        <name>A6_Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Invitation to an event / event at the car dealership --></label>
+        <name>A6_Invitation_to_an_event_event_at_the_car_dealership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Other contact channels --></label>
+        <name>A6_Other_contact_channels</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Personal email --></label>
+        <name>A6_Personal_email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Promotional emails --></label>
+        <name>A6_Promotional_emails</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Query via website --></label>
+        <name>A6_Query_via_website</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Request for a test drive via website --></label>
+        <name>A6_Request_for_a_test_drive_via_website</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Telephone call --></label>
+        <name>A6_Telephone_call</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Visit to a car dealership --></label>
+        <name>A6_Visit_to_a_car_dealership</name>
+    </customLabels>
     <customLabels>
         <label>了承済み</label>
         <name>Accepted</name>
@@ -103,6 +171,10 @@
     <customLabels>
         <label><!-- Account Merge --></label>
         <name>Account_Merge</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddressSearchValidation --></label>
+        <name>Account_Name</name>
     </customLabels>
     <customLabels>
         <label><!-- Account Retail Copy Filter --></label>
@@ -297,8 +369,16 @@
         <name>Authorization</name>
     </customLabels>
     <customLabels>
+        <label><!-- Average --></label>
+        <name>Average</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Backslash --></label>
         <name>Backslash</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Beyond expectation --></label>
+        <name>Beyond_expectation</name>
     </customLabels>
     <customLabels>
         <label>生年月日</label>
@@ -793,6 +873,10 @@
         <name>Case_received_by_Phone_etc</name>
     </customLabels>
     <customLabels>
+        <label><!-- Check DuplicatesErrorMsg --></label>
+        <name>Check_DuplicatesErrorMsg</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Child --></label>
         <name>Child</name>
     </customLabels>
@@ -912,7 +996,7 @@
         <label><!-- Convert To Task --></label>
         <name>Convert_To_Task</name>
     </customLabels>
-	<customLabels>
+    <customLabels>
         <label>リードタイプ変更</label>
         <name>Converted_to_After_Sales_Leads</name>
     </customLabels>
@@ -925,12 +1009,20 @@
         <name>Couldnotexplain</name>
     </customLabels>
     <customLabels>
+        <label><!-- CountryTH --></label>
+        <name>CountryTH</name>
+    </customLabels>
+    <customLabels>
         <label>車両作成</label>
         <name>Create_Vehicle</name>
     </customLabels>
     <customLabels>
         <label><!-- Created Date --></label>
         <name>Created_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Credible --></label>
+        <name>Credible</name>
     </customLabels>
     <customLabels>
         <label><!-- Criteria --></label>
@@ -1109,6 +1201,10 @@
         <name>Delete_Filter</name>
     </customLabels>
     <customLabels>
+        <label><!-- DeleteretailcopyErrorMsg --></label>
+        <name>DeleteretailcopyErrorMsg</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Detailed Model Name --></label>
         <name>DetailedModelName</name>
     </customLabels>
@@ -1141,8 +1237,24 @@
         <name>Downloadedfile</name>
     </customLabels>
     <customLabels>
+        <label><!-- Driving experience --></label>
+        <name>Driving_experience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dynamic --></label>
+        <name>Dynamic</name>
+    </customLabels>
+    <customLabels>
         <label>編集</label>
         <name>Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Eight --></label>
+        <name>Eight</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Elegance --></label>
+        <name>Elegance</name>
     </customLabels>
     <customLabels>
         <label>Salesforceのリードに割り当てられているので、お客様に通知します。</label>
@@ -1278,12 +1390,20 @@
         <name>Enter_VIN_number</name>
     </customLabels>
     <customLabels>
+        <label><!-- Equals --></label>
+        <name>Equals</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Error_Message_1</name>
     </customLabels>
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Error_Message_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error Msg for Create Complex Execution --></label>
+        <name>Error_Msg_for_KR_Users</name>
     </customLabels>
     <customLabels>
         <label><!-- Error: Please enter your criteria --></label>
@@ -1306,8 +1426,16 @@
         <name>Event_Type</name>
     </customLabels>
     <customLabels>
+        <label><!-- Event venue --></label>
+        <name>Event_venue</name>
+    </customLabels>
+    <customLabels>
         <label>カタログファイル生成に失敗しました。システム管理者にお問い合わせください。</label>
         <name>Exception_message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Exclude --></label>
+        <name>Exclude</name>
     </customLabels>
     <customLabels>
         <label>ＦＡＸ送付状</label>
@@ -1343,6 +1471,10 @@
     <customLabels>
         <label><!-- Family, company, hobby have you heard --></label>
         <name>Family_company_hobby_have_you_heard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Favorite Model --></label>
+        <name>Favorite_Model</name>
     </customLabels>
     <customLabels>
         <label><!-- Fax --></label>
@@ -1397,8 +1529,24 @@
         <name>First_Estimate_Print</name>
     </customLabels>
     <customLabels>
+        <label><!-- Five --></label>
+        <name>Five</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Food &amp; beverage --></label>
+        <name>Food_beverage</name>
+    </customLabels>
+    <customLabels>
         <label><!-- For Vehicle Picker --></label>
         <name>For_Vehicle_Picker</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Four --></label>
+        <name>Four</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- From the experience with Mercedes-Benz during this event, which word would best --></label>
+        <name>From_the_experience_with_Mercedes_Benz_during_this_event_which_word_would_best</name>
     </customLabels>
     <customLabels>
         <label><!-- Garage information and specifications have you heard --></label>
@@ -1433,6 +1581,10 @@
         <name>GenericUploaderLengthErrorMsg</name>
     </customLabels>
     <customLabels>
+        <label><!-- Good --></label>
+        <name>Good</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Grandchild --></label>
         <name>GrandChild</name>
     </customLabels>
@@ -1443,6 +1595,10 @@
     <customLabels>
         <label>合計</label>
         <name>Grand_Total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Greater Than --></label>
+        <name>Greater_Than</name>
     </customLabels>
     <customLabels>
         <label>納車</label>
@@ -1477,8 +1633,20 @@
         <name>Home_Phone</name>
     </customLabels>
     <customLabels>
+        <label><!-- S5 Home Phone 2 --></label>
+        <name>Home_Phone_2</name>
+    </customLabels>
+    <customLabels>
         <label>住居の形態・車庫</label>
         <name>Home_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- I don’t know / no statement --></label>
+        <name>I_don_t_know_no_statement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- I don’t remember / no statement --></label>
+        <name>I_don_t_remember_no_statement</name>
     </customLabels>
     <customLabels>
         <label><!-- Id --></label>
@@ -1489,8 +1657,24 @@
         <name>Idle_Hour_Promotion</name>
     </customLabels>
     <customLabels>
+        <label><!-- If No, specify Why --></label>
+        <name>If_No_specify_Why</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- If Yes, specify favorite model --></label>
+        <name>If_Yes_specify_favorite_model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- If yes, within which period do you plan to purchase --></label>
+        <name>If_yes_within_which_period_do_you_plan_to_purchase</name>
+    </customLabels>
+    <customLabels>
         <label>*販売店/社内関係部門への情報展開</label>
         <name>Informationsharing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Instructor team --></label>
+        <name>Instructor_team</name>
     </customLabels>
     <customLabels>
         <label>車両を作成する権限がありません。</label>
@@ -1505,7 +1689,7 @@
         <name>Insurance_Promotion</name>
     </customLabels>
     <customLabels>
-        <label>ファイナンス提案 </label>
+        <label>ファイナンス提案</label>
         <name>Insurance_Proposal</name>
     </customLabels>
     <customLabels>
@@ -1517,12 +1701,20 @@
         <name>Interest_Filter</name>
     </customLabels>
     <customLabels>
+        <label><!-- Interesting Event --></label>
+        <name>Interesting_Event</name>
+    </customLabels>
+    <customLabels>
         <label>内張り仕</label>
         <name>Interior</name>
     </customLabels>
     <customLabels>
         <label>請求</label>
         <name>Invoiced</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- JP --></label>
+        <name>JP</name>
     </customLabels>
     <customLabels>
         <label><!-- KR --></label>
@@ -1845,12 +2037,20 @@
         <name>Leagl_Owner</name>
     </customLabels>
     <customLabels>
+        <label><!-- Less Than --></label>
+        <name>Less_Than</name>
+    </customLabels>
+    <customLabels>
         <label><!-- LimitQueries --></label>
         <name>LimitQueries</name>
     </customLabels>
     <customLabels>
         <label><!-- List Ready Maintenance --></label>
         <name>List_Ready_Maintenance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- List of Service Retail Task Only --></label>
+        <name>List_of_Service_Retail_Task_Only</name>
     </customLabels>
     <customLabels>
         <label><!-- Logic Error --></label>
@@ -1879,6 +2079,10 @@
     <customLabels>
         <label><!-- MarketKR --></label>
         <name>MarketKR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketTH --></label>
+        <name>MarketTH</name>
     </customLabels>
     <customLabels>
         <label><!-- Marketing survey --></label>
@@ -2001,6 +2205,10 @@
         <name>My_shop_Name</name>
     </customLabels>
     <customLabels>
+        <label><!-- NA --></label>
+        <name>NA</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Near_Dealer_1</name>
     </customLabels>
@@ -2049,6 +2257,10 @@
         <name>NewAccount</name>
     </customLabels>
     <customLabels>
+        <label><!-- NewCaseErrorMsg --></label>
+        <name>NewCaseErrorMsg</name>
+    </customLabels>
+    <customLabels>
         <label><!-- New Lead --></label>
         <name>NewLead</name>
     </customLabels>
@@ -2073,16 +2285,20 @@
         <name>New_Customer_Acquisition</name>
     </customLabels>
     <customLabels>
-        <label>新しい値</label>
-        <name>New_Value</name>
-    </customLabels>
-    <customLabels>
         <label>新規カタログリクエスト</label>
         <name>New_DM_Request</name>
     </customLabels>
     <customLabels>
+        <label>新しい値</label>
+        <name>New_Value</name>
+    </customLabels>
+    <customLabels>
         <label>次の活動予定</label>
         <name>Next_Activity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Nine --></label>
+        <name>Nine</name>
     </customLabels>
     <customLabels>
         <label><!-- No --></label>
@@ -2109,6 +2325,18 @@
         <name>No_Target_records</name>
     </customLabels>
     <customLabels>
+        <label><!-- No Thai --></label>
+        <name>No_Thai</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No, busy right now --></label>
+        <name>No_busy_right_now</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No, don’t want to talk --></label>
+        <name>No_don_t_want_to_talk</name>
+    </customLabels>
+    <customLabels>
         <label><!-- None --></label>
         <name>None</name>
     </customLabels>
@@ -2117,10 +2345,18 @@
         <name>NotAccepted</name>
     </customLabels>
     <customLabels>
+        <label><!-- Not easy to talk thai --></label>
+        <name>Not_easy_to_talk_thai</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Not found QC --></label>
         <name>Not_found_QC</name>
     </customLabels>
-        <customLabels>
+    <customLabels>
+        <label><!-- Not yet decided --></label>
+        <name>Not_yet_decided</name>
+    </customLabels>
+    <customLabels>
         <label>販売店を設定してください。</label>
         <name>Notify_To_Dealer1</name>
     </customLabels>
@@ -2144,6 +2380,10 @@
     <customLabels>
         <label>御中</label>
         <name>Onchu</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- One --></label>
+        <name>One</name>
     </customLabels>
     <customLabels>
         <label><!-- Online Dedup callout failure --></label>
@@ -2186,6 +2426,10 @@
         <name>Outlet</name>
     </customLabels>
     <customLabels>
+        <label><!-- Overall impression --></label>
+        <name>Overall_impression</name>
+    </customLabels>
+    <customLabels>
         <label>購入者</label>
         <name>Owner</name>
     </customLabels>
@@ -2196,6 +2440,10 @@
     <customLabels>
         <label><!-- POM/advertisement --></label>
         <name>POM_advertisement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PR to promote this event --></label>
+        <name>PR_to_promote_this_event</name>
     </customLabels>
     <customLabels>
         <label><!-- Page Element - Next --></label>
@@ -2300,7 +2548,7 @@
         <name>Pleasetakecautiontheinformation</name>
     </customLabels>
     <customLabels>
-        <label>ホット度　：　</label>
+        <label>ホット度　：</label>
         <name>Possibility</name>
     </customLabels>
     <customLabels>
@@ -2336,15 +2584,15 @@
         <name>Promotion_on_Technical_accessories_and_collections</name>
     </customLabels>
     <customLabels>
-        <label>提示日(１)： </label>
+        <label>提示日(１)：</label>
         <name>Proposed_Date_1</name>
     </customLabels>
     <customLabels>
-        <label>提示日(2)： </label>
+        <label>提示日(2)：</label>
         <name>Proposed_Date_2</name>
     </customLabels>
     <customLabels>
-        <label>提示日(3)： </label>
+        <label>提示日(3)：</label>
         <name>Proposed_Date_3</name>
     </customLabels>
     <customLabels>
@@ -2372,24 +2620,220 @@
         <name>Purchased_Date</name>
     </customLabels>
     <customLabels>
+        <label><!-- Q10 Describe MB --></label>
+        <name>Q10_Describe_MB</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q10 Were you contacted by your Mercedes-Benz service --></label>
+        <name>Q10_Were_you_contacted_by_your_Mercedes_Benz_service</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q11 recommendation --></label>
+        <name>Q11_recommendation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q12 Test drive --></label>
+        <name>Q12_Test_drive</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q13 Period --></label>
+        <name>Q13_Period</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q14 Activity --></label>
+        <name>Q14_Activity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1_Overall impression --></label>
+        <name>Q1_Overall_impression</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1 Overall satisfaction --></label>
+        <name>Q1_Overall_satisfaction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1 Please rate your satisfaction toward call agent --></label>
+        <name>Q1_Please_rate_your_satisfaction_toward_call_agent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1 Satisfied with initiating the service visit. --></label>
+        <name>Q1_Satisfied_with_initiating_the_service_visit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1 Your Current Cars --></label>
+        <name>Q1_Your_Current_Cars</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Q1_ service quality --></label>
         <name>Q1_service_quality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2 Driving experience --></label>
+        <name>Q2_Driving_experience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2_Event venue --></label>
+        <name>Q2_Event_venue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2_Other Cars in household --></label>
+        <name>Q2_Other_Cars_in_House</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2 Politeness of staff Receiving --></label>
+        <name>Q2_Politeness_of_staff_Receiving</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2 Satisfied with Service advisor/Dealer staffs --></label>
+        <name>Q2_Satisfied_with_Service_advisor_Dealer_staffs</name>
     </customLabels>
     <customLabels>
         <label><!-- Q2_Service_center_employee --></label>
         <name>Q2_Service_center_employee</name>
     </customLabels>
     <customLabels>
+        <label><!-- Q2 Will you recommend improvement area for Star Assist service --></label>
+        <name>Q2_Will_you_recommend_improvement_area_for_Star_Assist_service</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2 Will you recommend product and service of Mercedes-Benz Thailand --></label>
+        <name>Q2_Will_you_recommend_product_and_service_of_Mercedes_Benz_Thailand</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Q3_Delivery_Service --></label>
         <name>Q3_Delivery_Service</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3 Instructor Team --></label>
+        <name>Q3_Instructor_Team</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3_Interesting event --></label>
+        <name>Q3_Interesting_event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3 Satisfied with aftersales facility --></label>
+        <name>Q3_Satisfied_with_aftersales_facility</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3 Towing staff uniform/appearance --></label>
+        <name>Q3_Towing_staff_uniform_appearance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Appropriated tool &amp; Towed truck --></label>
+        <name>Q4_Appropriated_tool_Towed_truck</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Contemporary --></label>
+        <name>Q4_Contemporary</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Credible --></label>
+        <name>Q4_Credible</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Dynamic --></label>
+        <name>Q4_Dynamic</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Elegance --></label>
+        <name>Q4_Elegance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 If others, please specify --></label>
+        <name>Q4_If_others_please_specify</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Luxury --></label>
+        <name>Q4_Luxury</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Modern --></label>
+        <name>Q4_Modern</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Others --></label>
+        <name>Q4_Others</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Quality --></label>
+        <name>Q4_Quality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Safety --></label>
+        <name>Q4_Safety</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Satisfied with vehicle pickup process --></label>
+        <name>Q4_Satisfied_with_vehicle_pickup_process</name>
     </customLabels>
     <customLabels>
         <label><!-- Q4_Service Center Information --></label>
         <name>Q4_Service_Center_Information</name>
     </customLabels>
     <customLabels>
+        <label><!-- Q4 Staff hospitality --></label>
+        <name>Q4_Staff_hospitality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Valuable alternative --></label>
+        <name>Q4_Valuable_alternative</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q5 Food &amp; beverage --></label>
+        <name>Q5_Food_beverage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q5 Proactive Offering --></label>
+        <name>Q5_Proactive_Offering</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q5 Satisfied with service quality --></label>
+        <name>Q5_Satisfied_with_service_quality</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Q5_Service_Center --></label>
         <name>Q5_Service_Center</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q6 Coordination --></label>
+        <name>Q6_Coordination</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q6 PR to promote this event --></label>
+        <name>Q6_PR_to_promote_this_event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q6 Satisfied with building  up relationship to customer --></label>
+        <name>Q6_Satisfied_with_building_up_relationship_to_customer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q7 Coordination during the event --></label>
+        <name>Q7_Coordination_during_the_event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q7 Satisfied with Overall service experience --></label>
+        <name>Q7_Satisfied_with_Overall_service_experience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q7 Waiting time --></label>
+        <name>Q7_Waiting_time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q8 Interesting Event --></label>
+        <name>Q8_Interesting_Event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q8 Would you go back to the service center --></label>
+        <name>Q8_Would_you_go_back_to_the_service_center</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q9 Would you recommend this service center --></label>
+        <name>Q9_Would_you_recommend_this_service_center</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q9 Your suggestion (Open-ended question) --></label>
+        <name>Q9_Your_suggestion_Open_ended_question</name>
     </customLabels>
     <customLabels>
         <label><!-- QCMassCalibrationNotice --></label>
@@ -2436,12 +2880,28 @@
         <name>QC_Mass_Calibration_Title</name>
     </customLabels>
     <customLabels>
+        <label><!-- Quality --></label>
+        <name>Quality</name>
+    </customLabels>
+    <customLabels>
         <label>詳細は別設計書を参照シート</label>
         <name>RET_02_01_ServiceAmountView</name>
     </customLabels>
     <customLabels>
         <label>車種</label>
         <name>Range_Model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rating --></label>
+        <name>Rating</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rating1 --></label>
+        <name>Rating1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rating reason --></label>
+        <name>Rating_reason</name>
     </customLabels>
     <customLabels>
         <label><!-- Received By --></label>
@@ -2559,14 +3019,6 @@
         <label>必須項目を入力してください。</label>
         <name>Required_Information</name>
     </customLabels>
-	<customLabels>
-        <label>様</label>
-        <name>To_Person</name>
-    </customLabels>
-	<customLabels>
-        <label>御中</label>
-        <name>To_Company</name>
-    </customLabels>
     <customLabels>
         <label>情報源</label>
         <name>Resource</name>
@@ -2595,9 +3047,661 @@
         <label><!-- Retail Campaign Canlender Page SM Media --></label>
         <name>Retail_Campaign_Canlender_Page_SM_Media</name>
     </customLabels>
-	<customLabels>
+    <customLabels>
+        <label><!-- Retail Copy View Area For Dealer User --></label>
+        <name>Retail_Copy_View_Area_For_Dealer_User</name>
+    </customLabels>
+    <customLabels>
         <label>該当顧客は既に自法人情報内に存在します。画面上部のグローバル検索ボックスにて再度検索してください。</label>
         <name>Retail_copy_is_already_present</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Address Type --></label>
+        <name>S5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A1 TE --></label>
+        <name>S5_A1_TE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A3.4 I don’t know (yet) --></label>
+        <name>S5_A3_4_I_don_t_know_yet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A3.4 I will primarily use the car for business --></label>
+        <name>S5_A3_4_I_will_primarily_use_the_car_for_business</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A3.4 I will primarily use the car privately --></label>
+        <name>S5_A3_4_I_will_primarily_use_the_car_privately</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A3.4 I will use the car privately and for business in roughly equal parts --></label>
+        <name>S5_A3_4_I_will_use_the_car_privately_and_for_business_in_roughly_equal_parts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A4.1.1 Online Survey --></label>
+        <name>S5_A4_1_1_Online_Survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A4.1.2 Telephone Survey --></label>
+        <name>S5_A4_1_2_Telephone_Survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A6.1 I contacted my dealer --></label>
+        <name>S5_A6_1_I_contacted_my_dealer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A6.1 My dealer contacted me --></label>
+        <name>S5_A6_1_My_dealer_contacted_me</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Address Line 1 --></label>
+        <name>S5_Address_Line_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Address Line 2 --></label>
+        <name>S5_Address_Line_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Block --></label>
+        <name>S5_Block</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 City --></label>
+        <name>S5_City</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Company Name --></label>
+        <name>S5_Company_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Date of Birth --></label>
+        <name>S5_Date_of_Birth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 First name --></label>
+        <name>S5_First_name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Home Phone --></label>
+        <name>S5_Home_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Home Phone 2 --></label>
+        <name>S5_Home_Phone_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Contract Type --></label>
+        <name>S5_L_Contract_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Date of Payment --></label>
+        <name>S5_L_Date_of_Payment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Installment amount/month --></label>
+        <name>S5_L_Installment_amount_month</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L No of months of contract term --></label>
+        <name>S5_L_No_of_months_of_contract_term</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Please enter the information to be updated --></label>
+        <name>S5_L_Please_enter_the_information_to_be_updated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Preferred payment channel --></label>
+        <name>S5_L_Preferred_payment_channel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Vehicle Model --></label>
+        <name>S5_L_Vehicle_Model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Last name --></label>
+        <name>S5_Last_name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Mobile --></label>
+        <name>S5_Mobile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Mobile 2 --></label>
+        <name>S5_Mobile_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5  Name --></label>
+        <name>S5_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Phone --></label>
+        <name>S5_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Post Code --></label>
+        <name>S5_Post_Code</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 E LT P1 --></label>
+        <name>S5_Q1_1_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 E LT P2 --></label>
+        <name>S5_Q1_1_E_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 E LT P3 --></label>
+        <name>S5_Q1_1_E_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 T LT P1 --></label>
+        <name>S5_Q1_1_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 T LT P2 --></label>
+        <name>S5_Q1_1_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E LT P1 --></label>
+        <name>S5_Q1_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E LT P2 --></label>
+        <name>S5_Q1_E_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E LT P3 --></label>
+        <name>S5_Q1_E_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E LT P4 --></label>
+        <name>S5_Q1_E_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 E MBLT P1 --></label>
+        <name>S5_Q1_E_MBLT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P10 --></label>
+        <name>S5_Q1_E_MBLT_P10</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P2 --></label>
+        <name>S5_Q1_E_MBLT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P3 --></label>
+        <name>S5_Q1_E_MBLT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P4 --></label>
+        <name>S5_Q1_E_MBLT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P5 --></label>
+        <name>S5_Q1_E_MBLT_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P6 --></label>
+        <name>S5_Q1_E_MBLT_P6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P7 --></label>
+        <name>S5_Q1_E_MBLT_P7</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P8 --></label>
+        <name>S5_Q1_E_MBLT_P8</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P9 --></label>
+        <name>S5_Q1_E_MBLT_P9</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 E MBTH P1 --></label>
+        <name>S5_Q1_E_MBTH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBTH P2 --></label>
+        <name>S5_Q1_E_MBTH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 E MBTH P3 --></label>
+        <name>S5_Q1_E_MBTH_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E TH P1 --></label>
+        <name>S5_Q1_E_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E TH P2 --></label>
+        <name>S5_Q1_E_TH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T LT P1 --></label>
+        <name>S5_Q1_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T LT P2 --></label>
+        <name>S5_Q1_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T LT P3 --></label>
+        <name>S5_Q1_T_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T LT P4 --></label>
+        <name>S5_Q1_T_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T TH P1 --></label>
+        <name>S5_Q1_T_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T TH P2 --></label>
+        <name>S5_Q1_T_TH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T TH P3 --></label>
+        <name>S5_Q1_T_TH_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2 --></label>
+        <name>S5_Q2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P1 --></label>
+        <name>S5_Q2_1_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P2 --></label>
+        <name>S5_Q2_1_E_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P3 --></label>
+        <name>S5_Q2_1_E_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P4 --></label>
+        <name>S5_Q2_1_E_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P5 --></label>
+        <name>S5_Q2_1_E_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T Is that correct --></label>
+        <name>S5_Q2_1_T_Is_that_correct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P1 --></label>
+        <name>S5_Q2_1_T_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P2 --></label>
+        <name>S5_Q2_1_T_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P3 --></label>
+        <name>S5_Q2_1_T_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P4 --></label>
+        <name>S5_Q2_1_T_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P5 --></label>
+        <name>S5_Q2_1_T_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.2 E P1 --></label>
+        <name>S5_Q2_2_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.2 T P1 DOB --></label>
+        <name>S5_Q2_2_T_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.3 E P1 --></label>
+        <name>S5_Q2_3_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.4 E LT P1 --></label>
+        <name>S5_Q2_4_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.5 E P1 --></label>
+        <name>S5_Q2_5_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.5 T P1 your address is --></label>
+        <name>S5_Q2_5_T_P1_your_address_is</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 E LT P1 --></label>
+        <name>S5_Q2_6_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 E TH P1 --></label>
+        <name>S5_Q2_6_E_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 T LT P1 --></label>
+        <name>S5_Q2_6_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 T LT P2 --></label>
+        <name>S5_Q2_6_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 T TH P1 --></label>
+        <name>S5_Q2_6_T_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT --></label>
+        <name>S5_Q2_7_E_LT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P1 --></label>
+        <name>S5_Q2_7_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P2 --></label>
+        <name>S5_Q2_7_E_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P3 --></label>
+        <name>S5_Q2_7_E_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P4 --></label>
+        <name>S5_Q2_7_E_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P5 --></label>
+        <name>S5_Q2_7_E_LT_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P6 --></label>
+        <name>S5_Q2_7_E_LT_P6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT --></label>
+        <name>S5_Q2_7_T_LT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P1 --></label>
+        <name>S5_Q2_7_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P2 --></label>
+        <name>S5_Q2_7_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P3 --></label>
+        <name>S5_Q2_7_T_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P4 --></label>
+        <name>S5_Q2_7_T_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P5 --></label>
+        <name>S5_Q2_7_T_LT_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P6 --></label>
+        <name>S5_Q2_7_T_LT_P6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P7 --></label>
+        <name>S5_Q2_7_T_LT_P7</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P8 --></label>
+        <name>S5_Q2_7_T_LT_P8</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P9 --></label>
+        <name>S5_Q2_7_T_LT_P9</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.8 E LT --></label>
+        <name>S5_Q2_8_E_LT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.8 E LT P1 --></label>
+        <name>S5_Q2_8_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.8 T LT --></label>
+        <name>S5_Q2_8_T_LT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2 E --></label>
+        <name>S5_Q2_E</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2 T --></label>
+        <name>S5_Q2_T</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.1 What is the relationship of the car owner? --></label>
+        <name>S5_Q3_1_1_What_is_the_relationship_of_the_car_owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2. Check contact person --></label>
+        <name>S5_Q3_1_2_Check_contact_person</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2 Who is After sales contact? --></label>
+        <name>S5_Q3_1_2_Who_is_After_sales_contact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2 Who is Owner of the car? --></label>
+        <name>S5_Q3_1_2_Who_is_Owner_of_the_car</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2 Who is sales contact? --></label>
+        <name>S5_Q3_1_2_Who_is_sales_contact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2 Who is the driver? (if any) --></label>
+        <name>S5_Q3_1_2_Who_is_the_driver_if_any</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1	Are you the main user of the car? --></label>
+        <name>S5_Q3_1_Are_you_the_main_user_of_the_car</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.2 Age of car user --></label>
+        <name>S5_Q3_2_Age_of_car_user</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.4 How do you primarily use your new car? --></label>
+        <name>S5_Q3_4_How_do_you_primarily_use_your_new_car</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.7 Did you buy a MB at the dealership --></label>
+        <name>S5_Q3_7_Did_you_buy_a_MB_at_the_dealership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 E --></label>
+        <name>S5_Q3_E</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 E P1 --></label>
+        <name>S5_Q3_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 E P2 --></label>
+        <name>S5_Q3_E_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 T TH P1 --></label>
+        <name>S5_Q3_T_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 T TH P2 --></label>
+        <name>S5_Q3_T_TH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4.1 Which channel do you prefer to do the CSI survey? --></label>
+        <name>S5_Q4_1_Which_channel_do_you_prefer_to_do_the_CSI_survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4.2 When will your prefer to do the telephone survey? --></label>
+        <name>S5_Q4_2_When_will_your_prefer_to_do_the_telephone_survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 E --></label>
+        <name>S5_Q4_E</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 E P1 --></label>
+        <name>S5_Q4_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 E P1A --></label>
+        <name>S5_Q4_E_P1A</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 E P2 --></label>
+        <name>S5_Q4_E_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P1 --></label>
+        <name>S5_Q4_T_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P2 --></label>
+        <name>S5_Q4_T_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P3 --></label>
+        <name>S5_Q4_T_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P4 --></label>
+        <name>S5_Q4_T_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P5 --></label>
+        <name>S5_Q4_T_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5.1 Did sales representative inform you about benefit of MercedesCard ? --></label>
+        <name>S5_Q5_1_Did_sales_representative_inform_you_about_benefit_of_MercedesCard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5.2 Will you apply for the MercedesCard membership? --></label>
+        <name>S5_Q5_2_Will_you_apply_for_the_MercedesCard_membership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 E --></label>
+        <name>S5_Q5_E</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P1 --></label>
+        <name>S5_Q5_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P2 --></label>
+        <name>S5_Q5_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P3 --></label>
+        <name>S5_Q5_T_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P3 A --></label>
+        <name>S5_Q5_T_LT_P3_A</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P4 --></label>
+        <name>S5_Q5_T_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T TH P1 --></label>
+        <name>S5_Q5_T_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T TH P2 --></label>
+        <name>S5_Q5_T_TH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T TH P3 --></label>
+        <name>S5_Q5_T_TH_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T TH P4 --></label>
+        <name>S5_Q5_T_TH_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q6.1 How was the first contact made --></label>
+        <name>S5_Q6_1_How_was_the_first_contact_made</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q6.2 What were the contact channels --></label>
+        <name>S5_Q6_2_What_were_the_contact_channels</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.1 Processing speed how quick entire process was? --></label>
+        <name>S5_Q7_1_Processing_speed_how_quick_entire_process_was</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.2 Thoroughness of processing --></label>
+        <name>S5_Q7_2_Thoroughness_of_processing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.3 Completeness of processing --></label>
+        <name>S5_Q7_3_Completeness_of_processing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.4 Selected contact channel for the processing convenience --></label>
+        <name>S5_Q7_4_Selected_contact_channel_for_the_processing_convenience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.5 Content format of the processing convenience --></label>
+        <name>S5_Q7_5_Content_format_of_the_processing_convenience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7  Rotation of items 1-5 --></label>
+        <name>S5_Q7_Rotation_of_items_1_5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q9.1 Please give a satisfaction score for service of Call agent --></label>
+        <name>S5_Q9_1_Please_give_a_satisfaction_score_for_service_of_Call_agent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q9 Call Center Evaluation / NPS via IVR --></label>
+        <name>S5_Q9_Call_Center_Evaluation_NPS_via_IVR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q 9.2 Would you recommend product and service of Mercedes-Benz --></label>
+        <name>S5_Q_9_2_Would_you_recommend_product_and_service_of_Mercedes_Benz</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Town --></label>
+        <name>S5_Town</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Work Phone --></label>
+        <name>S5_Work_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Your Nationaliy is --></label>
+        <name>S5_Your_Nationaliy_is</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 company&apos;s registration type --></label>
+        <name>S5_company_s_registration_type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 title --></label>
+        <name>S5_title</name>
     </customLabels>
     <customLabels>
         <label><!-- SMS Reply History Respond Content --></label>
@@ -2708,6 +3812,10 @@
         <name>Same</name>
     </customLabels>
     <customLabels>
+        <label><!-- Satisfaction towards this event --></label>
+        <name>Satisfaction_towards_this_event</name>
+    </customLabels>
+    <customLabels>
         <label>保存</label>
         <name>Save_Button</name>
     </customLabels>
@@ -2752,12 +3860,28 @@
         <name>Select_User</name>
     </customLabels>
     <customLabels>
+        <label><!-- Select dropdown --></label>
+        <name>Select_dropdown</name>
+    </customLabels>
+    <customLabels>
         <label>販売拠点</label>
         <name>SellingDealer</name>
     </customLabels>
     <customLabels>
         <label><!-- Selling Dealer --></label>
         <name>Selling_Dealer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendToJPOSErrorMsg --></label>
+        <name>SendToJPOSErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendToMyMercedesErrorMsg --></label>
+        <name>SendToMyMercedesErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendToSPOErrorMSG --></label>
+        <name>SendToSPOErrorMSG</name>
     </customLabels>
     <customLabels>
         <label>まずAutolineの情報を設定してください</label>
@@ -2792,7 +3916,7 @@
         <name>Service_Product_Promotion</name>
     </customLabels>
     <customLabels>
-        <label>自動車保険提案 </label>
+        <label>自動車保険提案</label>
         <name>Service_Program_Proposal</name>
     </customLabels>
     <customLabels>
@@ -2808,6 +3932,10 @@
         <name>Service_responsible_Person</name>
     </customLabels>
     <customLabels>
+        <label><!-- Seven --></label>
+        <name>Seven</name>
+    </customLabels>
+    <customLabels>
         <label>許諾</label>
         <name>Share</name>
     </customLabels>
@@ -2816,12 +3944,20 @@
         <name>Simple_Estimation</name>
     </customLabels>
     <customLabels>
+        <label><!-- Six --></label>
+        <name>Six</name>
+    </customLabels>
+    <customLabels>
         <label>／</label>
         <name>SlashPDF</name>
     </customLabels>
-	<customLabels>
+    <customLabels>
         <label>リード一覧</label>
         <name>Slave_Record</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Somewhat disappointed --></label>
+        <name>Somewhat_disappointed</name>
     </customLabels>
     <customLabels>
         <label><!-- Special Filters --></label>
@@ -2904,8 +4040,40 @@
         <name>Survey_Name</name>
     </customLabels>
     <customLabels>
+        <label><!-- Survey Response --></label>
+        <name>Survey_Response</name>
+    </customLabels>
+    <customLabels>
         <label>重複の可能性があるアカウント</label>
         <name>Suspected_Duplicates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH --></label>
+        <name>TH</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_CACPurchaseddateRequired_Error --></label>
+        <name>TH_CACPurchaseddateRequired_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_CAC_LeadstatusPurchasedError --></label>
+        <name>TH_CAC_LeadstatusPurchasedError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH Not authorized to create MB Vehicle record --></label>
+        <name>TH_Not_authorized_to_create_MB_Vehicle_record</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_SARIDealerlead status error --></label>
+        <name>TH_SARIDealerlead_status_error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_SARI_DealerOrderplacedError --></label>
+        <name>TH_SARI_DealerOrderplacedError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_SERVICEBOOKING --></label>
+        <name>TH_SERVICE_BOOKING</name>
     </customLabels>
     <customLabels>
         <label><!-- Target VIN --></label>
@@ -3020,6 +4188,10 @@
         <name>TelFax</name>
     </customLabels>
     <customLabels>
+        <label><!-- Ten --></label>
+        <name>Ten</name>
+    </customLabels>
+    <customLabels>
         <label>車両手放し情報</label>
         <name>TerminateVehicleRelationship</name>
     </customLabels>
@@ -3048,6 +4220,10 @@
         <name>The_filter_count_is_greater_than_15</name>
     </customLabels>
     <customLabels>
+        <label><!-- Three --></label>
+        <name>Three</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Title - Retail Campaigns Mass Approve --></label>
         <name>Title_Retail_Campaigns_Mass_Approve</name>
     </customLabels>
@@ -3062,6 +4238,14 @@
     <customLabels>
         <label><!-- Title - Tool Kits Mass Approve --></label>
         <name>Title_Tool_Kits_Mass_Approve</name>
+    </customLabels>
+    <customLabels>
+        <label>御中</label>
+        <name>To_Company</name>
+    </customLabels>
+    <customLabels>
+        <label>様</label>
+        <name>To_Person</name>
     </customLabels>
     <customLabels>
         <label><!-- Took Kit Type --></label>
@@ -3112,6 +4296,10 @@
         <name>Trim</name>
     </customLabels>
     <customLabels>
+        <label><!-- Two --></label>
+        <name>Two</name>
+    </customLabels>
+    <customLabels>
         <label>顧客ID</label>
         <name>UCID</name>
     </customLabels>
@@ -3119,7 +4307,7 @@
         <label><!-- URL --></label>
         <name>URL</name>
     </customLabels>
-	<customLabels>
+    <customLabels>
         <label>成約予定日と登録予定日を入力してください</label>
         <name>Uncalculated</name>
     </customLabels>
@@ -3272,12 +4460,24 @@
         <name>Vehicle_Retail_copy_Filter</name>
     </customLabels>
     <customLabels>
+        <label><!-- Very disappointed --></label>
+        <name>Very_disappointed</name>
+    </customLabels>
+    <customLabels>
         <label><!-- ViewHierarchy --></label>
         <name>ViewHierarchy</name>
     </customLabels>
     <customLabels>
         <label>来店</label>
         <name>Visited</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Which activity would you like to join in the future? / Your suggestions --></label>
+        <name>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Why --></label>
+        <name>Why</name>
     </customLabels>
     <customLabels>
         <label>勤務先Fax</label>
@@ -3292,8 +4492,44 @@
         <name>Work_Phone</name>
     </customLabels>
     <customLabels>
+        <label><!-- Would you recommend your family or friends join this event in the future? --></label>
+        <name>Would_you_recommend_your_family_or_friends_join_this_event_in_the_future</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 10 to less than 20 years --></label>
+        <name>X10_to_less_than_20_years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 1 year --></label>
+        <name>X1_year</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 20 years and more --></label>
+        <name>X20_years_and_more</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 2 year --></label>
+        <name>X2_year</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 3 years --></label>
+        <name>X3_years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 4 years --></label>
+        <name>X4_years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 5 to less than 10 years --></label>
+        <name>X5_to_less_than_10_years</name>
+    </customLabels>
+    <customLabels>
         <label>年式</label>
         <name>Year</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Year of Purchase --></label>
+        <name>Year_of_Purchase</name>
     </customLabels>
     <customLabels>
         <label><!-- Yearly TA Apply deadline --></label>
@@ -3352,6 +4588,14 @@
         <name>Yes</name>
     </customLabels>
     <customLabels>
+        <label><!-- Yes Thai --></label>
+        <name>Yes_Thai</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q.Your Current car(s) --></label>
+        <name>Your_Current_car_s</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Zipcode --></label>
         <name>Zipcode</name>
     </customLabels>
@@ -3380,6 +4624,10 @@
         <name>applicationpdf</name>
     </customLabels>
     <customLabels>
+        <label><!-- checkSum --></label>
+        <name>checkSum</name>
+    </customLabels>
+    <customLabels>
         <label>最低でも一つのコンタクト情報を入力してください。</label>
         <name>contact_information</name>
     </customLabels>
@@ -3394,6 +4642,10 @@
     <customLabels>
         <label><!-- displayOnly --></label>
         <name>displayOnly</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- korea Business Hours Id --></label>
+        <name>korea_Business_Hours_Id</name>
     </customLabels>
     <customLabels>
         <label><!-- l_AtmospherePerceptionandLighting --></label>
@@ -3450,6 +4702,10 @@
     <customLabels>
         <label><!-- master --></label>
         <name>master</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 3 months --></label>
+        <name>months</name>
     </customLabels>
     <customLabels>
         <label><!-- purchased vehicle related information --></label>
@@ -3601,6 +4857,19 @@
         </sections>
     </reportTypes>
     <reportTypes>
+        <description><!-- Account with Account Link (SARI) --></description>
+        <label><!-- Account with Account Link (SARI) --></label>
+        <name>Account_with_Account_Link_SARI</name>
+        <sections>
+            <label><!-- Account Links (Contact to Contact) --></label>
+            <name>Account Links (Contact to Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- Account with Account Link and Retail Task --></description>
         <label><!-- Account with Account Link and Retail Task --></label>
         <name>Account_with_Account_Link_and_Retail_Task</name>
@@ -3723,6 +4992,32 @@
         <sections>
             <label><!-- Leads (Contact) --></label>
             <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Vehicles Relationship(SARI) --></description>
+        <label><!-- Accounts with Vehicles Relationship(SARI) --></label>
+        <name>Accounts_with_Vehicles_Relationship_SARI</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Member --></description>
+        <label><!-- Campaign Member --></label>
+        <name>Campaign_Member</name>
+        <sections>
+            <label><!-- Campaign Members --></label>
+            <name>Campaign Members</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -3869,6 +5164,19 @@
             </columns>
             <label><!-- Leads --></label>
             <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Dealer with Account Link (Vehicle) (SARI) --></description>
+        <label><!-- Dealer with Account Link (Vehicle) (SARI) --></label>
+        <name>Dealer_with_Account_Link_Vehicle_SARI</name>
+        <sections>
+            <label><!-- Account Links(External Link) --></label>
+            <name>Account Links(External Link)</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -4352,6 +5660,19 @@
         <sections>
             <label><!-- Leads --></label>
             <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- DM Request and Associated tasks --></description>
+        <label><!-- DM Request and Associated tasks --></label>
+        <name>MBTH_DM_Request_and_Associated_tasks</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
         </sections>
     </reportTypes>
     <reportTypes>

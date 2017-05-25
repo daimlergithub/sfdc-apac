@@ -91,5 +91,4 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <pluralLabel>Segmentation Criterias</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-    
 </CustomObject>
