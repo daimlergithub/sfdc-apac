@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>Account_Sharing_Rule_TH</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH_Call_Center</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <booleanFilter>1</booleanFilter>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>Account Sharing Rule TH</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Dealer_Account_Edit_Only_for_CRM</fullName>
         <sharedTo>
             <role>MBJ_CRM_Department_Approver</role>
@@ -517,6 +534,22 @@
         <description>Account with record-type = &apos;Person Account Soft Deleted&apos; and MD__c = &apos;JP&apos;, can only be modified by IT Dept. and Data Management User</description>
         <name>SoftDelete_PersonAccount_Edit_Only_for_IT</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TH_Account_Sharing_ReadAccess</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MPC</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>TH_Account Sharing_ReadAccess</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Test</fullName>

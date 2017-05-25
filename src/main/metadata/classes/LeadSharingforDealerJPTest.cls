@@ -104,7 +104,7 @@ public class LeadSharingforDealerJPTest {
     set<String> contactId = new set<String>();
     createTestData();
     test.starttest();  
-      LeadSharingforDealerJP.LeadSharing_Dealer(leadlist);
+      LeadSharingforDealerJP.LeadSharing_Dealer(leadlist,leadOldMap,true,true);
     test.stoptest();
     system.assertEquals(leadobj.Lead_Type__c,'New Car'); 
   } 

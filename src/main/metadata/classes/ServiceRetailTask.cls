@@ -1,9 +1,5 @@
 public class ServiceRetailTask
 {
-
-    
-
-
 private integer counter=0;  //keeps track of the offset
    private integer list_size=5; //sets the page size or number of rows
    public integer total_size; //used to show user the total size of the list

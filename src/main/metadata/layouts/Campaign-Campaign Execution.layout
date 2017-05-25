@@ -5,6 +5,7 @@
     <customButtons>OPRO_Label_Print_PDF</customButtons>
     <customButtons>Consolidate_List_Maintenance</customButtons>
     <customButtons>Add_Participating_Dealer</customButtons>
+    <customButtons>Distribution_to_Dealer</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -67,6 +68,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Consolidated_List_Completed__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Distribution_is_completed__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Notification_to_Owner__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -208,17 +217,24 @@
     </relatedContent>
     <relatedLists>
         <customButtons>New_Campaign_Member</customButtons>
-        <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
+        <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Upload_Campaign_Member_Response</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_DM_Request</customButtons>
         <customButtons>Convert_To_Task</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
+        <fields>Contact_Id__c</fields>
         <fields>Status__c</fields>
-        <fields>RespondedDate__c</fields>
+        <fields>Company_Name__c</fields>
+        <fields>Contract_Number__c</fields>
+        <fields>Preferred_Dealer__c</fields>
+        <fields>Model__c</fields>
+        <fields>Sales_Representative__c</fields>
+        <fields>Service_Representative__c</fields>
+        <fields>Contract_Responsible_Person__c</fields>
         <relatedList>Campaign_Member__c.Campaign_ID__c</relatedList>
     </relatedLists>
     <relatedLists>

@@ -7,4 +7,5 @@
     <tab>standard-report</tab>
     <tab>standard-Workspace</tab>
     <tab>standard-File</tab>
+    <tab>Campaign_Member__c</tab>
 </CustomApplication>

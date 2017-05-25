@@ -32,6 +32,19 @@
         <name>CAC Inquiry share to Hanxue</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Case_Record_Share</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S24h - MMC</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>Case Record Share</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>ComplaintShareCentralOffice</fullName>
         <sharedTo>
             <role>AS_Service_Technical_Director</role>
@@ -339,6 +352,20 @@
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>Share RO/CO Cases to Central</name>
     </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TH_Sharing_Cases_to_All_other_TH_users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <description>Sharing all the cases to the all users of Thailand</description>
+        <name>TH_Sharing_Cases_to_All_other_TH_users</name>
+    </criteriaBasedRules>
     <ownerRules>
         <fullName>CAC_Case_share_to_Hanxue</fullName>
         <sharedTo>
@@ -416,6 +443,28 @@
         </sharedFrom>
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>Central sees Regional W</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>MBF_Case_Records_Sharing_MBJ</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_CRM_Department_non_Approver</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>MBF Case Records Sharing MBJ</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>MBF_Case_Records_Sharing_to_MBJ</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_CRM_Department_Approver</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>MBF Case Records Sharing to MBJ</name>
     </ownerRules>
     <ownerRules>
         <fullName>Share_with_CAC_Data_CRM_with_R_only</fullName>

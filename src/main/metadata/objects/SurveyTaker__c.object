@@ -123,6 +123,15 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Dealer Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Surveys Taken (Dealer Account)</relationshipLabel>
         <relationshipName>Surveys_Taken1</relationshipName>
@@ -172,7 +181,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Retail_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

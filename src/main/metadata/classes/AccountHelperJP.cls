@@ -92,6 +92,75 @@ public class AccountHelperJP
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
+				if(Acc.Fax != Null && Acc.Fax != '')
+                {                    
+					Acc.Fax_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
+                {     
+					Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();				
+                    Acc.Fax2_Last_Modified_Date__c = System.now();
+                }
+				if(Acc.Primary_Phone__c != Null && Acc.Primary_Phone__c != '')
+                {                    
+                    Acc.Primary_Phone_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Email__c != Null && Acc.Primary_Email__c != '')
+                {                    
+                    Acc.Primary_Email_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Fax__c != Null && Acc.Primary_Fax__c != '')
+                {                    
+                    Acc.Primary_Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Address__c != Null && Acc.Primary_Address__c != '')
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
+                {                    
+                    Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
+                }
+				if(Acc.PersonDoNotCall == true)
+                {                    
+                    Acc.PersonDoNotCall_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Visit_Opt_Out__c == true)
+                {                    
+                    Acc.Visit_Opt_Out_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Postal_Opt_Out__c == true)
+                {                    
+                    Acc.Postal_Opt_Out_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonHasOptedOutOfEmail == true)
+                {                    
+                    Acc.OptedOutOfEmail_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonHasOptedOutOfFax == true)
+                {                    
+                    Acc.OptedOutOfFax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.MB_Customer_Info_Remove__c == true)
+                {                    
+                    Acc.MB_CIR_Last_Modified_Date__c = System.now();
+                }
+                                
+                if(Acc.Data_Source__c != Null && Acc.Data_Source__c != '')
+                {                    
+                    Acc.Data_Source_Last_Modified_Date__c = System.now();
+                }
             }
         }
     }
@@ -162,11 +231,13 @@ public class AccountHelperJP
                 
                 if(Acc.Fax != Null && Acc.Fax != '')
                 {                    
+					Acc.Fax_Last_Modified_By__c = UserInfo.getName();
                     Acc.Fax_Last_Modified_Date__c = System.now();
                 }
                 
                 if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
-                {                    
+                {     
+					Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();				
                     Acc.Fax2_Last_Modified_Date__c = System.now();
                 }
                 
@@ -396,6 +467,37 @@ public class AccountHelperJP
         try
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class updatePrimaryContactInformationBeforeUpdate method '+'listNewAccounts= ' + listNewAccounts.size());
+			 //Below condition is added as part of SFDCJP-2279
+            /* Added By Venky @5/10/2017.
+                If the value in ""Allow Data Sharing(Allow_Data_Sharing2__c"" is changed from ""Yes"" to ""No"" in Person Account record type, the value which is stored in below field should be deleted.
+                
+                - Acquisition Objective & Method(Acquisition_Objdective_Method__c)""
+                - Details of The Acquisition(Details_of_Acquisition__c)
+                - Acquisition Record Date (Acquisition_Record_Date__c)
+                "
+                
+            */
+            If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
+               {
+                     for(Account a:listNewAccounts)
+                       {
+					   
+					    //Changes as part of SFDCJP-2404
+                       if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && a.Allow_Data_Sharing2__c=='Yes'  && a.Acquisition_Record_Date__c ==null )
+                       { 
+                       a.Acquisition_Record_Date__c =System.today(); 
+                       }
+					   
+                           if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && (a.Allow_Data_Sharing2__c!= oldMap.get(a.id).Allow_Data_Sharing2__c && a.Allow_Data_Sharing2__c=='No'))
+                           {
+                           a.Acquisition_Objective_Method__c='';
+                           a.Details_of_Acquisition__c='';
+                           a.Acquisition_Record_Date__c=null;
+                           
+                           } 
+                       }
+               
+               }
             If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
             {
                 for(Account Acc : listNewAccounts)
@@ -525,7 +627,10 @@ public class AccountHelperJP
                         
                     }
                     update acclist;
+                    
+                    
                     map<id,Account> accountmap = new map<id,Account>([select Id,UCID__c,Name from Account where id In : AccIds]);
+                    system.debug('accountmap>>>>>' + accountmap);
                     for(Account acc : accountlist)
                     {
                         Account account = accountmap.get(acc.Id);
@@ -540,6 +645,14 @@ public class AccountHelperJP
                         
                     }
                     insert acclinklist;
+                    system.debug('MArket>>>>' + usr.Market__c);
+                    system.debug('UserType>>>>' + Userinfo.getUserType());
+                    if(usr.Market__c == 'KR' && Userinfo.getUserType() == 'PowerPartner')
+                    {
+                        system.debug('Insert>>>>Entered');
+                        AccountHelperKR.CreateRetailCopy(accountlist, true, true);
+                    }
+                    
                 }
             }
         }
@@ -732,6 +845,9 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                         acclnk.Retail_Foundation_Month__c = String.valueof(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());         
                     }
                 }
+				else{
+					acclnk.Retail_Foundation_Month__c = '';
+				}
                 acclnk.Retail_Industry__c = acclnk.toRole__r.Industry; 
                 acclnk.Retail_Website__c = acclnk.toRole__r.website;
             }
@@ -739,7 +855,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
             if(persongroup4 == true){
                 acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
             }               
-            if(persongroup4 == true){
+            if(persongroup5 == true){
                 acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;
             }                                  
             }//End if for Company record type
@@ -1086,14 +1202,14 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                  acckLst.add(acclnk);*/
                  if(led.RecordTypeId == PersonRecordTypeId){
                  acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Person'), fromRole__c = ownermap.get(led.ownerid).Contact.AccountId, toRole__c = led.Id,                                                                         
-                                                                        Retail_Full_Name__c = ((led.LastName!=null ? led.LastName : '') + ' ' + (led.FirstName != null ? led.FirstName : '')).left(25) ,
+                                                                        Retail_Full_Name__c = ((led.LastName!=null ? led.LastName : '') + '  ' + (led.FirstName != null ? led.FirstName : '')).left(25) ,
                                                                         Retail_PersonBirthdate__c = led.PersonBirthdate, Retail_Special_Care__c = led.Special_Care__c, Retail_Individual_Home_Phone__c = led.Individual_Home_Phone__c,
                                                                         Retail_Work_Phone__c = led.Work_Phone__c, Retail_Mobile__c = led.Mobile__c, Retail_Email__c = led.Email__c,                                                                       
                                                                         Retail_Gender__c = led.Gender__c, Retail_Occupation__c = led.Occupation__c,
                                                                         Retail_Preferred_Language__c = led.Preferred_Language__c,
                                                                         Retail_Preferred_Contact_Method__c = led.Preferred_Contact_Method__c,
                                                                         Retail_Special_Needs_Class__c = led.Special_Needs_Class__c, Retail_Allow_Data_Sharing__c = led.Allow_Data_Sharing2__c,
-                                                                        Retail_Full_Name_Native__c = ((led.LastName_Native_1__c != null ? led.LastName_Native_1__c: '') + (led.FirstName_Native_1__c != null ?led.FirstName_Native_1__c :'' )).left(50),
+                                                                        Retail_Full_Name_Native__c = ((led.LastName_Native_1__c != null ? led.LastName_Native_1__c: '') + ' ' + (led.FirstName_Native_1__c != null ?led.FirstName_Native_1__c :'' )).left(50),
                                                                         
                                                                         Retail_LastName__c = led.LastName, Retail_FirstName__c = led.FirstName, 
                                                                         Retail_Full_Name_Title__c = ((led.LastName!=null ? led.LastName : '') + '  ' + (led.FirstName != null ? led.FirstName : '')),//+ '  ' + (led.FirstName!= null ? led.FirstName : '')
@@ -1154,4 +1270,3 @@ if(usr.Profile.Name != 'IntegrationAPI'){
      }   
  }
 }
-

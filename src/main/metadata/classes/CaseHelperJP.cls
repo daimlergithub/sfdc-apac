@@ -6,8 +6,8 @@ public class CaseHelperJP
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
-   public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-   public List<Account> accUpdLst = new List<Account>();    
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    public List<Account> accUpdLst = new List<Account>();    
 
         
     public void calculateComplaintAmount(List<Case> cases, Map<Id,SObject> case_Map)
@@ -360,7 +360,9 @@ public class CaseHelperJP
            }  
         }        
     }
-   public void updateCaseDeadline(List<Case> cases, Map<Id,SObject> case_Map){     
+/* This method is of not in use, There is new class written from updateCaseDeadline	*/
+   public void updateCaseDeadline(List<Case> cases, Map<Id,SObject> case_Map){  
+/*   
          for (Case c : cases){ 
                Case caseRec = (Case)case_Map.get(c.Id);
             if ((c.Priority == 'A' || c.Priority =='Red >= 4') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
@@ -373,8 +375,10 @@ public class CaseHelperJP
            if ((c.Priority == 'C' || c.Priority =='Green <= 2') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
                c.DeadLine__c= System.Now() + 10;          
             } 
-          }      
+          }    
+*/		  
        }  
+
 public  void updateCase (List<case> caseSta) {
 
 map<id, string> accidmap = new map<id, string>();
@@ -762,28 +766,58 @@ List<Account> accUpdLst = new List<Account>();
           } 
              
       }
-
-
-    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
-       List<Id> caseIds = new List<Id>();
-         if(action == 'isUpdate'){
-           for(case cs: LstnewCase){
-               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
-                   caseIds.add(cs.id);                
+    
+    
+    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action)
+    {
+        List<Id> caseIds = new List<Id>();
+        if(action == 'isUpdate')
+        {
+            for(case cs: LstnewCase)
+            {
+                if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c 
+                  || cs.OwnerId != oldValcase.get(cs.Id).ownerId)
+                {
+                    caseIds.add(cs.id);                
                 }
-           }        
-       }
-        if(action == 'isInsert'){
-           for(case cs: LstnewCase){
-               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null){
-                   caseIds.add(cs.id);                
+            }        
+        }
+        if(action == 'isInsert')
+        {
+            for(case cs: LstnewCase)
+            {
+                if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null)
+                {
+                    caseIds.add(cs.id);                
                 }
-           }        
-       }       
-       
-       if(caseIds.size()>0){
-           
-           shareAccountRecord.shareAccountRecordNow(caseIds);
-       }
+            }        
+        }       
+        
+        if(caseIds.size()>0)
+        {
+            
+            shareAccountRecord.shareAccountRecordNow(caseIds);
+        }
+    }
+	
+    public void updateCaseDealer(List<case> dealerCaseList)
+    {
+        List<User> userList = new List<User>();
+        set<id> userid = new set<id>();
+        userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+        
+        for(Case delcase: dealerCaseList)
+        {
+            if(!userList.isEmpty() && userList != null)
+            {
+                for(User u : userList)
+                {
+                    if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
+                    {
+                        delcase.Case_Dealer__c = u.Contact.AccountId;
+                    }
+                }
+            }
+        }
     }
  }

@@ -255,7 +255,6 @@
                 <fullName>V-Class</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -387,7 +386,6 @@
                 <fullName>447</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>

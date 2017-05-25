@@ -2538,7 +2538,9 @@
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -2761,9 +2763,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>NoClaimBonus__c</fullName>
         <externalId>false</externalId>
         <label>No Claim Bonus</label>
-        <precision>5</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
@@ -3291,6 +3293,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Touring support Plus</fullName>
                 <default>false</default>
             </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -4611,40 +4614,36 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>MBF_Contract_Administration_CA_Team_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Contract Administration (CA) Team</label>
-        <language>en_US</language>
         <queue>MBF_Contract_Administration_CA_Team</queue>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Customer_Care_CCC_Team_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Customer Care (CCC) Team</label>
-        <language>en_US</language>
         <queue>MBF_Customer_Care_CCC_Team</queue>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Inbound_Outbound_Supervisor_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Inbound &amp; Outbound Supervisor</label>
-        <language>en_US</language>
         <queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Quotation_Team_Queue_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Quotation Team Queue</label>
-        <language>en_US</language>
         <queue>MBF_Quotation_Team_Queue</queue>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>

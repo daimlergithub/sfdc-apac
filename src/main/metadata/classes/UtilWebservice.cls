@@ -494,7 +494,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         addrValues.Temp_Address_xc=AddressObj.Temp_Address__c;
         addrValues.Temp_ZipCode_xc=AddressObj.Temp_ZipCode__c;
         addrValues.TitleOfHonor_xc=AddressObj.TitleOfHonor__c;
-		addrValues.Address_Type_xc=AddressObj.Address_Type__c;
+    addrValues.Address_Type_xc=AddressObj.Address_Type__c;
         sendingCustomerDetails.Address_xc.add(addrValues);
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)

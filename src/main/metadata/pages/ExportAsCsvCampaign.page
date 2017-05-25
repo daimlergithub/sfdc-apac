@@ -6,6 +6,9 @@ Lastmodifed  : 4th april,2017
 -->
 
 <apex:page contentType="application/vnd.ms-excel#CampaignMembers.xls" sidebar="false" controller="exportCampaignMembers" action="{!changeStatus}">
+     <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    </head>
         <table border="1" >
         <tr>
             <th>Campaign Member Id</th>

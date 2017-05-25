@@ -16488,11 +16488,7 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Inquiry Layout - CAC(IB/OB)</layout>
-        <sections>
-            <label><!-- Case Feedback --></label>
-            <section>Case Feedback</section>
-        </sections>
+        <layout>Inquiry Layout - CAC(IB/OB)</layout>        
         <sections>
             <label>販売店情報</label>
             <section>Dealer Information</section>
@@ -17216,7 +17212,7 @@
         <name>New_Chrysler_ComplaintForVehicleShip</name>
     </webLinks>
     <webLinks>
-        <label>新規ケース</label>
+        <label>新規ケース(MBJ)</label>
         <name>New_Inquiry</name>
     </webLinks>
     <webLinks>

@@ -32,7 +32,7 @@ public class MarketCheckOnVehiclePickerConKRTest{
          testlead = new Lead__c();
          ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
          MarketCheckOnVehiclePickerConKR mvp = new MarketCheckOnVehiclePickerConKR(sc);
-         
+         mvp.marketChecker=false;
      }
     
 

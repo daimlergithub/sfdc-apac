@@ -30,7 +30,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>Segmentation</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -58,9 +60,10 @@
         <fullName>Criteria__c</fullName>
         <externalId>false</externalId>
         <label>Criteria</label>
-        <required>false</required>
+        <length>500</length>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
     </fields>
     <fields>
         <fullName>MD__c</fullName>

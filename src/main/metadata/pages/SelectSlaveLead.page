@@ -27,7 +27,7 @@
     <apex:includeScript value="/soap/ajax/28.0/apex.js"/>
     <apex:pageMessages />     
     <apex:form id="theForm">
-    <apex:pageBlock title="Current Lead">
+    <apex:pageBlock title="{!$Label.Current_Lead}">
         <apex:pageBlockTable value="{!leads}" var="leads">
                 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Name.Label}">
                 <apex:outputText value="{!leads.Name}" style="width:9%; white-space:nowrap;"/>
@@ -65,7 +65,7 @@
     </apex:pageBlock>
         <apex:pageBlock title="{!$Label.Lead_to_be_Merged}" id="resultBlock">
             <apex:pageblockTable value="{!slaves}" var="slave1" styleclass="compare_table" id="a">  
-                  <apex:column headerValue="Slave Record">
+                  <apex:column headerValue="{!$Label.Slave_Record}">
          <input type="radio" name="Letters" value="{!slave1.acc.Id}" onclick="changeValue(this,'{!$Component.RadioButtonValue}');">
                     <apex:param name="contIdParam" value="{!slave1.acc.Id}" assignTo="{!selectedValue}"/>   
                 </input>       
@@ -75,7 +75,7 @@
                  </apex:repeat>                
             </apex:pageblockTable> 
              <apex:inputHidden value="{!selectedValue}" id="RadioButtonValue" />                        
-             <apex:commandButton value="Merge" action="{!mergeDup}" rerender="out" rendered="{!!hasMessage}"/> 
+             <apex:commandButton value="{!$Label.Merge}" action="{!mergeDup}" rerender="out" rendered="{!!hasMessage}"/> 
         </apex:pageBlock>
          <apex:outputText value="{!selectedValue}" id="out"/> 
     </apex:form>

@@ -55,10 +55,6 @@
             <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
-        <sections>
-            <label>新しい項目</label>
-            <section>New Fields</section>
-        </sections>
     </layouts>
     <nameFieldLabel>サーベイ名</nameFieldLabel>
     <webLinks>

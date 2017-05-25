@@ -7,10 +7,10 @@
         <field>SUBJECT</field>
     </columns>
     <columns>
-        <field>CREATED_DATE</field>
+        <field>OPEN</field>
     </columns>
     <columns>
-        <field>OPEN</field>
+        <field>ALIAS</field>
     </columns>
     <filter>
         <criteriaItems>
@@ -18,9 +18,19 @@
             <operator>equals</operator>
             <value>Case.Inquiry</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>PRIORITY</column>
+            <operator>equals</operator>
+            <value>,A,B,C</value>
+        </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>PRIORITY</field>

@@ -221,15 +221,15 @@
         <name>Priority</name>
         <picklistValues>
             <masterLabel>General</masterLabel>
-            <translation><!-- General --></translation>
+            <translation>中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>High</masterLabel>
-            <translation><!-- High --></translation>
+            <translation>高</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Low</masterLabel>
-            <translation><!-- Low --></translation>
+            <translation>低</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -300,11 +300,11 @@
         <name>Status</name>
         <picklistValues>
             <masterLabel>Closed</masterLabel>
-            <translation><!-- Closed --></translation>
+            <translation>完了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
+            <translation>オープン</translation>
         </picklistValues>
     </fields>
     <fields>

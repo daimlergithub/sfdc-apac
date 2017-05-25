@@ -15,6 +15,13 @@ public class LeadUtil {
     public static boolean createSharingRecord  = true;
     public static boolean updateRetailCopyfromC2C  = true;
     public static boolean isAcctrigger = true;
+    public static boolean updateCustomerStage = true;
+     public static boolean leadAccountDetails= true;
+     public static boolean  createAccountLinkRecord= true;
     public static boolean updatingleadAccountDetails= true;
-    
+    public static boolean createContactToContactAccounlink =true;
+	public static boolean updateprimaryAddressAccounlink =true;
+    public static boolean SharingReuleissue =true;
+    public static boolean isupdated=true;
+	public static boolean updateCustomerStageMethod=true;
 }

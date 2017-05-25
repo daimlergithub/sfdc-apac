@@ -1451,7 +1451,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Retail_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1538,12 +1538,34 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <availability>online</availability>
         <description>Requirement: US-Lead-001</description>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New Campaign Lead</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+
+{
+window.open("OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign");
+
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Retail_Campaign_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Campaign Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+
+{ 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?retURL=%2Fa16%2Fo&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=OBJECT_CAMPAIGN_LEAD_WEBLINK_CREATE_RETAIL_CAMPAIGN_ID"); 
+
+
+}</url>
     </webLinks>
 </CustomObject>

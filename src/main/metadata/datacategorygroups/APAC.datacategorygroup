@@ -270,6 +270,386 @@
             <label>Korea</label>
             <name>Korea</name>
         </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Company Overview</label>
+                    <name>FAQ_Company_Overview</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Authorized Dealer Information</label>
+                    <name>FAQ_Authorized_Dealer_Information</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sales &amp; Marketing</label>
+                    <name>FAQ_Sales_Marketing</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Product</label>
+                    <name>FAQ_Product</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>After Sales</label>
+                    <name>FAQ_After_Sales</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>MBTh Communication Material</label>
+                    <name>FAQ_MBTh_Communication_Material</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Digital</label>
+                    <name>FAQ_Digital</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>System Material for CCC</label>
+                    <name>FAQ_System_Material_for_CCC</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Legal &amp; Compliance</label>
+                    <name>FAQ_Legal_Compliance</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>MBLT</label>
+                    <name>FAQ_MBLT</name>
+                </dataCategory>
+                <label>FAQ</label>
+                <name>FAQ</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Company Overview</label>
+                    <name>X2nd_level_Company_Overview</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Location &amp; Map</label>
+                    <name>CompanyOverview_Location_Map</name>
+                </dataCategory>
+                <label>Company Overview</label>
+                <name>MBTh_Company_Overview</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Dealer’s Contact Information</label>
+                    <name>Dealer_s_Contact_Information</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Location &amp; Map</label>
+                    <name>Authorized_Dealer_Info_Location_Map</name>
+                </dataCategory>
+                <label>Authorized Dealer Information</label>
+                <name>Authorized_Dealer_Information</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Sales Campaign</label>
+                    <name>Sales_Campaign</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Marketing Campaign &amp; Activity</label>
+                    <name>Marketing_Campaign_Activity</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>MercedesCard</label>
+                    <name>MercedesCard</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>CRM Event</label>
+                    <name>CRM_Event</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>CI and Brand / Campaign</label>
+                    <name>CI_and_Brand_Campaign</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Online Campaign</label>
+                    <name>Online_Campaign</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sales</label>
+                    <name>MBTh_Sales</name>
+                </dataCategory>
+                <label>Sales and Marketing</label>
+                <name>Sales_and_Marketing</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Product Newsletter</label>
+                    <name>Product_Newsletter</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Price List</label>
+                    <name>Price_List</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>C</label>
+                        <name>C</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>CLA</label>
+                        <name>MBTh_CLA</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>CLS</label>
+                        <name>MBTH_CLS</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>E</label>
+                        <name>E</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>G</label>
+                        <name>G</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>GLA</label>
+                        <name>MBTh_GLA</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>GLC</label>
+                        <name>GLC</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>GLE</label>
+                        <name>GLE</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>GLS</label>
+                        <name>GLS</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>S</label>
+                        <name>S</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>SL</label>
+                        <name>MBTh_SL</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>SLC</label>
+                        <name>SLC</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>V</label>
+                        <name>V</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>AMG GT</label>
+                        <name>AMG_GT</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Maybach</label>
+                        <name>Maybach</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Others</label>
+                        <name>MBTh_Others</name>
+                    </dataCategory>
+                    <label>Product Information</label>
+                    <name>Product_Information</name>
+                </dataCategory>
+                <label>Product</label>
+                <name>MBTh_Product</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Service Products</label>
+                    <name>Service_Products</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Warranty</label>
+                    <name>MBTh_Warranty</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>After Sales Marketing</label>
+                    <name>After_Sales_Marketing</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Parts</label>
+                    <name>MBTh_Parts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Recall</label>
+                    <name>Recall</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Technical Complaint (TCM)</label>
+                    <name>Technical_Complaint_TCM</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Accessories &amp; Collection</label>
+                    <name>MBTh_Accessories_Collection</name>
+                </dataCategory>
+                <label>After Sales</label>
+                <name>MBTh_After_Sales</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>MB Thailand Letter Head</label>
+                    <name>MB_Thailand_Letter_Head</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Fax form, Cover Letter, Cover Note, PPT</label>
+                    <name>Fax_form_Cover_Letter_Cover_Note_PPT</name>
+                </dataCategory>
+                <label>MBTh Communication Material</label>
+                <name>MBTh_Communication_Material</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Manual of Application</label>
+                    <name>Manual_of_Application</name>
+                </dataCategory>
+                <label>Digital</label>
+                <name>Digital</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Open Scape</label>
+                    <name>Open_Scape</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Autoline</label>
+                    <name>Autoline</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Interim Solution System</label>
+                    <name>Interim_Solution_System</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Telephone Manual</label>
+                    <name>Telephone_Manual</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Telephone List</label>
+                    <name>Telephone_List</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>SharePoint</label>
+                    <name>SharePoint</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Salesforce</label>
+                    <name>Salesforce</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Script</label>
+                    <name>Script</name>
+                </dataCategory>
+                <label>CCC</label>
+                <name>CCC</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Legal Guideline</label>
+                    <name>Legal_Guideline</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Do/Don’t Guideline</label>
+                    <name>Do_Don_t_Guideline</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Compliance</label>
+                    <name>Compliance</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Data Protection</label>
+                    <name>Data_Protection</name>
+                </dataCategory>
+                <label>Legal &amp; Compliance</label>
+                <name>Legal_Compliance</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Financial Campaign</label>
+                    <name>Financial_Campaign</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>MBLT CRM Event</label>
+                    <name>MBLT_CRM_Event</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Brochure</label>
+                        <name>Brochure</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Product detail</label>
+                        <name>Product_detail</name>
+                    </dataCategory>
+                    <label>Financial Products</label>
+                    <name>Financial_Products</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Payment Method</label>
+                        <name>Payment_Method</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Withholding Tax</label>
+                        <name>Withholding_Tax</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Early Termination</label>
+                        <name>Early_Termination</name>
+                    </dataCategory>
+                    <label>Payment</label>
+                    <name>Payment</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Vehicle Registration</label>
+                        <name>Vehicle_Registration</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Vehicle Road Tax Renewal</label>
+                        <name>Vehicle_Road_Tax_Renewal</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Others</label>
+                        <name>MBLT_Registration_Others</name>
+                    </dataCategory>
+                    <label>Registration</label>
+                    <name>Registration</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>MB Protection</label>
+                        <name>MB_Protection</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Total Loss</label>
+                        <name>Total_Loss</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Others</label>
+                        <name>MBLT_Insurance_Others</name>
+                    </dataCategory>
+                    <label>Insurance</label>
+                    <name>Insurance</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Customer Information Management</label>
+                    <name>Customer_Information_Management</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Service Fee</label>
+                    <name>Service_Fee</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Map and Location</label>
+                    <name>Map_and_Location</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Digital Platform</label>
+                    <name>Digital_Platform</name>
+                </dataCategory>
+                <label>MBLT</label>
+                <name>MBLT</name>
+            </dataCategory>
+            <label>Thailand</label>
+            <name>Thailand</name>
+        </dataCategory>
         <label>APAC</label>
         <name>APAC</name>
     </dataCategory>

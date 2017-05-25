@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -28,22 +31,27 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>UCID__c</field>
+                <field>Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Customer_Lifecycle_Phase__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Special_Mark_on_Account__c</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
+                <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Allow_Data_Sharing__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Acquisition_Objective_Method__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Acquisition_Record_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -65,23 +73,29 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Customer_Number__c</field>
+                <field>UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Amount__c</field>
+                <field>Customer_Lifecycle_Phase__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Data_Source__c</field>
+                <field>Special_Mark_on_Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Allow_Data_Sharing2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Details_of_Acquisition__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -256,8 +270,8 @@
                 <field>Household_Other__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>AnnualRevenue</field>
+                <behavior>Edit</behavior>
+                <field>Annual_Income_Range__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -537,6 +551,11 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.TYPE</fields>
         <fields>Activity_Status__c</fields>
@@ -606,6 +625,9 @@
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewProposeMeeting</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>

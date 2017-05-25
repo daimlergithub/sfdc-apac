@@ -5,6 +5,7 @@
     <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
+    <customButtons>New_DM_Request</customButtons>
     <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -68,7 +69,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Possibility_text__c</field>
-           </layoutItems>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Situation__c</field>
@@ -118,7 +119,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
-           </layoutItems>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>CAC_Lead_Status__c</field>
@@ -207,6 +208,10 @@
                 <behavior>Edit</behavior>
                 <field>Case__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Appointment_DateTime__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -272,7 +277,7 @@
                 <field>Email__c</field>
             </layoutItems>
             <layoutItems>
-               <behavior>Edit</behavior>
+                <behavior>Edit</behavior>
                 <field>Fax__c</field>
             </layoutItems>
         </layoutColumns>
@@ -441,7 +446,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-               <field>Purchased_Vehicle_Text__c</field>
+                <field>Purchased_Vehicle_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -913,6 +918,8 @@
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -923,6 +930,11 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -940,6 +952,8 @@
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_DM_Request_Lead</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>
         <fields>Status__c</fields>

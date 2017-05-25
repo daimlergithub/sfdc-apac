@@ -1,18 +1,19 @@
-/*
+/******************************************************************
     Page Controller
     ---------------------------------------------------------------
     History:
     
     1. Justin Yu Created on 2014-05-14
-    2. Last modified date : 2017-Mar-02
+    2. Last modified date : 2017-May-08
            modified by : Lokesh M
        Desc : retail campign segmentation
        JIRA : SFDCJP-1023,JP-1052,JP-1050,JP-1076,JP-1054
-*/
+******************************************************************/
 public with sharing class RetailCampaignSegmentationController {
     
+    
     private String retailCampaignId;
-    private String thirdParty;
+    private String thirdParty; //to store the account recordtype - 3rd party
     Boolean vehicleFind;
     Boolean vehicleRelFind;
     Boolean vehicleRetailFind;
@@ -22,7 +23,6 @@ public with sharing class RetailCampaignSegmentationController {
     public Integer totalrecords{get;set;}
     Public Integer size{get;set;} 
     Public Integer noOfRecords{get; set;} 
-    public List<SelectOption> paginationSizeOptions{get;set;}
     
     //Find the initail soql lentght of all queries
     private Integer vehRelLength;
@@ -31,6 +31,7 @@ public with sharing class RetailCampaignSegmentationController {
     private Integer addressLength;
     private Integer campLength;
     private Integer accLinkLength;
+    private Integer recallLength;
     
     // For soql
     private String mainSoql;
@@ -43,9 +44,14 @@ public with sharing class RetailCampaignSegmentationController {
     private String CampaignSoql;
     private String RetailTaskSoql;
     private String AddressSoql;
+    private String recallSoql;
+ 
     private Set<String> accountIds;
     private Set<Id> accountIdSet;
+    private Set<Id> recallVehIdSet;
+    private Integer recallCount;
     
+    private Set<String> recallFields;//for recall object 6thamy 2017
     private Set<String> numberFields;
     private Set<String> dateFields;
     private Set<String> dateTimeFields;
@@ -59,6 +65,7 @@ public with sharing class RetailCampaignSegmentationController {
     private Set<String> CampaignFields;
     private Set<String> RetailTaskFields;
     private Set<String> AddressFields;
+    
     private final integer listLimit;
     private List<Account> tempAccounts;//To Hold the accounts
     private Map<String, Account> accountMap;
@@ -110,6 +117,7 @@ public with sharing class RetailCampaignSegmentationController {
     public Retail_Task__c RatilTask{ get; set; }
     public Address__c  address{ get; set; }
     public campaign_member__C camMem {get; set;}
+    public recall__C recall {get; set;}
     
     public String selectedValueSales {set;get;}
     public String selectedValueService {set;get;}
@@ -123,7 +131,7 @@ public with sharing class RetailCampaignSegmentationController {
         return options;
     }
         
-       
+    /* 
     public List<String> filterOptions {
         get{
            if(contact == null || String.isBlank(contact.SegmentationFilters__c) || contact.SegmentationFilters__c == '[]'){
@@ -141,7 +149,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         set;
     }
-    
+    */
     
     public List<SelectOption> SpecialMarkonAccount{
         get{
@@ -156,7 +164,6 @@ public with sharing class RetailCampaignSegmentationController {
         set;
     }
     
-    //addred by lokesh M
     public List<SelectOption> Customerphase{
         get{
             Customerphase= new List<SelectOption>();
@@ -169,7 +176,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         set;
     }
-     //added by lokesh m
+    
      public List<SelectOption> status{
         get{
             status= new List<SelectOption>();
@@ -183,8 +190,6 @@ public with sharing class RetailCampaignSegmentationController {
         set;
     }
     
-    
-     //added by lokesh m
      public List<SelectOption> RetailSalesSanction{
         get{
             RetailSalesSanction= new List<SelectOption>();
@@ -210,7 +215,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         set;
     }
-    
+    /*
     public List<SelectOption> VehicleClassOptions{
         get{
             VehicleClassOptions = new List<SelectOption>();
@@ -223,7 +228,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         set;
     }
-    
+    */
     public PageReference searchAccount(){     
         system.debug('Entered into Search method');
        
@@ -232,7 +237,8 @@ public with sharing class RetailCampaignSegmentationController {
         accIdandCountMap = new Map<Id,Integer>();
         accIdVehIdMap = new Map<Id,Id>();
         accountIdSet = new Set<Id>();
-       
+        recallVehIdSet = new Set<Id>();
+        recallCount = 0;
         vehicleRelFind = false;
         vehicleFind = false;
         VehicleRetailFind = false;
@@ -241,18 +247,29 @@ public with sharing class RetailCampaignSegmentationController {
         setSoql();
         accounts = new List<Account>();
         accountIds = new Set<String>();
-        try{
-            system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
+        //try{
+            system.debug('vehiclerelSoql '+vehicleRelSoql);
             if(vehicleRelSoql.endsWith('AND  ')){
                 System.debug('Removing end in vehilce soql');
                 vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ');
             }
             system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
             if(!vehicleRelSoql.endsWith('where ')) {            
-                vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c', 'Last_Service_Dealer__r.Name').replace('Service_Advisor__c','Service_Advisor__r.Name');
-                system.debug('@@@@@@accountSoql'+accountSoql);
+                vehicleRelSoql = vehicleRelSoql.replace('Service_Advisor__c','Service_Advisor__r.Name');
+                if(recallSoql.length()>recallLength){
+                    System.debug('recallSoqlFinal>>>>'+recallSoql);
+                    List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 50000');
+                    for(recall__c rc : recallList){
+                        recallVehIdSet.add(rc.Vehicle_Id__c);
+                    }
+                }
+                system.debug('recallVehIdSet.size()'+recallVehIdSet.size());
+                if(recallVehIdSet.size()>0){
+                    vehicleRelSoql+= 'AND Vehicle_Id__c IN: recallvehIdSet ';
+                }
+                system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
                 if(vehicleRelSoql.length()>vehRelLength){
-                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + 'ORDER BY Vehicle_Id__c limit 10000');
+                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' ORDER BY Vehicle_Id__c limit 2000');
                     System.debug('vehRelList '+vehRelList.size());
                     for(Vehicle_relationship__C vr : vehRelList){
                         if(!accountIdSet.contains(vr.contact__c)){
@@ -274,7 +291,7 @@ public with sharing class RetailCampaignSegmentationController {
                 leadSoql = leadSoql.replace('Retail_Campaign_Name__c', 'Retail_Campaign_Name__r.Name');
                 System.debug('leadSoql '+leadSoql);
                 if(leadSoql.length()>leadLength){
-                     List<Lead__C> leadList = Database.query(leadSoql+ 'limit 10000');
+                     List<Lead__C> leadList = Database.query(leadSoql+ 'limit 2000');
                      System.debug('leadList '+leadList.size());
                      for(Lead__C vr : leadList){
                          accountIdSet.add(vr.Contact__c);
@@ -287,7 +304,7 @@ public with sharing class RetailCampaignSegmentationController {
                // AccountLinkSoql = AccountLinkSoql.replace('toRole__c', 'toRole__r.Name');
                AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
                if(AccountLinkSoql.length()>accLinkLength){
-                     List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
+                     List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 2000');
                       System.debug('accLinkList '+accLinkList.size());
                      for(Account_Link__C vr : accLinkList){
                          accountIdSet.add(vr.toRole__c);
@@ -299,7 +316,7 @@ public with sharing class RetailCampaignSegmentationController {
                 if(!RetailTaskSoql.endsWith('where ')) {
                     //RetailTaskSoql = RetailTaskSoql.replace('Account__c', 'Account__r.Name');
                     if(RetailTaskSoql.length()>retailaskLength){
-                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000');
+                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 2000');
                          System.debug('retTaskList '+retTaskList.size());
                          for(Retail_Task__c vr : retTaskList ){
                              accountIdSet.add(vr.Account__c);
@@ -311,7 +328,7 @@ public with sharing class RetailCampaignSegmentationController {
                 system.debug('@@@@@@AddressSoql '+AddressSoql);
                 if(!AddressSoql.endsWith('where ')) {
                    if(AddressSoql.length()>addressLength){
-                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
+                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 2000');
                           System.debug('addList '+addList.size());
                          System.debug('addList '+addList);
                          for(Address__c vr : addList ){
@@ -324,7 +341,7 @@ public with sharing class RetailCampaignSegmentationController {
                 if(!campaignMemSoql.endsWith('where ')) {
                   
                     if(campaignMemSoql.length()>campLength){
-                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
+                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 2000');
                          System.debug('camMemList '+camMemList.size());
                          for(Campaign_Member__c vr : camMemList ){
                              accountIdSet.add(vr.Contact_Id__c);
@@ -354,7 +371,7 @@ public with sharing class RetailCampaignSegmentationController {
                     }
                 }
                 system.debug('----------' + accountSoql);
-                accList = Database.Query(accountSoql+'LIMIT 10000');
+                accList = Database.Query(accountSoql+' LIMIT 2000');
                 //con = new ApexPages.StandardSetController(Database.getQueryLocator(accountSoql+'ORDER BY Name ASC'));
                 for(account a : accList){
                     if(accIdandCountMap.containsKey(a.Id)){
@@ -366,68 +383,41 @@ public with sharing class RetailCampaignSegmentationController {
                 accList.addAll(dupAccounts);
                 accList.sort();
                 con = new ApexPages.StandardSetController(accList);
-                con.setPageSize(100); 
-                noOfRecords = con.getResultSize();         
+                system.debug('///////////');
+                con.setPageSize(1000); 
+                system.debug('///////////');
+                noOfRecords = con.getResultSize();
+                system.debug('///////////');         
                 getloadwrapAccountList();
                 System.debug('Tottalrecords'+totalRecords);
-            }
-            catch(Exception ex){
+            //}
+            //catch(Exception ex){
             //'Logic Error!'
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getmessage()));
-            }
+              //ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getmessage()));
+            //}
         return null;
     }
     
-    // returns the first page of records
-    public void first() {
-         con.first();
-     }
-     
-     // returns the last page of records
-     public void last() {
-         con.last();
-     }
-    
-    // returns the previous page of records
-     public void previous() {
-         con.previous();
-     }
-    
-    //disable first and prev button
-    public Boolean hasPrevious {
-        get {
-            return con.getHasPrevious();
-        }
-        set;
-    }
-    
-    //display the next page of records
-    public void next() {
-        con.next();
-    }
-    
-    //disable the next and last buttons
-    public Boolean hasnext {
-        get {
-            return con.getHasNext();
-        }
-        set;
-    }
-    
+   
     public List<wrapperAccount> wrapAccountList{set;get;}
         
     // Create a new Map to verify whether the Account is already added in the Map
-    Map <id,Account> SelectedAccountMap = new Map <id,Account>();      
+    //Map <id,Account> SelectedAccountMap = new Map <id,Account>();      
+    Map <string,Account> SelectedAccountMap = new Map <string,Account>();      
      
     // This method process accounts and formats List of wrapper Accounts to be used with checkbox 
     public list<wrapperAccount> getloadwrapAccountList()
     {
         getSelectedAccount();
         wrapAccountList = new  List<wrapperAccount>();
+        integer count = 1 ;
             for(Account a : (List<Account>)con.getRecords()){
                 wrapperAccount wrapAcc = new wrapperAccount();
-                wrapAcc.acc = a;               // Holding Account
-                if(SelectedAccountMap.containsKey(a.Id)){
+                wrapAcc.acc = a;                           // Holding Account
+                count+=1;
+                string s = a.Id;
+                s+=count;
+                if(SelectedAccountMap.containsKey(s)){
                     wrapAcc.isSelected = true;    // check if Checkbox is checked in vf page    
                 }
                 else{
@@ -439,19 +429,27 @@ public with sharing class RetailCampaignSegmentationController {
             system.debug('Called Wrapper method size---- '+wrapAccountList.size());
         return wrapAccountList;
     }
-    
+        
     //This methods holds the accounts which is checked and which is unchecked
     public void getSelectedAccount(){
+        //System.debug('initialwrapperaccountsize'+wrapaccountlist.size());
         if(wrapAccountList != NULL){
+            Integer j=1;
             for(wrapperAccount wr:wrapAccountList){
+                j+=1;
+                string dupId = wr.acc.Id;
+                dupId = dupId+j;
                 if(wr.isSelected == true){
-                    SelectedAccountMap.put(wr.acc.id,wr.acc); // Add the selected contact id in to the SelectedAccountMap.
+                    //SelectedAccountMap.put(wr.acc.id,wr.acc); // Add the selected contact id in to the SelectedAccountMap.
+                    SelectedAccountMap.put(dupId,wr.acc); // Add the selected contact id in to the SelectedAccountMap.
                 }
                 else{
-                    SelectedAccountMap.remove(wr.acc.id); // If you uncheck the contact, remove it from the SelectedAccountMap
+                    SelectedAccountMap.remove(dupId);                   
                 }
             }
         }
+        System.debug('selectedAccountmap>>>>'+SelectedAccountMap);
+        System.debug('selectedAccountmapsize>>>>'+SelectedAccountMap.size());
     }
   
     // Wrapper class will be to used to have list of accounts with checkbox to Add to Campaign
@@ -468,36 +466,30 @@ public with sharing class RetailCampaignSegmentationController {
         
         //Calling this method to add the current page selected accounts
         getSelectedAccount();
-        Map<String, Campaign_Member__c> retailCampaignMembers = new Map<String, Campaign_Member__c>();
+        
+        List<Campaign_Member__c> retailCampaignMembers = new List<Campaign_Member__c>();
         Set<String> accountIds = new Set<String>();
+        List<Account> selectedAccount = new List<Account>();
         List<Id> selectedAccoundIds = new List<Id>();
  
         // Filtering seletced accounts
          if(SelectedAccountMap.size()>0){
-            for(Id temp : SelectedAccountMap.keySet()){
-                    selectedAccoundIds.add(temp);
+            for(Account temp : SelectedAccountMap.values()){
+                selectedAccount.add(temp);
+                system.debug('selectedAccounddddddd==='+temp);
             }
             
             system.debug('selectedAccoundIds==='+selectedAccoundIds);
-            for(Id id: selectedAccoundIds){
+            for(Account curAcc : selectedAccount){
                 Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-                member.Contact_Id__c= id;
-                retailCampaignMembers.put(member.Contact_Id__c+ ':' + member.Retail_Campaign_Id__c, member);
-               
-            }
-            System.debug('retailCampaignMembersBefore'+retailCampaignMembers);
-            // Removes the exsitent member
-            for(Campaign_Member__c rcm : [select Contact_Id__c, Retail_Campaign_Id__c from Campaign_Member__c
-                                                where Contact_Id__c in :selectedAccoundIds and Retail_Campaign_Id__c = :retailCampaignId]){
-                retailCampaignMembers.remove(rcm.Contact_Id__c + ':' + rcm.Retail_Campaign_Id__c );
+                member.Contact_Id__c= curAcc.id;
+                retailCampaignMembers.add(member);
             }
         }
         System.debug('retailCampaignMembersAfter'+retailCampaignMembers);
-        System.debug('retailCampaignMembersAftervalues'+retailCampaignMembers.values());
-
         try {
             if(retailCampaignMembers != NULL && !retailCampaignMembers.isEmpty())
-            insert retailCampaignMembers.values();
+            insert retailCampaignMembers;
         }
         catch(Exception ex){
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'You could not add same contact in one Retail Campaign, Please try again.'));
@@ -505,6 +497,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         return new PageReference('/' + retailCampaignId);
     }
+ 
     
     private void setSoql()
     {
@@ -537,6 +530,7 @@ public with sharing class RetailCampaignSegmentationController {
             RetailTaskSoql = 'Select Account__c From Retail_Task__c where ';
             AddressSoql = 'Select Customer__c From Address__c where ';
             CampaignSoql ='Select id From Campaign where ';
+            recallSoql = 'Select Vehicle_Id__c From Recall__c Where';
             
             vehRelLength = vehicleRelSoql.length();
             leadLength =  leadSoql.length();
@@ -544,6 +538,7 @@ public with sharing class RetailCampaignSegmentationController {
             campLength = campaignMemSoql.length();
             addressLength = AddressSoql.length();
             accLinkLength = AccountLinkSoql.length();
+            recallLength = recallSoql.length();
             
             system.debug('================='+jsonFilter);
             Map<String, Object> filterMap = (Map<String, Object>)JSON.deserializeUntyped(jsonFilter);
@@ -642,6 +637,16 @@ public with sharing class RetailCampaignSegmentationController {
                     else if(field == 'ZipCode__c'){
                         subSoql += 'ZipCode__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
                     }else{
+                        if(recallFields.contains(field) && cluster == 'vehicle'){
+                            if(recallCount == 0){
+                                recallSoql += ' '+field+' '+operation+' '+criteria+' ';
+                                recallCount++;
+                            }
+                            else{
+                                recallSoql += 'AND '+field+' '+operation+' '+criteria+' ';
+                            }
+                        }
+                        else
                         subSoql += field + operation + criteria + ' '; 
                     }
                     if(bracket){
@@ -660,6 +665,7 @@ public with sharing class RetailCampaignSegmentationController {
                     }
                     
                     else if(cluster == 'vehicle' || cluster == 'VehicleRelation'){
+                        if(!recallFields.contains(field))
                         vehicleRelSoql += subSoql;
                     }
                     
@@ -736,25 +742,63 @@ public with sharing class RetailCampaignSegmentationController {
    
     private void setFieldType(){
         numberFields = new Set<String>{'Buy_Cycle__c', 'Household_Amount__c',
-            'Vehicle_Amount__c', 'CurrentMileage__c', 'NextMileage__c', 'Recall__c'};
+            'Vehicle_Amount__c', 'CurrentMileage__c', 'NextMileage__c'};
         dateFields = new Set<String>{'PersonBirthdate', 'Last_Campaign_Date__c', 'LastServiceDate__c', 'End_Date__c',
-            'Latest_Contract_Date__c','NextServiceDate__c','FirstRegistrationDate__c', 'Purchase_Date__c', 'Registration_Date__c', 'Warranty_Start_Date__c','Expected_Close_Date__c','Expected_Registration_Date__c','MOT_Expired_Date__c','NextInspectionDate__c'};
+            'Latest_Contract_Date__c','NextServiceDate__c','FirstRegistrationDate__c', 'Purchase_Date__c', 'Registration_Date__c', 'Warranty_Start_Date__c','Expected_Close_Date__c','Expected_Registration_Date__c','NextServiceDate__c','NextInspectionDate__c'};
         dateTimeFields = new Set<String>{'Last_Successful_Call__c'};
-        textFields = new Set<String>{'New_Used__c','PersonEmail', 'FileName__c', 'ID_Number__c', 'Primary_Address__c', 'ZipCode__c', 'PersonMobilePhone', 'PersonHomePhone', 'Phone',
+        textFields = new Set<String>{'Recall_No__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'FileName__c', 'ID_Number__c', 'Primary_Address__c', 'ZipCode__c', 'PersonMobilePhone', 'PersonHomePhone', 'Phone',
             'Retail_Campaign_Name__c',  'Registration_City__c', 'Selling_Dealer__c', 'File_Name__pc','Name','Portal_ID__c','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c'};
         pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Age_Range__c', 'Gender__c', 'Hobby__c', 'ID_Type__c', 'Industry', 'Job__c', 'Marital_Status__c', 'Occupation__c',
-                                     'Type', 'Retail_Interested_Vehicle_Brand__c', 'Retail_Interested_Vehicle_Class__c','Lead_Desired_Service__c', 'Lead_Source__c', 'Lead_Type__c', 'Life_Cycle__c','Price_Range__c', 'Retail_Purchase_Time__c', 'Lead_Additional_Service__c', 
-                                     'Purchase_Amount__c', 'Trade_In_Vehicle_Brand__c','Trade_In_Vehicle_Class__c', 'Brand__c', 'Range__c', 'Model__c','Car_Relation__c', 'Class__c', 'Info_Source__c', 'CAC_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
+                                     'Type','Type__c', 'Retail_Interested_Vehicle_Brand__c', 'Retail_Interested_Vehicle_Class__c','Lead_Desired_Service__c', 'Lead_Source__c', 'Lead_Type__c', 'Life_Cycle__c','Price_Range__c', 'Retail_Purchase_Time__c', 'Lead_Additional_Service__c', 
+                                     'Purchase_Amount__c', 'Trade_In_Vehicle_Brand__c','Trade_In_Vehicle_Class__c', 'Brand__c', 'Range__c','Car_Relation__c', 'Class__c', 'Info_Source__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
         multiplePickListFields = new Set<String>{'Hobby__c', 'Interest_Model__c','Lead_Desired_Service__c', 'Lead_Additional_Service__c','Retail_OptOutContact_Reason__c'};
-        vehicleFields = new Set<String>{'Model__c','Range__c','Brand__c','FirstRegistrationDate__c', 'Class__c', 'CurrentMileage__c', 'Info_Source__c', 'LastServiceDate__c',
-            'Latest_Contract_Date__c', 'NextMileage__c', 'NextServiceDate__c', 'Warranty_Start_Date__c','Recall__c','NextInspectionDate__c'};
+        vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','Brand__c','FirstRegistrationDate__c', 'Class__c', 'CurrentMileage__c', 'Info_Source__c', 'LastServiceDate__c',
+            'Latest_Contract_Date__c', 'NextMileage__c', 'NextServiceDate__c', 'Warranty_Start_Date__c','NextInspectionDate__c'};
         vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Purchase_Date__c',
             'Registration_City__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
             CheckboxFields=new Set<string>{'Retail_Visit_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Postal_OptOut__c' };
           AccountLinkFields =new Set<String>{'Sales_Representative__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c', 'Portal_ID__c' };  
-          
+          recallFields = new Set<String>{'Recall_No__c','Status__c'};
           CampaignFields =new Set<String>{'Name', 'Status'};
-          RetailTaskFields =new Set<String>{'Product_Name__c', 'Finance_Product_Name__c', 'Re_lease_Prohibit_flag__c', 'Duration__c',  'Duration__c', 'Status__c'};
+          RetailTaskFields =new Set<String>{'Product_Name__c', 'Finance_Product_Name__c', 'Type__c', 'Duration__c',  'Duration__c', 'Status__c'};
           AddressFields = new Set<String>{'ZipCode__c' , 'Province__c'};
     }
+    
+    
+    // returns the first page of records
+    public void first() {
+         con.first();
+     }
+     
+     // returns the last page of records
+     public void last() {
+         con.last();
+     }
+    
+    // returns the previous page of records
+     public void previous() {
+         con.previous();
+     }
+    
+    //disable first and prev button
+    public Boolean hasPrevious {
+        get {
+            return con.getHasPrevious();
+        }
+        set;
+    }
+    
+    //display the next page of records
+    public void next() {
+        con.next();
+    }
+    
+    //disable the next and last buttons
+    public Boolean hasnext {
+        get {
+            return con.getHasNext();
+        }
+        set;
+    }
+   
 }

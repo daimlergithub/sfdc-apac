@@ -46,6 +46,10 @@
                 <behavior>Required</behavior>
                 <field>EndDateTime</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Communication_date__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

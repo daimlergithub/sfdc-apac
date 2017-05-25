@@ -14,7 +14,7 @@
         <criteriaItems>
             <column>OWNER</column>
             <operator>equals</operator>
-            <value>高橋 里沙,岡本 美香,座間 玲奈,沼倉 知彦,杉浦 円,竹川 由貴,松原 真純,高橋 敏,村岡 圭子,緒方 健一,石川 勇司,武笠 玲央,河原 由紀,原 綾子,中山 遥,藤代 拓也,灰田 宜由,武者 るり子</value>
+            <value>高橋 里沙,岡本 美香,座間 玲奈,沼倉 知彦,杉浦 円,竹川 由貴,松原 真純,高橋 敏,村岡 圭子,緒方 健一,石川 勇司,武笠 玲央,河原 由紀,原 綾子,中山 遥,藤代 拓也,灰田 宜由,武者 るり子,小澤 美樹,岸本 厳,遠山 佳幸,田村 謙次,梅崎 雄三,高野 圭子,高柳 雄太</value>
         </criteriaItems>
         <criteriaItems>
             <column>Case.Case_SubType__c</column>

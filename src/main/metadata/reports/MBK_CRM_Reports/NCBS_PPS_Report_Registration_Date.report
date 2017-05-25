@@ -27,9 +27,6 @@
     <columns>
         <field>Vehicle_Relationship__c$Selling_Dealer__c</field>
     </columns>
-    <!--<columns>
-        <field>Vehicle_Relationship__c$Contact__c.Customer_Consent__c</field>
-    </columns>-->
     <description>NCBS PPS Report</description>
     <filter>
         <criteriaItems>

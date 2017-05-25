@@ -1,111 +1,200 @@
 <apex:page Standardcontroller="Account" extensions="createRetailCopyKR" >
-    <apex:form >
-        <div align="Center">
-            <apex:outputPanel >
-                <tb> <tb>   Dealer Outlet</tb>   </tb> 
-                <apex:inputField value=" {!Account.Company__c}">
-                    <apex:actionSupport event="onchange" action="{!getAccount }" rerender="Selected_PBS" >
-                        <apex:param name="account" value="{!Account.Id}"/>
-                    </apex:actionSupport>
-                </apex:inputField>
-            </apex:outputPanel>
-        </div>
+
+<apex:form >
+  <apex:outputpanel id="jspanel">
+  <script language="JavaScript" type="text/javascript">
+function afterSave(){
+if({!ShowHideError} ==false)
+{
+alert('Sucessfully Created Retail Copy');
+window.location.href="/{!AccId}";      
+  }
+  else
+{
+
+}
+  }
+</script>
+</apex:outputpanel>
+<style>
+    /* This is for the full screen DIV */
+    .popupBackground {
+        /* Background color */
+        background-color:black;
+        opacity: 0.20;
+        filter: alpha(opacity = 20);
+    
+        /* Dimensions */
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 998;
+        position: absolute;
         
-        <apex:pageBlock >
-            <apex:pageBlockTable value="{!sample }" var="ad">
-                <apex:column headerValue="Primary">
-                    <input type="radio" name="selectRadio" id="radio">
-                        <apex:actionSupport event="onclick" action="{!getSelected}" rerender="Selected_PBS" >
-                            <apex:param name="idselected" value="{!ad.id}"/>
-                        </apex:actionSupport>
-                    </input>
-                </apex:column>
-                <apex:column headerValue="{!$ObjectType.Account.fields.Name.Label}">
-                    <apex:outputField value="{!ad.Name}"/>
-                </apex:column>
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
-                    <apex:outputField value="{!ad.Address_Type__c}"/>
-                </apex:column>
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
-                    <apex:outputField value="{!ad.ZipCode__c}"/>
-                </apex:column>
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Province__c.Label}">
-                    <apex:outputField value="{!ad.Province__c}"/>
-                </apex:column>
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}">
-                    <apex:outputField value="{!ad.Preferred__c}"/>
-                </apex:column>
-                
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
-                    <apex:outputField value="{!ad.City__c}"/>
-                </apex:column>
-                <!--
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.City_Native__c.Label}">
-                    <apex:outputField value="{!ad.City_Native__c}"/>
-                </apex:column>
-                -->
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.District__c.Label}">
-                    <apex:outputField value="{!ad.District__c}"/>
-                </apex:column>
-                <!--
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.District_Native__c .Label}">
-                    <apex:outputField value="{!ad.District_Native__c }"/>
-                </apex:column>
-               
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Block__c.Label}">
-                    <apex:outputField value="{!ad.Block__c  }"/>
-                </apex:column>
-                -->
-                <!--
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Block_Native__c.Label}">
-                    <apex:outputField value="{!ad.Block_Native__c}"/>
-                </apex:column>
-                -->
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}">
-                    <apex:outputField value="{!ad.Address_Line_1__c}"/>
-                </apex:column>
-                <!--
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1_Native__c.Label}">
-                    <apex:outputField value="{!ad.Address_Line_1_Native__c}"/>
-                </apex:column>
-                -->
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}">
-                    <apex:outputField value="{!ad.Address_Line_2__c}"/>
-                </apex:column>
-                <!--
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2_Native__c.Label}">
-                    <apex:outputField value="{!ad.Address_Line_2_Native__c}"/>
-                </apex:column>
-                -->
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}">
-                    <apex:outputField value="{!ad.Company_Name__c}"/>
-                </apex:column>
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Status__c.Label}">
-                    <apex:outputField value="{!ad.Status__c}"/>
-                </apex:column>
-                <!--
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}">
-                    <apex:outputField value="{!ad.Company_Name_Native__c}"/>
-                </apex:column>
-                
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}">
-                    <apex:outputField value="{!ad.TitleOfHonor__c}"/>
-                </apex:column>
-                -->
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_ZipCode__c.Label}">
-                    <apex:outputField value="{!ad.Temp_ZipCode__c}"/>
-                </apex:column>
-                <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}">
-                    <apex:outputField value="{!ad.Temp_Address__c}"/>
-                </apex:column>
-                
-            </apex:pageBlockTable>
-        </apex:pageBlock>
-        <div align="Center">
-            <apex:outputPanel >
-                <apex:commandButton value="Save" style="left:0px;position:relative;" action="{!save}" /> 
-                <apex:commandButton value="Cancel" style="left:20px;position:relative;"  action="{!cancel}" /> 
-            </apex:outputPanel>
+        /* Mouse */
+        cursor:wait;
+    }
+ 
+    /* This is for the message DIV */
+    .PopupPanel {
+        /* Background color */
+        border: solid 2px blue;
+        background-color: white;
+ 
+        /* Dimensions */
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        top: 50%;
+        height: 50px;
+        margin-top: -25px;
+        z-index: 999;
+        position: fixed;
+        
+        /* Mouse */
+        cursor:pointer;
+    }
+</style>
+<apex:actionStatus id="statusSaveTrip" stopText="" >
+    <apex:facet name="start">
+        <div>
+            <div class="popupBackground" />
+            <div class="PopupPanel">
+                <table border="0" width="100%" height="100%">
+                    <tr>
+                        <td align="center"><b>Please Wait</b></td>
+                    </tr>
+                    
+                </table>
+            </div>
         </div>
-    </apex:form>
+    </apex:facet>
+</apex:actionStatus>
+
+  <div align="Center">
+    <!-- <apex:outputPanel rendered="{!CurrentUsr.IsPortalEnabled =False}"> -->
+ 
+            <tb>  <tb>  Select Dealer </tb>   </tb> <apex:inputfield value=" {!Account.Main_Dealer__c}" >
+                             <apex:actionSupport event="onchange" action="{!getDealer}"   rerender="selectedPb" >
+                                       <apex:param name="account" value="{!Account.Id}"/>
+                                  </apex:actionSupport>
+                        
+                                    </apex:inputfield>
+                                <!-- </apex:outputPanel> -->
+                                </div>
+                                 <apex:pageMessages id="Errormessage"></apex:pageMessages>
+    <apex:pageBlock id="pbid">
+<apex:pageBlockTable value="{!displaAddress}" var="ad" rendered="{!IF(displaAddress != null && showAddress==true,true,false)}">
+
+               <!-- <apex:column headerValue="Primary">
+                <input type="radio" name="selectRadio" id="radio">
+                                  <apex:actionSupport event="onclick" action="{!getSelectedAddress}" rerender="Selected_PBS" >
+                                       <apex:param name="idselected" value="{!ad.id}"/>
+                                  </apex:actionSupport>
+                           </input>
+                          </apex:column>--->
+
+
+                <!--
+                <apex:column headerValue="Select">
+                <input type="radio" value="{!ad.id}"  id="radio" Name="SelectedCustomer">
+                                  <apex:actionSupport event="onclick" action="{!getSelectedAddress}" rerender="Selected_PBS">
+                                       <apex:param name="idselected" value="{!ad.id}" assignTo="{!AddrecordId}"/>
+                                  </apex:actionSupport>
+                           </input>
+                          </apex:column>
+                    -->      
+                          
+                        <apex:column headerValue="{!$ObjectType.Account.fields.Name.Label}">
+                        <apex:outputField value="{!ad.Name}"/>
+                        </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
+                        <apex:outputField value="{!ad.Address_Type__c}"/>
+                        </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
+                        <apex:outputField value="{!ad.ZipCode__c}"/>
+                        </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Province__c.Label}">
+                        <apex:outputField value="{!ad.Province__c}"/>
+                        </apex:column>
+                         <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}">
+                            <apex:outputField value="{!ad.Preferred__c}"/>
+                        </apex:column>
+                        <!--
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Province_Native__c.Label}">
+                        <apex:outputField value="{!ad.Province_Native__c}"/>
+                        </apex:column>
+                        -->
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
+                        <apex:outputField value="{!ad.City__c}"/>
+                        </apex:column>
+                        <!--
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.City_Native__c.Label}">
+                        <apex:outputField value="{!ad.City_Native__c}"/>
+                        </apex:column>
+                        -->
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.District__c.Label}">
+                        <apex:outputField value="{!ad.District__c}"/>
+                        </apex:column>
+                        <!--
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.District_Native__c.Label}">
+                        <apex:outputField value="{!ad.District_Native__c }"/>
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Block__c.Label}">
+                        <apex:outputField value="{!ad.Block__c  }"/>
+                        </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Block_Native__c.Label}">
+                        <apex:outputField value="{!ad.Block_Native__c}"/>
+                        </apex:column>
+                        -->
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}">
+                        <apex:outputField value="{!ad.Address_Line_1__c}"/>
+                        </apex:column>
+                        <!--
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1_Native__c.Label}">
+                        <apex:outputField value="{!ad.Address_Line_1_Native__c}"/>
+                        </apex:column>
+                        -->
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}">
+                        <apex:outputField value="{!ad.Address_Line_2__c}"/>
+                        </apex:column>
+                        <!--
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2_Native__c.Label}">
+                        <apex:outputField value="{!ad.Address_Line_2_Native__c}"/>
+                        </apex:column>
+                        -->
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}">
+                        <apex:outputField value="{!ad.Company_Name__c}"/>
+                        </apex:column>
+                        <!--
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}">
+                        <apex:outputField value="{!ad.Company_Name_Native__c}"/>
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}">
+                        <apex:outputField value="{!ad.TitleOfHonor__c}"/>
+                        </apex:column>
+                        -->
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Status__c.Label}">
+                        <apex:outputField value="{!ad.Status__c}"/>
+                        </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_ZipCode__c.Label}">
+                        <apex:outputField value="{!ad.Temp_ZipCode__c}"/>
+                        </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}">
+                        <apex:outputField value="{!ad.Temp_Address__c}"/>
+                        </apex:column>  
+
+
+</apex:pageBlockTable>
+<apex:pageBlockButtons location="bottom">
+ <apex:commandButton value="Create Retail Copy" action="{!CreateRetailCopy}"  oncomplete="afterSave()" status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
+<apex:commandButton value="cancel" action="{!cancel}"/>
+        </apex:pageBlockButtons>
+
+</apex:pageBlock>
+                     
+  </apex:form>
 </apex:page>

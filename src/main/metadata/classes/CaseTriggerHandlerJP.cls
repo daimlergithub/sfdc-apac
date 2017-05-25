@@ -27,10 +27,10 @@ public class CaseTriggerHandlerJP
         CaseHelperJP caseHelperJPd = new CaseHelperJP();
         if (trigger.isBefore){  
             if (trigger.isInsert)
-               // caseHelperJPd.updateCaseDeadline(trigger.new); commented changes related to SFDCJP-2329
+                //caseHelperJPd.updateCaseDeadline(trigger.new); commented changes related to SFDCJP-2329
             if (trigger.isUpdate){
                 caseHelperJPd.calculateComplaintAmount(trigger.new,trigger.oldMap);
-               // caseHelperJPd.updateCaseDeadline(trigger.new,trigger.oldMap); commented changes related to SFDCJP-2329v
+                //caseHelperJPd.updateCaseDeadline(trigger.new,trigger.oldMap); commented changes related to SFDCJP-2329
                    
                 }      
         }else if (trigger.isAfter){
@@ -48,14 +48,14 @@ public class CaseTriggerHandlerJP
         }
         
         if (trigger.isAfter){
-            if (trigger.isInsert||trigger.isUpdate){
-               caseHelperJP.countchildcase(trigger.new,trigger.old); 
+            if (trigger.isInsert||trigger.isUpdate){ 
+              // caseHelperJP.countchildcase(trigger.new,trigger.old);  commented changes related to SFDCJP-2329
             }
         }
         if(trigger.isBefore){
             if(trigger.isDelete){
                 
-              caseHelperJP.countchildcase(trigger.new,trigger.old);    
+            //  caseHelperJP.countchildcase(trigger.new,trigger.old);     commented changes related to SFDCJP-2329
                 
             }
         }    

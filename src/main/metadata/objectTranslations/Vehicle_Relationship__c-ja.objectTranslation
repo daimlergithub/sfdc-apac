@@ -1925,6 +1925,10 @@
     <fields>
         <label>MyM申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
+		<picklistValues>
+            <masterLabel>Reject</masterLabel>
+            <translation>登録拒否</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
             <translation>送信済み</translation>
@@ -3175,6 +3179,10 @@
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
         </picklistValues>
+    </fields>
+   <fields>
+        <label>レンジ</label>
+        <name>Vehicle_Range__c</name>
     </fields>
     <fields>
         <label><!-- Vehicle Status --></label>

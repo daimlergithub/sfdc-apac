@@ -46,7 +46,6 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>QuestionList object created for the campaign development.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -68,6 +67,7 @@
     </fields>
     <fields>
         <fullName>Question__c</fullName>
+        <description>This field is used to show the question</description>
         <externalId>false</externalId>
         <label>Question</label>
         <required>false</required>
@@ -77,14 +77,14 @@
     </fields>
     <fields>
         <fullName>Type__c</fullName>
+        <description>This field is used to refer the name of the survey</description>
         <externalId>false</externalId>
         <label>Type</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
+                <fullName>TBD</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -99,7 +99,7 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <label>QuestionList Name</label>
+        <label>Question Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>

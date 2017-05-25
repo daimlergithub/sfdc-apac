@@ -75,12 +75,6 @@
             <field>Vehicle_ID__c.Car_Model__c.Model_Hierarchy_Desc__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
-        <!--<columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Customer Consent</displayNameOverride>
-            <field>Contact__c.Customer_Consent__c</field>
-            <table>Vehicle_Relationship__c</table>
-        </columns>-->
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <displayNameOverride>Contact: Mobile</displayNameOverride>

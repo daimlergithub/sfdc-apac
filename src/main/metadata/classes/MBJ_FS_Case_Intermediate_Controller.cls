@@ -30,7 +30,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
         userid = Userinfo.getUserId();
         redirectCase.Retail_Task__c = retailTaskID ;
         
-/*************** If Case is created from "New Case" button in "Retail Task" record ***************/
+/************** If Case is created from "New Case" button in "Retail Task" record ***************/
         If(RecordTypeid!=Null && retailTaskID!=Null){
             RecordType rt=[Select id,Name from Recordtype WHERE id=:RecordTypeid limit 1];
               
@@ -47,7 +47,6 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     returnURL.getParameters().put('AccountID', accountId);
                     returnURL.getParameters().put('ownerid', userid);
                     returnURL.setredirect(false);
-                    system.debug('the account id'+accountid);
                     return returnURL;
             }
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MB Complaint'){
@@ -57,8 +56,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                     }
-                     Account acc=[Select Name from Account where id=:accountId limit 1];
-                    pageReference p= new PageReference('/500/e?cas4='+acc.name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                    //Account acc=[Select Name from Account where id=:accountId limit 1];
+                    pageReference p= new PageReference('/500/e?cas4_lkid='+fromAccountId+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
                     return p;
                     
             }
@@ -69,8 +68,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                     }
-                     Account acc=[Select Name from Account where id=:accountId limit 1];
-                    pageReference p= new PageReference('/500/e?cas4='+acc.name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                    //Account acc=[Select Name from Account where id=:accountId limit 1];
+                    pageReference p= new PageReference('/500/e?cas4_lkid='+fromAccountId+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
                     return p;
                     
             }
@@ -141,7 +140,6 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else
             { 
-                system.debug('===='+net);
                 if(net.size()>0 &&net[0].UrlPathPrefix!=null){
                 returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
                 }
@@ -239,8 +237,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                     }
-                   Account acc=[Select Name from Account where id=:fromAccountId limit 1];
-                   pageReference p= new PageReference('/500/e?cas4='+acc.Name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                   //Account acc=[Select Name from Account where id=:fromAccountId limit 1];
+                   pageReference p= new PageReference('/500/e?cas4_lkid='+fromAccountId+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
                    return p;
                     
             }
@@ -252,8 +250,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                     }
-                    Account acc=[Select Name from Account where id=:fromAccountId limit 1];
-                    pageReference p= new PageReference('/500/e?cas4='+acc.name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                    //Account acc=[Select Name from Account where id=:fromAccountId limit 1];
+                    pageReference p= new PageReference('/500/e?cas4_lkid='+fromAccountId+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
                     return p;
                     
             }
@@ -288,7 +286,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 else {
                 returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Inquiry_Page');
                 }
-                returnURL.getParameters().put('retURL',retURL);
+                returnURL.getParameters().put('retURL',accid);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('ownerid', userid);
                 returnURl.getParameters().put('AccountID',accid);
@@ -304,7 +302,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Request_Page');
                     }
-                returnURL.getParameters().put('retURL',retURL);
+                returnURL.getParameters().put('retURL',accid);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('ownerid', userid);
                 returnURl.getParameters().put('AccountID',accid);
@@ -320,7 +318,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_ContractClosing_Page');
                     }
-               returnURL.getParameters().put('retURL',retURL);
+               returnURL.getParameters().put('retURL',accid);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('ownerid', userid);
                 returnURl.getParameters().put('AccountID',accid);
@@ -335,13 +333,12 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                     }
                     List<Account> acc=[Select Name from Account where id=:accid ];
-                    system.debug('the account id is'+fromAccountId);
                     if(acc.size()>0){
-                    pageReference p= new PageReference('/500/e?cas4='+acc[0].name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                    pageReference p= new PageReference('/500/e?cas4_lkid='+acc[0].id+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+accid);
                     return p;
                     }
                     else{
-                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'retURL=/500/o');
+                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL=/500/o');
                     return p;
                     
                     }
@@ -354,15 +351,13 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                     }
-                    system.debug('the account id is'+accid);
                     List<Account> acc=[Select Name from Account where id=:accid ];
-                    system.debug('the account id is'+fromAccountId);
                     if(acc.size()>0){
-                    pageReference p= new PageReference('/500/e?cas4='+acc[0].name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                    pageReference p= new PageReference('/500/e?cas4_lkid='+acc[0].id+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+accid);
                     return p;
                     }
                     else{
-                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'retURL=/500/o');
+                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL=/500/o');
                     return p;
                     
                     }
@@ -375,7 +370,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Quotation_Page');
                     }
-                returnURL.getParameters().put('retURL',retURL);
+                returnURL.getParameters().put('retURL',accid);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('ownerid', userid);
                 returnURl.getParameters().put('AccountID',accid);
@@ -391,7 +386,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Complaint_Page');
                     }
-                returnURL.getParameters().put('retURL',retURL);
+                returnURL.getParameters().put('retURL',accid);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('ownerid', userid);
                 returnURl.getParameters().put('AccountID',accid);
@@ -399,57 +394,10 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 return returnURL;
                 
             }
-            else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Contract Closing Case'){
-                if (Site.getPathPrefix() != Null){
-                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+Site.getPathPrefix()+'/apex/MBJ_FS_Complaint_Page');
-                    }
-                    else {
-                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Complaint_Page');
-                    }
-                returnURL.getParameters().put('retURL',retURL);
-                returnURL.getParameters().put('RecordType',rt.id);
-                returnURL.getParameters().put('ownerid', userid);
-                returnURl.getParameters().put('AccountID',accid);
-                returnURL.setredirect(false);
-                return returnURL;
-                
-            }
-            else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Customer Request Case'){
-                if (Site.getPathPrefix() != Null){
-                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+Site.getPathPrefix()+'/apex/MBJ_FS_Complaint_Page');
-                    }
-                    else {
-                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Complaint_Page');
-                    }
-                returnURL.getParameters().put('retURL',retURL);
-                returnURL.getParameters().put('RecordType',rt.id);
-                returnURL.getParameters().put('ownerid', userid);
-                returnURl.getParameters().put('AccountID',accid);
-                returnURL.setredirect(false);
-                return returnURL;
-                
-            }
-             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Customer Request Case'){
-                if (Site.getPathPrefix() != Null){
-                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+Site.getPathPrefix()+'/apex/MBJ_FS_Complaint_Page');
-                    }
-                    else {
-                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Complaint_Page');
-                    }
-                returnURL.getParameters().put('retURL',retURL);
-                returnURL.getParameters().put('RecordType',rt.id);
-                returnURL.getParameters().put('ownerid', userid);
-                returnURl.getParameters().put('AccountID',accid);
-                returnURL.setredirect(false);
-                return returnURL;
-                
-            }
-           
             else
             {  
                 Account acc=[Select Name from Account where id=:accid limit 1];
-                system.debug('else part'+acc.name);
-                 returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+''+'cas4='+acc+'+&nooverride=0');
+                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+''+'cas4_lkid='+acc.id+'+&nooverride=0');
                 returnURL.setredirect(false);
                 return returnURL;
                 }
@@ -463,7 +411,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 List<Account> acc=[Select Name from Account where id=:accid ];
                    
                     if(acc.size()>0){
-                     pageReference p= new PageReference('/500/e?cas4='+acc[0].name+'+&nooverride=0&retURL=/500/o');
+                    //pageReference p= new PageReference('/500/e?cas4_lkid='+acc[0].id+'+&nooverride=0&retURL=/500/o');
+                    pageReference p= new PageReference('/500/e?cas4_lkid='+acc[0].id+'+&nooverride=0&retURL='+accid);
                     return p;
                     }
                     else{

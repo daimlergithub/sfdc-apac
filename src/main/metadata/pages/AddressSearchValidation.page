@@ -9,6 +9,27 @@
     { 
         setRecType();
     }
+    function loadProvince(lang)
+    {
+        LoadProvince(lang);
+    }
+    function loadDistrict(province)
+    {
+        LoadDistrict(province);
+    }
+    function loadSubDistrict(district)
+    {   
+        LoadSubDistrict(district);
+    }
+    
+    function loadZip(subdistrict)
+    {
+        LoadZip(subdistrict);
+    }
+    function ForeignNationalFields(checked)
+    {
+        ShowHideFields(checked);
+    }
     function unCheckOther(cb)
     {   
    
@@ -34,7 +55,9 @@
     <apex:form id="form">
         <div>
             <apex:pageBlock mode="edit" title="{!$Label.New_Account_Information}"  >
+                
                 <apex:actionFunction action="{!selectedRecordTypeValue}" name="setRecType"/>
+        <!--  All Markets Record Type Selection - Start -->
                 <apex:pageBlockSection >
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}"/>
@@ -50,18 +73,28 @@
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
                 </apex:pageBlockSection>
-                <apex:pageBlockSection id="companyBlock" title="{!$Label.Company_Account_Information}" rendered="{!If( AND(RecordType == 'Company',ISPICKVAL($User.Market__c,'JP')) ,true,false)}" >
+        <!--  All Markets Record Type Selection - End -->
+                
+        <!--  Japan MARKET Company Account  - Start -->
+                <apex:pageBlockSection id="companyBlock" title="{!$Label.Company_Account_Information}" rendered="{!If( AND(RecordType == 'Company',OR(ISPICKVAL($User.Market__c,'JP'),ISPICKVAL($User.Market__c,'JP'))) ,true,false)}" >
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:inputText value="{!objAccount.Name}" />
                         </apex:outputPanel>
-                    </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem >        
+                    </apex:pageBlockSectionItem> 
+                     
+                      <apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
+                     <apex:outputLabel value="{!$Label.Touch_Point}"/>   
+                  <apex:inputfield value="{!objAccount.Data_Source__c}"  id="mId" /> 
+                  </apex:pageBlockSectionItem>
+                   
+                   <apex:pageBlockSectionItem rendered="{!u.ContactId !=null}">        
                      <apex:outputLabel value="{!$Label.Touch_Point}" />       
-                  <apex:inputText value="{!TouchPoint}"  />             
-                  </apex:pageBlockSectionItem> 
+                  <apex:outputText value="{!TouchPoint}"/>         
+                  </apex:pageBlockSectionItem>
+                    
                     <!-- <apex:inputField value="{!objAccount.Name}" /> -->
                     <apex:inputField value="{!objAccount.Company_Name__c}" />
                     <apex:inputField value="{!objAccount.Company_Name_Native_1__c}" />               
@@ -77,9 +110,10 @@
                     <apex:inputField value="{!objAccount.Email2__c}" />
                     <apex:inputField value="{!objAccount.VIN__c}" />                  
                 </apex:pageBlockSection>
-               
+        <!--  Japan MARKET Company Account  - End -->
                 
-                <apex:pageBlockSection id="PersonAccBlock" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'JP')) ,true,false)}">               
+        <!--  Japan MARKET Person Account  - Start -->
+                <apex:pageBlockSection id="PersonAccBlock" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',OR(ISPICKVAL($User.Market__c,'JP'),ISPICKVAL($User.Market__c,'JP'))) ,true,false)}">               
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
@@ -94,12 +128,21 @@
                         <apex:inputText value="{!objPersonAccount.FirstName}" />
                         
                     </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem >
-                     <apex:outputLabel value="{!$Label.Touch_Point}" />
-                  <apex:inputText value="{!TouchPoint}"  />        
+                    
+                    <apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
+                     <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
+                     <apex:outputPanel styleClass="requiredInput" layout="block">
+                       <apex:outputPanel styleClass="requiredBlock" layout="block"/> 
+                  <apex:inputfield value="{!objPersonAccount.Data_Source__c}"  id="mId" />   
+                  </apex:outputPanel>
                   </apex:pageBlockSectionItem> 
+                   <apex:pageBlockSectionItem rendered="{!u.ContactId !=null}">        
+                     <apex:outputLabel value="{!$Label.Touch_Point}" />       
+                  <apex:outputText value="{!TouchPoint}"/>         
+                  </apex:pageBlockSectionItem> 
+                  
                     <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
-<apex:inputField value="{!objPersonAccount.FirstName}" /> -->
+                <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
                     <apex:inputField value="{!objPersonAccount.FirstName_Native_1__c}" />                    
                     <apex:inputField value="{!objPersonAccount.Individual_Home_Phone__c}" />
@@ -114,13 +157,13 @@
                     <apex:inputField value="{!objPersonAccount.VIN__c}" />
                     </apex:pageBlockSection>
                     <apex:pageBlockSection id="PersonAccBlock1" title="{!$Label.Allow_data_sharing2}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'JP')) ,true,false)}">
-                    
-                    <apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" />
-                
-                   </apex:pageBlockSection>
-                
+                    <apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" /> 
+                    <br>  </br>
+                    <apex:inputField value="{!objPersonAccount.Acquisition_Objective_Method__c}" />
+                    <apex:inputField value="{!objPersonAccount.Details_of_Acquisition__c}" />
+                </apex:pageBlockSection>
        <!--  KOREA MARKET Person Account - Start -->
-                <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'KR') ),true,false)}">
+                <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',market=='KR'),true,false)}">
                    <!-- <apex:inputField value="{!objPersonAccount.Salutation__c}" />
                     <apex:outputtext />   -->       
                     <apex:pageBlockSectionItem >
@@ -169,25 +212,26 @@
                   <apex:inputField value="{!objPersonAccount.Email__c}" />                    
                   <apex:inputField value="{!objPersonAccount.PersonBirthdate}"/>
                   <apex:inputField value="{!objPersonAccount.VIN__c}" />
+                   <apex:inputField value="{!objPersonAccount.Company_Name__c}" rendered="{!if(RecordType == 'Person Account',True,false)}" />
                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />     
                   <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>         
                  
               </apex:pageBlockSection>
-               
         <!--  KOREA MARKET Person Account - End -->
        
          <!--  KOREA MARKET Company Account - End -->
-                <apex:pageBlockSection id="companyBlockKR" title="{!$Label.Company_Account_Information}" rendered="{!If( AND(RecordType == 'Company',ISPICKVAL($User.Market__c,'KR')) ,true,false)}" >
+                <apex:pageBlockSection id="companyBlockKR" title="{!$Label.Company_Account_Information}" rendered="{!If( AND(RecordType == 'Company',market=='KR') ,true,false)}" >
                     <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>
+                        <!--<apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>-->
+                        <apex:outputLabel value="{!$Label.Account_Name}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:inputText value="{!objAccount.Name}" />
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
                   
-                  <apex:inputField value="{!objPersonAccount.VIN__c}" /> 
-                    <apex:inputField value="{!objAccount.Company_Name__c}" />              
+               
+                   <!-- <apex:inputField value="{!objAccount.Company_Name__c}" />  -->          
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
@@ -218,17 +262,121 @@
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>                   
+                   </apex:pageBlockSectionItem>  
+                   <apex:inputField value="{!objAccount.Email__c}" />          
+                   <apex:inputField value="{!objAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
+                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>            
+                   <apex:inputField value="{!objAccount.Fax}" />
+                   <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
+                   <apex:inputField value="{!objAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/>        
+                   <apex:inputField value="{!objAccount.VIN__c}" />   
+                </apex:pageBlockSection>       
+        <!--  KOREA MARKET Company Account - End -->
+         
+            <!--  THAILAND MARKET Person Account - Start -->
+                <apex:pageBlockSection id="PersonAccBlockTH" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'TH') ),true,false)}">
+                   <apex:inputField value="{!objAccount.Salutation__c}" />
+                          
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                           
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                            <apex:inputText value="{!objAccount.LastName}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>               
+                    <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.FirstName.Label}"/>
+                        <apex:inputText value="{!objAccount.FirstName}" />   
+                    </apex:pageBlockSectionItem>                                                
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
+                        <apex:outputPanel >
+                              <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px"/>
+                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:30px"/>                                
+                            <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
+                            <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3TH" style="width:50px"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>   
+                   <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
+                        <apex:outputPanel >
+                            <apex:inputText value="{!mbCountryCode}" id="mbCountryCode"  style="width:30px"/>
+                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode"  style="width:30px"/>                      
+                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
+                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3TH" style="width:50px"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>          
+                 <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
+                        <apex:outputPanel >
+                           <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
+                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" style="width:30px"/>                                         
+                            <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2TH" style="width:40px"/>
+                            <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3TH" style="width:50px"/>
+                        </apex:outputPanel>                     
+                    </apex:pageBlockSectionItem> 
+                   
+                  <apex:inputField value="{!objAccount.Email__c}" />                    
+                  <apex:inputField value="{!objAccount.PersonBirthdate}"/>                     
+                  <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>     
+                   
+                 
+              </apex:pageBlockSection>
+        <!--  THAILAND MARKET Person Account - End -->
+         
+        
+          <!--  THAILAND MARKET Company Account - Start -->
+                <apex:pageBlockSection id="companyBlockTH" title="{!$Label.Company_Account_Information}" rendered="{!If( AND(RecordType == 'Company',ISPICKVAL($User.Market__c,'TH')) ,true,false)}" >
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                            <apex:inputText value="{!objAccount.Name}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>                    
+                    <apex:inputField value="{!objAccount.Company_Name__c}" />              
+                    <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />  
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
+                        <apex:outputPanel >
+                           <apex:inputText value="{!hmCountryCode}" id="hmCountryCode"  style="width:30px"/>
+                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:30px"/>                               
+                            <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
+                            <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3TH" style="width:50px"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>                 
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
+                        <apex:outputPanel >
+                            <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px"/>
+                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode"  style="width:30px"/>                      
+                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
+                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3TH" style="width:50px"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>  
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />                        
+                          <apex:outputPanel >
+                            <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
+                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode"  style="width:30px"/>                                               
+                            <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2TH" style="width:40px"/>
+                            <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3TH" style="width:50px"/>
+                        </apex:outputPanel>                   
                     </apex:pageBlockSectionItem>                  
                                   
-                   <apex:inputField value="{!objAccount.Email__c}" />  
-                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
-                   <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>          
+                   <apex:inputField value="{!objAccount.Email__c}" />                             
+                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>    
+                       
                 
                    <apex:inputField value="{!objAccount.Fax}" /> 
                 </apex:pageBlockSection>       
-                
-         <!--  KOREA MARKET Company Account - End -->
-                <apex:pageBlockSection title="{!$Label.Address_Information}" Id="AddrPBS">
+        <!--  THAILAND MARKET Company Account - End -->
+
+
+        
+        <!--  Address Information JP & KR - Start -->
+                <apex:pageBlockSection title="{!$Label.Address_Information}" Id="AddrJPKRPBS" rendered="{!If( OR(ISPICKVAL($User.Market__c,'JP'),ISPICKVAL($User.Market__c,'KR')) ,true,false)}">
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
@@ -300,14 +448,124 @@
                     </apex:pageBlockSectionItem>
                    
                 </apex:pageBlockSection>
+        <!--  Address Information JP & KR - End -->
+        
+        
+        <!--  Address Information TH - Start -->
+                <apex:pageBlockSection title="{!$Label.Address_Information}" Id="AddrPBS" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}">
+                   
+                    <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>
+                     
+                    </apex:pageBlockSectionItem>   
+               
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>
+                    </apex:pageBlockSectionItem>
+                   
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Address_Line_2__c}"/> 
+                    </apex:pageBlockSectionItem>
+                    
+                     <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Foreign_Nationals__c}" id="chkForeignNational"
+                            onclick="ForeignNationalFields(this.value)"/>  
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,false,true)}">
+                     <apex:outputLabel value="Language"/>
+                    <apex:selectRadio value="{!LanguageSelected}" id="idLanguage" onclick="loadProvince(this.value)" >
+                        <apex:selectOption itemValue="English" itemlabel="English"/>
+                        <apex:selectOption itemValue="Thai" itemlabel="Thai"/>                  
+                    </apex:selectRadio>                 
+                   </apex:pageBlockSectionItem>            
+                  
+                    
+                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
+                        <apex:outputLabel value="State/Province"/>
+                         <apex:selectList size="1" value="{!province}" id="slDistrict" onchange="loadDistrict(this.value)">
+                            <apex:selectOptions value="{!lstProvince}"/>                        
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
+                        <apex:outputLabel value="State/Province"/>
+                         <apex:inputText id="slDistrict" value="{!province}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageblockSectionItem id="pbsDistrict" rendered="{!IF(IsForeignNational==false,true,false)}">                 
+                      <apex:outputLabel value="District"/>
+                      <apex:selectList size="1" value="{!district}" id="slprovince" onchange="loadSubDistrict(this.value)">
+                           <apex:selectOptions value="{!lstDistrict}"/>                     
+                      </apex:selectList>  
+                    </apex:pageblockSectionItem> 
+                     
+                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
+                        <apex:outputLabel value="District"/>
+                         <apex:inputText id="inpDistrict" value="{!district}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                <apex:pageblockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}" >
+                    <apex:outputLabel value="Sub District"/>
+                    <apex:selectList size="1" value="{!subdistrict}" id="subdistrict" onchange="loadZip(this.value)">
+                        <apex:selectOptions value="{!lstSubDistrict}"/>
+                    </apex:selectList>
+                </apex:pageblockSectionItem> 
+                
+                <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
+                        <apex:outputLabel value="Sub District"/>
+                         <apex:inputText id="inpSubDistrict" value="{!subdistrict}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                <apex:pageblockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
+                    <apex:outputLabel value="ZIP"/>
+                    <apex:selectList size="1" value="{!zip}" id="zip">
+                        <apex:selectOptions value="{!lstZip}"/>
+                    </apex:selectList>
+                </apex:pageblockSectionItem> 
+                
+                <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
+                        <apex:outputLabel value="ZIP"/>
+                         <apex:inputText id="inpZip" value="{!zip}"/>
+                </apex:pageBlockSectionItem>
+                    
+                 <apex:actionFunction name="LoadProvince" action="{!LoadProvince}" reRender="AddrPBS">  
+                      <apex:param name="provinceSelected" value="" /> 
+                 </apex:actionFunction>
+                 
+                 <apex:actionFunction name="LoadDistrict" action="{!LoadDistrict}" reRender="AddrPBS">  
+                      <apex:param name="districtselected" value="" /> 
+                 </apex:actionFunction> 
+                 
+                 <apex:actionFunction name="LoadSubDistrict" action="{!LoadSubDistrict}" reRender="AddrPBS">  
+                      <apex:param name="subdistrictselected" value="" /> 
+                </apex:actionFunction>
+                
+                <apex:actionFunction name="LoadZip" action="{!LoadZip}" reRender="AddrPBS">  
+                      <apex:param name="zipselected" value="" /> 
+                 </apex:actionFunction> 
+                 
+                   <apex:actionFunction name="ShowHideFields" action="{!ShowHideFields}" reRender="AddrPBS">  
+                      <apex:param name="showhideflds" value="" /> 
+                 </apex:actionFunction> 
+                </apex:pageBlockSection>
+        <!--  Address Information TH - End -->
+        
+        <!--  Page Buttons Information JP & KR - Start -->
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
-                    <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(RecordType == 'Person Account',market=='KR') ,true,false)}"/>
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,addressIds,msgs"/>
+                    <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>
+                    <apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(ISPICKVAL($User.Market__c,'TH')) ,true,false)}"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     
                     <apex:outputPanel rendered="{!firstsave}" >
                         <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(Market =='JP',True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
+                        <apex:commandButton id="SavebtnTH" action="{!saveAccountTH}" value="{!$Label.Save_Button}" rendered="{!if(Market =='TH',True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     </apex:outputPanel>
                     <apex:outputPanel rendered="{!secondsave}">
                         <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}"  rendered="{!if(Market =='JP',True,false)}"  status="actStatusId"/>
@@ -338,7 +596,8 @@
             </apex:actionStatus>  
                                          
                 </apex:pageBlockButtons>
-            
+        <!--  Page Buttons Information JP & KR - End -->
+        
         <br/>
         <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>    
         <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR', true, false)}">    
@@ -356,7 +615,7 @@
         </div>
         <div>
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
-                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'JP', true, false)}">
                      <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
@@ -381,9 +640,31 @@
                      <apex:Column headerValue="Address for Address data">                    
                         <apex:outputtext value="{!AddressDetails}"/>
                     </apex:Column>                     
-                </apex:PageBlockTable> 
-                </apex:PageBlock>
-                
+                </apex:PageBlockTable>
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'KR', true, false)}">
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}">  
+                        <apex:outputLink value="/{!cr.Id}">{!cr.LastName}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
+                        <apex:outputField value="{!cr.firstName}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                        <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
+                        <apex:outputField value="{!cr.Mobile__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="Address for Address data">                    
+                        <apex:outputtext value="{!AddressDetails}"/>
+                    </apex:Column>
+                </apex:PageBlockTable>
+                </apex:PageBlock>              
                 <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!CompanyConfirmedMatch}"  >
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
                      
@@ -399,13 +680,16 @@
                     
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
-                    </apex:Column>
-                     -->
+                    </apex:Column>-->
+                     
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                    
                         <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
                     </apex:Column>
                      <apex:Column headerValue="Address for Address data">                    
                         <apex:outputtext value="{!AddressDetails}"/>

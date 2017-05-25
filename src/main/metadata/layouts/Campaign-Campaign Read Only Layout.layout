@@ -148,10 +148,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Total_Budget__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Submission_Due_Date__c</field>
             </layoutItems>
             <layoutItems>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-	<alerts>
+    <alerts>
         <fullName>Execution_Start_Date_Notification_To_Owner</fullName>
         <description>Execution Start Date Notification To Owner</description>
         <protected>false</protected>
@@ -10,7 +10,7 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Campaign_notification_on_Execution</template>
     </alerts>
-	<alerts>
+    <alerts>
         <fullName>Segmentation_Email_Notifications_For_WS_Users</fullName>
         <description>Segmentation Email Notifications For WS Users</description>
         <protected>false</protected>
@@ -29,7 +29,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Active</fullName>
         <field>IsActive</field>
         <literalValue>1</literalValue>
@@ -269,7 +269,7 @@ RecordType.Name,
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND ( 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND ( 4 OR 5 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>
@@ -295,11 +295,16 @@ RecordType.Name,
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>Active Flag For Campaign Management</fullName>
         <actions>
             <name>Active</name>
@@ -325,7 +330,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <description>Automaticall make active field true for Planning &amp; design /Campaign Execution record types of campaign</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>Execution start date Notification to WS Users</fullName>
         <active>true</active>
         <criteriaItems>
@@ -338,11 +343,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>TODAY</value>
         </criteriaItems>
-		<criteriaItems>
+        <criteriaItems>
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
-        </criteriaItems>		        
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -379,7 +384,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -400,16 +405,21 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-   <rules>
+    <rules>
         <fullName>Record Publish Date</fullName>
         <actions>
             <name>record_Publish_Date</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -430,8 +440,13 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>	
+    </rules>
     <rules>
         <fullName>Segmentation start date Notification to WS Users</fullName>
         <active>true</active>
@@ -445,11 +460,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>TODAY</value>
         </criteriaItems>
-		<criteriaItems>
+        <criteriaItems>
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
-        </criteriaItems>		        
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -494,11 +509,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>Campaign Execution</value>
         </criteriaItems>
-		<criteriaItems>
+        <criteriaItems>
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
-        </criteriaItems>		        
+        </criteriaItems>
         <description>workflow fire based on segmenation date and execution date</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -527,7 +542,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISNEW() || ISCHANGED( Template__c ),MD__c='KR')</formula>
+        <formula>AND(ISNEW() || ISCHANGED( Template__c ),OR(MD__c='KR',MD__c='TH'))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -537,6 +552,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -552,6 +568,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -561,7 +582,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(1=1,MD__c='JP' ||MD__c='KR')</formula>
+        <formula>AND(1=1,MD__c='JP' ||MD__c='KR' || MD__c='TH')</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
@@ -582,5 +603,5 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>	
+    </rules>
 </Workflow>

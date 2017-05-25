@@ -21,4 +21,5 @@
     <tab>SurveyTaker__c</tab>
     <tab>standard-Knowledge</tab>
     <tab>standard-KnowledgePublishing</tab>
+    <tab>Campaign_Member__c</tab>
 </CustomApplication>
