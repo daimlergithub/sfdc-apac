@@ -121,6 +121,17 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Campaign__r.Range__c , "None"), "None", NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Range</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Session_Start_Date__c</fullName>
         <externalId>false</externalId>

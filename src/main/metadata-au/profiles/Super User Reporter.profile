@@ -1720,7 +1720,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.All_Channel_opt_out__c</field>
+        <field>Account.All_channel_opt_out__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4700,7 +4700,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Retail_Agreement_info_processing__c</field>
+        <field>Account_Link__c.Retail_Agreement_Info_Processing__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5025,7 +5025,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Retail_Website__c</field>
+        <field>Account_Link__c.Retail_WebSite__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11020,7 +11020,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Aftersales_VIN__c</field>
+        <field>Lead__c.AfterSales_VIN__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11030,7 +11030,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Aftersales_Vehicle__c</field>
+        <field>Lead__c.AfterSales_Vehicle__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11090,7 +11090,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Behavioral_Group__c</field>
+        <field>Lead__c.Behavioural_Group__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

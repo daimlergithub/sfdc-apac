@@ -205,6 +205,30 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Annual_Call_Task_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Annual Call Task 1</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Annual_Call_Task_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Annual Call Task 2</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Annual_Call_Task_3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Annual Call Task 3</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Annual_Call__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1092,6 +1116,30 @@
     </fields>
     <fields>
         <fullName>EOC_Call_Task_3_del__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>EOC Call Task 3</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>EOC_Call_Task_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>EOC Call Task 1</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>EOC_Call_Task_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>EOC Call Task 2</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>EOC_Call_Task_3__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>EOC Call Task 3</label>
@@ -2393,6 +2441,17 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>MBF_base_interest_rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Compensation usually interest rates</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
 IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
@@ -3157,7 +3216,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Related Contact 4</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Contracts &amp; Aftersales (Related Contact 4)</relationshipLabel>
+        <relationshipLabel>Retail Tasks (Related Contact 4)</relationshipLabel>
         <relationshipName>Retail_Tasks7</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -4322,6 +4381,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Total_Split_Payment__c</fullName>
