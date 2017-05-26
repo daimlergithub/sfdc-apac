@@ -20,7 +20,21 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Campaign_Lead_Assignment_Notification</template>
     </alerts>
+<<<<<<< HEAD
+	 <alerts>
+        <fullName>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</fullName>
+        <description>Send email if the after sales or sales lead is not closed in 3 weeks or 3 months</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Lead_is_not_closed_Sales_3_months_Aftersales_3_weeks</template>
+    </alerts>
+	<alerts>
+=======
     <alerts>
+>>>>>>> 6319363bdff5c559e02ed4e0ade518b61f5443f1
         <fullName>Email_Notification_to_CCC_Manager_if_lead_untouched_1_hours</fullName>
         <description>Email Notification to CCC Manager if lead untouched 1 hours</description>
         <protected>false</protected>
@@ -1296,6 +1310,38 @@ Purchased_Date_Time__c
         <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
         <formula>AND($Profile.Name = 'Thailand Dealer Delegate Admin',MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Aftersales 3 weeks</fullName>
+        <actions>
+            <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>IF((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Service Completed') &amp;&amp; RecordType.Name == 'Sales Leads') || 
+(ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Service Completed') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads'), 
+true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <timeLength>21</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+	    <rules>
+        <fullName>Sales Lead 3 months notification</fullName>
+        <actions>
+            <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>IF((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; RecordType.Name == 'Sales Leads') || 
+(ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads'), 
+true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <timeLength>90</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>MBTH-To update CAC Lead Status is changed to Purchase if Dealer Lead Status has changed to purchased</fullName>
