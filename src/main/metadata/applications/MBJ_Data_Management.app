@@ -15,5 +15,4 @@
     <tab>Retail_Task__c</tab>
     <tab>Recall__c</tab>
     <tab>Survey__c</tab>
-    <tab>Campaign_Member__c</tab>
 </CustomApplication>
