@@ -1964,7 +1964,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>No_modification_is_made_in_5_days_All_Modifications</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
         <formula>(LastActivityDate - today() == 5)&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onAllChanges</triggerType>
