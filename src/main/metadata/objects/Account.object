@@ -11662,6 +11662,17 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
+	<fields>
+        <fullName>Sequence_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Sequence No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>ShippingAddress</fullName>
         <trackFeedHistory>false</trackFeedHistory>
