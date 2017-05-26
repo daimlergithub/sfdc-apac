@@ -1339,9 +1339,6 @@
             <tab>Account_Link__c</tab>
         </mapping>
         <mapping>
-            <tab>Campaign_Member__c</tab>
-        </mapping>
-        <mapping>
             <fieldName>Car_Model__c</fieldName>
             <tab>DM_Material__c</tab>
         </mapping>
