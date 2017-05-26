@@ -110,7 +110,8 @@
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
-				<sf:include name="Account"/>				
+				<sf:include name="Account"/>
+				<sf:include name="Case"/>
 				<sf:include name="User"/>
 				<sf:include name="Address__c"/>	
 				<sf:include name="RegionMasterInfo__c"/>	

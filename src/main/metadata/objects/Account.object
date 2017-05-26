@@ -1003,6 +1003,28 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <fields>	
+        <fullName>CAC_PERSON_UID__c</fullName>
+        <externalId>false</externalId>
+        <label>Compass Customer ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+       <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CDM_UCID__c</fullName>
+        <externalId>false</externalId>
+        <label>CDM UCID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>CMS_Dealer_BPID__c</fullName>
         <externalId>false</externalId>
@@ -8252,6 +8274,17 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MBC_USERID__c</fullName>
+        <externalId>false</externalId>
+        <label>CPD Customer ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MBFS_Activation_Date__c</fullName>
         <externalId>false</externalId>
         <label>MBFS Activation Date</label>
@@ -11628,6 +11661,17 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+	<fields>
+        <fullName>Sequence_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Sequence No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ShippingAddress</fullName>
