@@ -2886,12 +2886,7 @@
         <field>Account.Email_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Email_Sent_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	    <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Opt_In_Mobile__c</field>
         <readable>true</readable>
