@@ -6403,11 +6403,6 @@
         <field>CampaignMember.formula_num__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>CampaignMember.MBTH_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_City__c.End_Date__c</field>
