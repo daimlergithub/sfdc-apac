@@ -475,6 +475,49 @@ List<Account> accUpdLst = new List<Account>();
                     //         System.debug('sent email details'+sentemails ); 
              } 
     }
+	
+	// Added by Venky @5/26/2017 Changes related to JP-1039
+	 public static void UpdatePrimarycasedealer(List<Case> shcaseList)
+    {
+    // Changes related to JP-1039
+    if(LeadUtil.CaseWithDealers )
+    {
+    Set<Id> DealeAccountId= new Set<Id>();
+    List<User> listuser=new List<User>();
+    List<Case> UpdateCase=new List<case>();
+    listUser=[select id,ContactId,Contact.AccountId,Market__c from User where id=:userinfo.getUserId() and Market__c='JP' and contactid!=null];
+    System.debug('%^%^%^%^% listUser'+listUser);
+    if(listUser !=null)
+    {
+    for(User usrs:listuser)
+    {  
+    
+    if( shcaseList!=null && DealeAccountId !=null)
+    {
+    for(Case listcase:shcaseList)
+    {
+    if(listcase.Case_Dealer__c ==null  && usrs.Contactid!=null )
+    {
+    listcase.Case_Dealer__c=usrs.Contact.AccountId;
+    }
+    if(listcase.Case_Dealer_User__c ==null  && usrs.Contactid!=null)
+    {
+   listcase.Case_Dealer_User__c =usrs.id;
+    }
+    UpdateCase.add(listcase);
+    }
+    }
+    }
+    }
+    
+      
+      LeadUtil.CaseWithDealers=false;
+      }
+      
+    
+    //
+    }
+	
  /*
  Share case record with Japan Dealer Company Manager,Japan Dealer Sales Manager,Japan Dealer Service Manager,
   if this Case record belongs to the dealer user's company and Dealer_Contact__c value as "Yes" and
