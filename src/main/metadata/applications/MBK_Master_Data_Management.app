@@ -8,5 +8,4 @@
     <tab>Car_Model__c</tab>
     <tab>Dealer_Locator__c</tab>
     <tab>DM_Material__c</tab>
-    <tab>Campaign_Member__c</tab>
 </CustomApplication>

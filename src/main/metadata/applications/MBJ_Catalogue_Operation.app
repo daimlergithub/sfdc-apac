@@ -7,5 +7,4 @@
     <tab>DM_Material__c</tab>
     <tab>standard-Workspace</tab>
     <tab>standard-File</tab>
-    <tab>Campaign_Member__c</tab>
 </CustomApplication>
