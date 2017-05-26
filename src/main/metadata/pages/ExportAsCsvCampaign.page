@@ -5,7 +5,7 @@ Created Date : 31st Jan,2017
 Lastmodifed  : 4th april,2017
 -->
 
-<apex:page contentType="application/vnd.ms-excel#CampaignMembers.xls" sidebar="false" controller="exportCampaignMembers" action="{!changeStatus}">
+<apex:page contentType="application/vnd.ms-excel#CampaignMembers.xls" sidebar="false" controller="exportCampaignMembers">
      <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     </head>
