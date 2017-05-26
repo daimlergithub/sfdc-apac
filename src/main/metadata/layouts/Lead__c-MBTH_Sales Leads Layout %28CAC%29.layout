@@ -1059,13 +1059,9 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-<<<<<<< HEAD
-        <masterLabel>00h0k000000Ecf5</masterLabel>
-=======
-        <masterLabel>00h28000006X7X2</masterLabel>
->>>>>>> 6319363bdff5c559e02ed4e0ade518b61f5443f1
-        <sizeX>4</sizeX>
-        <sizeY>0</sizeY>
-        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    <masterLabel>00h0k000000Ecf5</masterLabel>
+    <sizeX>4</sizeX>
+    <sizeY>0</sizeY>
+    <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
