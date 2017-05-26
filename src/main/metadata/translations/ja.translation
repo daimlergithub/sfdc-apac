@@ -4857,19 +4857,6 @@
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Account with Account Link (SARI) --></description>
-        <label><!-- Account with Account Link (SARI) --></label>
-        <name>Account_with_Account_Link_SARI</name>
-        <sections>
-            <label><!-- Account Links (Contact to Contact) --></label>
-            <name>Account Links (Contact to Contact)</name>
-        </sections>
-        <sections>
-            <label><!-- Accounts --></label>
-            <name>Accounts</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description><!-- Account with Account Link and Retail Task --></description>
         <label><!-- Account with Account Link and Retail Task --></label>
         <name>Account_with_Account_Link_and_Retail_Task</name>
