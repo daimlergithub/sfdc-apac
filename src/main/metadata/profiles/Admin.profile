@@ -9079,11 +9079,6 @@
     </fieldPermissions>
 	    <fieldPermissions>
         <editable>true</editable>
-        <field>Case.MBTH_Case_Department__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	    <fieldPermissions>
-        <editable>true</editable>
         <field>Case.MBTH_Related_Department__c</field>
         <readable>true</readable>
     </fieldPermissions>
