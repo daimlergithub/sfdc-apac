@@ -1184,6 +1184,11 @@ If the user is Saving  same address which matches the fields returned by toleran
         { 
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
         }
+		else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
+        { 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName is mandatory'));
+        }
+		
         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
