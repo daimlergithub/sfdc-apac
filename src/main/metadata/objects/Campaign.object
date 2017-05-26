@@ -13138,7 +13138,7 @@
             </values>
             <values>
                 <fullName>Planned</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Published</fullName>

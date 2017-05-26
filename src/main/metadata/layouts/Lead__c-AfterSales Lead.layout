@@ -562,9 +562,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>New_Campaign_Lead</customButtons>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
+	    <fields>NAME</fields>
         <fields>Campaign__c</fields>
         <fields>Central_Campaign_Name__c</fields>
         <fields>Participate__c</fields>
