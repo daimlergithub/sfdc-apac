@@ -22638,6 +22638,11 @@
         <default>false</default>
         <recordType>Case.Chrysler_Complaint</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>	
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Case.EventDataLoad</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
