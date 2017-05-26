@@ -62,7 +62,7 @@
                 <field>Trim__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Model__c</field>
             </layoutItems>
             <layoutItems>
