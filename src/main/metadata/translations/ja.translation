@@ -4982,19 +4982,6 @@
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Accounts with Vehicles Relationship(SARI) --></description>
-        <label><!-- Accounts with Vehicles Relationship(SARI) --></label>
-        <name>Accounts_with_Vehicles_Relationship_SARI</name>
-        <sections>
-            <label><!-- Accounts --></label>
-            <name>Accounts</name>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Relationships --></label>
-            <name>Vehicle Relationships</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description><!-- Campaign Member --></description>
         <label><!-- Campaign Member --></label>
         <name>Campaign_Member</name>

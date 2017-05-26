@@ -4978,19 +4978,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Accounts with Vehicles Relationship(SARI) --></description>
-        <label><!-- Accounts with Vehicles Relationship(SARI) --></label>
-        <name>Accounts_with_Vehicles_Relationship_SARI</name>
-        <sections>
-            <label><!-- Accounts --></label>
-            <name>Accounts</name>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Relationships --></label>
-            <name>Vehicle Relationships</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description>불완전한 캠페인 멤버를 점검</description>
         <label>캠페인 맴버</label>
         <name>Campaign_Member</name>
