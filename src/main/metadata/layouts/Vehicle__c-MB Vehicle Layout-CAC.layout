@@ -317,14 +317,14 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Service_Number__c</fields>
+        <fields>Service_Code__c</fields>
+        <fields>Service_Date__c</fields>
         <fields>Related_Contact__c</fields>
         <fields>Related_Contact2__c</fields>
         <fields>Related_Contact3__c</fields>
-        <fields>Service_Date_In__c</fields>
-        <fields>Service_Date_Out__c</fields>
-        <fields>Service_Date__c</fields>
-        <fields>Service_Code__c</fields>
-        <fields>Service_Mileage__c</fields>
+        <fields>Related_Contact4__c</fields>
+        <fields>Service_Invoice_Number__c</fields>
         <fields>Related_Lead__c</fields>
         <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
     </relatedLists>
