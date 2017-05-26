@@ -5130,19 +5130,6 @@
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Dealer with Account Link (Vehicle) (SARI) --></description>
-        <label><!-- Dealer with Account Link (Vehicle) (SARI) --></label>
-        <name>Dealer_with_Account_Link_Vehicle_SARI</name>
-        <sections>
-            <label><!-- Account Links(External Link) --></label>
-            <name>Account Links(External Link)</name>
-        </sections>
-        <sections>
-            <label><!-- Accounts --></label>
-            <name>Accounts</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description><!-- Happy Calls Report for aftersales Lead --></description>
         <label><!-- Happy Calls Report for aftersales Lead --></label>
         <name>Happy_Calls_Report_for_aftersales_Lead</name>
