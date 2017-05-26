@@ -141,7 +141,7 @@
                 <behavior>Edit</behavior>
                 <field>Home_Phone_2__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CDM_UCID__c</field>
             </layoutItems>

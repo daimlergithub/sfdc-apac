@@ -6,4 +6,5 @@
     <tab>Tasks</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+    <tab>Campaign_Member__c</tab>
 </CustomApplication>

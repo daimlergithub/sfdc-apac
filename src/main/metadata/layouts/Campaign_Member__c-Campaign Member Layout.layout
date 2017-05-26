@@ -211,7 +211,7 @@
                 <behavior>Edit</behavior>
                 <field>Interested_Model__c</field>
             </layoutItems>
-			            <layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Mobile__c</field>
             </layoutItems>

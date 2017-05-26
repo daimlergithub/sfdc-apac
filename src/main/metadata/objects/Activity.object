@@ -34,6 +34,120 @@
     </actionOverrides>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>AES_CNTR__CallReference__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>CallReference</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>AES_CNTR__Called__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Called</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>AES_CNTR__Caller__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Caller</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>AES_CNTR__Queue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Queue</label>
+        <length>96</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AES_CNTR__UCID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Universal Call ID for the Avaya telephone system.</description>
+        <externalId>false</externalId>
+        <label>UCID</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AES_CNTR__UUI__c</fullName>
+        <deprecated>false</deprecated>
+        <description>User-to-User Information as provided by the CTI link</description>
+        <externalId>false</externalId>
+        <label>UUI</label>
+        <length>96</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AES_SFConnector__AgentType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>AgentType</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AES_SFConnector__CallReference__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>CallReference</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>AES_SFConnector__Called__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number that was called by the originator. (DNIS)</description>
+        <externalId>false</externalId>
+        <label>Called</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>AES_SFConnector__Caller__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number that was dialed by the originator of the call. (ANI)</description>
+        <externalId>false</externalId>
+        <label>Caller</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>AES_SFConnector__UCID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Universal Call ID for the Avaya telephone system.</description>
+        <externalId>false</externalId>
+        <label>UCID</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AES_SFConnector__UUI__c</fullName>
+        <deprecated>false</deprecated>
+        <description>User-to-User Information as provided by the CTI link</description>
+        <externalId>false</externalId>
+        <label>UUI</label>
+        <length>96</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_Name__c</fullName>
         <externalId>false</externalId>
         <label>Account Name</label>
@@ -2263,6 +2377,9 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>My General  Task</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>My_Open_OB_Task</fullName>

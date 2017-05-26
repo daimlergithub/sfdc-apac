@@ -1237,8 +1237,7 @@
 		<filename>settings\Case.settings</filename>
 		<xpath>/CaseSettings/defaultCaseUser/text()</xpath>
 		<token>SETTING_DEFAULT_CASE_USER</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
@@ -1248,8 +1247,7 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
@@ -1259,8 +1257,7 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_FIRSTNAME_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
@@ -1270,14 +1267,12 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_NATIVE_FIRSTNAME_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_NATIVE_LASTNAME_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
@@ -1287,8 +1282,7 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_PHONE_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
@@ -1318,10 +1312,7 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_After_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID_lkid</token>
-	</changetext>
-	
-	
-	
+	</changetext>	
     <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
@@ -1351,14 +1342,12 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_NATIVE_FIRSTNAME_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_NATIVE_LASTNAME_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
@@ -1368,8 +1357,7 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_PHONE_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
@@ -1379,8 +1367,7 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID</token>
-	</changetext>
-	
+	</changetext>	
 	 <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
@@ -1545,7 +1532,9 @@
 		CanUseNewDashboardBuilder,ChatterFileLink,ChatterInternalUser,ChatterInviteExternalUsers,ChatterOwnGroups,ConnectOrgToEnvironmentHub,ContentAdministrator,
 		ConvertLeads,CreateCustomizeFilters,CreatePackaging,CreateTopics,CreateWorkspaces,CustomizeApplication,DataExport,DeleteActivatedContract,DeleteTopics,
 		DistributeFromPersWksp,EditActivatedOrders,EditBrandTemplates,EditCaseComments,EditEvent,EditHtmlTemplates,EditOppLineItemUnitPrice,EditPublicDocuments,
+
 		EditPublicFilters,EditPublicTemplates,EditReadonlyFields,EditTask,EditTopics,EmailMass,EmailSingle,EnableNotifications,
+
 		ExportReport,ImportLeads,ImportPersonal,InboundMigrationToolsUser,InstallPackaging,IPRestrictRequests,ManageAnalyticSnapshots,ManageAuthProviders,
 		ManageBusinessHourHolidays,ManageCallCenters,ManageCases,ManageCategories,ManageContentPermissions,ManageContentProperties,ManageContentTypes,ManageCssUsers,
 		ManageCustomPermissions,ManageCustomReportTypes,ManageDataCategories,ManageDataIntegrations,ManageDynamicDashboards,ManageEmailClientConfig,

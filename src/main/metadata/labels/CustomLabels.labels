@@ -100,13 +100,6 @@
         <value>Account Link</value>
     </labels>
     <labels>
-        <fullName>DealerKoreaLoginURL</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>DealerKoreaLoginURL</shortDescription>
-        <value>https://uat-daimlerasia.cs31.force.com/MBKorea</value>
-    </labels>	
-	<labels>
         <fullName>AccountMergeFields</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -140,6 +133,14 @@
         <protected>false</protected>
         <shortDescription>Account Merge</shortDescription>
         <value>Account Merge</value>
+    </labels>
+    <labels>
+        <fullName>Account_Name</fullName>
+        <categories>This was added to correct the Korean value for Account name, Account name is a standard field thus we will not be able to modify korean value</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressSearchValidation</shortDescription>
+        <value>Account Name</value>
     </labels>
     <labels>
         <fullName>Account_Retail_Copy_Filter</fullName>
@@ -492,20 +493,6 @@
         <value>you do not have the proper authorization</value>
     </labels>
     <labels>
-        <fullName>Backslash</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Backslash</shortDescription>
-        <value>\</value>
-    </labels>
-    <labels>
-        <fullName>Birthdate</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Birthdate</shortDescription>
-        <value>Birthdate</value>
-	</labels>
-    <labels>	
         <fullName>Average</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
@@ -514,12 +501,26 @@
         <value>Average</value>
     </labels>
     <labels>
+        <fullName>Backslash</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Backslash</shortDescription>
+        <value>\</value>
+    </labels>
+    <labels>
         <fullName>Beyond_expectation</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Beyond expectation</shortDescription>
         <value>Beyond expectation</value>
+    </labels>
+    <labels>
+        <fullName>Birthdate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Birthdate</shortDescription>
+        <value>Birthdate</value>
     </labels>
     <labels>
         <fullName>Brand</fullName>
@@ -1678,7 +1679,7 @@
         <shortDescription>Convert To Task</shortDescription>
         <value>Convert To Task</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Converted_to_After_Sales_Leads</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1735,7 +1736,7 @@
         <shortDescription>Criteria</shortDescription>
         <value>Criteria</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Current_Lead</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1912,6 +1913,13 @@
         <value>Dealer :</value>
     </labels>
     <labels>
+        <fullName>DealerKoreaLoginURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DealerKoreaLoginURL</shortDescription>
+        <value>https://uat-daimlerasia.cs31.force.com/MBKorea</value>
+    </labels>
+    <labels>
         <fullName>DealerName</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2031,6 +2039,13 @@
         <protected>false</protected>
         <shortDescription>Delete_Filter</shortDescription>
         <value>Delete Filter</value>
+    </labels>
+    <labels>
+        <fullName>DeleteretailcopyErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DeleteretailcopyErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
     </labels>
     <labels>
         <fullName>DetailedModelName</fullName>
@@ -2354,7 +2369,7 @@ please contact the number below.</value>
         <shortDescription>For Vehicle Picker</shortDescription>
         <value>Enter VIN number</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Equals</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2374,6 +2389,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>No DM requests avaiable for Download</value>
+    </labels>
+    <labels>
+        <fullName>Error_Msg_for_KR_Users</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Msg for Create Complex Execution</shortDescription>
+        <value>This function available only for Japan user</value>
     </labels>
     <labels>
         <fullName>Error_Please_enter_your_criteria</fullName>
@@ -2427,7 +2449,7 @@ please contact the number below.</value>
         <shortDescription>Exception message</shortDescription>
         <value>DM Request Status could not be Updated Please contact System Administrator.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Exclude</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2491,7 +2513,7 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Family, company, hobby have you heard</shortDescription>
         <value>Family, company, hobby have you heard?</value>
-	</labels>
+    </labels>
     <labels>
         <fullName>Favorite_Model</fullName>
         <categories>flows</categories>
@@ -2590,7 +2612,7 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>First Estimate Print</shortDescription>
         <value>First Estimate Print</value>
-	</labels>
+    </labels>
     <labels>
         <fullName>Five</fullName>
         <language>en_US</language>
@@ -2614,20 +2636,6 @@ please contact the number below.</value>
         <value>Interested Vehicle</value>
     </labels>
     <labels>
-        <fullName>Garage_information_and_specifications_have_you_heard</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Garage information and specifications have you heard</shortDescription>
-        <value>Garage information and specifications have you heard?</value>
-    </labels>
-    <labels>
-        <fullName>Gender</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Gender</shortDescription>
-        <value>Gender</value>
-	</labels>
-    <labels>
         <fullName>Four</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2641,6 +2649,20 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>From the experience with Mercedes-Benz during this event, which word would best</shortDescription>
         <value>From the experience with Mercedes-Benz during this event, which word would best describe Mercedes-Benz? (Max.3 attributes)</value>
+    </labels>
+    <labels>
+        <fullName>Garage_information_and_specifications_have_you_heard</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Garage information and specifications have you heard</shortDescription>
+        <value>Garage information and specifications have you heard?</value>
+    </labels>
+    <labels>
+        <fullName>Gender</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Gender</shortDescription>
+        <value>Gender</value>
     </labels>
     <labels>
         <fullName>GenericUploaderErrorMsg</fullName>
@@ -2713,7 +2735,7 @@ please contact the number below.</value>
         <shortDescription>Grand Total</shortDescription>
         <value>Grand Total</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Greater_Than</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2778,18 +2800,18 @@ please contact the number below.</value>
         <value>Home Phone</value>
     </labels>
     <labels>
-        <fullName>Home_Type</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Home Type</shortDescription>
-        <value>Home Type</value>
-	</labels>
-    <labels>
         <fullName>Home_Phone_2</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Home Phone 2</shortDescription>
         <value>Home Phone 2</value>
+    </labels>
+    <labels>
+        <fullName>Home_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Type</shortDescription>
+        <value>Home Type</value>
     </labels>
     <labels>
         <fullName>I_don_t_know_no_statement</fullName>
@@ -2901,6 +2923,14 @@ please contact the number below.</value>
         <value>Interest Filter</value>
     </labels>
     <labels>
+        <fullName>Interesting_Event</fullName>
+        <categories>flows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interesting Event</shortDescription>
+        <value>Interesting Event</value>
+    </labels>
+    <labels>
         <fullName>Interior</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2913,14 +2943,6 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Invoiced</shortDescription>
         <value>Invoiced</value>
-	</labels>
-    <labels>
-        <fullName>Interesting_Event</fullName>
-        <categories>flows</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Interesting Event</shortDescription>
-        <value>Interesting Event</value>
     </labels>
     <labels>
         <fullName>JP</fullName>
@@ -3490,7 +3512,7 @@ please contact the number below.</value>
         <shortDescription>Leagl Owner</shortDescription>
         <value>Leagl Owner</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Less_Than</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3510,6 +3532,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>List Ready Maintenance</shortDescription>
         <value>List Maintenance Notification</value>
+    </labels>
+    <labels>
+        <fullName>List_of_Service_Retail_Task_Only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>List of Service Retail Task Only</shortDescription>
+        <value>List of Service Retail Task Only</value>
     </labels>
     <labels>
         <fullName>Logic_Error</fullName>
@@ -3960,7 +3989,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Next Activity</shortDescription>
         <value>Next Activity</value>
-	</labels>
+    </labels>
     <labels>
         <fullName>Nine</fullName>
         <language>en_US</language>
@@ -4190,6 +4219,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Out let</value>
     </labels>
     <labels>
+        <fullName>Overall_impression</fullName>
+        <categories>flow</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Overall impression</shortDescription>
+        <value>Overall impression</value>
+    </labels>
+    <labels>
         <fullName>Owner</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4202,14 +4239,6 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Owner Sales Responsible Person</shortDescription>
         <value>Owner Sales Responsible Person</value>
-	</labels>
-    <labels>
-        <fullName>Overall_impression</fullName>
-        <categories>flow</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Overall impression</shortDescription>
-        <value>Overall impression</value>
     </labels>
     <labels>
         <fullName>POM_advertisement</fullName>
@@ -5028,6 +5057,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Quality</value>
     </labels>
     <labels>
+        <fullName>RET_02_01_ServiceAmountView</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
+        <value>RET_02_01_ServiceAmountView</value>
+    </labels>
+    <labels>
+        <fullName>Range_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Range Model</shortDescription>
+        <value>Range Model</value>
+    </labels>
+    <labels>
         <fullName>Rating</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5070,12 +5113,26 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>If you are not the recipient of this FAX</value>
     </labels>
     <labels>
+        <fullName>RecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Type</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
         <fullName>RecordTypeId</fullName>
         <categories>Address Search</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>RecordTypeId</shortDescription>
         <value>RecordTypeId</value>
+    </labels>
+    <labels>
+        <fullName>Registered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registered</shortDescription>
+        <value>Registered</value>
     </labels>
     <labels>
         <fullName>Registration</fullName>
@@ -5097,6 +5154,34 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Registration No</shortDescription>
         <value>Registration No</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date</shortDescription>
+        <value>Registration Date</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date_Inspection_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date / Inspection Date</shortDescription>
+        <value>Registration Date / Inspection Date</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date_Milage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date / Milage</shortDescription>
+        <value>Registration Date / Milage</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Plan_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Plan Date</shortDescription>
+        <value>Registration Plan Date</value>
     </labels>
     <labels>
         <fullName>Reject</fullName>
@@ -5121,6 +5206,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Related Account field is empty</value>
     </labels>
     <labels>
+        <fullName>Related_Dealer_View_for_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Dealer View for Contract</shortDescription>
+        <value>Related Dealer View for Contract</value>
+    </labels>
+    <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
         <categories>Report</categories>
         <language>en_US</language>
@@ -5135,6 +5227,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Report Title2 TA Tracing</shortDescription>
         <value>Yearly Budget,Actual Expense</value>
+    </labels>
+    <labels>
+        <fullName>Representative</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Representative</shortDescription>
+        <value>Representative</value>
+    </labels>
+    <labels>
+        <fullName>Representative_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Representative Information</shortDescription>
+        <value>Representative Information</value>
     </labels>
     <labels>
         <fullName>Request</fullName>
@@ -5156,6 +5262,34 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>RequestPDF</shortDescription>
         <value>Request</value>
+    </labels>
+    <labels>
+        <fullName>Request_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Date</shortDescription>
+        <value>Request Date</value>
+    </labels>
+    <labels>
+        <fullName>Request_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Details</shortDescription>
+        <value>Request Details</value>
+    </labels>
+    <labels>
+        <fullName>Request_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Type</shortDescription>
+        <value>Request Type</value>
+    </labels>
+    <labels>
+        <fullName>Requested_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requested Date</shortDescription>
+        <value>Requested Date</value>
     </labels>
     <labels>
         <fullName>Required_Information</fullName>
@@ -5216,7 +5350,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Retail Campaign Canlender Page SM Media</shortDescription>
         <value>S&amp;M Media Retail Campaign</value>
     </labels>
-	<labels>
+    <labels>
+        <fullName>Retail_Copy_View_Area_For_Dealer_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Copy View Area For Dealer User</shortDescription>
+        <value>Retail Copy View Area For Dealer User</value>
+    </labels>
+    <labels>
         <fullName>Retail_copy_is_already_present</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6128,34 +6269,6 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <value>MercedesCard</value>
     </labels>
     <labels>
-        <fullName>RET_02_01_ServiceAmountView</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
-        <value>RET_02_01_ServiceAmountView</value>
-    </labels>
-    <labels>
-        <fullName>Range_Model</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Range Model</shortDescription>
-        <value>Range Model</value>
-    </labels>
-	<labels>
-        <fullName>To_Company</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>To Company</shortDescription>
-        <value>To Company</value>
-    </labels>
-	<labels>
-        <fullName>To_Person</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>To Person</shortDescription>
-        <value>To Person</value>
-    </labels>
-    <labels>
         <fullName>S5_Q4_E_P1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6177,25 +6290,11 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <value>Are you interested to apply the card?</value>
     </labels>
     <labels>
-        <fullName>RecordType</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Record Type</shortDescription>
-        <value>Record Type</value>
-    </labels>
-    <labels>
         <fullName>S5_Q4_T_P1</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q4 T P1</shortDescription>
         <value>ไม่ทราบว่าพนักงานขายได้แจ้งสิทธิพิเศษของบัตรเครดิตเมอร์เซเดสการ์ดให้คุณ</value>
-    </labels>
-    <labels>
-        <fullName>Registered</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registered</shortDescription>
-        <value>Registered</value>
     </labels>
     <labels>
         <fullName>S5_Q4_T_P2</fullName>
@@ -6221,34 +6320,6 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <value>คุณ</value>
     </labels>
     <labels>
-        <fullName>Registration_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Date</shortDescription>
-        <value>Registration Date</value>
-    </labels>
-    <labels>
-        <fullName>Registration_Date_Inspection_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Date / Inspection Date</shortDescription>
-        <value>Registration Date / Inspection Date</value>
-    </labels>
-    <labels>
-        <fullName>Registration_Date_Milage</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Date / Milage</shortDescription>
-        <value>Registration Date / Milage</value>
-    </labels>
-    <labels>
-        <fullName>Registration_Plan_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Plan Date</shortDescription>
-        <value>Registration Plan Date</value>
-    </labels>
-    <labels>
         <fullName>S5_Q4_T_P5</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6270,13 +6341,6 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <value>Will you apply for the MercedesCard membership?</value>
     </labels>
     <labels>
-        <fullName>Related_Dealer_View_for_Contract</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Related Dealer View for Contract</shortDescription>
-        <value>Related Dealer View for Contract</value>
-    </labels>
-    <labels>
         <fullName>S5_Q5_E</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6289,20 +6353,6 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <protected>false</protected>
         <shortDescription>S5 Q5 T LT P1</shortDescription>
         <value>ทางเมอร์เซเดส-เบนซ์ ขอขอบพระคุณที่คุณ</value>
-    </labels>
-    <labels>
-        <fullName>Representative</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Representative</shortDescription>
-        <value>Representative</value>
-    </labels>
-    <labels>
-        <fullName>Representative_Information</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Representative Information</shortDescription>
-        <value>Representative Information</value>
     </labels>
     <labels>
         <fullName>S5_Q5_T_LT_P2</fullName>
@@ -6326,34 +6376,6 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <protected>false</protected>
         <shortDescription>S5 Q5 T LT P3 A</shortDescription>
         <value>หรือติดต่อ Customer Contact Center ที่หมายเลข</value>
-    </labels>
-    <labels>
-        <fullName>Request_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Request Date</shortDescription>
-        <value>Request Date</value>
-    </labels>
-    <labels>
-        <fullName>Request_Details</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Request Details</shortDescription>
-        <value>Request Details</value>
-    </labels>
-    <labels>
-        <fullName>Request_Type</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Request Type</shortDescription>
-        <value>Request Type</value>
-    </labels>
-    <labels>
-        <fullName>Requested_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Requested Date</shortDescription>
-        <value>Requested Date</value>
     </labels>
     <labels>
         <fullName>S5_Q5_T_LT_P4</fullName>
@@ -6920,7 +6942,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Service responsible Person</shortDescription>
         <value>Service responsible Person</value>
-	</labels>
+    </labels>
     <labels>
         <fullName>Seven</fullName>
         <language>en_US</language>
@@ -6941,7 +6963,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Simple Estimation</shortDescription>
         <value>Simple Estimation</value>
-	</labels>
+    </labels>
     <labels>
         <fullName>Six</fullName>
         <language>en_US</language>
@@ -6956,7 +6978,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>SlashPDF</shortDescription>
         <value>/</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Slave_Record</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7145,7 +7167,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>TH</shortDescription>
         <value>TH</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>TH_CACPurchaseddateRequired_Error</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7166,7 +7188,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>TH Not authorized to create MB Vehicle record</shortDescription>
         <value>You are not authorized to create MB Vehicle record. Please contact System Administrator</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>TH_SARIDealerlead_status_error</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7499,6 +7521,20 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Mass Approve - Tool Kits</value>
     </labels>
     <labels>
+        <fullName>To_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To Company</shortDescription>
+        <value>To Company</value>
+    </labels>
+    <labels>
+        <fullName>To_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To Person</shortDescription>
+        <value>To Person</value>
+    </labels>
+    <labels>
         <fullName>Took_Kit_Type</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>
@@ -7608,7 +7644,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>URL</shortDescription>
         <value>URL</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Uncalculated</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7891,7 +7927,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Vehicle Retail copy Filter</shortDescription>
         <value>Vehicle Retail copy Filter</value>
-	</labels>
+    </labels>
     <labels>
         <fullName>Very_disappointed</fullName>
         <categories>Flows</categories>
@@ -7913,8 +7949,8 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Visited</shortDescription>
         <value>Visited</value>
-	</labels>
-    <labels>	
+    </labels>
+    <labels>
         <fullName>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</fullName>
         <categories>flows</categories>
         <language>en_US</language>
@@ -7952,13 +7988,6 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Work Phone</value>
     </labels>
     <labels>
-        <fullName>Year</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Year</shortDescription>
-        <value>Year</value>
-	</labels>
-    <labels>	
         <fullName>Would_you_recommend_your_family_or_friends_join_this_event_in_the_future</fullName>
         <categories>flows</categories>
         <language>en_US</language>
@@ -8016,6 +8045,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>5 to less than 10 years</shortDescription>
         <value>5 to less than 10 years</value>
+    </labels>
+    <labels>
+        <fullName>Year</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Year</shortDescription>
+        <value>Year</value>
     </labels>
     <labels>
         <fullName>Year_of_Purchase</fullName>
@@ -8236,6 +8272,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>displayOnly</value>
     </labels>
     <labels>
+        <fullName>korea_Business_Hours_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>korea Business Hours Id</shortDescription>
+        <value>01m28000000kAjx</value>
+    </labels>
+    <labels>
         <fullName>l_AtmospherePerceptionandLighting</fullName>
         <categories>Car Comparation</categories>
         <language>en_US</language>
@@ -8450,14 +8493,6 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>OOH</shortDescription>
         <value>OOH</value>
     </labels>
-	 <labels>
-        <fullName>Account_Name</fullName>
-        <categories>This was added to correct the Korean value for Account name, Account name is a standard field thus we will not be able to modify korean value</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>AddressSearchValidation</shortDescription>
-        <value>Account Name</value>
-    </labels>
     <labels>
         <fullName>rcc_Prints_relevant</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -8521,27 +8556,6 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>&amp;retURL=/apex/SelectSlaveAccount?Id=</value>
     </labels>
     <labels>
-        <fullName>Retail_Copy_View_Area_For_Dealer_User</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Retail Copy View Area For Dealer User</shortDescription>
-        <value>Retail Copy View Area For Dealer User</value>
-    </labels>
-    <labels>
-        <fullName>List_of_Service_Retail_Task_Only</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>List of Service Retail Task Only</shortDescription>
-        <value>List of Service Retail Task Only</value>
-    </labels>
-    <labels>
-        <fullName>DeleteretailcopyErrorMsg</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>DeleteretailcopyErrorMsg</shortDescription>
-        <value>This function available only for Japan user</value>
-    </labels>
-    <labels>
         <fullName>send_to_spo_active</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8568,19 +8582,5 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
-    </labels>
-	<labels>
-        <fullName>Error_Msg_for_KR_Users</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Error Msg for Create Complex Execution</shortDescription>
-        <value>This function available only for Japan user</value>
-    </labels>
-	<labels>
-        <fullName>korea_Business_Hours_Id</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>korea Business Hours Id</shortDescription>
-        <value>01mp00000008Pbi</value>
     </labels>
 </CustomLabels>

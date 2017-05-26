@@ -28,6 +28,10 @@
                 <behavior>Readonly</behavior>
                 <field>Activity_Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Communication_date__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

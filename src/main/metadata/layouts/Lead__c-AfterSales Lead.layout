@@ -5,7 +5,7 @@
     <customButtons>New_Task</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
-	<customButtons>New_DM_Request</customButtons>
+    <customButtons>New_DM_Request</customButtons>
     <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -561,7 +561,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	    <relatedLists>
+    <relatedLists>
         <customButtons>New_Campaign_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
@@ -571,8 +571,8 @@
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>NewTask</excludeButtons>
-	    <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -583,7 +583,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>LogCall</excludeButtons>
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
@@ -605,7 +605,7 @@
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-		<customButtons>New_DM_Request_Lead</customButtons>
+        <customButtons>New_DM_Request_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Status__c</fields>

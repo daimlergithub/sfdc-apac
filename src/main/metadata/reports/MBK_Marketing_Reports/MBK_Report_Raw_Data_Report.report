@@ -25,9 +25,6 @@
         <field>Account$Gender__c</field>
     </columns>
     <columns>
-        <field>Account$Age__c</field>
-    </columns>
-    <columns>
         <field>Account$Age_Range__c</field>
     </columns>
     <columns>

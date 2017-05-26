@@ -1525,6 +1525,10 @@
         <label><!-- External Link Share --></label>
         <name>External_Link_Share</name>
     </sharingReasons>
+	<validationRules>
+        <errorMessage>同一人物は紐づけられません</errorMessage>
+        <name>Account_1_Account_2_cannot_be_same</name>
+    </validationRules>
     <validationRules>
         <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
         <name>Retail_Company_Name_Native_Kana</name>

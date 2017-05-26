@@ -1161,6 +1161,7 @@ public static testmethod void testbatch2()
         
         usr = new User(
             Username = System.now().millisecond() + 'test1235684DaimlerUser@Daimler-test.com',
+
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',

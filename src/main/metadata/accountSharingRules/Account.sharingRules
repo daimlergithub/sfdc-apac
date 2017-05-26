@@ -2,22 +2,22 @@
 <AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
         <fullName>Account_Sharing_Rule_TH</fullName>
-		<sharedTo>
+        <sharedTo>
             <roleAndSubordinatesInternal>MBTH_Call_Center</roleAndSubordinatesInternal>
         </sharedTo>
-		<criteriaItems>
+        <criteriaItems>
             <field>MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
-		<caseAccessLevel>None</caseAccessLevel>
-		<contactAccessLevel>Edit</contactAccessLevel>
         <booleanFilter>1</booleanFilter>
-		<name>Account Sharing Rule TH</name>
-		<opportunityAccessLevel>None</opportunityAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>Account Sharing Rule TH</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
-	<criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Dealer_Account_Edit_Only_for_CRM</fullName>
         <sharedTo>
             <role>MBJ_CRM_Department_Approver</role>
@@ -536,6 +536,22 @@
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>TH_Account_Sharing_ReadAccess</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MPC</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>TH_Account Sharing_ReadAccess</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Test</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
@@ -550,22 +566,6 @@
         <contactAccessLevel>Edit</contactAccessLevel>
         <name>Test</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    </criteriaBasedRules>
-	<criteriaBasedRules>
-        <fullName>TH_Account_Sharing_ReadAccess</fullName>
-		<sharedTo>
-            <roleAndSubordinatesInternal>MPC</roleAndSubordinatesInternal>
-        </sharedTo>
-		<criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <accountAccessLevel>Read</accountAccessLevel>
-		<caseAccessLevel>None</caseAccessLevel>
-		<contactAccessLevel>Read</contactAccessLevel>
-		<name>TH_Account Sharing_ReadAccess</name>
-		<opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>VIP_CUSTOMER_Share_with_RW</fullName>

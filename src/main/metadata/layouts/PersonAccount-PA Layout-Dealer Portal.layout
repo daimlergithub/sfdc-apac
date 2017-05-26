@@ -12,9 +12,6 @@
     <customButtons>New_Case_Dealer</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -54,11 +51,11 @@
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
-            </layoutItems>					
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Acquisition_Objective_Method__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Acquisition_Record_Date__c</field>
@@ -112,7 +109,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Details_of_Acquisition__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
@@ -352,7 +349,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Agreement_to_commit_info_processing__c</field>                
+                <field>Agreement_to_commit_info_processing__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -614,10 +611,10 @@
         <fields>Type__c</fields>
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>  
+        <fields>EndDate__c</fields>
         <fields>Service_Vehicle_VIN__c</fields>
         <fields>Related_Vehicle__c</fields>
-		 <fields>Related_Dealer__c</fields>
+        <fields>Related_Dealer__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -694,6 +691,9 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewProposeMeeting</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
@@ -705,6 +705,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>LogCall</excludeButtons>
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>

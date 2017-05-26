@@ -76,7 +76,7 @@ public without sharing class createRetailCopyKR {
           AccId=ApexPages.currentPage().getParameters().get('id');
           accList=[Select Id,Main_Dealer__c ,RecordtypeId from account where id=:AccId];
           accc=[Select id,Main_Dealer__c  from account where id=:account.Main_Dealer__c limit 1];
-          if(displaAddress[0].id != null){
+          if(displaAddress.size()> 0 && displaAddress[0].id != null){
                 SelectedAdd= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:displaAddress[0].id Limit 1];
           }
                 CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
@@ -105,18 +105,18 @@ public without sharing class createRetailCopyKR {
 
              if (accList.RecordtypeId == accPerson_RecordTypeId) {
 
-                 newAlk = new Account_Link__c();
-                 newAlk.toRole__c = AccId;
-                 newAlk.Retail_Address_Reference__c = displaAddress.size()>0 ? displaAddress[0].id:'';
                  newAlk.fromRole__c = DealeAccId;
                  newAlk.RecordTypeId = alkPerson_RecordTypeId;
-                 newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
-                 newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';
-                 newAlk.Retail_Province__c = displaAddress.size()>0 ? displaAddress[0].Province__c:'';
-                 newAlk.Retail_City__c = displaAddress.size()>0 ? displaAddress[0].City__c:'';
-                 newAlk.Retail_Distinct__c = displaAddress.size()>0 ? displaAddress[0].District__c:'';
-                 newAlk.Retail_Address_Line_1__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_1__c:'';
-                 newAlk.Retail_Address_Line_2__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_2__c:'';
+				 if(displaAddress.size()>0){
+					 newAlk.Retail_Address_Reference__c = displaAddress.size()>0 ? displaAddress[0].id:'';
+					 newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
+					 newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';
+					 newAlk.Retail_Province__c = displaAddress.size()>0 ? displaAddress[0].Province__c:'';
+					 newAlk.Retail_City__c = displaAddress.size()>0 ? displaAddress[0].City__c:'';
+					 newAlk.Retail_Distinct__c = displaAddress.size()>0 ? displaAddress[0].District__c:'';
+					 newAlk.Retail_Address_Line_1__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_1__c:'';
+					 newAlk.Retail_Address_Line_2__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_2__c:'';
+				 }
                  InsertAlk.add(newAlk);
 
              }
@@ -125,16 +125,19 @@ public without sharing class createRetailCopyKR {
 
                  newAlk = new Account_Link__c();
                  newAlk.toRole__c = AccId;
-                 newAlk.Retail_Address_Reference__c = displaAddress.size()>0 ? displaAddress[0].id:'';
+                 
                  newAlk.fromRole__c = DealeAccId;
                  newAlk.RecordTypeId = alkCompany_RecordTypeId;
-                 newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
-                 newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';
-                 newAlk.Retail_Province__c = displaAddress.size()>0 ? displaAddress[0].Province__c:'';
-                 newAlk.Retail_City__c = displaAddress.size()>0 ? displaAddress[0].City__c:'';
-                 newAlk.Retail_Distinct__c = displaAddress.size()>0 ? displaAddress[0].District__c:'';
-                 newAlk.Retail_Address_Line_1__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_1__c:'';
-                 newAlk.Retail_Address_Line_2__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_2__c:'';
+				 if(displaAddress.size()>0){
+					 newAlk.Retail_Address_Reference__c = displaAddress.size()>0 ? displaAddress[0].id:'';
+					 newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
+					 newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';
+					 newAlk.Retail_Province__c = displaAddress.size()>0 ? displaAddress[0].Province__c:'';
+					 newAlk.Retail_City__c = displaAddress.size()>0 ? displaAddress[0].City__c:'';
+					 newAlk.Retail_Distinct__c = displaAddress.size()>0 ? displaAddress[0].District__c:'';
+					 newAlk.Retail_Address_Line_1__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_1__c:'';
+					 newAlk.Retail_Address_Line_2__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_2__c:'';
+				 }
                  InsertAlk.add(newAlk);
 
              }
@@ -172,16 +175,19 @@ public without sharing class createRetailCopyKR {
 
                          newAlk = new Account_Link__c();
                          newAlk.toRole__c = AccId;
-                         newAlk.Retail_Address_Reference__c = displaAddress.size()>0 ? displaAddress[0].id:'';
+                        
                          newAlk.fromRole__c = account.Main_Dealer__c;
                          newAlk.RecordTypeId = alkPerson_RecordTypeId;
-                         newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
-                         newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';
-                         newAlk.Retail_Province__c = displaAddress.size()>0 ? displaAddress[0].Province__c:'';
-                         newAlk.Retail_City__c = displaAddress.size()>0 ? displaAddress[0].City__c:'';
-                         newAlk.Retail_Distinct__c = displaAddress.size()>0 ? displaAddress[0].District__c:'';
-                         newAlk.Retail_Address_Line_1__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_1__c:'';
-                         newAlk.Retail_Address_Line_2__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_2__c:'';
+						 if(displaAddress.size()>0){
+							 newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
+							 newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';
+							 newAlk.Retail_Province__c = displaAddress.size()>0 ? displaAddress[0].Province__c:'';
+							 newAlk.Retail_City__c = displaAddress.size()>0 ? displaAddress[0].City__c:'';
+							 newAlk.Retail_Distinct__c = displaAddress.size()>0 ? displaAddress[0].District__c:'';
+							 newAlk.Retail_Address_Line_1__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_1__c:'';
+							 newAlk.Retail_Address_Line_2__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_2__c:'';
+							 newAlk.Retail_Address_Reference__c = displaAddress.size()>0 ? displaAddress[0].id:'';
+						 }
                          InsertAlk.add(newAlk);
 
                      }
@@ -190,16 +196,19 @@ public without sharing class createRetailCopyKR {
 
                          newAlk = new Account_Link__c();
                          newAlk.toRole__c = AccId;
-                         newAlk.Retail_Address_Reference__c = displaAddress.size()>0 ? displaAddress[0].id:'';
+                        
                          newAlk.fromRole__c = account.Main_Dealer__c;
                          newAlk.RecordTypeId = alkCompany_RecordTypeId;
-                         newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
-                         newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';
-                         newAlk.Retail_Province__c = displaAddress.size()>0 ? displaAddress[0].Province__c:'';
-                         newAlk.Retail_City__c = displaAddress.size()>0 ? displaAddress[0].City__c:'';
-                         newAlk.Retail_Distinct__c = displaAddress.size()>0 ? displaAddress[0].District__c:'';
-                         newAlk.Retail_Address_Line_1__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_1__c:'';
-                         newAlk.Retail_Address_Line_2__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_2__c:'';
+						 if(displaAddress.size()>0){
+							 newAlk.Retail_Address_Reference__c = displaAddress.size()>0 ? displaAddress[0].id:'';
+							 newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
+							 newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';
+							 newAlk.Retail_Province__c = displaAddress.size()>0 ? displaAddress[0].Province__c:'';
+							 newAlk.Retail_City__c = displaAddress.size()>0 ? displaAddress[0].City__c:'';
+							 newAlk.Retail_Distinct__c = displaAddress.size()>0 ? displaAddress[0].District__c:'';
+							 newAlk.Retail_Address_Line_1__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_1__c:'';
+							 newAlk.Retail_Address_Line_2__c = displaAddress.size()>0 ? displaAddress[0].Address_Line_2__c:'';
+						 }
                          InsertAlk.add(newAlk);
                         
                      }

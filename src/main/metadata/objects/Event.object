@@ -40,11 +40,6 @@
         <actionName>NewSfdcEvent</actionName>
         <type>Default</type>
     </actionOverrides>
-    <!--commented pavan-->
-	<!--<actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>-->
     <actionOverrides>
         <actionName>Today</actionName>
         <type>Default</type>
@@ -72,6 +67,9 @@
     </fields>
     <fields>
         <fullName>EndDateTime</fullName>
+    </fields>
+    <fields>
+        <fullName>EventSubtype</fullName>
     </fields>
     <fields>
         <fullName>IsAllDayEvent</fullName>

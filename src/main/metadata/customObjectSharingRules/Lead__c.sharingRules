@@ -27,7 +27,7 @@
         <criteriaItems>
             <field>MBTH_Assigned_Dealer_Name__c</field>
             <operation>notEqual</operation>
-            <value>''</value>
+            <value></value>
         </criteriaItems>
         <criteriaItems>
             <field>MD__c</field>

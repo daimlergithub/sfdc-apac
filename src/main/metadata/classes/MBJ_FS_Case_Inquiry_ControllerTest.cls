@@ -1,6 +1,6 @@
 /*
     Type:       Test Class
-    Purpose:    Test On MBJ_FS_Case_Inquiry_Controller Class
+    Purpose:    Test On MBJ_FS_Case_Inquiry_Controller Class Update
 */
 @isTest
 public class MBJ_FS_Case_Inquiry_ControllerTest{
@@ -17,7 +17,6 @@ public class MBJ_FS_Case_Inquiry_ControllerTest{
         
         PageReference pageRef = Page.MBJ_FS_Case_Inquiry_Page;
         Test.setCurrentPage(pageRef);
-        
         Case testCase = new Case();
         Apexpages.currentpage().getparameters().put('fromAccountId',testAccount.id);
         testCase.Case_Complainant__c = testContract.Account__r.id;

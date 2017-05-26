@@ -624,7 +624,6 @@
         <locationY>39</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2</targetReference>
         </connector>
@@ -677,7 +676,6 @@
         <locationY>149</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Create_Survey_Taken</targetReference>
         </connector>
@@ -716,7 +714,6 @@
         <locationY>38</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q3</targetReference>
         </connector>
@@ -769,7 +766,6 @@
         <locationY>38</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q4</targetReference>
         </connector>
@@ -822,7 +818,6 @@
         <locationY>40</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q5</targetReference>
         </connector>
@@ -875,7 +870,6 @@
         <locationY>41</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q6</targetReference>
         </connector>
@@ -928,7 +922,6 @@
         <locationY>148</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q7</targetReference>
         </connector>
@@ -981,7 +974,6 @@
         <locationY>148</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q8</targetReference>
         </connector>
@@ -1034,7 +1026,6 @@
         <locationY>145</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q9</targetReference>
         </connector>
@@ -1073,7 +1064,6 @@
         <locationY>149</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q10</targetReference>
         </connector>
@@ -1112,7 +1102,6 @@
         <locationY>398</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <fields>
             <name>SurveyCompleted</name>
             <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#3399FF&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!Label_for_SurveyCompleted}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>

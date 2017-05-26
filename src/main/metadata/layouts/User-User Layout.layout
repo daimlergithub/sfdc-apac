@@ -9,11 +9,11 @@
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-	<layoutSections>
+    <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
-		 <label>Custom Links</label>
+        <label>Custom Links</label>
         <layoutColumns>
             <layoutItems>
                 <customLink>Change_Notification_Settings</customLink>
