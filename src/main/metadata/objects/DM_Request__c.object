@@ -138,11 +138,20 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Assigned_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Assigned Dealer</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>DM Request (Assigned Dealer)</relationshipLabel>
         <relationshipName>DM_Request1</relationshipName>
