@@ -52,7 +52,7 @@ global with sharing class LeadVehiclePickerTHController {
             disableButtons = false;
         }
         currentRecordId  = controller.getId();
-        System.debug('Lead Vehicles Types...' +lead_Vehicles);
+       
         Set<Id> lead_VehicleIds;
         serialized_vehicleTypeMap = JSON.serialize(''); 
         lookup_Vehicles = JSON.serialize('');        
@@ -70,10 +70,10 @@ global with sharing class LeadVehiclePickerTHController {
             lead_Vehicles = [Select Lead_Type__c, Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c, CAC_Lead_Status__c ,Dealer_Lead_Status__c ,Lead_Desired_Service__c,Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Lead__c Where Id =: currentRecordId  AND MD__c = :usr.Market__c];
             leadType = lead_Vehicles.Lead_Type__c;
            
-             if((lead_Vehicles.CAC_Lead_Status__c == 'Purchased' || lead_Vehicles.Dealer_Lead_Status__c == 'Purchased') && lead_Vehicles.Purchased_Vehicle__c == null){
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.purchased_vehicle_related_information+ '</font>'));               
+              if((lead_Vehicles.CAC_Lead_Status__c == 'Purchased' || lead_Vehicles.Dealer_Lead_Status__c == 'Purchased') && lead_Vehicles.Purchased_Vehicle__c == null){
+                 ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.TH_purchased_vehicle_related_information+ '</font>'));               
                
-             }     
+             }      
              if(lead_Vehicles.Lead_Desired_Service__c!= Null && lead_Vehicles.Lead_Desired_Service__c.contains('Trade-In') && lead_Vehicles.Trade_In_Vehicle__c == null){
              
                 ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.Trade_In_related_information+ '</font>'));          
@@ -134,8 +134,9 @@ global with sharing class LeadVehiclePickerTHController {
 
             //Query all the Vehicle Fields
             if(!lead_VehicleIds.isEmpty()){
-                vehiclesForLead = [Select RecordTypeId, Brand__c, Class__c, Colour__c, Model_Description__c, NextMileage__c, Trim__c From Vehicle__c Where Id IN :lead_VehicleIds AND MD__c = :usr.Market__c];
+                vehiclesForLead = [Select RecordTypeId, Brand__c, Class__c, Colour__c, Model_Description__c, NextMileage__c, Trim__c From Vehicle__c Where Id IN :lead_VehicleIds AND MD__c = :usr.Market__c limit 50000];
                 for (Vehicle__c vehicles : vehiclesForLead){
+                    
                     List<String> leadVehicleType = map_vehicleIds.get(vehicles.Id);
                     for(String lvt : leadVehicleType){
                         Map<String, String> tmpMap = new Map<String, String>();
@@ -147,9 +148,9 @@ global with sharing class LeadVehiclePickerTHController {
                         tmpMap.put('Mileage', String.valueOf(vehicles.NextMileage__c));
                         tmpMap.put('Trim',vehicles.Trim__c);
                         tmpMap.put('RecordType', recType_name);
-                        system.debug('Temporary Map...' +tmpMap);
+                       
                         mapVehicleTtype_Fields.put(lvt,tmpMap);
-                        System.debug('mapVehicleTtype_Fields :' +mapVehicleTtype_Fields);
+                        
                     }
                 }
                 serialized_vehicleTypeMap = JSON.serialize(mapVehicleTtype_Fields);
@@ -189,9 +190,9 @@ global with sharing class LeadVehiclePickerTHController {
             UtilConstant utilConst = new UtilConstant();
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c LIMIT 50000];
+                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c LIMIT 650];
             }else{
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c LIMIT 50000];
+                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c LIMIT 650];
             }
             for(Car_Model__c cm : carModels){
                 

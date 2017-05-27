@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <criteriaBasedRules>
+        <criteriaBasedRules>
+        <fullName>TH_Sharing_Leads_to_All_other_TH_users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>sharing all the Thailand Leads records to all the Thailand Users with read and edit access</description>
+        <name>TH_Sharing Leads to All other TH users</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
         <fullName>JP_MarketLeads_Readable_to_MBJ_IT_Dept</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
