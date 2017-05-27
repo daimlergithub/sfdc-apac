@@ -8583,4 +8583,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
     </labels>
+	    <labels>
+        <fullName>TH_purchased_vehicle_related_information</fullName>
+        <categories>VehiclePicker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_purchased_vehicle_related_information</shortDescription>
+        <value>Please enter purchased vehicle related information as the lead the Lead status is set as Purchased</value>
+    </labels>
 </CustomLabels>
