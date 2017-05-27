@@ -10,7 +10,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-       <fullName>Mobile_Code10__c</fullName>
+        <fullName>Mobile_Code10__c</fullName>
         <externalId>false</externalId>
         <label>Mobile Code10</label>
         <length>20</length>
@@ -163,7 +163,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-       <fullName>Mobile_Code2__c</fullName>
+        <fullName>Mobile_Code2__c</fullName>
         <externalId>false</externalId>
         <label>Mobile Code2</label>
         <length>20</length>

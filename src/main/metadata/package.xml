@@ -753,9 +753,6 @@
         <members>standard__Community</members>
         <members>standard__Content</members>
         <members>standard__DataAssessment</members>
-        <members>standard__Insights</members>
-        <members>standard__LightningSalesConsole</members>
-        <members>standard__LightningService</members>
         <members>standard__Marketing</members>
         <members>standard__Platform</members>
         <members>standard__Sales</members>

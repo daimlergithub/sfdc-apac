@@ -77,12 +77,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Customer Consent</displayNameOverride>
-            <field>Contact__c.Customer_Consent__c</field>
-            <table>Vehicle_Relationship__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <displayNameOverride>Contact: Mobile</displayNameOverride>
             <field>Contact__c.Mobile__c</field>
             <table>Vehicle_Relationship__c</table>

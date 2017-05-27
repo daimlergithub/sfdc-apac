@@ -21,6 +21,10 @@
         <name>Force_com</name>
     </customApplications>
     <customApplications>
+        <label><!-- MBF Call Center --></label>
+        <name>MBF_Call_Center</name>
+    </customApplications>
+    <customApplications>
         <label><!-- MBJ Catalogue Operation --></label>
         <name>MBJ_Catalogue_Operation</name>
     </customApplications>
@@ -61,6 +65,30 @@
         <name>MBK_Reports_and_Dashboards</name>
     </customApplications>
     <customApplications>
+        <label><!-- MBTH Call Center --></label>
+        <name>MBTH_Call_Center</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH Catalogue Operation --></label>
+        <name>MBTH_Catalogue_Operation</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH Data Management --></label>
+        <name>MBTH_Data_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH File Management --></label>
+        <name>MBTH_File_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH Master Data Management --></label>
+        <name>MBTH_Master_Data_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBTH Reports and Dashboards --></label>
+        <name>MBTH_Reports_and_Dashboards</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Private APP Exchange --></label>
         <name>Private_APP_Exchange</name>
     </customApplications>
@@ -69,20 +97,52 @@
         <name>Retail_CRM</name>
     </customApplications>
     <customLabels>
-        <label>일본 사용 기능</label>
-        <name>SendToJPOSErrorMsg</name>
+        <label><!-- A6 Contact as part of visiting a car dealership --></label>
+        <name>A6_Contact_as_part_of_visiting_a_car_dealership</name>
     </customLabels>
     <customLabels>
-        <label>일본 사용 기능</label>
-        <name>SendToMyMercedesErrorMsg</name>
+        <label><!-- A6  Email --></label>
+        <name>A6_Email</name>
     </customLabels>
     <customLabels>
-        <label>일본 사용 기능</label>
-        <name>SendToSPOErrorMSG</name>
+        <label><!-- A6 Invitation to an event / event at the car dealership --></label>
+        <name>A6_Invitation_to_an_event_event_at_the_car_dealership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Other contact channels --></label>
+        <name>A6_Other_contact_channels</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Personal email --></label>
+        <name>A6_Personal_email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Promotional emails --></label>
+        <name>A6_Promotional_emails</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Query via website --></label>
+        <name>A6_Query_via_website</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Request for a test drive via website --></label>
+        <name>A6_Request_for_a_test_drive_via_website</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Telephone call --></label>
+        <name>A6_Telephone_call</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A6 Visit to a car dealership --></label>
+        <name>A6_Visit_to_a_car_dealership</name>
     </customLabels>
     <customLabels>
         <label>수락됨</label>
         <name>Accepted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Accessory price +Dealer Option price --></label>
+        <name>Accessory_price_Dealer_Option_price</name>
     </customLabels>
     <customLabels>
         <label>계정</label>
@@ -97,6 +157,10 @@
         <name>AccountMergeFields</name>
     </customLabels>
     <customLabels>
+        <label><!-- AccountRetailCopy --></label>
+        <name>AccountRetailCopy</name>
+    </customLabels>
+    <customLabels>
         <label>계정이 차량 연결을 갖고 있지 않으면 상태 값이 &quot;고객&quot;이 될 수 없습니다</label>
         <name>Account_Cann_t_be_Customer</name>
     </customLabels>
@@ -109,6 +173,14 @@
         <name>Account_Merge</name>
     </customLabels>
     <customLabels>
+        <label>법인명</label>
+        <name>Account_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Account Retail Copy Filter --></label>
+        <name>Account_Retail_Copy_Filter</name>
+    </customLabels>
+    <customLabels>
         <label>새 항목을 추가하려면 기록을 1개 이상 삭제하세요</label>
         <name>Account_cannot_have_more_than_5_Address</name>
     </customLabels>
@@ -117,8 +189,20 @@
         <name>Accuracy</name>
     </customLabels>
     <customLabels>
+        <label><!-- Activity History --></label>
+        <name>Activity_History</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add --></label>
+        <name>Add</name>
+    </customLabels>
+    <customLabels>
         <label>추가</label>
         <name>Add_Button</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add Participating Dealer --></label>
+        <name>Add_Participating_Dealer</name>
     </customLabels>
     <customLabels>
         <label>캠페인에 추가</label>
@@ -149,8 +233,20 @@
         <name>Address_Information</name>
     </customLabels>
     <customLabels>
+        <label><!-- Address PrintPDF --></label>
+        <name>Address_PrintPDF</name>
+    </customLabels>
+    <customLabels>
         <label>주소 검색</label>
         <name>Address_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address Select --></label>
+        <name>Address_Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address Type --></label>
+        <name>Address_Type</name>
     </customLabels>
     <customLabels>
         <label>주소 검색을 수행하려는 경우에만 우편 번호를 입력하세요</label>
@@ -167,6 +263,22 @@
         <name>Address_validation</name>
     </customLabels>
     <customLabels>
+        <label><!-- Advisor --></label>
+        <name>Advisor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- After Sales Contact Target --></label>
+        <name>After_Sales_Contact_Target</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- After Sales Contact Target Purchaser Relation --></label>
+        <name>After_Sales_Contact_Target_Purchaser_Relation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- After Sales Contact Target Sales Responsible Person --></label>
+        <name>After_Sales_Contact_Target_Sales_Responsible_Person</name>
+    </customLabels>
+    <customLabels>
         <label>애프터세일즈</label>
         <name>Aftersales</name>
     </customLabels>
@@ -179,8 +291,28 @@
         <name>AftersalesContactTarget2</name>
     </customLabels>
     <customLabels>
+        <label><!-- Age --></label>
+        <name>Age</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Alert Handling Level --></label>
         <name>Alert_Handling_Level</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Allow Data Sharing --></label>
+        <name>Allow_Data_Sharing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Allow data sharing2 --></label>
+        <name>Allow_data_sharing2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AlreadyProcessed --></label>
+        <name>AlreadyProcessed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Amount --></label>
+        <name>Amount</name>
     </customLabels>
     <customLabels>
         <label><!-- And Criteria --></label>
@@ -227,8 +359,32 @@
         <name>Assign_QC</name>
     </customLabels>
     <customLabels>
+        <label><!-- Assigned Dealer --></label>
+        <name>Assigned_Dealer</name>
+    </customLabels>
+    <customLabels>
         <label>이 PDF 첨부 파일에 오류가 있습니다.</label>
         <name>AttachedPdfError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Authorization --></label>
+        <name>Authorization</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Average --></label>
+        <name>Average</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Backslash --></label>
+        <name>Backslash</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Beyond expectation --></label>
+        <name>Beyond_expectation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Birthdate --></label>
+        <name>Birthdate</name>
     </customLabels>
     <customLabels>
         <label>브랜드</label>
@@ -254,6 +410,10 @@
     <customLabels>
         <label>검색</label>
         <name>Button_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CA --></label>
+        <name>CA</name>
     </customLabels>
     <customLabels>
         <label>취소</label>
@@ -492,6 +652,70 @@
         <name>Campaign_Calendar_Page_Type_Other</name>
     </customLabels>
     <customLabels>
+        <label><!-- Campaign Date 1 --></label>
+        <name>Campaign_Date_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Date 2 --></label>
+        <name>Campaign_Date_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Date 3 --></label>
+        <name>Campaign_Date_3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Date 4 --></label>
+        <name>Campaign_Date_4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Date 5 --></label>
+        <name>Campaign_Date_5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification1 --></label>
+        <name>Campaign_Notification1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification10 --></label>
+        <name>Campaign_Notification10</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification11 --></label>
+        <name>Campaign_Notification11</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification2 --></label>
+        <name>Campaign_Notification2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification3 --></label>
+        <name>Campaign_Notification3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification4 --></label>
+        <name>Campaign_Notification4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification5 --></label>
+        <name>Campaign_Notification5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification6 --></label>
+        <name>Campaign_Notification6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification7 --></label>
+        <name>Campaign_Notification7</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification8 --></label>
+        <name>Campaign_Notification8</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification9 --></label>
+        <name>Campaign_Notification9</name>
+    </customLabels>
+    <customLabels>
         <label>취소</label>
         <name>Campaign_Planning_Page_Cancel_Button</name>
     </customLabels>
@@ -548,6 +772,14 @@
         <name>Campaign_Planning_Page_Subtitle</name>
     </customLabels>
     <customLabels>
+        <label><!-- Campaign Segmentation1 --></label>
+        <name>Campaign_Segmentation1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Segmentation2 --></label>
+        <name>Campaign_Segmentation2</name>
+    </customLabels>
+    <customLabels>
         <label>캠페인 유형</label>
         <name>Campaign_Type</name>
     </customLabels>
@@ -560,8 +792,16 @@
         <name>Campaign_Type_Media</name>
     </customLabels>
     <customLabels>
+        <label><!-- Campaigns_Filter --></label>
+        <name>Campaigns_Filter</name>
+    </customLabels>
+    <customLabels>
         <label>캠페인</label>
         <name>Campaing_Planning_Page_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>Cancel</name>
     </customLabels>
     <customLabels>
         <label>취소</label>
@@ -624,8 +864,16 @@
         <name>Case_Deadline_Notification_Text5</name>
     </customLabels>
     <customLabels>
+        <label><!-- Case Number --></label>
+        <name>Case_Number</name>
+    </customLabels>
+    <customLabels>
         <label>케이스 유형</label>
         <name>Case_Record_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case received by Phone etc --></label>
+        <name>Case_received_by_Phone_etc</name>
     </customLabels>
     <customLabels>
         <label>일본 사용 기능</label>
@@ -636,12 +884,20 @@
         <name>Child</name>
     </customLabels>
     <customLabels>
+        <label><!-- Choose Account --></label>
+        <name>Choose_Account</name>
+    </customLabels>
+    <customLabels>
         <label>구/군/시</label>
         <name>City</name>
     </customLabels>
     <customLabels>
         <label>클래스</label>
         <name>Class</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Class Model --></label>
+        <name>Class_Model</name>
     </customLabels>
     <customLabels>
         <label>지우기</label>
@@ -654,6 +910,10 @@
     <customLabels>
         <label><!-- Cluster --></label>
         <name>Cluster</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Color --></label>
+        <name>Color</name>
     </customLabels>
     <customLabels>
         <label>색상</label>
@@ -680,8 +940,24 @@
         <name>Company_Account_Record_Type</name>
     </customLabels>
     <customLabels>
+        <label><!-- Company Name --></label>
+        <name>Company_Name</name>
+    </customLabels>
+    <customLabels>
         <label>회사 이름 부서명</label>
         <name>Company_Name_Department_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Compared Vehicle Brand --></label>
+        <name>Compared_Vehicle_Brand</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Compared Vehicle Model --></label>
+        <name>Compared_Vehicle_Model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Comparison is being done actively --></label>
+        <name>Comparison_is_being_done_actively</name>
     </customLabels>
     <customLabels>
         <label>정확하고 완전한 정보/해결책을 제공하는 것</label>
@@ -709,12 +985,24 @@
         <name>Contact_Admin</name>
     </customLabels>
     <customLabels>
+        <label><!-- Contract related --></label>
+        <name>Contract_related</name>
+    </customLabels>
+    <customLabels>
         <label>리드 변환</label>
         <name>Convert_Lead</name>
     </customLabels>
     <customLabels>
         <label>리드로 변환</label>
         <name>Convert_To_Lead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Convert To Task --></label>
+        <name>Convert_To_Task</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Converted to After-Sales Leads --></label>
+        <name>Converted_to_After_Sales_Leads</name>
     </customLabels>
     <customLabels>
         <label>복사</label>
@@ -725,12 +1013,48 @@
         <name>Couldnotexplain</name>
     </customLabels>
     <customLabels>
+        <label><!-- CountryTH --></label>
+        <name>CountryTH</name>
+    </customLabels>
+    <customLabels>
         <label>차량 생성</label>
         <name>Create_Vehicle</name>
     </customLabels>
     <customLabels>
+        <label><!-- Created Date --></label>
+        <name>Created_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Credible --></label>
+        <name>Credible</name>
+    </customLabels>
+    <customLabels>
         <label>기준</label>
         <name>Criteria</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Lead --></label>
+        <name>Current_Lead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle1 --></label>
+        <name>Current_Vehicle1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle2 --></label>
+        <name>Current_Vehicle2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle3 --></label>
+        <name>Current_Vehicle3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle Brand --></label>
+        <name>Current_Vehicle_Brand</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle Model --></label>
+        <name>Current_Vehicle_Model</name>
     </customLabels>
     <customLabels>
         <label>TRUE</label>
@@ -757,6 +1081,30 @@
         <name>Customer_Filter</name>
     </customLabels>
     <customLabels>
+        <label><!-- Customer Information --></label>
+        <name>Customer_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Issue --></label>
+        <name>Customer_Issue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Name --></label>
+        <name>Customer_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Name Kana --></label>
+        <name>Customer_Name_Kana</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Profile --></label>
+        <name>Customer_Profile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Statement --></label>
+        <name>Customer_Statement</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Customerrelatedinformation --></label>
         <name>Customerrelatedinformation</name>
     </customLabels>
@@ -767,6 +1115,10 @@
     <customLabels>
         <label>지정한 주소 유형 레코드를 찾을 수 없습니다. 다시 확인하세요.</label>
         <name>DMRequest_validation_error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Date for PrintPDF --></label>
+        <name>Date</name>
     </customLabels>
     <customLabels>
         <label>날짜/시간:</label>
@@ -781,6 +1133,10 @@
         <name>Dealer</name>
     </customLabels>
     <customLabels>
+        <label><!-- DealerKoreaLoginURL --></label>
+        <name>DealerKoreaLoginURL</name>
+    </customLabels>
+    <customLabels>
         <label>딜러 이름:</label>
         <name>DealerName</name>
     </customLabels>
@@ -789,8 +1145,44 @@
         <name>DealerPersonName</name>
     </customLabels>
     <customLabels>
+        <label><!-- Dealer Campaign Notification --></label>
+        <name>Dealer_Campaign_Notification</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Code --></label>
+        <name>Dealer_Code</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Company --></label>
+        <name>Dealer_Company</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Dealer Has SR Code 1 --></label>
         <name>Dealer_Has_SR_Code_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Internal Comment --></label>
+        <name>Dealer_Internal_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Memo --></label>
+        <name>Dealer_Memo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Name --></label>
+        <name>Dealer_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Outlet --></label>
+        <name>Dealer_Outlet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Type --></label>
+        <name>Dealer_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer login Url --></label>
+        <name>Dealer_login_Url</name>
     </customLabels>
     <customLabels>
         <label><!-- Dedup callout failure --></label>
@@ -813,12 +1205,32 @@
         <name>Delete_Filter</name>
     </customLabels>
     <customLabels>
+        <label>일본 사용 기능</label>
+        <name>DeleteretailcopyErrorMsg</name>
+    </customLabels>
+    <customLabels>
         <label>상세한 모델 이름</label>
         <name>DetailedModelName</name>
     </customLabels>
     <customLabels>
+        <label><!-- Did You Get Agreement From Customer --></label>
+        <name>Did_You_Get_Agreement_From_Customer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Did you visit home or company --></label>
+        <name>Did_you_visit_home_or_company</name>
+    </customLabels>
+    <customLabels>
         <label>폐기하세요</label>
         <name>Discardit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Discount Total --></label>
+        <name>Discount_Total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Do you know when and where you can meet --></label>
+        <name>Do_you_know_when_and_where_you_can_meet</name>
     </customLabels>
     <customLabels>
         <label><!-- Dono --></label>
@@ -829,8 +1241,140 @@
         <name>Downloadedfile</name>
     </customLabels>
     <customLabels>
+        <label><!-- Driving experience --></label>
+        <name>Driving_experience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dynamic --></label>
+        <name>Dynamic</name>
+    </customLabels>
+    <customLabels>
         <label>편집</label>
         <name>Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Eight --></label>
+        <name>Eight</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Elegance --></label>
+        <name>Elegance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_Assignment --></label>
+        <name>Email_Assignment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_Case --></label>
+        <name>Email_Case</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_Case_Record --></label>
+        <name>Email_Case_Record</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_Case_Respond --></label>
+        <name>Email_Case_Respond</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_Case_information --></label>
+        <name>Email_Case_information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign1 --></label>
+        <name>Email_LeadDealerAssign1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign10 --></label>
+        <name>Email_LeadDealerAssign10</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign11 --></label>
+        <name>Email_LeadDealerAssign11</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign12 --></label>
+        <name>Email_LeadDealerAssign12</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign13 --></label>
+        <name>Email_LeadDealerAssign13</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign14 --></label>
+        <name>Email_LeadDealerAssign14</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign15 --></label>
+        <name>Email_LeadDealerAssign15</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign16 --></label>
+        <name>Email_LeadDealerAssign16</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign17 --></label>
+        <name>Email_LeadDealerAssign17</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign18 --></label>
+        <name>Email_LeadDealerAssign18</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign2 --></label>
+        <name>Email_LeadDealerAssign2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email LeadDealerAssign20 --></label>
+        <name>Email_LeadDealerAssign20</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email LeadDealerAssign21 --></label>
+        <name>Email_LeadDealerAssign21</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign3 --></label>
+        <name>Email_LeadDealerAssign3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign4 --></label>
+        <name>Email_LeadDealerAssign4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign5 --></label>
+        <name>Email_LeadDealerAssign5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign6 --></label>
+        <name>Email_LeadDealerAssign6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign7 --></label>
+        <name>Email_LeadDealerAssign7</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign8 --></label>
+        <name>Email_LeadDealerAssign8</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_LeadDealerAssign9 --></label>
+        <name>Email_LeadDealerAssign9</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_Manager --></label>
+        <name>Email_Manager</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_Thankyou --></label>
+        <name>Email_Thankyou</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_salesActivities --></label>
+        <name>Email_salesActivities</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email_salesforcelogin --></label>
+        <name>Email_salesforcelogin</name>
     </customLabels>
     <customLabels>
         <label>직원</label>
@@ -845,12 +1389,20 @@
         <name>Enter_VIN_number</name>
     </customLabels>
     <customLabels>
+        <label><!-- Equals --></label>
+        <name>Equals</name>
+    </customLabels>
+    <customLabels>
         <label>이전 다운로드 요청이 지금으로부터 3분 이내에 이루어졌습니다. 잠시 후 다시 시도하세요.</label>
         <name>Error_Message_1</name>
     </customLabels>
     <customLabels>
         <label>다운로드할 수 있는 DM 요청이 없습니다.</label>
         <name>Error_Message_2</name>
+    </customLabels>
+    <customLabels>
+        <label>일본 사용 기능</label>
+        <name>Error_Msg_for_KR_Users</name>
     </customLabels>
     <customLabels>
         <label><!-- Error: Please enter your criteria --></label>
@@ -861,12 +1413,28 @@
         <name>Error_This_name_already_exists</name>
     </customLabels>
     <customLabels>
+        <label><!-- Estimate --></label>
+        <name>Estimate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Estimate Number History --></label>
+        <name>Estimate_Number_History</name>
+    </customLabels>
+    <customLabels>
         <label>이벤트 유형:</label>
         <name>Event_Type</name>
     </customLabels>
     <customLabels>
+        <label><!-- Event venue --></label>
+        <name>Event_venue</name>
+    </customLabels>
+    <customLabels>
         <label>DM 요청 상태를 업데이트할 수 없습니다. 시스템 관리자에게 문의하세요.</label>
         <name>Exception_message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Exclude --></label>
+        <name>Exclude</name>
     </customLabels>
     <customLabels>
         <label><!-- FAXCover --></label>
@@ -893,6 +1461,18 @@
         <name>Familiarization_workshop_for_new_vehicle_owners</name>
     </customLabels>
     <customLabels>
+        <label><!-- Family Number --></label>
+        <name>Family_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Family, company, hobby have you heard --></label>
+        <name>Family_company_hobby_have_you_heard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Favorite Model --></label>
+        <name>Favorite_Model</name>
+    </customLabels>
+    <customLabels>
         <label>팩스</label>
         <name>Fax</name>
     </customLabels>
@@ -901,12 +1481,76 @@
         <name>Field</name>
     </customLabels>
     <customLabels>
+        <label><!-- Fields --></label>
+        <name>Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Fiinance Estimate Number --></label>
+        <name>Fiinance_Estimate_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Filter --></label>
+        <name>Filter</name>
+    </customLabels>
+    <customLabels>
         <label>지불 방법</label>
         <name>FinanceMethod</name>
     </customLabels>
     <customLabels>
+        <label><!-- Finance Estimate --></label>
+        <name>Finance_Estimate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Finance Estimate Creation Date --></label>
+        <name>Finance_Estimate_Creation_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Finance Estimate History --></label>
+        <name>Finance_Estimate_History</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Finance Proposal --></label>
+        <name>Finance_Proposal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First Estimate Amount --></label>
+        <name>First_Estimate_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First Estimate Number --></label>
+        <name>First_Estimate_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First Estimate Print --></label>
+        <name>First_Estimate_Print</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Five --></label>
+        <name>Five</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Food &amp; beverage --></label>
+        <name>Food_beverage</name>
+    </customLabels>
+    <customLabels>
         <label>관심 차량</label>
         <name>For_Vehicle_Picker</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Four --></label>
+        <name>Four</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- From the experience with Mercedes-Benz during this event, which word would best --></label>
+        <name>From_the_experience_with_Mercedes_Benz_during_this_event_which_word_would_best</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Garage information and specifications have you heard --></label>
+        <name>Garage_information_and_specifications_have_you_heard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Gender --></label>
+        <name>Gender</name>
     </customLabels>
     <customLabels>
         <label>전화, 집 전화 및 휴대전화가 모두 비어 있습니다. 최소한 하나 이상의 전화번호를 입력하세요.</label>
@@ -933,12 +1577,28 @@
         <name>GenericUploaderLengthErrorMsg</name>
     </customLabels>
     <customLabels>
+        <label><!-- Good --></label>
+        <name>Good</name>
+    </customLabels>
+    <customLabels>
         <label>손자녀</label>
         <name>GrandChild</name>
     </customLabels>
     <customLabels>
         <label>조부모</label>
         <name>GrandParent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Grand Total --></label>
+        <name>Grand_Total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Greater Than --></label>
+        <name>Greater_Than</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hand Over --></label>
+        <name>Hand_Over</name>
     </customLabels>
     <customLabels>
         <label><!-- Has Attended Campaign --></label>
@@ -953,12 +1613,36 @@
         <name>HideSurveyName</name>
     </customLabels>
     <customLabels>
+        <label><!-- Highly interesed --></label>
+        <name>Highly_interesed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hobby --></label>
+        <name>Hobby</name>
+    </customLabels>
+    <customLabels>
         <label>집 이메일</label>
         <name>Home_Email</name>
     </customLabels>
     <customLabels>
         <label>집 전화</label>
         <name>Home_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Home Phone 2 --></label>
+        <name>Home_Phone_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Home Type --></label>
+        <name>Home_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- I don’t know / no statement --></label>
+        <name>I_don_t_know_no_statement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- I don’t remember / no statement --></label>
+        <name>I_don_t_remember_no_statement</name>
     </customLabels>
     <customLabels>
         <label><!-- Id --></label>
@@ -969,8 +1653,24 @@
         <name>Idle_Hour_Promotion</name>
     </customLabels>
     <customLabels>
+        <label><!-- If No, specify Why --></label>
+        <name>If_No_specify_Why</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- If Yes, specify favorite model --></label>
+        <name>If_Yes_specify_favorite_model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- If yes, within which period do you plan to purchase --></label>
+        <name>If_yes_within_which_period_do_you_plan_to_purchase</name>
+    </customLabels>
+    <customLabels>
         <label>딜러 혹은 관련 부서와 정보 공유</label>
         <name>Informationsharing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Instructor team --></label>
+        <name>Instructor_team</name>
     </customLabels>
     <customLabels>
         <label>신규 차량 생성에 대한 권한이 부족합니다</label>
@@ -985,12 +1685,32 @@
         <name>Insurance_Promotion</name>
     </customLabels>
     <customLabels>
+        <label><!-- Insurance Proposal --></label>
+        <name>Insurance_Proposal</name>
+    </customLabels>
+    <customLabels>
         <label>관심사</label>
         <name>Interest</name>
     </customLabels>
     <customLabels>
         <label>관심사 분류</label>
         <name>Interest_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Interesting Event --></label>
+        <name>Interesting_Event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Interior --></label>
+        <name>Interior</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Invoiced --></label>
+        <name>Invoiced</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- JP --></label>
+        <name>JP</name>
     </customLabels>
     <customLabels>
         <label><!-- KR --></label>
@@ -1265,12 +1985,68 @@
         <name>Last_Modified_Date</name>
     </customLabels>
     <customLabels>
+        <label><!-- Latest Phase History --></label>
+        <name>Latest_Phase_History</name>
+    </customLabels>
+    <customLabels>
         <label><!-- LeadTabId --></label>
         <name>LeadId</name>
     </customLabels>
     <customLabels>
+        <label><!-- Lead Activity Type --></label>
+        <name>Lead_Activity_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Assigned Date --></label>
+        <name>Lead_Assigned_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Conditions --></label>
+        <name>Lead_Conditions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead_Filter --></label>
+        <name>Lead_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Memo --></label>
+        <name>Lead_Memo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Process Sheet --></label>
+        <name>Lead_Process_Sheet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Type --></label>
+        <name>Lead_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead creation/Assign Date --></label>
+        <name>Lead_creation_Assign_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead to be Merged --></label>
+        <name>Lead_to_be_Merged</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Leagl Owner --></label>
+        <name>Leagl_Owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Less Than --></label>
+        <name>Less_Than</name>
+    </customLabels>
+    <customLabels>
         <label>결과가 너무 많습니다. 필터를 추가하여 검색 범위를 좁히십시오</label>
         <name>LimitQueries</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- List Ready Maintenance --></label>
+        <name>List_Ready_Maintenance</name>
+    </customLabels>
+    <customLabels>
+        <label>상세 정보</label>
+        <name>List_of_Service_Retail_Task_Only</name>
     </customLabels>
     <customLabels>
         <label><!-- Logic Error --></label>
@@ -1279,6 +2055,10 @@
     <customLabels>
         <label>조회</label>
         <name>Lookup_Button</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MBJ support --></label>
+        <name>MBJ_support</name>
     </customLabels>
     <customLabels>
         <label><!-- Maintenance Promotion --></label>
@@ -1295,6 +2075,10 @@
     <customLabels>
         <label><!-- MarketKR --></label>
         <name>MarketKR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketTH --></label>
+        <name>MarketTH</name>
     </customLabels>
     <customLabels>
         <label>마케팅 설문 조사</label>
@@ -1357,6 +2141,10 @@
         <name>Media_Type</name>
     </customLabels>
     <customLabels>
+        <label><!-- Memo --></label>
+        <name>Memo</name>
+    </customLabels>
+    <customLabels>
         <label>병합</label>
         <name>Merge</name>
     </customLabels>
@@ -1413,6 +2201,10 @@
         <name>My_shop_Name</name>
     </customLabels>
     <customLabels>
+        <label><!-- NA --></label>
+        <name>NA</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Near_Dealer_1</name>
     </customLabels>
@@ -1449,6 +2241,14 @@
         <name>Near_Dealer_Phone3</name>
     </customLabels>
     <customLabels>
+        <label><!-- Needs Check --></label>
+        <name>Needs_Check</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Needs Problem Points --></label>
+        <name>Needs_Problem_Points</name>
+    </customLabels>
+    <customLabels>
         <label>신규 계정</label>
         <name>NewAccount</name>
     </customLabels>
@@ -1481,8 +2281,28 @@
         <name>New_Customer_Acquisition</name>
     </customLabels>
     <customLabels>
+        <label><!-- New DM Request --></label>
+        <name>New_DM_Request</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Value --></label>
+        <name>New_Value</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Next Activity --></label>
+        <name>Next_Activity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Nine --></label>
+        <name>Nine</name>
+    </customLabels>
+    <customLabels>
         <label>아니오</label>
         <name>No</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Address Message --></label>
+        <name>No_Address_Message</name>
     </customLabels>
     <customLabels>
         <label>고객불만 없음</label>
@@ -1501,6 +2321,18 @@
         <name>No_Target_records</name>
     </customLabels>
     <customLabels>
+        <label><!-- No Thai --></label>
+        <name>No_Thai</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No, busy right now --></label>
+        <name>No_busy_right_now</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No, don’t want to talk --></label>
+        <name>No_don_t_want_to_talk</name>
+    </customLabels>
+    <customLabels>
         <label><!-- None --></label>
         <name>None</name>
     </customLabels>
@@ -1509,12 +2341,32 @@
         <name>NotAccepted</name>
     </customLabels>
     <customLabels>
+        <label><!-- Not easy to talk thai --></label>
+        <name>Not_easy_to_talk_thai</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Not found QC --></label>
         <name>Not_found_QC</name>
     </customLabels>
     <customLabels>
+        <label><!-- Not yet decided --></label>
+        <name>Not_yet_decided</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Notify To Dealer1 --></label>
+        <name>Notify_To_Dealer1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Notify To Dealer2 --></label>
+        <name>Notify_To_Dealer2</name>
+    </customLabels>
+    <customLabels>
         <label>직업</label>
         <name>Occupation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Old Value --></label>
+        <name>Old_Value</name>
     </customLabels>
     <customLabels>
         <label>중복 고객 확인</label>
@@ -1523,6 +2375,10 @@
     <customLabels>
         <label><!-- Onchu --></label>
         <name>Onchu</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- One --></label>
+        <name>One</name>
     </customLabels>
     <customLabels>
         <label><!-- Online Dedup callout failure --></label>
@@ -1535,6 +2391,10 @@
     <customLabels>
         <label>순서 번호</label>
         <name>OrderNumber</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Ordered --></label>
+        <name>Ordered</name>
     </customLabels>
     <customLabels>
         <label>기타 이메일</label>
@@ -1557,8 +2417,28 @@
         <name>Others</name>
     </customLabels>
     <customLabels>
+        <label><!-- Outlet --></label>
+        <name>Outlet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Overall impression --></label>
+        <name>Overall_impression</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Owner --></label>
+        <name>Owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Owner Sales Responsible Person --></label>
+        <name>Owner_Sales_Responsible_Person</name>
+    </customLabels>
+    <customLabels>
         <label><!-- POM/advertisement --></label>
         <name>POM_advertisement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PR to promote this event --></label>
+        <name>PR_to_promote_this_event</name>
     </customLabels>
     <customLabels>
         <label>다음</label>
@@ -1585,8 +2465,20 @@
         <name>Parts_Cross_Promotion</name>
     </customLabels>
     <customLabels>
+        <label><!-- Parts Fax --></label>
+        <name>Parts_Fax</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Payment Total --></label>
+        <name>Payment_Total</name>
+    </customLabels>
+    <customLabels>
         <label><!-- PersonAccount --></label>
         <name>PersonAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PersonAccount Record Type From Account --></label>
+        <name>PersonAccount_Record_Type_From_Account</name>
     </customLabels>
     <customLabels>
         <label>개인 계정 정보</label>
@@ -1595,6 +2487,18 @@
     <customLabels>
         <label>개인 계정</label>
         <name>Person_Account_Record_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person Met (Contacted) --></label>
+        <name>Person_Met_Contacted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person Or Company --></label>
+        <name>Person_Or_Company</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person to meet (Contact) --></label>
+        <name>Person_to_meet_Contact</name>
     </customLabels>
     <customLabels>
         <label>전화</label>
@@ -1609,8 +2513,20 @@
         <name>PhoneService</name>
     </customLabels>
     <customLabels>
+        <label><!-- Planned Purchase Time --></label>
+        <name>Planned_Purchase_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please Select A Dealer To Add As Participating Dealer --></label>
+        <name>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</name>
+    </customLabels>
+    <customLabels>
         <label>필터 이름을 입력하세요</label>
         <name>Please_enter_the_filter_name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please select Address --></label>
+        <name>Please_select_Address</name>
     </customLabels>
     <customLabels>
         <label>하나의 마스터 레코드만 선택하세요</label>
@@ -1625,6 +2541,10 @@
         <name>Pleasetakecautiontheinformation</name>
     </customLabels>
     <customLabels>
+        <label><!-- Possibility : --></label>
+        <name>Possibility</name>
+    </customLabels>
+    <customLabels>
         <label>이후</label>
         <name>Post</name>
     </customLabels>
@@ -1633,36 +2553,280 @@
         <name>Previous</name>
     </customLabels>
     <customLabels>
+        <label><!-- Printed Date --></label>
+        <name>Printed_Date</name>
+    </customLabels>
+    <customLabels>
         <label>우선순위</label>
         <name>Priority</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Process Check Items --></label>
+        <name>Process_Check_Items</name>
     </customLabels>
     <customLabels>
         <label><!-- Product ID --></label>
         <name>Product_ID</name>
     </customLabels>
     <customLabels>
+        <label><!-- Product Proposal --></label>
+        <name>Product_Proposal</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Promotion on Technical accessories and collections --></label>
         <name>Promotion_on_Technical_accessories_and_collections</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Proposed Date(1): --></label>
+        <name>Proposed_Date_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Proposed Date(2): --></label>
+        <name>Proposed_Date_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Proposed Date(3): --></label>
+        <name>Proposed_Date_3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Pruchase Plan Date --></label>
+        <name>Pruchase_Plan_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchase Plan --></label>
+        <name>Purchase_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchase Reason --></label>
+        <name>Purchase_Reason</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchase Type --></label>
+        <name>Purchase_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchased --></label>
+        <name>Purchased</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchased Date --></label>
+        <name>Purchased_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q10 Describe MB --></label>
+        <name>Q10_Describe_MB</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q10 Were you contacted by your Mercedes-Benz service --></label>
+        <name>Q10_Were_you_contacted_by_your_Mercedes_Benz_service</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q11 recommendation --></label>
+        <name>Q11_recommendation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q12 Test drive --></label>
+        <name>Q12_Test_drive</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q13 Period --></label>
+        <name>Q13_Period</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q14 Activity --></label>
+        <name>Q14_Activity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1_Overall impression --></label>
+        <name>Q1_Overall_impression</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1 Overall satisfaction --></label>
+        <name>Q1_Overall_satisfaction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1 Please rate your satisfaction toward call agent --></label>
+        <name>Q1_Please_rate_your_satisfaction_toward_call_agent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1 Satisfied with initiating the service visit. --></label>
+        <name>Q1_Satisfied_with_initiating_the_service_visit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1 Your Current Cars --></label>
+        <name>Q1_Your_Current_Cars</name>
     </customLabels>
     <customLabels>
         <label>1. 고객님 차량 정비서비스 받으신 부분에 대하여 만족하시는지요? (10점만점)</label>
         <name>Q1_service_quality</name>
     </customLabels>
     <customLabels>
+        <label><!-- Q2 Driving experience --></label>
+        <name>Q2_Driving_experience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2_Event venue --></label>
+        <name>Q2_Event_venue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2_Other Cars in household --></label>
+        <name>Q2_Other_Cars_in_House</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2 Politeness of staff Receiving --></label>
+        <name>Q2_Politeness_of_staff_Receiving</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2 Satisfied with Service advisor/Dealer staffs --></label>
+        <name>Q2_Satisfied_with_Service_advisor_Dealer_staffs</name>
+    </customLabels>
+    <customLabels>
         <label>2. 고객님께서 방문하셨던 00서비스센터 직원들의 친절부분에 대하여 만족하시는지요?</label>
         <name>Q2_Service_center_employee</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2 Will you recommend improvement area for Star Assist service --></label>
+        <name>Q2_Will_you_recommend_improvement_area_for_Star_Assist_service</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2 Will you recommend product and service of Mercedes-Benz Thailand --></label>
+        <name>Q2_Will_you_recommend_product_and_service_of_Mercedes_Benz_Thailand</name>
     </customLabels>
     <customLabels>
         <label>3. 고객님께서 이용하신 Pick up @ delivery 에 대한 전체적인 서비스는 만족하십니까?</label>
         <name>Q3_Delivery_Service</name>
     </customLabels>
     <customLabels>
+        <label><!-- Q3 Instructor Team --></label>
+        <name>Q3_Instructor_Team</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3_Interesting event --></label>
+        <name>Q3_Interesting_event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3 Satisfied with aftersales facility --></label>
+        <name>Q3_Satisfied_with_aftersales_facility</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3 Towing staff uniform/appearance --></label>
+        <name>Q3_Towing_staff_uniform_appearance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Appropriated tool &amp; Towed truck --></label>
+        <name>Q4_Appropriated_tool_Towed_truck</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Contemporary --></label>
+        <name>Q4_Contemporary</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Credible --></label>
+        <name>Q4_Credible</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Dynamic --></label>
+        <name>Q4_Dynamic</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Elegance --></label>
+        <name>Q4_Elegance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 If others, please specify --></label>
+        <name>Q4_If_others_please_specify</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Luxury --></label>
+        <name>Q4_Luxury</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Modern --></label>
+        <name>Q4_Modern</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Others --></label>
+        <name>Q4_Others</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Quality --></label>
+        <name>Q4_Quality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Safety --></label>
+        <name>Q4_Safety</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Satisfied with vehicle pickup process --></label>
+        <name>Q4_Satisfied_with_vehicle_pickup_process</name>
+    </customLabels>
+    <customLabels>
         <label>4. 고객님 서비스센터는 어떤 경로를 통하여 입고하셨습니까?</label>
         <name>Q4_Service_Center_Information</name>
     </customLabels>
     <customLabels>
+        <label><!-- Q4 Staff hospitality --></label>
+        <name>Q4_Staff_hospitality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4 Valuable alternative --></label>
+        <name>Q4_Valuable_alternative</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q5 Food &amp; beverage --></label>
+        <name>Q5_Food_beverage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q5 Proactive Offering --></label>
+        <name>Q5_Proactive_Offering</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q5 Satisfied with service quality --></label>
+        <name>Q5_Satisfied_with_service_quality</name>
+    </customLabels>
+    <customLabels>
         <label>5. 직원 중 친절사원으로 추천해주실 직원이 있으신지요?</label>
         <name>Q5_Service_Center</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q6 Coordination --></label>
+        <name>Q6_Coordination</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q6 PR to promote this event --></label>
+        <name>Q6_PR_to_promote_this_event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q6 Satisfied with building  up relationship to customer --></label>
+        <name>Q6_Satisfied_with_building_up_relationship_to_customer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q7 Coordination during the event --></label>
+        <name>Q7_Coordination_during_the_event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q7 Satisfied with Overall service experience --></label>
+        <name>Q7_Satisfied_with_Overall_service_experience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q7 Waiting time --></label>
+        <name>Q7_Waiting_time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q8 Interesting Event --></label>
+        <name>Q8_Interesting_Event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q8 Would you go back to the service center --></label>
+        <name>Q8_Would_you_go_back_to_the_service_center</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q9 Would you recommend this service center --></label>
+        <name>Q9_Would_you_recommend_this_service_center</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q9 Your suggestion (Open-ended question) --></label>
+        <name>Q9_Your_suggestion_Open_ended_question</name>
     </customLabels>
     <customLabels>
         <label><!-- QCMassCalibrationNotice --></label>
@@ -1709,6 +2873,34 @@
         <name>QC_Mass_Calibration_Title</name>
     </customLabels>
     <customLabels>
+        <label><!-- Quality --></label>
+        <name>Quality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RET_02_01_ServiceAmountView --></label>
+        <name>RET_02_01_ServiceAmountView</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Range Model --></label>
+        <name>Range_Model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rating --></label>
+        <name>Rating</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rating1 --></label>
+        <name>Rating1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rating reason --></label>
+        <name>Rating_reason</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Received By --></label>
+        <name>Received_By</name>
+    </customLabels>
+    <customLabels>
         <label>수신</label>
         <name>Reception</name>
     </customLabels>
@@ -1717,8 +2909,16 @@
         <name>RecipientofthisFAX</name>
     </customLabels>
     <customLabels>
+        <label><!-- Record Type --></label>
+        <name>RecordType</name>
+    </customLabels>
+    <customLabels>
         <label><!-- RecordTypeId --></label>
         <name>RecordTypeId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Registered --></label>
+        <name>Registered</name>
     </customLabels>
     <customLabels>
         <label>등록</label>
@@ -1733,6 +2933,22 @@
         <name>RegistrationNo</name>
     </customLabels>
     <customLabels>
+        <label><!-- Registration Date --></label>
+        <name>Registration_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Registration Date / Inspection Date --></label>
+        <name>Registration_Date_Inspection_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Registration Date / Milage --></label>
+        <name>Registration_Date_Milage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Registration Plan Date --></label>
+        <name>Registration_Plan_Date</name>
+    </customLabels>
+    <customLabels>
         <label>거부</label>
         <name>Reject</name>
     </customLabels>
@@ -1745,12 +2961,24 @@
         <name>Related_Acc_not_present</name>
     </customLabels>
     <customLabels>
+        <label><!-- Related Dealer View for Contract --></label>
+        <name>Related_Dealer_View_for_Contract</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Report Title1 TA Tracing --></label>
         <name>Report_Title1_TA_Tracing</name>
     </customLabels>
     <customLabels>
         <label><!-- Report Title2 TA Tracing --></label>
         <name>Report_Title2_TA_Tracing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Representative --></label>
+        <name>Representative</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Representative Information --></label>
+        <name>Representative_Information</name>
     </customLabels>
     <customLabels>
         <label>요청</label>
@@ -1763,6 +2991,22 @@
     <customLabels>
         <label><!-- RequestPDF --></label>
         <name>RequestPDF</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Date --></label>
+        <name>Request_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Details --></label>
+        <name>Request_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Type --></label>
+        <name>Request_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Requested Date --></label>
+        <name>Requested_Date</name>
     </customLabels>
     <customLabels>
         <label>필요 정보를 입력하세요</label>
@@ -1795,6 +3039,662 @@
     <customLabels>
         <label><!-- Retail Campaign Canlender Page SM Media --></label>
         <name>Retail_Campaign_Canlender_Page_SM_Media</name>
+    </customLabels>
+    <customLabels>
+        <label>상세 정보</label>
+        <name>Retail_Copy_View_Area_For_Dealer_User</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Retail copy is already present --></label>
+        <name>Retail_copy_is_already_present</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Address Type --></label>
+        <name>S5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A1 TE --></label>
+        <name>S5_A1_TE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A3.4 I don’t know (yet) --></label>
+        <name>S5_A3_4_I_don_t_know_yet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A3.4 I will primarily use the car for business --></label>
+        <name>S5_A3_4_I_will_primarily_use_the_car_for_business</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A3.4 I will primarily use the car privately --></label>
+        <name>S5_A3_4_I_will_primarily_use_the_car_privately</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A3.4 I will use the car privately and for business in roughly equal parts --></label>
+        <name>S5_A3_4_I_will_use_the_car_privately_and_for_business_in_roughly_equal_parts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A4.1.1 Online Survey --></label>
+        <name>S5_A4_1_1_Online_Survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A4.1.2 Telephone Survey --></label>
+        <name>S5_A4_1_2_Telephone_Survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A6.1 I contacted my dealer --></label>
+        <name>S5_A6_1_I_contacted_my_dealer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 A6.1 My dealer contacted me --></label>
+        <name>S5_A6_1_My_dealer_contacted_me</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Address Line 1 --></label>
+        <name>S5_Address_Line_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Address Line 2 --></label>
+        <name>S5_Address_Line_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Block --></label>
+        <name>S5_Block</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 City --></label>
+        <name>S5_City</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Company Name --></label>
+        <name>S5_Company_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Date of Birth --></label>
+        <name>S5_Date_of_Birth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 First name --></label>
+        <name>S5_First_name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Home Phone --></label>
+        <name>S5_Home_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Home Phone 2 --></label>
+        <name>S5_Home_Phone_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Contract Type --></label>
+        <name>S5_L_Contract_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Date of Payment --></label>
+        <name>S5_L_Date_of_Payment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Installment amount/month --></label>
+        <name>S5_L_Installment_amount_month</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L No of months of contract term --></label>
+        <name>S5_L_No_of_months_of_contract_term</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Please enter the information to be updated --></label>
+        <name>S5_L_Please_enter_the_information_to_be_updated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Preferred payment channel --></label>
+        <name>S5_L_Preferred_payment_channel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 L Vehicle Model --></label>
+        <name>S5_L_Vehicle_Model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Last name --></label>
+        <name>S5_Last_name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Mobile --></label>
+        <name>S5_Mobile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Mobile 2 --></label>
+        <name>S5_Mobile_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5  Name --></label>
+        <name>S5_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Phone --></label>
+        <name>S5_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Post Code --></label>
+        <name>S5_Post_Code</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 E LT P1 --></label>
+        <name>S5_Q1_1_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 E LT P2 --></label>
+        <name>S5_Q1_1_E_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 E LT P3 --></label>
+        <name>S5_Q1_1_E_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 T LT P1 --></label>
+        <name>S5_Q1_1_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1.1 T LT P2 --></label>
+        <name>S5_Q1_1_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E LT P1 --></label>
+        <name>S5_Q1_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E LT P2 --></label>
+        <name>S5_Q1_E_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E LT P3 --></label>
+        <name>S5_Q1_E_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E LT P4 --></label>
+        <name>S5_Q1_E_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 E MBLT P1 --></label>
+        <name>S5_Q1_E_MBLT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P10 --></label>
+        <name>S5_Q1_E_MBLT_P10</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P2 --></label>
+        <name>S5_Q1_E_MBLT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P3 --></label>
+        <name>S5_Q1_E_MBLT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P4 --></label>
+        <name>S5_Q1_E_MBLT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P5 --></label>
+        <name>S5_Q1_E_MBLT_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P6 --></label>
+        <name>S5_Q1_E_MBLT_P6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P7 --></label>
+        <name>S5_Q1_E_MBLT_P7</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P8 --></label>
+        <name>S5_Q1_E_MBLT_P8</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBLT P9 --></label>
+        <name>S5_Q1_E_MBLT_P9</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 E MBTH P1 --></label>
+        <name>S5_Q1_E_MBTH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E MBTH P2 --></label>
+        <name>S5_Q1_E_MBTH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 E MBTH P3 --></label>
+        <name>S5_Q1_E_MBTH_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E TH P1 --></label>
+        <name>S5_Q1_E_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 E TH P2 --></label>
+        <name>S5_Q1_E_TH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T LT P1 --></label>
+        <name>S5_Q1_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T LT P2 --></label>
+        <name>S5_Q1_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T LT P3 --></label>
+        <name>S5_Q1_T_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T LT P4 --></label>
+        <name>S5_Q1_T_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T TH P1 --></label>
+        <name>S5_Q1_T_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T TH P2 --></label>
+        <name>S5_Q1_T_TH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q1 T TH P3 --></label>
+        <name>S5_Q1_T_TH_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2 --></label>
+        <name>S5_Q2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P1 --></label>
+        <name>S5_Q2_1_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P2 --></label>
+        <name>S5_Q2_1_E_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P3 --></label>
+        <name>S5_Q2_1_E_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P4 --></label>
+        <name>S5_Q2_1_E_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 E P5 --></label>
+        <name>S5_Q2_1_E_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T Is that correct --></label>
+        <name>S5_Q2_1_T_Is_that_correct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P1 --></label>
+        <name>S5_Q2_1_T_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P2 --></label>
+        <name>S5_Q2_1_T_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P3 --></label>
+        <name>S5_Q2_1_T_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P4 --></label>
+        <name>S5_Q2_1_T_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.1 T P5 --></label>
+        <name>S5_Q2_1_T_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.2 E P1 --></label>
+        <name>S5_Q2_2_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.2 T P1 DOB --></label>
+        <name>S5_Q2_2_T_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.3 E P1 --></label>
+        <name>S5_Q2_3_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.4 E LT P1 --></label>
+        <name>S5_Q2_4_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.5 E P1 --></label>
+        <name>S5_Q2_5_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.5 T P1 your address is --></label>
+        <name>S5_Q2_5_T_P1_your_address_is</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 E LT P1 --></label>
+        <name>S5_Q2_6_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 E TH P1 --></label>
+        <name>S5_Q2_6_E_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 T LT P1 --></label>
+        <name>S5_Q2_6_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 T LT P2 --></label>
+        <name>S5_Q2_6_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.6 T TH P1 --></label>
+        <name>S5_Q2_6_T_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT --></label>
+        <name>S5_Q2_7_E_LT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P1 --></label>
+        <name>S5_Q2_7_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P2 --></label>
+        <name>S5_Q2_7_E_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P3 --></label>
+        <name>S5_Q2_7_E_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P4 --></label>
+        <name>S5_Q2_7_E_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P5 --></label>
+        <name>S5_Q2_7_E_LT_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 E LT P6 --></label>
+        <name>S5_Q2_7_E_LT_P6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT --></label>
+        <name>S5_Q2_7_T_LT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P1 --></label>
+        <name>S5_Q2_7_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P2 --></label>
+        <name>S5_Q2_7_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P3 --></label>
+        <name>S5_Q2_7_T_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P4 --></label>
+        <name>S5_Q2_7_T_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P5 --></label>
+        <name>S5_Q2_7_T_LT_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P6 --></label>
+        <name>S5_Q2_7_T_LT_P6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P7 --></label>
+        <name>S5_Q2_7_T_LT_P7</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P8 --></label>
+        <name>S5_Q2_7_T_LT_P8</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.7 T LT P9 --></label>
+        <name>S5_Q2_7_T_LT_P9</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.8 E LT --></label>
+        <name>S5_Q2_8_E_LT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.8 E LT P1 --></label>
+        <name>S5_Q2_8_E_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2.8 T LT --></label>
+        <name>S5_Q2_8_T_LT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2 E --></label>
+        <name>S5_Q2_E</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q2 T --></label>
+        <name>S5_Q2_T</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.1 What is the relationship of the car owner? --></label>
+        <name>S5_Q3_1_1_What_is_the_relationship_of_the_car_owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2. Check contact person --></label>
+        <name>S5_Q3_1_2_Check_contact_person</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2 Who is After sales contact? --></label>
+        <name>S5_Q3_1_2_Who_is_After_sales_contact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2 Who is Owner of the car? --></label>
+        <name>S5_Q3_1_2_Who_is_Owner_of_the_car</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2 Who is sales contact? --></label>
+        <name>S5_Q3_1_2_Who_is_sales_contact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1.2 Who is the driver? (if any) --></label>
+        <name>S5_Q3_1_2_Who_is_the_driver_if_any</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.1	Are you the main user of the car? --></label>
+        <name>S5_Q3_1_Are_you_the_main_user_of_the_car</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.2 Age of car user --></label>
+        <name>S5_Q3_2_Age_of_car_user</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.4 How do you primarily use your new car? --></label>
+        <name>S5_Q3_4_How_do_you_primarily_use_your_new_car</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3.7 Did you buy a MB at the dealership --></label>
+        <name>S5_Q3_7_Did_you_buy_a_MB_at_the_dealership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 E --></label>
+        <name>S5_Q3_E</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 E P1 --></label>
+        <name>S5_Q3_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 E P2 --></label>
+        <name>S5_Q3_E_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 T TH P1 --></label>
+        <name>S5_Q3_T_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q3 T TH P2 --></label>
+        <name>S5_Q3_T_TH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4.1 Which channel do you prefer to do the CSI survey? --></label>
+        <name>S5_Q4_1_Which_channel_do_you_prefer_to_do_the_CSI_survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4.2 When will your prefer to do the telephone survey? --></label>
+        <name>S5_Q4_2_When_will_your_prefer_to_do_the_telephone_survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 E --></label>
+        <name>S5_Q4_E</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 E P1 --></label>
+        <name>S5_Q4_E_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 E P1A --></label>
+        <name>S5_Q4_E_P1A</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 E P2 --></label>
+        <name>S5_Q4_E_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P1 --></label>
+        <name>S5_Q4_T_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P2 --></label>
+        <name>S5_Q4_T_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P3 --></label>
+        <name>S5_Q4_T_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P4 --></label>
+        <name>S5_Q4_T_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q4 T P5 --></label>
+        <name>S5_Q4_T_P5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5.1 Did sales representative inform you about benefit of MercedesCard ? --></label>
+        <name>S5_Q5_1_Did_sales_representative_inform_you_about_benefit_of_MercedesCard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5.2 Will you apply for the MercedesCard membership? --></label>
+        <name>S5_Q5_2_Will_you_apply_for_the_MercedesCard_membership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 E --></label>
+        <name>S5_Q5_E</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P1 --></label>
+        <name>S5_Q5_T_LT_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P2 --></label>
+        <name>S5_Q5_T_LT_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P3 --></label>
+        <name>S5_Q5_T_LT_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P3 A --></label>
+        <name>S5_Q5_T_LT_P3_A</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T LT P4 --></label>
+        <name>S5_Q5_T_LT_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T TH P1 --></label>
+        <name>S5_Q5_T_TH_P1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T TH P2 --></label>
+        <name>S5_Q5_T_TH_P2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T TH P3 --></label>
+        <name>S5_Q5_T_TH_P3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q5 T TH P4 --></label>
+        <name>S5_Q5_T_TH_P4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q6.1 How was the first contact made --></label>
+        <name>S5_Q6_1_How_was_the_first_contact_made</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q6.2 What were the contact channels --></label>
+        <name>S5_Q6_2_What_were_the_contact_channels</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.1 Processing speed how quick entire process was? --></label>
+        <name>S5_Q7_1_Processing_speed_how_quick_entire_process_was</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.2 Thoroughness of processing --></label>
+        <name>S5_Q7_2_Thoroughness_of_processing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.3 Completeness of processing --></label>
+        <name>S5_Q7_3_Completeness_of_processing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.4 Selected contact channel for the processing convenience --></label>
+        <name>S5_Q7_4_Selected_contact_channel_for_the_processing_convenience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7.5 Content format of the processing convenience --></label>
+        <name>S5_Q7_5_Content_format_of_the_processing_convenience</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q7  Rotation of items 1-5 --></label>
+        <name>S5_Q7_Rotation_of_items_1_5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q9.1 Please give a satisfaction score for service of Call agent --></label>
+        <name>S5_Q9_1_Please_give_a_satisfaction_score_for_service_of_Call_agent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q9 Call Center Evaluation / NPS via IVR --></label>
+        <name>S5_Q9_Call_Center_Evaluation_NPS_via_IVR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Q 9.2 Would you recommend product and service of Mercedes-Benz --></label>
+        <name>S5_Q_9_2_Would_you_recommend_product_and_service_of_Mercedes_Benz</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Town --></label>
+        <name>S5_Town</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Work Phone --></label>
+        <name>S5_Work_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 Your Nationaliy is --></label>
+        <name>S5_Your_Nationaliy_is</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 company&apos;s registration type --></label>
+        <name>S5_company_s_registration_type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- S5 title --></label>
+        <name>S5_title</name>
     </customLabels>
     <customLabels>
         <label><!-- SMS Reply History Respond Content --></label>
@@ -1849,6 +3749,10 @@
         <name>SalesContactTarget</name>
     </customLabels>
     <customLabels>
+        <label><!-- Sales Fax --></label>
+        <name>SalesFax</name>
+    </customLabels>
+    <customLabels>
         <label>세일즈 메일</label>
         <name>SalesMail</name>
     </customLabels>
@@ -1857,8 +3761,40 @@
         <name>SalesTEL</name>
     </customLabels>
     <customLabels>
+        <label><!-- Sales Contact Target --></label>
+        <name>Sales_Contact_Target</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Contact Target Purchaser Relation --></label>
+        <name>Sales_Contact_Target_Purchaser_Relation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Contact Target Sales Responsible Person --></label>
+        <name>Sales_Contact_Target_Sales_Responsible_Person</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Mail --></label>
+        <name>Sales_Mail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Mail Type --></label>
+        <name>Sales_Mail_Type</name>
+    </customLabels>
+    <customLabels>
         <label>세일즈 앤 마케팅</label>
         <name>Sales_Marketing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Phone --></label>
+        <name>Sales_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales TEL --></label>
+        <name>Sales_TEL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales TEL Type --></label>
+        <name>Sales_TEL_Type</name>
     </customLabels>
     <customLabels>
         <label><!-- Sama --></label>
@@ -1867,6 +3803,10 @@
     <customLabels>
         <label>동일</label>
         <name>Same</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Satisfaction towards this event --></label>
+        <name>Satisfaction_towards_this_event</name>
     </customLabels>
     <customLabels>
         <label>저장</label>
@@ -1897,6 +3837,10 @@
         <name>Search_Duplicates</name>
     </customLabels>
     <customLabels>
+        <label><!-- Select Address Msg --></label>
+        <name>Select_Address_Msg</name>
+    </customLabels>
+    <customLabels>
         <label>[모두 선택]</label>
         <name>Select_All</name>
     </customLabels>
@@ -1909,8 +3853,36 @@
         <name>Select_User</name>
     </customLabels>
     <customLabels>
+        <label><!-- Select dropdown --></label>
+        <name>Select_dropdown</name>
+    </customLabels>
+    <customLabels>
         <label>판매 딜러</label>
         <name>SellingDealer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Selling Dealer --></label>
+        <name>Selling_Dealer</name>
+    </customLabels>
+    <customLabels>
+        <label>일본 사용 기능</label>
+        <name>SendToJPOSErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>일본 사용 기능</label>
+        <name>SendToMyMercedesErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>일본 사용 기능</label>
+        <name>SendToSPOErrorMSG</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Send to spo translate --></label>
+        <name>Send_to_spo_translate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SentToSPO --></label>
+        <name>SentToSPO</name>
     </customLabels>
     <customLabels>
         <label>서비스 딜러</label>
@@ -1921,20 +3893,64 @@
         <name>ServicePersonnel</name>
     </customLabels>
     <customLabels>
+        <label><!-- Service Advisor --></label>
+        <name>Service_Advisor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Service Fax --></label>
+        <name>Service_Fax</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Service Phone --></label>
+        <name>Service_Phone</name>
+    </customLabels>
+    <customLabels>
         <label>서비스 제품 프로모션</label>
         <name>Service_Product_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Service Program Proposal --></label>
+        <name>Service_Program_Proposal</name>
     </customLabels>
     <customLabels>
         <label>서비스 작업:</label>
         <name>Service_Work</name>
     </customLabels>
     <customLabels>
+        <label><!-- Service responsible Outlet --></label>
+        <name>Service_responsible_Outlet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Service responsible Person --></label>
+        <name>Service_responsible_Person</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Seven --></label>
+        <name>Seven</name>
+    </customLabels>
+    <customLabels>
         <label>공유</label>
         <name>Share</name>
     </customLabels>
     <customLabels>
+        <label><!-- Simple Estimation --></label>
+        <name>Simple_Estimation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Six --></label>
+        <name>Six</name>
+    </customLabels>
+    <customLabels>
         <label><!-- SlashPDF --></label>
         <name>SlashPDF</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Slave Record --></label>
+        <name>Slave_Record</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Somewhat disappointed --></label>
+        <name>Somewhat_disappointed</name>
     </customLabels>
     <customLabels>
         <label><!-- Special Filters --></label>
@@ -1955,6 +3971,14 @@
     <customLabels>
         <label>확인됨</label>
         <name>Status_Confirmed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Stocks for interested vehicle --></label>
+        <name>Stocks_for_interested_vehicle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Store --></label>
+        <name>Store</name>
     </customLabels>
     <customLabels>
         <label>제목</label>
@@ -2009,8 +4033,44 @@
         <name>Survey_Name</name>
     </customLabels>
     <customLabels>
+        <label><!-- Survey Response --></label>
+        <name>Survey_Response</name>
+    </customLabels>
+    <customLabels>
         <label>중복이 의심되는 항목</label>
         <name>Suspected_Duplicates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH --></label>
+        <name>TH</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_CACPurchaseddateRequired_Error --></label>
+        <name>TH_CACPurchaseddateRequired_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_CAC_LeadstatusPurchasedError --></label>
+        <name>TH_CAC_LeadstatusPurchasedError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH Not authorized to create MB Vehicle record --></label>
+        <name>TH_Not_authorized_to_create_MB_Vehicle_record</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_SARIDealerlead status error --></label>
+        <name>TH_SARIDealerlead_status_error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_SARI_DealerOrderplacedError --></label>
+        <name>TH_SARI_DealerOrderplacedError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TH_SERVICEBOOKING --></label>
+        <name>TH_SERVICE_BOOKING</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Target VIN --></label>
+        <name>TargetVIN</name>
     </customLabels>
     <customLabels>
         <label><!-- TaskTriggerErrorMsg --></label>
@@ -2122,12 +4182,20 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>TelFax</name>
     </customLabels>
     <customLabels>
+        <label><!-- Ten --></label>
+        <name>Ten</name>
+    </customLabels>
+    <customLabels>
         <label>차량 연결 종료</label>
         <name>TerminateVehicleRelationship</name>
     </customLabels>
     <customLabels>
         <label>종료할 차량 연결이 없습니다</label>
         <name>Terminate_Vehicle_Relationship</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Test Drive --></label>
+        <name>Test_Drive</name>
     </customLabels>
     <customLabels>
         <label>감사합니다 링크</label>
@@ -2146,6 +4214,10 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>The_filter_count_is_greater_than_15</name>
     </customLabels>
     <customLabels>
+        <label><!-- Three --></label>
+        <name>Three</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Title - Retail Campaigns Mass Approve --></label>
         <name>Title_Retail_Campaigns_Mass_Approve</name>
     </customLabels>
@@ -2160,6 +4232,14 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
     <customLabels>
         <label><!-- Title - Tool Kits Mass Approve --></label>
         <name>Title_Tool_Kits_Mass_Approve</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- To Company --></label>
+        <name>To_Company</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- To Person --></label>
+        <name>To_Person</name>
     </customLabels>
     <customLabels>
         <label><!-- Took Kit Type --></label>
@@ -2182,12 +4262,36 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>Total_Amount_Spend_On_Car_Service_is_Greater_Than</name>
     </customLabels>
     <customLabels>
+        <label><!-- Total Price --></label>
+        <name>Total_Price</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Touch Point --></label>
+        <name>Touch_Point</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Trade-In related information --></label>
         <name>Trade_In_related_information</name>
     </customLabels>
     <customLabels>
+        <label><!-- Trade-in Price --></label>
+        <name>Trade_in_Price</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Trade-in Vehicle Remaining --></label>
+        <name>Trade_in_Vehicle_Remaining</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Triangle Image --></label>
+        <name>Triangle_Image</name>
+    </customLabels>
+    <customLabels>
         <label>트림</label>
         <name>Trim</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Two --></label>
+        <name>Two</name>
     </customLabels>
     <customLabels>
         <label>UCID</label>
@@ -2198,8 +4302,20 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>URL</name>
     </customLabels>
     <customLabels>
+        <label><!-- Uncalculated --></label>
+        <name>Uncalculated</name>
+    </customLabels>
+    <customLabels>
         <label>알 수 없음</label>
         <name>Unknown</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Update --></label>
+        <name>Update</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Update Address --></label>
+        <name>Update_Address</name>
     </customLabels>
     <customLabels>
         <label>중고차 바이백/매입</label>
@@ -2323,12 +4439,40 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>Vehicle_Picker_TradeIn</name>
     </customLabels>
     <customLabels>
+        <label><!-- Vehicle Price +Maker option price --></label>
+        <name>Vehicle_Price_Maker_option_price</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle_Relation_Filter --></label>
+        <name>Vehicle_Relation_Filter</name>
+    </customLabels>
+    <customLabels>
         <label>기간이 중복되는 차량 연결은 존재할 수 없습니다</label>
         <name>Vehicle_Relationship_overlap</name>
     </customLabels>
     <customLabels>
+        <label><!-- Vehicle Retail copy Filter --></label>
+        <name>Vehicle_Retail_copy_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Very disappointed --></label>
+        <name>Very_disappointed</name>
+    </customLabels>
+    <customLabels>
         <label>계층 보기</label>
         <name>ViewHierarchy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Visited --></label>
+        <name>Visited</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Which activity would you like to join in the future? / Your suggestions --></label>
+        <name>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Why --></label>
+        <name>Why</name>
     </customLabels>
     <customLabels>
         <label>직장 팩스</label>
@@ -2341,6 +4485,46 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
     <customLabels>
         <label>직장 전화</label>
         <name>Work_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Would you recommend your family or friends join this event in the future? --></label>
+        <name>Would_you_recommend_your_family_or_friends_join_this_event_in_the_future</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 10 to less than 20 years --></label>
+        <name>X10_to_less_than_20_years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 1 year --></label>
+        <name>X1_year</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 20 years and more --></label>
+        <name>X20_years_and_more</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 2 year --></label>
+        <name>X2_year</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 3 years --></label>
+        <name>X3_years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 4 years --></label>
+        <name>X4_years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 5 to less than 10 years --></label>
+        <name>X5_to_less_than_10_years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Year --></label>
+        <name>Year</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Year of Purchase --></label>
+        <name>Year_of_Purchase</name>
     </customLabels>
     <customLabels>
         <label><!-- Yearly TA Apply deadline --></label>
@@ -2399,6 +4583,14 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>Yes</name>
     </customLabels>
     <customLabels>
+        <label><!-- Yes Thai --></label>
+        <name>Yes_Thai</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q.Your Current car(s) --></label>
+        <name>Your_Current_car_s</name>
+    </customLabels>
+    <customLabels>
         <label>우편 번호</label>
         <name>Zipcode</name>
     </customLabels>
@@ -2410,6 +4602,10 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
     <customLabels>
         <label>우편 번호: 7자리 숫자를 입력하세요</label>
         <name>Zipcode_validation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address Filter --></label>
+        <name>address_Filter</name>
     </customLabels>
     <customLabels>
         <label><!-- /apex/AccountMerge?Id= --></label>
@@ -2424,12 +4620,28 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>applicationpdf</name>
     </customLabels>
     <customLabels>
+        <label><!-- checkSum --></label>
+        <name>checkSum</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Need contact Information --></label>
         <name>contact_information</name>
     </customLabels>
     <customLabels>
+        <label><!-- delete confirmation message --></label>
+        <name>delete_confirmation_message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- deleting campaign --></label>
+        <name>deleting_campaign</name>
+    </customLabels>
+    <customLabels>
         <label>표시 전용</label>
         <name>displayOnly</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- korea Business Hours Id --></label>
+        <name>korea_Business_Hours_Id</name>
     </customLabels>
     <customLabels>
         <label><!-- l_AtmospherePerceptionandLighting --></label>
@@ -2486,6 +4698,10 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
     <customLabels>
         <label><!-- master --></label>
         <name>master</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 3 months --></label>
+        <name>months</name>
     </customLabels>
     <customLabels>
         <label>거부 사유를 비고 란에 입력하여 주십시오</label>
@@ -2552,10 +4768,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>rcc_Sports_Marketing</name>
     </customLabels>
     <customLabels>
-        <label>법인명</label>
-        <name>Account_Name</name>
-    </customLabels>
-    <customLabels>
         <label><!-- TV --></label>
         <name>rcc_TV</name>
     </customLabels>
@@ -2572,6 +4784,10 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>retURL_apex_SelectSlaveAccount_Id</name>
     </customLabels>
     <customLabels>
+        <label><!-- send to spo active --></label>
+        <name>send_to_spo_active</name>
+    </customLabels>
+    <customLabels>
         <label><!-- servletfile --></label>
         <name>servletfile</name>
     </customLabels>
@@ -2580,13 +4796,17 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>slave</name>
     </customLabels>
     <customLabels>
-        <label>일본 사용 기능</label>
-        <name>Error_Msg_for_KR_Users</name>
-    </customLabels>
-    <customLabels>
         <label><!-- &amp;slaveId= --></label>
         <name>slaveId</name>
     </customLabels>
+    <customPageWebLinks>
+        <label><!-- Custom Link Notification --></label>
+        <name>Custom_Link_Notification</name>
+    </customPageWebLinks>
+    <customPageWebLinks>
+        <label><!-- Mass Update Assignment --></label>
+        <name>Mass_Update_Assignment</name>
+    </customPageWebLinks>
     <customPageWebLinks>
         <label><!-- Retail Campaign --></label>
         <name>Retail_Campaign</name>
@@ -2660,6 +4880,19 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <sections>
             <label><!-- 関係者1 --></label>
             <name>関係者1</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Acitvities --></description>
+        <label><!-- Account with Acitvities --></label>
+        <name>Account_with_Acitvities</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -2887,6 +5120,27 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
             </columns>
             <label><!-- Leads --></label>
             <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Happy Calls Report for aftersales Lead --></description>
+        <label><!-- Happy Calls Report for aftersales Lead --></label>
+        <name>Happy_Calls_Report_for_aftersales_Lead</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Other_Vehicles --></label>
+            <name>Other_Vehicles</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -3122,6 +5376,15 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
+        <description><!-- MBJ REPORTS FOR DEALERS --></description>
+        <label><!-- MBJ REPORTS FOR DEALERS --></label>
+        <name>MBJ_REPORTS_FOR_DEALERS</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- MBJ Recall --></description>
         <label><!-- MBJ Recall --></label>
         <name>MBJ_Recall</name>
@@ -3341,6 +5604,19 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
+        <description><!-- DM Request and Associated tasks --></description>
+        <label><!-- DM Request and Associated tasks --></label>
+        <name>MBTH_DM_Request_and_Associated_tasks</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- MKT Raw Data Report --></description>
         <label><!-- MKT Raw Data Report --></label>
         <name>MKT_Raw_Data_Report</name>
@@ -3361,10 +5637,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
             <columns>
                 <label><!-- Contact: Mobile --></label>
                 <name>Contact: Mobile</name>
-            </columns>
-            <columns>
-                <label><!-- Customer Consent --></label>
-                <name>Customer Consent</name>
             </columns>
             <columns>
                 <label><!-- Engine No --></label>

@@ -138,11 +138,20 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Assigned_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Assigned Dealer</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>DM Request (Assigned Dealer)</relationshipLabel>
         <relationshipName>DM_Request1</relationshipName>
@@ -709,7 +718,6 @@ Modify Reason:
                 <fullName>Mercedes Me</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1230,7 +1238,7 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1276,7 +1284,7 @@ Modify Reason:
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1286,11 +1294,11 @@ Modify Reason:
         <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
             <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1300,11 +1308,11 @@ Modify Reason:
         <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
             <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1493,6 +1501,7 @@ Modify Reason:
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
             <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1516,7 +1525,7 @@ Modify Reason:
         <label>Open mail requests</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1540,7 +1549,7 @@ Modify Reason:
         <label>Rejected requests for direct mail</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1584,21 +1593,21 @@ Modify Reason:
         <label>Direct request has been sent</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
-   <listViews>
+    <listViews>
         <fullName>Supervisor_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
         <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
             <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>

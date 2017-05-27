@@ -2820,7 +2820,6 @@
         <locationY>10</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3</targetReference>
         </connector>
@@ -2837,7 +2836,6 @@
         <locationY>223</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision_RecordType_0</targetReference>
         </connector>
@@ -2883,7 +2881,6 @@
         <locationY>118</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q1_1_LT</targetReference>
         </connector>
@@ -2900,7 +2897,6 @@
         <locationY>222</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q1_1_LT</targetReference>
         </connector>
@@ -2917,7 +2913,6 @@
         <locationY>12</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Ans1</targetReference>
         </connector>
@@ -2956,7 +2951,6 @@
         <locationY>223</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0_0_1_1_0</targetReference>
         </connector>
@@ -2995,7 +2989,6 @@
         <locationY>215</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2_4_Q2_5</targetReference>
         </connector>
@@ -3033,7 +3026,6 @@
         <locationY>20</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2_4_Q2_5</targetReference>
         </connector>
@@ -3083,7 +3075,6 @@
         <locationY>114</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0_0_1_1</targetReference>
         </connector>
@@ -3139,7 +3130,6 @@
         <locationY>220</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0_0_2</targetReference>
         </connector>
@@ -3184,7 +3174,6 @@
         <locationY>512</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0_0</targetReference>
         </connector>
@@ -3219,7 +3208,6 @@
         <locationY>373</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2_7_LT</targetReference>
         </connector>
@@ -3247,7 +3235,6 @@
         <locationY>669</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q3_S</targetReference>
         </connector>
@@ -3275,7 +3262,6 @@
         <locationY>376</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_1</targetReference>
         </connector>
@@ -3322,7 +3308,6 @@
         <locationY>529</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q3_S</targetReference>
         </connector>
@@ -3381,7 +3366,6 @@
         <locationY>423</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>testprofile_3_3</targetReference>
         </connector>
@@ -3482,7 +3466,6 @@
         <locationY>674</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q4</targetReference>
         </connector>
@@ -3512,7 +3495,6 @@
         <locationY>759</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0</targetReference>
         </connector>
@@ -3537,7 +3519,6 @@
         <locationY>732</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q4_B</targetReference>
         </connector>
@@ -3554,7 +3535,6 @@
         <locationY>855</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>testprofile_2</targetReference>
         </connector>
@@ -3579,7 +3559,6 @@
         <locationY>1119</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Create_Survey_Taken</targetReference>
         </connector>
@@ -3596,7 +3575,6 @@
         <locationY>803</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Create_Survey_Taken</targetReference>
         </connector>
@@ -3613,7 +3591,6 @@
         <locationY>1672</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <fields>
             <name>surveycompleted</name>
             <fieldText>{!LabelSurveyCompleted}</fieldText>

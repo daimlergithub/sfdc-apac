@@ -550,6 +550,15 @@
         <label>All Open Leads</label>
     </listViews>
     <listViews>
+        <fullName>MBF_Inbound_Outbound_Supervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBF Inbound &amp; Outbound Supervisor</label>
+        <queue>MBF_Inbound_Outbound_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MyUnreadLeads</fullName>
         <filterScope>Mine</filterScope>
         <filters>

@@ -4,6 +4,7 @@
     <narrowComponents>standard-RecentItems</narrowComponents>
     <narrowComponents>standard-UsefulLinks</narrowComponents>
     <narrowComponents>standard-MessagesAndAlerts</narrowComponents>
+    <narrowComponents>Custom link Notification</narrowComponents>
     <wideComponents>Announcements</wideComponents>
     <wideComponents>standard-Tasks</wideComponents>
     <wideComponents>standard-Calendar</wideComponents>

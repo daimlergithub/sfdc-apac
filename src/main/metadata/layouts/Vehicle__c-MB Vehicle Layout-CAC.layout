@@ -7,7 +7,6 @@
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
-    <excludeButtons>Delete</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -28,7 +27,7 @@
                 <behavior>Edit</behavior>
                 <field>UsVIN__c</field>
             </layoutItems>
-             <layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Class_and_Body__c</field>
             </layoutItems>
@@ -52,7 +51,7 @@
                 <behavior>Edit</behavior>
                 <field>FirstRegistrationDate__c</field>
             </layoutItems>
-       </layoutColumns>
+        </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -318,14 +317,14 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Service_Number__c</fields>
+        <fields>Service_Code__c</fields>
+        <fields>Service_Date__c</fields>
         <fields>Related_Contact__c</fields>
         <fields>Related_Contact2__c</fields>
         <fields>Related_Contact3__c</fields>
-        <fields>Service_Date_In__c</fields>
-        <fields>Service_Date_Out__c</fields>
-        <fields>Service_Date__c</fields>
-        <fields>Service_Code__c</fields>
-        <fields>Service_Mileage__c</fields>
+        <fields>Related_Contact4__c</fields>
+        <fields>Service_Invoice_Number__c</fields>
         <fields>Related_Lead__c</fields>
         <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
     </relatedLists>

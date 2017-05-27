@@ -50,7 +50,7 @@ global without sharing class LeadVehiclePickerKRController {
         //profileName = userinfo.getprofilename();
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
-        if(p.Name.contains('Dealer')){
+        if(p.Name.contains('Dealer Community User')){
             disableButtons = false;
         }
         currentRecordId  = controller.getId();
@@ -481,10 +481,10 @@ global without sharing class LeadVehiclePickerKRController {
             }
             else{
                 if(!Test.isRunningTest()){
-                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
+                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
                 }
                 else{
-                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number];
+                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number];
                 }
             }                 
             system.debug('Vehicle for else' +vehicle); 

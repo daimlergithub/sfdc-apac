@@ -73,7 +73,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Related_Dealer__c</field>
-            </layoutItems>		
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Account__c</field>

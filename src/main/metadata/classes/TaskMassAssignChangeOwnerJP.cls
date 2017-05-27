@@ -109,4 +109,3 @@ public with sharing class TaskMassAssignChangeOwnerJP {
         Messaging.sendEmail(msgList);     
     }
 }
-

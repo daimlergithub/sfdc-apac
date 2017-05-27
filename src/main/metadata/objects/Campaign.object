@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>AdvancedSetup</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -1408,7 +1412,7 @@
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
-	<fields>
+    <fields>
         <fullName>Distribution_is_completed__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1472,7 +1476,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>EndDate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -1783,15 +1787,6 @@
         <type>Percent</type>
     </fields>
     <fields>
-        <fullName>Final_List_Approved__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>This field is used to indicate if the list is approved and final</description>
-        <externalId>false</externalId>
-        <label>Final List Approved</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Checkbox</type>
-	</fields>
-    <fields>
         <fullName>FS_Budget__c</fullName>
         <externalId>false</externalId>
         <label>FS Budget</label>
@@ -1800,6 +1795,15 @@
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Final_List_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used to indicate if the list is approved and final</description>
+        <externalId>false</externalId>
+        <label>Final List Approved</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Flow_URL__c</fullName>
@@ -2043,7 +2047,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>MBTH_Media_Type__c</fullName>
         <externalId>false</externalId>
         <label>Media Type</label>
@@ -3559,18 +3563,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
-	<fields>
-        <fullName>Total_Budget_old__c</fullName>
-        <externalId>false</externalId>
-        <formula>Region_Budget__c +  Dealer_Budget__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Total_Budget_old</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Currency</type>
-    </fields>
-	<fields>
+    <fields>
         <fullName>Total_Budget__c</fullName>
         <description>This field is used to capture the total budget being allocated for the campaign activity</description>
         <externalId>false</externalId>
@@ -3579,6 +3572,17 @@
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Budget_old__c</fullName>
+        <externalId>false</externalId>
+        <formula>Region_Budget__c +  Dealer_Budget__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total_Budget_old</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
         <type>Currency</type>
     </fields>
     <fields>
@@ -4758,7 +4762,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -5968,7 +5972,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -7150,7 +7154,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -8184,7 +8188,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -9222,7 +9226,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -10264,7 +10268,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -11309,7 +11313,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -11347,6 +11351,10 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
+                <fullName>Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -11363,15 +11371,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>OOH</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Broadcast</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12118,7 +12122,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Status__c</picklist>
-
             <values>
                 <fullName>Completed</fullName>
                 <default>false</default>
@@ -12695,7 +12698,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -13135,7 +13138,7 @@
             </values>
             <values>
                 <fullName>Planned</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Published</fullName>
@@ -13800,7 +13803,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -15018,7 +15021,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -15056,6 +15059,10 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
+                <fullName>Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -15072,15 +15079,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>OOH</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Broadcast</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15783,7 +15786,7 @@
             </values>
             <values>
                 <fullName>Incentive</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
@@ -16371,7 +16374,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -17656,7 +17659,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -17694,6 +17697,10 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
+                <fullName>Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -17710,15 +17717,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>OOH</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Broadcast</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18886,7 +18889,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -18924,6 +18927,10 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
+                <fullName>Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -18940,15 +18947,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>OOH</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Broadcast</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20095,7 +20098,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
@@ -20560,7 +20563,7 @@
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Code__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
-		<customTabListAdditionalFields>Child_Campaign_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Child_Campaign_Status__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.START_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.END_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</customTabListAdditionalFields>
@@ -21083,7 +21086,7 @@ alert('something has gone wrong please contact your Administrator');
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_ID=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_LKID={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONES_ID={!Campaign.Name}</url>
+        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_ID=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONES_ID_lkid={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONES_ID={!Campaign.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>
@@ -21134,7 +21137,7 @@ if(("{!Campaign.RecordType}" == "Central Marketing Campaign" || "{!Campaign.Reco
   }
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Distribution_to_Dealer</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -21142,14 +21145,14 @@ if(("{!Campaign.RecordType}" == "Central Marketing Campaign" || "{!Campaign.Reco
         <masterLabel>Distribution to Dealer</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>	{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var campaignID = "{!Campaign.Id}"; 
 var qre = sforce.connection.query("Select id,Distribution_is_completed__c From Campaign WHERE Id = '{!Campaign.Id}' AND Distribution_is_completed__c = false "); 
 
 var qrerecords = qre.getArray("records"); 
 
-if(qrerecords.length>0){ 
+if(qrerecords.length&gt;0){ 
 
 var show = sforce.apex.execute("CampaignMemberDisribution","cmDistributionToDealer",{camid:campaignID}); 
 location.reload(); 
@@ -21246,6 +21249,28 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
      {
           alert("Already True");
      }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MBTH_Create_Child_Campaign</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create_Child_Campaign</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MBTH_Create_Complex_Execution</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Complex Execution</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>OPRO_DM_Print_OPR</fullName>
@@ -21467,28 +21492,6 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
 // ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
 // ---- END ----</url>
-    </webLinks>
-	<webLinks>
-        <fullName>MBTH_Create_Child_Campaign</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>Create_Child_Campaign</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>MBTH_Create_Complex_Execution</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>Create Complex Execution</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>OPR_Label_Print</fullName>

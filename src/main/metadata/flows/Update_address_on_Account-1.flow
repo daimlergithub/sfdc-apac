@@ -120,7 +120,7 @@
             </value>
         </filters>
         <inputAssignments>
-            <processMetadataValues> 
+            <processMetadataValues>
                 <name>dataType</name>
                 <value>
                     <stringValue>ID</stringValue>

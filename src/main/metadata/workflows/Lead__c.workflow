@@ -20,17 +20,7 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Campaign_Lead_Assignment_Notification</template>
     </alerts>
-	 <alerts>
-        <fullName>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</fullName>
-        <description>Send email if the after sales or sales lead is not closed in 3 weeks or 3 months</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/Lead_is_not_closed_Sales_3_months_Aftersales_3_weeks</template>
-    </alerts>
-	<alerts>
+    <alerts>
         <fullName>Email_Notification_to_CCC_Manager_if_lead_untouched_1_hours</fullName>
         <description>Email Notification to CCC Manager if lead untouched 1 hours</description>
         <protected>false</protected>
@@ -126,28 +116,7 @@
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
     <alerts>
-
-        <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
-        <description>No modification is made in 10 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_10_days_All_Modifications</template>
-    </alerts>
-    <alerts>
-        <fullName>No_modification_is_made_in_15_days_All_Modifications</fullName>
-        <description>No modification is made in 15 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_15_days_All_Modifications</template>
-    </alerts>
-	<alerts>
-		<fullName>MBTH_Email_Notification_to_CCC_Manager</fullName>
+        <fullName>MBTH_Email_Notification_to_CCC_Manager</fullName>
         <description>MBTH Email Notification to CCC Manager</description>
         <protected>false</protected>
         <recipients>
@@ -178,12 +147,6 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Notification_to_wholesale</template>
     </alerts>
-	<!-- Commented due to Hardcoded value. Will have to include later -->
-	<!-- <alerts>
-        <fullName>No_modification_is_made_in_5_days_All_Modifications</fullName>
-        <description>No modification is made in 5 days (All Modifications)</description>
-        <template>unfiled$public/Email_Notification_to_wholesale</template>
-    </alerts> -->
     <alerts>
         <fullName>MBTH_Email_notification_when_purchase_time_have_changed</fullName>
         <description>MBTH_Email notification when purchase time have changed</description>
@@ -193,6 +156,36 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Notification_to_wholesale</template>
+    </alerts>
+    <alerts>
+        <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
+        <description>No modification is made in 10 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_10_days_All_Modifications</template>
+    </alerts>
+    <alerts>
+        <fullName>No_modification_is_made_in_15_days_All_Modifications</fullName>
+        <description>No modification is made in 15 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_15_days_All_Modifications</template>
+    </alerts>
+    <alerts>
+        <fullName>No_modification_is_made_in_5_days_All_Modifications</fullName>
+        <description>No modification is made in 5 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_5_days_All_Modifications</template>
     </alerts>
     <alerts>
         <fullName>Send_Email_to_Finance_lead_managers</fullName>
@@ -217,6 +210,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/Lead_owner_is_updated</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</fullName>
+        <description>Send email if the after sales or sales lead is not closed in 3 weeks or 3 months</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Lead_is_not_closed_Sales_3_months_Aftersales_3_weeks</template>
     </alerts>
     <alerts>
         <fullName>TH_Email_notification_when_interested_vehicle_have_changed</fullName>
@@ -271,18 +274,6 @@
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
-	<!-- Commented due to Hardcoded value. Will have to include later -->
-	<!-- <alerts>
-        <fullName>mail_to_sales_and_Service_manager_after_24_hours</fullName>
-        <description>Email to sales and Service manager after 24 hours</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>bhushan_kulkarni03@infosys.com</recipient>
-            <type>user</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_to_sales_and_Service_manager_after_24_hours</template>
-    </alerts> -->
     <fieldUpdates>
         <fullName>Accepted_Date_Time_Update</fullName>
         <field>Accepted_Date_Time__c</field>
@@ -306,24 +297,6 @@
         <field>Assigned_Date_Time__c</field>
         <formula>now()</formula>
         <name>Assigned Date Time to Current Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Lost_DateTime_field</fullName>
-        <field>Lead_Lost_Date_Time__c</field>
-        <formula>Now()</formula>
-        <name>Update Lost DateTime field</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-	<fieldUpdates>
-        <fullName>Update_Lost_Dealer_Date_Time</fullName>
-        <field>Lost_Dealer_Date_Time__c</field>
-        <formula>NOW()</formula>
-        <name>Update Lost Dealer Date Time</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -455,6 +428,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Dealer_Lead_Status_update_from_Dealer</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>On-going</literalValue>
+        <name>Dealer Lead Status update from Dealer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Dealer_Set_Assigned_Date_Time_Dealer</fullName>
         <field>Assigned_Date_Time__c</field>
         <formula>now()</formula>
@@ -464,15 +446,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Dealer_Lead_Status_update_from_Dealer</fullName>
-        <field>Dealer_Lead_Status__c</field>
-        <literalValue>On-going</literalValue>
-        <name>Dealer Lead Status update from Dealer</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-	<fieldUpdates>
         <fullName>MBTH_Update_Lost_CAC_Date_Time</fullName>
         <field>Lost_CAC_Date_Time__c</field>
         <formula>IF ( 
@@ -485,7 +458,7 @@ Lost_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>MBTH_Update_Lost_Dealer_Date_Time</fullName>
         <field>Lost_Dealer_Date_Time__c</field>
         <formula>IF(ISBLANK(Lost_Dealer_Date_Time__c),NOW(),Lost_Dealer_Date_Time__c)</formula>
@@ -494,7 +467,7 @@ Lost_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>MBTH_Update_Order_Placed_Date_Time</fullName>
         <field>Order_Placed_Date_Time__c</field>
         <formula>IF(ISBLANK(Order_Placed_Date_Time__c),NOW(),Order_Placed_Date_Time__c)</formula>
@@ -504,7 +477,16 @@ Lost_CAC_Date_Time__c
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
+        <fullName>MBTH_Update_Test_Drive_Date_Time</fullName>
+        <field>Test_Drive_Date_Time__c</field>
+        <formula>IF(ISBLANK(Test_Drive_Date_Time__c),NOW(),Test_Drive_Date_Time__c)</formula>
+        <name>MBTH_Update Test Drive Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>MBTH_Update_owner_Email</fullName>
         <field>MBTH_record_Owner_Manager_Email__c</field>
         <formula>CreatedBy.Manager.Email</formula>
@@ -513,21 +495,12 @@ Lost_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>MBTH_update_recordowner_email</fullName>
         <description>update record owner email id</description>
         <field>MBTH_record_Owner_Manager_Email__c</field>
         <formula>Owner:User.Email</formula>
         <name>MBTH_update_recordowner_email</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-	<fieldUpdates>
-        <fullName>MBTH_Update_Test_Drive_Date_Time</fullName>
-        <field>Test_Drive_Date_Time__c</field>
-        <formula>IF(ISBLANK(Test_Drive_Date_Time__c),NOW(),Test_Drive_Date_Time__c)</formula>
-        <name>MBTH_Update Test Drive Date Time</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -864,7 +837,25 @@ Purchased_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lost_DateTime_field</fullName>
+        <field>Lead_Lost_Date_Time__c</field>
+        <formula>Now()</formula>
+        <name>Update Lost DateTime field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lost_Dealer_Date_Time</fullName>
+        <field>Lost_Dealer_Date_Time__c</field>
+        <formula>NOW()</formula>
+        <name>Update Lost Dealer Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_MBTH_dealer_name</fullName>
         <field>MBTH_Assigned_Dealer_Name__c</field>
         <formula>Assigned_Dealer__r.Name</formula>
@@ -1097,6 +1088,20 @@ Purchased_Date_Time__c
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
     <rules>
+        <fullName>Aftersales 3 weeks</fullName>
+        <actions>
+            <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>IF(((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Service Completed') &amp;&amp; RecordType.Name == 'Aftersales Leads') ||  (ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Service Completed') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Aftersales Leads')) &amp;&amp; Text($User.Market__c) == 'KR',  true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <timeLength>21</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Campaign Lead Notification to WS Users</fullName>
         <actions>
             <name>Campaign_Lead_Assignment_Notification</name>
@@ -1231,6 +1236,25 @@ Purchased_Date_Time__c
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Lead_Lost_DateTime New</fullName>
+        <actions>
+            <name>Update_Lost_DateTime_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Lost</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Leads fields update</fullName>
         <actions>
             <name>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</name>
@@ -1247,8 +1271,8 @@ Purchased_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like &quot;Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
-        <formula>AND($Profile.Name = &apos;Thailand Dealer Delegate Admin&apos;,MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c=&apos;TH&apos;)</formula>
+        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
+        <formula>AND($Profile.Name = 'Thailand Dealer Delegate Admin',MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1269,41 +1293,9 @@ Purchased_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like &quot;Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
-        <formula>AND($Profile.Name = &apos;Thailand Dealer Delegate Admin&apos;,MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c=&apos;TH&apos;)</formula>
+        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
+        <formula>AND($Profile.Name = 'Thailand Dealer Delegate Admin',MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>
-	<rules>
-        <fullName>Aftersales 3 weeks</fullName>
-        <actions>
-            <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <formula>IF((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Service Completed') &amp;&amp; RecordType.Name == 'Sales Leads') || 
-(ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Service Completed') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads'), 
-true, false)</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <timeLength>21</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-	    <rules>
-        <fullName>Sales Lead 3 months notification</fullName>
-        <actions>
-            <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <formula>IF((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; RecordType.Name == 'Sales Leads') || 
-(ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads'), 
-true, false)</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <timeLength>90</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>MBTH-To update CAC Lead Status is changed to Purchase if Dealer Lead Status has changed to purchased</fullName>
@@ -1341,22 +1333,6 @@ true, false)</formula>
         <description>When the “Dealer Lead status" is "Purchased" then the "CAC Lead Status" need to be updated as purchased.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<!-- Commented due to Hardcoded value. Will have to include later -->
-	<!-- <rules>
-        <fullName>MBTH_- Escalation after Lead Assignment to dealer and If Untouched for 24 hours</fullName>
-        <active>false</active>
-        <formula>and(Assigned_Dealer__c  &lt;&gt; null,MD__c = 'TH',RecordType.Name =  'Aftersales Leads',  ISBLANK(First_Contact_Customer_Date__c))</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>mail_to_sales_and_Service_manager_after_24_hours</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Lead__c.Dealer_Assigned_Date_Time__c</offsetFromField>
-            <timeLength>24</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules> -->
     <rules>
         <fullName>MBTH_Email Notification to CCC Manager if lead untouched 1 hours</fullName>
         <active>false</active>
@@ -1390,7 +1366,7 @@ true, false)</formula>
         </actions>
         <active>true</active>
         <description>If it is created by wholesale and not assigned to dealer, if untouched for 1 hour. Email to be sent to CCC Manager</description>
-        <formula>AND(MD__c  = &apos;TH&apos;, OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;), Assigned_Dealer__c =&apos;&apos;,OR(CreatedBy.Profile.Name =&apos;Thailand Call Center&apos;,CreatedBy.Profile.Name=&apos;Thailand CRM&apos;))</formula>
+        <formula>AND(MD__c  = 'TH', OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'), Assigned_Dealer__c ='',OR(CreatedBy.Profile.Name ='Thailand Call Center',CreatedBy.Profile.Name='Thailand CRM'))</formula>
         <triggerType>onCreateOnly</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -1701,7 +1677,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>MBTH_Update Lost%28CAC%29 Date Time</fullName>
         <actions>
             <name>MBTH_Update_Lost_CAC_Date_Time</name>
@@ -1729,10 +1705,10 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <operation>equals</operation>
             <value>Lost((CCC)</value>
         </criteriaItems>
-        <description>When the lead status is set to &quot;Lost(CAC)&quot; then the &quot;Lead Lost (CAC) &quot; date time field need to be updated with current time</description>
+        <description>When the lead status is set to "Lost(CAC)" then the "Lead Lost (CAC) " date time field need to be updated with current time</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>MBTH_Update Lost%28Dealer%29 Date Time</fullName>
         <actions>
             <name>MBTH_Update_Lost_Dealer_Date_Time</name>
@@ -1765,10 +1741,10 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <operation>equals</operation>
             <value>Lost(Dealer)</value>
         </criteriaItems>
-        <description>When the Dealer lead status is set to &quot;Lost(Dealer)&quot; then the &quot;Dealer lost &quot; date time field</description>
+        <description>When the Dealer lead status is set to "Lost(Dealer)" then the "Dealer lost " date time field</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>MBTH_Update Order Placed Date Time</fullName>
         <actions>
             <name>MBTH_Update_Order_Placed_Date_Time</name>
@@ -1801,7 +1777,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <operation>equals</operation>
             <value>Order Placed</value>
         </criteriaItems>
-        <description>When the Dealer lead status is set to &quot;Order Placed&quot; then the Order Placeddate time field need to be updated with current time</description>
+        <description>When the Dealer lead status is set to "Order Placed" then the Order Placeddate time field need to be updated with current time</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -1861,16 +1837,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>MBTH_Update dealer assigned datetime</fullName>
-		<active>true</active>
-        <formula>AND( Assigned_Dealer__c &lt;&gt;null,MD__c='TH',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'))</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <actions>
-            <name>update_dealer_assigned_date_time</name>
-            <type>FieldUpdate</type>
-        </actions>
-    </rules>
-	<rules>
         <fullName>MBTH_Update Test Drive Date Time</fullName>
         <actions>
             <name>MBTH_Update_Test_Drive_Date_Time</name>
@@ -1906,55 +1872,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
-        <active>false</active>
-        <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
-        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
+        <fullName>MBTH_Update dealer assigned datetime</fullName>
+        <actions>
+            <name>update_dealer_assigned_date_time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Assigned_Dealer__c &lt;&gt;null,MD__c='TH',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>No_modification_is_made_in_10_days_All_Modifications</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
-            <timeLength>216</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
-        <active>false</active>
-        <description>No modification is made in 15 days (All Modifications)</description>
-        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>No_modification_is_made_in_15_days_All_Modifications</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
-            <timeLength>336</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-	<!-- Commented due to Hardcoded value. Will have to include later -->
-	<!-- <rules>
-        <fullName>No modification is made in 5 days %28All Modifications%29</fullName>
-        <active>false</active>
-        <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
-        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>No_modification_is_made_in_5_days_All_Modifications</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
-            <timeLength>96</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules> -->
-	<rules>
         <fullName>MBTH_Update first contact customer datetime</fullName>
         <actions>
             <name>Update_first_customercontacted_date_time</name>
@@ -1996,27 +1923,51 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <formula>AND(MD__c=&apos;TH&apos;,or(RecordType.Name=&apos;Sales Leads&apos;,RecordType.Name=&apos;Aftersales Leads&apos;,RecordType.Name=&apos;Retail Sales Leads&apos;))</formula>
+        <formula>AND(MD__c='TH',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Lead_Lost_DateTime New</fullName>
+        <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
+        <active>false</active>
+        <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
+        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>No_modification_is_made_in_10_days_All_Modifications</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>216</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
+        <active>false</active>
+        <description>No modification is made in 15 days (All Modifications)</description>
+        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>No_modification_is_made_in_15_days_All_Modifications</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>336</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>No modification is made in 5 days %28All Modifications%29</fullName>
         <actions>
-            <name>Update_Lost_DateTime_field</name>
-            <type>FieldUpdate</type>
+            <name>No_modification_is_made_in_5_days_All_Modifications</name>
+            <type>Alert</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Lost</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
+        <formula>(LastActivityDate - today() == 5)&amp;&amp; MD__c == 'KR'</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Populate Assigned Date Time Dealer</fullName>
@@ -2067,6 +2018,20 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <value>KR</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Lead 3 months notification</fullName>
+        <actions>
+            <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>IF(((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; RecordType.Name == 'Sales Leads') ||  (ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads')) &amp;&amp; Text($User.Market__c) == 'KR',  true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <timeLength>90</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Set Lead Successful Call Number is 0</fullName>
@@ -2202,7 +2167,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-		<formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), MD__c = 'KR'),AND(MD__c="TH",ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), MD__c = 'KR'),AND(MD__c="TH",ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2240,7 +2205,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-		<formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'TH', (RecordType.Name ='Sales Leads'||RecordType.Name='Aftersales Leads'||RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'TH', (RecordType.Name ='Sales Leads'||RecordType.Name='Aftersales Leads'||RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
