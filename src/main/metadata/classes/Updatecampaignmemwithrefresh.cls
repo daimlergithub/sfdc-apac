@@ -36,17 +36,17 @@ global class Updatecampaignmemwithrefresh{
             else if(!String.isBlank(mem.Contract__r.Contractor_Address3_Native__c))
                 mem.Finance_Address__c = mem.Contract__r.Contractor_Address3_Native__c;
         }        
-        if (mem.Vehicle_Relationship__r.vehicle_address__c == mem.Address__c && mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle'){
+        if (mem.Vehicle_Relationship__r.vehicle_address__c == mem.Address__c && (mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || mem.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales') && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle'){
         system.debug('----------> in loop');
         mem.Customer_Complete_Address__c = (province + mem.Address__r.City__c + mem.Address__r.District__c +mem.Address__r.Block__c +mem.Address__r.Address_Line_1__c + '  ' + mem.Address__r.Address_Line_2__c ).left(100);
         //(mem.Vehicle_Relationship__r.vehicle_address_picklist__c + mem.Vehicle_Relationship__r.Vehicle_Address_Display__c).left(100);
          }
          
-         else if(mem.Vehicle_Relationship__r.vehicle_address__c != mem.Address__c && mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle'){
+         else if(mem.Vehicle_Relationship__r.vehicle_address__c != mem.Address__c && (mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || mem.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales') && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle'){
              mem.Customer_Complete_Address__c =(provincevehicle + mem.Vehicle_Relationship__r.vehicle_address__r.City__c +mem.Vehicle_Relationship__r.vehicle_address__r.District__c +mem.Vehicle_Relationship__r.vehicle_address__r.Block__c +mem.Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c+ '  ' +mem.Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c ).left(100);
              mem.Address__c=   mem.Vehicle_Relationship__r.vehicle_address__c;
          } 
-         else if(mem.Address__c == mem.Contact_Id__r.Primary_Address_Reference__c && mem.Address__c != null &&  mem.Contact_Id__r.Primary_Address_Reference__c != null && mem.Campaign_ID__r.Segmentation_Base__c == 'Customer' &&  mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales'){
+         else if(mem.Address__c == mem.Contact_Id__r.Primary_Address_Reference__c && mem.Address__c != null &&  mem.Contact_Id__r.Primary_Address_Reference__c != null && mem.Campaign_ID__r.Segmentation_Base__c == 'Customer' &&  (mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || mem.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales')){
             mem.Customer_Complete_Address__c = (province +mem.Address__r.City__c + mem.Address__r.District__c +mem.Address__r.Block__c +mem.Address__r.Address_Line_1__c + '  ' + mem.Address__r.Address_Line_2__c ).left(100);
         }
         else if(mem.Address__c != mem.Contact_Id__r.Primary_Address_Reference__c){  
@@ -54,7 +54,7 @@ global class Updatecampaignmemwithrefresh{
          mem.Customer_Complete_Address__c = (provincecontact +mem.Contact_Id__r.Primary_Address_Reference__r.City__c +mem.Contact_Id__r.Primary_Address_Reference__r.District__c +mem.Contact_Id__r.Primary_Address_Reference__r.Block__c +mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c + '  ' + mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c ).left(100); 
         mem.Address__c = mem.Contact_Id__r.Primary_Address_Reference__c;
          } 
-         else if (mem.Vehicle_Relationship__r.vehicle_address__c == null && mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle' ){
+         else if (mem.Vehicle_Relationship__r.vehicle_address__c == null && (mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || mem.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales') && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle' ){
                 mem.Customer_Complete_Address__c =  (provincecontact +mem.Contact_Id__r.Primary_Address_Reference__r.City__c +mem.Contact_Id__r.Primary_Address_Reference__r.District__c +mem.Contact_Id__r.Primary_Address_Reference__r.Block__c +mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c + '  ' + mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c ).left(100); 
          }
          else {

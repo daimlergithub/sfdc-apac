@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>JP_CarModel_Readable_to_MBJ_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>JP MarketCarModel Readable to MBJ Dealers</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_MarketCarModel_Readable_to_MBJ_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
@@ -40,5 +53,19 @@
         </criteriaItems>
         <accessLevel>Read</accessLevel>
         <name>MBK Car Model Sharing Rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TH_CarModel_Readable_to_Thailand_Call_Centre</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>view all Car model records by Thailand Call Center agents if Market = TH</description>
+        <name>TH_CarModel_Readable_to_Thailand_Call_Centre</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

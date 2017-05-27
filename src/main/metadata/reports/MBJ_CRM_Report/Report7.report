@@ -11,6 +11,11 @@
             <operator>notEqual</operator>
             <value>Campaign</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c.Vehicle_Need_Text__c</column>
+            <operator>notContain</operator>
+            <value>オンライン審査付き商談リクエストのお申込みです</value>
+        </criteriaItems>
         <language>ja</language>
     </filter>
     <format>Matrix</format>

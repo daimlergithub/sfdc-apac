@@ -134,7 +134,6 @@
 					<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
 						<sf:exclude name="selectAllChkBox"/>
-						<sf:exclude name="selectAllChkBox"/>
 						<sf:exclude name="Retail_Campaigns"/>                                                 
 					</sf:typeset>                   
 					<sf:typeset name="layouts" /> 

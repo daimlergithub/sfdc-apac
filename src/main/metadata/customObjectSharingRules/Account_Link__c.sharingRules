@@ -14,7 +14,7 @@
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketAccountLink_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
-	<criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>KR_MarketAccountLink_Readable_to_MBK_Management</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>

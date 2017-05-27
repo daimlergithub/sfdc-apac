@@ -86,6 +86,11 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
         }
         
+      If(isBefore && (isInsert||isUpdate)){
+      
+      AccountHelperTH.updatePhoneFormat(Trigger.new);
+      }
+        
         if(isBefore && isUpdate){
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
@@ -95,6 +100,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateOnEmailOptout(Trigger.new);
             AccountHelperTH.updateAgeRange(Trigger.new);
             AccountHelperTH.activeContracts(Trigger.new);
+            
         }
         
         // Copied from JP

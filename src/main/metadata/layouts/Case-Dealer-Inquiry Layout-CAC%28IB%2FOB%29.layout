@@ -3,12 +3,12 @@
     <customButtons>New_Lead</customButtons>
     <customButtons>New_AfterSales_Lead</customButtons>
     <customButtons>Print_Dealer_PDF</customButtons>
-	<excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>Delete</excludeButtons>
-    <excludeButtons>Submit</excludeButtons>	
     <excludeButtons>ChangeOwnerOne</excludeButtons>
-	<excludeButtons>Clone</excludeButtons>
-	<excludeButtons>CloseCase</excludeButtons>
+    <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>CloseCase</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -205,7 +205,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	<relatedLists>
+    <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>

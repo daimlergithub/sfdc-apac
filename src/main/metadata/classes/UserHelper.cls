@@ -947,7 +947,6 @@ public with sharing class UserHelper {
             UtilShare.DealerGroupCreation(dealerAccountIds,userIds); 
         } 
     }
-
      
     public Static void UserShareforDealers(List<User> usrList, map<id,User> UserOldMap, boolean isInsert, boolean isUpdate)
     {       

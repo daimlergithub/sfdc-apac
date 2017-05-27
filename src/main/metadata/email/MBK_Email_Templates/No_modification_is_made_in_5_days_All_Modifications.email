@@ -15,4 +15,4 @@
 
 딜러 사용자 :  {!Lead__c.Link}
 
-- MBK 고객센터-
+- MBK 고객센터- {!Lead__c.Link}

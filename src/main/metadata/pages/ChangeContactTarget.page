@@ -36,10 +36,10 @@
                    </tr>
                   <tr>
                   <td>
-                  <apex:outputText> </apex:outputText>
+                  <apex:outputText > </apex:outputText>
                   </td>
                   <td>
-                  <apex:outputText>  &nbsp;</apex:outputText>
+                  <apex:outputText >  &nbsp;</apex:outputText>
                   </td>
                   </tr>
                    <tr> 
@@ -62,10 +62,10 @@
                    
                    <tr>
                   <td>
-                  <apex:outputText> </apex:outputText>
+                  <apex:outputText > </apex:outputText>
                   </td>
                   <td>
-                  <apex:outputText>  &nbsp;</apex:outputText>
+                  <apex:outputText >  &nbsp;</apex:outputText>
                   </td>
                   </tr>
                   
@@ -89,10 +89,10 @@
                    
                    <tr>
                   <td>
-                  <apex:outputText> </apex:outputText>
+                  <apex:outputText > </apex:outputText>
                   </td>
                   <td>
-                  <apex:outputText>  &nbsp;</apex:outputText>
+                  <apex:outputText >  &nbsp;</apex:outputText>
                   </td>
                   </tr>
                     <tr> 

@@ -29,6 +29,33 @@
         <name>JP_MarketSurvey_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>JP_Survey_Readable_to_MBJ_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>JP Survey Readable to MBJ Dealers</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>SurveyQuestionCreation</fullName>
+        <sharedTo>
+            <group>SurveyQueCreationGrp</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>To create survey question response for portal users</description>
+        <name>SurveyQuestionCreation</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>MBK_Survey_Sharing_Rule</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>

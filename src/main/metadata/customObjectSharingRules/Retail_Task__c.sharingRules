@@ -29,6 +29,32 @@
         <name>JP_MarketRetail Task_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>JP_Retail_Task_Readable_to_MBJ_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>JP Retail Task Readable to MBJ Dealers</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Retail_Task_Service_Records</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Retail Task Service Records</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Share_Contract_Service_with_Region</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
@@ -81,18 +107,5 @@
         <accessLevel>Read</accessLevel>
         <description>ShareRetail Activity,Service  Retail task to CAC</description>
         <name>Share Readonly Retail task to CAC</name>
-    </criteriaBasedRules>	
-    <criteriaBasedRules>
-        <fullName>Retail_Task_Service_Records</fullName>
-        <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <accessLevel>Read</accessLevel>
-        <name>Retail Task Service Records</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

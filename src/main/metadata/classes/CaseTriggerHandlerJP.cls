@@ -59,6 +59,14 @@ public class CaseTriggerHandlerJP
                 
             }
         }    
+		
+		if (trigger.isbefore)
+        {
+          if (trigger.isInsert)
+          {
+          caseHelperJP.UpdatePrimarycasedealer(trigger.new); 
+          }
+        }  
         
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

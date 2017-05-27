@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>MBK Management</name>
     <opportunityAccessLevel>None</opportunityAccessLevel>
-	<parentRole>Daimler_APAC</parentRole>
+    <parentRole>Daimler_APAC</parentRole>
 </Role>

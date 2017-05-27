@@ -26,9 +26,6 @@
         <useOther>false</useOther>
     </buckets>
     <columns>
-        <field>Account$Age__c</field>
-    </columns>
-    <columns>
         <field>Account.Vehicle_Relationships2__r$Point_of_Purchase__c</field>
     </columns>
     <description>MBK Reports - Campaign Code and CarModel</description>

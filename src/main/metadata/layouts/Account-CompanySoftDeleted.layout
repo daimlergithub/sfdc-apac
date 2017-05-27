@@ -103,10 +103,6 @@
                 <behavior>Readonly</behavior>
                 <field>Description</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Age__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

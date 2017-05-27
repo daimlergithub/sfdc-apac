@@ -4,7 +4,7 @@
     <customButtons>Generate_Pdf</customButtons>
     <customButtons>Notify_to_Dealer</customButtons>
     <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
-	<customButtons>New_DM_Request</customButtons>
+    <customButtons>New_DM_Request</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -497,8 +497,8 @@
         <relatedList>RelatedCommentsList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>NewTask</excludeButtons>
-	    <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -535,7 +535,7 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-		<customButtons>New_DM_Request</customButtons>
+        <customButtons>New_DM_Request</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>

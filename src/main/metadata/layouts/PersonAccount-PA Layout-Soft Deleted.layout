@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -25,15 +28,15 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>FirstName_Native_1__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Status__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle_Amount__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Data_Source__c</field>
@@ -41,12 +44,12 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Allow_Data_Sharing__c</field>
-            </layoutItems> 
-			<layoutItems>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Acquisition_Objective_Method__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Acquisition_Record_Date__c</field>
             </layoutItems>
@@ -59,7 +62,7 @@
                 <field>Complaint_Amount__c</field>
             </layoutItems>
         </layoutColumns>
-		<layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
@@ -67,11 +70,11 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>OwnerId</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>UCID__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Lifecycle_Phase__c</field>
@@ -79,18 +82,18 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Special_Mark_on_Account__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Allow_Data_Sharing2__c</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Details_of_Acquisition__c</field>
-            </layoutItems> 			
+            </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
@@ -544,7 +547,7 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>LogCall</excludeButtons>
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
@@ -618,8 +621,9 @@
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>NewTask</excludeButtons>
-	    <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewProposeMeeting</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>

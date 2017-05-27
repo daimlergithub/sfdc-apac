@@ -97,10 +97,10 @@
                 <behavior>Readonly</behavior>
                 <field>Customer_Statement__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Cause__c</field>
-            </layoutItems>	
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

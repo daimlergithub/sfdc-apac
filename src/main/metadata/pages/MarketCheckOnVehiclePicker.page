@@ -3,7 +3,3 @@
   <apex:include pageName="LeadVehiclePickerTH" rendered="{!marketCheckerTH}"/>
   <apex:include pageName="VehiclePicker" rendered="{!marketChecker2}"/> 
 </apex:page>
-
-
-
- 
