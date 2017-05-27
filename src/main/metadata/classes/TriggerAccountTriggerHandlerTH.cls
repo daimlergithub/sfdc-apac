@@ -85,6 +85,9 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
        if(isBefore && isInsert){
             AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
         }
+		If(isBefore && (isInsert||isUpdate)){      
+      AccountHelperTH.updatePhoneFormat(Trigger.new);
+      }
         
         if(isBefore && isUpdate){
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
