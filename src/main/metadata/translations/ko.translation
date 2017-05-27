@@ -4978,19 +4978,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
-        <description>불완전한 캠페인 멤버를 점검</description>
-        <label>캠페인 맴버</label>
-        <name>Campaign_Member</name>
-        <sections>
-            <label>캠페인 멤버</label>
-            <name>Campaign Members</name>
-        </sections>
-        <sections>
-            <label>캠페인</label>
-            <name>Campaigns</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description>캠페인 보고서 유형-30-38</description>
         <label>캠페인 보고서 유형-30-38</label>
         <name>Campaign_Report_type_30_38</name>
