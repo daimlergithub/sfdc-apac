@@ -2456,7 +2456,7 @@ Function: update assigned date, recieved data and accepted date to now, and stat
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Update Visited Showroom%28Only Non BDC%29 Date Time</fullName>
+        <fullName>Update Visited Showroom%28Only Non BDC%29 Date Time </fullName>
         <actions>
             <name>Update_Proxy_Date_Time_to_Visited_Showro</name>
             <type>FieldUpdate</type>

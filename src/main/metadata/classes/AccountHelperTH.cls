@@ -723,7 +723,6 @@ public class AccountHelperTH{
         
         
     }
-	
 	/*
 It is a temporary code fix for the phone format issue following these 3 rules
 1) If it contains '+ ' or if the number < 9 do nothing.
@@ -766,8 +765,5 @@ It would be replaced by Informatica/Middleware  */
                 }
             }
         }
-    }        
-
-     
-    
+    }  
 }

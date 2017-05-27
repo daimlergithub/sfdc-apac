@@ -1,7 +1,8 @@
-<!-- lastModifedBy :Lokesh 
-     modifiedDate  : 23rd Mar, 2017
-	 JIRA          : sfdcjp-2000
--->
+<!----------------------------------------------------------------------------------
+     lastModifedBy :Lokesh 
+     modifiedDate  : 23 May, 2017
+     JIRA          : SFDCJP-2000, SFDCJP-2101, SFDCJP-2519
+----------------------------------------------------------------------------------->
 
 <apex:page standardController="Vehicle__c" extensions="SendToMyMercController">
     <apex:form >
@@ -33,9 +34,9 @@
                     <apex:column headerValue="Reason">
                         <apex:inputText value="{!eachWrap.OptOutReason}"/>
                     </apex:column>
-                    <apex:column headerValue="Visible in MyMercedes">
-                    <apex:inputCheckbox value="{!eachWrap.isVisible}"/>
-                    </apex:column>   
+                   <!--commenting as per sfdcjp-2519 apex:column headerValue="Visible in MyMercedes">
+                    apex:inputCheckbox value="{!eachWrap.isVisible}"/>
+                    /apex:column>-->
                 </apex:pageBlockTable>
                 <apex:outputPanel id="one">
                     <apex:repeat value="{!lstVinfo}" var="eachWrap">
