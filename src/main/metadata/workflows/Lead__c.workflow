@@ -1093,7 +1093,7 @@ Purchased_Date_Time__c
             <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>IF(((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Service Completed') &amp;&amp; RecordType.Name == 'Aftersales Leads') ||  (ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Service Completed') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Aftersales Leads')) &amp;&amp; Text($User.Market__c) == 'KR',  true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
