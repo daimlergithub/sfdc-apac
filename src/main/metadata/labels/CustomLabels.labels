@@ -8591,4 +8591,31 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>TH_purchased_vehicle_related_information</shortDescription>
         <value>Please enter purchased vehicle related information as the lead the Lead status is set as Purchased</value>
     </labels>
+	<labels>
+        <fullName>CountryCode_for_HomePhone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CountryCode for HomePhone</shortDescription>
+        <value>Home Phone must be in any of the following formats :	
+1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
+    </labels>
+    <labels>
+        <fullName>CountryCode_for_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CountryCode for Mobile</shortDescription>
+        <value>Mobile Phone must be in any of the following formats : 
+1. Province code (xxx) And Phone Part 9 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
+    </labels>
+    <labels>
+        <fullName>Countrycode_for_WorkPhone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Countrycode for WorkPhone</shortDescription>
+        <value>Work Phone must be in any of the following formats : 
+1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
+    </labels>
 </CustomLabels>
