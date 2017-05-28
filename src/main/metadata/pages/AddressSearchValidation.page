@@ -293,27 +293,24 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
                               <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px"/>
-                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:30px"/>                                
-                            <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
-                            <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3TH" style="width:50px"/>
+                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:120px"/>                                
+                            
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>   
                    <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
                             <apex:inputText value="{!mbCountryCode}" id="mbCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode"  style="width:30px"/>                      
-                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2TH" onkeyup="validateCode(this.id)" style="width:40px"/>
-                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3TH" style="width:50px"/>
+                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode"  style="width:120px"/>                      
+                            
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>          
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
                            <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" style="width:30px"/>                                         
-                            <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2TH" style="width:40px"/>
-                            <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3TH" style="width:50px"/>
+                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" style="width:120px"/>                                         
+                            
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem> 
                    
