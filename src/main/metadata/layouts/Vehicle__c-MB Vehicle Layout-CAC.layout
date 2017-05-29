@@ -260,7 +260,7 @@
     </layoutSections>
     <miniLayout>
         <fields>Brand__c</fields>
-        <fields>Class__c</fields>
+        <fields>Class_and_Body__c</fields>
         <fields>Range__c</fields>
         <fields>Model_Description__c</fields>
         <fields>UsVIN__c</fields>
