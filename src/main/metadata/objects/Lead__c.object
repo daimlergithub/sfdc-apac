@@ -40319,7 +40319,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
-                <fullName>Check Out</fullName>
+                <fullName>Checkout</fullName>
                 <default>false</default>
             </values>
             <values>
