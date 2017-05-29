@@ -2,7 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>New_Sales_Lead_Wholesale</customButtons>
     <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
-    <customButtons>Generate_Pdf</customButtons>
     <customButtons>Notify_to_Dealer</customButtons>
     <customButtons>New_DM_Request</customButtons>
     <customConsoleComponents>
