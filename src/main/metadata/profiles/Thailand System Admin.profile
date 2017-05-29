@@ -23228,11 +23228,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>User.et4ae5__ExactTargetForAppExchangeAdmin__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>VIN_Mapping__c.Car_Model__c</field>
         <readable>false</readable>
     </fieldPermissions>
