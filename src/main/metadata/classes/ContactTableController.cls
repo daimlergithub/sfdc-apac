@@ -80,6 +80,20 @@ public class ContactTableController
              editMode1 = true;
         }
        
+       //Introduced for TH market                  
+         if(ParAcc.MD__c==Label.TH){        
+            //firstsave = true;       
+           // secondsave = false;     
+            mbCountryCode='+66';        
+            hmCountryCode='+66';        
+            wkCountryCode='+66';        
+        }       
+        else        
+        {       
+           // firstsave = false;          
+           // secondsave = true;      
+        }
+        
      }
      
     
@@ -162,54 +176,46 @@ public class ContactTableController
     *@return:This mehtod does not return any value.
 
     */ 
-    public void PhoneNumberFormatTH()
+     public void PhoneNumberFormatTH()
     {      
-        if(!(String.isBlank(ParAcc.Individual_Home_Phone__c)))
-        {         
-              String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-');
-              if(resultshomePhoneAreaCode.size()>1)
-              {
-                hmCountryCode=resultshomePhoneAreaCode[0];              
-                hmAreaCode=resultshomePhoneAreaCode[1];
-                hmPhonepart1=resultshomePhoneAreaCode[2];
-                hmPhonepart2=resultshomePhoneAreaCode[3]; 
-              }         
-        }
-         else
-                hmCountryCode='+66';
-
-        if(!(String.isBlank(ParAcc.Work_Phone__c)))
-        { 
+      if ((!String.IsBlank(ParAcc.Individual_Home_Phone__c)) && (ParAcc.Individual_Home_Phone__c.length()==11)) 
+      
+           {
+           system.debug('ParAcc.Individual_Home_Phone__c>>>' +ParAcc.Individual_Home_Phone__c);
+                hmCountryCode=string.valueOf(ParAcc.Individual_Home_Phone__c).substring(0,3);      
+                hmAreaCode = string.valueOf(ParAcc.Individual_Home_Phone__c).substring(3,11);
+                system.debug('hmAreaCode+66 >>>' +hmAreaCode );
+           }else if((!String.IsBlank(ParAcc.Individual_Home_Phone__c)) && (ParAcc.Individual_Home_Phone__c.length()==14)){      
+                  hmCountryCode=string.valueOf(ParAcc.Individual_Home_Phone__c).substring(0,4);     
+                  hmAreaCode = string.valueOf(ParAcc.Individual_Home_Phone__c).substring(4,14); 
+               system.debug('hmAreaCode+856 >>>' +hmAreaCode );
+            }
             
-                String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-'); 
-                 if(resultsworkPhoneAreaCode.size()>1)
-              { 
-                    wkCountryCode=resultsworkPhoneAreaCode[0];              
-                    wkAreaCode=resultsworkPhoneAreaCode[1];
-                    wkPhonepart1=resultsworkPhoneAreaCode[2];
-                    wkPhonepart2=resultsworkPhoneAreaCode[3]; 
-              }
-                             
-            
-        } 
-        else
-                wkCountryCode='+66'; 
-                
-        if(!(String.isBlank(ParAcc.Mobile__c)))
-        {            
-                String[] resultsMobilePhoneAreaCode= ParAcc.Mobile__c.split('-');  
-                 if(resultsMobilePhoneAreaCode.size()>1)
-                {   
-                    mbCountryCode=resultsMobilePhoneAreaCode[0];
-                    mbAreaCode=resultsMobilePhoneAreaCode[1];                                        
-                    mbMobilepart1=resultsMobilePhoneAreaCode[2];
-                    mbMobilepart2=resultsMobilePhoneAreaCode[3];                
-                }               
-        }
-        else
-            mbCountryCode='+66';
-         
-    }
+if ((!String.IsBlank(ParAcc.Work_Phone__c)) &&  (ParAcc.Work_Phone__c.length()==11))
+      
+           {
+           system.debug('ParAcc.Work_Phone__c>>>' +ParAcc.Work_Phone__c);
+                wkCountryCode=string.valueOf(ParAcc.Work_Phone__c).substring(0,3);      
+                wkAreaCode = string.valueOf(ParAcc.Work_Phone__c).substring(3,11);
+                system.debug('wkAreaCode+66 >>>' +wkAreaCode );
+           }else if((!String.IsBlank(ParAcc.Work_Phone__c)) &&  (ParAcc.Work_Phone__c.length()==14)){      
+                  wkCountryCode=string.valueOf(ParAcc.Work_Phone__c).substring(0,4);     
+                  wkAreaCode = string.valueOf(ParAcc.Work_Phone__c).substring(4,14); 
+               system.debug('wkAreaCode+856 >>>' +wkAreaCode );
+            }
+if ((!String.IsBlank(ParAcc.Mobile__c)) && (ParAcc.Mobile__c.length()==12) )
+      
+           {
+           system.debug('ParAcc.Mobile__c>>>' +ParAcc.Mobile__c);
+                mbCountryCode=string.valueOf(ParAcc.Mobile__c).substring(0,3);      
+                mbAreaCode = string.valueOf(ParAcc.Mobile__c).substring(3,12);
+                system.debug('mbAreaCode+66 >>>' +mbAreaCode );
+           }else if((!String.IsBlank(ParAcc.Mobile__c)) && (ParAcc.Mobile__c.length()==14)){      
+                  mbCountryCode=string.valueOf(ParAcc.Mobile__c).substring(0,4);     
+                  mbAreaCode = string.valueOf(ParAcc.Mobile__c).substring(4,14); 
+               system.debug('mbAreaCode+856 >>>' +mbAreaCode );
+            }
+    }    
     
     public void EditAccount()    
     {
@@ -224,24 +230,26 @@ public class ContactTableController
         }
     }
     
-    public void UpdateAccountTH()  
+   public void UpdateAccountTH()  
     {
        
        if
        (
        (String.isBlank(hmAreaCode)) && 
-       (String.isBlank(hmCountryCode)) &&
-       (String.isBlank(hmPhonepart1)) &&
-       (String.isBlank(hmPhonepart2))
+       (String.isBlank(hmCountryCode)) 
+       //AK20170523 (String.isBlank(hmPhonepart1)) &&
+       //AK20170523 (String.isBlank(hmPhonepart2))
        )
        {
            ParAcc.Individual_Home_Phone__c='';
        } 
-        else if(hmAreaCode!='' && hmCountryCode!='' && hmPhonepart1!='' &&  hmPhonepart2!='')
+        //AK20170523 else if(hmAreaCode!='' && hmCountryCode!='' && hmPhonepart1!='' &&  hmPhonepart2!='')
+        else if(hmAreaCode!='' && hmCountryCode!='')
       {     
         if(hmAreaCode.startsWith('0'))
             hmAreaCode=hmAreaCode.removeStart('0');
-               ParAcc.Individual_Home_Phone__c=hmCountryCode+'-'+hmAreaCode+'-'+hmPhonepart1+'-'+hmPhonepart2;             
+               //AK20170523 ParAcc.Individual_Home_Phone__c=hmCountryCode+'-'+hmAreaCode+'-'+hmPhonepart1+'-'+hmPhonepart2;
+               ParAcc.Individual_Home_Phone__c=hmCountryCode+hmAreaCode;             
       }      
        else
        {
@@ -251,18 +259,20 @@ public class ContactTableController
       if
       (
       (String.isBlank(wkAreaCode)) &&
-      (String.isBlank(wkCountryCode)) && 
-      (String.isBlank(wkPhonepart1)) && 
-      (String.isBlank(wkPhonepart2))
+      (String.isBlank(wkCountryCode)) 
+      //AK20170523 (String.isBlank(wkPhonepart1)) && 
+      //AK20170523 (String.isBlank(wkPhonepart2))
       )
       {
                ParAcc.Work_Phone__c='';
       }
-       else if(wkAreaCode!='' && wkCountryCode!='' && wkPhonepart1!='' &&  wkPhonepart2!='')
+       //AK20170523 else if(wkAreaCode!='' && wkCountryCode!='' && wkPhonepart1!='' &&  wkPhonepart2!='')
+       else if(wkAreaCode!='' && wkCountryCode!='')
       {     
         if(wkAreaCode.startsWith('0'))
             wkAreaCode=wkAreaCode.removeStart('0');
-               ParAcc.Work_Phone__c=wkCountryCode+'-'+wkAreaCode+'-'+wkPhonepart1+'-'+wkPhonepart2;            
+            //AK20170523 ParAcc.Work_Phone__c=wkCountryCode+wkAreaCode+wkPhonepart1+wkPhonepart2;
+            ParAcc.Work_Phone__c=wkCountryCode+wkAreaCode;             
       }      
       else
       { 
@@ -272,19 +282,21 @@ public class ContactTableController
       if
       (
       (String.isBlank(mbAreaCode)) &&
-      (String.isBlank(mbCountryCode)) && 
-      (String.isBlank(mbMobilepart1)) &&
-      (String.isBlank(mbMobilepart2))
+      (String.isBlank(mbCountryCode)) 
+      //AK20170523 (String.isBlank(mbMobilepart1)) &&
+      //AK20170523 (String.isBlank(mbMobilepart2))
       )
       
       {              
                ParAcc.Mobile__c='';
       }
-      else if(mbAreaCode!='' && mbCountryCode!='' && mbMobilepart1!='' &&  mbMobilepart2!='')
+      //AK20170523 else if(mbAreaCode!='' && mbCountryCode!='' && mbMobilepart1!='' &&  mbMobilepart2!='')
+      else if(mbAreaCode!='' && mbCountryCode!='')
       {     
         if(mbAreaCode.startsWith('0'))
             mbAreaCode=mbAreaCode.removeStart('0');
-               ParAcc.Mobile__c=mbCountryCode+'-'+mbAreaCode+'-'+mbMobilepart1+'-'+mbMobilepart2;              
+               //AK20170523 ParAcc.Mobile__c=mbCountryCode+'-'+mbAreaCode+'-'+mbMobilepart1+'-'+mbMobilepart2;
+               ParAcc.Mobile__c=mbCountryCode+mbAreaCode;              
       }        
       else
       {             
@@ -311,7 +323,23 @@ public class ContactTableController
                         refreshPage = true;
                       
                         update ParAcc;
-            }            
+            } 
+            //changed for cr
+            if(hmCountryCode.length()<3 || hmCountryCode.length()>4)
+            {
+            
+             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.CountryCode_for_HomePhone));   
+            }   
+           if(wkCountryCode.length()<3 || wkCountryCode.length()>4)
+            {
+            
+             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Countrycode_for_WorkPhone));   
+            } 
+            if(mbCountryCode.length()<3 || mbCountryCode.length()>4)
+            {
+            
+             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.CountryCode_for_Mobile));   
+            }     
         }
         
         catch(DMLException de)

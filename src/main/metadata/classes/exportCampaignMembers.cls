@@ -30,7 +30,7 @@ public class exportCampaignMembers{
         }
     } 
     
-    public void changeStatus(){
+    /*public void changeStatus(){
         if(curCampaign != null){
             curCampaign.Child_Campaign_Status__c = 'Execution';
             update curCampaign;
@@ -49,7 +49,7 @@ public class exportCampaignMembers{
         }
         update cmpList;
     }
-    
+    */
     public List<Campaign_member__C> wholesaleCampaign(){
         String extension;
         if(curCampaign != NUll){

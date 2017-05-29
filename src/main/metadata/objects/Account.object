@@ -55613,7 +55613,7 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISPICKVAL( $User.User_Type__c , 'MBJ' ))
-, MD__c ='JP', $Profile.Name != 'IntegrationAPI',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
+, MD__c ='JP', $Profile.Name != 'IntegrationAPI',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), OR(ISPICKVAL(Allow_Data_Sharing2__c, 'No'),ISPICKVAL(Allow_Data_Sharing2__c, ' '))
 )</errorConditionFormula>
         <errorMessage>Only MBJ/MBF user can update Allow Data Sharing2 from true to false.</errorMessage>
     </validationRules>
@@ -55773,7 +55773,7 @@ RecordType.DeveloperName = 'ThirdParty'
 OR(
 ISBLANK(Company_Name_Native_1__c),
 REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
+MD__c = 'JP',RecordType.DeveloperName ='Company')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
         <errorMessage>Company Name Native should be KANA Characters</errorMessage>
     </validationRules>
@@ -56183,24 +56183,22 @@ REGEX(Individual_Home_Phone__c, "[0-9]{4}-[0-9]{4}")
         <fullName>HomePhone_Format_TH</fullName>
         <active>true</active>
         <description>Home Phone must be in any of the following formats :		
-1. Country code-Area Code-xxx-xxxx
-2. Country code-Area Code-xxx-xxx</description>
+1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
         <errorConditionFormula>AND(
-		$Profile.Name != 'IntegrationAPI', 
-		MD__c = 'TH',
+		$Profile.Name != &apos;IntegrationAPI&apos;, 
+		MD__c = &apos;TH&apos;,
 		NOT(ISBLANK(Individual_Home_Phone__c)),
 		NOT(
 		OR(
-		REGEX(Individual_Home_Phone__c, "[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}"),
-                REGEX(Individual_Home_Phone__c, "[+0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}"),
-		REGEX(Individual_Home_Phone__c, "[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}"),
-                REGEX(Individual_Home_Phone__c, "[0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}")
+		REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{8}&quot;), 
+		 REGEX(Individual_Home_Phone__c, &quot;[+0-9]{4}[0-9]{10}&quot;)
 		)
 		)
 		)</errorConditionFormula>
         <errorMessage>Home Phone must be in any of the following formats :		
-1. Country code-Area Code-xxx-xxxx
-2. Country code-Area Code-xxx-xxx</errorMessage>
+1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
@@ -56467,20 +56465,22 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
         <fullName>Mobile_Format_TH</fullName>
         <active>true</active>
         <description>Mobile Phone must be in any of the following formats : 
-1. Country code-Area Code-xxx-xxxx</description>
+1. Province code (xxx)  And Phone Part 9 (xxxxxxxxx)digits only
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
         <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH',
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;,
 NOT(ISBLANK(Mobile__c)),
 NOT(
 OR(
-REGEX(Mobile__c, "[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}"),
-REGEX(Mobile__c, "[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}")
+REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{9}&quot;),
+REGEX(Mobile__c, &quot;[+0-9]{4}[0-9]{10}&quot;)
 )
 )
 )</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
-1. Country code-Area Code-xxx-xxxx</errorMessage>
+1. Province code (xxx)  And Phone Part 9 (xxxxxxxxx)digits only
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile_NoChar</fullName>
@@ -56778,24 +56778,22 @@ REGEX(Work_Phone__c, "[0-9]{4}-[0-9]{4}")
         <fullName>WorkPhone_Format_TH</fullName>
         <active>true</active>
         <description>Work Phone must be in any of the following formats : 			
-1. Country code-Area Code-xxx-xxxx 
-2. Country code-Area Code-xxx-xxx</description>
+1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
         <errorConditionFormula>AND(
-	$Profile.Name != 'IntegrationAPI', 
-	MD__c = 'TH',
-	NOT(ISBLANK(Work_Phone__c)),
-	NOT(
-	OR(
-         REGEX(Work_Phone__c, "[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}"), 
-         REGEX(Work_Phone__c, "[+0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
-         REGEX(Work_Phone__c, "[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}"), 
-         REGEX(Work_Phone__c, "[0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}") 
-	)
-	)
-	)</errorConditionFormula>
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;,
+NOT(ISBLANK(Work_Phone__c)),
+NOT(
+OR(
+REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{8}&quot;),
+REGEX(Work_Phone__c, &quot;[+0-9]{4}[0-9]{10}&quot;)
+)
+)
+)</errorConditionFormula>
         <errorMessage>Work Phone must be in any of the following formats : 			
-1. Country code-Area Code-xxx-xxxx 
-2. Country code-Area Code-xxx-xxx</errorMessage>
+1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>

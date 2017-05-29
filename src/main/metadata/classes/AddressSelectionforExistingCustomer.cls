@@ -240,8 +240,10 @@ public without sharing class AddressSelectionforExistingCustomer {
      /* PageReference page = new PageReference('{!URLFOR($Site.Prefix)}/'+AccId);
         page.setRedirect(true);
         return page; */
-    
-        return new PageReference('{!URLFOR($Site.Prefix)}/' + AccId);
+         PageReference pageRef; 
+        pageRef = new PageReference('/001/o');
+        return PageRef;
+        //return new PageReference('{!URLFOR($Site.Prefix)}'+AccId);
       }
 
 }

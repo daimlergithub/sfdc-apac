@@ -24,4 +24,5 @@ public class LeadUtil {
     public static boolean SharingReuleissue =true;
     public static boolean isupdated=true;
 	public static boolean updateCustomerStageMethod=true;
+	public static boolean CaseWithDealers=true;
 }
