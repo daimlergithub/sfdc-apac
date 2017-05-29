@@ -1024,7 +1024,7 @@
                         <apex:outputText >{!(con.pageNumber * size)+1-size}-{!IF((con.pageNumber * size)>noOfRecords, noOfRecords,
                          (con.pageNumber * size))} of {!noOfRecords}
                         </apex:outputText>
-                    </apex:outputPanel>
+                    </apex:outputPanel> 
                         
                 <apex:outputPanel id="accounts">
                     <apex:pagemessages ></apex:pagemessages>

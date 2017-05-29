@@ -739,7 +739,7 @@ public with sharing class RetailCampaignSegmentationController {
     // returns the previous page of records
      public void previous() {
          con.previous();
-     }
+     } 
     
     //disable first and prev button
     public Boolean hasPrevious {
