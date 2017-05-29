@@ -143,6 +143,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Dealer_Lead_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Lead_Priority__c</field>
             </layoutItems>
             <layoutItems>
