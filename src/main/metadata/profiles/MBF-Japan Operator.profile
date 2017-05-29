@@ -27334,7 +27334,7 @@
         <name>ViewHelpLink</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ViewSetup</name>
     </userPermissions>
 </Profile>
