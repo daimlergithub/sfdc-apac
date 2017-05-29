@@ -151,6 +151,16 @@
             <field>Interested_Vehicle__c</field>
             <table>Lead__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MBK_Lost_Situation__c</field>
+            <table>Lead__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MBK_Lead_DataSource__c</field>
+            <table>Lead__c</table>
+        </columns>
         <masterLabel>Sales Funnel Report</masterLabel>
     </sections>
 </ReportType>
