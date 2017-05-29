@@ -723,8 +723,7 @@ public class AccountHelperTH{
         
         
     }
-	
-	/*
+    /*
 It is a temporary code fix for the phone format issue following these 3 rules
 1) If it contains '+ ' or if the number < 9 do nothing.
 2) If there is any '0' in the starting remove it and Prefix '+66' to the number.
@@ -766,8 +765,34 @@ It would be replaced by Informatica/Middleware  */
                 }
             }
         }
-    }        
-
-     
+    }  
     
+     //Created By:Mohammed Touseef Ahmed
+    //Date:26th Mar 2017 
+    //This method removes the '0' from the area code if it contains while saving from standard pagelayout.
+    public static void eliminateZerofrmPhone(List<Account> Accts)
+    {
+        Profile p = [select name from Profile where id =:UserInfo.getProfileId()];
+        String ProfileName = p.name;        
+        if(ProfileName !='IntegrationAPI'){       
+            for (Account a :  Accts) { 
+            if(a.mobile__c.length()==13 && a.mobile__c.substring(3,4)=='0')
+            {            
+                a.mobile__c=a.mobile__c.substring(0,3)+a.mobile__c.substring(4,13);
+            }
+            
+            if(a.Individual_Home_Phone__c .length()==12 && a.Individual_Home_Phone__c .substring(3,4)=='0')
+            {            
+                a.Individual_Home_Phone__c =a.Individual_Home_Phone__c .substring(0,3)+a.Individual_Home_Phone__c .substring(4,12);
+            }
+            
+            if(a.Work_Phone__c.length()==12 && a.Work_Phone__c.substring(3,4)=='0')
+            {            
+                a.Work_Phone__c=a.Work_Phone__c.substring(0,3)+a.Work_Phone__c.substring(4,12);
+            }
+            
+            }
+            
+            }
+    }  
 }

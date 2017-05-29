@@ -1,7 +1,7 @@
 /**********************************************************************************
-    JIRA NO: SFDC-1416, SFDCJP-2101
+    JIRA NO: SFDC-1416, SFDCJP-2101, SFDCJP-2519
     Last Modified By : Lokesh M
-    Last modified date : 13-Apr-2017
+    Last modified date : 23-May-2017
 **********************************************************************************/
 
 public with sharing class SendToMyMercController {
@@ -226,8 +226,10 @@ public with sharing class SendToMyMercController {
                             ac.Portal_Apply_Date__c = system.Today();
                             ac.Portal_Apply_Status__c = 'To be Sent';
                             ac.Portal_Apply_User__c = userinfo.getUserid();
+                            /**commenting as per sfdcjp-2519
                             if(visiblemap.get(ac.Contact__c) == true)
                                 ac.Portal_Visiblity__c = True;
+                            **/
                             AccVehfinal.add(ac);
                         }
                     }

@@ -273,7 +273,8 @@ public class AddressDisplayInlineEditController {
             {
                RegionMasterInfo__c region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
                if(region.Language__c!='' || region.Language__c!=null)
-                    LanguageSelected=region.Language__c;
+
+                   LanguageSelected=region.Language__c;
             }
             ShowHideFields();
             LoadProvince();
