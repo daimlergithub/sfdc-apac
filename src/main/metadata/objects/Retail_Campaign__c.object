@@ -767,7 +767,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-    <fields>
         <fullName>Campaign_Type__c</fullName>
         <description>Retail Campaign: The Type of Campaign</description>
         <externalId>false</externalId>
