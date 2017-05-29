@@ -4,19 +4,25 @@
         <field>Lead__c$Contact__c.Name</field>
     </columns>
     <columns>
-        <field>Lead__c$Contact__c.Latest_Sales_Dealer__c</field>
-    </columns>
-    <columns>
-        <field>Lead__c$Invoice_Date__c</field>
-    </columns>
-    <columns>
-        <field>Lead__c$Purchased_Vehicle__c.Model__c</field>
+        <field>Lead__c.Vehicle_Relationship__r$Selling_Dealer__c</field>
     </columns>
     <columns>
         <field>Lead__c.Vehicle_Relationship__r$Registration_Number__c</field>
     </columns>
     <columns>
         <field>Lead__c.Vehicle_Relationship__r$Registration_Date__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Contact__c.Latest_Sales_Dealer__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Invoice_Date__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$VehicleRel_No__c.UsVIN__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Purchased_Vehicle__c.Model__c</field>
     </columns>
     <columns>
         <field>Lead__c$Owner</field>
@@ -34,10 +40,10 @@
         <field>Lead__c$Contact__c.Work_Phone__c</field>
     </columns>
     <columns>
-        <field>Lead__c$Contact__c.All_channel_opt_out__c</field>
+        <field>Lead__c$Email__c</field>
     </columns>
     <columns>
-        <field>Lead__c$Email__c</field>
+        <field>Lead__c$Contact__c.All_channel_opt_out__c</field>
     </columns>
     <columns>
         <field>Lead__c$Contact__c.Personal_Information_Third_Party_Release__c</field>
