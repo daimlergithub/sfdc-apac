@@ -7294,19 +7294,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9968,19 +9960,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
