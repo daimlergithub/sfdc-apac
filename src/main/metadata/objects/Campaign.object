@@ -10248,11 +10248,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyM</fullName>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10265,6 +10261,10 @@
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14189,6 +14189,10 @@
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Published</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Started</fullName>
@@ -20934,7 +20938,7 @@ var qre = sforce.connection.query("Select id,Approve_the_List__c,Campaign__c Fro
 
 var qrerecords = qre.getArray("records"); 
 
-if(qrerecords.length>0){ 
+if(qrerecords.length&gt;0){ 
 window.open("/apex/ConsolidationDisplayList?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=500,height=500"); 
 
 }else if(qrerecords.length== 0) { 
@@ -21585,5 +21589,47 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <openType>replace</openType>
         <protected>false</protected>
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Marketing Cloud Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var theUrl = "https://"+urlPrefix+"/apex/singleSendETEmail?campaignId={!CASESAFEID( Campaign.Id )}";
+parent.location.href = theUrl;
+}
+catch (e)
+{
+var theUrl = "/apex/singleSendETEmail?campaignId={!CASESAFEID( Campaign.Id )}";
+parent.location.href = theUrl;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ViewCampaignInfluenceReport</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Campaign Influence Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign.Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
+        <width>500</width>
     </webLinks>
 </CustomObject>
