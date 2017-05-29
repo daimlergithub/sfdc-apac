@@ -20934,55 +20934,11 @@ var qre = sforce.connection.query("Select id,Approve_the_List__c,Campaign__c Fro
 
 var qrerecords = qre.getArray("records"); 
 
-if(qrerecords.length&gt;0){ 
+if(qrerecords.length>0){ 
+window.open("/apex/ConsolidationDisplayList?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=500,height=500"); 
 
-try{ 
-
-
-jQuery(function() { 
-/*Append the jQuery CSS CDN Link to the Head tag.*/ 
-jQuery('head').append('&lt;link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css" type="text/css" /&gt;'); 
-
-/*Create the HTML(DIV Tag) for the Dialog.*/ 
-var html = 
-'&lt;div id="dialog" title="WARNING"&gt;&lt;p&gt; List Maintenance is not yet completed do u want to proceed &lt;/p&gt;&lt;/div&gt;'; 
-
-/*Check if the Dialog(DIV Tag) already exists if not then Append the same to the Body tag.*/ 
-if(!jQuery('[id=dialog]').size()){ 
-jQuery('body').append(html); 
-} 
-
-/*Open the jQuery Dialog.*/ 
-jQuery( "#dialog" ).dialog({ 
-autoOpen: true, 
-modal: true, 
-show: { 
-effect: "bounce", 
-duration: 1000 
-}, 
-hide: { 
-effect: "bounce", 
-duration: 10 
-}, 
-buttons: { 
-"Proceed": function() { 
-
- location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');	
-
-jQuery( this ).dialog( "close" ); 
-}, 
-Cancel: function() { 
-jQuery( this ).dialog( "close" ); 
-} 
-} 
-}); 
-}); 
-} 
-catch(e){ 
-alert('An Error has Occured. Error: ' + e); 
-} 
 }else if(qrerecords.length== 0) { 
-location.replace('/apex/Consolidation_List?Id={!Campaign.Id}'); 
+window.open("/apex/Consolidation_List?Id={!Campaign.Id}"); 
 }</url>
     </webLinks>
     <webLinks>
