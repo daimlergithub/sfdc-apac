@@ -13,13 +13,14 @@ public with sharing class RetailCampaignSegmentationController {
     
     
     private String retailCampaignId;
-    private String thirdParty; //to store the account recordtype - 3rd party
     Boolean vehicleFind;
     Boolean vehicleRelFind;
     Boolean vehicleRetailFind;
+    //Boolean recallFind;
     Boolean accountFilter;
     
     //pagination
+    public ApexPages.StandardSetController con {get;set;}
     public Integer totalrecords{get;set;}
     Public Integer size{get;set;} 
     Public Integer noOfRecords{get; set;} 
@@ -32,80 +33,48 @@ public with sharing class RetailCampaignSegmentationController {
     private Integer campLength;
     private Integer accLinkLength;
     private Integer recallLength;
+    private Integer VehRetCopyLength;
     
     // For soql
-    private String mainSoql;
     private String accountSoql;
     private String leadSoql;
     private String vehicleRelSoql;
     private String vehicleSoql;
     private String AccountLinkSoql;
     private String campaignMemSoql;
-    private String CampaignSoql;
     private String RetailTaskSoql;
     private String AddressSoql;
     private String recallSoql;
- 
+    private String VehRetCopySoql;
+    
     private Set<String> accountIds;
     private Set<Id> accountIdSet;
-    private Set<Id> recallVehIdSet;
+    private Set<Id> vehIdSet;//to store the recall object vehicles and vehicle retail copy object vehicles 
     private Integer recallCount;
     
-    private Set<String> recallFields;//for recall object 6thamy 2017
+    private Set<String> recallFields;
     private Set<String> numberFields;
     private Set<String> dateFields;
-    private Set<String> dateTimeFields;
     private Set<String> textFields;
-    private Set<String> CheckboxFields;
     private Set<String> pickListFields;
     private Set<String> multiplePickListFields;
     private Set<String> vehicleFields;
     private Set<String> vehicleRelFields;    
     private Set<String> AccountLinkFields;
-    private Set<String> CampaignFields;
+    private Set<String> retialCampaignFields;
     private Set<String> RetailTaskFields;
     private Set<String> AddressFields;
     
-    private final integer listLimit;
-    private List<Account> tempAccounts;//To Hold the accounts
-    private Map<String, Account> accountMap;
     private Retail_campaign__c curRetCamp = new Retail_campaign__c();//to hold current retail campaign
     
     //To check the parent retail campaign type and set car relation in vehicleRelSoql 
-    private String parCampType;
-    private String Sales =  'Sales Contact Target';
-    private String AfterSalesOrFinance = 'Aftersales Contact Target 1';
+    public String parCampType{set;get;}
+    public String Sales =  'Sales Contact Target';
+    public String AfterSalesOrFinance = 'Aftersales Contact Target 1';
     
-    //To check in vehicleRel soql if the same account is existing for another vehicle
-    List<account> accList;
-    List<account> dupAccounts;
-    Map<Id,Integer> accIdandCountMap;
-    Map<Id,Id> accIdVehIdMap;
-        
-    public RetailCampaignSegmentationController()
-    {
-                size = 1000;
-                thirdParty = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
-                retailCampaignId = ApexPages.currentPage().getParameters().get('id');
-                curRetCamp = [SELECT Id,Name,Segmentation_Base__c,Parent_Campaign1__r.Campaign_Type__c FROM Retail_campaign__C WHERE ID =: retailCampaignId];
-                if(curRetCamp.Parent_Campaign1__c != NULL){
-                    if(curRetCamp.Parent_Campaign1__r.Campaign_Type__c == 'Sales'){
-                        parCampType = Sales;
-                    } else {
-                        parCampType = AfterSalesOrFinance;
-                    }
-                }
-                setFieldType();
-    }
-    public ApexPages.StandardSetController con {get;set;}
-    
-    /**
-     * Properties -->
-     */
-    public Transient List<Account> accounts { get; set; }
-    public Transient List<Account> limitAccounts;
-    public Contact contact { get; set; }
     public String jsonFilter { get; set; }
+    public Map<String, Object> filterMap;
+    public Map<String, Object> contentMap;
     
     // For data model
     public Account account { get; set; }
@@ -118,6 +87,29 @@ public with sharing class RetailCampaignSegmentationController {
     public Address__c  address{ get; set; }
     public campaign_member__C camMem {get; set;}
     public recall__C recall {get; set;}
+    public List<account> accList; 
+    public user u;
+    public Map<Id,recall__C> vehIdRecallRecMap;
+    public Map<Id,Account_Link__c> vehIdAccLinkRecMap;
+    
+    //Segmentation_Base__c
+    public String segmentationBase{set;get;}
+    
+    public RetailCampaignSegmentationController()
+    {
+        size = 1000;
+        retailCampaignId = ApexPages.currentPage().getParameters().get('id');
+        curRetCamp = [SELECT Id,Name,Segmentation_Base__c,Parent_Campaign1__r.Campaign_Type__c FROM Retail_campaign__C WHERE ID =: retailCampaignId];
+        segmentationBase = curRetCamp.Segmentation_Base__c;
+        if(curRetCamp.Parent_Campaign1__c != NULL){
+            if(curRetCamp.Parent_Campaign1__r.Campaign_Type__c == 'Sales'){
+                parCampType = Sales;
+            } else {
+                parCampType = AfterSalesOrFinance;
+            }
+        }
+        setFieldType();
+    }
     
     public String selectedValueSales {set;get;}
     public String selectedValueService {set;get;}
@@ -131,26 +123,7 @@ public with sharing class RetailCampaignSegmentationController {
         return options;
     }
         
-    /* 
-    public List<String> filterOptions {
-        get{
-           if(contact == null || String.isBlank(contact.SegmentationFilters__c) || contact.SegmentationFilters__c == '[]'){
-                return new List<String>();
-            }
-            else{
-                filterOptions = new List<String>();
-                List<Object> filterList = (List<Object>)JSON.deserializeUntyped(contact.SegmentationFilters__c);
-                for(Object item : filterList){
-                    Map<String, Object> filterMap = (Map<String, Object>)item;
-                    filterOptions.add((String)filterMap.get('name'));
-                }
-                return filterOptions;
-            }
-        }
-        set;
-    }
-    */
-    
+   
     public List<SelectOption> SpecialMarkonAccount{
         get{
             SpecialMarkonAccount= new List<SelectOption>();
@@ -181,10 +154,8 @@ public with sharing class RetailCampaignSegmentationController {
         get{
             status= new List<SelectOption>();
             status.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Status__c;
-            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                status.add(new SelectOption(entry.getValue(), entry.getLabel()));
-            }
+            status.add(new SelectOption('Customer','Customer'));
+            status.add(new SelectOption('Prospect','Prospect'));
             return status;
         }
         set;
@@ -215,385 +186,240 @@ public with sharing class RetailCampaignSegmentationController {
         }
         set;
     }
-    /*
-    public List<SelectOption> VehicleClassOptions{
-        get{
-            VehicleClassOptions = new List<SelectOption>();
-            VehicleClassOptions.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Vehicle__c.fields.Class__c;
-            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                VehicleClassOptions.add(new SelectOption(entry.getValue(), entry.getLabel()));
-            }
-            return VehicleClassOptions;
-        }
-        set;
-    }
-    */
+  
     public PageReference searchAccount(){     
-        system.debug('Entered into Search method');
-       
         accList = new List<account>();
-        dupAccounts =  new List<account>();
-        accIdandCountMap = new Map<Id,Integer>();
-        accIdVehIdMap = new Map<Id,Id>();
         accountIdSet = new Set<Id>();
-        recallVehIdSet = new Set<Id>();
+        accountFilter = false;
+        accountIds = new Set<String>(); 
+        vehIdSet = new Set<Id>();
         recallCount = 0;
         vehicleRelFind = false;
         vehicleFind = false;
-        VehicleRetailFind = false;
-        accountFilter = false;
-       
-        setSoql();
-        accounts = new List<Account>();
-        accountIds = new Set<String>();
-        //try{
-            system.debug('vehiclerelSoql '+vehicleRelSoql);
-            if(vehicleRelSoql.endsWith('AND  ')){
+        u = [SELECT Id,Contact.Account.name FROM User WHERE Id =:userInfo.getUserId() ];
+        vehIdRecallRecMap = new Map<Id,recall__C>();
+        vehIdAccLinkRecMap = new Map<Id,Account_Link__c>();
+        
+        system.debug('================='+jsonFilter);
+        filterMap = (Map<String, Object>)JSON.deserializeUntyped(jsonFilter);
+        system.debug('I am filter map'+filterMap);
+        contentMap = (Map<String, Object>)(filterMap.get('content'));
+        system.debug('I am content map'+contentMap);
+/************************************segmentationBase == Vehicle Starts************************************/
+        if(segmentationBase == 'Vehicle'){
+            setSoqlVehicle();
+            if(vehicleRelSoql.endsWith('AND  ') || vehicleRelSoql.endsWith('AND ')){
                 System.debug('Removing end in vehilce soql');
-                vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ');
+                vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ').removeEnd('AND ');
             }
             system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
-            if(!vehicleRelSoql.endsWith('where ')) {            
-                vehicleRelSoql = vehicleRelSoql.replace('Service_Advisor__c','Service_Advisor__r.Name');
+            /*if(recallSoql.length()>recallLength){
+                vehicleRelSoql += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
+            }
+            if(VehRetCopySoql.length()>VehRetCopyLength){
+                VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Service_Advisor__c','Service_Advisor__r.Name');
+                vehicleRelSoql += 'AND Vehicle_Id__c IN ('+VehRetCopySoql+') ';
+            }
+            */ //for recall object records
                 if(recallSoql.length()>recallLength){
                     System.debug('recallSoqlFinal>>>>'+recallSoql);
                     List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 50000');
                     for(recall__c rc : recallList){
-                        recallVehIdSet.add(rc.Vehicle_Id__c);
+                        vehIdSet.add(rc.Vehicle_Id__c);
+                        vehIdRecallRecMap.put(rc.Vehicle_Id__C,rc);
                     }
+                    vehicleRelSoql+= 'AND Vehicle_Id__c IN: vehIdSet ';
                 }
-                system.debug('recallVehIdSet.size()'+recallVehIdSet.size());
-                if(recallVehIdSet.size()>0){
-                    vehicleRelSoql+= 'AND Vehicle_Id__c IN: recallvehIdSet ';
+                
+                //for vehicleRetailCopy records
+                if(VehRetCopySoql.length()>VehRetCopyLength){
+                    VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
+                    system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
+                    List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 50000');
+                    for(Account_Link__c ac : vehRetialList){
+                        vehIdSet.add(ac.Vehicle__c);
+                        vehIdAccLinkRecMap.put(ac.vehicle__c,ac);
+                    }
+                    vehicleRelSoql+= 'AND Vehicle_Id__c IN: vehIdSet ';
                 }
-                system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
+                
                 if(vehicleRelSoql.length()>vehRelLength){
-                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' ORDER BY Vehicle_Id__c limit 2000');
-                    System.debug('vehRelList '+vehRelList.size());
-                    for(Vehicle_relationship__C vr : vehRelList){
-                        if(!accountIdSet.contains(vr.contact__c)){
-                            accIdandCountMap.put(vr.contact__c,1);//putting the initail value as 1 in map for first time
-                            accIdVehIdMap.put(vr.contact__c,vr.vehicle_Id__c);
-                            accountIdSet.add(vr.Contact__c);
-                        }
-                        else if(vr.vehicle_Id__c != accIdVehIdMap.get(vr.contact__c)){
-                            accIdVehIdMap.put(vr.contact__c,vr.vehicle_Id__c);
-                            Integer i = accIdandCountMap.get(vr.contact__c)+1;//to increase the count of duplicate account found
-                            accIdandCountMap.put(vr.contact__c,i);//overwrite the previous value with increased value  
-                        }
-                    }
+                    vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
+                    system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
+                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' ORDER BY Contact__c ASC limit 50000');
+                    con = new ApexPages.StandardSetController(vehRelList);
+                    con.setPageSize(1000); 
+                    noOfRecords = con.getResultSize();
+                    getloadwrapAccountList();
                 }
-            }    
-
-            system.debug('@@@@@@leadSoql '+leadSoql);
-            if(!leadSoql.endsWith('where ')){
-                leadSoql = leadSoql.replace('Retail_Campaign_Name__c', 'Retail_Campaign_Name__r.Name');
-                System.debug('leadSoql '+leadSoql);
-                if(leadSoql.length()>leadLength){
-                     List<Lead__C> leadList = Database.query(leadSoql+ 'limit 2000');
-                     System.debug('leadList '+leadList.size());
-                     for(Lead__C vr : leadList){
-                         accountIdSet.add(vr.Contact__c);
-                     }
-                 }
-            }
-            
-            system.debug('@@@@@@AccountLinkSoql '+AccountLinkSoql);
-            if(!AccountLinkSoql.endsWith('where ')) {
-               // AccountLinkSoql = AccountLinkSoql.replace('toRole__c', 'toRole__r.Name');
-               AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
-               if(AccountLinkSoql.length()>accLinkLength){
-                     List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 2000');
-                      System.debug('accLinkList '+accLinkList.size());
-                     for(Account_Link__C vr : accLinkList){
-                         accountIdSet.add(vr.toRole__c);
-                     }
-                 }
-            }
-                
-                system.debug('@@@@@@AccountLinkSoql '+RetailTaskSoql);
-                if(!RetailTaskSoql.endsWith('where ')) {
-                    //RetailTaskSoql = RetailTaskSoql.replace('Account__c', 'Account__r.Name');
-                    if(RetailTaskSoql.length()>retailaskLength){
-                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 2000');
-                         System.debug('retTaskList '+retTaskList.size());
-                         for(Retail_Task__c vr : retTaskList ){
-                             accountIdSet.add(vr.Account__c);
-                         }
-                     }
-                    
-                }
-                
-                system.debug('@@@@@@AddressSoql '+AddressSoql);
-                if(!AddressSoql.endsWith('where ')) {
-                   if(AddressSoql.length()>addressLength){
-                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 2000');
-                          System.debug('addList '+addList.size());
-                         System.debug('addList '+addList);
-                         for(Address__c vr : addList ){
-                             accountIdSet.add(vr.Customer__c);
-                         }
-                     }
-                }
-                
-                 system.debug('@@@@@@campaignMemSoql'+campaignMemSoql);
-                if(!campaignMemSoql.endsWith('where ')) {
-                  
-                    if(campaignMemSoql.length()>campLength){
-                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 2000');
-                         System.debug('camMemList '+camMemList.size());
-                         for(Campaign_Member__c vr : camMemList ){
-                             accountIdSet.add(vr.Contact_Id__c);
-                         }
-                     }
-                }
-                
-               //Searhs the accounts according to all other filters
-               
-                    if(accountIdSet.size()==0 && accountFilter){
-                        accountSoql += '';
-                    }
-                    else if(accountSoql.endsWith('and ')){
-                        accountSoql += 'Id in :accountIdSet ';
-                    }
-                    else{
-                        accountSoql += ' and Id in :accountIdSet ';
-                    }
-                
-                // Searchs the accounts according to the Customer Filter 
-                if(!accountIds.isEmpty()){
-                    if(accountSoql.endsWith('and ')){
-                        accountSoql += 'Id in :accountIds ';
-                    }
-                    else{
-                        accountSoql += ' and Id in :accountIds ';
-                    }
-                }
-                system.debug('----------' + accountSoql);
-                accList = Database.Query(accountSoql+' LIMIT 2000');
-                //con = new ApexPages.StandardSetController(Database.getQueryLocator(accountSoql+'ORDER BY Name ASC'));
-                for(account a : accList){
-                    if(accIdandCountMap.containsKey(a.Id)){
-                        for(integer i=1;i<accIdandCountMap.get(a.Id);i++){
-                            dupAccounts.add(a);
-                        }
-                    }
-                }
-                accList.addAll(dupAccounts);
-                accList.sort();
-                con = new ApexPages.StandardSetController(accList);
-                system.debug('///////////');
-                con.setPageSize(1000); 
-                system.debug('///////////');
-                noOfRecords = con.getResultSize();
-                system.debug('///////////');         
-                getloadwrapAccountList();
-                System.debug('Tottalrecords'+totalRecords);
-            //}
-            //catch(Exception ex){
-            //'Logic Error!'
-              //ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getmessage()));
-            //}
-        return null;
-    }
-    
-   
-    public List<wrapperAccount> wrapAccountList{set;get;}
-        
-    // Create a new Map to verify whether the Account is already added in the Map
-    //Map <id,Account> SelectedAccountMap = new Map <id,Account>();      
-    Map <string,Account> SelectedAccountMap = new Map <string,Account>();      
-     
-    // This method process accounts and formats List of wrapper Accounts to be used with checkbox 
-    public list<wrapperAccount> getloadwrapAccountList()
-    {
-        getSelectedAccount();
-        wrapAccountList = new  List<wrapperAccount>();
-        integer count = 1 ;
-            for(Account a : (List<Account>)con.getRecords()){
-                wrapperAccount wrapAcc = new wrapperAccount();
-                wrapAcc.acc = a;                           // Holding Account
-                count+=1;
-                string s = a.Id;
-                s+=count;
-                if(SelectedAccountMap.containsKey(s)){
-                    wrapAcc.isSelected = true;    // check if Checkbox is checked in vf page    
-                }
-                else{
-                    wrapAcc.isSelected = false;    // Used as Checkbox in vf page, default is not selected
-                }
-                
-                wrapAccountList.add(wrapAcc);   
-            }
-            system.debug('Called Wrapper method size---- '+wrapAccountList.size());
-        return wrapAccountList;
-    }
-        
-    //This methods holds the accounts which is checked and which is unchecked
-    public void getSelectedAccount(){
-        //System.debug('initialwrapperaccountsize'+wrapaccountlist.size());
-        if(wrapAccountList != NULL){
-            Integer j=1;
-            for(wrapperAccount wr:wrapAccountList){
-                j+=1;
-                string dupId = wr.acc.Id;
-                dupId = dupId+j;
-                if(wr.isSelected == true){
-                    //SelectedAccountMap.put(wr.acc.id,wr.acc); // Add the selected contact id in to the SelectedAccountMap.
-                    SelectedAccountMap.put(dupId,wr.acc); // Add the selected contact id in to the SelectedAccountMap.
-                }
-                else{
-                    SelectedAccountMap.remove(dupId);                   
-                }
-            }
+           /************************************segmentationBase == Vehicle Ends***************************************/
         }
-        System.debug('selectedAccountmap>>>>'+SelectedAccountMap);
-        System.debug('selectedAccountmapsize>>>>'+SelectedAccountMap.size());
-    }
-  
-    // Wrapper class will be to used to have list of accounts with checkbox to Add to Campaign
-    public class wrapperAccount{
-        public Account acc {set;get;}
-        public Boolean isSelected {set;get;}
-    }
-    
-    
-    //Add campaign members to Retail campiang
-    public PageReference addToCampaign(){
-    System.debug('retailCampaignId === '+retailCampaignId);
-        if(retailCampaignId == null) return null;
-        
-        //Calling this method to add the current page selected accounts
-        getSelectedAccount();
-        
-        List<Campaign_Member__c> retailCampaignMembers = new List<Campaign_Member__c>();
-        Set<String> accountIds = new Set<String>();
-        List<Account> selectedAccount = new List<Account>();
-        List<Id> selectedAccoundIds = new List<Id>();
- 
-        // Filtering seletced accounts
-         if(SelectedAccountMap.size()>0){
-            for(Account temp : SelectedAccountMap.values()){
-                selectedAccount.add(temp);
-                system.debug('selectedAccounddddddd==='+temp);
-            }
-            
-            system.debug('selectedAccoundIds==='+selectedAccoundIds);
-            for(Account curAcc : selectedAccount){
-                Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-                member.Contact_Id__c= curAcc.id;
-                retailCampaignMembers.add(member);
-            }
-        }
-        System.debug('retailCampaignMembersAfter'+retailCampaignMembers);
-        try {
-            if(retailCampaignMembers != NULL && !retailCampaignMembers.isEmpty())
-            insert retailCampaignMembers;
-        }
-        catch(Exception ex){
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'You could not add same contact in one Retail Campaign, Please try again.'));
-            return null;
-        }
-        return new PageReference('/' + retailCampaignId);
-    }
- 
-    
-    private void setSoql()
-    {
-       
-       system.debug('Entered into inside  setSoql method');
+        else if(segmentationBase == 'Customer'){
+            /************************************segmentationBase == customer Starts**********************************/
             string personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
             string personAccntRetailRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
             string dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-            if(selectedValueSales == 'Company' || selectedValueService == 'Company'){
-                selectedValue = 'Company';
+            if(selectedValueSales == 'Company'){
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
-                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' and ';
+                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = Company and ';
             }
-            else if(selectedValueSales == 'Outlet' || selectedValueService == 'Outlet'){
-                selectedValue = 'Outlet';
+            else if(selectedValueSales == 'Outlet'){
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
-                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' and ';
+                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = Outlet and ';
             }
             else {
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
                 + 'where (RecordTypeId =\'' + personAccntRecTypId + '\' or ' 
-                + 'RecordTypeId = \'' + personAccntRetailRecTypId + '\' or '
-                + 'RecordTypeId = \'' + thirdParty + '\') and ';
-            }
+                + 'RecordTypeId = \'' + personAccntRetailRecTypId + '\') and ';
+            } 
             leadSoql = 'Select Contact__c from Lead__c where ';
-            //vehicleSoql = 'Select Contact__c,Vehicle_ID__c From Vehicle_Relationship__c where ';
-            vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c From Vehicle_Relationship__c where Car_Relation__c = \''+parCampType+'\' AND ';
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
             AccountLinkSoql = 'Select toRole__c From Account_Link__c where '; 
-            RetailTaskSoql = 'Select Account__c From Retail_Task__c where ';
             AddressSoql = 'Select Customer__c From Address__c where ';
-            CampaignSoql ='Select id From Campaign where ';
-            recallSoql = 'Select Vehicle_Id__c From Recall__c Where';
-            
-            vehRelLength = vehicleRelSoql.length();
             leadLength =  leadSoql.length();
-            retailaskLength = RetailTaskSoql.length();
             campLength = campaignMemSoql.length();
             addressLength = AddressSoql.length();
             accLinkLength = AccountLinkSoql.length();
-            recallLength = recallSoql.length();
-            
-            system.debug('================='+jsonFilter);
-            Map<String, Object> filterMap = (Map<String, Object>)JSON.deserializeUntyped(jsonFilter);
-            system.debug('I am filter map'+filterMap);
-            Map<String, Object> contentMap = (Map<String, Object>)(filterMap.get('content'));
-            system.debug('I am content map'+contentMap);
-            
             List<Object> customerFilterItems = (List<Object>)contentMap.get('Customer');
             List<Object> leadFilterItems = (List<Object>)contentMap.get('Interest');
-            List<Object> vehicleFilterItems = (List<Object>)contentMap.get('Vehicle');
             List<Object> AccountLinkFilterItems = (List<Object>)contentMap.get('AccountLink');
-            List<Object> RetailTaskFilterItems = (List<Object>)contentMap.get('Contract');
             List<Object> AddressFilterItems = (List<Object>)contentMap.get('Address');
             List<Object> campaignFilterItems = (List<Object>)contentMap.get('Campaign');
-            List<Object> vehicleretailItems = (List<Object>)contentMap.get('VehicleRetailcopy');
-            List<Object> vehiclerelItems = (List<Object>)contentMap.get('VehicleRelation');
             
             system.debug('Entered into customerFilterItems setSoql method'+customerFilterItems);
             system.debug('Entered into leadFilterItems setSoql method'+leadFilterItems);
-            system.debug('Entered into vehicleFilterItems  setSoql method'+vehicleFilterItems );
-            system.debug('Entered into customerFilterItems setSoql method'+vehiclerelItems);
             system.debug('Entered into AccountLinkFilterItems setSoql method'+AccountLinkFilterItems);
-            system.debug('Entered into RetailTaskFilterItems setSoql method'+RetailTaskFilterItems);
             system.debug('Entered into AddressFilterItems setSoql method'+AddressFilterItems);
             system.debug('Entered into campaignFilterItems setSoql method'+campaignFilterItems);
-            system.debug('Entered into campaignFilterItems setSoql method'+vehicleretailItems);
-            
             if(customerFilterItems != NULL && !customerFilterItems.isEmpty()){
                 accountFilter = true;
             }
-            
-            if(vehicleFilterItems != NULL && vehiclerelItems != NULL && !vehicleFilterItems.isEmpty() && !vehiclerelItems.isEmpty()){
-                vehicleFind = true;
-                vehicleRelFind = true;
-             }
-             if(vehicleretailItems!= NULL && vehiclerelItems != NULL && !vehicleretailItems.isEmpty() && !vehiclerelItems.isEmpty()){
-                vehicleRetailFind = true;
-                vehicleRelFind = true;
-             }
-             if(vehicleFilterItems != NULL && vehicleretailItems != NULL && !vehicleretailItems.isEmpty() && !vehicleFilterItems.isEmpty()){
-                 vehicleFind = true; 
-                  vehicleRetailFind = true;   
-             }
             setSubSoql(customerFilterItems, 'account');
             setSubSoql(leadFilterItems, 'lead');
-            setSubSoql(vehicleFilterItems, 'vehicle');
-            setSubSoql(vehiclerelItems,'VehicleRelation'); 
             setSubSoql(AccountLinkFilterItems, 'AccountLink');
-            setSubSoql(RetailTaskFilterItems, 'RetailTask');
             setSubSoql(AddressFilterItems, 'Address');
             setSubSoql(campaignFilterItems, 'campaign');
-            setSubSoql(vehicleretailItems,'VehicleRelation');
+            
+            system.debug('@@@@@@leadSoql '+leadSoql);
+            if(leadSoql.length()>leadLength){
+                //accountSoql += 'AND Id IN('+leadSoql+')';
+                 List<Lead__C> leadList = Database.query(leadSoql+ 'limit 50000');
+                 for(Lead__C vr : leadList){
+                     accountIdSet.add(vr.Contact__c);
+                 }
+             }
+            
+            system.debug('@@@@@@AccountLinkSoql '+AccountLinkSoql);
+            if(AccountLinkSoql.length()>accLinkLength){
+                AccountLinkSoql = AccountLinkSoql.replace('Selling_Dealer__c', 'Selling_Dealer__c.Name');
+                //accountSoql += 'AND Id IN('+AccountLinkSoql+')';
+                 AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
+                 List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 50000');
+                 for(Account_Link__C vr : accLinkList){
+                     accountIdSet.add(vr.toRole__c);
+                 }
+            }
+                
+            system.debug('@@@@@@AddressSoql '+AddressSoql);
+           if(AddressSoql.length()>addressLength){
+               //accountSoql += 'AND Id IN('+AddressSoql+')';
+                 List<Address__c> addList = Database.query(AddressSoql+ 'limit 50000');
+                 for(Address__c vr : addList ){
+                     accountIdSet.add(vr.Customer__c);
+                 }
+             }
+        
+            
+             system.debug('@@@@@@campaignMemSoql'+campaignMemSoql);
+            if(campaignMemSoql.length()>campLength){
+                //accountSoql += 'AND Id IN('+campaignMemSoql+')';
+                 List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 50000');
+                   for(Campaign_Member__c vr : camMemList ){
+                     accountIdSet.add(vr.Contact_Id__c);
+                 }
+             }
+
+            //Searhs the accounts according to all other filters
+            if(accountIdSet.size()==0 && accountFilter){
+                accountSoql += '';
+            }
+            else if(accountSoql.endsWith('and ')){
+                accountSoql += 'Id in :accountIdSet ';
+            }
+            else{
+                accountSoql += ' and Id in :accountIdSet ';
+            }
+            
+            // Searchs the accounts according to the Customer Filter 
+            if(!accountIds.isEmpty()){
+                if(accountSoql.endsWith('and ')){
+                    accountSoql += 'Id in :accountIds ';
+                }
+                else{
+                    accountSoql += ' and Id in :accountIds ';
+                }
+            }
+            
+            system.debug('@@@@@@@@' + accountSoql);
+            accList = Database.Query(accountSoql+' LIMIT 50000');
+            con = new ApexPages.StandardSetController(accList);
+            con.setPageSize(1000); 
+            noOfRecords = con.getResultSize();
+            getloadwrapAccountList(); 
+/************************************segmentationBase == Vehicle Ends************************************/
+        }
+        else if(segmentationBase == 'Contract'){
+/************************************segmentationBase == Contract Starts************************************/
+            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c where '; 
+            retailaskLength = RetailTaskSoql.length();
+            List<Object> RetailTaskFilterItems = (List<Object>)contentMap.get('Contract');
+            system.debug('Entered into RetailTaskFilterItems setSoql method'+RetailTaskFilterItems);
+            setSubSoql(RetailTaskFilterItems, 'RetailTask');
+            system.debug('@@@@@@AccountLinkSoql '+RetailTaskSoql);
+            if(!RetailTaskSoql.endsWith('where ')) {
+                if(RetailTaskSoql.length()>retailaskLength){
+                     List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 50000');
+                     con = new ApexPages.StandardSetController(retTaskList);
+                     con.setPageSize(1000); 
+                     noOfRecords = con.getResultSize();
+                     getloadwrapAccountList();
+                 }
+            }
+/************************************segmentationBase == Contract Ends************************************/
+        }
+        return null;
     }
     
-    private void setSubSoql(List<Object> filterItems, String cluster)
+    public void setSoqlVehicle(){
+        string vehRetCopyRecType=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
+        vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Model_Description__c,New_Used__c,Vehicle_ID__r.NextServiceDate__c,Vehicle_ID__r.NextInspectionDate__c From Vehicle_Relationship__c where Car_Relation__c = \''+parCampType+'\' AND ';
+        if(selectedValueService=='Outlet'){
+            vehicleRelSoql += 'Last_Service_Dealer__c =\''+ u.Contact.Account.Name+'\' AND ';
+        }
+        recallSoql = 'Select Vehicle_Id__c,Recall_No__c,Status__c From Recall__c Where';
+        VehRetCopySoql = 'Select Vehicle__c,NextInspectionDate__c,NextServiceDate__c,Service_Advisor__c FROM Account_Link__c WHERE RecordTypeId = \'' + vehRetCopyRecType + '\' AND ';
+        
+        vehRelLength = vehicleRelSoql.length();
+        recallLength = recallSoql.length();
+        VehRetCopyLength = VehRetCopySoql.length();
+        
+        List<Object> vehicleFilterItems = (List<Object>)contentMap.get('Vehicle');
+        List<Object> vehicleretailItems = (List<Object>)contentMap.get('VehicleRetailcopy');
+        List<Object> vehiclerelItems = (List<Object>)contentMap.get('VehicleRelation');
+        system.debug('Entered into vehicleFilterItems  setSoql method'+vehicleFilterItems );
+        system.debug('Entered into vehicleRelFilterItems setSoql method'+vehiclerelItems);
+        system.debug('Entered into vehicleRetailCopyFilterItems setSoql method'+vehicleretailItems);
+        if(vehicleFilterItems != NULL && vehiclerelItems != NULL && !vehicleFilterItems.isEmpty() && !vehiclerelItems.isEmpty()){
+            vehicleFind = true;
+            vehicleRelFind = true;
+         }
+         
+         setSubSoql(vehicleFilterItems, 'vehicle');
+         setSubSoql(vehiclerelItems,'VehicleRelation');
+         setSubSoql(vehicleretailItems,'VehicleRetailcopy');    
+    }
+  
+    public void setSubSoql(List<Object> filterItems, String cluster)
     {
        
        system.debug('Entered into filterItems'+filterItems);
@@ -616,39 +442,27 @@ public with sharing class RetailCampaignSegmentationController {
                     if(vehicleRelFind && vehicleFind && logic == '' && cluster == 'vehicle'){
                         logic = ' AND ';
                     }
-                    if(vehicleRelFind && vehicleRetailFind && logic == '' && cluster == 'VehicleRelation'){
-                        logic = ' AND ';
-                    }
-                    if(vehicleFind && vehicleRetailFind && logic == '' && cluster == 'Vehicle'){
-                        logic = ' AND ';
-                    }
                     
                     if(vehicleFields.contains(field)){
                         field = 'Vehicle_ID__r.' + field;
                         
                     }
-                    if(CampaignFields.contains(field)){
-                        field = 'Campaign_ID__r.' + field;
+                    if(retialCampaignFields.contains(field)){
+                        field = 'Retail_Campaign_Id__r.' + field;
                     }
                     
-                    if(field == 'PersonBirthdate' && String.valueOf(filterItemMap.get('criteria')).startswith('3000')) {
-                        subSoql += 'CALENDAR_MONTH(PersonBirthdate) = ' + String.valueOf(filterItemMap.get('criteria')).split('-')[1] + ' and DAY_IN_MONTH(PersonBirthdate) = ' + String.valueOf(filterItemMap.get('criteria')).split('-')[2];
-                    }
-                    else if(field == 'ZipCode__c'){
-                        subSoql += 'ZipCode__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
-                    }else{
-                        if(recallFields.contains(field) && cluster == 'vehicle'){
-                            if(recallCount == 0){
-                                recallSoql += ' '+field+' '+operation+' '+criteria+' ';
-                                recallCount++;
-                            }
-                            else{
-                                recallSoql += 'AND '+field+' '+operation+' '+criteria+' ';
-                            }
+                    if(recallFields.contains(field) && cluster == 'vehicle'){
+                        if(recallCount == 0){
+                            recallSoql += ' '+field+' '+operation+' '+criteria+' ';
+                            recallCount++;
                         }
-                        else
-                        subSoql += field + operation + criteria + ' '; 
+                        else{
+                            recallSoql += 'AND '+field+' '+operation+' '+criteria+' ';
+                        }
                     }
+                    else
+                    subSoql += field + operation + criteria + ' '; 
+                        
                     if(bracket){
                         subSoql = subSoql.removeEnd(' ');
                         subSoql += (++bracketCount > 1 ? ') ' : ' ') + logic + ' (';
@@ -663,12 +477,13 @@ public with sharing class RetailCampaignSegmentationController {
                     else if(cluster == 'lead'){
                         leadSoql += subSoql;
                     }
-                    
                     else if(cluster == 'vehicle' || cluster == 'VehicleRelation'){
                         if(!recallFields.contains(field))
                         vehicleRelSoql += subSoql;
                     }
-                    
+                    else if(cluster == 'VehicleRetailcopy'){
+                        VehRetCopySoql += subSoql;
+                    }
                     else if(cluster == 'AccountLink'){
                         AccountLinkSoql += subSoql;
                     }
@@ -682,7 +497,7 @@ public with sharing class RetailCampaignSegmentationController {
                         campaignMemSoql+= subSoql;
                     }
                 }
-                system.debug('campaignMemSoql==='+campaignMemSoql);
+          
                 if(cluster == 'account'){
                     accountSoql += (bracketCount > 0 ? ') ' : '');
                 }
@@ -705,6 +520,161 @@ public with sharing class RetailCampaignSegmentationController {
                     campaignMemSoql+= (bracketCount > 0 ? ') ' : '');
                 }
             }
+    }  
+   
+    public List<wrapperAccount> wrapperList{set;get;}
+        
+    // Create a new Map to verify whether the Account is already added in the Map
+    Map <id,Account> SelectedAccountMap = new Map <id,Account>();      
+    Map <id,Vehicle_Relationship__c> SelectedVrMap = new Map <id,Vehicle_Relationship__c>();      
+    Map <id,Retail_Task__c> SelectedRetailTaskMap = new Map <id,Retail_Task__c>();      
+     
+    // This method process accounts and formats List of wrapper Accounts to be used with checkbox 
+    public list<wrapperAccount> getloadwrapAccountList()
+    {
+        getSelectedRecords();
+        wrapperList = new  List<wrapperAccount>();
+        if(segmentationBase == 'Customer'){
+            for(Account a : (List<Account>)con.getRecords()){
+                wrapperAccount wrapAcc = new wrapperAccount();
+                wrapAcc.acc = a;                           
+                if(SelectedAccountMap.containsKey(a.id)){
+                    wrapAcc.isSelected = true;    
+                }
+                else{
+                    wrapAcc.isSelected = false;   
+                }
+                wrapperList.add(wrapAcc);   
+            }
+        }
+        else if(segmentationBase == 'Vehicle'){
+            for(Vehicle_Relationship__c a : (List<Vehicle_Relationship__c>)con.getRecords()){
+                wrapperAccount wrapAcc = new wrapperAccount();
+                wrapAcc.veh = a;
+                if(vehIdRecallRecMap.get(a.Vehicle_ID__c) != NULL)
+                wrapAcc.recall = vehIdRecallRecMap.get(a.Vehicle_ID__c);
+                if(vehIdAccLinkRecMap.get(a.Vehicle_ID__c) != NULL)
+                wrapAcc.accLink = vehIdAccLinkRecMap.get(a.Vehicle_ID__c);
+                if(SelectedVrMap.containsKey(a.id)){
+                    wrapAcc.isSelected = true;   
+                }
+                else{
+                    wrapAcc.isSelected = false;  
+                }
+                
+                wrapperList.add(wrapAcc);  
+                
+            }
+        }
+        else if(segmentationBase == 'Contract'){
+            for(Retail_Task__c a : (List<Retail_Task__c>)con.getRecords()){
+                wrapperAccount wrapAcc = new wrapperAccount();
+                wrapAcc.retail = a;                          
+                if(SelectedRetailTaskMap.containsKey(a.id)){
+                    wrapAcc.isSelected = true;   
+                }
+                else{
+                    wrapAcc.isSelected = false;   
+                }
+                
+                wrapperList.add(wrapAcc);   
+            }
+        }
+            system.debug('Called Wrapper method size---- '+wrapperList.size());
+            for(wrapperAccount wr:wrapperList){
+                system.debug('===='+wr.veh.id);
+                system.debug('====NextServiceDate__c'+wr.accLink.NextServiceDate__c);
+                system.debug('===='+wr.recall); 
+            }
+            
+        return wrapperList;
+    }
+        
+    //This methods holds the records which is checked and which is unchecked
+    public void getSelectedRecords(){
+        if(wrapperList != NULL){
+            for(wrapperAccount wr:wrapperList){
+                if(wr.isSelected == true){
+                    if(segmentationBase == 'Customer')
+                    SelectedAccountMap.put(wr.acc.id,wr.acc);
+                    else if(segmentationBase == 'Vehicle')
+                    SelectedVrMap.put(wr.veh.id,wr.veh);
+                    else if(segmentationBase == 'Contract')
+                    SelectedRetailTaskMap.put(wr.retail.id,wr.retail);
+                }
+                else{
+                    if(segmentationBase == 'Customer')
+                    SelectedAccountMap.remove(wr.acc.id);   
+                    else if(segmentationBase == 'Vehicle')
+                    SelectedVrMap.remove(wr.veh.id);  
+                    else if(segmentationBase == 'Contract')
+                    SelectedRetailTaskMap.remove(wr.retail.id);  
+                }
+            }
+        }
+    }
+  
+    // Wrapper class will be to used to have list of accounts with checkbox to Add to Campaign
+    public class wrapperAccount{
+        public Account acc {set;get;}
+        public Vehicle_Relationship__c veh {set;get;}
+        public Retail_Task__c retail {set;get;}
+        public Boolean isSelected {set;get;}
+        public Recall__c recall{set;get;}
+        public Account_Link__c accLink{set;get;}
+    }
+    
+    
+    //Add campaign members to Retail campiang
+    public PageReference addToCampaign(){
+    System.debug('retailCampaignId === '+retailCampaignId);
+        if(retailCampaignId == null) return null;
+        
+        //Calling this method to add the current page selected records
+        getSelectedRecords();
+        
+        List<Campaign_Member__c> retailCampaignMembers = new List<Campaign_Member__c>();
+        if(segmentationBase == 'Customer'){
+            if(SelectedAccountMap.size()>0){
+                for(Account curAcc : SelectedAccountMap.values()){
+                    Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                    member.Contact_Id__c= curAcc.id;   
+                    retailCampaignMembers.add(member);
+                }
+            }
+        }
+        else if(segmentationBase == 'Vehicle'){
+            if(SelectedVrMap.size()>0){
+                for(Vehicle_Relationship__c curVr : SelectedVrMap.values()){
+                    Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                    member.Contact_Id__c= curVr.Contact__c;
+                    member.Vehicle__c = curVr.Vehicle_ID__c;
+                    member.Vehicle_Relationship__c = curVr.Id;
+                    retailCampaignMembers.add(member);
+                }
+            }
+        }
+        else if(segmentationBase == 'Contract'){
+            if(SelectedRetailTaskMap.size() > 0){
+                for(Retail_Task__c curRec : SelectedRetailTaskMap.values()){
+                    Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                    member.Contact_Id__c= curRec.Account__c;
+                    member.Retail_Task__c = curRec.Id;
+                    retailCampaignMembers.add(member);
+                }    
+            }
+        }
+       
+        System.debug('retailCampaignMembersAfter'+retailCampaignMembers);
+        try {
+            if(retailCampaignMembers != NULL && !retailCampaignMembers.isEmpty())
+            insert retailCampaignMembers;
+        }
+        catch(Exception ex){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getMessage()));
+            return null;
+        }
+        return new PageReference('/' + retailCampaignId);
     }
     
     private String getOperation(String operation){
@@ -720,48 +690,39 @@ public with sharing class RetailCampaignSegmentationController {
             return '\'' + criteria + '\'';
         }
         else if(dateFields.contains(field)){
-                if(criteria == 'null'){
-                criteria = null;
-            }
-            else
+            if(criteria == 'null'){
+            criteria = null;
+        }
+        else if(criteria.contains(';')){
+           String[] arrCriteia = criteria.split(';');
+           System.debug('Before changing the criteria'+criteria );
+           if(vehicleFields.contains(field)){
+               criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND Vehicle_Id__r.'+field+'<'+(Date.parse(arrCriteia[1]) + ' ').left(10);
+           }
+           else{
+               criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND '+field+'<'+(Date.parse(arrCriteia[1]) + ' ').left(10);
+           }
+           System.debug('After changing the criteria'+criteria);
+        }
+        else
             criteria = (Date.parse(criteria) + ' ').left(10);
         }
-        else if(dateTimeFields.contains(field)){
-            Datetime criteriaTime = Datetime.newInstance(Date.parse(criteria), Time.newInstance(0,0,0,0));
-            criteriaTime = criteriaTime.addDays(-1);
-            criteria = (criteriaTime.date() + ' ').left(10) + 'T16:00:00Z';
-        }
-       
-        else if(CheckboxFields.contains(field)){
-           return criteria ;
-        } 
         return criteria;
     }
    
-  
-   
     private void setFieldType(){
-        numberFields = new Set<String>{'Buy_Cycle__c', 'Household_Amount__c',
-            'Vehicle_Amount__c', 'CurrentMileage__c', 'NextMileage__c'};
-        dateFields = new Set<String>{'PersonBirthdate', 'Last_Campaign_Date__c', 'LastServiceDate__c', 'End_Date__c',
-            'Latest_Contract_Date__c','NextServiceDate__c','FirstRegistrationDate__c', 'Purchase_Date__c', 'Registration_Date__c', 'Warranty_Start_Date__c','Expected_Close_Date__c','Expected_Registration_Date__c','NextServiceDate__c','NextInspectionDate__c'};
-        dateTimeFields = new Set<String>{'Last_Successful_Call__c'};
-        textFields = new Set<String>{'Recall_No__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'FileName__c', 'ID_Number__c', 'Primary_Address__c', 'ZipCode__c', 'PersonMobilePhone', 'PersonHomePhone', 'Phone',
-            'Retail_Campaign_Name__c',  'Registration_City__c', 'Selling_Dealer__c', 'File_Name__pc','Name','Portal_ID__c','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c'};
-        pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Age_Range__c', 'Gender__c', 'Hobby__c', 'ID_Type__c', 'Industry', 'Job__c', 'Marital_Status__c', 'Occupation__c',
-                                     'Type','Type__c', 'Retail_Interested_Vehicle_Brand__c', 'Retail_Interested_Vehicle_Class__c','Lead_Desired_Service__c', 'Lead_Source__c', 'Lead_Type__c', 'Life_Cycle__c','Price_Range__c', 'Retail_Purchase_Time__c', 'Lead_Additional_Service__c', 
-                                     'Purchase_Amount__c', 'Trade_In_Vehicle_Brand__c','Trade_In_Vehicle_Class__c', 'Brand__c', 'Range__c','Car_Relation__c', 'Class__c', 'Info_Source__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
-        multiplePickListFields = new Set<String>{'Hobby__c', 'Interest_Model__c','Lead_Desired_Service__c', 'Lead_Additional_Service__c','Retail_OptOutContact_Reason__c'};
-        vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','Brand__c','FirstRegistrationDate__c', 'Class__c', 'CurrentMileage__c', 'Info_Source__c', 'LastServiceDate__c',
-            'Latest_Contract_Date__c', 'NextMileage__c', 'NextServiceDate__c', 'Warranty_Start_Date__c','NextInspectionDate__c'};
-        vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Purchase_Date__c',
-            'Registration_City__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
-            CheckboxFields=new Set<string>{'Retail_Visit_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Postal_OptOut__c' };
-          AccountLinkFields =new Set<String>{'Sales_Representative__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c', 'Portal_ID__c' };  
-          recallFields = new Set<String>{'Recall_No__c','Status__c'};
-          CampaignFields =new Set<String>{'Name', 'Status'};
-          RetailTaskFields =new Set<String>{'Product_Name__c', 'Finance_Product_Name__c', 'Type__c', 'Duration__c',  'Duration__c', 'Status__c'};
-          AddressFields = new Set<String>{'ZipCode__c' , 'Province__c'};
+        numberFields = new Set<String>{'Vehicle_Amount__c', 'CurrentMileage__c'};
+        dateFields = new Set<String>{'PersonBirthdate', 'LastServiceDate__c', 'End_Date__c','LastServiceDate__c', 'NextServiceDate__c','FirstRegistrationDate__c', 'Registration_Date__c', 'Expected_Close_Date__c','Expected_Registration_Date__c','NextInspectionDate__c'};
+        textFields = new Set<String>{'Recall_No__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'ZipCode__c', 'Selling_Dealer__c','Name','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c'};
+        pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Finance_Product_Name__c','New_Used__c'};
+        multiplePickListFields = new Set<String>{'Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
+        vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','FirstRegistrationDate__c', 'Class__c'};
+        vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
+        AccountLinkFields =new Set<String>{'Sales_Representative__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c' };  
+        recallFields = new Set<String>{'Recall_No__c','Status__c'};
+        retialCampaignFields =new Set<String>{'Name'};
+        RetailTaskFields =new Set<String>{ 'Finance_Product_Name__c', 'Type__c', 'Duration__c', 'Status__c'};
+        AddressFields = new Set<String>{'ZipCode__c' , 'Province__c'};
     }
     
     
@@ -778,7 +739,7 @@ public with sharing class RetailCampaignSegmentationController {
     // returns the previous page of records
      public void previous() {
          con.previous();
-     }
+     } 
     
     //disable first and prev button
     public Boolean hasPrevious {

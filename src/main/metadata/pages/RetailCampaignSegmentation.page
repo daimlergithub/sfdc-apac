@@ -1,19 +1,18 @@
-<!--
+<!----------------------------------------------------
     lastmodifedby : lokesh 
     jira : SFDCJP 1023,JP-1052,JP-1050,JP-1076,JP-1054
     modified date : mar 23, 2017
--->
+----------------------------------------------------->
 
 <apex:page showHeader="true"  tabStyle="Retail_Campaigns__tab" controller="RetailCampaignSegmentationController" id="page">    
     <apex:includeScript value="{!$Resource.jquery142}"/>
-    <apex:stylesheet value="{!URLFOR($Resource.RetailCampaignSegmentation)}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.RetailCampaignSegmentation)}"/> 
     
     <script>
    
         var filterNames = '';
         var oldFieldValue = '';
-        var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; Last_Successful_Call__c; LastServiceDate__c; Latest_Contract_Date__c; '
-            + 'NextServiceDate__c; Purchase_Date__c; Registration_Date__c; Warranty_Start_Date__c;Expected_Registration_Date__c;Expected_Close_Date__c;FirstRegistrationDate__c;End_Date__c;NextServiceDate__c;NextInspectionDate__c;';
+        var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; Last_Successful_Call__c; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c; NextServiceDate__c; NextInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
@@ -34,7 +33,7 @@
             var newRow = $(filterItem).appendTo('#' + tableId);
 
             if(bracket){
-                var bracketRow = '<tr class="logicRow"><td></td><td></td><td></td><td></td><td class="logic">===' + logic
+                var bracketRow = '<tr class="logicRow"><td></td><td></td><td></td><td></td><td></td><td class="logic">===' + logic
                     + '===</td><td><input type="button" value="X" class="btn" style="width:20px;" ' 
                     + 'onclick="removeFilterItem(this.parentNode.parentNode)"/></td></tr>';
                 newRow.before(bracketRow);
@@ -78,90 +77,7 @@
             jQueryRow.remove();
         }
 
-        
-        // Loads a filter from server.
-        /*function loadFilter(filterName){
-            emptyFilter();
-            var allFilters = '{!contact.SegmentationFilters__c}';
-            if(!allFilters || $.trim(allFilters).length == 0){
-                alert('No filter');
-                return;
-            }
-            
-            $.each($.parseJSON(allFilters), function(){
-                if(this.name == filterName){
-                    if(this.content.Customer){
-                    setFilterItem($('#firstCustomerRow'), this.content.Customer[0]);
-                        this.content.Customer.shift();
-                        $.each(this.content.Customer, function(){
-                            addFilter('customerTable', this);
-                        });
-                    }
-                    if(this.content.Interest){
-                        setFilterItem($('#firstInterestRow'), this.content.Interest[0]);
-                        this.content.Interest.shift();
-                        $.each(this.content.Interest, function(){
-                            addFilter('interestTable', this);
-                        });
-                    }
-                    if(this.content.Vehicle){
-                        setFilterItem($('#firstVehicleRow'), this.content.Vehicle[0]);
-                        this.content.Vehicle.shift();
-                        $.each(this.content.Vehicle, function(){
-                            addFilter('vehicleTable', this);
-                        });
-                    }
-                    if(this.content.AccountLink){
-                                      
-                        setFilterItem($('#firstAccountLinkRow'), this.content.AccountLink[0]);
-                        this.content.AccountLink.shift();
-                        $.each(this.content.AccountLink, function(){
-                            addFilter('AccountRetailCopyTable', this);
-                        });
-                    }
-                    if(this.content.VehicleRelation){
-                        setFilterItem($('#firstVehicleRelationRow'), this.content.AccountLink[0]);
-                        this.content.VehicleRelation.shift();
-                        $.each(this.content.VehicleRelation, function(){
-                            addFilter('VehicleRelationTable', this);
-                        });
-                    }
-                    
-                     if(this.content.Campaign){
-                        setFilterItem($('#firstCampaignRow'), this.content.Campaign[0]);
-                        this.content.Campaign.shift();
-                        $.each(this.content.Campaign, function(){
-                            addFilter('CampaignTable', this);
-                        });
-                    }
-                    
-                     if(this.content.VehicleRetailcopy){
-                        setFilterItem($('#firstVehicleRetailcopyRow'), this.content.VehicleRetailcopy[0]);
-                        this.content.VehicleRetailcopy.shift();
-                        $.each(this.content.VehicleRetailcopy, function(){
-                            addFilter('VehicleRetailcopyTable', this);
-                        });
-                    }
-                    if(this.content.Address){
-                        setFilterItem($('#firstAddressRow'), this.content.Address[0]);
-                        this.content.Address.shift();
-                        $.each(this.content.Address, function(){
-                            addFilter('AddressTable', this);
-                        });
-                    }
-                    if(this.content.Contract){
-                        setFilterItem($('#firstContractrelatedRow'), this.content.Contract[0]);
-                        this.content.Contract.shift();
-                        $.each(this.content.Contract, function(){
-                            addFilter('ContractrelatedTable', this);
-                        });
-                    }
-                    
-                    return false;
-                }
-            });
-        }
-*/
+    
         // Sends the json filter to server.
         function sendFilterToServer(){
             var filter = getJsonFilter('filterName');
@@ -181,7 +97,89 @@
                     return false;
                 }
             });
-        
+            
+            //to display the extra date field for end date in Vehicle relation filter
+            jQueryFieldRow.find('.criteria2').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+            //to display the extra 'TO' lable for end date in Vehicle relation filter
+            jQueryFieldRow.find('.criteriaToVehicle').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+            //to display the extra date field for birthdate in customer filter
+            jQueryFieldRow.find('.criteriaBirthdate').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+            //to display the extra TO lable for birthdate in customer filter
+            jQueryFieldRow.find('.criteriaBirthdate1').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+           
+            //to display the extra date field for vehicle registration date in vehicle filter
+            jQueryFieldRow.find('.criteriaVehicle').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+            //to display the extra TO lable for vehicle registration date in vehicle filter
+            jQueryFieldRow.find('.criteriaToVehicle1').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+            //to display the extra date field for lead filter
+            jQueryFieldRow.find('.criteriaLead').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+            //to display the extra TO lable for for lead filter
+            jQueryFieldRow.find('.criteriaToLead').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+            //to display the extra date field for end date in VehRetCopy filter
+            jQueryFieldRow.find('.criteriaVehRetCopy').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+             //to display the extra TO lable for end date in VehRetCopy filter
+            jQueryFieldRow.find('.criteriaToVehRet').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            
+            
             // Show the criteria element
             var criteriaElement = jQueryFieldRow.find('.' + newFieldValue);
             if(dateInputClass.indexOf(newFieldValue + ';') != -1){
@@ -190,104 +188,18 @@
             if(criteriaElement.length == 0){
                 criteriaElement = jQueryFieldRow.find('.inputText');
             }
-            
+
             criteriaElement.val('');
             criteriaElement.css('display', 'block');
-            
-            jQueryFieldRow.find('.aaa').children().each(function(){
-                this.style.display = 'none';
-            });
-            if(newFieldValue == 'PersonBirthdate' || newFieldValue == 'Buy_Cycle__c' || newFieldValue == 'Household_Amount__c'
-               || newFieldValue == 'Last_Campaign_Date__c' || newFieldValue == 'Last_Successful_Call__c' || newFieldValue == 'Vehicle_Amount__c'
-               || newFieldValue == 'CurrentMileage__c' || newFieldValue == 'LastServiceDate__c' || newFieldValue == 'Latest_Contract_Date__c'
-               || newFieldValue == 'NextMileage__c'|| newFieldValue == 'NextServiceDate__c'|| newFieldValue == 'Purchase_Date__c'
-               || newFieldValue == 'Registration_Date__c'|| newFieldValue == 'Warranty_Start_Date__c'|| newFieldValue == 'Expected_Registration_Date__c'|| newFieldValue == 'Expected_Close_Date__c' 
-               || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Occupation__c' || newFieldValue == 'Special_Mark_on_Account__c' || newFieldValue == 'Interest_Model__c' || newFieldValue == 'Customer_Type__c' 
-               || newFieldValue == 'Sales_Representative__c' || newFieldValue == 'Retail_Visit_OptOut__c' || newFieldValue == 'Retail_Sales_Sanction__c' || newFieldValue == 'Retail_Postal_OptOut__c' || newFieldValue == 'Retail_Phone_OptOut__c'
-               || newFieldValue == 'Retail_Fax_OptOut__c' || newFieldValue == 'Retail_Email_OptOut__c' || newFieldValue == 'Retail_OptOutContact_Reason__c' || newFieldValue == 'Portal_ID__c'
-               || newFieldValue == 'Dealer_Lead_Status__c' || newFieldValue == 'Class__c' || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Service_Advisor__c' 
-               || newFieldValue == 'Service_Advisor__c'  || newFieldValue == 'Last_Service_Dealer__c' || newFieldValue == 'NextServiceDate__c' || newFieldValue == 'NextInspectionDate__c' || newFieldValue == 'CurrentMileage__c' 
-               || newFieldValue == 'CurrentMileage__c' || newFieldValue == 'Product_Name__c' || newFieldValue == 'Finance_Product_Name__c' || newFieldValue == 'Type__c' || newFieldValue == 'Duration__c'
-               || newFieldValue == 'Status__c' || newFieldValue == 'ZipCode__c' || newFieldValue == 'Province__c' || newFieldValue == 'Customer_Lifecycle_Phase__c' || newFieldValue == 'Name' || newFieldValue == 'Model_Description__c' || newFieldValue == 'Range__c') {
-                jQueryFieldRow.find('.aaa').children().each(function(){
-                    this.style.display = 'block';
-                });
-            }   
         }
 
-        /**
-         * The second level functions, serves for the first level functions -->
-          
-        function emptyFilter(){
-            
-             var resultCustomer = $('#firstCustomerRow')
-             var customerCriteriaElement = resultCustomer.find('.' + 'Status__c');
-             customerCriteriaElement.val('');
-             var resultinterest = $('#firstInterestRow')
-             var interestCriteriaElement = resultinterest.find('.' + 'Retail_Interested_Vehicle_Brand__c');
-             interestCriteriaElement.val('');
-             var resultVehicle = $('#firstVehicleRow')
-             var vehicleCriteriaElement = resultVehicle.find('.' + 'inputText');
-             vehicleCriteriaElement.val('');
-             var resultaccountlink = $('#firstAccountLinkRow')
-             var AccountlinkCriteriaElement = resultVehicle.find('.' + 'inputText');
-             AccountlinkCriteriaElement.val('');
-             
-            getTableRows('customerTable').each(function(){
-                if(this.className != 'tableHeader' && this.id != 'firstCustomerRow'){
-                    removeFilterItem(this);
-                }
-
-            });
-            getTableRows('interestTable').each(function(){
-                if(this.className != 'tableHeader' && this.id != 'firstInterestRow'){
-                    removeFilterItem(this);
-                }
-            });
-            getTableRows('vehicleTable').each(function(){
-                if(this.className != 'tableHeader' && this.id != 'firstVehicleRow'){
-                    removeFilterItem(this);
-                }
-            });
-            getTableRows('AccountRetailCopyTable').each(function(){
-                if(this.className != 'tableHeader' && this.id != 'firstAccountLinkRow'){
-                    removeFilterItem(this);
-                }
-            });
-             getTableRows('VehicleRelationTable').each(function(){
-                if(this.className != 'tableHeader' && this.id != 'firstVehicleRelationRow'){
-                    removeFilterItem(this);
-                }
-            });
-            getTableRows('CampaignTable').each(function(){
-                if(this.className != 'tableHeader' && this.id != 'firstCampaignRow'){
-                    removeFilterItem(this);
-                }
-            });
-            
-             getTableRows('VehicleRetailcopyTable').each(function(){
-                    if(this.className != 'tableHeader' && this.id != 'firstVehicleRetailcopyRow'){
-                        removeFilterItem(this);
-                    }
-                    });
-                     getTableRows('AddressTable').each(function(){
-                    if(this.className != 'tableHeader' && this.id != 'firstAddressRow'){
-                        removeFilterItem(this);
-                    }
-                    });
-                     getTableRows('ContractrelatedTable').each(function(){
-                    if(this.className != 'tableHeader' && this.id != 'firstContractrelatedRow'){
-                        removeFilterItem(this);
-                    }
-                    });
-        }
-*/
+       
         function addFilter(tableId, filterItem){
             var addedFilter = getFilterItem(tableId, filterItem);
             var newRow = $(addedFilter).appendTo('#' + tableId);
             
             if(filterItem.bracket){
-                var bracketRow = '<tr class="logicRow"><td></td><td></td><td></td><td></td><td></td><td class="logic">===' + filterItem.logic
+                var bracketRow = '<tr class="logicRow"><td></td><td></td><td></td><td></td><td></td><td></td><td class="logic">===' + filterItem.logic
                     + '===</td><td><input type="button" value="X" class="btn" onclick="removeFilter($(this).parent().parent())"/></td></tr>';
                 newRow.append(bracketRow);
             }
@@ -362,7 +274,7 @@
             }
             criteria.val(filterItem.criteria);
 
-            $(columns[4]).text(filterItem.logic);
+            $(columns[6]).text(filterItem.logic);
         }
 
         function getJsonFilter(name){
@@ -462,10 +374,8 @@
             return true;
         }
 
-
-        /**
-         * The third level functions, serves for the second level functions -->
-         */ 
+        // The third level functions, serves for the second level functions -->
+          
         function getSubJsonFilter(jQueryTableRows, filterItemName){
             if(jQueryTableRows.length == 2 && getFirstRowCriteriaValue(jQueryTableRows[1]) == ''){
                 return '';
@@ -483,7 +393,6 @@
                     result += '"logic":"' + bracketLogic + '","bracket":true},';
                     return true;
                 }
-                
                 var columns = this.children;
                 var fieldValue = columns[1].children[0].value;
                 var criteriaValue = getCriteriaValue(this, fieldValue);
@@ -491,8 +400,7 @@
                 //temp= temp.replaceAll(",",";");
                 temp = temp.split(',').join(';');
                 criteriaValue = temp;
-            
-                var logicText = $(columns[4]).text();
+                var logicText = $(columns[6]).text();
                 result += '{"field":"' + fieldValue + '",';
                 result += '"operation":"' + columns[2].children[0].value + '",';
                 result += '"criteria":"' + criteriaValue + '",';
@@ -549,19 +457,31 @@
 
         function getCriteriaValue(row, fieldValue){
             var criteriaNode = $(row).find('.' + fieldValue);
-            
+             var dateValuesFound = false;
+            var dateValue='';
             if(dateInputClass.indexOf(fieldValue + ';') != -1){
-               
-                criteriaNode = $(row).find('.dateInput')
+               dateValuesFound = true; 
+                criteriaNode = $(row).find('.dateInput');
+               // var criteria2 = $(row).find('.dateInput2');
+                var criteria2 = $(row).find('input[class^="dateInput2 dateInput"]');
+                dateValue = criteriaNode.val();
+                if(criteria2.val() != null && criteria2.val() != '')
+                    dateValue = dateValue +', '+criteria2.val();
             }
             if(criteriaNode.length == 0){
-               
                 criteriaNode = $(row).find('.inputText')
             }
-               
-                
-           
+            if(dateValuesFound)
+                return dateValue;     
             return criteriaNode.val();
+        }
+        function getcube(){  
+            var inputs = document.getElementsByClassName("dateInput2 dateInput");
+            for (var i = 0; i < inputs.length; i++) {
+                if(inputs[i].className == 'dateInput2 dateInput'){
+                   inputs[i].id = 'dynamicId'+i;
+                }
+            }
         }
     </script>
     
@@ -571,9 +491,8 @@
         <apex:pageBlock id="block">
             <div id="filterBody" style="margin:10px;">
               
-                
-                <div class="commonFilterItem">
-                    <span class="leftTitle">① {!$Label.Customer_Filter}</span>
+                <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+                    <span class="leftTitle">{!$Label.Customer_Filter}</span>
                     <table id="customerTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
@@ -615,12 +534,18 @@
                                 <apex:selectList styleClass="Customer_Lifecycle_Phase__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!Customerphase}"></apex:selectOptions>
                                 </apex:selectList>
-                                   <apex:selectList styleClass="Special_Mark_on_Account__c" size="1" multiselect="false">
+                                <apex:selectList styleClass="Special_Mark_on_Account__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!SpecialMarkonAccount}"></apex:selectOptions>
                                 </apex:selectList>
                                 <input class="dateInput" id="customerTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                </td>
+                               <td class="criteriaBirthdate1"><span id ="tologicAcc" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
+                            
+                            <td class="criteriaBirthdate" id="a1">
+                            <input style="display:none;" class="dateInput2 dateInput" id="s" size="12" type="text"
+                                    onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/>
+                             </td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -629,11 +554,12 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('customerTable', 'AND', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
+                    <hr style="margin-left:20px; width:650px;"/>
                 </div>
-                <hr style="margin-left:20px; width:650px;"/>
                 
-                 <div class="commonFilterItem">
-                    <span class="leftTitle">② {!$Label.Account_Retail_Copy_Filter}</span>
+                
+                 <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+                    <span class="leftTitle">{!$Label.Account_Retail_Copy_Filter}</span>
                     <table id="AccountRetailCopyTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
@@ -647,7 +573,7 @@
                             <td>{!$Label.AccountRetailCopy}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option> 
+                                    <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
                                     <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
                                     <option value="Retail_Sales_Sanction__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Sanction__c.Label}</option>
                                     <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
@@ -655,7 +581,6 @@
                                     <option value="Retail_Fax_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Fax_OptOut__c.Label}</option>
                                     <option value="Retail_Email_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Email_OptOut__c.Label}</option>
                                     <option value="Retail_OptOutContact_Reason__c">{!$ObjectType.Account_Link__c.Fields.Retail_OptOutContact_Reason__c.Label}</option>
-                                     <option value="Portal_ID__c">{!$ObjectType.Account_Link__c.Fields.Portal_ID__c.Label}</option>
                                 </select>
                             </td>
                             <td>
@@ -669,18 +594,19 @@
                             <td class="criteria">
                                
                                 <input class="inputText" type="text" style="display:block;"/>
-                                                        
+                               <!-- <apex:inputField value="{!AlkRec.Sales_Representative__c}" styleClass="Sales_Representative__c"/>-->                        
                                <!--<apex:inputField value="{!AlkRec.Retail_OptOutContact_Reason__c}" styleClass="Retail_OptOutContact_Reason__c"/> -->
                               <apex:selectList styleClass="Retail_Sales_Sanction__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailSalesSanction}"></apex:selectOptions>
                                 </apex:selectList>                                                              
                              
-                              <apex:inputField value="{!AlkRec.Portal_ID__c}" styleClass="Portal_ID__c" /> 
                               
                              <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="5" multiselect="true">
                                     <apex:selectOptions value="{!RetailOptOutContactReason}"></apex:selectOptions>
                                 </apex:selectList>
                             </td>
+                            <td></td>
+                            <td></td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -701,12 +627,11 @@
                             </tr>
                       </table>
                     </div>
+                 <hr style="margin-left:20px; width:650px;"/>
                 </div>
                 
-                <hr style="margin-left:20px; width:650px;"/>
-                
-                <div class="commonFilterItem">
-                    <span class="leftTitle">③ {!$Label.Lead_Filter}</span>
+                <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+                    <span class="leftTitle">{!$Label.Lead_Filter}</span>
                     <table id="interestTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
@@ -744,6 +669,12 @@
                                 <input class="dateInput" id="LeadTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                             </td>
+                            <td class="criteriaToLead"><span id="tologicLead" class="dateInput2 dateInput" style="display:none;"><center>TO</center></span></td>
+                           
+                            <td class="criteriaLead">
+                            <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput4" size="12" type="text" 
+                                    onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/> 
+                             </td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -752,11 +683,11 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('interestTable', 'AND', false);">{!$Label.And_Criteria}</a>
                        
                     </div>
+                <hr style="margin-left:20px; width:650px;"/> 
                 </div>
-                <hr style="margin-left:20px; width:650px;"/>
-                
-                <div class="commonFilterItem">
-                    <span class="leftTitle">④ {!$Label.Vehicle_Filter}</span>
+
+                <div class="commonFilterItem" style="display:{!if(segmentationBase='Vehicle',"block","none")};">
+                    <span class="leftTitle">{!$Label.Vehicle_Filter}</span>
                     <table id="vehicleTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
@@ -794,6 +725,11 @@
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                 
                             </td>
+                            <td class="criteriaToVehicle1"><span id="tologicVeh" class="dateInput2 dateInput" style="display:none;"><center>TO</center></span></td>
+                           <td class="criteriaVehicle"> 
+                            <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput5" size="12" type="text" 
+                                    onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/> 
+                           </td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -802,11 +738,11 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('vehicleTable', 'AND', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
+                    <hr style="margin-left:20px; width:650px;"/>
                 </div>
-                
-                  <hr style="margin-left:20px; width:650px;"/>
-           <div class="commonFilterItem">
-                    <span class="leftTitle">⑤ {!$Label.Vehicle_Relation_Filter}</span>
+           
+           <div class="commonFilterItem" style="display:{!if(segmentationBase='Vehicle',"block","none")};">
+                    <span class="leftTitle">{!$Label.Vehicle_Relation_Filter}</span>
                     <table id="VehicleRelationTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
@@ -841,6 +777,11 @@
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/> 
                             </td>
+                            <td class="criteriaToVehicle"><span id="tologicVehRel" class="dateInput2 dateInput" style="display:none;"><center>TO</center></span></td>
+                            <td class="criteria2">
+                            <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput2" size="12" type="text" 
+                                    onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/> 
+                            </td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -849,11 +790,11 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRelationTable', 'AND', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
+                <hr style="margin-left:20px; width:650px;"/>
                 </div>
                 
-                 <hr style="margin-left:20px; width:650px;"/>
-             <div class="commonFilterItem">
-                    <span class="leftTitle">⑥ {!$Label.Vehicle_Retail_copy_Filter}</span>
+             <div class="commonFilterItem" style="display:{!if(segmentationBase='Vehicle',"block","none")};">
+                    <span class="leftTitle">{!$Label.Vehicle_Retail_copy_Filter}</span>
                     <table id="VehicleRetailcopyTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
@@ -866,14 +807,14 @@
                         <tr id="firstVehicleRetailcopyRow">
                             <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
                             <td>
-                                <select onchange="showCriteria(this);"> 
-                                                                                                        
-                                    <option value="Service_Advisor__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Service_Advisor__c.Label}</option>
-                                    <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->                                  
-                                     <option value="NextServiceDate__c">{!$ObjectType.Vehicle__c.Fields.NextServiceDate__c.Label}</option>
-                                     <option value="NextInspectionDate__c">{!$ObjectType.Vehicle__c.Fields.NextInspectionDate__c.Label}</option>
-                                      <option value="CurrentMileage__c">{!$ObjectType.Vehicle__c.Fields.CurrentMileage__c.Label}</option> 
-                                  
+                                <select onchange="showCriteria(this);">                                                                     
+                                    <option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>
+                                    <option value="Service_Advisor__c">{!$ObjectType.Account_Link__c.Fields.Service_Advisor__c.Label}</option>
+                                    <option value="LastServiceDate__c">{!$ObjectType.Account_Link__c.Fields.LastServiceDate__c.Label}</option>                              
+                                    <option value="NextServiceDate__c">{!$ObjectType.Account_Link__c.Fields.NextServiceDate__c.Label}</option>
+                                    <option value="NextInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}</option>
+                                    <option value="CurrentMileage__c">{!$ObjectType.Account_Link__c.Fields.CurrentMileage__c.Label}</option> 
+                                    <option value="Service_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}</option> 
                                 </select>
                             </td>
                             <td>
@@ -886,12 +827,13 @@
                             </td>
                             <td class="criteria">
                                   <input class="inputText" type="text" style="display:block;"/>
-                                  
-                                  
-                                  <apex:inputField value="{!vehicle.CurrentMileage__c}" styleClass="CurrentMileage__c"/> 
                                  <input class="dateInput" id="VrTableDateInput12" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
-                                 
+                            </td>
+                            <td class="criteriaToVehRet"><span id="tologicVehRet" class="dateInput2 dateInput" style="display:none;"><center>TO</center></span></td>
+                            <td class="criteriaVehRetCopy">
+                            <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput8" size="12" type="text" 
+                                    onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/> 
                             </td>
                             <td class="logic"></td>
                             <td></td>
@@ -913,13 +855,10 @@
                             </tr>
                       </table>
                     </div>
+                    <hr style="margin-left:20px; width:650px;"/>
                 </div>
-              
-              
-              
-                  <hr style="margin-left:20px; width:650px;"/>
-             <div class="commonFilterItem">
-                    <span class="leftTitle">⑦ {!$Label.Campaigns_Filter}</span>
+             <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+                    <span class="leftTitle">{!$Label.Campaigns_Filter}</span>
                     <table id="CampaignTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
@@ -952,20 +891,19 @@
                                 <apex:inputField value="{!camMem.Status__c}" styleClass="Status__c"/>
                                 
                             </td>
+                            <td></td>
+                            <td></td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
                     </table>
                     <div class="criteriaLink">
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('CampaignTable', 'AND', false);">{!$Label.And_Criteria}</a>
-                        
                     </div>
+                    <hr style="margin-left:20px; width:650px;"/>
                 </div>
-              
-              
-               <hr style="margin-left:20px; width:650px;"/>
-             <div class="commonFilterItem">
-                    <span class="leftTitle">⑧ {!$Label.Contract_related}</span>
+             <div class="commonFilterItem" style="display:{!if(segmentationBase='Contract',"block","none")};">
+                    <span class="leftTitle">{!$Label.Contract_related}</span>
                     <table id="ContractrelatedTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
@@ -979,7 +917,6 @@
                             <td>{!$ObjectType.Retail_Task__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                   <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>                                                                     
                                     <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
                                      <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
@@ -996,26 +933,25 @@
                                 </select>
                             </td>
                             <td class="criteria">
-                                <input class="inputText" type="text"/>
-                                <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> 
-                                <apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c"/> 
+                                <input class="inputText" Type="text"/>
+                                <apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c" style="display:block;"/> 
                                 <apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>
                                 <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
                                 <Apex:inputField value="{!RatilTask.Status__c}" styleClass="Status__c"/> 
                             </td>
+                            <td></td>
+                            <td></td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
                     </table>
                     <div class="criteriaLink">
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('ContractrelatedTable', 'AND', false);">{!$Label.And_Criteria}</a>
-                        
                     </div>
+                    <hr style="margin-left:20px; width:650px;"/>
                 </div>
-              
-               <hr style="margin-left:20px; width:650px;"/>
-             <div class="commonFilterItem">
-                   <span class="leftTitle">⑨ {!$Label.Address_Filter}</span>  
+             <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+                   <span class="leftTitle">{!$Label.Address_Filter}</span>  
                     
                     <table id="AddressTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -1032,8 +968,6 @@
                                 <select onchange="showCriteria(this);"> 
                                    <option value="ZipCode__c">{!$ObjectType.Address__c.Fields.ZipCode__c.Label}</option>                                                                     
                                     <option value="Province__c">{!$ObjectType.Address__c.Fields.Province__c.Label}</option>                                  
-                                     
-                                  
                                 </select>
                             </td>
                             <td>
@@ -1049,8 +983,9 @@
                                 <apex:inputField value="{!address.ZipCode__c}" styleClass="ZipCode__c" style="display:block;"/> 
                                   <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/>  
                                   
-                                 
                             </td>
+                            <td></td>
+                            <td></td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -1060,31 +995,27 @@
                         
                     </div>
                 </div>
-              
             </div>
-             
-                
-            
             <hr/>
             
             <apex:outputPanel layout="block" id="searchingResult">
                 <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
-                <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapAccountList.size = 0 || wrapAccountList = null}" id="addToCampaign"/>
+                <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="addToCampaign"/>
                 <apex:actionStatus id="loadingStatus">
                     <apex:facet name="start">
                         <img src="/img/loading24.gif" style="vertical-align:middle;"/>
                     </apex:facet>      
                 </apex:actionStatus>
-                <apex:outputPanel rendered="{!wrapAccountList.size == 0}" id="noMatches">
+                <apex:outputPanel rendered="{!wrapperList.size == 0}" id="noMatches">
                  <apex:outputText style="color:red"><h1>   Records found : {!noOfRecords} &nbsp;&nbsp;  No Matches Found, Please try with other filters.</h1></apex:outputtext>
                 </apex:outputPanel>
-                <apex:outputPanel rendered="{!wrapAccountList!= null && wrapAccountList.size > 0}" id="buttons">
+                <apex:outputPanel rendered="{!wrapperList!= null && wrapperList.size > 0}" id="buttons">
                     <div style="margin:6px;">Records: {!IF(noOfRecords == null, 0, noOfRecords)}</div>
-                    <apex:commandbutton action="{!first}" value="<<" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
-                    <apex:commandbutton action="{!previous}" value="<" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
-                    <apex:commandbutton action="{!next}" value=">" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
-                    <apex:commandbutton action="{!last}" value=">>" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
+                    <apex:commandbutton action="{!first}" value="<<" reRender="accounts,buttons,vehicles" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!previous}" value="<" reRender="accounts,buttons,vehicles" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!next}" value=">" reRender="accounts,buttons,vehicles" disabled="{!!hasNext}" status="loading"/>
+                    <apex:commandbutton action="{!last}" value=">>" reRender="accounts,buttons,vehicles" disabled="{!!hasNext}" status="loading"/>
                     <apex:actionStatus id="loading">
                         <apex:facet name="start">
                             <img src="/img/loading24.gif" style="vertical-align:middle;"/>
@@ -1093,40 +1024,92 @@
                         <apex:outputText >{!(con.pageNumber * size)+1-size}-{!IF((con.pageNumber * size)>noOfRecords, noOfRecords,
                          (con.pageNumber * size))} of {!noOfRecords}
                         </apex:outputText>
-                    </apex:outputPanel>
+                    </apex:outputPanel> 
                         
                 <apex:outputPanel id="accounts">
                     <apex:pagemessages ></apex:pagemessages>
                     <div style="overflow:auto;">  
-                        <apex:pageBlockTable value="{!loadwrapAccountList}" var="wrapAcc" rendered="{!wrapAccountList!= null && wrapAccountList.size > 0}">
+                        <apex:pageBlockTable value="{!loadwrapAccountList}" var="wrapAcc" rendered="{!wrapperList!= null && wrapperList.size > 0}">
                             <apex:column headerValue="Select">
                                 <apex:facet name="header">
                                         <c:selectAllChkBox />
                                 </apex:facet>
                             <apex:inputCheckbox value="{!wrapAcc.isSelected}" />
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
+                            <!-----------------------------for customerBase starts----------------------------------->
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
                                 <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
                                 <apex:outputField value="{!wrapAcc.acc.PersonHomePhone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
                                 <apex:outputField value="{!wrapAcc.acc.PersonMobilePhone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
                                 <apex:outputField value="{!wrapAcc.acc.Phone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
                                 <apex:outputField value="{!wrapAcc.acc.PersonEmail}"/> 
                             </apex:column>
+                            <!-----------------------------customerBase ends----------------------------------->
+                            <!-----------------------------vehicleBase starts---------------------------------->
+                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.Contact__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                                <apex:outputField value="{!wrapAcc.veh.Contact__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Class__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                                <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Class__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                                <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Model_Description__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Recall__c.Fields.Status__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                                <apex:outputField value="{!wrapAcc.recall.Status__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}" rendered="{!segmentationBase='Vehicle' && parCampType='Sales Contact Target'}">
+                                <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.FirstRegistrationDate__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Service_Advisor__c.Label}" rendered="{!segmentationBase='Vehicle'&&parCampType='Aftersales Contact Target 1'}">
+                                <apex:outputField value="{!wrapAcc.accLink.Service_Advisor__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextServiceDate__c.Label}" rendered="{!segmentationBase='Vehicle'&&parCampType='Aftersales Contact Target 1'}">
+                                <apex:outputField value="{!wrapAcc.accLink.NextServiceDate__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'&&parCampType='Aftersales Contact Target 1'}">
+                                <apex:outputField value="{!wrapAcc.accLink.NextInspectionDate__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                                <apex:outputField value="{!wrapAcc.veh.New_Used__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}" rendered="{!segmentationBase='Vehicle'&&parCampType='Sales Contact Target'}">
+                                <apex:outputField value="{!wrapAcc.veh.End_Date__c}"/> 
+                            </apex:column>
+                            <!-----------------------------vehicleBase Ends---------------------------------->
+                            <!-----------------------------contractBase Starts---------------------------------->
                             
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Account__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Account__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Finance_Product_Name__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Type__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Duration__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Status__c}"/> 
+                            </apex:column>
+                            <!-----------------------------contractBase Ends---------------------------------->
                         </apex:pageBlockTable>
                     </div>
                 </apex:outputPanel>
+                
             </apex:outputPanel>
         </apex:pageBlock>
     </apex:form>
