@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>JP_MarketClaim_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>JP MarketClaim Readable to MBJ IT Dept</name>
+    </criteriaBasedRules>
+</CustomObjectSharingRules>
