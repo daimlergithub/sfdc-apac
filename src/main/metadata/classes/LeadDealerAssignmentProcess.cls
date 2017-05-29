@@ -37,7 +37,7 @@ public class LeadDealerAssignmentProcess{
        if(leadslist.RecordType.DeveloperName == 'Sales_Leads') {
       
         UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
-                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Company Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor')];
+                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Company Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor' OR Profile.Name ='Campaign Japan Dealer Company Manager')];
 				userid1 = leadslist.Retail_Contact__r.Retail_Sales_Consultant__c;
 			 /*try
         {
@@ -53,7 +53,7 @@ public class LeadDealerAssignmentProcess{
         }
         else if(leadslist.RecordType.DeveloperName == 'Aftersales_Leads'){
             UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
-                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Company Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor')];
+                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Company Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor' OR Profile.Name ='Campaign Japan Dealer Company Manager')];
             try{
 				Account_Link__c accLink1 = [select id, Name, Sales_Representative__c,Service_Advisor__c,Retail_Sales_Consultant__c,toRole__c,fromRole__c,RecordType.DeveloperName from Account_Link__c WHERE toRole__c =: leadslist.Contact__c AND Recordtype.DeveloperName = 'Vehicle_External_Link' LIMIT 1];
 				if(accLink1 != null && acclink1.Service_Advisor__c != null ){

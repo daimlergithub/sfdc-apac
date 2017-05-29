@@ -19,7 +19,7 @@
         <field>Lead__c$CreatedDate</field>
     </columns>
     <columns>
-        <field>Lead__c$Lead_Source__c</field>
+        <field>Lead__c$MBK_Lead_DataSource__c</field>
     </columns>
     <columns>
         <field>Lead__c$Contact__c.Mobile__c</field>
@@ -61,7 +61,7 @@
         <field>Lead__c$Next_Contact_Customer_Date__c</field>
     </columns>
     <columns>
-        <field>Lead__c$Lost_Situation__c</field>
+        <field>Lead__c$MBK_Lost_Situation__c</field>
     </columns>
     <columns>
         <field>Lead__c$Dealer_Lost_Reason__c</field>
@@ -92,6 +92,8 @@
     <reportType>Sales_Funnel_Report_Type__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <sortColumn>Lead__c$Purchased_Vehicle__c.Model__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
         <dateColumn>Lead__c$CreatedDate</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
