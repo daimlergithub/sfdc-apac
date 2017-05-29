@@ -186,6 +186,10 @@
                 <behavior>Edit</behavior>
                 <field>Vehicle_Need_Text__c</field>
             </layoutItems>
+            <!--<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Lead_Status__c</field>
+            </layoutItems>-->
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>CAC_Lost_Reason__c</field>

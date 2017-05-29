@@ -10248,11 +10248,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyM</fullName>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10265,6 +10261,10 @@
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14189,6 +14189,10 @@
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Published</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Started</fullName>
@@ -20934,7 +20938,7 @@ var qre = sforce.connection.query("Select id,Approve_the_List__c,Campaign__c Fro
 
 var qrerecords = qre.getArray("records"); 
 
-if(qrerecords.length>0){ 
+if(qrerecords.length&gt;0){ 
 window.open("/apex/ConsolidationDisplayList?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=500,height=500"); 
 
 }else if(qrerecords.length== 0) { 
