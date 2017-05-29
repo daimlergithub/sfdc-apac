@@ -161,6 +161,10 @@
                 <behavior>Edit</behavior>
                 <field>Appointment_DateTime__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AfterSales_Vehicle__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
