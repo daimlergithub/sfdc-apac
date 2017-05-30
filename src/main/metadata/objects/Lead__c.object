@@ -111415,32 +111415,45 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
 } 
 } 
 }</url>
-    </webLinks>
-    <webLinks>
+    </webLinks>    
+	<webLinks>
         <fullName>New_DM_Request</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New DM Request</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>"{!URLFOR($Site.Prefix)}OBJECT_DM_REQUEST_ID? 
-retURL=%2Fa12%2Fo
-&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}
-&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={! Lead__c.ContactId__c}
-&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c} 
-&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c }
-&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}
-&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}"</url>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if('{!Lead__c.RecordTypeId}' == '012280000006I7s') 
+{	
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}');
+} 
+else if ('{!Lead__c.RecordTypeId}' == '012280000006I7q') 
+{ 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}');
+} 
+
+} 
+) 
+}	
+else { 
+if('{!Lead__c.RecordTypeId}' == '012280000006I7s') 
+{	
+window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+else if ('{!Lead__c.RecordTypeId}' == '012280000006I7q') 
+{ 
+window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Sales_Lead</fullName>
