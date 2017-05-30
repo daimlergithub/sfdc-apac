@@ -27117,7 +27117,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Campaign_Member__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Car_Model__c</tab>
