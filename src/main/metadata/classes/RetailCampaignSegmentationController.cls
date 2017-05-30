@@ -1,4 +1,4 @@
-/******************************************************************
+﻿/******************************************************************
     Page Controller
     ---------------------------------------------------------------
     History:
@@ -91,14 +91,20 @@ public with sharing class RetailCampaignSegmentationController {
     public user u;
     public Map<Id,recall__C> vehIdRecallRecMap;
     public Map<Id,Account_Link__c> vehIdAccLinkRecMap;
+    string personAccntRecTypId;
+    String retailTaskLeaseRecType;
+    String retailTaskLoanRecType;
     
     //Segmentation_Base__c
     public String segmentationBase{set;get;}
     
     public RetailCampaignSegmentationController()
     {
-        size = 1000;
+        size = 100;
         retailCampaignId = ApexPages.currentPage().getParameters().get('id');
+        personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        retailTaskLeaseRecType = Schema.SobjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
+        retailTaskLoanRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Loan Contract').getRecordTypeId();
         curRetCamp = [SELECT Id,Name,Segmentation_Base__c,Parent_Campaign1__r.Campaign_Type__c FROM Retail_campaign__C WHERE ID =: retailCampaignId];
         segmentationBase = curRetCamp.Segmentation_Base__c;
         if(curRetCamp.Parent_Campaign1__c != NULL){
@@ -187,7 +193,8 @@ public with sharing class RetailCampaignSegmentationController {
         set;
     }
   
-    public PageReference searchAccount(){     
+    public PageReference searchAccount(){    
+       
         accList = new List<account>();
         accountIdSet = new Set<Id>();
         accountFilter = false;
@@ -223,7 +230,7 @@ public with sharing class RetailCampaignSegmentationController {
             */ //for recall object records
                 if(recallSoql.length()>recallLength){
                     System.debug('recallSoqlFinal>>>>'+recallSoql);
-                    List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 50000');
+                    List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 10000');
                     for(recall__c rc : recallList){
                         vehIdSet.add(rc.Vehicle_Id__c);
                         vehIdRecallRecMap.put(rc.Vehicle_Id__C,rc);
@@ -235,7 +242,7 @@ public with sharing class RetailCampaignSegmentationController {
                 if(VehRetCopySoql.length()>VehRetCopyLength){
                     VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
                     system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
-                    List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 50000');
+                    List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 10000');
                     for(Account_Link__c ac : vehRetialList){
                         vehIdSet.add(ac.Vehicle__c);
                         vehIdAccLinkRecMap.put(ac.vehicle__c,ac);
@@ -246,9 +253,9 @@ public with sharing class RetailCampaignSegmentationController {
                 if(vehicleRelSoql.length()>vehRelLength){
                     vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
                     system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
-                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' ORDER BY Contact__c ASC limit 50000');
+                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' ORDER BY Contact__c ASC limit 10000');
                     con = new ApexPages.StandardSetController(vehRelList);
-                    con.setPageSize(1000); 
+                    con.setPageSize(100); 
                     noOfRecords = con.getResultSize();
                     getloadwrapAccountList();
                 }
@@ -256,8 +263,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         else if(segmentationBase == 'Customer'){
             /************************************segmentationBase == customer Starts**********************************/
-            string personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-            string personAccntRetailRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
+            //string personAccntRetailRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
             string dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
             if(selectedValueSales == 'Company'){
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
@@ -269,8 +275,7 @@ public with sharing class RetailCampaignSegmentationController {
             }
             else {
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
-                + 'where (RecordTypeId =\'' + personAccntRecTypId + '\' or ' 
-                + 'RecordTypeId = \'' + personAccntRetailRecTypId + '\') and ';
+                + 'where RecordTypeId =\'' + personAccntRecTypId + '\' and ';
             } 
             leadSoql = 'Select Contact__c from Lead__c where ';
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
@@ -303,7 +308,7 @@ public with sharing class RetailCampaignSegmentationController {
             system.debug('@@@@@@leadSoql '+leadSoql);
             if(leadSoql.length()>leadLength){
                 //accountSoql += 'AND Id IN('+leadSoql+')';
-                 List<Lead__C> leadList = Database.query(leadSoql+ 'limit 50000');
+                 List<Lead__C> leadList = Database.query(leadSoql+ 'limit 10000');
                  for(Lead__C vr : leadList){
                      accountIdSet.add(vr.Contact__c);
                  }
@@ -314,7 +319,7 @@ public with sharing class RetailCampaignSegmentationController {
                 AccountLinkSoql = AccountLinkSoql.replace('Selling_Dealer__c', 'Selling_Dealer__c.Name');
                 //accountSoql += 'AND Id IN('+AccountLinkSoql+')';
                  AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
-                 List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 50000');
+                 List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
                  for(Account_Link__C vr : accLinkList){
                      accountIdSet.add(vr.toRole__c);
                  }
@@ -323,7 +328,7 @@ public with sharing class RetailCampaignSegmentationController {
             system.debug('@@@@@@AddressSoql '+AddressSoql);
            if(AddressSoql.length()>addressLength){
                //accountSoql += 'AND Id IN('+AddressSoql+')';
-                 List<Address__c> addList = Database.query(AddressSoql+ 'limit 50000');
+                 List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
                  for(Address__c vr : addList ){
                      accountIdSet.add(vr.Customer__c);
                  }
@@ -333,7 +338,7 @@ public with sharing class RetailCampaignSegmentationController {
              system.debug('@@@@@@campaignMemSoql'+campaignMemSoql);
             if(campaignMemSoql.length()>campLength){
                 //accountSoql += 'AND Id IN('+campaignMemSoql+')';
-                 List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 50000');
+                 List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
                    for(Campaign_Member__c vr : camMemList ){
                      accountIdSet.add(vr.Contact_Id__c);
                  }
@@ -361,30 +366,28 @@ public with sharing class RetailCampaignSegmentationController {
             }
             
             system.debug('@@@@@@@@' + accountSoql);
-            accList = Database.Query(accountSoql+' LIMIT 50000');
+            accList = Database.Query(accountSoql+' LIMIT 10000');
             con = new ApexPages.StandardSetController(accList);
-            con.setPageSize(1000); 
+            con.setPageSize(100); 
             noOfRecords = con.getResultSize();
             getloadwrapAccountList(); 
 /************************************segmentationBase == Vehicle Ends************************************/
         }
         else if(segmentationBase == 'Contract'){
 /************************************segmentationBase == Contract Starts************************************/
-            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c where '; 
+            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or ' + 'RecordTypeId = \'' + retailTaskLoanRecType + '\' or '+ 'RecordTypeId = \''+retailTaskInsRecType+'\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
             retailaskLength = RetailTaskSoql.length();
             List<Object> RetailTaskFilterItems = (List<Object>)contentMap.get('Contract');
             system.debug('Entered into RetailTaskFilterItems setSoql method'+RetailTaskFilterItems);
             setSubSoql(RetailTaskFilterItems, 'RetailTask');
             system.debug('@@@@@@AccountLinkSoql '+RetailTaskSoql);
-            if(!RetailTaskSoql.endsWith('where ')) {
-                if(RetailTaskSoql.length()>retailaskLength){
-                     List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 50000');
-                     con = new ApexPages.StandardSetController(retTaskList);
-                     con.setPageSize(1000); 
-                     noOfRecords = con.getResultSize();
-                     getloadwrapAccountList();
-                 }
-            }
+            if(RetailTaskSoql.length()>retailaskLength){
+                 List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000'); 
+                 con = new ApexPages.StandardSetController(retTaskList);
+                 con.setPageSize(100); 
+                 noOfRecords = con.getResultSize();
+                 getloadwrapAccountList();
+             }
 /************************************segmentationBase == Contract Ends************************************/
         }
         return null;
@@ -392,7 +395,7 @@ public with sharing class RetailCampaignSegmentationController {
     
     public void setSoqlVehicle(){
         string vehRetCopyRecType=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
-        vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Model_Description__c,New_Used__c,Vehicle_ID__r.NextServiceDate__c,Vehicle_ID__r.NextInspectionDate__c From Vehicle_Relationship__c where Car_Relation__c = \''+parCampType+'\' AND ';
+        vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';
         if(selectedValueService=='Outlet'){
             vehicleRelSoql += 'Last_Service_Dealer__c =\''+ u.Contact.Account.Name+'\' AND ';
         }
@@ -581,11 +584,6 @@ public with sharing class RetailCampaignSegmentationController {
             }
         }
             system.debug('Called Wrapper method size---- '+wrapperList.size());
-            for(wrapperAccount wr:wrapperList){
-                system.debug('===='+wr.veh.id);
-                system.debug('====NextServiceDate__c'+wr.accLink.NextServiceDate__c);
-                system.debug('===='+wr.recall); 
-            }
             
         return wrapperList;
     }

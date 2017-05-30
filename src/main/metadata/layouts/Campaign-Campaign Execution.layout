@@ -22,7 +22,7 @@
                 <field>ParentId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Execution_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
