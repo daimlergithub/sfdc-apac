@@ -111715,5 +111715,5 @@ url += &apos;{!Lead__c.Id}&amp;CurrentUser={!$User.Id}&amp;SurveyID=&apos;+Surve
 window.open(url, &quot;_blank&quot;, &quot;toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400&quot;); 
 
 }</url>
-    </webLinks>
+</webLinks>
 </CustomObject>
