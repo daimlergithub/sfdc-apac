@@ -375,7 +375,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         else if(segmentationBase == 'Contract'){
 /************************************segmentationBase == Contract Starts************************************/
-            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or ' + 'RecordTypeId = \'' + retailTaskLoanRecType + '\' or '+ 'RecordTypeId = \''+retailTaskInsRecType+'\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
+            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or ' + 'RecordTypeId = \'' + retailTaskLoanRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
             retailaskLength = RetailTaskSoql.length();
             List<Object> RetailTaskFilterItems = (List<Object>)contentMap.get('Contract');
             system.debug('Entered into RetailTaskFilterItems setSoql method'+RetailTaskFilterItems);
