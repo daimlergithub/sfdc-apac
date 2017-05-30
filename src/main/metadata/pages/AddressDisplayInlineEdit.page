@@ -202,8 +202,6 @@
                     
                 </apex:pageBlockTable>
                 
-                
-                
                 <apex:pageBlockTable id="acc_addressTH" value="{!adds}" var="row" style="width:900px;" rendered="{!IF(market == 'TH', true, false)}">                                                                    
                     
                     <apex:column width="8%">
@@ -239,19 +237,9 @@
                         </apex:outputText>
                     </apex:column>
                     
-                     <apex:column headerValue="Nationals">
-                        <apex:outputText value="{!row.Foreign_Nationals__c}"  style="width:8%; white-space:none;">                              
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}" >
+                        <apex:outputText value="{!row.Sub_District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
-                    </apex:column> 
-                    
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Language__c.Label}">
-                        <apex:outputText value="{!row.Language__c}"  style="width:8%; white-space:none;">                              
-                        </apex:outputText>
-                    </apex:column> 
-                    
-                    <apex:column headerValue="Province" >
-                        <apex:outputField value="{!row.Province__c}" style="width:10%; white-space:none;">
-                        </apex:outputField>
                     </apex:column>
                     
                      <apex:column headerValue="District" >
@@ -259,21 +247,11 @@
                         </apex:outputText>
                     </apex:column>
                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}" >
-                        <apex:outputText value="{!row.Sub_District__c}" style="width:10%; white-space:nowrap;">
-                        </apex:outputText>
-                    </apex:column>
-                    
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
-                        <apex:outputText value="{!row.ZipCode__c}"  style="width:8%; white-space:none;">                              
-                        </apex:outputText>
-                    </apex:column> 
-                    
-                    <apex:column headerValue="Country" >
-                        <apex:outputField value="{!row.Country__c}" style="width:10%; white-space:none;">
+                    <apex:column headerValue="Province" >
+                        <apex:outputField value="{!row.Province__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>
-                  
+                                     
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
                         <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
@@ -296,6 +274,8 @@
                     </apex:column>
                     
                 </apex:pageBlockTable>
+                
+                
                 
                 <!--buttons to add, save edit  and edit cancel-->
                 

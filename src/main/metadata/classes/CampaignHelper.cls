@@ -362,7 +362,7 @@ id recId;
                                    }
              system.debug('++++++'+sid);
 
-List<Campaign> CamList = [Select Id,Name,ParentId,Segmentation_Date__c,Campaign_Status__c,Execution_Start_Date__c From Campaign Where ParentId =: sid];
+List<Campaign> CamList = [Select Id,Name,ParentId,StartDate,Use_Segmentation_Criteria__c,Segmentation_Date__c,Campaign_Status__c,Execution_Start_Date__c From Campaign Where ParentId =: sid];
 system.debug('++++++'+CamList);
 For(Campaign came : campgn){
 For(Campaign camp : CamList ){
@@ -371,9 +371,10 @@ For(Campaign camp : CamList ){
                 Campaign camm = New Campaign();
                 camm.Name = camp.Name;
                 camm.ParentId = came.Id;
-                camm.Segmentation_Date__c = camp.Segmentation_Date__c;
-                camm.Execution_Start_Date__c = camp.Execution_Start_Date__c ;
+              camm.Segmentation_Date__c = came.StartDate+1;              
+               camm.Execution_Start_Date__c = came.StartDate+2 ; 
                 camm.Campaign_Status__c = camp.Campaign_Status__c;
+              
                
                 camm.RecordTypeId = camIdExec;
                                                                         
