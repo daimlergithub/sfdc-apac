@@ -9330,6 +9330,106 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Beauty &amp; Cosmetic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Biotechnology/Chemical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Apparel &amp; Accessories/Fashion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entertainment &amp; Recreation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consumer Products</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foods &amp; Beverage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Journalism &amp; News/Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Businesses</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Information Technology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oil &amp; Gas</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sports</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tourism</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation/Logistics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -16538,6 +16638,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
@@ -16578,6 +16682,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
@@ -16587,6 +16695,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16618,6 +16730,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz Academy</fullName>
                 <default>false</default>
             </values>
@@ -16646,11 +16762,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18758,7 +18882,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Apparel %26 Accessories%2FFashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beauty %26 Cosmetic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology%2FChemical</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18778,7 +18914,27 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Construction and installation industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Products</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18802,6 +18958,22 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment %26 Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ferrous metal mining industry</fullName>
                 <default>false</default>
             </values>
@@ -18811,6 +18983,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Food Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foods %26 Beverage</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18826,11 +19002,31 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Information Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalism %26 News%2FMedia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Businesses</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18843,6 +19039,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Nonferrous Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil %26 Gas</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18878,6 +19078,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Real Estate</fullName>
                 <default>false</default>
             </values>
@@ -18898,11 +19102,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ship building</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Special equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18914,6 +19126,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trade</fullName>
                 <default>false</default>
             </values>
@@ -18922,11 +19138,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Transportation%2FLogistics</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Urban public transport sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -57797,6 +58021,174 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 } 
 else { 
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Resubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+var pacId, didResub;
+try
+{
+pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didResub=sforce.apex.execute("et4ae5/jsButtonMethods","performResub", {subscriberKey:pacId,objectType:"contact"});
+}
+catch (e)
+{
+pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didResub=sforce.apex.execute("jsButtonMethods","performResub", {subscriberKey:pacId,objectType:"contact"});
+}
+if (didResub=="connection error")
+{
+alert("The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.");
+}
+else if (didResub=="not found")
+{
+alert("This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.");
+}
+else if (didResub=="other error")
+{
+alert("An unexpected error has been encountered. The Email Opt Out flag will not be updated.");
+}
+else if (didResub=="not integrated")
+{
+alert("You must be integrated with ExactTarget to update an ExactTarget subscriber.");
+}
+else if (didResub=="success")
+{
+alert("{!Account.Name} was resubscribed successfully.");
+} 
+var theUrl="/{!Account.Id}";
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Unsubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+var pacId, didUnsub;
+try
+{
+pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didUnsub=sforce.apex.execute("et4ae5/jsButtonMethods","performUnsub", {subscriberKey:pacId,objectType:"contact"});
+}
+catch (e)
+{
+pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didUnsub=sforce.apex.execute("jsButtonMethods","performUnsub", {subscriberKey:pacId,objectType:"contact"});
+}
+if (didUnsub=="connection error")
+{
+alert("The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.");
+}
+else if (didUnsub=="not found")
+{
+alert("This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.");
+}
+else if (didUnsub=="other error")
+{
+alert("An unexpected error has been encountered. The Email Opt Out flag will not be updated.");
+}
+else if (didUnsub=="not integrated")
+{
+alert("You must be integrated with ExactTarget to update an ExactTarget subscriber.");
+}
+else if (didUnsub=="success")
+{
+alert("{!Account.Name} was unsubscribed successfully.");
+} 
+var theUrl="/{!Account.Id}";
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send ExactTarget Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "https://"+urlPrefix+"/apex/singleSendETEmail?contactId="+pacId;
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "/apex/singleSendETEmail?contactId="+pacId;
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__View_ExactTarget_Analytics</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View ExactTarget Analytics</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "https://et4ae5."+urlPrefix+"/apex/SubscriberAnalytics?id="+pacId+"&amp;obj=contact";
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "/apex/SubscriberAnalytics?id="+pacId+"&amp;obj=contact";
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
 }</url>
     </webLinks>
 </CustomObject>
