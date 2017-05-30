@@ -1,4 +1,4 @@
-/******************************************************************
+﻿/******************************************************************
     Page Controller
     ---------------------------------------------------------------
     History:
@@ -100,7 +100,7 @@ public with sharing class RetailCampaignSegmentationController {
     
     public RetailCampaignSegmentationController()
     {
-        size = 200;
+        size = 100;
         retailCampaignId = ApexPages.currentPage().getParameters().get('id');
         personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         retailTaskLeaseRecType = Schema.SobjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
@@ -255,7 +255,7 @@ public with sharing class RetailCampaignSegmentationController {
                     system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
                     List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' ORDER BY Contact__c ASC limit 10000');
                     con = new ApexPages.StandardSetController(vehRelList);
-                    con.setPageSize(200); 
+                    con.setPageSize(100); 
                     noOfRecords = con.getResultSize();
                     getloadwrapAccountList();
                 }
@@ -368,14 +368,14 @@ public with sharing class RetailCampaignSegmentationController {
             system.debug('@@@@@@@@' + accountSoql);
             accList = Database.Query(accountSoql+' LIMIT 10000');
             con = new ApexPages.StandardSetController(accList);
-            con.setPageSize(500); 
+            con.setPageSize(100); 
             noOfRecords = con.getResultSize();
             getloadwrapAccountList(); 
 /************************************segmentationBase == Vehicle Ends************************************/
         }
         else if(segmentationBase == 'Contract'){
 /************************************segmentationBase == Contract Starts************************************/
-            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or ' + 'RecordTypeId = \'' + retailTaskLoanRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
+            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or ' + 'RecordTypeId = \'' + retailTaskLoanRecType + '\' or '+ 'RecordTypeId = \''+retailTaskInsRecType+'\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
             retailaskLength = RetailTaskSoql.length();
             List<Object> RetailTaskFilterItems = (List<Object>)contentMap.get('Contract');
             system.debug('Entered into RetailTaskFilterItems setSoql method'+RetailTaskFilterItems);
@@ -384,7 +384,7 @@ public with sharing class RetailCampaignSegmentationController {
             if(RetailTaskSoql.length()>retailaskLength){
                  List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000'); 
                  con = new ApexPages.StandardSetController(retTaskList);
-                 con.setPageSize(500); 
+                 con.setPageSize(100); 
                  noOfRecords = con.getResultSize();
                  getloadwrapAccountList();
              }

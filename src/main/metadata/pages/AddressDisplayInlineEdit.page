@@ -251,6 +251,11 @@
                         <apex:outputField value="{!row.Province__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>
+                    
+                    <apex:column headerValue="Postal Code" >
+                        <apex:outputField value="{!row.ZipCode__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
                                      
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
                         <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
