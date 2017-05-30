@@ -20887,7 +20887,7 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
     </validationRules>
     <validationRules>
         <fullName>Use_Segmentation_Criteria</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(Use_Segmentation_Criteria__c = false,MD__c = 'JP',$Profile.Name != 'IntegrationAPI', ISBLANK(Segmentation_Date__c),RecordType.DeveloperName = 'Campaign_Executiono'  )</errorConditionFormula>
         <errorDisplayField>Segmentation_Date__c</errorDisplayField>
         <errorMessage>Segmentation Date is Required</errorMessage>
