@@ -111521,7 +111521,6 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-
 var RTs = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Task' and developerName ='General_Task'"); 
 var rt = RTs.getArray("records"); 
 window.location.href  = '{!URLFOR($Site.Prefix)}/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id;</url>
