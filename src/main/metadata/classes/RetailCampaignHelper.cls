@@ -459,7 +459,8 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
     Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
 
      Set<Id> retailId = New Set<Id>();       
-    Set<id> sid = New Set<id>();    
+    Set<id> sid = New Set<id>(); 
+    Set<id> OwnerSid = New Set<id>();   
         
         for(Retail_Campaign__c retcam : retCamp){
             
@@ -467,6 +468,8 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                 
                     sid.add(retcam.Parent_Campaign__c);
                     retailId.add(retcam.Id);
+                    OwnerSid.add(retcam.Ownerid);
+                    
             }
             
             
@@ -479,17 +482,24 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
       
       List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,Consolidated_List_Completed__c,(Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c    From  Campaign_Members1__r ) From Campaign Where Id =: sid ];
       
-      List<Retail_Campaign__c> retList = [Select id From Retail_Campaign__c Where Id =: retailId];
+      List<Retail_Campaign__c> retList = [Select id,OwnerId From Retail_Campaign__c Where Id =: retailId];
+      
+      List<User> UseList = [Select id,Accountid From User Where id =: OwnerSid];
+      
+      system.debug('++++++++++++++'+UseList );
             
             For(Campaign caMem : caMemList ){
             
             if(caMem.Set_List_Maintenance_Flag__c == false || caMem.Consolidated_List_Completed__c == true ){
                 
               For(Retail_Campaign__c retail : retList){
+              
+                For(User u : UseList){
+              if(u.id == retail.ownerid){
               For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
                  
-                 if(camo.Status__c !='Removed'){ 
-                 
+                 if(camo.Status__c !='Removed'&& u.Accountid == camo.Preferred_Dealer__c){ 
+                 system.debug('++++++++++++++'+u.Accountid );
                  Campaign_Member__c newCamRetail = new Campaign_Member__c();
                 // newCamRetail.Name = camo.Name;
                  newCamRetail.Retail_Campaign_Id__c = retail.Id;
@@ -500,7 +510,8 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                   
                }   
               }
-
+                              }
+                              }
             }
                                                   
                 
@@ -927,7 +938,7 @@ id recId;
                                    }
              system.debug('++++++'+sid);
 
-List<Retail_Campaign__c> CamList = [Select Id,Name,Parent_Campaign1__c,Segmentation_Date__c,Child_Campaign_Status__c ,Execution_Start_Date__c From Retail_Campaign__c Where Parent_Campaign1__c=: sid];
+List<Retail_Campaign__c> CamList = [Select Id,Name,Parent_Campaign1__c,Start_Date__c,Segmentation_Date__c,Child_Campaign_Status__c ,Execution_Start_Date__c From Retail_Campaign__c Where Parent_Campaign1__c=: sid];
 system.debug('++++++'+CamList);
 For(Retail_Campaign__c came : campgn){
 For(Retail_Campaign__c camp : CamList ){
@@ -936,8 +947,8 @@ For(Retail_Campaign__c camp : CamList ){
                 Retail_Campaign__c camm = New Retail_Campaign__c();
                 camm.Name = camp.Name;
                 camm.Parent_Campaign1__c= came.Id;
-                camm.Segmentation_Date__c = camp.Segmentation_Date__c ;
-                camm.Execution_Start_Date__c  = camp.Execution_Start_Date__c ;
+                camm.Segmentation_Date__c = came.Start_Date__c + 1 ;
+                camm.Execution_Start_Date__c  = came.Start_Date__c + 2 ;
                 camm.Child_Campaign_Status__c   = camp.Child_Campaign_Status__c;
                 camm.RecordTypeId = camIdExec;
                                                                         
