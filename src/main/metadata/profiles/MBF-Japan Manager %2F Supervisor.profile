@@ -27164,12 +27164,12 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Vehicle__c.Vehicle_Product</recordType>
+        <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>
+	    <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
+        <recordType>Vehicle__c.Vehicle_Product</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
