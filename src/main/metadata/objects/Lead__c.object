@@ -111520,11 +111520,7 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=
         <masterLabel>New Task</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-
-var RTs = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Task' and developerName ='General_Task'"); 
-var rt = RTs.getArray("records"); 
-window.location.href  = '{!URLFOR($Site.Prefix)}/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id</url>
+        <url>window.location.href = '{!URLFOR($Site.Prefix)}/setup/ui/recordtypeselect.jsp?ent=Task&retURL=%{!Lead__c.Id}&save_new_url=%2F00T%2Fe%3Fwho_id%{!Lead__c.ContactId__c}%26what_id%{!Lead__c.Id}%26retURL%3D%252F{!Lead__c.Id}'</url>
     </webLinks>
     <webLinks>
         <fullName>Print_PDF</fullName>
