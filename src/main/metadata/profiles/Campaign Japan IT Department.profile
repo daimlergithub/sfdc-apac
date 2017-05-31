@@ -7982,7 +7982,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign_Lead__c.Participate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8027,7 +8027,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign_Lead__c.Retail_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
