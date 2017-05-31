@@ -20833,19 +20833,19 @@
         <recordType>Contact.MBAuP_Contacts</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-Active Toolbox</layout>
+        <layout>ContentVersion-General</layout>
         <recordType>ContentVersion.RecordType</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-Advertising Kit</layout>
+        <layout>ContentVersion-General</layout>
         <recordType>ContentVersion.RecordType1</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-Aftermarket class</layout>
+        <layout>ContentVersion-General</layout>
         <recordType>ContentVersion.RecordType3</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-Category marketing</layout>
+        <layout>ContentVersion-General</layout>
         <recordType>ContentVersion.RecordType2</recordType>
     </layoutAssignments>
     <layoutAssignments>
