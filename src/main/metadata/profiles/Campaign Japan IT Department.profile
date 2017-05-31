@@ -7994,7 +7994,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Lead__c.R_SuccessfulCall__c</field>
-        <readable>true</readable>
+        <readable>true</readable> 
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
