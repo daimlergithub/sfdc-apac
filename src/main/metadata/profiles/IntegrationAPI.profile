@@ -7930,6 +7930,11 @@
         <editable>true</editable>
         <field>Campaign_Lead__c.Is_Active__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Lead__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
