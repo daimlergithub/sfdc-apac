@@ -18886,14 +18886,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beauty %26 Cosmetic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Biotechnology%2FChemical</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business Services</fullName>
                 <default>false</default>
             </values>
@@ -18966,10 +18958,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Entertainment %26 Recreation</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Ferrous metal mining industry</fullName>
                 <default>false</default>
             </values>
@@ -18979,10 +18967,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foods %26 Beverage</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19014,10 +18998,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Journalism %26 News%2FMedia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal Businesses</fullName>
                 <default>false</default>
             </values>
@@ -19035,10 +19015,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil %26 Gas</fullName>
                 <default>false</default>
             </values>
             <values>
