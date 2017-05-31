@@ -7121,6 +7121,11 @@
         <field>Campaign.CloneCampaign__c</field>
         <readable>false</readable>
     </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.MainParentCampaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Closed_Date__c</field>
@@ -19282,9 +19287,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Account__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25739,7 +25744,7 @@
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Recall__c</object>
@@ -27307,6 +27312,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EnableNotifications</name>
+    </userPermissions>	
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ExportReport</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

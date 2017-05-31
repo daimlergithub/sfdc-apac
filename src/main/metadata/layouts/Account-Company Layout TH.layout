@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>New_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
     <customButtons>New_Case</customButtons>
-    <customButtons>Create_Retail_Copy_kr</customButtons>
     <customButtons>Create_Vehicle</customButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
@@ -887,7 +885,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0k000000RGPV</masterLabel>
+        <masterLabel>00h28000006X7WX</masterLabel>
         <sizeX>1</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

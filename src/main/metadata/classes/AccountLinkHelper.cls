@@ -128,7 +128,7 @@ public class AccountLinkHelper
       
       
     public static void afterInsertEvent(List<Account_Link__c> list_AccountLink){
-		 if(leadUtil.SharingReuleissue == true){
+		// if(leadUtil.SharingReuleissue == true){ // commented as part of SFDCJP-2542
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> SharingVrsFromAlk = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountIdAndListToAccountId = new Map<Id, List<Id>>();
@@ -318,8 +318,8 @@ public class AccountLinkHelper
         if(CompanyPersonVehicleLinkALK.size() > 0){
             SharePersonCompanyVehicleALK(CompanyPersonVehicleLinkALK,set_ToAccountId);
         }
-		}
-		LeadUtil.SharingReuleissue = false;
+		//}
+		//LeadUtil.SharingReuleissue = false;
     }
     
     public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -1359,12 +1359,12 @@ public class AccountLinkHelper
         }
         if(map_AccountIdAndListAccountLinkId.size() > 0){
             //createSharingRecord(map_AccountIdAndListAccountLinkId);
-            List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+            List<Account> dealerAccList = [select Name, Dealer_ND_Code__c from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
             Set<String> dealerAccNameSet = new Set<String>();
             Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
             for(Account dealerRec : dealerAccList) {
-                dealerAccNameSet.add(dealerRec.Name);
-                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+                dealerAccNameSet.add(dealerRec.Dealer_ND_Code__c);
+                accNameToAccIdMap.put(dealerRec.Dealer_ND_Code__c, dealerRec.Id);
             }
         
             List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
@@ -1399,12 +1399,12 @@ public class AccountLinkHelper
         }
         if(map_AccountIdAndListAccountLinkId.size() > 0){
             //createSharingRecord(map_AccountIdAndListAccountLinkId);
-            List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+            List<Account> dealerAccList = [select Name,Dealer_ND_Code__c from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
             Set<String> dealerAccNameSet = new Set<String>();
             Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
             for(Account dealerRec : dealerAccList) {
-                dealerAccNameSet.add(dealerRec.Name);
-                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+                dealerAccNameSet.add(dealerRec.Dealer_ND_Code__c);
+                accNameToAccIdMap.put(dealerRec.Dealer_ND_Code__c, dealerRec.Id);
             }
             
             List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();

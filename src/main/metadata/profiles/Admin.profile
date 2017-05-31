@@ -7116,6 +7116,11 @@
         <field>Campaign.Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.MainParentCampaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.CloneCampaign__c</field>
@@ -24633,7 +24638,7 @@
         <layout>Account_Link__c-Contact2Contact</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact2Contact</layout>
+        <layout>Account_Link__c-Contact2Contact JP</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>

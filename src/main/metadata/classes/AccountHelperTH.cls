@@ -770,23 +770,23 @@ It would be replaced by Informatica/Middleware  */
      //Created By:Mohammed Touseef Ahmed
     //Date:26th Mar 2017 
     //This method removes the '0' from the area code if it contains while saving from standard pagelayout.
-    public static void eliminateZerofrmPhone(List<Account> Accts)
+     public static void eliminateZerofrmPhone(List<Account> Accts)
     {
         Profile p = [select name from Profile where id =:UserInfo.getProfileId()];
         String ProfileName = p.name;        
         if(ProfileName !='IntegrationAPI'){       
             for (Account a :  Accts) { 
-            if(a.mobile__c.length()==13 && a.mobile__c.substring(3,4)=='0')
+            if(!(String.IsBlank(a.mobile__c)) && a.mobile__c.length()==13 && a.mobile__c.substring(3,4)=='0')
             {            
                 a.mobile__c=a.mobile__c.substring(0,3)+a.mobile__c.substring(4,13);
             }
             
-            if(a.Individual_Home_Phone__c .length()==12 && a.Individual_Home_Phone__c .substring(3,4)=='0')
+            if(!(String.IsBlank(a.Individual_Home_Phone__c)) && a.Individual_Home_Phone__c.length()==12 && a.Individual_Home_Phone__c.substring(3,4)=='0')
             {            
-                a.Individual_Home_Phone__c =a.Individual_Home_Phone__c .substring(0,3)+a.Individual_Home_Phone__c .substring(4,12);
+                a.Individual_Home_Phone__c =a.Individual_Home_Phone__c .substring(0,3)+a.Individual_Home_Phone__c.substring(4,12);
             }
             
-            if(a.Work_Phone__c.length()==12 && a.Work_Phone__c.substring(3,4)=='0')
+            if(!(String.IsBlank(a.Work_Phone__c)) && a.Work_Phone__c.length()==12 && a.Work_Phone__c.substring(3,4)=='0')
             {            
                 a.Work_Phone__c=a.Work_Phone__c.substring(0,3)+a.Work_Phone__c.substring(4,12);
             }
@@ -794,5 +794,5 @@ It would be replaced by Informatica/Middleware  */
             }
             
             }
-    }  
+    } 
 }

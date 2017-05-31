@@ -208,10 +208,6 @@
                 <behavior>Edit</behavior>
                 <field>Case__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Appointment_DateTime__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -909,15 +905,13 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-	    <fields>NAME</fields>
+        <fields>NAME</fields>
         <fields>Campaign__c</fields>
         <fields>Central_Campaign_Name__c</fields>
         <fields>Participate__c</fields>
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>NewEvent</excludeButtons>
-        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -928,11 +922,6 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>LogCall</excludeButtons>
-        <excludeButtons>MailMerge</excludeButtons>
-        <excludeButtons>RequestUpdate</excludeButtons>
-        <excludeButtons>SendEmail</excludeButtons>
-        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
