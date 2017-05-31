@@ -168,17 +168,15 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                         camp.Child_Campaign_Status__c = 'Execution';
                         campLst.add(camp);
                     }
-                } 
-				 else if (camp.Execution_Type__c == 'eMail' || camp.Execution_Type__c == 'DM'){
-					 
-					if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)) { 
-                        for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)) {
-
-						campaignMemberRec.Status__c = 'Executed';
+                }
+				else if (camp.Execution_Type__c == 'eMail' || camp.Execution_Type__c == 'DM'){
+					if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)){
+						for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)){
+							campaignMemberRec.Status__c = 'Executed';
                             campMemberLst.add(campaignMemberRec);
-					 
-						} 
-				 }
+						}
+					}
+				}
             }
             
             if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)) {
