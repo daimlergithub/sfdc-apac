@@ -2271,7 +2271,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISCHANGED( Lead_Latest_Phase__c ), MD__c = 'JP', ISPICKVAL(Lead_Latest_Phase__c, 'Order Confirmed'),  RecordType.Name = 'Sales Leads')</formula>
+        <formula>AND(ISCHANGED( Lead_Latest_Phase__c ), MD__c = 'JP', OR(ISPICKVAL(Lead_Latest_Phase__c, 'Order Confirmed'),ISPICKVAL(Lead_Latest_Phase__c, 'Confirmation')),  RecordType.Name = 'Sales Leads')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
