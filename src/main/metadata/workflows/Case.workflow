@@ -1710,6 +1710,11 @@
             <operation>equals</operation>
             <value>True</value>
         </criteriaItems>
+		 <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Thailand System Admin</value>
+        </criteriaItems>
         <description>When RO change handling level to Dealer, send a email to Dealer. for Thailand users</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1814,7 +1819,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3) OR (1 AND 2 AND 4 AND 5)</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -1834,6 +1839,11 @@
             <field>Case.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Thailand System Admin</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>

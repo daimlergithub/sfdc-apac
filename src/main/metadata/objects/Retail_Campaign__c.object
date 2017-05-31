@@ -740,6 +740,22 @@
                 <fullName>Sales -&gt; Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales and After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -7274,11 +7290,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales and After Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9932,11 +9956,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales and After Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

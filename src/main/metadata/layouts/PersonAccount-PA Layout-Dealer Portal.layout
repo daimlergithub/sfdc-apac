@@ -38,7 +38,7 @@
                 <field>LastName_Native_1__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>UCID__c</field>
             </layoutItems>
             <layoutItems>

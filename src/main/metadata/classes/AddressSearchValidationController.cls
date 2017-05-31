@@ -1184,6 +1184,11 @@ If the user is Saving  same address which matches the fields returned by toleran
         { 
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
         }
+        else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
+        { 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName is mandatory'));
+        }
+        
         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
@@ -1775,6 +1780,7 @@ If the user is Saving  same address which matches the fields returned by toleran
 //Date: 03/02/2017    
     public boolean SaveAccountDetailsTh()
     {
+             
          try
             {                    
                     if(recordType == 'Company')               
@@ -1785,71 +1791,118 @@ If the user is Saving  same address which matches the fields returned by toleran
                     objAccount.RecordTypeId = recordTypeId; 
                      
                     
-                      if
+                      /*AK20170523 if
                       (
                           (String.isBlank(hmAreaCode)) &&
                           (String.isBlank(hmCountryCode)) && 
                           (String.isBlank(homePhoneAreaCodePart2)) &&
                           (String.isBlank(homePhoneAreaCodePart3))
-                      )
+                      ) AK20170523*/
+                      
+                      if
+                      (
+                          (String.isBlank(hmAreaCode)) &&
+                          (String.isBlank(hmCountryCode))
+                      ) 
                       
                       {              
                                objAccount.Individual_Home_Phone__c='';
                       }
-                      else if(hmAreaCode!='' && hmCountryCode!='' && homePhoneAreaCodePart2!='' &&  homePhoneAreaCodePart3!='')
+                      //AK20170523 else if(hmAreaCode!='' && hmCountryCode!='' && homePhoneAreaCodePart2!='' &&  homePhoneAreaCodePart3!='')
+                      else if(hmAreaCode!='' && hmCountryCode!='')
                       {     
                         if(hmAreaCode.startsWith('0'))
                             hmAreaCode=hmAreaCode.removeStart('0');
-                               objAccount.Individual_Home_Phone__c=hmCountryCode+'-'+hmAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;             
+                               //AK20170523 objAccount.Individual_Home_Phone__c=hmCountryCode+'-'+hmAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                                objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode;
                       }        
                       else
                       {             
                              objAccount.Individual_Home_Phone__c='';
                       }               
                       
-                    if
+                    /*AK20170523 if
                       (
                           (String.isBlank(wkAreaCode)) &&
                           (String.isBlank(wkCountryCode)) && 
                           (String.isBlank(workPhoneAreaCodePart2)) &&
                           (String.isBlank(workPhoneAreaCodePart3))
+                      ) AK20170523*/
+                      if
+                      (
+                          (String.isBlank(wkAreaCode)) &&
+                          (String.isBlank(wkCountryCode))
                       )
                       
                       {              
                                objAccount.Work_Phone__c='';
                       }
-                      else if(wkCountryCode!='' && wkAreaCode!='' && workPhoneAreaCodePart2!='' &&  workPhoneAreaCodePart3!='')
+                      //AK20170523 else if(wkCountryCode!='' && wkAreaCode!='' && workPhoneAreaCodePart2!='' &&  workPhoneAreaCodePart3!='')
+                      else if(wkCountryCode!='' && wkAreaCode!='')
                       {     
                         if(wkAreaCode.startsWith('0'))
                             wkAreaCode=wkAreaCode.removeStart('0');
-                               objAccount.Work_Phone__c=wkCountryCode+'-'+wkAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;            
+                              //AK20170523 objAccount.Work_Phone__c=wkCountryCode+'-'+wkAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                                objAccount.Work_Phone__c=wkCountryCode+wkAreaCode;                            
                       }        
                       else
                       {             
                              objAccount.Work_Phone__c='';
                       } 
                     
-                    if
+                    /*AK20170523 if
                       (
                           (String.isBlank(mbAreaCode)) &&
                           (String.isBlank(mbCountryCode)) && 
                           (String.isBlank(mobileAreaCodePart2)) &&
                           (String.isBlank(mobileAreaCodePart3))
+                      ) AK20170523*/
+                      if
+                      (
+                          (String.isBlank(mbAreaCode)) &&
+                          (String.isBlank(mbCountryCode))
                       )
                       
                       {              
                                objAccount.Mobile__c='';
                       }
-                      else if(mbCountryCode!='' && mbAreaCode!='' && mobileAreaCodePart2!='' &&  mobileAreaCodePart3!='')
+                      //AK20170523 else if(mbCountryCode!='' && mbAreaCode!='' && mobileAreaCodePart2!='' &&  mobileAreaCodePart3!='')
+                      else if(mbCountryCode!='' && mbAreaCode!='')
                       {     
                         if(mbAreaCode.startsWith('0'))
                             mbAreaCode=mbAreaCode.removeStart('0');
-                               objAccount.Mobile__c=mbCountryCode+'-'+mbAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;              
+                               //AK20170523 objAccount.Mobile__c=mbCountryCode+'-'+mbAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                                objAccount.Mobile__c=mbCountryCode+mbAreaCode;
                       }        
                       else
                       {             
                              objAccount.Mobile__c='';
                       } 
+         /* Added for CR
+         if((hmCountryCode.length()<3 || hmCountryCode.length()>4) && 
+               (objPersonAccount.Email2__c!= null) && 
+               (wkAreaCode.length()<8 || wkAreaCode.length()>10) &&
+               (mbAreaCode.length()<8 || mbAreaCode.length()>10))
+            {
+            
+             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.if_country_code_is_blank));   
+            }   
+           if((wkCountryCode.length()<3 || wkCountryCode.length()>4) && 
+              (objPersonAccount.Email2__c!= null) && 
+              (hmAreaCode.length()<8 || hmAreaCode.length()>10) &&
+               (mbAreaCode.length()<8 || mbAreaCode.length()>10))
+            {
+            
+             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.if_country_code_is_blank));   
+            } 
+            if((mbCountryCode.length()<3 || mbCountryCode.length()>4) &&  
+               (objPersonAccount.Email2__c!= null) && 
+               (hmAreaCode.length()<8 || hmAreaCode.length()>10) && 
+               (wkAreaCode.length()<8 || wkAreaCode.length()>10))
+            {
+            
+             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.if_country_code_is_blank));   
+            } Added for CR */     
                     
                     if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
@@ -1859,7 +1912,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         refreshPage = true;
                         insert objAccount ;
                         return true;
-                    } 
+                    }                   
                               
             }           
             catch(DMLException e)
@@ -1870,7 +1923,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 return false;
             }
             return false;
-    }    
+    }     
     
       
     //check if For Thailand market Address Type is Selected then all other fields on address are mandatory.
