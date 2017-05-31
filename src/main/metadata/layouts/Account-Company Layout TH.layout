@@ -4,10 +4,8 @@
     <customButtons>Merge</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
     <customButtons>New_Case</customButtons>
-    <customButtons>Create_Retail_Copy_kr</customButtons>
     <customButtons>Create_Vehicle</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
