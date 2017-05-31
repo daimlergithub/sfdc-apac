@@ -377,7 +377,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         else if(segmentationBase == 'Contract'){
 /************************************segmentationBase == Contract Starts************************************/
-            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
+            RetailTaskSoql = 'Select Account__c,Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
             retailaskLength = RetailTaskSoql.length();
             List<Object> RetailTaskFilterItems = (List<Object>)contentMap.get('Contract');
             system.debug('Entered into RetailTaskFilterItems setSoql method'+RetailTaskFilterItems);
@@ -714,14 +714,14 @@ public with sharing class RetailCampaignSegmentationController {
         numberFields = new Set<String>{'Vehicle_Amount__c', 'CurrentMileage__c'};
         dateFields = new Set<String>{'PersonBirthdate', 'LastServiceDate__c', 'End_Date__c','LastServiceDate__c', 'NextServiceDate__c','FirstRegistrationDate__c', 'Registration_Date__c', 'Expected_Close_Date__c','Expected_Registration_Date__c','NextInspectionDate__c'};
         textFields = new Set<String>{'Recall_No__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'ZipCode__c', 'Selling_Dealer__c','Name','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c'};
-        pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Finance_Product_Name__c','New_Used__c'};
+        pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','New_Used__c'};
         multiplePickListFields = new Set<String>{'Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
         vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','FirstRegistrationDate__c', 'Class__c'};
         vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
         AccountLinkFields =new Set<String>{'Sales_Representative__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c' };  
         recallFields = new Set<String>{'Recall_No__c','Status__c'};
         retialCampaignFields =new Set<String>{'Name'};
-        RetailTaskFields =new Set<String>{ 'Finance_Product_Name__c', 'Type__c', 'Duration__c', 'Status__c'};
+        RetailTaskFields =new Set<String>{ 'Product_Name__c', 'Type__c', 'Duration__c', 'Status__c'};
         AddressFields = new Set<String>{'ZipCode__c' , 'Province__c'};
     }
     
