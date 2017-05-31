@@ -6,7 +6,7 @@
     Create By: Sriram kalluri
 */
 public with sharing class  DMRequestHelperJP {
-    
+    public static User Usr = [SELECT Id, Market__c,Profile.Name FROM User WHERE Id = : UserInfo.getUserId()];
       
       /**             
         * @Description: Update Address fields of DMRequest on Address type pickilist of DM request on Update of DM Request
@@ -26,7 +26,10 @@ public with sharing class  DMRequestHelperJP {
         string nullValue ='';
         String province;
         Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-        UtilAddressTranslation.gettranslatedvalues('JP');
+        if(!test.isrunningtest() && Usr.Profile.Name != 'IntegrationAPI')
+        {
+			UtilAddressTranslation.gettranslatedvalues(Usr.Market__c);
+		}
                  //get the accountIds 
                 for(DM_Request__c lstDMR:triggerNew){
                     CustomerId.add(lstDMR.Customer_Name__c);
@@ -447,8 +450,6 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
     {
             set<id> CustomerId = new set<id>(); 
             list<DM_Request__c> DMList =new  list<DM_Request__c>();
-            User Usr = new User();
-            Usr = [SELECT Market__C,Id FROM User WHERE Id = : UserInfo.getUserId()];
             Map<Id,DM_Request__c> mapDMRequest=new Map<Id,DM_Request__c>();
             //get the accountIds 
             if(triggerNew!=null)

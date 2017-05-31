@@ -270,12 +270,7 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
             LanguageSelected=editadds.Language__c;
-             if(LanguageSelected=='' || LanguageSelected==null)
-            {
-               RegionMasterInfo__c region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
-               if(region.Language__c!='' || region.Language__c!=null)
-
-                   LanguageSelected=region.Language__c;
+            LanguageSelected=region.Language__c;
             if(market=='TH')
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
