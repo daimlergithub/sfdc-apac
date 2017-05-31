@@ -94,6 +94,7 @@ public with sharing class RetailCampaignSegmentationController {
     string personAccntRecTypId;
     String retailTaskLeaseRecType;
     String retailTaskLoanRecType;
+    String retailTaskInsRecType;
     
     //Segmentation_Base__c
     public String segmentationBase{set;get;}
@@ -105,6 +106,7 @@ public with sharing class RetailCampaignSegmentationController {
         personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         retailTaskLeaseRecType = Schema.SobjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
         retailTaskLoanRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Loan Contract').getRecordTypeId();
+        retailTaskInsRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Insurance Contract').getRecordTypeId();
         curRetCamp = [SELECT Id,Name,Segmentation_Base__c,Parent_Campaign1__r.Campaign_Type__c FROM Retail_campaign__C WHERE ID =: retailCampaignId];
         segmentationBase = curRetCamp.Segmentation_Base__c;
         if(curRetCamp.Parent_Campaign1__c != NULL){
@@ -240,7 +242,7 @@ public with sharing class RetailCampaignSegmentationController {
                 
                 //for vehicleRetailCopy records
                 if(VehRetCopySoql.length()>VehRetCopyLength){
-                    VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
+                    VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Service_Advisor__c', 'Service_Advisor__r.Name');
                     system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
                     List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 10000');
                     for(Account_Link__c ac : vehRetialList){
@@ -375,7 +377,7 @@ public with sharing class RetailCampaignSegmentationController {
         }
         else if(segmentationBase == 'Contract'){
 /************************************segmentationBase == Contract Starts************************************/
-            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or ' + 'RecordTypeId = \'' + retailTaskLoanRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
+            RetailTaskSoql = 'Select Account__c,Finance_Product_Name__c,Type__c,Duration__c,Status__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND '; 
             retailaskLength = RetailTaskSoql.length();
             List<Object> RetailTaskFilterItems = (List<Object>)contentMap.get('Contract');
             system.debug('Entered into RetailTaskFilterItems setSoql method'+RetailTaskFilterItems);
