@@ -9,7 +9,8 @@
     <apex:stylesheet value="{!URLFOR($Resource.RetailCampaignSegmentation)}"/> 
     
     <script>
-   
+
+
         var filterNames = '';
         var oldFieldValue = '';
         var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; Last_Successful_Call__c; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c; NextServiceDate__c; NextInspectionDate__c;';
@@ -917,7 +918,7 @@
                             <td>{!$ObjectType.Retail_Task__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
+                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
                                      <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
                                       <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option> 
@@ -934,7 +935,7 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" Type="text"/>
-                                <apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c" style="display:block;"/> 
+                                <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> 
                                 <apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>
                                 <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
                                 <Apex:inputField value="{!RatilTask.Status__c}" styleClass="Status__c"/> 
@@ -1037,7 +1038,7 @@
                             <apex:inputCheckbox value="{!wrapAcc.isSelected}" />
                             </apex:column>
                             <!-----------------------------for customerBase starts----------------------------------->
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}"  rendered="{!IF(segmentationBase='Customer',true,false)}">
                                 <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
@@ -1088,13 +1089,13 @@
                                 <apex:outputField value="{!wrapAcc.veh.End_Date__c}"/> 
                             </apex:column>
                             <!-----------------------------vehicleBase Ends---------------------------------->
-                            <!-----------------------------contractBase Starts---------------------------------->
+                            <!-----------------------------contractBase Starts-------------------------------->
                             
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Account__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Account__c}"/>
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
-                                <apex:outputField value="{!wrapAcc.retail.Finance_Product_Name__c}"/> 
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Product_Name__c}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Type__c}"/> 
@@ -1106,11 +1107,11 @@
                                 <apex:outputField value="{!wrapAcc.retail.Status__c}"/> 
                             </apex:column>
                             <!-----------------------------contractBase Ends---------------------------------->
-                        </apex:pageBlockTable>
+                     </apex:pageBlockTable>
                     </div>
                 </apex:outputPanel>
-                
             </apex:outputPanel>
         </apex:pageBlock>
     </apex:form>
+   
 </apex:page>
