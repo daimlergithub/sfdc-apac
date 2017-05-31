@@ -7102,9 +7102,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign.CloneCampaign__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
+    </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.MainParentCampaign__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -7962,7 +7967,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign_Lead__c.Participate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8007,7 +8012,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign_Lead__c.Retail_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>

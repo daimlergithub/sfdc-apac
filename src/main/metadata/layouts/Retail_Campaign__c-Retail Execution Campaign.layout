@@ -109,7 +109,7 @@
         <customButtons>New_Retail_Campaign_Member</customButtons>
         <customButtons>Upload_Retail_Campaign_Member</customButtons>
         <customButtons>RetailRefresh</customButtons>
-        <customButtons>ExportCampaign</customButtons>
+        <customButtons>RetailCampaignExport</customButtons>
         <customButtons>Upload_Campaign_Member_Response</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_Task</customButtons>

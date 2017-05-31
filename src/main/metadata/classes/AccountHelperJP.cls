@@ -92,18 +92,19 @@ public class AccountHelperJP
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
-				if(Acc.Fax != Null && Acc.Fax != '')
+                if(Acc.Fax != Null && Acc.Fax != '')
                 {                    
-					Acc.Fax_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Fax_Last_Modified_By__c = UserInfo.getName();
                     Acc.Fax_Last_Modified_Date__c = System.now();
                 }
                 
                 if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
                 {     
-					Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();				
+                    Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();              
                     Acc.Fax2_Last_Modified_Date__c = System.now();
                 }
-				if(Acc.Primary_Phone__c != Null && Acc.Primary_Phone__c != '')
+                
+                if(Acc.Primary_Phone__c != Null && Acc.Primary_Phone__c != '')
                 {                    
                     Acc.Primary_Phone_Last_Modified_Date__c = System.now();
                 }
@@ -127,7 +128,7 @@ public class AccountHelperJP
                 {                    
                     Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
                 }
-				if(Acc.PersonDoNotCall == true)
+                if(Acc.PersonDoNotCall == true)
                 {                    
                     Acc.PersonDoNotCall_Last_Modified_Date__c = System.now();
                 }
@@ -161,8 +162,11 @@ public class AccountHelperJP
                 {                    
                     Acc.Data_Source_Last_Modified_Date__c = System.now();
                 }
+               
             }
         }
+        
+        
     }
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are updated.
 **  Created By: Sudhir 
@@ -229,15 +233,15 @@ public class AccountHelperJP
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
                 
-                if(Acc.Fax != Null && Acc.Fax != '')
+                if(Acc.Fax != OldAcc.Fax  )
                 {                    
-					Acc.Fax_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Fax_Last_Modified_By__c = UserInfo.getName();
                     Acc.Fax_Last_Modified_Date__c = System.now();
                 }
                 
-                if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
+                if(Acc.Fax2__c != OldAcc.Fax2__c   )
                 {     
-					Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();				
+                    Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();              
                     Acc.Fax2_Last_Modified_Date__c = System.now();
                 }
                 
@@ -300,6 +304,7 @@ public class AccountHelperJP
                 {                    
                     Acc.Data_Source_Last_Modified_Date__c = System.now();
                 }
+                
             }
             
         }
@@ -318,16 +323,16 @@ public class AccountHelperJP
             string nullValue ='';
             set<id> addressid = new set<id>();                  
             String province;
-			String market;
+            String market;
 
             //User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
 
-        	market = usr.Market__c;
+            market = usr.Market__c;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-			if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
+            if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
             {
-				UtilAddressTranslation.gettranslatedvalues(market);
-			}
+                UtilAddressTranslation.gettranslatedvalues(market);
+            }
             For(Account a:listNewAccounts)
             {      
                 if((a.MD__c == 'JP'|| a.MD__c == 'KR') && (a.Primary_Address_Reference__c != oldMap.get(a.id).Primary_Address_Reference__c))
@@ -467,7 +472,7 @@ public class AccountHelperJP
         try
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class updatePrimaryContactInformationBeforeUpdate method '+'listNewAccounts= ' + listNewAccounts.size());
-			 //Below condition is added as part of SFDCJP-2279
+             //Below condition is added as part of SFDCJP-2279
             /* Added By Venky @5/10/2017.
                 If the value in ""Allow Data Sharing(Allow_Data_Sharing2__c"" is changed from ""Yes"" to ""No"" in Person Account record type, the value which is stored in below field should be deleted.
                 
@@ -481,13 +486,13 @@ public class AccountHelperJP
                {
                      for(Account a:listNewAccounts)
                        {
-					   
-					    //Changes as part of SFDCJP-2404
+                       
+                        //Changes as part of SFDCJP-2404
                        if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && a.Allow_Data_Sharing2__c=='Yes'  && a.Acquisition_Record_Date__c ==null )
                        { 
                        a.Acquisition_Record_Date__c =System.today(); 
                        }
-					   
+                       
                            if((a.MD__c == 'JP') &&(accPerson_RecordTypeId ==a.RecordTypeId)  && (a.Allow_Data_Sharing2__c!= oldMap.get(a.id).Allow_Data_Sharing2__c && a.Allow_Data_Sharing2__c=='No'))
                            {
                            a.Acquisition_Objective_Method__c='';
@@ -845,9 +850,9 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                         acclnk.Retail_Foundation_Month__c = String.valueof(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());         
                     }
                 }
-				else{
-					acclnk.Retail_Foundation_Month__c = '';
-				}
+                else{
+                    acclnk.Retail_Foundation_Month__c = '';
+                }
                 acclnk.Retail_Industry__c = acclnk.toRole__r.Industry; 
                 acclnk.Retail_Website__c = acclnk.toRole__r.website;
             }
@@ -892,7 +897,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
         
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
-			}
+            }
     }//End of Method
     //*created by :Suryavarma
     // sharing account to dealer user
@@ -1014,7 +1019,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
            // user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
-			if(usr.Profile.Name != 'IntegrationAPI'){
+            if(usr.Profile.Name != 'IntegrationAPI'){
            Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
            ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
             for(Account acc : listAccounts){
@@ -1050,7 +1055,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                                 
                 }
             }
-			}
+            }
         }
         catch(Exception e){
             System.debug('Error'+e.getMessage());

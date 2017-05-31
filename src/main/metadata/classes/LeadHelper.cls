@@ -41,7 +41,11 @@ public class LeadHelper
        }
        system.debug('dealerIdGateKeeperIds>>>' + dealerIdGateKeeperIds);
        for(Lead__c lead : leadsForUpdate) 
-       {   
+       {
+			if(lead.RecordTypeId == salesRecordTypeId && (lead.Sales_Consultant__c != null && lead.Sales_Consultant__c != oldValLead.get(lead.id).Sales_Consultant__c))
+			{
+				lead.Service_Advisor__c = lead.Sales_Consultant__c;
+			}
             if(lead.Assigned_Dealer__c != null && (isInsert || (isUpdate && lead.Assigned_Dealer__c != oldValLead.get(lead.id).Assigned_Dealer__c)))
             {
                 if(!dealerIdGateKeeperIds.isEmpty() && dealerIdGateKeeperIds != null)

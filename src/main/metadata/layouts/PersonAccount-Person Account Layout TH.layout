@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Create_Vehicle</customButtons>
-    <customButtons>Create_Retail_Copy_kr</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>New_Case</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <customButtons>Create_Retail_Copy</customButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
