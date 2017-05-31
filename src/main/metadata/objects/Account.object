@@ -9339,7 +9339,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Apparel %26 Accessories%2FFashion</fullName>
+                <fullName>Apparel &amp; Accessories/Fashion</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
