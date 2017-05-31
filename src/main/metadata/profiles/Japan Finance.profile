@@ -24618,7 +24618,7 @@
         <layout>Account_Link__c-Contact2Contact</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact2Contact</layout>
+        <layout>Account_Link__c-Contact2Contact JP</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25550,9 +25550,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Claim__c</object>

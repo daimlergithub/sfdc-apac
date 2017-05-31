@@ -1271,8 +1271,8 @@ Purchased_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like &quot;Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
-        <formula>AND(or($Profile.Name = &apos;Thailand Dealer Delegate Admin&apos;,$Profile.Name = &apos;Thailand System Admin&apos;),MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c=&apos;TH&apos;)</formula>
+        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
+        <formula>AND(or($Profile.Name = 'Thailand Dealer Delegate Admin',$Profile.Name = 'Thailand System Admin'),MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1293,8 +1293,8 @@ Purchased_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like &quot;Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
-        <formula>AND(or($Profile.Name = &apos;Thailand Dealer Delegate Admin&apos;,$Profile.Name = &apos;Thailand System Admin&apos;),MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c=&apos;TH&apos;)</formula>
+        <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
+        <formula>AND(or($Profile.Name = 'Thailand Dealer Delegate Admin',$Profile.Name = 'Thailand System Admin'),MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1366,7 +1366,7 @@ Purchased_Date_Time__c
         </actions>
         <active>true</active>
         <description>If it is created by wholesale and not assigned to dealer, if untouched for 1 hour. Email to be sent to CCC Manager</description>
-        <formula>AND(MD__c  = &apos;TH&apos;, OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;), Assigned_Dealer__c =&apos;&apos;,OR(CreatedBy.Profile.Name =&apos;Thailand Call Center&apos;,CreatedBy.Profile.Name=&apos;Thailand CRM&apos;,CreatedBy.Profile.Name =&apos;Thailand System Admin&apos;))</formula>
+        <formula>AND(MD__c  = 'TH', OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'), Assigned_Dealer__c ='',OR(CreatedBy.Profile.Name ='Thailand Call Center',CreatedBy.Profile.Name='Thailand CRM',CreatedBy.Profile.Name ='Thailand System Admin'))</formula>
         <triggerType>onCreateOnly</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -1755,7 +1755,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>MBTH_Update_Order_Placed_Date_Time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
@@ -2271,7 +2271,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISCHANGED( Lead_Latest_Phase__c ), MD__c = 'JP', ISPICKVAL(Lead_Latest_Phase__c, 'Order Confirmed'),  RecordType.Name = 'Sales Leads')</formula>
+        <formula>AND(ISCHANGED( Lead_Latest_Phase__c ), MD__c = 'JP', OR(ISPICKVAL(Lead_Latest_Phase__c, 'Order Confirmed'),ISPICKVAL(Lead_Latest_Phase__c, 'Confirmation')),  RecordType.Name = 'Sales Leads')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -2461,7 +2461,7 @@ Function: update assigned date, recieved data and accepted date to now, and stat
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Update Visited Showroom%28Only Non BDC%29 Date Time </fullName>
+        <fullName>Update Visited Showroom%28Only Non BDC%29 Date Time</fullName>
         <actions>
             <name>Update_Proxy_Date_Time_to_Visited_Showro</name>
             <type>FieldUpdate</type>

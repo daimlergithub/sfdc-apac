@@ -4,7 +4,6 @@
     <customButtons>Convert_Lead</customButtons>
     <customButtons>New_Task</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
-    <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>

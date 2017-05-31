@@ -24613,7 +24613,7 @@
         <layout>Account_Link__c-Contact2Contact</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact2Contact</layout>
+        <layout>Account_Link__c-Contact2Contact JP</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
