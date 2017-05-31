@@ -906,6 +906,16 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Campaign_Member__C.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='ExportCampaign']/url/text()</xpath>
+		<token tokenonly="true">CAMPAIGN_MEMBER_REPORT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__C.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='RetailCampaignExport']/url/text()</xpath>
+		<token tokenonly="true">RETAIL_CAMPAIGN_MEMBER_REPORT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__C.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_RECORDTYPE_CAC_CAMPAIGN_ID</token>
 	</changetext>
