@@ -2115,6 +2115,27 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
     </fields>
+	    <fields>
+        <fullName>MainParentCampaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Main Parent Campaign</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Planning &amp; Design Campaign</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Campaigns (Campaign)</relationshipLabel>
+        <relationshipName>Campaigns2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
         <description>Max Car Age of the campaign</description>

@@ -7121,6 +7121,11 @@
         <field>Campaign.CloneCampaign__c</field>
         <readable>false</readable>
     </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.MainParentCampaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Closed_Date__c</field>
