@@ -5,7 +5,7 @@
     Used By:    RetailCampaignSegmentationController
     7-Jul-2014 Sinow    Created
 */
-@isTest 
+@isTest
 public Without Sharing class RetailCampaignSegmentationControllerTest 
 {
 //Private Static List<String> filterOptions ;
@@ -73,16 +73,13 @@ Private Static  List<SelectOption> getItems;
                 Customerphase = extension.Customerphase;
                 RetailOptOutContactReason = extension.RetailOptOutContactReason;
                 status = extension.status;
-                //RetailCampaignSegmentationController.saveFilter(filterString);
+             
                 extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
-               // extension.attendedCampaign = 'testCampaign';
+              
                 extension.searchAccount();
                 extension.addToCampaign();
-                //extension.getCountries();
-                extension.first();
-                 extension.last();
-                 extension.previous();
-                 extension.next();
+               
+                 
                  extension.hasnext = True;
                  extension.hasPrevious= True;                
                 //extension.leadSoql ='Select id,Retail_Campaign_Name__c from Lead__C ';
@@ -94,6 +91,7 @@ Private Static  List<SelectOption> getItems;
             }
             
             RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
+           
              //filterOptions = extension.filterOptions;
             extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
             extension.searchAccount();
