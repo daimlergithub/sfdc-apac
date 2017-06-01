@@ -31,20 +31,26 @@ public class LeadHelper
                * @return 
                 * @see   UpdateLeadOwner
                */ 
-   public static void UpdateLeadOwnerFromDealerLeadGateKeeper(Set<Id> dealerIds, List<Lead__c> leadsForUpdate,Map<Id,Lead__c> oldValLead,boolean isInsert,boolean isUpdate)
+   public static void UpdateLeadOwnerFromDealerLeadGateKeeper(Set<Id> dealerIds, List<Lead__c> leadsForUpdate,Map<Id,Lead__c> oldValLead,boolean isInsert,boolean isUpdate, set<Id> salesConIds)
    {
        List<Lead__c> leadForUpdate = new List<Lead__c>();        
-       Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>();       
+       Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>(); 
+	   map<id, id> mapsalesConandUsrId = new map<id, id>();	   
        for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
        {
            dealerIdGateKeeperIds.put(u.AccountId, u.Id);
        }
+	   if(salesConIds.size()>0){
+			for(User usr: [select id, ContactId from user where ContactId in: salesConIds]){
+			   mapsalesConandUsrId.put(usr.ContactId, usr.id);
+			}
+	   }
        system.debug('dealerIdGateKeeperIds>>>' + dealerIdGateKeeperIds);
        for(Lead__c lead : leadsForUpdate) 
        {
 			if(lead.RecordTypeId == salesRecordTypeId && (lead.Sales_Consultant__c != null && lead.Sales_Consultant__c != oldValLead.get(lead.id).Sales_Consultant__c))
 			{
-				lead.Service_Advisor__c = lead.Sales_Consultant__c;
+				lead.Service_Advisor__c = mapsalesConandUsrId.get(lead.Sales_Consultant__c);//lead.Sales_Consultant__c;
 			}
             if(lead.Assigned_Dealer__c != null && (isInsert || (isUpdate && lead.Assigned_Dealer__c != oldValLead.get(lead.id).Assigned_Dealer__c)))
             {
