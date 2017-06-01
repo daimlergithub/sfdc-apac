@@ -26423,7 +26423,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.Contact2Contact</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
