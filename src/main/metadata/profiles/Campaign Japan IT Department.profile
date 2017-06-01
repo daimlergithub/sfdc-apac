@@ -7903,7 +7903,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Campaign_Lead__c.Contact__c</field>
+        <field>Campaign_Lead__c.Contact__c</field> 
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
