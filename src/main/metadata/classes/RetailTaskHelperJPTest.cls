@@ -18,8 +18,8 @@ public class RetailTaskHelperJPTest
      System.runAs(u) {           
        test.startTest();    
          createTestData();           
-         lead2.Supporting_Dealer__c = objAccount.id;   
-         lead3.Supporting_Dealer__c = objAccount.Id;
+         lead2.Supporting_Dealer__c = DealerAccount.id;   
+         lead3.Supporting_Dealer__c = DealerAccount.Id;
          update lead2;
        
          RetailTaskTriggerHandlerJP TriggerLeadHandlerJP = new RetailTaskTriggerHandlerJP();

@@ -1231,8 +1231,7 @@ public static Contact contactObj;
           update al1;
           update listcampaigns1;
            AccountLinkHelper.afterInsertEvent(listcampaigns1);
-            AccountLinkHelperKR.afterInsertEvent(listcampaigns1);
-         // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
+           
                 
          
                system.assertNotEquals('ggg',listcampaigns1[0].Name);
