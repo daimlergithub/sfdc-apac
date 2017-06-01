@@ -12,6 +12,9 @@
     <customButtons>New_Case_Dealer</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -678,7 +681,6 @@
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
         <customButtons>New_MB_Complaint</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>

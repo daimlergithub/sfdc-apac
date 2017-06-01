@@ -4,7 +4,8 @@ created by: Srinivas 11/3/2015
 modified by: Sudhir Kumar Acharya 11/30/2015
 
 */
-public class AddressDisplayInlineEditController { 
+public class AddressDisplayInlineEditController {
+ 
     public boolean openPanal{get;set;}
     public List<Address__c> adds {get; set;}
     public Address__c addressobj {get; set;}
@@ -270,6 +271,7 @@ public class AddressDisplayInlineEditController {
             province=editadds.Province__c;
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
+			LanguageSelected=editadds.Language__c;
             if(market=='TH')
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)

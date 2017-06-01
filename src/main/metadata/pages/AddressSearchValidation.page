@@ -86,8 +86,11 @@
                     </apex:pageBlockSectionItem> 
                      
                       <apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
-                     <apex:outputLabel value="{!$Label.Touch_Point}"/>   
-                  <apex:inputfield value="{!objAccount.Data_Source__c}"  id="mId" /> 
+                     <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
+                     <apex:outputPanel styleClass="requiredInput" layout="block">
+                       <apex:outputPanel styleClass="requiredBlock" layout="block"/> 
+                  <apex:inputfield value="{!objAccount.Data_Source__c}"  id="mId" required="true"/>   
+                  </apex:outputPanel>
                   </apex:pageBlockSectionItem>
                    
                    <apex:pageBlockSectionItem rendered="{!u.ContactId !=null}">        
@@ -133,7 +136,7 @@
                      <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
                      <apex:outputPanel styleClass="requiredInput" layout="block">
                        <apex:outputPanel styleClass="requiredBlock" layout="block"/> 
-                  <apex:inputfield value="{!objPersonAccount.Data_Source__c}"  id="mId" />   
+                  <apex:inputfield value="{!objPersonAccount.Data_Source__c}"  id="mId" required="true"/>   
                   </apex:outputPanel>
                   </apex:pageBlockSectionItem> 
                    <apex:pageBlockSectionItem rendered="{!u.ContactId !=null}">        
@@ -194,18 +197,20 @@
                             <apex:selectList value="{!mobileAreaCode}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!MobileAreacodeItems}"/>
                             </apex:selectList>                       
-                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
+                           <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
                             <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3" style="width:60px"/>
+ 
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>          
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
                             <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
-                                <apex:selectOptions value="{!areacodeItems}"/>
-                           </apex:selectList>                                          
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
+                                <apex:selectOptions value="{!areacodeItems}"/>
+                           </apex:selectList>                                          
+                            
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem> 
                    
@@ -293,7 +298,7 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
                               <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px"/>
-                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:120px"/>                                
+                         <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px"/>                                
                             
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>   
@@ -301,7 +306,7 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
                             <apex:inputText value="{!mbCountryCode}" id="mbCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode"  style="width:120px"/>                      
+                         <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber"  style="width:120px"/>                      
                             
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>          
@@ -309,7 +314,7 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
                            <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" style="width:120px"/>                                         
+                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" style="width:120px"/>                                         
                             
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem> 
@@ -338,7 +343,7 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
                            <apex:inputText value="{!hmCountryCode}" id="hmCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:120px"/>                             
+                         <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px"/>                             
                             
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>                 
@@ -346,7 +351,7 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
                             <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px"/>
-                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode"  style="width:120px"/>                      
+                         <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber"  style="width:120px"/>                      
                             
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>  
@@ -354,7 +359,7 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />                        
                           <apex:outputPanel >
                             <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode"  style="width:120px"/>                                               
+                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber"  style="width:120px"/>                                               
                             
                         </apex:outputPanel>                   
                     </apex:pageBlockSectionItem>                  
@@ -648,17 +653,8 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
                         <apex:outputField value="{!cr.Mobile__c}"/>
                     </apex:Column>
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
-                        <apex:outputField value="{!cr.Email__c}"/>
-                    </apex:Column>
-                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
-                        <apex:outputField value="{!cr.VIN__c}"/>
-                    </apex:Column>
-                     <apex:Column headerValue="Address for Address data">                    
-                        <apex:outputtext value="{!AddressDetails}"/>
-                    </apex:Column>
-                </apex:PageBlockTable>
-                </apex:PageBlock>              
+                </apex:PageBlockTable> 
+                </apex:PageBlock>                
                 <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!CompanyConfirmedMatch}"  >
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
                      
@@ -674,8 +670,8 @@
                     
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
-                    </apex:Column>-->
-                     
+                    </apex:Column>
+                     -->
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                    
                         <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>
                     </apex:Column>
