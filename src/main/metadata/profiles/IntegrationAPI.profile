@@ -8330,6 +8330,11 @@
         <editable>true</editable>
         <field>Campaign_Member__c.MD__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.To_be_deleted__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
