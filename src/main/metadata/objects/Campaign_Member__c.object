@@ -1137,6 +1137,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Total_Vehicle_Price_with_tax__c</fullName>
         <externalId>false</externalId>
         <label>Total Vehicle Price with tax</label>

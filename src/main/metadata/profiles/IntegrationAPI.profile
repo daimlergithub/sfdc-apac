@@ -8855,6 +8855,11 @@
         <field>Campaign_Member__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.To_be_deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.X2nd_FP_Position_Release_Date__c</field>

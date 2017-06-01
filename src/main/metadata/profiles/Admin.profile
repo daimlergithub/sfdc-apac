@@ -9111,6 +9111,11 @@
         <editable>true</editable>
         <field>Case.MBTH_Legal_Involved__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.To_be_deleted__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
