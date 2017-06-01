@@ -1389,7 +1389,16 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_WS']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID_lkid</token>
 	</changetext>
-	
+	<changetext>
+		<filename>objects\Campaign_Member__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='RetailCampaignExport']/url/text()</xpath>
+		<token tokenonly="true">RETAIL_CAMPAIGN_MEMBER_REPORT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='ExportCampaign']/url/text()</xpath>
+		<token tokenonly="true">CAMPAIGN_MEMBER_REPORT_ID</token>
+	</changetext>
 	<!-- remove tab visibility for SocialPersona from profiles -->
 	<removeelement deploy="false">
 		<filename>profiles\*.profile</filename>
