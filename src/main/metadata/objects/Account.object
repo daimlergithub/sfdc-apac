@@ -56306,23 +56306,21 @@ REGEX(Individual_Home_Phone__c, "[0-9]{4}-[0-9]{4}")
     <validationRules>
         <fullName>HomePhone_Format_TH</fullName>
         <active>true</active>
-        <description>Home Phone must be in any of the following formats :		
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
-        <errorConditionFormula>AND(
-		$Profile.Name != 'IntegrationAPI', 
-		MD__c = 'TH',
-		NOT(ISBLANK(Individual_Home_Phone__c)),
-		NOT(
-		OR(
-		REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}"), 
-		 REGEX(Individual_Home_Phone__c, "[+0-9]{4}[0-9]{10}")
-		)
-		)
-		)</errorConditionFormula>
-        <errorMessage>Home Phone must be in any of the following formats :		
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
+        <description>Home Phone must be in any of the following formats :	
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'TH', 
+LEFT ( Individual_Home_Phone__c, 3) = "+66", 
+NOT(ISBLANK(Individual_Home_Phone__c)), 
+NOT( 
+( 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}") 
+) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Home Phone must be in any of the following formats :	
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
@@ -56589,22 +56587,20 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
         <fullName>Mobile_Format_TH</fullName>
         <active>true</active>
         <description>Mobile Phone must be in any of the following formats : 
-1. Province code (xxx)  And Phone Part 9 (xxxxxxxxx)digits only
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
-        <errorConditionFormula>AND(
+1. Province code (+xx) And PhoneNumber 9 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
 $Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH',
-NOT(ISBLANK(Mobile__c)),
-NOT(
-OR(
-REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}"),
-REGEX(Mobile__c, "[+0-9]{4}[0-9]{10}")
-)
-)
+MD__c = 'TH', 
+LEFT ( Mobile__c, 3) = "+66", 
+NOT(ISBLANK(Mobile__c)), 
+NOT( 
+( 
+REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}") 
+) 
+) 
 )</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
-1. Province code (xxx)  And Phone Part 9 (xxxxxxxxx)digits only
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
+1. Province code (+xx) And PhoneNumber 9 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile_NoChar</fullName>
@@ -56901,23 +56897,21 @@ REGEX(Work_Phone__c, "[0-9]{4}-[0-9]{4}")
     <validationRules>
         <fullName>WorkPhone_Format_TH</fullName>
         <active>true</active>
-        <description>Work Phone must be in any of the following formats : 			
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
-        <errorConditionFormula>AND(
+        <description>Work Phone must be in any of the following formats : 
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
 $Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH',
-NOT(ISBLANK(Work_Phone__c)),
-NOT(
-OR(
-REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{8}"),
-REGEX(Work_Phone__c, "[+0-9]{4}[0-9]{10}")
-)
-)
+MD__c = 'TH', 
+LEFT ( Work_Phone__c, 3) = "+66", 
+NOT(ISBLANK(Work_Phone__c)), 
+NOT( 
+( 
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{8}") 
+) 
+) 
 )</errorConditionFormula>
-        <errorMessage>Work Phone must be in any of the following formats : 			
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
+        <errorMessage>Work Phone must be in any of the following formats : 
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
@@ -57446,13 +57440,13 @@ if(market == 'JP')
 if (sforce.console.isInConsole()) 
 { 
 
-srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};'); 
+srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};'); 
 
 } 
 
 else 
 { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}" ) 
+window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}" ) 
 
 } 
 } 
