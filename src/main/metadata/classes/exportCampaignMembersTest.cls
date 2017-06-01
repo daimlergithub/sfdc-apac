@@ -14,8 +14,7 @@ public class exportCampaignMembersTest
             Status='Responded');
             insert parentCamp;               
              ApexPages.currentPage().getParameters().put('Id',parentCamp.id);
-              exportCampaignMembers controller = new exportCampaignMembers();    
-           controller.changeStatus();           
+              exportCampaignMembers controller = new exportCampaignMembers(); 
              Test.stopTest();
      }
      public static testMethod void CampaignTest2()
@@ -27,8 +26,7 @@ public class exportCampaignMembersTest
             insert parentCamp;      
               
              ApexPages.currentPage().getParameters().put('Id',parentCamp.id);
-              exportCampaignMembers controller = new exportCampaignMembers();    
-           controller.changeStatus();           
+              exportCampaignMembers controller = new exportCampaignMembers(); 
              Test.stopTest();
      }
   }
