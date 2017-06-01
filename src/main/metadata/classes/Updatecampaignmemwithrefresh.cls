@@ -35,6 +35,8 @@ global class Updatecampaignmemwithrefresh{
                 mem.Finance_Address__c = mem.Contract__r.Contractor_Address3__c;
             else if(!String.isBlank(mem.Contract__r.Contractor_Address1__c))
                 mem.Finance_Address__c = mem.Contract__r.Contractor_Address1__c;
+            else
+                mem.Finance_Address__c = '';
         }        
         if (mem.Vehicle_Relationship__r.vehicle_address__c == mem.Address__c && (mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || mem.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales') && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle'){
         system.debug('----------> in loop');
