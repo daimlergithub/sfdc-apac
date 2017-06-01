@@ -190,9 +190,9 @@ global with sharing class LeadVehiclePickerTHController {
             UtilConstant utilConst = new UtilConstant();
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c LIMIT 650];
+                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c LIMIT 50000];
             }else{
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c LIMIT 650];
+                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c LIMIT 50000];
             }
             for(Car_Model__c cm : carModels){
                 
