@@ -294,7 +294,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountMergeControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
@@ -26286,7 +26286,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SelectSlaveAccount</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SelectSlaveAccountKR</apexPage>

@@ -3,8 +3,7 @@
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Merge</customButtons>
-    <customButtons>New_Inquiry</customButtons>
-    <customButtons>New_MB_Complaint</customButtons>
+    <customButtons>New_Inquiry</customButtons>  
     <customButtons>New_Case_Dealer</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
