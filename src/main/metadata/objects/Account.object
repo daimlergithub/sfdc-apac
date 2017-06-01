@@ -18902,23 +18902,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Products</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18939,18 +18923,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Electricity production and supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electronics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Energy</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18978,27 +18950,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Government</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Information Technology</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Businesses</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19046,10 +19002,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Relations</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Real Estate</fullName>
                 <default>false</default>
             </values>
@@ -19070,19 +19022,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Ship building</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sports</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19094,19 +19038,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tourism</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Trade</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transportation%2FLogistics</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19118,74 +19054,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Utilities</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Warehousing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Info_Source__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz DrivingAcademy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
