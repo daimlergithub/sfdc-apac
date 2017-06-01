@@ -15,20 +15,26 @@ public class TriggerLeadTriggerHandlerKR
         {
             LeadHelperJP.updateAssignedDealer(trigger.new);
             set<id> dealerIds = new set<id>();
+			set<Id> saleConIds = new set<Id>();
             for(Lead__C leds : (List<Lead__c>)trigger.new)
             {
                 dealerIds.add(Leds.Assigned_Dealer__c);
+				//SFDCKR-1060
+				saleConIds.add(Leds.Sales_Consultant__c);
             }            
-             LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate);
+             LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
         }        
         if(isBefore && isUpdate)
         {
             set<id> dealerIds = new set<id>();
+			set<Id> saleConIds = new set<Id>();
             for(Lead__C leds : (List<Lead__c>)trigger.new)
             {
                 dealerIds.add(Leds.Assigned_Dealer__c);
+				//SFDCKR-1060
+				saleConIds.add(Leds.Sales_Consultant__c);
             }            
-             LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate);
+             LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
         }       
         if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated)
         {
