@@ -10,7 +10,8 @@ public class AddressDisplayInlineEditController {
     public Address__c addressobj {get; set;}
     public Boolean ShowpageBlockFlag {get;set;}
     public Boolean refreshPage{get;set;}
-    private ApexPages.StandardController stdController;   
+    private ApexPages.StandardController stdController;  
+	public RegionMasterInfo__c region {get;set;}	
     public string addressId {get;set;}
     public string editaddressId {get;set;}  
     public String aid;
@@ -270,17 +271,17 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
             LanguageSelected=editadds.Language__c;
-
+            LanguageSelected=region.Language__c;
             if(market=='TH')
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
-                   RegionMasterInfo__c region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+                   region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
                    if(region!=null)
                    {
                        if(region.Language__c!='' || region.Language__c!=null)
                            LanguageSelected=region.Language__c;
-                           }
+                   }
                 }
                 ShowHideFields();
                 LoadProvince();

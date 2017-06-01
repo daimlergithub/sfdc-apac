@@ -5777,7 +5777,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Retail_Primary_Phone__c</field>
         <readable>true</readable>
     </fieldPermissions>

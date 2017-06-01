@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -22989,7 +22989,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>軽井沢・プリンスショッピングプラザ 展示イベント</value>
         </filters>
-        <label>軽井沢・プリンスショッピングプラザ 展示イベント</label>
+        <label>軽井沢・プリンスショッピングプラザ</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23017,7 +23017,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>Approving</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016_承認中</label>
+        <label>DM_Sクラスセントラル</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23038,9 +23038,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>自動車誕生130周年記念キャンペーン2016</value>
+            <value>自動車誕生130周年記念キャンペーン</value>
         </filters>
-        <label>自動車誕生130周年記念キャンペーン2016</label>
+        <label>自動車誕生130周年記念キャンペーン</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23068,7 +23068,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>Allocated</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016_展開済</label>
+        <label>DM_SクラスセントラルDM 2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23090,9 +23090,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>E&amp;SクラスセントラルDM（Amex）2016</value>
+            <value>E&amp;SクラスセントラルDM（Amex）</value>
         </filters>
-        <label>E&amp;SクラスセントラルDM（Amex）2016</label>
+        <label>E&amp;SクラスセントラルDM（Amex）</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23280,74 +23280,6 @@ Company_Account__r.Work_Phone__c  ,
         <sharedTo/>
     </listViews>
     <listViews>
-        <fullName>S_SL_SLC_DM2016</fullName>
-        <columns>NAME</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>CREATED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
-        </filters>
-        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>S_SL_SLC_DM20161</fullName>
-        <columns>NAME</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>CREATED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
-        </filters>
-        <filters>
-            <field>CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>TODAY</value>
-        </filters>
-        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016_今日</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>S_SL_SLC_T</fullName>
-        <columns>NAME</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>CREATED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>新型Sクラス カブリオレ／新型SL／新型SLC Tポイントカード保有者向けセントラルDM2016</value>
-        </filters>
-        <label>新型Sクラス カブリオレ／新型SL／新型SLC Tポイントカード保有者向けセント</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
@@ -23399,26 +23331,6 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>View1</fullName>
-        <columns>NAME</columns>
-        <columns>UCID__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>Contact__c</columns>
-        <columns>CREATED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>メルセデス ミー 東京羽田</value>
-        </filters>
-        <label>メルセデス ミー 東京羽田のリード</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>View2</fullName>
         <columns>NAME</columns>
         <columns>Lead_Desired_Service__c</columns>
@@ -23437,30 +23349,6 @@ Company_Account__r.Work_Phone__c  ,
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>View3</fullName>
-        <columns>NAME</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Lead_Desired_Service__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>ãƒ¡ãƒ«ã‚»ãƒ‡ã‚¹ãƒ»ãƒ™ãƒ³ãƒ„ä½“æ„Ÿã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³ãƒ—ãƒ©ã‚¹</value>
-        </filters>
-        <label>ã‚«ãƒ¬ã‚³</label>
-        <language>ja</language>
-        <sharedTo>
-            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -23513,7 +23401,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>New</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016_新規</label>
+        <label>DM_SクラスセントラルDM 2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -24759,7 +24647,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
+                <fullName>Event/Sâ€™Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37518,7 +37406,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue（Light colors）</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49614,7 +49502,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
+                <fullName>Event/Sâ€™Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62386,7 +62274,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
+                <fullName>Event/Sâ€™Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76030,7 +75918,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue（Light colors）</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89050,7 +88938,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue（Light colors）</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100826,7 +100714,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue（Light colors）</fullName>
                 <default>false</default>
             </values>
             <values>
