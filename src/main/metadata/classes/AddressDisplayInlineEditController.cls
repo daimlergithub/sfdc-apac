@@ -271,8 +271,7 @@ public class AddressDisplayInlineEditController {
             province=editadds.Province__c;
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
-            LanguageSelected=editadds.Language__c;
-            LanguageSelected=region.Language__c;
+			LanguageSelected=editadds.Language__c;
             if(market=='TH')
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
