@@ -15,7 +15,7 @@
             <name>CustomerLabelName</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(Address__c !=null, MD__c =&apos;JP&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
