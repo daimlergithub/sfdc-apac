@@ -38,12 +38,14 @@ public with sharing class SelectAddressController {
     
     public PageReference updateAddress() {
         Account accRec = new Account(Id = accountId);  
-        if(selectedAddress != 'None' )  
-        accRec.Primary_Address_Reference__c = selectedAddress;  
+        if(selectedAddress != 'None' )
+        {
+            accRec.Primary_Address_Reference__c = selectedAddress;
+        }
         else
+        {
             accRec.Primary_Address_Reference__c = null;   
-			// Added by Rakesh for CISM # 0037692303
-            accRec.Primary_Address_Display__c = null;     
+        }
         update accRec;       
         return null;
     }

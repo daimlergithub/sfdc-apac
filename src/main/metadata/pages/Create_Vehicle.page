@@ -305,7 +305,7 @@
                
                  <span ng-switch-when="MB">
                     <apex:pageBlockSection title="{!$Label.Date_Information}" rendered="{!nonThaiUserLoggedIn}">
-                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}" required="true"/>
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
                         <apex:inputField value="{!vehicle.ProductionDate__c}"/>
                         <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
                         <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
