@@ -117,6 +117,17 @@ public with sharing class ConvertToLeadController {
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
         leadRec.Lead_Sub_Type__c = campaignMember.Lead_Sub_Type__c;
         leadRec.Interested_Vehicle_Model__c = campaignMember.Interested_Model__c;
+        leadRec.Assigned_Dealer__c=campaignMember.Preferred_Dealer__c;
+        leadRec.Finance_Product_Name__c=campaignMember.Finance_Product__c;
+        leadRec.Finance_Contract_Term__c=campaignMember.Term__c;
+        leadRec.Finance_Monthly_Payment__c=campaignMember.Monthly_Payment__c;
+        leadRec.Finance_Interest_Rate__c=campaignMember.Interest_Rate__c;
+        leadRec.Finance_RV_Ballon__c=campaignMember.RV_Ballon__c;
+        leadRec.Finance_Total_V_Price_NoTax__c=campaignMember.Total_Vehicle_Price_without_tax__c;
+        leadRec.Finance_Total_V_Price_Tax__c=campaignMember.Total_Vehicle_Price_with_tax__c;
+        leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
+        leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
+        
         
         if(leadRTId != null) {
             leadRec.RecordTypeId = leadRTId;
