@@ -10,6 +10,11 @@
             <operation>equals</operation>
             <value>JP</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Delete_Flag__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketAccountLink_Readable_to_MBJ_IT_Dept</name>
@@ -41,5 +46,19 @@
         <accessLevel>Read</accessLevel>
         <description>Share Account_Link__c of all record types with Call Center user.</description>
         <name>Share Account Link to Call Center</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TH_MarketAccountLink_Readable_to_MBTH_Management</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of Thailand with MD__c = &apos;TH&apos; for all Roles used in Thailand</description>
+        <name>TH_MarketAccountLink_Readable_to_MBTH_Management</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

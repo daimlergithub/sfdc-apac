@@ -4,10 +4,8 @@
     <customButtons>Merge</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
     <customButtons>New_Case</customButtons>
-    <customButtons>Create_Retail_Copy_kr</customButtons>
     <customButtons>Create_Vehicle</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -228,6 +226,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_General_Manager__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Consent_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_Consent_User__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -542,10 +556,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Main_Dealer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>KaKao_Talk_ID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

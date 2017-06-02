@@ -46,7 +46,7 @@ public with sharing class AccountHelperJPTest
         User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
         System.runAs (thisUser) {
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser211911@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',

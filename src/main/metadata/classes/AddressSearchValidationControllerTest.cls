@@ -506,7 +506,11 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.saveAccountTH();
          JPAcccontroller.objAccount.id=null; 
          JPAcccontroller.addresspicklist = 'Home';
-      JPAcccontroller.saveAccountTH();
+       JPAcccontroller.saveAccountTH();
+       
+       
+       
+       
         JPAcccontroller.saveAccountTH();
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
@@ -541,6 +545,9 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.RecordType = 'Company';
         test.startTest();      
         //JPAcccontroller.saveAccountTH();
+        JPAcccontroller.hmphoneNumber= '+66-03-777-9999';
+        JPAcccontroller.wkphoneNumber= '+66-03-777-9999';
+        JPAcccontroller.mbphoneNumber= '+66-03-777-9999';
          JPAcccontroller.wkAreaCode='02';
          JPAcccontroller.wkCountryCode='+66';
           JPAcccontroller.workPhoneAreaCodePart2='777';
@@ -553,7 +560,7 @@ public class AddressSearchValidationControllerTest
            JPAcccontroller.mbCountryCode='+66';
            JPAcccontroller.mobileAreaCodePart2='777';
            JPAcccontroller.mobileAreaCodePart3='9999';
-            JPAcccontroller.saveAccountTH();
+            //JPAcccontroller.saveAccountTH();
         JPAcccontroller.objAccount.id=null; 
         JPAcccontroller.addresspicklist = 'Home';
          JPAcccontroller.objAccount.Work_Phone__c='+66-03-777-9999'; 
