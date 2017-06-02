@@ -176,6 +176,22 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Field_Force_Manager_Email__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Consent_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_Consent_User__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -483,10 +499,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Magazine__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>KaKao_Talk_ID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
