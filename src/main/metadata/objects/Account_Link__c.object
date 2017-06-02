@@ -4192,7 +4192,39 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <picklistValues>
             <picklist>Retail_Race__c</picklist>
             <values>
+                <fullName>American</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laotian</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4200,7 +4232,35 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4993,7 +5053,39 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <picklistValues>
             <picklist>Retail_Race__c</picklist>
             <values>
+                <fullName>American</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laotian</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5001,7 +5093,35 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
