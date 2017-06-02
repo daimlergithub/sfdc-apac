@@ -13,7 +13,7 @@ public class TriggerLeadTriggerHandlerKR
         System.debug('Handletrigger----->1');
         if(isBefore && isInsert)
         {
-            LeadHelperJP.updateAssignedDealer(trigger.new);
+            
             set<id> dealerIds = new set<id>();
 			set<Id> saleConIds = new set<Id>();
             for(Lead__C leds : (List<Lead__c>)trigger.new)
@@ -21,8 +21,10 @@ public class TriggerLeadTriggerHandlerKR
                 dealerIds.add(Leds.Assigned_Dealer__c);
 				//SFDCKR-1060
 				saleConIds.add(Leds.Sales_Consultant__c);
-            }            
-             LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
+            } 
+			   //SFDCKR-1060
+			   LeadHelperJP.updateAssignedDealer(trigger.new, saleConIds);
+             //LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
         }        
         if(isBefore && isUpdate)
         {
