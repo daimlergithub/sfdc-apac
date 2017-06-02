@@ -53,10 +53,6 @@
                 <field>Case_Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Overdue_old__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Aftersales_Manager__c</field>
             </layoutItems>

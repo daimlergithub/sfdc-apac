@@ -204,10 +204,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Overdue__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Overdue_Reason__c</field>
             </layoutItems>
             <layoutItems>

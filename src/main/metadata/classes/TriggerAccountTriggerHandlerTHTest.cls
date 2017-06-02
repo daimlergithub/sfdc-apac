@@ -12,7 +12,7 @@ public class TriggerAccountTriggerHandlerTHTest{
   personAcc1 = new Account(Dealer_Default_Flag__c=false,
                                Dealer_DMS_SR_Code__c='test code 2',
                                //Individual_Home_Phone__c = '02-202-2456',
-                               Home_Phone_2__c = '02-202-2457',Work_Phone__c = '+66-12-123-789',
+                               Home_Phone_2__c = '02-202-2457',Work_Phone__c = '+6612123789',
                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
                                City__c='Beijing',
                                Gender__c = 'Male',
@@ -68,12 +68,6 @@ public class TriggerAccountTriggerHandlerTHTest{
     List<Account> accList = [SELECT Id,Name FROM Account WHERE Id =:personAcc1.Id];
     delete accList;
  } 
- 
- 
- 
- 
-
-
  
 
 }
