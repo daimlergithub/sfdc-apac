@@ -13,7 +13,7 @@ public class TriggerAccountLinkTriggerHandlerJP
 { 
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
-	      if(LeadUtil.isAcctrigger ){
+          if(LeadUtil.isAcctrigger ){
           if(Trigger.isAfter && Trigger.isInsert)
           {
           system.debug('Entered aFTER TRIGGER');
@@ -54,6 +54,10 @@ public class TriggerAccountLinkTriggerHandlerJP
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         // Implementation to addedd as required in market
+        List<Account_Link__c> accList = Trigger.new; 
+        if(!isDelete && !accList.isEmpty() && accList.size() > 0 && accList[0].MD__c == 'JP')
+        {
+        
         if(Trigger.isAfter && Trigger.isUpdate){
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
@@ -69,6 +73,6 @@ public class TriggerAccountLinkTriggerHandlerJP
         {
             AccountLinkHelper.afterDeleteEvent(Trigger.old); 
         }
-
+   }
     }
 }

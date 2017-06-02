@@ -538,7 +538,7 @@ public class AddressDisplayInlineEditControllerTest
         }
      }
         
-        public static testMethod void testSaveAddressTHValidation()
+    /*    public static testMethod void testSaveAddressTHValidation()
     {
         //init();
         initUpdated('TH');      
@@ -564,7 +564,7 @@ public class AddressDisplayInlineEditControllerTest
         test.stopTest();
       //  system.assertEquals(null, editaddressId, objaddress);
         }  
-    }
+    }*/
     
     /**    
      * @Description : Converage of the code for SaveAddressTH
