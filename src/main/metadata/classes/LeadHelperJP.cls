@@ -562,17 +562,22 @@ public class LeadHelperJP
                 } */
         }   
         
-         public static void updateAssignedDealer(List<Lead__c> dealerLeadList)
+         public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)
     {
         List<User> userList = new List<User>();
         set<id> userid = new set<id>();
+		map<id, id> mapsalesConandUsrId = new map<id, id>();
         userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
-         
+         if(salesConIds.size()>0){
+			for(User usr: [select id, ContactId from user where ContactId in: salesConIds]){
+			   mapsalesConandUsrId.put(usr.ContactId, usr.id);
+			}
+		 }
         for(Lead__c dellead: dealerLeadList)
         {
 			if(dellead.RecordTypeId == salesRecordTypeId && dellead.Sales_Consultant__c != null)
 			{
-				dellead.Service_Advisor__c = dellead.Sales_Consultant__c;
+				dellead.Service_Advisor__c =  mapsalesConandUsrId.get(dellead.Sales_Consultant__c);//dellead.Sales_Consultant__c;
 			}
             if(!userList.isEmpty() && userList != null)
             {
