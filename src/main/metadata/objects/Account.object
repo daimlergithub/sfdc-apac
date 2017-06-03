@@ -9330,106 +9330,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Beauty &amp; Cosmetic</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Biotechnology/Chemical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Employment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Entertainment &amp; Recreation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consumer Products</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Foods &amp; Beverage</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Journalism &amp; News/Media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Legal Businesses</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Information Technology</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Oil &amp; Gas</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sports</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tourism</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public Relations</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Transportation/Logistics</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Communications</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Energy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consulting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electronics</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Government</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Construction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Utilities</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -56305,7 +56205,7 @@ REGEX(Individual_Home_Phone__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>HomePhone_Format_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Home Phone must be in any of the following formats :	
 1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
         <errorConditionFormula>AND( 
@@ -56585,7 +56485,7 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>Mobile_Format_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Mobile Phone must be in any of the following formats : 
 1. Province code (+xx) And PhoneNumber 9 (xxxxxxxxx)digits only</description>
         <errorConditionFormula>AND( 
@@ -56896,7 +56796,7 @@ REGEX(Work_Phone__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>WorkPhone_Format_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Work Phone must be in any of the following formats : 
 1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
         <errorConditionFormula>AND( 
