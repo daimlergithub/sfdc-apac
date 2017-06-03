@@ -138,8 +138,9 @@ public with sharing class AccountHelperTHTest
             test.stopTest();
         }
     }
-// Method to test phoneNumber format issue   
-    static testMethod void checkWhetherPhoneNumberIsUpdatedOrNot(){    
+// Method to test phoneNumber format issue 
+/* Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */  
+  /*  static testMethod void checkWhetherPhoneNumberIsUpdatedOrNot(){    
         User user4 = TestUtils.IntegrationAPIUser();       
         System.runAs (user4) {
             test.starttest();
@@ -166,9 +167,10 @@ public with sharing class AccountHelperTHTest
             system.assertEquals('+66978648434',  acc.Individual_Home_Phone__c);
             test.stopTest();
         }  
-    }
+    }*/
    /* method Should remove zero from phone number*/
-    static testMethod void removeZeroFromNumber() {        
+   /*Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */
+   /* static testMethod void removeZeroFromNumber() {        
         User user5 = TestUtils.createAdminUser();
         System.runAs (user5) {            
             Account Acc = TestUtils.createPersonAccountAsUserAsOwner(user5);
@@ -185,5 +187,5 @@ public with sharing class AccountHelperTHTest
             test.stopTest();
                 
         }
-    }
+    }*/
 }

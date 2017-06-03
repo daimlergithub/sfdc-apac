@@ -244,7 +244,7 @@ public class ContactTableController
     *@CR#89 - Updated method for Phone number format for Thailand
     *@Date : 24/05/2017 
     */ 
-    
+    /*
    public void PhoneNumberFormatTH()
     {      
         if ((!String.IsBlank(ParAcc.Individual_Home_Phone__c)) &&  (ParAcc.Individual_Home_Phone__c.length()==11))
@@ -277,7 +277,37 @@ public class ContactTableController
                   mbCountryCode=string.valueOf(ParAcc.Mobile__c).substring(0,4);     
                   mbphoneNumber = string.valueOf(ParAcc.Mobile__c).substring(4,14); 
                 }
-    }    
+    }  
+     */ 
+     //Pavan start
+    public void PhoneNumberFormatTH()
+    {      
+            string localhmPhone,localwkPhone,localMBPhone;
+            localhmPhone=string.valueOf(ParAcc.Individual_Home_Phone__c);
+             localwkPhone=string.valueOf(ParAcc.Work_Phone__c);
+             localMBPhone=string.valueOf(ParAcc.Mobile__c);
+            if ((!String.IsBlank(localhmPhone))&&(localhmPhone.length()>3))
+            {
+                hmCountryCode=localhmPhone.substring(0,3); 
+                hmphoneNumber=localhmPhone.length()>3?localhmPhone.substring(3,localhmPhone.length()):hmCountryCode;
+            }else
+            {system.debug('im here');ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Cannot save too short'));}
+            if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3))
+           {
+               
+                wkCountryCode=localwkPhone.substring(0,3);      
+                wkphoneNumber=localwkPhone.length()>3?localwkPhone.substring(3,localwkPhone.length()):wkCountryCode;
+
+           }
+            if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3))
+           {
+                
+                mbCountryCode=localMBPhone.substring(0,3);      
+                mbphoneNumber=localMBPhone.length()>3?localMBPhone.substring(3,localMBPhone.length()):mbCountryCode;
+
+           }
+    }
+     // pavan end
     public void EditAccount()    
     {
         editMode = true; 
@@ -303,8 +333,8 @@ public class ContactTableController
        } 
          else if(hmphoneNumber!='' && hmCountryCode!='')
       {     
-        if(hmphoneNumber.startsWith('0'))
-            hmphoneNumber=hmphoneNumber.removeStart('0');
+        /*if(hmphoneNumber.startsWith('0'))
+            hmphoneNumber=hmphoneNumber.removeStart('0');*/
                ParAcc.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;             
       }      
        else
@@ -322,8 +352,8 @@ public class ContactTableController
       }
          else if(wkphoneNumber!='' && wkCountryCode!='')
       {     
-        if(wkphoneNumber.startsWith('0'))
-            wkphoneNumber=wkphoneNumber.removeStart('0');
+        /*if(wkphoneNumber.startsWith('0'))
+            wkphoneNumber=wkphoneNumber.removeStart('0');*/
              ParAcc.Work_Phone__c=wkCountryCode+wkphoneNumber;             
       }      
       else
@@ -342,8 +372,8 @@ public class ContactTableController
       }
        else if(mbphoneNumber!='' && mbCountryCode!='')
       {     
-        if(mbphoneNumber.startsWith('0'))
-            mbphoneNumber=mbphoneNumber.removeStart('0');
+        /*if(mbphoneNumber.startsWith('0'))
+            mbphoneNumber=mbphoneNumber.removeStart('0');*/
                ParAcc.Mobile__c=mbCountryCode+mbphoneNumber;              
       }        
       else
@@ -362,7 +392,7 @@ public class ContactTableController
             )
             {
                         
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
             } 
             else
             {  
