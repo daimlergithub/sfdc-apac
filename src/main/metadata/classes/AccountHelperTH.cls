@@ -734,7 +734,7 @@ It would be replaced by Informatica/Middleware  */
 //Created By:Sarath Kumar Reddy M
 //Date:25th Mar 2017
 /* Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */       
-    
+    /*
     public static void updatePhoneFormat(List<Account> Accts){
         Profile p = [select name from Profile where id =:UserInfo.getProfileId()];
         String ProfileName = p.name;        
@@ -767,7 +767,7 @@ It would be replaced by Informatica/Middleware  */
                 }
             }
         }
-    }  
+    }*/  
     
      //Created By:Mohammed Touseef Ahmed
     //Date:26th Mar 2017 
