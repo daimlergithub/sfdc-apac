@@ -111348,14 +111348,14 @@ if(&apos;{!User.ContactId}&apos; ==&apos;&apos;){
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;012280000000f0p&apos;) 
+if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
 {	
 
-sforce.console.openPrimaryTab(result.id,&apos;/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+sforce.console.openPrimaryTab(result.id,&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;012280000000f14&apos;) 
+else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
 { 
-sforce.console.openPrimaryTab(result.id,&apos;/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+sforce.console.openPrimaryTab(result.id,&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
 } 
 
 } 
@@ -111363,14 +111363,14 @@ sforce.console.openPrimaryTab(result.id,&apos;/a13/e?RecordType=012280000006I7s&
 }	
 else 
 { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;012280000000f0p&apos;) 
+if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
 {	
 
-window.open(&apos;/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+window.open(&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;012280000000f14&apos;) 
+else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
 { 
-window.open(&apos;/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+window.open(&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
 } 
 
 } 
@@ -111378,23 +111378,23 @@ window.open(&apos;/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N28000
 else { 
 if(&apos;{!User.ContactId}&apos; !=&apos;&apos;) 
 { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;012280000000f0p&apos;) 
+if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
 {	
-window.open(&quot;{!URLFOR($Site.Prefix)}/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}&quot;,&apos;_self&apos;); 
+window.open(&quot;{!URLFOR($Site.Prefix)}OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}&quot;,&apos;_self&apos;); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;012280000000f14&apos;) 
+else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
 { 
-window.open(&quot;{!URLFOR($Site.Prefix)}/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}&quot;,&apos;_self&apos;); 
+window.open(&quot;{!URLFOR($Site.Prefix)}OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}&quot;,&apos;_self&apos;); 
 } 
 } 
 else{ 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;012280000000f0p&apos;) 
+if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
 {	
-window.open(&quot;/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;012280000000f14&apos;) 
+else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
 { 
-window.open(&quot;/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
 } 
 } 
 }</url>
