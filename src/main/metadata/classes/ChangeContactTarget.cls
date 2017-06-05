@@ -6,7 +6,18 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
       
        public static Id vehicleId;
        public Vehicle__c vehicle {set;get;}
+       public string salescontacttargetId = '';
+       public string aftersalescontacttargetId = '';
+       public string salescontacttargetrecordId = '';
+       public string aftersalescontacttargetrecordId = '';
+       public list<vehicle_relationship__c> oldsalesconractVRlist = new list<vehicle_relationship__c>();
+       public list<vehicle_relationship__c> oldaftersalescontractVRlist = new list<vehicle_relationship__c>();
        
+       public String salesOwnerRelation = '';
+       public String SalesConsultant = '';
+       
+       public String afterOwnerRelation = '';
+       public String afterSalesConsultant = '';
     public ChangeContactTarget(ApexPages.StandardController controller) {
      
         
@@ -26,12 +37,26 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
                     vehiclewrpper.purchaservr= vr;
                 }
                 else if (vr.car_relation__c=='Sales Contact Target')
-                {
+                {    
+                    salescontacttargetId = vr.Contact__c;
+                    
                     vehiclewrpper.salescontactvr=vr;
+                    oldsalesconractVRlist.add(vehiclewrpper.salescontactvr);
+                    salescontacttargetrecordId = vr.id;
+                    system.debug('Loding #### oldsalesconractVRlist'+oldsalesconractVRlist);
+                    system.debug('Loding 222222 #### oldsalesconVR'+vr);
+                    //contactId = vr.Contact__c;
+                    salesOwnerRelation = vr.Owner_Relation__c;
+                    //SalesConsultant = vr.Retail_Sales_Consultant__c ;
                 }
-                else if (vr.car_relation__c=='Aftersales Contact Target 1')
+                if (vr.car_relation__c=='Aftersales Contact Target 1')
                 {
+                    aftersalescontacttargetrecordId = vr.id;
+                    aftersalescontacttargetId = vr.Contact__c;
+                    afterOwnerRelation = vr.Owner_Relation__c;
                     vehiclewrpper.aftersalescontactvr=vr;
+                    oldaftersalescontractVRlist.add(vehiclewrpper.aftersalescontactvr);
+                    //afterSalesConsultant = vr.Retail_Sales_Consultant__c;
                 }
      
             }
@@ -69,36 +94,87 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
     
  
     
-    public pagereference updateit()
+    public PageReference updateit()
     {
+        boolean issalescontactchanged = false;
+        boolean isaftersalescontactchnged = false;
         set<String> VRid = new set<String>();
        list<vehicle_relationship__c> vrlist= new list<vehicle_relationship__c>();
        list<account_link__c> acclinklist= new list<account_link__c>();
-       
-        
+       list<vehicle_relationship__c> newsalescontractvrlist= new list<vehicle_relationship__c>();
+       list<vehicle_relationship__c> newaftersalescontractvrlist= new list<vehicle_relationship__c>();
             if (vehiclewrpper.purchaservr.id!=null)
             {
-                vrlist.add(vehiclewrpper.purchaservr);
-                VRid.add(vehiclewrpper.purchaservr.id);
+                //vrlist.add(vehiclewrpper.purchaservr);
+                //VRid.add(vehiclewrpper.purchaservr.id);
             }
             
             if (vehiclewrpper.salescontactvr.id!=null)
             {
             System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr.contact__c);
              System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr);
-                vrlist.add(vehiclewrpper.salescontactvr);
-                if(VRid.isEmpty()){
-                    VRid.add(vehiclewrpper.salescontactvr.id);  
+                if(vehiclewrpper.salescontactvr.contact__c != salescontacttargetId ){
+                    vehiclewrpper.salescontactvr.Start_Date__c = Date.today();
+                    //vehiclewrpper.salescontactvr.id = null;
+                    vrlist.add(vehiclewrpper.salescontactvr);
+                    issalescontactchanged = true;
+                    //system.debug('Salescontracttarget Record---->'+newsalescontractvrlist);
+                    //system.debug('Salescontracttarget Record---->'+oldsalesconractVRlist);
+                    //newsalescontractvrlist=oldsalesconractVRlist.deepclone(true,true,true);
                 }
+                /*if(vehiclewrpper.salescontactvr.contact__c != salescontacttargetId ){
+                    VRid.add(vehiclewrpper.salescontactvr.id);  
+                }*/
             }
             if (vehiclewrpper.aftersalescontactvr.id!=null){
-            vrlist.add(vehiclewrpper.aftersalescontactvr);
-            if(VRid.isEmpty()){
-                VRid.add(vehiclewrpper.aftersalescontactvr.id);    
+            if(vehiclewrpper.aftersalescontactvr.contact__c != aftersalescontacttargetId ){
+                vehiclewrpper.aftersalescontactvr.Start_Date__c = date.today();
+                //vehiclewrpper.aftersalescontactvr.id = null;
+                vrlist.add(vehiclewrpper.aftersalescontactvr);
+                isaftersalescontactchnged = true;
+                //newaftersalescontractvrlist = oldaftersalescontractVRlist.deepclone(true,true,true);
             }
+            /*if(vehiclewrpper.aftersalescontactvr != aftersalescontacttargetId ){
+                VRid.add(vehiclewrpper.aftersalescontactvr.id);    
+            }*/
         
             }
-            update vrlist;
+            List<vehicle_relationship__c> vrlisttoUpdate = new List<vehicle_relationship__c>(); 
+            if(!vrlist.isEmpty()){
+                list<Vehicle_Relationship__c> VRlst = vrlist.deepClone(false,false,false);
+                insert VRlst;
+                if(issalescontactchanged){
+                    for(vehicle_relationship__c salesvr: oldsalesconractVRlist){
+                        //aftersalesvr
+                        system.debug('Update method oldsalesconractVRlist'+oldsalesconractVRlist);
+                        //salesvr.id = salescontacttargetrecordId;
+                        salesvr.Contact__c=salescontacttargetId;
+                        salesvr.Owner_Relation__c = salesOwnerRelation;
+                        //salesvr.Retail_Sales_Consultant__c = SalesConsultant;
+                         salesvr.End_Date__c = date.today();
+                         salesvr.End_Reason__c = 'Updated EndDate';
+                         salesvr.Start_Date__c = null; 
+                         vrlisttoUpdate.add(salesvr); 
+                    }
+                }
+                if(isaftersalescontactchnged){
+                    for(vehicle_relationship__c aftersalesvr: oldaftersalescontractVRlist ){ 
+                        //aftersalesvr.id = aftersalescontacttargetrecordId;
+                        aftersalesvr.Contact__c = aftersalescontacttargetId;
+                        aftersalesvr.Owner_Relation__c = afterOwnerRelation;
+                        //aftersalesvr.Retail_Sales_Consultant__c = afterSalesConsultant;                     
+                        aftersalesvr.End_Date__c = date.today(); 
+                        aftersalesvr.End_Reason__c = 'Updated EndDate';
+                        aftersalesvr.Start_Date__c = null;
+                        vrlisttoUpdate.add(aftersalesvr);
+                             
+                    }   
+                }
+                update vrlisttoUpdate; 
+                   
+            }
+            //update vrlist;
+            
             if(vehiclewrpper.userdealeracclink.id!=null)
             {
             acclinklist.add(vehiclewrpper.userdealeracclink);
@@ -117,14 +193,14 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
          LeadUtil.isAcctrigger = False;
         update acclinklist;
         
-        if(!VRid.isEmpty()){
+        /*if(!VRid.isEmpty()){
             CreateVehicleRecord(VRid);
-        }
+        }*/
         String str = ApexPages.currentPage().getParameters().get('id');
         PageReference pageref = new pageReference ('/'+str);
        //PageReference pageref=  ApexPages.currentPage();
         //pageref.getParameters().put('id',ApexPages.currentPage().getParameters().get('id'));
-    //pageref.setRedirect(true);
+    pageref.setRedirect(true);
 
         return pageref;
     }
@@ -134,7 +210,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
         Author : Kiran
         JIRA : SFDCJP-1709
     */
-    public void CreateVehicleRecord(set<String> VehicleRelationID){
+   /* public void CreateVehicleRecord(set<String> VehicleRelationID){
         User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
         List<Vehicle_Relationship__c> VRUpdate = new List<Vehicle_Relationship__c>();
         if(usr.ContactId != null){
@@ -177,7 +253,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
         insert l2;
      }   
     }
-    
+    */
     public class vehicledataWrpper
     {
        public Vehicle_relationship__c purchaservr{get;set;}
