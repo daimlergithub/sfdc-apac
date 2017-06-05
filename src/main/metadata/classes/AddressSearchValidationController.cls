@@ -763,7 +763,21 @@ public class AddressSearchValidationController
     public void selectedRecordTypeValue()
     {
         resetPhoneAreacodes();
-        selectedRecordType = recordType;        
+        selectedRecordType = recordType;       
+   // Added by Venky changes related to SFDCJP-2505
+    u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        market = u.Market__c;
+        
+        if(market == Label.JP){
+        if(u.ContactId !=null && selectedRecordType   =='Company')
+        {
+        TouchPoint='Others'; 
+        } 
+        if(u.ContactId !=null && selectedRecordType   =='Person Account')
+        {
+        TouchPoint='Dealer Outlet'; 
+        }  
+    } 		
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
