@@ -6120,7 +6120,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Other MBF related party</masterLabel>
-            <translation>要求(誰に)</translation>
+            <translation>その他MBF関係者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
@@ -6132,11 +6132,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Shinpan (JACCS)</masterLabel>
-            <translation>要求(誰に)</translation>
+            <translation>信販(ジャックス)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Shinpan (ORICO)</masterLabel>
-            <translation>要求(誰に)</translation>
+            <translation>信販(オリコ)</translation>
         </picklistValues>
     </fields>
     <fields>

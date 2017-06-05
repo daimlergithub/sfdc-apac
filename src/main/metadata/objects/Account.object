@@ -9330,106 +9330,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Beauty &amp; Cosmetic</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Biotechnology/Chemical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Employment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Entertainment &amp; Recreation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consumer Products</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Foods &amp; Beverage</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Journalism &amp; News/Media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Legal Businesses</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Information Technology</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Oil &amp; Gas</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sports</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tourism</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public Relations</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Transportation/Logistics</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Communications</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Energy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consulting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electronics</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Government</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Construction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Utilities</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -14176,6 +14076,17 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>	
+	<fields>
+        <fullName>Sequence_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Sequence No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SelecTrucks_Offered_Service__c</fullName>
@@ -18902,23 +18813,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Products</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18939,18 +18834,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Electricity production and supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electronics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Energy</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18978,27 +18861,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Government</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Information Technology</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Businesses</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19046,10 +18913,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Relations</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Real Estate</fullName>
                 <default>false</default>
             </values>
@@ -19070,19 +18933,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Ship building</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sports</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19094,19 +18949,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tourism</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Trade</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transportation%2FLogistics</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19118,74 +18965,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Utilities</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Warehousing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Info_Source__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz DrivingAcademy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -56373,24 +56157,22 @@ REGEX(Individual_Home_Phone__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>HomePhone_Format_TH</fullName>
-        <active>true</active>
-        <description>Home Phone must be in any of the following formats :		
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
-        <errorConditionFormula>AND(
-		$Profile.Name != 'IntegrationAPI', 
-		MD__c = 'TH',
-		NOT(ISBLANK(Individual_Home_Phone__c)),
-		NOT(
-		OR(
-		REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}"), 
-		 REGEX(Individual_Home_Phone__c, "[+0-9]{4}[0-9]{10}")
-		)
-		)
-		)</errorConditionFormula>
-        <errorMessage>Home Phone must be in any of the following formats :		
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
+        <active>false</active>
+        <description>Home Phone must be in any of the following formats :	
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'TH', 
+LEFT ( Individual_Home_Phone__c, 3) = "+66", 
+NOT(ISBLANK(Individual_Home_Phone__c)), 
+NOT( 
+( 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}") 
+) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Home Phone must be in any of the following formats :	
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
@@ -56655,24 +56437,22 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>Mobile_Format_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Mobile Phone must be in any of the following formats : 
-1. Province code (xxx)  And Phone Part 9 (xxxxxxxxx)digits only
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
-        <errorConditionFormula>AND(
+1. Province code (+xx) And PhoneNumber 9 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
 $Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH',
-NOT(ISBLANK(Mobile__c)),
-NOT(
-OR(
-REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}"),
-REGEX(Mobile__c, "[+0-9]{4}[0-9]{10}")
-)
-)
+MD__c = 'TH', 
+LEFT ( Mobile__c, 3) = "+66", 
+NOT(ISBLANK(Mobile__c)), 
+NOT( 
+( 
+REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}") 
+) 
+) 
 )</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
-1. Province code (xxx)  And Phone Part 9 (xxxxxxxxx)digits only
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
+1. Province code (+xx) And PhoneNumber 9 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile_NoChar</fullName>
@@ -56968,24 +56748,22 @@ REGEX(Work_Phone__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>WorkPhone_Format_TH</fullName>
-        <active>true</active>
-        <description>Work Phone must be in any of the following formats : 			
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</description>
-        <errorConditionFormula>AND(
+        <active>false</active>
+        <description>Work Phone must be in any of the following formats : 
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
 $Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH',
-NOT(ISBLANK(Work_Phone__c)),
-NOT(
-OR(
-REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{8}"),
-REGEX(Work_Phone__c, "[+0-9]{4}[0-9]{10}")
-)
-)
+MD__c = 'TH', 
+LEFT ( Work_Phone__c, 3) = "+66", 
+NOT(ISBLANK(Work_Phone__c)), 
+NOT( 
+( 
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{8}") 
+) 
+) 
 )</errorConditionFormula>
-        <errorMessage>Work Phone must be in any of the following formats : 			
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</errorMessage>
+        <errorMessage>Work Phone must be in any of the following formats : 
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
@@ -57514,13 +57292,13 @@ if(market == 'JP')
 if (sforce.console.isInConsole()) 
 { 
 
-srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};'); 
+srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};'); 
 
 } 
 
 else 
 { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}" ) 
+window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}" ) 
 
 } 
 } 

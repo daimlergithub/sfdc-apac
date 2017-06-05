@@ -72,7 +72,11 @@ public class AddressDisplayInlineEditControllerTest
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+        objAddressDisplayInlineEditController.EditOptions();
         objAddressDisplayInlineEditController.saveAddress(); 
+        objAddressDisplayInlineEditController.Address_Validated_Flag=true;
+        objAddressDisplayInlineEditController.Validation=false;
+        objAddressDisplayInlineEditController.saveAddress();
         objAddressDisplayInlineEditController.Address_Validated_Flag=true;
         objAddressDisplayInlineEditController.saveAddress();       
         objAddressDisplayInlineEditController.editaddressId=editadds[0].Id;
@@ -119,8 +123,10 @@ public class AddressDisplayInlineEditControllerTest
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);
         objAddressDisplayInlineEditController.editaddressId =objaddress.id;
-    objAddressDisplayInlineEditController.LanguageSelected='english';
+        objAddressDisplayInlineEditController.LanguageSelected='';
+        objAddressDisplayInlineEditController.market = 'TH';
         objAddressDisplayInlineEditController.addressobj = editadds[0];
+        objAddressDisplayInlineEditController.addressobj.Province__c = null;
         objAddressDisplayInlineEditController.EditOptions();
         test.stopTest();
         system.assertEquals(null,editaddressId,objaddress.Id);
@@ -513,14 +519,13 @@ public class AddressDisplayInlineEditControllerTest
      * @author      : Sanjay (SN20170510)
      * @Date        : 10/05/2017 
    **/
-    public static testMethod void testSaveAddressTHValidation()
-    {
+    public static testMethod void testSaveAddressTHValidation1(){
         //init();
         initUpdated('TH');      
         
         //SN20170511- Added a logic to add a new user for Thailand
                 
-       system.RunAs(sysAdminUser1){        
+        system.RunAs(sysAdminUser1){        
         test.startTest();
         ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
@@ -528,6 +533,25 @@ public class AddressDisplayInlineEditControllerTest
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
          
         objAddressDisplayInlineEditController.saveAddressTH();
+        test.stopTest();
+      //  system.assertEquals(null, editaddressId, objaddress);
+        }
+     }
+        
+    /*    public static testMethod void testSaveAddressTHValidation()
+    {
+        //init();
+        initUpdated('TH');      
+        
+        //SN20170511- Added a logic to add a new user for Thailand
+                
+        system.RunAs(sysAdminUser1){        
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+         
         objAddress.ZipCode__c='56789';
         objAddress.Address_Line_1__c='Sanjay ,bangalore';
         objAddress.District__c='Sathorn';
@@ -540,7 +564,7 @@ public class AddressDisplayInlineEditControllerTest
         test.stopTest();
       //  system.assertEquals(null, editaddressId, objaddress);
         }  
-    }
+    }*/
     
     /**    
      * @Description : Converage of the code for SaveAddressTH
@@ -610,6 +634,107 @@ public class AddressDisplayInlineEditControllerTest
       objAddressDisplayInlineEditController.ValidateAddressSearch(); 
       //objAddressDisplayInlineEditController.SelectedAddress();
       system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+     // }
+    test.stopTest(); 
+    }
+    
+     public static testMethod void testLoadProvince(){  
+    init(); 
+    ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+    ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+    AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+    objAddressDisplayInlineEditController.addressobj=objAddress;
+    test.startTest();
+     //system.RunAs(sysAdminUser1){
+       Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+      objAddressDisplayInlineEditController.LoadProvince(); 
+      //objAddressDisplayInlineEditController.SelectedAddress();
+      //system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+     // }
+    test.stopTest(); 
+    }
+  
+  
+    public static testMethod void testLoadDistrict(){  
+    init(); 
+    ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+    ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+    AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+    objAddressDisplayInlineEditController.addressobj=objAddress;
+    test.startTest();
+     //system.RunAs(sysAdminUser1){
+       Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+      objAddressDisplayInlineEditController.LoadDistrict(); 
+      //objAddressDisplayInlineEditController.SelectedAddress();
+      //system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+     // }
+    test.stopTest(); 
+    }
+    
+    
+    public static testMethod void testLoadSubDistrict(){  
+    init(); 
+    ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+    ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+    AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+    objAddressDisplayInlineEditController.addressobj=objAddress;
+    test.startTest();
+     //system.RunAs(sysAdminUser1){
+       Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+      objAddressDisplayInlineEditController.LoadSubDistrict(); 
+      //objAddressDisplayInlineEditController.SelectedAddress();
+      //system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+     // }
+    test.stopTest(); 
+    }
+    
+    
+    public static testMethod void testLoadZip(){  
+    init(); 
+    ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+    ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+    AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+    objAddressDisplayInlineEditController.addressobj=objAddress;
+    test.startTest();
+     //system.RunAs(sysAdminUser1){
+       Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+      objAddressDisplayInlineEditController.LoadZip(); 
+      //objAddressDisplayInlineEditController.SelectedAddress();
+      //system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+     // }
+    test.stopTest(); 
+    }
+    
+    public static testMethod void testShowHideFieldsTrue(){  
+    init(); 
+    ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+    ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+    AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+    objAddressDisplayInlineEditController.addressobj=objAddress;
+    test.startTest();
+     //system.RunAs(sysAdminUser1){
+       Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+      objAddressDisplayInlineEditController.addressobj.Foreign_Nationals__c=true ;
+      objAddressDisplayInlineEditController.ShowHideFields(); 
+      //objAddressDisplayInlineEditController.SelectedAddress();
+      //system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+     // }
+    test.stopTest(); 
+    }
+    
+    public static testMethod void testShowHideFieldsFalse(){  
+    init(); 
+    ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+    ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+    AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+    objAddressDisplayInlineEditController.addressobj=objAddress;
+    test.startTest();
+     //system.RunAs(sysAdminUser1){
+       Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+      objAddressDisplayInlineEditController.addressobj.Foreign_Nationals__c=false ;
+      objAddressDisplayInlineEditController.ShowHideFields(); 
+      //objAddressDisplayInlineEditController.SelectedAddress();
+      //system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
      // }
     test.stopTest(); 
     }

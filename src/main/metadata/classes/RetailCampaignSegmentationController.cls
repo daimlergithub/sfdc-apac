@@ -72,6 +72,12 @@ public with sharing class RetailCampaignSegmentationController {
     public String Sales =  'Sales Contact Target';
     public String AfterSalesOrFinance = 'Aftersales Contact Target 1';
     
+    //To change the available picklist values
+    Public Set<String> retTaskStatus = new Set<String>{'Draft', 'Waiting for Approval', 'Approved', 'Rejected','In service','Expired','pullback','Save','Waiting for cancellation approval','Cancellation Approved','Cancelled','Active', 'Matured','Cancelled','Early Termination','Subrogation','Consent Termination','Forced Termination','Change of Owner'};
+    public Set<String> specialMarkAcc = new Set<String>{'Automotive related','Dealer','Fire department','Lawyer','Insurance Company','MBJ','Ministry of Transport','Police'};
+    public Set<String> accStatus = new Set<String>{'Customer', 'Prospect'};
+    public Set<String> LeadDealerStatus = new Set<String>{'Not Started','On-going','Order Placed','Purchased(Only Non BDC)','Lost'};
+    
     public String jsonFilter { get; set; }
     public Map<String, Object> filterMap;
     public Map<String, Object> contentMap;
@@ -131,6 +137,20 @@ public with sharing class RetailCampaignSegmentationController {
         return options;
     }
         
+    public List<SelectOption> RetailTaskStatus{
+        get{
+            RetailTaskStatus= new List<SelectOption>();
+            RetailTaskStatus.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Status__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                if(retTaskStatus.contains(entry.getLabel()))
+                RetailTaskStatus.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return RetailTaskStatus;
+        }
+        set;
+    }
+    
    
     public List<SelectOption> SpecialMarkonAccount{
         get{
@@ -138,6 +158,7 @@ public with sharing class RetailCampaignSegmentationController {
             SpecialMarkonAccount.add(new SelectOption('', '--None--'));
             Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Special_Mark_on_Account__c;
             for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                if(specialMarkAcc.contains(entry.getLabel()))
                 SpecialMarkonAccount.add(new SelectOption(entry.getValue(), entry.getLabel()));
             }
             return SpecialMarkonAccount;
@@ -162,9 +183,26 @@ public with sharing class RetailCampaignSegmentationController {
         get{
             status= new List<SelectOption>();
             status.add(new SelectOption('', '--None--'));
-            status.add(new SelectOption('Customer','Customer'));
-            status.add(new SelectOption('Prospect','Prospect'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Status__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                if(accStatus.contains(entry.getLabel()))
+                status.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
             return status;
+        }
+        set;
+    }
+    
+    public List<SelectOption> DealerLeadStatus{
+        get{
+            DealerLeadStatus= new List<SelectOption>();
+            DealerLeadStatus.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Lead__c.fields.Dealer_Lead_Status__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                if(LeadDealerStatus.contains(entry.getLabel()))
+                DealerLeadStatus.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return DealerLeadStatus;
         }
         set;
     }
@@ -173,10 +211,12 @@ public with sharing class RetailCampaignSegmentationController {
         get{
             RetailSalesSanction= new List<SelectOption>();
             RetailSalesSanction.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account_Link__c.fields.Retail_Sales_Sanction__c;
-            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                RetailSalesSanction.add(new SelectOption(entry.getValue(), entry.getLabel()));
-            }
+            RetailSalesSanction.add(new SelectOption('A', 'A'));
+            RetailSalesSanction.add(new SelectOption('B', 'B'));
+            RetailSalesSanction.add(new SelectOption('C', 'C'));
+            RetailSalesSanction.add(new SelectOption('D', 'D'));
+            RetailSalesSanction.add(new SelectOption('E', 'E'));
+            RetailSalesSanction.add(new SelectOption('F', 'F'));
             return RetailSalesSanction;
         }
         set;

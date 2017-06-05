@@ -843,10 +843,24 @@ List<Account> accUpdLst = new List<Account>();
         }
     }
 	
-    public void updateCaseDealer(List<case> dealerCaseList)
+    public void updateCaseDealer(List<case> dealerCaseList,boolean isInsert,boolean isUpdate,Map<id,Case> caseOldMap)
     {
         List<User> userList = new List<User>();
         set<id> userid = new set<id>();
+        set<id> dealerIds = new set<id>();        
+        Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>();
+        for(Case delCas : dealerCaseList)
+        {
+            if(delCas.Case_Dealer__c != null)
+            {
+                dealerIds.add(delCas.Case_Dealer__c);
+            }
+        }
+        for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
+        {
+            dealerIdGateKeeperIds.put(u.AccountId, u.Id);
+        }
+        
         userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
         
         for(Case delcase: dealerCaseList)
@@ -855,10 +869,17 @@ List<Account> accUpdLst = new List<Account>();
             {
                 for(User u : userList)
                 {
-                    if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
+                    if(isInsert && u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
                     {
                         delcase.Case_Dealer__c = u.Contact.AccountId;
                     }
+                }
+            }
+            if(delcase.Case_Dealer__c != null && ((isInsert && UserInfo.getUserType() != 'PowerPartner') || (isUpdate && delcase.Case_Dealer__c != caseOldMap.get(delcase.Id).Case_Dealer__c)))
+            {
+                if(!dealerIdGateKeeperIds.isEmpty() && dealerIdGateKeeperIds != null)
+                {
+                    delcase.OwnerId = dealerIdGateKeeperIds.get(delcase.Case_Dealer__c);
                 }
             }
         }

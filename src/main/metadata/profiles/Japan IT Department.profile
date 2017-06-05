@@ -7382,6 +7382,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.MainParentCampaign__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Max_Car_Age__c</field>
         <readable>true</readable>
@@ -7955,7 +7960,7 @@
         <editable>false</editable>
         <field>Campaign_Lead__c.MD__c</field>
         <readable>false</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Lead__c.Participate_Status__c</field>
@@ -10872,9 +10877,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Requires_Dealer_Contact__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25981,6 +25986,10 @@
     <pageAccesses>
         <apexPage>CommunitiesTemplate</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ConsolidationDisplayList</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Consolidation_List</apexPage>

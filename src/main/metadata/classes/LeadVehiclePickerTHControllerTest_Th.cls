@@ -442,7 +442,7 @@ public without sharing class LeadVehiclePickerTHControllerTest_Th{
         dealer.Phone = '+66-03-777-9999';
         dealer.LastName='test';
         dealer.email__c='Dhanamjaya@gmail.com';
-        dealer.Individual_Home_Phone__c='+66-12-123-789';
+        dealer.Individual_Home_Phone__c='+6612123789';
         insert dealer;
         testLead=new Lead__c();
         insert testLead;

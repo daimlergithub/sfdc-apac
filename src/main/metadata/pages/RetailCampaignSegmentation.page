@@ -666,7 +666,10 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
-                                <apex:inputField value="{!lead.Dealer_Lead_Status__c}" styleClass="Dealer_Lead_Status__c" style="display:block;"/>
+                                <apex:selectList styleClass="Dealer_Lead_Status__c" size="1" multiselect="false" style="display:block;">
+                                    <apex:selectOptions value="{!DealerLeadStatus}"></apex:selectOptions>
+                                </apex:selectList>
+                               <!-- <apex:inputField value="{!lead.Dealer_Lead_Status__c}" styleClass="Dealer_Lead_Status__c" style="display:block;"/>-->
                                 <input class="dateInput" id="LeadTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                             </td>
@@ -938,7 +941,9 @@
                                 <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> 
                                 <apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>
                                 <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
-                                <Apex:inputField value="{!RatilTask.Status__c}" styleClass="Status__c"/> 
+                                <apex:selectList styleClass="Status__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!RetailTaskStatus}"></apex:selectOptions>
+                                </apex:selectList>
                             </td>
                             <td></td>
                             <td></td>
@@ -1113,5 +1118,4 @@
             </apex:outputPanel>
         </apex:pageBlock>
     </apex:form>
-   
 </apex:page>

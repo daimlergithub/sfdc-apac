@@ -38,6 +38,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>HomePhone_Update</fullName>
+        <field>Individual_Home_Phone__c</field>
+        <formula>IF(NOT(ISBLANK(Individual_Home_Phone__c)), &apos;+66&apos; + Individual_Home_Phone__c, Individual_Home_Phone__c)</formula>
+        <name>HomePhone_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>MBTH_UpdateDataSource</fullName>
         <field>System_Data_Source__c</field>
         <formula>&apos;Salesforce&apos;</formula>
@@ -60,6 +69,15 @@
         <field>Updated_Consent_Date__c</field>
         <formula>today()</formula>
         <name>MBTH_Updated Consent Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Mobile_Update</fullName>
+        <field>Mobile__c</field>
+        <formula>IF(NOT(ISBLANK(Mobile__c)),&apos;+66&apos;+Mobile__c,Mobile__c)</formula>
+        <name>Mobile_Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -165,6 +183,15 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>WorkPhone_Update</fullName>
+        <field>Work_Phone__c</field>
+        <formula>IF(NOT(ISBLANK(Work_Phone__c)), &apos;+66&apos; + Work_Phone__c, Work_Phone__c)</formula>
+        <name>WorkPhone_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
@@ -174,6 +201,34 @@
         <active>false</active>
         <description>When field “Preferred contact method” value is set to others from “Phone”,the field value changes to null</description>
         <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>MBTH_Add_Plus_66</fullName>
+        <actions>
+            <name>HomePhone_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Mobile_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>WorkPhone_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>IntegrationAPI</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <description>This workflow is the prefix +66 to all phone numbers</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

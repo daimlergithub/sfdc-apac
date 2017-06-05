@@ -36,7 +36,8 @@
     </customConsoleComponents>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -86,6 +87,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -159,6 +164,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -453,7 +462,6 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>

@@ -4,15 +4,14 @@ created by: Srinivas 11/3/2015
 modified by: Sudhir Kumar Acharya 11/30/2015
 
 */
-public class AddressDisplayInlineEditController {
- 
+public class AddressDisplayInlineEditController { 
     public boolean openPanal{get;set;}
     public List<Address__c> adds {get; set;}
     public Address__c addressobj {get; set;}
     public Boolean ShowpageBlockFlag {get;set;}
     public Boolean refreshPage{get;set;}
     private ApexPages.StandardController stdController;  
-	public RegionMasterInfo__c region {get;set;}	
+    public RegionMasterInfo__c region {get;set;}    
     public string addressId {get;set;}
     public string editaddressId {get;set;}  
     public String aid;
@@ -245,8 +244,10 @@ public class AddressDisplayInlineEditController {
             addressobj.id=editadds.id;
             addressobj.Address_Type__c = editadds.Address_Type__c;
             addresspicklist=editadds.Address_Type__c;
+            
             addressobj.ZipCode__c = editadds.ZipCode__c;
             addressobj.Province__c = editadds.Province__c;
+            provincepicklist = editadds.Province__c;
             addressobj.City__c = editadds.City__c;
             addressobj.District__c =editadds.District__c;
             addressobj.Block__c =editadds.Block__c;
@@ -271,8 +272,7 @@ public class AddressDisplayInlineEditController {
             province=editadds.Province__c;
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
-            LanguageSelected=editadds.Language__c;
-            LanguageSelected=region.Language__c;
+             LanguageSelected=editadds.Language__c;
             if(market=='TH')
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
@@ -408,7 +408,7 @@ public class AddressDisplayInlineEditController {
             if(addresspicklist!=null)
                 addressobj.Address_Type__c = addresspicklist;   
             string accountid=ApexPages.currentPage().getParameters().get('id');
-            List<address__c> objAddresses=[select id,preferred__c from address__c where Customer__c=:accountid and preferred__c=true];
+            List<address__c> objAddresses=[select id,preferred__c from address__c where Customer__c=:accountid and preferred__c=true LIMIT 100];
              
             for(address__c add:objAddresses)
             {               

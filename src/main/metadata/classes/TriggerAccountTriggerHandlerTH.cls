@@ -13,7 +13,8 @@
 * 6.Implement Postal_Opt_Out__c to automate opt-out for all addresses which means that selecting this flag opts out the customer from being contacted 
 *   via Addresses (Ex: Home Address, Office Address, etc.).
 * 7.Use Email Opt Out (PersonHasOptedOutOfEmail) to automate opt-out from email options.
-* 8.Calculate “Age Range” based on birthdate.
+* 8.Calculate “Age Range” based on birthdate..
+* 9.
 */
 
 public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
@@ -42,7 +43,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateOnEmailOptout(Trigger.new);
             AccountHelperTH.updateAgeRange(Trigger.new);
             AccountHelperTH.activeContracts(Trigger.new);
-            AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
+           // AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
@@ -86,14 +87,9 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
        if(isBefore && isInsert){
             AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
         }
-        If(isBefore && (isInsert||isUpdate)){      
+       /* If(isBefore && (isInsert||isUpdate)){      
       AccountHelperTH.updatePhoneFormat(Trigger.new);
-      }
-        
-      If(isBefore && (isInsert||isUpdate)){
-      
-      AccountHelperTH.updatePhoneFormat(Trigger.new);
-      }
+      }*/
         
         if(isBefore && isUpdate){
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
@@ -104,7 +100,6 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateOnEmailOptout(Trigger.new);
             AccountHelperTH.updateAgeRange(Trigger.new);
             AccountHelperTH.activeContracts(Trigger.new);
-            
         }
         
         // Copied from JP

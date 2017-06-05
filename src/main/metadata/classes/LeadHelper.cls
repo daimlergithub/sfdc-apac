@@ -52,7 +52,7 @@ public class LeadHelper
 			{
 				lead.Service_Advisor__c = mapsalesConandUsrId.get(lead.Sales_Consultant__c);//lead.Sales_Consultant__c;
 			}
-            if(lead.Assigned_Dealer__c != null && (isInsert || (isUpdate && lead.Assigned_Dealer__c != oldValLead.get(lead.id).Assigned_Dealer__c)))
+            if(lead.Assigned_Dealer__c != null && ((isInsert && UserInfo.getUserType() != 'PowerPartner') || (isUpdate && lead.Assigned_Dealer__c != oldValLead.get(lead.id).Assigned_Dealer__c)))
             {
                 if(!dealerIdGateKeeperIds.isEmpty() && dealerIdGateKeeperIds != null)
                 {

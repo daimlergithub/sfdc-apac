@@ -245,7 +245,7 @@
         <name>Address_Select</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address Type --></label>
+        <label>住所区分</label>
         <name>Address_Type</name>
     </customLabels>
     <customLabels>
@@ -289,7 +289,7 @@
         <name>AftersalesContactTarget2</name>
     </customLabels>
     <customLabels>
-        <label><!-- Age --></label>
+        <label>年齢</label>
         <name>Age</name>
     </customLabels>
     <customLabels>
@@ -309,7 +309,7 @@
         <name>AlreadyProcessed</name>
     </customLabels>
     <customLabels>
-        <label><!-- Amount --></label>
+        <label>保有台数</label>
         <name>Amount</name>
     </customLabels>
     <customLabels>
@@ -937,7 +937,7 @@
         <name>Company_Account_Record_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Company Name --></label>
+        <label>会社名</label>
         <name>Company_Name</name>
     </customLabels>
     <customLabels>
@@ -953,7 +953,7 @@
         <name>Compared_Vehicle_Model</name>
     </customLabels>
     <customLabels>
-        <label><!-- Comparison is being done actively --></label>
+        <label>競合（比較検討）は活発に行われていますか？</label>
         <name>Comparison_is_being_done_actively</name>
     </customLabels>
     <customLabels>
@@ -1081,7 +1081,7 @@
         <name>Customer_Information</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer Issue --></label>
+        <label>促進車種でお客様の抱えている問題や不満は解決可能ですか？</label>
         <name>Customer_Issue</name>
     </customLabels>
     <customLabels>
@@ -1213,7 +1213,7 @@
         <name>Did_You_Get_Agreement_From_Customer</name>
     </customLabels>
     <customLabels>
-        <label><!-- Did you visit home or company --></label>
+        <label>最低でも一度は自宅もしくは会社に訪問しましたか？</label>
         <name>Did_you_visit_home_or_company</name>
     </customLabels>
     <customLabels>
@@ -1225,7 +1225,7 @@
         <name>Discount_Total</name>
     </customLabels>
     <customLabels>
-        <label><!-- Do you know when and where you can meet --></label>
+        <label>面談出来る最適な時間や場所を把握していますか？</label>
         <name>Do_you_know_when_and_where_you_can_meet</name>
     </customLabels>
     <customLabels>
@@ -1469,7 +1469,7 @@
         <name>Family_Number</name>
     </customLabels>
     <customLabels>
-        <label><!-- Family, company, hobby have you heard --></label>
+        <label>家族構成、勤務先、趣味などは聞けましたか？</label>
         <name>Family_company_hobby_have_you_heard</name>
     </customLabels>
     <customLabels>
@@ -1549,7 +1549,7 @@
         <name>From_the_experience_with_Mercedes_Benz_during_this_event_which_word_would_best</name>
     </customLabels>
     <customLabels>
-        <label><!-- Garage information and specifications have you heard --></label>
+        <label>車庫の概要、寸法を把握しましたか？</label>
         <name>Garage_information_and_specifications_have_you_heard</name>
     </customLabels>
     <customLabels>
@@ -1617,7 +1617,7 @@
         <name>HideSurveyName</name>
     </customLabels>
     <customLabels>
-        <label><!-- Highly interesed --></label>
+        <label>見積もりに対しての関心は高いですか？</label>
         <name>Highly_interesed</name>
     </customLabels>
     <customLabels>
@@ -2025,7 +2025,7 @@
         <name>Lead_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead creation/Assign Date --></label>
+        <label>リード作成/展開日</label>
         <name>Lead_creation_Assign_Date</name>
     </customLabels>
     <customLabels>
@@ -2568,7 +2568,7 @@
         <name>Priority</name>
     </customLabels>
     <customLabels>
-        <label><!-- Process Check Items --></label>
+        <label>プロセス・チェック項目</label>
         <name>Process_Check_Items</name>
     </customLabels>
     <customLabels>
@@ -2600,11 +2600,11 @@
         <name>Pruchase_Plan_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Purchase Plan --></label>
+        <label>ご購入予定</label>
         <name>Purchase_Plan</name>
     </customLabels>
     <customLabels>
-        <label><!-- Purchase Reason --></label>
+        <label>購入理由（必要性）は明らかになりましたか？</label>
         <name>Purchase_Reason</name>
     </customLabels>
     <customLabels>
@@ -3000,7 +3000,7 @@
         <name>RequestPDF</name>
     </customLabels>
     <customLabels>
-        <label><!-- Request Date --></label>
+        <label>リクエスト日付</label>
         <name>Request_Date</name>
     </customLabels>
     <customLabels>
@@ -3008,7 +3008,7 @@
         <name>Request_Details</name>
     </customLabels>
     <customLabels>
-        <label><!-- Request Type --></label>
+        <label>リクエスト区分</label>
         <name>Request_Type</name>
     </customLabels>
     <customLabels>
@@ -3980,7 +3980,7 @@
         <name>Status_Confirmed</name>
     </customLabels>
     <customLabels>
-        <label><!-- Stocks for interested vehicle --></label>
+        <label>お客様が検討している車種の在庫はありますか？</label>
         <name>Stocks_for_interested_vehicle</name>
     </customLabels>
     <customLabels>

@@ -36,9 +36,14 @@
                         <apex:outputField value="{!Lead__c.Contact__r.Name}"/></div> 
                 </div>
             </div><br/><br/>
-            <b>{!$Label.Service_Advisor}</b>
+           
+            <b width="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputLabel value=" {!$Label.Service_Advisor}"/>                    
+                    </b>
             <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
+               
                 <tr>
+                    
                     <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Company}"/>                    
                     </td>
@@ -53,7 +58,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="25%">
+                   
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Advisor}"/>                    
                     </td>
                     <td width="25%">
@@ -66,10 +72,13 @@
                 </tr>
             </table>
             <br/>
-            <b>{!$Label.Request}</b>
+             <b width="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputLabel value="{!$Label.Request}"/>                    
+                    </b>
+            
             <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
                 <tr>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Request}"/>                    
                     </td>
                     <td colspan ="3" width="75%">
@@ -78,7 +87,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Touch_Point}"/>
                     </td>
                     <td colspan ="3" width="75%">
@@ -86,13 +95,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Lead_Assigned_Date}"/>                    
                     </td>
                     <td width="25%">
                         <apex:outputField value="{!Lead__c.Assigned_Date_Time__c}"/>
                     </td>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Requested_Date}"/>
                     </td>
                     <td width="25%">
@@ -100,7 +109,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Planned_Purchase_Time}"/>
                     </td>
                     <td colspan ="3" width="75%">
@@ -109,16 +118,19 @@
                 </tr>
             </table>
             <br/>
-            <b>{!$Label.Customer_Information}</b>
+            <b width="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputLabel value="{!$Label.Customer_Information}"/>                    
+                    </b>
+          
             <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
                 <tr>
-                    <td width ="25%">
+                    <td width ="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.UCID}"/>  
                     </td>
                     <td width ="25%">
                         <apex:outputField value="{!Lead__c.Contact__r.UCID__c}"/>   
                     </td>
-                    <td width ="25%">
+                    <td width ="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Allow_Data_Sharing}"/>    
                     </td>
                     <td width ="25%">
@@ -126,7 +138,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width ="25%">
+                    <td width ="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Customer_Name}"/> 
                     </td>
                     <td colspan ="6" width ="75%" style ="font-family:Arial Unicode MS">
@@ -143,7 +155,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan="2" width ="25%" height ="40">
+                    <td rowspan="2" width ="25%" height ="40" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Address}"/>   
                     </td>
                     <td colspan = "6" width ="75%">
@@ -158,13 +170,13 @@
                 </tr>
             </tr>
             <tr>
-                <td width ="25%">
+                <td width ="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Gender}"/>
                 </td>
                 <td width ="25%">
                     <apex:outputField value="{!Lead__c.Contact__r.Gender__c}"/>
                 </td>
-                <td width ="25%">
+                <td width ="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Birthdate}"/>
                 </td>
                 <td width ="25%">
@@ -172,13 +184,13 @@
                 </td>
             </tr>
             <tr>
-                <td width ="25%">
+                <td width ="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Sales_TEL}"/>
                 </td>
                 <td width ="25%">
                     <apex:outputField value="{!Lead__c.Contact__r.Primary_Phone_Display__c}"/>
                 </td>
-                <td width ="25%">
+                <td width ="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Sales_Mail}"/>
                 </td>
                 <td width ="25%">
@@ -186,13 +198,13 @@
                 </td>
             </tr>
             <tr>
-                <td width ="25%">
+                <td width ="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Home_Phone}"/>
                 </td>
                 <td width ="25%">
                     <apex:outputField value="{!Lead__c.Contact__r.Individual_Home_Phone__c}"/>
                 </td>
-                <td width ="25%">
+                <td width ="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Mobile}"/>
                 </td>
                 <td width ="25%">
@@ -200,7 +212,7 @@
                 </td>
             </tr>
             <tr>
-                <td width ="25%">
+                <td width ="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Person_Or_Company}"/>
                 </td>
                 <td width ="25%">
@@ -212,7 +224,7 @@
                 </td>
             </tr>
             <tr>
-                <td width ="25%">
+                <td width ="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Memo}"/>
                 </td>
                 <td colspan ="6" width ="75%">
@@ -221,10 +233,13 @@
             </tr>
         </table>
         <br/>
-        <b>{!$Label.SurveyID}</b>
+        <b width="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputLabel value="{!$Label.SurveyID}"/>                    
+                    </b>
+        
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
             <tr>
-                <td width="25%">
+                <td width="25%" style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Request_Details}"/>
                 </td>
                 <td width="75%">

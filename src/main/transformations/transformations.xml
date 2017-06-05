@@ -684,6 +684,11 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
 		<token tokenonly="true">CASE_INQUIRY_TYPE_RECORDTYPEID</token>
 	</changetext>
+	<changetext>
+      <filename>objects\Case.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_CASE_INQUIRY_RECORDTYPEID</token>
+    </changetext>
     <changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_Complaint']/url/text()</xpath>

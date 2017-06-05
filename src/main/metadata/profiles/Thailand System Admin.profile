@@ -1518,6 +1518,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TestUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TextInputtingControlelr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -3164,7 +3168,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Lead_Gate_Keeper_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3172,9 +3176,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Dealer_Lead_Gate_Keeper__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4997,7 +5001,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5007,9 +5011,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.System_Data_Source__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25473,14 +25477,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-Competitor Vehicle Layout-CAC</layout>
-        <recordType>Vehicle__c.Competitor</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Vehicle__c-Competitor Vehicle Layout-CAC</layout>
-        <recordType>Vehicle__c.MB</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Vehicle__c-Competitor Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25490,6 +25486,14 @@
     <layoutAssignments>
         <layout>Vehicle__c-Competitor Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle__c-MBTH Competitor Vehicle Layout-CAC</layout>
+        <recordType>Vehicle__c.Competitor</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle__c-MBTH MB Vehicle Layout-CAC</layout>
+        <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
@@ -27096,7 +27100,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -27117,6 +27120,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle__c.MB</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -27177,6 +27181,14 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Survey_Question__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Vehicle_Relationship__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Vehicle__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

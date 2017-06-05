@@ -27,6 +27,7 @@
          <apex:includeScript value="/support/console/32.0/integration.js"/>
         <apex:pageBlock id="Block">
            <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c=='JP',true,false)}">
+           
                 <table style="width:100%" rules="rows">               
                    <tr>        
                        <td></td> 
@@ -205,6 +206,7 @@
                </table>    
             </apex:pageBlock> 
             <apex:pageBlock id="myTableKR" rendered="{!If(ParAcc.MD__c=='KR',true,false)}">
+                
                 <table style="width:100%" border="1">               
                    <tr>        
                        <td></td> 
@@ -220,8 +222,8 @@
                          <apex:selectList value="{!mobilePhoneAreaCodePart1}" size="1" style="width:80px" rendered="{!editMode}">
                                 <apex:selectOptions value="{!MobileAreacodeItems}"/>
                          </apex:selectList>    
-                         <apex:inputText value="{!mobilePhoneAreaCodePart2}" id="mobilePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
-                         <apex:inputText value="{!mobilePhoneAreaCodePart3}" id="mobilePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
+                         //<apex:inputText value="{!mobilePhoneAreaCodePart2}" id="mobilePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
+                         //<apex:inputText value="{!mobilePhoneAreaCodePart3}" id="mobilePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
                          <apex:outputPanel rendered="{!!editMode}"> 
                          <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');">
                           {!ParAcc.Mobile__c}
@@ -439,7 +441,7 @@
                        <th style="text-align: Right;">{!$Label.Mobile}</th>       
                        <td>
                          <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" rendered="{!editMode}" style="width:30px"/>
-                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode" rendered="{!editMode}" style="width:120px"/>
+                         <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber" rendered="{!editMode}" style="width:120px"/>
                          
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
                              javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile__c} </a> 
@@ -457,7 +459,7 @@
                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>        
                        <td>
                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" rendered="{!editMode}" style="width:30px"/>
-                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" rendered="{!editMode}" style="width:120px"/>  
+                         <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" rendered="{!editMode}" style="width:120px"/> 
                          
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c}</a>
@@ -476,7 +478,7 @@
                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                
                        <td>
                           <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!editMode}" style="width:30px"/>
-                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" rendered="{!editMode}" style="width:120px"/>  
+                        <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" rendered="{!editMode}" style="width:120px"/>  
                           
                        <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a> 
