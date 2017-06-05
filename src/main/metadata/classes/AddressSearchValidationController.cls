@@ -572,6 +572,10 @@ public class AddressSearchValidationController
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {
                         refreshPage = true;
+                        if(TouchPoint !=null)
+                        {
+                        objAccount.Data_Source__c=TouchPoint;
+                        }
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
@@ -726,6 +730,14 @@ public class AddressSearchValidationController
                         system.debug('Validation1:'+Validation );
                         if(Validation == false){
                              system.debug('refreshPage 2:'+refreshPage );
+                      if(TouchPoint !=null)
+                        {
+                        objPersonAccount.Data_Source__c=TouchPoint;
+                        } 
+                        if(objPersonAccount.Acquisition_Objective_Method__c !=null && objPersonAccount.Allow_Data_Sharing2__c =='Yes')
+                        {
+                        objPersonAccount.Acquisition_Record_Date__c=System.today();
+                        }
                             upsert objPersonAccount ;
                             if(AddressObj !=null && (Address_Validated_Flag )){
                                 AddressObj.Customer__c = objPersonAccount.id;
@@ -777,7 +789,7 @@ public class AddressSearchValidationController
         {
         TouchPoint='Dealer Outlet'; 
         }  
-    } 		
+    }       
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
