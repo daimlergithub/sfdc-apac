@@ -1707,6 +1707,13 @@
         <shortDescription>CountryTH</shortDescription>
         <value>Thailand</value>
     </labels>
+	<labels>
+        <fullName>CreateRetailCopy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CreateRetailCopy</shortDescription>
+        <value>CreateRetailCopy</value>
+    </labels>
     <labels>
         <fullName>Create_Vehicle</fullName>
         <language>en_US</language>
@@ -4402,6 +4409,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please Select A Dealer To Add As Participating Dealer</shortDescription>
         <value>Please Select A Dealer To Add As Participating Dealer</value>
     </labels>
+	<labels>
+        <fullName>Please_Select_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Select Dealer</shortDescription>
+        <value>Please Select Dealer.</value>
+    </labels>
+    <labels>
+        <fullName>Please_Wait</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Wait</shortDescription>
+        <value>Please Wait</value>
+    </labels>
     <labels>
         <fullName>Please_enter_the_filter_name</fullName>
         <language>en_US</language>
@@ -7059,6 +7080,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Download File is created please follow the link in task  for download</value>
     </labels>
+	<labels>
+        <fullName>Sucessfully_Created_Retail_Copy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sucessfully Created Retail Copy</shortDescription>
+        <value>Sucessfully Created Retail Copy</value>
+    </labels>
     <labels>
         <fullName>SurveyCompleted</fullName>
         <categories>Flows</categories>
@@ -8554,6 +8582,20 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>&amp;retURL=/apex/SelectSlaveAccount?Id=</shortDescription>
         <value>&amp;retURL=/apex/SelectSlaveAccount?Id=</value>
+    </labels>
+	<labels>
+        <fullName>select</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>select</shortDescription>
+        <value>select</value>
+    </labels>
+    <labels>
+        <fullName>select_dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>select dealer</shortDescription>
+        <value>select dealer</value>
     </labels>
     <labels>
         <fullName>send_to_spo_active</fullName>
