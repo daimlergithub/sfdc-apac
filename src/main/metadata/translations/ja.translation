@@ -1012,6 +1012,10 @@
         <label><!-- CountryTH --></label>
         <name>CountryTH</name>
     </customLabels>
+	<customLabels>
+        <label>リテールコピー作成</label>
+        <name>CreateRetailCopy</name>
+    </customLabels>
     <customLabels>
         <label>車両作成</label>
         <name>Create_Vehicle</name>
@@ -2527,6 +2531,14 @@
         <label><!-- Please Select A Dealer To Add As Participating Dealer --></label>
         <name>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</name>
     </customLabels>
+	<customLabels>
+        <label>販売店を選択してください。</label>
+        <name>Please_Select_Dealer</name>
+    </customLabels>
+    <customLabels>
+        <label>作成中</label>
+        <name>Please_Wait</name>
+    </customLabels>
     <customLabels>
         <label><!-- Please enter the filter name --></label>
         <name>Please_enter_the_filter_name</name>
@@ -3995,6 +4007,10 @@
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Success_message</name>
     </customLabels>
+	<customLabels>
+        <label>作成完了</label>
+        <name>Sucessfully_Created_Retail_Copy</name>
+    </customLabels>
     <customLabels>
         <label><!-- SurveyCompleted --></label>
         <name>SurveyCompleted</name>
@@ -4786,6 +4802,14 @@
     <customLabels>
         <label><!-- &amp;retURL=/apex/SelectSlaveAccount?Id= --></label>
         <name>retURL_apex_SelectSlaveAccount_Id</name>
+    </customLabels>
+	<customLabels>
+        <label>(Blank)</label>
+        <name>select</name>
+    </customLabels>
+    <customLabels>
+        <label>販売店選択</label>
+        <name>select_dealer</name>
     </customLabels>
     <customLabels>
         <label>SPOに送信</label>
