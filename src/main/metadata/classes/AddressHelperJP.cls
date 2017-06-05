@@ -12,7 +12,7 @@ public with sharing class AddressHelperJP {
        public static Id retPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();     
        public static Id retCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();     
        public static Id individualAddRecordTypeId = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId();     
-    
+       public static boolean addt=true;
        
             
        /**             
@@ -45,7 +45,7 @@ public with sharing class AddressHelperJP {
                     }
             
                 }
-                if(isUpdate)
+                if(isUpdate && addt)
                 {
                     for(Address__c add:triggerNew)
                     {
@@ -65,6 +65,7 @@ public with sharing class AddressHelperJP {
                         }
                 
                     }
+					addt=false;
                 } 
             } 
       
