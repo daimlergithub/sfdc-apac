@@ -57675,7 +57675,7 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
 { 
-window.open('/setup/ui/recordtypeselect.jsp?ent=Case&retURL=/500/o&save_new_url=/500/e?fromAccountId1={!Account.Id}&retURL=%2F500%2Fo'); 
+window.open('/setup/ui/recordtypeselect.jsp?ent=Case&retURL=/500/o&save_new_url=/500/e?fromAccountId1={!Account.Id}&retURL=%2F500%2Fo&amp;'); 
 } 
 else 
 { 
