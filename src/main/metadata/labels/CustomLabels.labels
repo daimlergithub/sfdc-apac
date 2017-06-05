@@ -106,6 +106,13 @@
         <shortDescription>AccountMergeFields</shortDescription>
         <value>AccountMergeFields</value>
     </labels>
+	<labels>
+        <fullName>AccountName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountName</shortDescription>
+        <value>Account Name</value>
+    </labels>
     <labels>
         <fullName>AccountRetailCopy</fullName>
         <language>en_US</language>
@@ -126,6 +133,13 @@
         <protected>false</protected>
         <shortDescription>Account Creation</shortDescription>
         <value>Account Creation</value>
+    </labels>
+	<labels>
+        <fullName>Account_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Information</shortDescription>
+        <value>Account Information</value>
     </labels>
     <labels>
         <fullName>Account_Merge</fullName>
@@ -391,6 +405,13 @@
         <protected>false</protected>
         <shortDescription>And Criteria</shortDescription>
         <value>And Criteria</value>
+    </labels>
+	<labels>
+        <fullName>Are_you_sure_want_to_send_information_to_SPO_interface</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure want to send information to SPO interface?</shortDescription>
+        <value>Are you sure want to send information to SPO interface?</value>
     </labels>
     <labels>
         <fullName>Assign_Case_To_Dealer_Branch_Name</fullName>
@@ -1344,6 +1365,13 @@
         <shortDescription>Cannot Delete Central Campaign</shortDescription>
         <value>You can&apos;t delete an active campaign.</value>
     </labels>
+	<labels>
+        <fullName>Car_Relation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Car Relation</shortDescription>
+        <value>Car Relation</value>
+    </labels>
     <labels>
         <fullName>Case</fullName>
         <language>en_US</language>
@@ -1571,6 +1599,13 @@
         <shortDescription>Company Account Record Type</shortDescription>
         <value>Company Account</value>
     </labels>
+	<labels>
+        <fullName>Company_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Customer</shortDescription>
+        <value>Company Customer</value>
+    </labels>
     <labels>
         <fullName>Company_Name</fullName>
         <language>en_US</language>
@@ -1620,6 +1655,13 @@
         <protected>false</protected>
         <shortDescription>ConfidentialPDF</shortDescription>
         <value>Confidential</value>
+    </labels>
+	<labels>
+        <fullName>Confirmation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirmation</shortDescription>
+        <value>Confirmation</value>
     </labels>
     <labels>
         <fullName>Confirmation_for_delete_address</fullName>
@@ -1841,6 +1883,13 @@
         <shortDescription>Customer Issue</shortDescription>
         <value>Customer&apos;s issue and complaints can be solved with promoted car?</value>
     </labels>
+	<labels>
+        <fullName>Customer_My_Merc_Interface_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer My Merc Interface Customer</shortDescription>
+        <value>Customer My Merc Interface Customer</value>
+    </labels>
     <labels>
         <fullName>Customer_Name</fullName>
         <language>en_US</language>
@@ -1869,6 +1918,13 @@
         <protected>false</protected>
         <shortDescription>Customer Statement</shortDescription>
         <value>Customer Statement</value>
+    </labels>
+	<labels>
+        <fullName>Customer_Vehicle_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Vehicle Information</shortDescription>
+        <value>Customer Vehicle Information</value>
     </labels>
     <labels>
         <fullName>Customerrelatedinformation</fullName>
@@ -2148,6 +2204,20 @@
         <shortDescription>Elegance</shortDescription>
         <value>Elegance</value>
     </labels>
+	<labels>
+        <fullName>Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>Email2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email2</shortDescription>
+        <value>Email2</value>
+    </labels>
     <labels>
         <fullName>Email_Assignment</fullName>
         <language>en_US</language>
@@ -2354,6 +2424,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Email_salesforcelogin</shortDescription>
         <value>*You need to log in to Salesforce to check the Case information.</value>
+    </labels>
+	<labels>
+        <fullName>Emails</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Emails</shortDescription>
+        <value>Eメール参照</value>
     </labels>
     <labels>
         <fullName>Employee</fullName>
@@ -2870,6 +2947,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>If yes, within which period do you plan to purchase</shortDescription>
         <value>If yes, within which period do you plan to purchase</value>
+    </labels>
+	<labels>
+        <fullName>Individual_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Customer</shortDescription>
+        <value>Individual Customer</value>
     </labels>
     <labels>
         <fullName>Informationsharing</fullName>
@@ -3811,6 +3895,20 @@ please contact the number below.</value>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>My Shop Phone</value>
     </labels>
+	<labels>
+        <fullName>My_Merc_Email_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Merc Email Id</shortDescription>
+        <value>My Merc Email Id</value>
+    </labels>
+    <labels>
+        <fullName>My_Merc_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Merc Id</shortDescription>
+        <value>My Merc Id</value>
+    </labels>
     <labels>
         <fullName>My_Mercedes_ID</fullName>
         <language>en_US</language>
@@ -4422,6 +4520,27 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Please Wait</shortDescription>
         <value>Please Wait</value>
+    </labels>
+	<labels>
+        <fullName>Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Mandatory Fields on Account - BirthDate,Last Name Native,Gender</shortDescription>
+        <value>Please enter Mandatory Fields on Account - BirthDate,Last Name Native,Gender.</value>
+    </labels>
+	<labels>
+        <fullName>Please_enter_My_Merc_Email_Id_for_Selected_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter My Merc Email Id for Selected Account</shortDescription>
+        <value>Please enter My Merc Email Id for Selected Account.</value>
+    </labels>
+	<labels>
+        <fullName>Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter reason for Non-Selected Non-MyMecedez Account</shortDescription>
+        <value>Please enter reason for Non-Selected Non-MyMecedez Account</value>
     </labels>
     <labels>
         <fullName>Please_enter_the_filter_name</fullName>
@@ -5112,6 +5231,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Rating reason</shortDescription>
         <value>If rating is between 1-5, please specify reason</value>
     </labels>
+	<labels>
+        <fullName>Reason</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reason</shortDescription>
+        <value>Reason</value>
+    </labels>
     <labels>
         <fullName>Received_By</fullName>
         <language>en_US</language>
@@ -5225,6 +5351,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Label used in Task View Acc button</shortDescription>
         <value>Related Account field is empty</value>
+    </labels>
+	<labels>
+        <fullName>Related_Company_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Company List</shortDescription>
+        <value>Related Company List</value>
     </labels>
     <labels>
         <fullName>Related_Dealer_View_for_Contract</fullName>
@@ -6560,6 +6693,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>SMS Reply History Respond Content</shortDescription>
         <value>Respond Content</value>
     </labels>
+	<labels>
+        <fullName>SPO_Interface_Customer_Vehicle_Info</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SPO Interface Customer &amp; Vehicle Info</shortDescription>
+        <value>SPO Interface Customer &amp; Vehicle Info</value>
+    </labels>
     <labels>
         <fullName>SSI_Dealer_Cleans</fullName>
         <language>en_US</language>
@@ -6822,6 +6962,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>[Select All]</shortDescription>
         <value>[Select All]</value>
     </labels>
+	<labels>
+        <fullName>Select_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Company</shortDescription>
+        <value>Select Company</value>
+    </labels>
     <labels>
         <fullName>Select_Option_None</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
@@ -6837,12 +6984,26 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Select User</shortDescription>
         <value>Please select the users</value>
     </labels>
+	<labels>
+        <fullName>Select_Your_Prefered_Email_Id_For_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Your Prefered Email Id For Customer</shortDescription>
+        <value>Select Your Prefered Email Id For Customer</value>
+    </labels>
     <labels>
         <fullName>Select_dropdown</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Select dropdown</shortDescription>
         <value>---Select---</value>
+    </labels>
+	<labels>
+        <fullName>Selected_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selected Record</shortDescription>
+        <value>Selected Record</value>
     </labels>
     <labels>
         <fullName>SellingDealer</fullName>
@@ -6878,6 +7039,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>SendToSPOErrorMSG</shortDescription>
         <value>This function available only for Japan user</value>
+    </labels>
+	<labels>
+        <fullName>Send_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send Information</shortDescription>
+        <value>Send Information</value>
     </labels>
     <labels>
         <fullName>Send_to_spo_translate</fullName>
@@ -7086,6 +7254,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Sucessfully Created Retail Copy</shortDescription>
         <value>Sucessfully Created Retail Copy</value>
+    </labels>
+	<labels>
+        <fullName>Sucessfully_Sent_Information_to_SPO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sucessfully Sent Information to SPO</shortDescription>
+        <value>Sucessfully Sent Information to SPO</value>
     </labels>
     <labels>
         <fullName>SurveyCompleted</fullName>
@@ -7671,6 +7846,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>URL</shortDescription>
         <value>URL</value>
+    </labels>
+	<labels>
+        <fullName>US_VIN_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>US VIN Number</shortDescription>
+        <value>US VIN Number</value>
     </labels>
     <labels>
         <fullName>Uncalculated</fullName>

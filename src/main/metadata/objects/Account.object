@@ -57659,7 +57659,7 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
         window.open("/objLead.Id");
     }</url>
     </webLinks>
-    <webLinks>
+	<webLinks>
         <fullName>New_Case</fullName>
         <availability>online</availability>
         <description>New Case button for Dealer User and MBJ users.</description>
@@ -57672,29 +57672,16 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
 {!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
-var userid = "{!$User.Id}"; 
-var myCase= sforce.connection.query("Select Id ,IsPortalEnabled From user where id='{!Account.OwnerId}'" ); 
-var records = myCase.getArray("records"); 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
-
 { 
-if (sforce.console.isInConsole()) 
-{ 
-
-srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};'); 
-
+window.open('/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId1={!Account.Id}&amp;retURL={!Account.Id}'); 
 } 
-
 else 
 { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}" ) 
-
-} 
-} 
-else if(market == 'KR'){ 
-alert('This function available only for Japan user'); 
-}</url>
+alert("{!$Label.NewCaseErrorMsg}"); 
+}
+</url>
     </webLinks>
     <webLinks>
         <fullName>New_Case_Dealer</fullName>
