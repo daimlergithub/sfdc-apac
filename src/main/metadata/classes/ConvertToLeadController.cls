@@ -20,7 +20,7 @@ public with sharing class ConvertToLeadController {
         
         if(String.isNotBlank(campaignId)) {
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId, Contact_Id__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
             query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND ';
             
             if(objectAPIName == 'Campaign') {
@@ -127,7 +127,7 @@ public with sharing class ConvertToLeadController {
         leadRec.Finance_Total_V_Price_Tax__c=campaignMember.Total_Vehicle_Price_with_tax__c;
         leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
         leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
-        
+        leadRec.Cross_Point_Model__c=campaignMember.Cross_Point_Model__c;
         
         if(leadRTId != null) {
             leadRec.RecordTypeId = leadRTId;

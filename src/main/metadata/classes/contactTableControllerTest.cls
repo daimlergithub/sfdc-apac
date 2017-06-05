@@ -51,9 +51,7 @@ public class contactTableControllerTest {
         ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
         ContactTableController ctc = new ContactTableController(sc);
         test.startTest();
-        
         ctc.PhoneNumberFormat();
-        
         test.stoptest();
         system.assertEquals(objAccount.Individual_Home_Phone__c,'000-0000-9642');
         
@@ -63,9 +61,10 @@ public class contactTableControllerTest {
         ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
         ContactTableController ctc = new ContactTableController(sc);
         test.startTest();
+        ctc.PhoneNumberFormat();
         ctc.UpdateAccount();
         test.stoptest();
-        //system.assertEquals(objAccount.Individual_Home_Phone__c,'10000009642');
+        system.assertEquals(objAccount.Individual_Home_Phone__c,'000-0000-9642');
     }
     public static testMethod void EditAccountTest() {
         createTestData();
@@ -148,6 +147,7 @@ public class contactTableControllerTest {
             ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
             ContactTableController ctc = new ContactTableController(sc);
             test.startTest();
+            ctc.PhoneNumberFormatTH();
             ctc.UpdateAccount();
             test.stoptest();
             system.assertEquals(objAccount.MD__c,'TH');

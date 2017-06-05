@@ -10,6 +10,11 @@
             <operation>equals</operation>
             <value>JP</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Delete_Flag__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketAccountLink_Readable_to_MBJ_IT_Dept</name>
