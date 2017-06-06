@@ -110878,7 +110878,7 @@ MD__c =&apos;JP&apos;,
 $Profile.Name != &apos;IntegrationAPI&apos;
 )</errorConditionFormula>
         <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
-        <errorMessage>Lead Latest Phase&quot; cannot be changed into â€œWIP Linkageâ€, â€œJob Card Issueâ€, â€œInvoicedâ€</errorMessage>
+        <errorMessage>Lead Latest Phase" cannot be changed into WIP Linkage, Job Card Issue, Invoiced</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Status_Lost_Check</fullName>
