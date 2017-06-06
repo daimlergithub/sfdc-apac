@@ -105,24 +105,24 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         // Copied from JP
         if(isAfter && isInsert && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccNew);
+           /* serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject); */
             
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccNew);
+           /* serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperTH.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject); */
             
         }
         
         if(isAfter && isDelete && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccOld);
+           /* serializedObject=json.serialize(ListAccOld);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperTH.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject); */
         }
         
     }

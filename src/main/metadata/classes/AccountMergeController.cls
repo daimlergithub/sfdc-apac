@@ -31,6 +31,7 @@ public with sharing class AccountMergeController{
     public set<string> SoqlFieldset1;
     public Boolean hasSuspectAccounts{get;set;}
     public Boolean hasSuspectAdds{get;set;}
+    public Boolean displayAdds{get;set;}
     public List<Address__c> masaddressList {get; set;}
     public List<Address__c> slaaddressList {get; set;}
     public Address__C MasterAddresses {get; set;}
@@ -529,15 +530,16 @@ public with sharing class AccountMergeController{
     
      public PageReference displayAddress() {
          hasSuspectAdds =true;
-               
+         displayAdds=true;      
                if(selectedAddress != null ){  
                try{
                MasterAddresses= this.getQueriedAdd(Master.id,selectedAddress);
-               system.debug('MasterAddresses'+MasterAddresses);
+             
                }catch(Exception e)
                {
                  
                  ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No master address record found to display for '+selectedAddress));
+                 displayAdds=false; 
                }
                try{
                SlaveAddresses= this.getQueriedAdd(Slave.id,selectedAddress); 
@@ -546,12 +548,17 @@ public with sharing class AccountMergeController{
                {
                 
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No slave address record found to display for '+selectedAddress));
+                displayAdds=false; 
                }
-               system.debug('maswww'+MasterAddresses.address_type__c == SlaveAddresses.address_type__c);
-               if(MasterAddresses.address_type__c == SlaveAddresses.address_type__c){
+                 
+              
+               if(MasterAddresses.address_type__c == SlaveAddresses.address_type__c && MasterAddresses.address_type__c !=null && SlaveAddresses.address_type__c!=null && displayAdds){
+               system.debug('hasSuspectAddwws'+hasSuspectAdds);
                this.populateAddressWrappers();
                }else{
+               
                   hasSuspectAdds =false;
+                 
                }
                }else{
                 hasSuspectAdds =false;
