@@ -102,7 +102,7 @@
                                         </apex:outputpanel>
                                         
                                         <apex:outputpanel rendered="{!NOT(wrap.isMasterChecked)}">
-                                            <input type="radio" name="{!wrap.fieldAPI}" value="master"/>
+                                            <input type="radio" name="{!wrap.fieldAPI}" checked="checked" value="master"/>
                                             <apex:inputHidden value="{!wrap.isMasterChecked}" />
                                         </apex:outputpanel>
                                         
