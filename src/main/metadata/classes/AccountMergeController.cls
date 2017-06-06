@@ -522,9 +522,16 @@ public with sharing class AccountMergeController{
          options.add(new selectOption('', '--None--'));
          for( Schema.PicklistEntry f : ple)
          {
-        
-        options.add(new SelectOption(f.getLabel(), f.getValue()));
-        }       
+          if(UserInfo.getLocale()=='ja_JP')
+          {
+          
+           options.add(new SelectOption(f.getValue(), f.getValue()));
+          }else{
+           options.add(new SelectOption(f.getLabel(), f.getValue()));
+           }
+          }
+          system.debug('options'+options);
+            
       return options;
     }  
     
@@ -532,6 +539,8 @@ public with sharing class AccountMergeController{
          hasSuspectAdds =true;
          displayAdds=true;      
                if(selectedAddress != null ){  
+               system.debug('selectedAddress'+selectedAddress);
+              
                try{
                MasterAddresses= this.getQueriedAdd(Master.id,selectedAddress);
              
