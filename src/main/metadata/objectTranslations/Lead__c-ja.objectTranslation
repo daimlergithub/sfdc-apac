@@ -16608,11 +16608,11 @@
         <name>Merge</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_AfterSales_Lead --></label>
+        <label>新規アフターセールス</label>
         <name>New_AfterSales_Lead</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Sales_Lead --></label>
+        <label>新規セールスリード</label>
         <name>New_Sales_Lead</name>
     </webLinks>
     <webLinks>
