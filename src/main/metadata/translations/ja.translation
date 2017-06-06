@@ -1217,7 +1217,7 @@
         <name>Dealer_Name</name>
     </customLabels>
     <customLabels>
-        <label>拠点名</label>
+        <label>販売店</label>
         <name>Dealer_Outlet</name>
     </customLabels>
     <customLabels>
@@ -4792,7 +4792,8 @@
         <name>contact_information</name>
     </customLabels>
     <customLabels>
-        <label><!-- delete confirmation message --></label>
+        <label>"この顧客情報を削除します
+（MBJ, MBF, 他販売店が保持している顧客情報は削除されません）"</label>
         <name>delete_confirmation_message</name>
     </customLabels>
     <customLabels>
