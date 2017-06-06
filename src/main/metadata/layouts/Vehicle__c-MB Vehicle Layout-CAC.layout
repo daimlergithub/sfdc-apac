@@ -332,8 +332,8 @@
         <fields>NAME</fields>
         <fields>ContractNumber__c</fields>
         <fields>Type__c</fields>
-        <fields>Payment_Start_Date__c</fields>
-        <fields>Payment_End_Date__c</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
         <fields>Status__c</fields>
         <fields>Related_Dealer__c</fields> 
         <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
