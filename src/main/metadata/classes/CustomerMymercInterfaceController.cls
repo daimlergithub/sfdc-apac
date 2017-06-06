@@ -115,7 +115,7 @@ public with sharing class CustomerMymercInterfaceController {
     public pagereference savepop()
     {
         if( MyMercEmail == NULL || string.isBlank(MyMercEmail)){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'please input "My Mercedes Email Id"'));
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_input_My_Mercedes_Email_Id));
             return null;
         } 
         else{ 
@@ -139,7 +139,7 @@ public with sharing class CustomerMymercInterfaceController {
         }
         
         if( MyMercEmail == NULL || string.isBlank(MyMercEmail)){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'please input "My Mercedes Email Id"'));
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_input_My_Mercedes_Email_Id));
             return null;
         }
         else if(!string.isBlank(MyMercEmail)){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@') || MyMercEmail.);
@@ -148,7 +148,7 @@ public with sharing class CustomerMymercInterfaceController {
             Matcher MyMatcher = MyPatternn.matcher(MyMercEmail);
         
             if (!MyMatcher.matches()){ 
-                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'please enter valid Email'));
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
                 return null;    
             }
         }
@@ -172,10 +172,10 @@ public with sharing class CustomerMymercInterfaceController {
                  }
                  
                  update accont;
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Records Updated'));
+                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,Label.Records_Updated));
              }
             else{
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please enter Mandatory fields on Account - Birthdate, LastNameNative, Gender'));
+                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender));
                  return null; 
             }
         }
