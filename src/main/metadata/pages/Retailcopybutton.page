@@ -98,7 +98,7 @@ window.location.href="/{!AccId}";
 
 
 
-                <apex:column headerValue="{!$Label.select}">
+                <apex:column headerValue="">
                 <input type="radio" value="{!ad.id}"  id="radio" Name="SelectedCustomer">
                                   <apex:actionSupport event="onclick" action="{!getSelectedAddress}" rerender="Selected_PBS">
                                        <apex:param name="idselected" value="{!ad.id}" assignTo="{!AddrecordId}"/>
