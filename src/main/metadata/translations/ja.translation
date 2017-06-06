@@ -2241,11 +2241,11 @@
         <name>MyShop_Phone</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercesdes Eメール</label>
+        <label>My Mercedes Eメール</label>
         <name>My_Merc_Email_Id</name>
     </customLabels>
     <customLabels>
-        <label>My Mercesdes ID</label>
+        <label>My Mercedes ID</label>
         <name>My_Merc_Id</name>
     </customLabels>
     <customLabels>
