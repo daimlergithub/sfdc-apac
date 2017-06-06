@@ -232,6 +232,10 @@
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Address_2</name>
     </customLabels>
+	<customLabels>
+        <label>住所</label>
+        <name>Address_Details</name>
+    </customLabels>
     <customLabels>
         <label>住所情報</label>
         <name>Address_Information</name>
@@ -319,6 +323,10 @@
     <customLabels>
         <label><!-- And Criteria --></label>
         <name>And_Criteria</name>
+    </customLabels>
+	<customLabels>
+        <label>JPOSに送信してよろしいですか？</label>
+        <name>Are_you_sure_want_to_send_information_to_JPOS_interface</name>
     </customLabels>
 	<customLabels>
         <label>SPOに送信します。</label>
@@ -1036,6 +1044,10 @@
         <label>リテールコピー作成</label>
         <name>CreateRetailCopy</name>
     </customLabels>
+	<customLabels>
+        <label>My Shop リストへ自拠点を追加</label>
+        <name>Create_ContactSector</name>
+    </customLabels>
     <customLabels>
         <label>車両作成</label>
         <name>Create_Vehicle</name>
@@ -1111,6 +1123,10 @@
 	<customLabels>
         <label>My Mercedes 入会申込（ID発行）及び関連車両情報送信</label>
         <name>Customer_My_Merc_Interface_Customer</name>
+    </customLabels>
+	<customLabels>
+        <label>My Mercedes 申請</label>
+        <name>Customer_My_Mercedes_Interface_Customer</name>
     </customLabels>
     <customLabels>
         <label>会社名</label>
@@ -1201,7 +1217,7 @@
         <name>Dealer_Name</name>
     </customLabels>
     <customLabels>
-        <label>拠点名</label>
+        <label>販売店</label>
         <name>Dealer_Outlet</name>
     </customLabels>
     <customLabels>
@@ -2236,6 +2252,14 @@
         <label>モデルレンジ</label>
         <name>ModelRange</name>
     </customLabels>
+	<customLabels>
+        <label>My Mercedes Eメール変更</label>
+        <name>MyMercedes_Email_ID_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>My Mercedes 入会申込（新規ID発行）</label>
+        <name>MyMercedes_New_Registration</name>
+    </customLabels>
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>MyShop_Phone</name>
@@ -2247,6 +2271,10 @@
     <customLabels>
         <label>My Mercedes ID</label>
         <name>My_Merc_Id</name>
+    </customLabels>
+	<customLabels>
+        <label>My Mercedes Eメール</label>
+        <name>My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
         <label><!-- My Mercedes ID --></label>
@@ -2480,6 +2508,10 @@
     <customLabels>
         <label>販売店</label>
         <name>Outlet</name>
+    </customLabels>
+	<customLabels>
+        <label>My Shop リストに自拠点が反映されている</label>
+        <name>Outlet_Registered_To_MyMercedes</name>
     </customLabels>
     <customLabels>
         <label><!-- Overall impression --></label>
@@ -3002,6 +3034,10 @@
     <customLabels>
         <label><!-- RecordTypeId --></label>
         <name>RecordTypeId</name>
+    </customLabels>
+	<customLabels>
+        <label>完了しました。</label>
+        <name>Records_Updated</name>
     </customLabels>
     <customLabels>
         <label>登録</label>
@@ -3987,6 +4023,10 @@
         <label>送信</label>
         <name>Send_Information</name>
     </customLabels>
+	<customLabels>
+        <label>JPOS送信</label>
+        <name>Send_to_JPOS</name>
+    </customLabels>
     <customLabels>
         <label>まずAutolineの情報を設定してください</label>
         <name>Send_to_spo_translate</name>
@@ -4102,6 +4142,10 @@
 	<customLabels>
         <label>作成完了</label>
         <name>Sucessfully_Created_Retail_Copy</name>
+    </customLabels>
+	<customLabels>
+        <label>送信完了しました。</label>
+        <name>Sucessfully_Sent_Information_to_JPOS</name>
     </customLabels>
 	<customLabels>
         <label>送信完了しました。</label>
@@ -4748,7 +4792,8 @@
         <name>contact_information</name>
     </customLabels>
     <customLabels>
-        <label><!-- delete confirmation message --></label>
+        <label>"この顧客情報を削除します
+（MBJ, MBF, 他販売店が保持している顧客情報は削除されません）"</label>
         <name>delete_confirmation_message</name>
     </customLabels>
     <customLabels>
@@ -4822,6 +4867,14 @@
     <customLabels>
         <label><!-- 3 months --></label>
         <name>months</name>
+    </customLabels>
+	<customLabels>
+        <label>正しいEメールを入力してください。</label>
+        <name>please_enter_valid_Email</name>
+    </customLabels>
+    <customLabels>
+        <label>My Mercedes Eメールを入力してください。</label>
+        <name>please_input_My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
         <label><!-- purchased vehicle related information --></label>
