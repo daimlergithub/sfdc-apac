@@ -327,6 +327,19 @@
         <fields>Service_Invoice_Number__c</fields>
         <fields>Related_Lead__c</fields>
         <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
+    </relatedLists>	
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Service_Number__c</fields>
+        <fields>Service_Code__c</fields>
+        <fields>Service_Date__c</fields>
+        <fields>Related_Contact__c</fields>
+        <fields>Related_Contact2__c</fields>
+        <fields>Related_Contact3__c</fields>
+        <fields>Related_Contact4__c</fields>
+        <fields>Service_Invoice_Number__c</fields>
+        <fields>Related_Lead__c</fields>
+        <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

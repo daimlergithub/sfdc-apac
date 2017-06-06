@@ -18,14 +18,14 @@ function closeWin() {
 
 <apex:form >
   
-  <apex:pageBlock title="Selected Record">
+  <apex:pageBlock title="{!$Label.Selected_Record}">
   
      <apex:panelGrid columns="2" border="0" styleClass="tableStyle" width="100%" columnClasses="colStyle1,colStyle2" rowClasses="rowstyle">
      
      
     <apex:pageBlockTable value="{!alc}" var="link">
      
-     <apex:column value="{!link.Name}"  headerValue="UCID"  />
+     <apex:column value="{!link.Name}"  headerValue="{!$Label.UCID}"  />
      
      
     </apex:pageBlockTable> 
@@ -33,15 +33,15 @@ function closeWin() {
      
      <apex:pageBlockTable value="{!acc}" var="accc">
      
-     <apex:column value="{!accc.Name}" headerValue="ACCOUNT NAME"  />
+     <apex:column value="{!accc.Name}" headerValue="{!$Label.AccountName}"  />
      
      </apex:pageBlockTable> 
       
      <apex:pageBlockTable value="{!VehRel}" var="ar">
-     <apex:column value="{!ar.Vehicle_ID__r.UsVIN__c}" headerValue="US VIN Number"/>
+     <apex:column value="{!ar.Vehicle_ID__r.UsVIN__c}" headerValue="{!$Label.US_VIN_Number}"/>
      </apex:pageBlockTable>
      <apex:pageBlockTable value="{!VehRel}" var="ae">
-     <apex:column value="{!ae.Vehicle_ID__r.FirstRegistrationDate__c}" headerValue="First Registration Date"/>
+     <apex:column value="{!ae.Vehicle_ID__r.FirstRegistrationDate__c}" headerValue="{Label.FirstRegistrationDate__c}"/>
      </apex:pageBlockTable> 
      
       
@@ -49,28 +49,28 @@ function closeWin() {
       <apex:pageBlockTable value="{!VehRel}" var="vr">
           
           
-          <apex:column value="{!vr.Registration_Number__c}" headerValue="Registration Number"/>
+          <apex:column value="{!vr.Registration_Number__c}" headerValue="{Label.Registration_Number__c}"/>
           </apex:pageBlockTable> 
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.Registration_Date__c}" headerValue="Registration Date" />
+          <apex:column value="{!vr.Registration_Date__c}" headerValue="{Label.Registration_Date__c}" />
           </apex:pageBlockTable>
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.MOT_Owner_Name__c}" headerValue="MOT Owner Name" />
+          <apex:column value="{!vr.MOT_Owner_Name__c}" headerValue="{Label.MOT_Owner_Name__c}" />
           </apex:pageBlockTable>
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.MOT_Owner_Address__c}" headerValue="MOT Owner Address" />
+          <apex:column value="{!vr.MOT_Owner_Address__c}" headerValue="{Label.MOT_Owner_Address__c}" />
           </apex:pageBlockTable>
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.MOT_USER_NAME__c}" headerValue="MOT User Name" />
+          <apex:column value="{!vr.MOT_USER_NAME__c}" headerValue="{Label.MOT_USER_NAME__c}" />
           </apex:pageBlockTable>
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.MOT_User_Address__c}" headerValue="MOT User Address" />
+          <apex:column value="{!vr.MOT_User_Address__c}" headerValue="{Label.MOT_User_Address__c}" />
       </apex:pageBlockTable>
      </apex:panelGrid> 
   </apex:pageBlock>
   
   
-  <apex:commandButton value="Send Information" action="{!sendtoSPO}"  oncomplete="closeWin();"/> 
-  <apex:commandButton value="Back" action="{!backButton}" /> 
+  <apex:commandButton value="{!$Label.Send_Information}" action="{!sendtoSPO}"  oncomplete="closeWin();"/> 
+  <apex:commandButton value="{!$Label.Cancel}" action="{!backButton}" /> 
 </apex:form>
 </apex:page>

@@ -237,7 +237,7 @@ public with sharing class SendToMyMercController {
                 
             }
             if(personBirthdate){
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastNameNative,Gender'));    
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender));    
             }        
             else if(accfinal != null && !accfinal.isEmpty()){
                 update accfinal.values();
@@ -252,10 +252,10 @@ public with sharing class SendToMyMercController {
             }
         }
         else if(emptyMail){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter My Merc Email Id for selected Account'));
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.Please_enter_My_Merc_Email_Id_for_Selected_Account));
         }
         else if(reason){
-            ApexPages.addmessage(new apexpages.message(Apexpages.severity.warning,'Please enter Reason for Non-selected Non-Mymercedes acccount'));
+            ApexPages.addmessage(new apexpages.message(Apexpages.severity.warning,Label.Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account));
         }
     return pr;
     }
