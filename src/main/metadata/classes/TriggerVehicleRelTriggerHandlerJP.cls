@@ -35,7 +35,7 @@ public class TriggerVehicleRelTriggerHandlerJP
          if(trigger.isBefore && trigger.isUpdate){
                 //vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
                 VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
-                VehicleRelationshipHelperJP.beforeupdateEventAddress(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
+               // VehicleRelationshipHelperJP.beforeupdateEventAddress(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
          }
        // Update Status , Update Vehicle Relationship and Create Account Link 
         /*
