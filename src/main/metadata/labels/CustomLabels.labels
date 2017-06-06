@@ -414,6 +414,13 @@
         <value>And Criteria</value>
     </labels>
 	<labels>
+        <fullName>Are_you_sure_want_to_send_information_to_Auto_Line_interface</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure want to send information to Auto Line interface?</shortDescription>
+        <value>Are you sure want to send information to Auto Line interface?</value>
+    </labels>
+	<labels>
         <fullName>Are_you_sure_want_to_send_information_to_JPOS_interface</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7319,6 +7326,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Download File is created please follow the link in task  for download</value>
     </labels>
 	<labels>
+        <fullName>Successfully_Sent_Information_to_AutoLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Successfully Sent Information to AutoLine.</shortDescription>
+        <value>Successfully Sent Information to AutoLine.</value>
+    </labels>
+	<labels>
         <fullName>Sucessfully_Created_Retail_Copy</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7760,6 +7774,27 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>The filter count is greater than 15</shortDescription>
         <value>The filter count is greater than 20</value>
+    </labels>
+	<labels>
+        <fullName>This_Lead_cannot_be_send_to_Autoline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This Lead cannot be send to Autoline.</shortDescription>
+        <value>This Lead cannot be send to Autoline.</value>
+    </labels>
+    <labels>
+        <fullName>This_Lead_is_already_converted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This Lead is already converted</shortDescription>
+        <value>This Lead is already converted</value>
+    </labels>
+    <labels>
+        <fullName>This_will_convert_the_record_type_of_Leads_Please_confirm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This will convert the record type of Leads.Please confirm</shortDescription>
+        <value>This will convert the record type of Leads.Please confirm</value>
     </labels>
     <labels>
         <fullName>Three</fullName>
@@ -8236,6 +8271,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Visited</shortDescription>
         <value>Visited</value>
+    </labels>
+	<labels>
+        <fullName>Web_service_callout_failed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Web service callout failed.</shortDescription>
+        <value>Web service callout failed.</value>
     </labels>
     <labels>
         <fullName>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</fullName>
