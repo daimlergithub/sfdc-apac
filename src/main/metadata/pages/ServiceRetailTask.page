@@ -23,8 +23,8 @@
                     
                     
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Code__c.Label}">                        
-                        <apex:outputText value="{!ser.Service_Code__c}" style="width:9%; white-space:nowrap;">
-                        </apex:outputText>
+                        <apex:outputField value="{!ser.Service_Code__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputField>
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Vehicle__c.Label}">
