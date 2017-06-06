@@ -525,7 +525,7 @@ public with sharing class AccountMergeController{
           if(UserInfo.getLocale()=='ja_JP')
           {
           
-           options.add(new SelectOption(f.getValue(), f.getValue()));
+           options.add(new SelectOption(f.getValue(), f.getLabel()));
           }else{
            options.add(new SelectOption(f.getLabel(), f.getValue()));
            }
