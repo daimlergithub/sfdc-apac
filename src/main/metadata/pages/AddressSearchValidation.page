@@ -445,6 +445,30 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Temp_Address__c}"/>                        
                     </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem rendered="{!If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province_Native__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Province_Native__c}"/>                        
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.City_Native__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.City_Native__c}"/>                        
+                    </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem rendered="{!If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.District_Native__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.District_Native__c}"/>                        
+                    </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem rendered="{!If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block_Native__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Block_Native__c}"/>                        
+                    </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem rendered="{!If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1_Native__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Address_Line_1_Native__c}"/>                        
+                    </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem rendered="{!If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_2_Native__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Address_Line_2_Native__c}"/>                        
+                    </apex:pageBlockSectionItem>
                    
                 </apex:pageBlockSection>
         <!--  Address Information JP & KR - End -->
