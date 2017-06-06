@@ -1,4 +1,4 @@
-/**
+**
 * Handler for Trigger on Account for TH(Thailand)
 * Author: Mohammed Touseef Ahmed 
 * Created Date : 2017-01-23
@@ -13,7 +13,8 @@
 * 6.Implement Postal_Opt_Out__c to automate opt-out for all addresses which means that selecting this flag opts out the customer from being contacted 
 *   via Addresses (Ex: Home Address, Office Address, etc.).
 * 7.Use Email Opt Out (PersonHasOptedOutOfEmail) to automate opt-out from email options.
-* 8.Calculate “Age Range” based on birthdate.
+* 8.Calculate “Age Range” based on birthdate..
+* 9.
 */
 
 public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
@@ -104,24 +105,24 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         // Copied from JP
         if(isAfter && isInsert && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccNew);
+           /* serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject); */
             
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccNew);
+           /* serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperTH.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject); */
             
         }
         
         if(isAfter && isDelete && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccOld);
+           /* serializedObject=json.serialize(ListAccOld);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperTH.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject); */
         }
         
     }
