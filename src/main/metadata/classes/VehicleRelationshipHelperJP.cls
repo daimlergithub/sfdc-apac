@@ -778,7 +778,7 @@ public with sharing class VehicleRelationshipHelperJP
         return list_SharingRecord;
     }
     
-    
+/*    commenting this method for SFDCJP-2596
  public static void beforeupdateEventAddress(List<Vehicle_Relationship__c> newList,Map<Id, Vehicle_Relationship__c> oldMap){
      set<id> addressids= new set<id>();
      
@@ -811,5 +811,5 @@ public with sharing class VehicleRelationshipHelperJP
      
      
      }
- }
+ }   */
 }
