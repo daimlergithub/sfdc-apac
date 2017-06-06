@@ -2,11 +2,11 @@
  
  
 <apex:form >
-<apex:pageBlock title="SPO Interface Customer & Vehicle Info" id="Selected_PBS">
-          <apex:pageBlockSection title="Customer Vehicle_Information" collapsible="false">
+<apex:pageBlock title="{!$Label.SPO_Interface_Customer_Vehicle_Info}" id="Selected_PBS">
+          <apex:pageBlockSection title="{!$Label.Customer_Vehicle_Information}" collapsible="false">
               <apex:selectRadio layout="pageDirection"  value="{!SelectedType}">
-                          <apex:selectOption itemLabel="Individual Customer" itemValue="1"></apex:selectOption>
-                          <apex:selectOption itemLabel="Company Customer"    itemValue="2" ></apex:selectOption>
+                          <apex:selectOption itemLabel="{!$Label.Individual_Customer}" itemValue="1"></apex:selectOption>
+                          <apex:selectOption itemLabel="{!$Label.Company_Customer}"    itemValue="2" ></apex:selectOption>
                           
                       <apex:actionSupport event="onchange" action="{!checkSelectedValue}" reRender="pgblock" >
                       </apex:actionSupport>
@@ -14,10 +14,10 @@
         </apex:pageBlockSection>
 </apex:pageBlock>
 
-<apex:pageblock Title="Related Company List" id="pgblock">
+<apex:pageblock Title="{!$Label.Related_Company_List}" id="pgblock">
 
                  <apex:pageblockTable value="{!newacc}" var="vehicleRec" id="vehicleRec">                      
-                         <apex:column headerValue="Select Company" width="10%">  
+                         <apex:column headerValue="" width="10%">  
                           <input value="{!vehicleRec.Id}" Name="SelectedCustomer" type="radio">        
                                       
                            <apex:actionSupport event="onclick" action="{!getSelected}" rerender="dummy" immediate="true" >
@@ -34,10 +34,10 @@
                        
                    
                 </apex:pageblockTable>
-                <apex:commandButton value="Confirmation" action="{!Navigate}" />
-                <apex:commandButton value="Cancel" action="{!cancel}"/>
+                <apex:commandButton value="{!$Label.Confirmation}" action="{!Navigate}" />
+                <apex:commandButton value="{!$Label.Cancel}" action="{!cancel}"/>
 </apex:pageBlock>
- <apex:outputPanel id="dummy" rendered="false"> selected Account : {!aeeId } </apex:outputPanel>
+<apex:outputPanel id="dummy" rendered="false"> selected Account : {!aeeId } </apex:outputPanel>
 </apex:form>
 
 </apex:page>
