@@ -41,7 +41,7 @@ function closeWin() {
      <apex:column value="{!ar.Vehicle_ID__r.UsVIN__c}" headerValue="{!$Label.US_VIN_Number}"/>
      </apex:pageBlockTable>
      <apex:pageBlockTable value="{!VehRel}" var="ae">
-     <apex:column value="{!ae.Vehicle_ID__r.FirstRegistrationDate__c}" headerValue="{Label.FirstRegistrationDate__c}"/>
+     <apex:column value="{!ae.Vehicle_ID__r.FirstRegistrationDate__c}" headerValue="{!$ObjectType.Vehicle__c.fields.FirstRegistrationDate__c.Label}"/>
      </apex:pageBlockTable> 
      
       
@@ -49,22 +49,22 @@ function closeWin() {
       <apex:pageBlockTable value="{!VehRel}" var="vr">
           
           
-          <apex:column value="{!vr.Registration_Number__c}" headerValue="{Label.Registration_Number__c}"/>
+          <apex:column value="{!vr.Registration_Number__c}" headerValue="{!$ObjectType.Vehicle_Relationship__c.fields.Registration_Number__c.Label}"/>
           </apex:pageBlockTable> 
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.Registration_Date__c}" headerValue="{Label.Registration_Date__c}" />
+          <apex:column value="{!vr.Registration_Date__c}" headerValue="{!$ObjectType.Vehicle_Relationship__c.fields.Registration_Date__c.Label}" />
           </apex:pageBlockTable>
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.MOT_Owner_Name__c}" headerValue="{Label.MOT_Owner_Name__c}" />
+          <apex:column value="{!vr.MOT_Owner_Name__c}" headerValue="{!$ObjectType.Vehicle_Relationship__c.fields.MOT_Owner_Name__c.Label}" />
           </apex:pageBlockTable>
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.MOT_Owner_Address__c}" headerValue="{Label.MOT_Owner_Address__c}" />
+          <apex:column value="{!vr.MOT_Owner_Address__c}" headerValue="{!$ObjectType.Vehicle_Relationship__c.fields.MOT_Owner_Address__c.Label}" />
           </apex:pageBlockTable>
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.MOT_USER_NAME__c}" headerValue="{Label.MOT_USER_NAME__c}" />
+          <apex:column value="{!vr.MOT_USER_NAME__c}" headerValue="{!$ObjectType.Vehicle_Relationship__c.fields.MOT_USER_NAME__c.Label}" />
           </apex:pageBlockTable>
           <apex:pageBlockTable value="{!VehRel}" var="vr">
-          <apex:column value="{!vr.MOT_User_Address__c}" headerValue="{Label.MOT_User_Address__c}" />
+          <apex:column value="{!vr.MOT_User_Address__c}" headerValue="{!$ObjectType.Vehicle_Relationship__c.fields.MOT_User_Address__c.Label}" />
       </apex:pageBlockTable>
      </apex:panelGrid> 
   </apex:pageBlock>

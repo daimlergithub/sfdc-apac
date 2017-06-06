@@ -156,6 +156,10 @@
         <label><!-- AccountMergeFields --></label>
         <name>AccountMergeFields</name>
     </customLabels>
+	<customLabels>
+        <label>顧客名</label>
+        <name>AccountName</name>
+    </customLabels>
     <customLabels>
         <label><!-- AccountRetailCopy --></label>
         <name>AccountRetailCopy</name>
@@ -323,6 +327,10 @@
     <customLabels>
         <label><!-- And Criteria --></label>
         <name>And_Criteria</name>
+    </customLabels>
+	<customLabels>
+        <label>この情報でAutoline送信します。</label>
+        <name>Are_you_sure_want_to_send_information_to_Auto_Line_interface</name>
     </customLabels>
 	<customLabels>
         <label>JPOSに送信してよろしいですか？</label>
@@ -4028,7 +4036,12 @@
         <name>Send_to_JPOS</name>
     </customLabels>
     <customLabels>
-        <label>まずAutolineの情報を設定してください</label>
+        <label>"車両に顧客が紐付いていないか、以下の必須項目がAutolineで設定されていません。 　　
+車検証情報
+登録番号
+初度登録日
+登録日"
+</label>
         <name>Send_to_spo_translate</name>
     </customLabels>
     <customLabels>
@@ -4138,6 +4151,10 @@
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Success_message</name>
+    </customLabels>
+	<customLabels>
+        <label>送信完了</label>
+        <name>Successfully_Sent_Information_to_AutoLine</name>
     </customLabels>
 	<customLabels>
         <label>作成完了</label>
@@ -4375,6 +4392,18 @@
         <label><!-- The filter count is greater than 15 --></label>
         <name>The_filter_count_is_greater_than_15</name>
     </customLabels>
+	<customLabels>
+        <label>リードステータスが購入済、または敗戦の為、送信できません。</label>
+        <name>This_Lead_cannot_be_send_to_Autoline</name>
+    </customLabels>
+    <customLabels>
+        <label>既に別タイプのリードを作成済みです。</label>
+        <name>This_Lead_is_already_converted</name>
+    </customLabels>
+    <customLabels>
+        <label>このリードを敗戦処理し、別タイプのリードを新規作成します。</label>
+        <name>This_will_convert_the_record_type_of_Leads_Please_confirm</name>
+    </customLabels>
     <customLabels>
         <label><!-- Three --></label>
         <name>Three</name>
@@ -4456,7 +4485,7 @@
         <name>Two</name>
     </customLabels>
     <customLabels>
-        <label>顧客ID</label>
+        <label>UCID</label>
         <name>UCID</name>
     </customLabels>
     <customLabels>
@@ -4631,6 +4660,10 @@
         <label>来店</label>
         <name>Visited</name>
     </customLabels>
+	<customLabels>
+        <label>送信失敗</label>
+        <name>Web_service_callout_failed</name>
+    </customLabels>
     <customLabels>
         <label><!-- Which activity would you like to join in the future? / Your suggestions --></label>
         <name>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</name>
@@ -4792,8 +4825,8 @@
         <name>contact_information</name>
     </customLabels>
     <customLabels>
-        <label>"この顧客情報を削除します
-（MBJ, MBF, 他販売店が保持している顧客情報は削除されません）"</label>
+        <label>この顧客情報を削除します
+（MBJ, MBF, 他販売店が保持している顧客情報は削除されません）</label>
         <name>delete_confirmation_message</name>
     </customLabels>
     <customLabels>
