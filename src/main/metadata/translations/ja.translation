@@ -156,6 +156,10 @@
         <label><!-- AccountMergeFields --></label>
         <name>AccountMergeFields</name>
     </customLabels>
+	<customLabels>
+        <label>顧客名</label>
+        <name>AccountName</name>
+    </customLabels>
     <customLabels>
         <label><!-- AccountRetailCopy --></label>
         <name>AccountRetailCopy</name>
