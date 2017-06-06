@@ -1,4 +1,4 @@
-**
+/**
 * Handler for Trigger on Account for TH(Thailand)
 * Author: Mohammed Touseef Ahmed 
 * Created Date : 2017-01-23
