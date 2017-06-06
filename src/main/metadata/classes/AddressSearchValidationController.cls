@@ -29,7 +29,6 @@ public class AddressSearchValidationController
     
     // KOREA related parameters - Start
     public String market{get;set;}
-    public String LanguageLocaleKey{get;set;}
     public String homePhoneAreaCodePart1{get;set;}   
     public String homePhoneAreaCodePart2{get;set;}
     public String homePhoneAreaCodePart3{get;set;}
@@ -44,7 +43,7 @@ public class AddressSearchValidationController
     public String mobileAreaCodePart3{get;set;}
     public String AddressDetails{get;set;}
     public String TouchPoint{get;set;} 
-        public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
+    public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
     public string selectedValue { get;set; }
     public List<SelectOption> statusOptions { get;set; }
     public String addresspicklist{get;set;}
@@ -65,20 +64,19 @@ public class AddressSearchValidationController
     public String province {get;set;}
     public boolean IsForeignNational{get; set;}
     public String mbCountryCode{get;set;}
-    public String mbAreaCode{get;set;} 
-    public String hmCountryCode{get;set;}
-    public String hmAreaCode{get;set;}
-    public String wkCountryCode{get;set;}
+    public String mbphoneNumber{get;set;}
     public String wkAreaCode{get;set;}
+    public String hmAreaCode{get;set;}
+    public String mbAreaCode{get;set;}
+    public String hmCountryCode{get;set;}
+    public String hmphoneNumber{get;set;}
+    public String wkCountryCode{get;set;}
+    public String wkphoneNumber{get;set;}
     Public User u{get;set;}
     
     // COnstructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
-        
-        Public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-       public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-     
     
         public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
@@ -91,9 +89,8 @@ public class AddressSearchValidationController
         IsForeignNational=false;
         
         // refreshPage = false;        
-        u = [SELECT Id,Market__c,ContactId,LanguageLocaleKey  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
-        LanguageLocaleKey=u.LanguageLocaleKey;
         objPersonAccount.Allow_Data_Sharing2__c = 'No';
         if(market == Label.KR){
             mbkdatasource = true;
@@ -133,7 +130,7 @@ public class AddressSearchValidationController
         }
         else{
             try{
-                if(LanguageLocaleKey=='ja')
+                if(UserInfo.getLocale()=='ja_JP')
                   AddressOptions.add(new SelectOption('--None--','--なし--'));
                 else
                   AddressOptions.add(new SelectOption('--None--','--None--'));  
@@ -767,17 +764,6 @@ public class AddressSearchValidationController
     {
         resetPhoneAreacodes();
         selectedRecordType = recordType;        
-        
-         u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
-        market = u.Market__c;
-        
-        if(market != Label.KR){
-        if(u.ContactId !=null && selectedRecordType   !='Person Account')
-        {
-        TouchPoint='Others';
-       // objPersonAccount.Data_Source__c='Dealer Outlet';
-        }  
-    }
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -1179,16 +1165,7 @@ If the user is Saving  same address which matches the fields returned by toleran
            return options;
     }
      
-    public void onLineDeduplication(){
-        if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
-        { 
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
-        }
-        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
-        {
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
-        }
-        else{
+    public void onLineDeduplication(){  
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1200,12 +1177,14 @@ If the user is Saving  same address which matches the fields returned by toleran
         system.debug('addtrmapUpdate1 >> :'+objPersonAccount.LastName);
         system.debug('addtrmapUpdate1 << :'+objAccount.Name);      
          System.debug('@@@@@@@ objPersonAccount.Name    '+objAccount.Name);
-        if(objPersonAccount.LastName !=null ) 
+        if(objPersonAccount.LastName !=null || objAccount.Name !=null) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
            
-             if(recordType !=null && recordType=='Company')
+            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
             }
@@ -1304,39 +1283,27 @@ If the user is Saving  same address which matches the fields returned by toleran
                     //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    { 
-                        string provincetmp;
-                        String[] s;
-                        String x,y,finalstring;
-                        if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc != null)
-                        {
-                            provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
-                            provincetmp = provincetmp.toLowerCase();
-                        }
+                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                        provincetmp = provincetmp.toLowerCase();
+                        
                         //provincetmp = provincetmp.subString(0,1).toUpperCase();
-                        Integer i=0;
+                        Integer     i=0;
                         List<String> newString =  new List<String>();
-                        if(provincetmp != null && provincetmp != '')
+                        String[] s= provincetmp.split(' ');
+                        String x,y,finalstring;
+                        for(String str  : s)
                         {
-                            s= provincetmp.split(' ');
-                        }
-                        if(provincetmp != null && provincetmp != '')
-                        {
-                            for(String str  : s)
-                            {
-                                i=str.length();
-                                //String x,y,finalstring;
-                                x= str.substring(0,1).toUpperCase();
-                                y= str.substring(1,i) ;
-                                finalstring = x + y  ;
-                                newString.add(finalstring);
-                            }
-                        }
+                            i=str.length();
+                            //String x,y,finalstring;
+                            x= str.substring(0,1).toUpperCase();
+                            y= str.substring(1,i) ;
+                            finalstring = x + y  ;
+                            newString.add(finalstring);
+                        }                        
                         provincetmp = String.valueOf(finalstring);
-                        if(provincetmp != null && provincetmp != '')
-                        {
-                            provincetmp  =provincetmp.replace(',','');
-                        }
+                        provincetmp  =provincetmp.replace(',','');
+                      
+                        
                        // province1 = addtrmapUpdate1.get(provincetmp);
                         if(addtrmapUpdate1.containsKey(provincetmp)){
                             province1 = addtrmapUpdate1.get(provincetmp);
@@ -1384,8 +1351,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response >>'+response );
            
-            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1576,8 +1543,8 @@ If the user is Saving  same address which matches the fields returned by toleran
         firstsave = true;       
         secondsave = false;         
     }
-    }
-    //Introduced for TH Market
+   //Introduced for TH Market
+   //Updated for CR#89 - Phone Number Format
     public void onLineDeduplicationTH(){  
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();    
@@ -1587,8 +1554,8 @@ If the user is Saving  same address which matches the fields returned by toleran
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
            
-            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1599,33 +1566,56 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(market == System.Label.TH)
             {
-                if(homePhoneAreaCodePart1!= '' && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')
+                if(hmCountryCode!= '' && hmphoneNumber!='')
                 {                      
-                    objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                    objAccount.Individual_Home_Phone__c =hmCountryCode+ hmphoneNumber;
                 }
                 else
                 {
                     objAccount.Individual_Home_Phone__c = '';
                 }
-                if(workPhoneAreaCodePart1!= '' && workPhoneAreaCodePart2 != '' && workPhoneAreaCodePart3 != '')
+                if(wkCountryCode!='' && wkphoneNumber!= '')
                 {                         
-                    objAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                    objAccount.Work_Phone__c = wkCountryCode+ wkphoneNumber;
                 }
                 else
                 {
                     objAccount.Work_Phone__c = '';
                 }
-                if(mobileAreaCode!= '' && mobileAreaCodePart2 != '' && mobileAreaCodePart3 != '')
+                if(mbCountryCode!='' && mbphoneNumber!= '')
                 {              
-                    objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                    objAccount.Mobile__c=mbCountryCode+ mbphoneNumber;
                 }
                 else
                 {
                     objAccount.Mobile__c = '';
                 }               
             }            
-            response =  UtilWebservice.validateCustomerDetails(objAccount);             
-            //System.debug('@@@@@@@@@@ response '+response.CustomerIdentificationResponseMessage[0].Customer);
+             Address__c NewAdd=new Address__c();
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
+            {
+                AddressObj.Address_Type__c = addresspicklist;
+                response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
+            }
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
+            {
+                AddressObj.Address_Type__c = addresspicklist;
+                response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
+            }
+             if(AddressObj == NewAdd)
+            {
+                if(objPersonAccount.LastName !=null)
+                {
+                    response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
+                }
+                 
+                 //@Venky:Added Below if condition Changes related to SFDCJP-995
+                 if(objAccount.Name !=null)
+                {
+                    System.debug('objAccount &**&*&**&**&*&*'+objAccount );
+                    response =  UtilWebservice.validateCustomerDetails(objAccount); 
+                }
+            }
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null)
                 {
@@ -1640,12 +1630,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
-                    }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
-                    {
-                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
-                    }
-                    system.debug('&&& :'+response.CustomerIdentificationResponseMessage[0].Customer.Email_xc);
+                    }                    
+                     
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
                     {   
                         objAccountDeDup.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
@@ -1715,6 +1701,7 @@ If the user is Saving  same address which matches the fields returned by toleran
 * 2.Without Address record.
 **  Created By: Mohammed Touseef Ahmed 
 **  Date: 2017-2-08
+** Updated for CR#89 - PhoneNumberFormat
 **/
  public pagereference saveAccountTH()
     { 
@@ -1772,9 +1759,12 @@ If the user is Saving  same address which matches the fields returned by toleran
     
 //Saves the Account relaed details for Thailand Market
 //Created By : Mohammed Touseef AHmed
-//Date: 03/02/2017    
+//Date: 03/02/2017 
+//Updated for CR#89 - Phone Number Format
+//Date: 2017-05-24   
     public boolean SaveAccountDetailsTh()
     {
+              
          try
             {                    
                     if(recordType == 'Company')               
@@ -1783,74 +1773,68 @@ If the user is Saving  same address which matches the fields returned by toleran
                         recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     
                     objAccount.RecordTypeId = recordTypeId; 
-                     
-                    
+                                         
                       if
                       (
-                          (String.isBlank(hmAreaCode)) &&
-                          (String.isBlank(hmCountryCode)) && 
-                          (String.isBlank(homePhoneAreaCodePart2)) &&
-                          (String.isBlank(homePhoneAreaCodePart3))
-                      )
+                          (String.isBlank(hmphoneNumber)) &&
+                          (String.isBlank(hmCountryCode))
+                      ) 
                       
                       {              
                                objAccount.Individual_Home_Phone__c='';
                       }
-                      else if(hmAreaCode!='' && hmCountryCode!='' && homePhoneAreaCodePart2!='' &&  homePhoneAreaCodePart3!='')
+                       else if(hmphoneNumber!='' && hmCountryCode!='')
                       {     
-                        if(hmAreaCode.startsWith('0'))
-                            hmAreaCode=hmAreaCode.removeStart('0');
-                               objAccount.Individual_Home_Phone__c=hmCountryCode+'-'+hmAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;             
-                      }        
+                        if(hmphoneNumber.startsWith('0'))
+                            hmphoneNumber=hmphoneNumber.removeStart('0');
+                               objAccount.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;
+                      }
+                          
                       else
                       {             
                              objAccount.Individual_Home_Phone__c='';
                       }               
                       
-                    if
+                       if
                       (
-                          (String.isBlank(wkAreaCode)) &&
-                          (String.isBlank(wkCountryCode)) && 
-                          (String.isBlank(workPhoneAreaCodePart2)) &&
-                          (String.isBlank(workPhoneAreaCodePart3))
+                          (String.isBlank(wkphoneNumber)) &&
+                          (String.isBlank(wkCountryCode))
                       )
                       
                       {              
                                objAccount.Work_Phone__c='';
                       }
-                      else if(wkCountryCode!='' && wkAreaCode!='' && workPhoneAreaCodePart2!='' &&  workPhoneAreaCodePart3!='')
+                      else if(wkCountryCode!='' && wkphoneNumber!='')
                       {     
-                        if(wkAreaCode.startsWith('0'))
-                            wkAreaCode=wkAreaCode.removeStart('0');
-                               objAccount.Work_Phone__c=wkCountryCode+'-'+wkAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;            
+                        if(wkphoneNumber.startsWith('0'))
+                            wkphoneNumber=wkphoneNumber.removeStart('0');
+                              objAccount.Work_Phone__c=wkCountryCode+wkphoneNumber;                            
                       }        
                       else
                       {             
                              objAccount.Work_Phone__c='';
                       } 
                     
-                    if
+                     if
                       (
-                          (String.isBlank(mbAreaCode)) &&
-                          (String.isBlank(mbCountryCode)) && 
-                          (String.isBlank(mobileAreaCodePart2)) &&
-                          (String.isBlank(mobileAreaCodePart3))
+                          (String.isBlank(mbphoneNumber)) &&
+                          (String.isBlank(mbCountryCode))
                       )
                       
                       {              
                                objAccount.Mobile__c='';
                       }
-                      else if(mbCountryCode!='' && mbAreaCode!='' && mobileAreaCodePart2!='' &&  mobileAreaCodePart3!='')
+                      else if(mbCountryCode!='' && mbphoneNumber!='')
                       {     
-                        if(mbAreaCode.startsWith('0'))
-                            mbAreaCode=mbAreaCode.removeStart('0');
-                               objAccount.Mobile__c=mbCountryCode+'-'+mbAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;              
+                        if(mbphoneNumber.startsWith('0'))
+                            mbphoneNumber=mbphoneNumber.removeStart('0');
+                               objAccount.Mobile__c=mbCountryCode+mbphoneNumber;
                       }        
                       else
                       {             
                              objAccount.Mobile__c='';
                       } 
-                    
+                             
                     if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }                   
@@ -1859,7 +1843,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         refreshPage = true;
                         insert objAccount ;
                         return true;
-                    } 
+                    }                   
                               
             }           
             catch(DMLException e)

@@ -165,6 +165,11 @@
             <field>Contact__c.Agreement_to_commit_info_processing__c</field>
             <table>Lead__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Selling_Dealer__c</field>
+            <table>Lead__c.Vehicle_Relationship__r</table>
+        </columns>
         <masterLabel>Leads</masterLabel>
     </sections>
 </ReportType>

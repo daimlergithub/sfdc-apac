@@ -5,8 +5,6 @@
     <customButtons>New_Task</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
-    <customButtons>New_DM_Request</customButtons>
-    <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -562,8 +560,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>New_Campaign_Lead</customButtons>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Campaign__c</fields>
         <fields>Central_Campaign_Name__c</fields>
@@ -571,8 +567,6 @@
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>NewEvent</excludeButtons>
-        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -583,11 +577,6 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>LogCall</excludeButtons>
-        <excludeButtons>MailMerge</excludeButtons>
-        <excludeButtons>RequestUpdate</excludeButtons>
-        <excludeButtons>SendEmail</excludeButtons>
-        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -608,6 +597,7 @@
         <customButtons>New_DM_Request_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
+        <fields>Delivery_Type__c</fields>
         <fields>Status__c</fields>
         <fields>Expected_DM_Material1__c</fields>
         <fields>Status1__c</fields>
@@ -615,7 +605,6 @@
         <fields>Status2__c</fields>
         <fields>Expected_DM_Material3__c</fields>
         <fields>Status3__c</fields>
-        <fields>Delivery_Type__c</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>DM_Request__c.Lead__c</relatedList>
     </relatedLists>
@@ -638,7 +627,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000LwQQ</masterLabel>
+        <masterLabel>00h28000006j53K</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -379,10 +379,42 @@
             <masterLabel>Immediately</masterLabel>
             <translation>即時</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation>特に無い</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>許諾の経緯</label>
+        <name>Acquisition_Objective_Method__c</name>
+        <picklistValues>
+            <masterLabel>Order Confirmation</masterLabel>
+            <translation>車両注文書</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service In</masterLabel>
+            <translation>サービス入庫</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation>アンケート</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>許諾記録日</label>
+        <name>Acquisition_Record_Date__c</name>
     </fields>
     <fields>
         <label><!-- MB Activation Date --></label>
         <name>Activation_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active Contracts --></label>
+        <name>Active_Contracts__c</name>
     </fields>
     <fields>
         <label><!-- Active --></label>
@@ -569,43 +601,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Annual Income Range --></label>
+        <label>世帯年収</label>
         <name>Annual_Income_Range__c</name>
         <picklistValues>
             <masterLabel>Range 1</masterLabel>
             <translation>300万円未満</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 2</masterLabel>
-            <translation>300万円-399万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 3</masterLabel>
-            <translation>400万円-499万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 4</masterLabel>
-            <translation>500万円-599万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 5</masterLabel>
-            <translation>600万円-699万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 6</masterLabel>
-            <translation>700万円-799万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 7</masterLabel>
-            <translation>800万円-899万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 8</masterLabel>
-            <translation>900万円-999万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 9</masterLabel>
-            <translation>1000万円-1249万円</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Range 10</masterLabel>
@@ -638,6 +638,38 @@
         <picklistValues>
             <masterLabel>Range 17</masterLabel>
             <translation>4000万円以上</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Range 2</masterLabel>
+            <translation>300万円-399万円</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Range 3</masterLabel>
+            <translation>400万円-499万円</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Range 4</masterLabel>
+            <translation>500万円-599万円</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Range 5</masterLabel>
+            <translation>600万円-699万円</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Range 6</masterLabel>
+            <translation>700万円-799万円</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Range 7</masterLabel>
+            <translation>800万円-899万円</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Range 8</masterLabel>
+            <translation>900万円-999万円</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Range 9</masterLabel>
+            <translation>1000万円-1249万円</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -791,6 +823,14 @@
     <fields>
         <label><!-- Buy Cycle --></label>
         <name>Buy_Cycle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compass Customer ID --></label>
+        <name>CAC_PERSON_UID__c</name>
+    </fields>
+    <fields>
+        <label><!-- CDM UCID --></label>
+        <name>CDM_UCID__c</name>
     </fields>
     <fields>
         <label><!-- CMS Dealer BPID --></label>
@@ -1217,6 +1257,10 @@
             <translation>韓国</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Thailand</masterLabel>
+            <translation><!-- Thailand --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Turkey</masterLabel>
             <translation>トルコ</translation>
         </picklistValues>
@@ -1273,6 +1317,14 @@
             <masterLabel>Medium</masterLabel>
             <translation><!-- Medium --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer Consent --></label>
+        <name>Customer_Consent_Happy_Calls__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Consent --></label>
+        <name>Customer_Consent__c</name>
     </fields>
     <fields>
         <label>顧客属性最終更新日時</label>
@@ -1356,6 +1408,10 @@
         <picklistValues>
             <masterLabel>Cataloue Call</masterLabel>
             <translation>カタログコール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compass</masterLabel>
+            <translation><!-- Compass --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DSC</masterLabel>
@@ -1476,6 +1532,10 @@
         <picklistValues>
             <masterLabel>Other</masterLabel>
             <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Outbound Call</masterLabel>
@@ -2556,8 +2616,8 @@ Allows up to 240 characters --></help>
             <translation><!-- Auto IT (Units) --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Auto IT  PMDS Viaduct 2000</masterLabel>
-            <translation><!-- Auto IT  PMDS Viaduct 2000 --></translation>
+            <masterLabel>Auto IT PMDS Viaduct 2000</masterLabel>
+            <translation><!-- Auto IT PMDS Viaduct 2000 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto Mac</masterLabel>
@@ -2691,6 +2751,38 @@ Allows up to 240 characters --></help>
     <fields>
         <label>FAX（サービス）</label>
         <name>Dealer_Fax_Service__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Field Force Manager Email --></label>
+        <name>Dealer_Field_Force_Manager_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Field Force Manager --></label>
+        <name>Dealer_Field_Force_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Fieldforce Manager AS --></label>
+        <name>Dealer_Fieldforce_Manager_AS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Fieldforce Manager EmailFS --></label>
+        <name>Dealer_Fieldforce_Manager_EmailFS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Fieldforce Manager EmailSales --></label>
+        <name>Dealer_Fieldforce_Manager_EmailSales__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Fieldforce Manager Email AS --></label>
+        <name>Dealer_Fieldforce_Manager_Email_AS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Fieldforce Manager FS --></label>
+        <name>Dealer_Fieldforce_Manager_FS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Fieldforce Manager Sales --></label>
+        <name>Dealer_Fieldforce_Manager_Sales__c</name>
     </fields>
     <fields>
         <label>ファイナンスサービス地域</label>
@@ -3358,6 +3450,10 @@ Allows up to 240 characters --></help>
         <name>Deceased__c</name>
     </fields>
     <fields>
+        <label>許諾の経緯(詳細)</label>
+        <name>Details_of_Acquisition__c</name>
+    </fields>
+    <fields>
         <label><!-- Display Name --></label>
         <name>Display_Name__c</name>
     </fields>
@@ -3500,6 +3596,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label><!-- Email Opt Out Reason --></label>
         <name>Email_Opt_Out_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Sent Status --></label>
+        <name>Email_Sent_Status__c</name>
     </fields>
     <fields>
         <label>Eメール(会社） Validity</label>
@@ -3704,6 +3804,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label>勤務先 FAX</label>
         <name>Fax2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Last Modified By --></label>
+        <name>Fax_Last_Modified_By__c</name>
     </fields>
     <fields>
         <label>FAX更新日時</label>
@@ -3998,7 +4102,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>IFA</masterLabel>
-            <translation><!-- IFA --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Leasing Companies</masterLabel>
@@ -4006,7 +4110,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>NFA</masterLabel>
-            <translation><!-- NFA --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>National Authorities</masterLabel>
@@ -4110,7 +4214,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation>その他</translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -4120,6 +4224,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label>趣味</label>
         <name>Hobby__c</name>
+        <picklistValues>
+            <masterLabel>Art &amp; Theatre</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Art(design)</masterLabel>
             <translation><!-- Art(design) --></translation>
@@ -4131,6 +4239,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Art(photography)</masterLabel>
             <translation><!-- Art(photography) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arts &amp; Crafts</masterLabel>
+            <translation><!-- Arts &amp; Crafts --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Badminton</masterLabel>
@@ -4147,6 +4259,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Basketball</masterLabel>
             <translation><!-- Basketball --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Beauty &amp; Fashion</masterLabel>
+            <translation><!-- Beauty &amp; Fashion --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Beauty Salon</masterLabel>
@@ -4229,6 +4345,10 @@ Allows up to 240 characters --></help>
             <translation><!-- DIY --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Dining</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dinner</masterLabel>
             <translation><!-- Dinner --></translation>
         </picklistValues>
@@ -4297,12 +4417,20 @@ Allows up to 240 characters --></help>
             <translation><!-- Hiking --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Home &amp; Gardening</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Humanity</masterLabel>
             <translation><!-- Humanity --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Interior</masterLabel>
             <translation><!-- Interior --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internet Surfing</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Japanese tradicional opera</masterLabel>
@@ -4319,6 +4447,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Motorcycle</masterLabel>
             <translation>バイクでのツーリング</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Movies</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Movies&amp;Plays</masterLabel>
@@ -4565,8 +4697,16 @@ Allows up to 240 characters --></help>
             <translation><!-- ID Card/Driving Card --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>National ID</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Officer Card</masterLabel>
             <translation><!-- Officer Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Passport</masterLabel>
@@ -5073,8 +5213,24 @@ Allows up to 240 characters --></help>
             <translation><!-- Department manager --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Executive</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>General manager</masterLabel>
             <translation><!-- General manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Homemaker</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Middle Management</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Executive</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
@@ -5087,6 +5243,14 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>President</masterLabel>
             <translation><!-- President --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retiree</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Self-employed</masterLabel>
@@ -5103,6 +5267,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
             <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upper Management</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5178,6 +5346,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label>TポイントカードNo</label>
         <name>Loyalty_Card_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- CPD Customer ID --></label>
+        <name>MBC_USERID__c</name>
     </fields>
     <fields>
         <label>MBFS有効日付</label>
@@ -5313,6 +5485,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Circle of excellence</masterLabel>
             <translation><!-- Circle of excellence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compass</masterLabel>
+            <translation><!-- Compass --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
@@ -5596,11 +5772,127 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- MBTH Mercedes Events --></label>
+        <name>MBTH_Mercede__c</name>
+        <picklistValues>
+            <masterLabel>Dining/F&amp;B</masterLabel>
+            <translation><!-- Dining/F&amp;B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Domestic Trip</masterLabel>
+            <translation><!-- Domestic Trip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Driving Event/Test Drive</masterLabel>
+            <translation><!-- Driving Event/Test Drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Golf (Mercedes Trophy)</masterLabel>
+            <translation><!-- Golf (Mercedes Trophy) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health/Beauty/Spa</masterLabel>
+            <translation><!-- Health/Beauty/Spa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Trip</masterLabel>
+            <translation><!-- International Trip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lifestyle Event/Workshop</masterLabel>
+            <translation><!-- Lifestyle Event/Workshop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Movie</masterLabel>
+            <translation><!-- Movie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Music/Concert</masterLabel>
+            <translation><!-- Music/Concert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Product Launch</masterLabel>
+            <translation><!-- New Product Launch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sport</masterLabel>
+            <translation><!-- Sport --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MBTH Nationality --></label>
+        <name>MBTH_Nationality__c</name>
+        <picklistValues>
+            <masterLabel>American</masterLabel>
+            <translation><!-- American --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>British</masterLabel>
+            <translation><!-- British --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation><!-- German --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indian</masterLabel>
+            <translation><!-- Indian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese</masterLabel>
+            <translation><!-- Japanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laotian</masterLabel>
+            <translation><!-- Laotian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malaysian</masterLabel>
+            <translation><!-- Malaysian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Singaporean</masterLabel>
+            <translation><!-- Singaporean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Korean</masterLabel>
+            <translation><!-- South Korean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taiwanese</masterLabel>
+            <translation><!-- Taiwanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thai</masterLabel>
+            <translation><!-- Thai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vietnamese</masterLabel>
+            <translation><!-- Vietnamese --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>MBJ顧客情報削除更新日時</label>
         <name>MB_CIR_Last_Modified_Date__c</name>
     </fields>
     <fields>
-        <label>MBJ照会不可フラグ</label>
+        <label>MBJ顧客情報削除</label>
         <name>MB_Customer_Info_Remove__c</name>
     </fields>
     <fields>
@@ -5681,6 +5973,14 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>First Class</masterLabel>
             <translation><!-- First Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLC-Class Coupe</masterLabel>
+            <translation><!-- GLC-Class Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLE-Class</masterLabel>
+            <translation><!-- GLE-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GQ</masterLabel>
@@ -5864,6 +6164,34 @@ Allows up to 240 characters --></help>
         <name>Mobile__c</name>
     </fields>
     <fields>
+        <label><!-- Monthly Income --></label>
+        <name>Monthly_Income__c</name>
+        <picklistValues>
+            <masterLabel>100,001 - 200,000 THB</masterLabel>
+            <translation><!-- 100,001 - 200,000 THB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>200,001 - 300,000 THB</masterLabel>
+            <translation><!-- 200,001 - 300,000 THB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>300,001 - 400,000 THB</masterLabel>
+            <translation><!-- 300,001 - 400,000 THB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>400,001 - 500,000 THB</masterLabel>
+            <translation><!-- 400,001 - 500,000 THB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&lt; 100,000 THB</masterLabel>
+            <translation><!-- &lt; 100,000 THB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt; 500,000 THB</masterLabel>
+            <translation><!-- &gt; 500,000 THB --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Most Recent Hobby --></label>
         <name>Most_Recent_Hobby__c</name>
     </fields>
@@ -5943,6 +6271,14 @@ Allows up to 240 characters --></help>
             <translation>公認会計士・税理士</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Architect</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Artist/Entertainer/Celebrity</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Athlete</masterLabel>
             <translation>スポーツ選手</translation>
         </picklistValues>
@@ -5951,12 +6287,28 @@ Allows up to 240 characters --></help>
             <translation>自動車関連業者</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Building Contractor</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dentist</masterLabel>
             <translation>歯科医師</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Doctor</masterLabel>
             <translation>医師</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Doctor/Pharmacist/Nurse</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineer/Technician</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Freelancers</masterLabel>
@@ -5975,8 +6327,16 @@ Allows up to 240 characters --></help>
             <translation>主婦</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Insurance Agent/Property Agent/Direct Sales</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Lawyer</masterLabel>
             <translation>弁護士</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal Expert</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Office Staff</masterLabel>
@@ -5999,6 +6359,10 @@ Allows up to 240 characters --></help>
             <translation>パイロット</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Politician</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Primary Industry (Farming/ Fishing/ Forestry etc)</masterLabel>
             <translation>農業・林業・漁業</translation>
         </picklistValues>
@@ -6011,12 +6375,20 @@ Allows up to 240 characters --></help>
             <translation>回答拒否</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Royalty</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Self-employee</masterLabel>
             <translation>自営業</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Show Business</masterLabel>
             <translation>芸能関係</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Enterprise Employee</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Student</masterLabel>
@@ -6122,6 +6494,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label>自宅電話 OptIn</label>
         <name>Opt_In_Home_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opt In Mobile --></label>
+        <name>Opt_In_Mobile__c</name>
     </fields>
     <fields>
         <label>勤務先電話 OptIn</label>
@@ -6462,7 +6838,7 @@ Allows up to 240 characters --></help>
     <fields>
         <label>My Mercedes申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>Reject</masterLabel>
             <translation>登録拒否</translation>
         </picklistValues>
@@ -6513,7 +6889,7 @@ Allows up to 240 characters --></help>
         <name>Preferred_Contact_Date__c</name>
         <picklistValues>
             <masterLabel>Anytime</masterLabel>
-            <translation><!-- Anytime --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Friday</masterLabel>
@@ -6604,6 +6980,14 @@ Allows up to 240 characters --></help>
         <label>主要言語</label>
         <name>Preferred_Language__c</name>
         <picklistValues>
+            <masterLabel>Bahasa</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cantonese</masterLabel>
+            <translation>広東語</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Chinese</masterLabel>
             <translation>中国語</translation>
         </picklistValues>
@@ -6636,6 +7020,14 @@ Allows up to 240 characters --></help>
             <translation>韓国語</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Malaysia</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mandarin Chinese</masterLabel>
+            <translation>中国語</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation>その他</translation>
         </picklistValues>
@@ -6654,6 +7046,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Tagalogue</masterLabel>
             <translation>タガログ語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tamil</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Thai</masterLabel>
@@ -6705,6 +7101,10 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Preferred Radio Station --></label>
+        <name>Preferred_Radio_Station__c</name>
+    </fields>
+    <fields>
         <label>希望勤務先電話1</label>
         <name>Preferred_Work_Phone_1__c</name>
     </fields>
@@ -6722,9 +7122,6 @@ Allows up to 240 characters --></help>
     </fields>
     <fields>
         <label>優先連絡先住所</label>
-        <lookupFilter>
-            <errorMessage><!-- Please select the proper address. --></errorMessage>
-        </lookupFilter>
         <name>Primary_Address_Reference__c</name>
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
@@ -6909,7 +7306,7 @@ Allows up to 240 characters --></help>
         <name>R_Confirmed_by_user__c</name>
     </fields>
     <fields>
-        <label>タッチポイント詳細</label>
+        <label>タッチポイント</label>
         <name>R_DataSource__c</name>
     </fields>
     <fields>
@@ -7330,11 +7727,11 @@ Allows up to 240 characters --></help>
         <name>Special_Mark_on_Account__c</name>
         <picklistValues>
             <masterLabel>Army</masterLabel>
-            <translation><!-- Army --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Authority</masterLabel>
-            <translation><!-- Authority --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Automotive related</masterLabel>
@@ -7358,7 +7755,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Diplomat</masterLabel>
-            <translation><!-- Diplomat --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fire department</masterLabel>
@@ -7374,11 +7771,19 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Government</masterLabel>
-            <translation><!-- Government --></translation>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hotel</masterLabel>
+            <translation><!-- Hotel --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance Company</masterLabel>
             <translation>保険会社</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Framework (IFA)</masterLabel>
+            <translation><!-- International Framework (IFA) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lawyer</masterLabel>
@@ -7390,7 +7795,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBK</masterLabel>
-            <translation><!-- MBK --></translation>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPC</masterLabel>
+            <translation><!-- MPC --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Media</masterLabel>
@@ -7401,8 +7810,20 @@ Allows up to 240 characters --></help>
             <translation>国土交通省</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>National Framework (NFA)</masterLabel>
+            <translation><!-- National Framework (NFA) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Police</masterLabel>
             <translation>警察</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rental Company</masterLabel>
+            <translation><!-- Rental Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Royal Family</masterLabel>
+            <translation><!-- Royal Family --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7889,6 +8310,10 @@ Allows up to 240 characters --></help>
         <name>Winbeat_SAP_No__c</name>
     </fields>
     <fields>
+        <label><!-- Work Fax Last Modified By --></label>
+        <name>Work_Fax_Last_Modified_By__c</name>
+    </fields>
+    <fields>
         <label>その他電話２　更新者</label>
         <name>Work_Phone_Last_Modified_By2__c</name>
     </fields>
@@ -8012,6 +8437,67 @@ Allows up to 240 characters --></help>
         </sections>
     </layouts>
     <layouts>
+        <layout>Company Layout Dealer KR</layout>
+        <sections>
+            <label><!-- Account Information for Dealer --></label>
+            <section>Account Information for Dealer</section>
+        </sections>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Company Account Deatils --></label>
+            <section>Company Account Deatils</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Method --></label>
+            <section>Contact Method</section>
+        </sections>
+        <sections>
+            <label><!-- Detail Information --></label>
+            <section>Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Company Layout TH</layout>
+        <sections>
+            <label><!-- Company Information --></label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Infromation --></label>
+            <section>Contact Infromation</section>
+        </sections>
+        <sections>
+            <label><!-- Telematics Related Information --></label>
+            <section>Telematics Related Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Company Layout_Dealer</layout>
+        <sections>
+            <label><!-- Account Information for Dealer --></label>
+            <section>Account Information for Dealer</section>
+        </sections>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Company Account Deatils --></label>
+            <section>Company Account Deatils</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Method --></label>
+            <section>Contact Method</section>
+        </sections>
+        <sections>
+            <label><!-- Detail Information --></label>
+            <section>Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Company Layout_KR</layout>
         <sections>
             <label><!-- Company Information --></label>
@@ -8113,10 +8599,6 @@ Allows up to 240 characters --></help>
             <section>Account Information for Dealer</section>
         </sections>
         <sections>
-            <label>連絡先</label>
-            <section>Address</section>
-        </sections>
-        <sections>
             <label><!-- Business Account Detail --></label>
             <section>Business Account Detail</section>
         </sections>
@@ -8125,12 +8607,47 @@ Allows up to 240 characters --></help>
             <section>Company Account Detail</section>
         </sections>
         <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
             <label>連絡方法</label>
             <section>Contact Method</section>
         </sections>
         <sections>
             <label>詳細情報</label>
             <section>Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer Layout-TH</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Function --></label>
+            <section>Dealer Function</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Other Information --></label>
+            <section>Dealer Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Portal Related Information --></label>
+            <section>Dealer Portal Related Information</section>
+        </sections>
+        <sections>
+            <label><!-- GSSN Address Information --></label>
+            <section>GSSN Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- GSSN Information --></label>
+            <section>GSSN Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
         </sections>
     </layouts>
     <layouts>
@@ -8189,8 +8706,8 @@ Allows up to 240 characters --></help>
             <section>Account Information for Dealer</section>
         </sections>
         <sections>
-            <label>連絡先</label>
-            <section>Address</section>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
         </sections>
         <sections>
             <label>連絡方法</label>
@@ -8214,6 +8731,82 @@ Allows up to 240 characters --></help>
         </sections>
         <sections>
             <label>システム情報</label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PA Layout-Dealer Portal - TH</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Main Contact and Consent --></label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label><!-- Other information --></label>
+            <section>Other information</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
+        </sections>
+        <sections>
+            <label><!-- Retail Information --></label>
+            <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service History Information --></label>
+            <section>Service History Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Whole activities --></label>
+            <section>Whole activities</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PA Layout-Dealer Portal KR</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Account Information for Dealer --></label>
+            <section>Account Information for Dealer</section>
+        </sections>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Main Contact and Consent --></label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label><!-- Person Account Detail --></label>
+            <section>Person Account Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
     </layouts>
@@ -8294,6 +8887,38 @@ Allows up to 240 characters --></help>
         </sections>
     </layouts>
     <layouts>
+        <layout>PA Layout_Dealer</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Account Information for Dealer --></label>
+            <section>Account Information for Dealer</section>
+        </sections>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Main Contact and Consent --></label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label><!-- Person Account Detail --></label>
+            <section>Person Account Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -8314,6 +8939,62 @@ Allows up to 240 characters --></help>
         </sections>
         <sections>
             <label>サービス履歴情報</label>
+            <section>Service History Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Person Account Layout Dealer Portal</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Main Contact and Consent --></label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
+        </sections>
+        <sections>
+            <label><!-- Retail Copy Information --></label>
+            <section>Retail Copy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service History Information --></label>
+            <section>Service History Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Person Account Layout TH</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Main Contact and Consent --></label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
+        </sections>
+        <sections>
+            <label><!-- Retail Copy Information --></label>
+            <section>Retail Copy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service History Information --></label>
             <section>Service History Information</section>
         </sections>
     </layouts>
@@ -8386,6 +9067,14 @@ Allows up to 240 characters --></help>
         <name>Account_Status</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- You cannot change the Acquistion Objective Method --></errorMessage>
+        <name>Acquisition_Object_Method_Cannot_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select Acquisition Objective &amp; Method --></errorMessage>
+        <name>Acquisition_Objective_Method_mandatory</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Only MBJ/MBF user can update Allow Data Sharing2 from true to false. --></errorMessage>
         <name>Allow_Data_Sharing2_Only_MBJMBF</name>
     </validationRules>
@@ -8396,6 +9085,10 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage>個人情報許諾フラグ(販売店⇒MBJ)は「Yes」に設定されると、その後変更をする事はできません。</errorMessage>
         <name>Allow_Data_Sharing_cannot_be_changed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Enter Atleast one contact Information --></errorMessage>
+        <name>AtleastOneContact_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage>生年月日は過去日で入力して下さい。</errorMessage>
@@ -8412,6 +9105,10 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage><!-- Customer must have at least one phone field populated. --></errorMessage>
         <name>CP_Customer_Phone_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Enter Numbers in Commercial Register Number / Vat No --></errorMessage>
+        <name>Commercial_Reg_No_Or_Vat_No_Validation</name>
     </validationRules>
     <validationRules>
         <errorMessage>アカウント名は必ず40文字以下で入力して下さい。</errorMessage>
@@ -8434,12 +9131,28 @@ Allows up to 240 characters --></help>
         <name>Customer_Lifecycle_Phase_Discard</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- If customer has no vehicle relationship, Status must not be ‘Customer’. --></errorMessage>
+        <errorMessage><!-- If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬â„¢. --></errorMessage>
         <name>Customer_Status_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If customer has no vehicle relationship, Status must not be Customer. --></errorMessage>
+        <name>Customer_Status_Check_TH</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Once Data Source has been set as Compass, it cannot be changed. --></errorMessage>
+        <name>Data_Source_Update</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Please enter Data Source. --></errorMessage>
         <name>Data_Source_is_mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cant select value for Acquisition Objective &amp; Method if date source is not Dealer Out. --></errorMessage>
+        <name>Data_Source_other_than_Dealer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change data source value --></errorMessage>
+        <name>Data_source</name>
     </validationRules>
     <validationRules>
         <errorMessage>アカウント名は必ず100文字以下で入力して下さい。</errorMessage>
@@ -8456,6 +9169,10 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage><!-- It&apos;s not allowed to change dealer name. --></errorMessage>
         <name>Dealer_Name_Read_only</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Value for Details of Acquisition --></errorMessage>
+        <name>Details_of_The_Acquisition</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Phone number must contain digits only. --></errorMessage>
@@ -8506,12 +9223,20 @@ Allows up to 240 characters --></help>
         <name>Fax_NoOfDigits</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Fax must be digits, and should be minimum 11 digits. --></errorMessage>
+        <name>Fax_NoOfDigits_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>FAXは必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Fax_StartsWith0</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Fax must contain digits only. --></errorMessage>
         <name>Fax_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Fax must contain digits only. --></errorMessage>
+        <name>Fax_Validation_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage>YH（ファイナンス用）にチェックをされた際には、必ずYHメモ（ファイナンス用）を入力して下さい。</errorMessage>
@@ -8552,6 +9277,12 @@ Allows up to 240 characters --></help>
         <name>HomePhone_Format_KR</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Home Phone must be in any of the following formats :		
+1. Country code-Area Code-xxx-xxxx
+2. Country code-Area Code-xxx-xxx --></errorMessage>
+        <name>HomePhone_Format_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>その他電話番号1には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Home_Phone_2_NoChar</name>
     </validationRules>
@@ -8564,12 +9295,20 @@ Allows up to 240 characters --></help>
         <name>Home_Phone_2_StartsWith0</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number or alphabet. --></errorMessage>
+        <name>ID_Type</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>自宅電話には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Individual_Home_Phone_NoChar</name>
     </validationRules>
     <validationRules>
         <errorMessage>自宅電話は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Individual_Home_Phone_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Home phone number must be digits, and it should be minimum 11 digits. --></errorMessage>
+        <name>Individual_Home_Phone_NoOfDigits_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage>自宅電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
@@ -8584,6 +9323,10 @@ Allows up to 240 characters --></help>
         <name>Invalid_Email_Address</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Invalid Email Address. --></errorMessage>
+        <name>Invalid_Email_Address_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>郵便番号は7ケタの番号で入力して下さい。</errorMessage>
         <name>Invalid_ZipCode</name>
     </validationRules>
@@ -8592,12 +9335,20 @@ Allows up to 240 characters --></help>
         <name>Invalid_ZipCode_2</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Zipcode is not 5 digits long --></errorMessage>
+        <name>Invalid_ZipCode_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>姓は必ず40文字以下で入力して下さい。</errorMessage>
         <name>LastName_NoOfDigits</name>
     </validationRules>
     <validationRules>
         <errorMessage>姓（カナ）は必ず全角で入力して下さい。</errorMessage>
         <name>Last_Name_Native_1_Fullchar</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Once MBK Data Source has been set as Compass, it cannot be changed. --></errorMessage>
+        <name>MBK_Data_Source_Update</name>
     </validationRules>
     <validationRules>
         <errorMessage>勤務先携帯電話には「-」、「+」を入力しないで下さい。</errorMessage>
@@ -8617,12 +9368,21 @@ Allows up to 240 characters --></help>
         <name>Mobile_Format_KR</name>
     </validationRules>
     <validationRules>
+        <errorMessage>Mobile Phone must be in any of the following formats : 
+1. Country code-Area Code-xxx-xxxx</errorMessage>
+        <name>Mobile_Format_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>携帯電話には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Mobile_NoChar</name>
     </validationRules>
     <validationRules>
         <errorMessage>携帯電話は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Mobile_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Mobile phone number must be digits, and should be minimum 12 digits --></errorMessage>
+        <name>Mobile_NoOfDigits_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage>携帯電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
@@ -8703,12 +9463,22 @@ Allows up to 240 characters --></help>
         <name>WorkPhone_Format_KR</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Work Phone must be in any of the following formats : 			
+1. Country code-Area Code-xxx-xxxx 
+2. Country code-Area Code-xxx-xxx --></errorMessage>
+        <name>WorkPhone_Format_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>勤務先電話には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Work_Phone_2_NoChar</name>
     </validationRules>
     <validationRules>
         <errorMessage>勤務先電話は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Work_Phone_2_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Work phone number must be digits, and it must be minimum 11 digits. --></errorMessage>
+        <name>Work_Phone_2_NoOfDigits_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage>勤務先電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
@@ -8807,12 +9577,20 @@ Allows up to 240 characters --></help>
         <name>New_Case_Dealer</name>
     </webLinks>
     <webLinks>
+        <label><!-- New_Inquiry --></label>
+        <name>New_Inquiry</name>
+    </webLinks>
+    <webLinks>
         <label>新規セールスリード</label>
         <name>New_Leads</name>
     </webLinks>
     <webLinks>
         <label><!-- New_MBFS_Case --></label>
         <name>New_MBFS_Case</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_MB_Complaint --></label>
+        <name>New_MB_Complaint</name>
     </webLinks>
     <webLinks>
         <label>新規セールスリード</label>
@@ -8857,6 +9635,10 @@ Allows up to 240 characters --></help>
     <webLinks>
         <label>アカウント/車両関係を見る</label>
         <name>View_Hierarchy</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Retail_Copies --></label>
+        <name>View_Retail_Copies</name>
     </webLinks>
     <webLinks>
         <label><!-- YahooMaps --></label>

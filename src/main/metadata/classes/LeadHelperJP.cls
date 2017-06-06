@@ -1,6 +1,6 @@
 /**
 ** Utility for Lead trigger for Japan 
-** Updation of â€œCustomer_Lifecycle_Phase__câ€ on Account related to lead based on CAC Lead Status
+** Updation of Ã¢â‚¬Å“Customer_Lifecycle_Phase__cÃ¢â‚¬Â on Account related to lead based on CAC Lead Status
 ** Initialise Customer_Lifecycle_Phase__c on Account based on CAC Lead Status of all the leads associated with Account based on CAC Lead Status.
 ** Create AccountLink with combination of From role and to role with contact and Assigned Dealer for newly inserted leads based on CAC Lead Status.
 ** Created By: Narasimha 
@@ -12,7 +12,7 @@
 public class LeadHelperJP 
 {
     
-/**  Updation of â€œCustomer_Lifecycle_Phase__câ€ on Account related to lead based on CAC Lead Status
+/**  Updation of Ã¢â‚¬Å“Customer_Lifecycle_Phase__cÃ¢â‚¬Â on Account related to lead based on CAC Lead Status
 **  Created By: Narasimha  
 **  Date: 2016-1-19
 **/
@@ -562,14 +562,23 @@ public class LeadHelperJP
                 } */
         }   
         
-         public static void updateAssignedDealer(List<Lead__c> dealerLeadList)
+         public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)
     {
         List<User> userList = new List<User>();
         set<id> userid = new set<id>();
+		map<id, id> mapsalesConandUsrId = new map<id, id>();
         userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
-         
+         if(salesConIds.size()>0){
+			for(User usr: [select id, ContactId from user where ContactId in: salesConIds]){
+			   mapsalesConandUsrId.put(usr.ContactId, usr.id);
+			}
+		 }
         for(Lead__c dellead: dealerLeadList)
         {
+			if(dellead.RecordTypeId == salesRecordTypeId && dellead.Sales_Consultant__c != null)
+			{
+				dellead.Service_Advisor__c =  mapsalesConandUsrId.get(dellead.Sales_Consultant__c);//dellead.Sales_Consultant__c;
+			}
             if(!userList.isEmpty() && userList != null)
             {
                 for(User u : userList)

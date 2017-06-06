@@ -59,7 +59,7 @@ implements TriggerHandlerIf
            // User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
             system.debug('Entered aFTER insert TRIGGER');
             serializedObject=json.serialize(ListAccNew);
-			AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
+            AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
              AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);            
           //  if(usr.Profile.Name.contains('Dealer') && LeadUtil.Campaigntrigger){
            
@@ -97,6 +97,10 @@ implements TriggerHandlerIf
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+       List<Account> accountNewList = Trigger.new;
+        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'JP')
+        {
+       
        if(isBefore && isInsert )
         {
             
@@ -106,7 +110,7 @@ implements TriggerHandlerIf
         }
         if(isBefore && isUpdate)
         {
-		   //Commented as part of SFDCJP-2305
+           //Commented as part of SFDCJP-2305
            // AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             
@@ -152,5 +156,6 @@ implements TriggerHandlerIf
             AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
         } */
             //AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
+        }
         }
     }

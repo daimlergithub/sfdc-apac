@@ -50,7 +50,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -274,7 +274,7 @@
     <fields>
         <fullName>Contract_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Task__r.ContractNumber__c</formula>
+        <formula>Contract__r.ContractNumber__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract Number</label>
         <required>false</required>
@@ -307,7 +307,7 @@
     <fields>
         <fullName>Contract_Responsible_Person__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Task__r.Contractor_Name__c</formula>
+        <formula>Contract__r.Contractor_Name__c</formula>
         <label>Contract Responsible Person</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -349,7 +349,7 @@
     <fields>
         <fullName>Contractor_Company_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Task__r.Company_Name__c</formula>
+        <formula>Contract__r.Company_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Company Name</label>
         <required>false</required>
@@ -360,7 +360,7 @@
     <fields>
         <fullName>Contractor_Individual_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Task__r.Account__c</formula>
+        <formula>Contract__r.Account__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Individual Name</label>
         <required>false</required>
@@ -1209,7 +1209,7 @@
     <fields>
         <fullName>Zip_Code_Finance__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Task__r.Contractor_ZipCode1__c</formula>
+        <formula>Contract__r.Contractor_ZipCode1__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Zip Code Finance</label>
         <required>false</required>
@@ -1340,8 +1340,8 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignI
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>var recId = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
-window.open("{!URLFOR($Site.Prefix)}/apex/ExportAsCsvCampaign?id="+recId);</url>
+        <url>var campaignName = '{!Campaign.Name}';
+window.open("{!URLFOR($Site.Prefix)}/CAMPAIGN_MEMBER_REPORT_ID?pv0="+campaignName);</url>
     </webLinks>
     <webLinks>
         <fullName>New_Campaign_Member</fullName>
@@ -1394,7 +1394,7 @@ alert('You cannot create campaign members for this campaign status');
 var campaignID = "{!Campaign.Id}";  
 var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID}); 
 location.reload();</url>
-    </webLinks>
+    </webLinks>	
     <webLinks>
         <fullName>RetailRefresh</fullName>
         <availability>online</availability>
@@ -1409,6 +1409,18 @@ location.reload();</url>
 var retcampaignid = "{!Retail_Campaign__c.Id}";
 var show1 = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshretcampaignmember",{retcamid:retcampaignid});
 location.reload();</url>
+    </webLinks>
+	<webLinks>
+        <fullName>RetailCampaignExport</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Export</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>var RetailcampaignName = '{!Retail_Campaign__c.Name}'; 
+window.open("{!URLFOR($Site.Prefix)}/RETAIL_CAMPAIGN_MEMBER_REPORT_ID?pv0="+RetailcampaignName);</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Campaign_Member</fullName>
@@ -1461,3 +1473,5 @@ alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
 </CustomObject>
+
+

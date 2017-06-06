@@ -2,6 +2,7 @@
 * Utility for Trigger on Account for TH(Thailand)
 * Author: Mohammed Touseef Ahmed
 * Created Date : 2017-01-23
+*
 */
 
 public class AccountHelperTH{
@@ -723,6 +724,79 @@ public class AccountHelperTH{
         
         
     }
-     
+    /*
+It is a temporary code fix for the phone format issue following these 3 rules
+1) If it contains '+ ' or if the number < 9 do nothing.
+2) If there is any '0' in the starting remove it and Prefix '+66' to the number.
+3) If it starts with some other number just Prefix with '+66' to the number.
+It would be replaced by Informatica/Middleware  */ 
+
+//Created By:Sarath Kumar Reddy M
+//Date:25th Mar 2017
+/* Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */       
+    /*
+    public static void updatePhoneFormat(List<Account> Accts){
+        Profile p = [select name from Profile where id =:UserInfo.getProfileId()];
+        String ProfileName = p.name;        
+        if(ProfileName =='IntegrationAPI'){       
+            for (Account a :  Accts) {                              
+                if (!String.IsBlank(a.mobile__c) &&( !(a.mobile__c.length()<9) && !(a.mobile__c.contains('+')))) {
+                    
+                    if (a.mobile__c.startsWith('0') && !(a.Mobile__c.startswith('+66'))){
+                        a.mobile__c = '+66' + a.mobile__c.right(a.mobile__c.length() - 1);
+                    }  else{         
+                        a.mobile__c = '+66' + a.mobile__c;
+                    } 
+                }
+                
+                if(!String.IsBlank(a.Work_Phone__c) && (!(a.Work_Phone__c.length()<9) && !(a.Work_Phone__c.contains('+'))) ) {
+                    if (a.Work_Phone__c.startsWith('0') && !(a.Work_Phone__c.startswith('+66'))){         
+                        a.Work_Phone__c = '+66' +a.Work_Phone__c.right(a.Work_Phone__c.length() - 1); 
+                    } else {
+                        a.Work_Phone__c = '+66' + a.Work_Phone__c;
+                    }                
+                }
+                
+                if (!(String.IsBlank(a.Individual_Home_Phone__c)) &&( !(a.Individual_Home_Phone__c.length()<9) && !(a.Individual_Home_Phone__c.contains('+')))) {                   
+                     if (a.Individual_Home_Phone__c.startsWith('0') && !(a.Individual_Home_Phone__c.startswith('+66'))){
+                        a.Individual_Home_Phone__c = '+66' + a.Individual_Home_Phone__c.right(a.Individual_Home_Phone__c.length() - 1);
+                    }    
+                    else {         
+                        a.Individual_Home_Phone__c = '+66' + a.Individual_Home_Phone__c;
+                    }             
+                }
+            }
+        }
+    }*/  
     
+     //Created By:Mohammed Touseef Ahmed
+    //Date:26th Mar 2017 
+    //This method removes the '0' from the area code if it contains while saving from standard pagelayout.
+    /* Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */
+    /* 
+     public static void eliminateZerofrmPhone(List<Account> Accts)
+    {
+        Profile p = [select name from Profile where id =:UserInfo.getProfileId()];
+        String ProfileName = p.name;        
+        if(ProfileName !='IntegrationAPI'){       
+            for (Account a :  Accts) { 
+            if(!(String.IsBlank(a.mobile__c)) && a.mobile__c.length()==13 && a.mobile__c.substring(3,4)=='0')
+            {            
+                a.mobile__c=a.mobile__c.substring(0,3)+a.mobile__c.substring(4,13);
+            }
+            
+            if(!(String.IsBlank(a.Individual_Home_Phone__c)) && a.Individual_Home_Phone__c.length()==12 && a.Individual_Home_Phone__c.substring(3,4)=='0')
+            {            
+                a.Individual_Home_Phone__c =a.Individual_Home_Phone__c .substring(0,3)+a.Individual_Home_Phone__c.substring(4,12);
+            }
+            
+            if(!(String.IsBlank(a.Work_Phone__c)) && a.Work_Phone__c.length()==12 && a.Work_Phone__c.substring(3,4)=='0')
+            {            
+                a.Work_Phone__c=a.Work_Phone__c.substring(0,3)+a.Work_Phone__c.substring(4,12);
+            }
+            
+            }
+            
+            }
+    } */
 }

@@ -9829,6 +9829,10 @@ Modify Reason:
                 <fullName>GLC-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>GL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -16538,6 +16542,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
@@ -16578,6 +16586,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
@@ -16587,6 +16599,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16618,6 +16634,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz Academy</fullName>
                 <default>false</default>
             </values>
@@ -16646,11 +16666,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -55613,7 +55641,7 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISPICKVAL( $User.User_Type__c , 'MBJ' ))
-, MD__c ='JP', $Profile.Name != 'IntegrationAPI',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
+, MD__c ='JP', $Profile.Name != 'IntegrationAPI',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), OR(ISPICKVAL(Allow_Data_Sharing2__c, 'No'),ISPICKVAL(Allow_Data_Sharing2__c, ''))
 )</errorConditionFormula>
         <errorMessage>Only MBJ/MBF user can update Allow Data Sharing2 from true to false.</errorMessage>
     </validationRules>
@@ -55773,7 +55801,7 @@ RecordType.DeveloperName = 'ThirdParty'
 OR(
 ISBLANK(Company_Name_Native_1__c),
 REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
+MD__c = 'JP',RecordType.DeveloperName ='Company')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
         <errorMessage>Company Name Native should be KANA Characters</errorMessage>
     </validationRules>
@@ -56181,26 +56209,22 @@ REGEX(Individual_Home_Phone__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>HomePhone_Format_TH</fullName>
-        <active>true</active>
-        <description>Home Phone must be in any of the following formats :		
-1. Country code-Area Code-xxx-xxxx
-2. Country code-Area Code-xxx-xxx</description>
-        <errorConditionFormula>AND(
-		$Profile.Name != 'IntegrationAPI', 
-		MD__c = 'TH',
-		NOT(ISBLANK(Individual_Home_Phone__c)),
-		NOT(
-		OR(
-		REGEX(Individual_Home_Phone__c, "[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}"),
-                REGEX(Individual_Home_Phone__c, "[+0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}"),
-		REGEX(Individual_Home_Phone__c, "[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}"),
-                REGEX(Individual_Home_Phone__c, "[0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}")
-		)
-		)
-		)</errorConditionFormula>
-        <errorMessage>Home Phone must be in any of the following formats :		
-1. Country code-Area Code-xxx-xxxx
-2. Country code-Area Code-xxx-xxx</errorMessage>
+        <active>false</active>
+        <description>Home Phone must be in any of the following formats :	
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'TH', 
+LEFT ( Individual_Home_Phone__c, 3) = "+66", 
+NOT(ISBLANK(Individual_Home_Phone__c)), 
+NOT( 
+( 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}") 
+) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Home Phone must be in any of the following formats :	
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
@@ -56282,7 +56306,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_NoOfDigits_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
 		NOT(ISBLANK(Individual_Home_Phone__c)),
 		LEN(Individual_Home_Phone__c ) &lt; 13,
@@ -56465,22 +56489,22 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>Mobile_Format_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Mobile Phone must be in any of the following formats : 
-1. Country code-Area Code-xxx-xxxx</description>
-        <errorConditionFormula>AND(
+1. Province code (+xx) And PhoneNumber 9 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
 $Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH',
-NOT(ISBLANK(Mobile__c)),
-NOT(
-OR(
-REGEX(Mobile__c, "[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}"),
-REGEX(Mobile__c, "[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}")
-)
-)
+MD__c = 'TH', 
+LEFT ( Mobile__c, 3) = "+66", 
+NOT(ISBLANK(Mobile__c)), 
+NOT( 
+( 
+REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}") 
+) 
+) 
 )</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
-1. Country code-Area Code-xxx-xxxx</errorMessage>
+1. Province code (+xx) And PhoneNumber 9 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile_NoChar</fullName>
@@ -56507,7 +56531,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Mobile_NoOfDigits_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Mobile__c),ISNEW()), 
 		NOT(ISBLANK(Mobile__c)), 
 		LEN(Mobile__c) &lt; 14, 
@@ -56776,26 +56800,22 @@ REGEX(Work_Phone__c, "[0-9]{4}-[0-9]{4}")
     </validationRules>
     <validationRules>
         <fullName>WorkPhone_Format_TH</fullName>
-        <active>true</active>
-        <description>Work Phone must be in any of the following formats : 			
-1. Country code-Area Code-xxx-xxxx 
-2. Country code-Area Code-xxx-xxx</description>
-        <errorConditionFormula>AND(
-	$Profile.Name != 'IntegrationAPI', 
-	MD__c = 'TH',
-	NOT(ISBLANK(Work_Phone__c)),
-	NOT(
-	OR(
-         REGEX(Work_Phone__c, "[+0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}"), 
-         REGEX(Work_Phone__c, "[+0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
-         REGEX(Work_Phone__c, "[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{3}"), 
-         REGEX(Work_Phone__c, "[0-9]{3}-[0-9]{1}-[0-9]{3}-[0-9]{4}") 
-	)
-	)
-	)</errorConditionFormula>
-        <errorMessage>Work Phone must be in any of the following formats : 			
-1. Country code-Area Code-xxx-xxxx 
-2. Country code-Area Code-xxx-xxx</errorMessage>
+        <active>false</active>
+        <description>Work Phone must be in any of the following formats : 
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
+        <errorConditionFormula>AND( 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'TH', 
+LEFT ( Work_Phone__c, 3) = "+66", 
+NOT(ISBLANK(Work_Phone__c)), 
+NOT( 
+( 
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{8}") 
+) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Work Phone must be in any of the following formats : 
+1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
@@ -56822,7 +56842,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoOfDigits_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
 		NOT(ISBLANK(Individual_Home_Phone__c)), 
 		LEN(Individual_Home_Phone__c ) &lt; 13, 
@@ -57163,6 +57183,9 @@ window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&am
 }
 else if(userMarket[0].Market__c == 'KR'){ 
 window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
+}
+else if(userMarket[0].Market__c == 'TH'){ 
+window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
 }else{ 
 alert('Error: Your Market Is Not defined '); 
 }</url>
@@ -57321,13 +57344,13 @@ if(market == 'JP')
 if (sforce.console.isInConsole()) 
 { 
 
-srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};'); 
+srcUp('/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};'); 
 
 } 
 
 else 
 { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}" ) 
+window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}" ) 
 
 } 
 } 
@@ -57796,174 +57819,6 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 } 
 else { 
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>ExactTarget Resubscribe</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
-var pacId, didResub;
-try
-{
-pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
-didResub=sforce.apex.execute("et4ae5/jsButtonMethods","performResub", {subscriberKey:pacId,objectType:"contact"});
-}
-catch (e)
-{
-pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
-didResub=sforce.apex.execute("jsButtonMethods","performResub", {subscriberKey:pacId,objectType:"contact"});
-}
-if (didResub=="connection error")
-{
-alert("The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.");
-}
-else if (didResub=="not found")
-{
-alert("This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.");
-}
-else if (didResub=="other error")
-{
-alert("An unexpected error has been encountered. The Email Opt Out flag will not be updated.");
-}
-else if (didResub=="not integrated")
-{
-alert("You must be integrated with ExactTarget to update an ExactTarget subscriber.");
-}
-else if (didResub=="success")
-{
-alert("{!Account.Name} was resubscribed successfully.");
-} 
-var theUrl="/{!Account.Id}";
-parent.location.href=theUrl;</url>
-    </webLinks>
-    <webLinks>
-        <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>ExactTarget Unsubscribe</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
-var pacId, didUnsub;
-try
-{
-pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
-didUnsub=sforce.apex.execute("et4ae5/jsButtonMethods","performUnsub", {subscriberKey:pacId,objectType:"contact"});
-}
-catch (e)
-{
-pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
-didUnsub=sforce.apex.execute("jsButtonMethods","performUnsub", {subscriberKey:pacId,objectType:"contact"});
-}
-if (didUnsub=="connection error")
-{
-alert("The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.");
-}
-else if (didUnsub=="not found")
-{
-alert("This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.");
-}
-else if (didUnsub=="other error")
-{
-alert("An unexpected error has been encountered. The Email Opt Out flag will not be updated.");
-}
-else if (didUnsub=="not integrated")
-{
-alert("You must be integrated with ExactTarget to update an ExactTarget subscriber.");
-}
-else if (didUnsub=="success")
-{
-alert("{!Account.Name} was unsubscribed successfully.");
-} 
-var theUrl="/{!Account.Id}";
-parent.location.href=theUrl;</url>
-    </webLinks>
-    <webLinks>
-        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Send ExactTarget Email</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
-try
-{
-var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
-var pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
-var theUrl = "https://"+urlPrefix+"/apex/singleSendETEmail?contactId="+pacId;
-var npaUrl = parent.location.href;
-if(pacId=="error")
-{
-parent.location.href = npaUrl;
-}
-else
-{
-parent.location.href = theUrl;
-}
-}
-catch(e)
-{
-var pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
-var theUrl = "/apex/singleSendETEmail?contactId="+pacId;
-var npaUrl = parent.location.href;
-if(pacId=="error")
-{
-parent.location.href = npaUrl;
-}
-else
-{
-parent.location.href = theUrl;
-}
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>et4ae5__View_ExactTarget_Analytics</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>View ExactTarget Analytics</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
-try
-{
-var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
-var pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
-var theUrl = "https://et4ae5."+urlPrefix+"/apex/SubscriberAnalytics?id="+pacId+"&amp;obj=contact";
-var npaUrl = parent.location.href;
-if(pacId=="error")
-{
-parent.location.href = npaUrl;
-}
-else
-{
-parent.location.href = theUrl;
-}
-}
-catch(e)
-{
-var pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
-var theUrl = "/apex/SubscriberAnalytics?id="+pacId+"&amp;obj=contact";
-var npaUrl = parent.location.href;
-if(pacId=="error")
-{
-parent.location.href = npaUrl;
-}
-else
-{
-parent.location.href = theUrl;
-}
 }</url>
     </webLinks>
 </CustomObject>

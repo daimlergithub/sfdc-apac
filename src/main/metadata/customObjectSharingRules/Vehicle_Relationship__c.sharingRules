@@ -78,6 +78,20 @@
         <name>SoftDelete_Vehicle_Relationship__Only_for_IT</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>TH_Vehicle_Relationship_Readable</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Thailand Users will be able to see the Vehicle Relationship records coming from Autoline</description>
+        <name>TH_Vehicle_Relationship_Readable</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>soft_deleted_share_with_R_W_to_data_mgr</fullName>
         <sharedTo>
             <role>Data_Service_Specialist</role>

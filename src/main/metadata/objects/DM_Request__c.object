@@ -138,11 +138,20 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Assigned_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Assigned Dealer</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>DM Request (Assigned Dealer)</relationshipLabel>
         <relationshipName>DM_Request1</relationshipName>
@@ -1911,6 +1920,7 @@ alert('{!$Label.Error_Message_2}');
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
@@ -1942,6 +1952,7 @@ window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Case
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>New_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
     <customButtons>New_Case</customButtons>
-    <customButtons>Create_Retail_Copy_kr</customButtons>
     <customButtons>Create_Vehicle</customButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
@@ -228,6 +226,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_General_Manager__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Consent_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_Consent_User__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -542,10 +556,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Main_Dealer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>KaKao_Talk_ID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -887,7 +897,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0k000000RGPV</masterLabel>
+        <masterLabel>00h28000006X7WX</masterLabel>
         <sizeX>1</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
