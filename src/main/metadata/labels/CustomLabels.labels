@@ -248,6 +248,13 @@
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Address 2</value>
     </labels>
+	<labels>
+        <fullName>Address_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Details</shortDescription>
+        <value>Address Details</value>
+    </labels>
     <labels>
         <fullName>Address_Information</fullName>
         <categories>AccountCreationPage</categories>
@@ -405,6 +412,13 @@
         <protected>false</protected>
         <shortDescription>And Criteria</shortDescription>
         <value>And Criteria</value>
+    </labels>
+	<labels>
+        <fullName>Are_you_sure_want_to_send_information_to_JPOS_interface</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure want to send information to JPOS interface?</shortDescription>
+        <value>Are you sure want to send information to JPOS interface?</value>
     </labels>
 	<labels>
         <fullName>Are_you_sure_want_to_send_information_to_SPO_interface</fullName>
@@ -1756,6 +1770,13 @@
         <shortDescription>CreateRetailCopy</shortDescription>
         <value>CreateRetailCopy</value>
     </labels>
+	<labels>
+        <fullName>Create_ContactSector</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create ContactSector</shortDescription>
+        <value>Create ContactSector</value>
+    </labels>
     <labels>
         <fullName>Create_Vehicle</fullName>
         <language>en_US</language>
@@ -1889,6 +1910,13 @@
         <protected>false</protected>
         <shortDescription>Customer My Merc Interface Customer</shortDescription>
         <value>Customer My Merc Interface Customer</value>
+    </labels>
+	<labels>
+        <fullName>Customer_My_Mercedes_Interface_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer My Mercedes Interface Customer</shortDescription>
+        <value>Customer My Mercedes Interface Customer</value>
     </labels>
     <labels>
         <fullName>Customer_Name</fullName>
@@ -3888,6 +3916,20 @@ please contact the number below.</value>
         <shortDescription>ModelRange</shortDescription>
         <value>Model Range</value>
     </labels>
+	<labels>
+        <fullName>MyMercedes_Email_ID_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MyMercedes Email ID Edit</shortDescription>
+        <value>MyMercedes Email ID Edit</value>
+    </labels>
+    <labels>
+        <fullName>MyMercedes_New_Registration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MyMercedes New Registration</shortDescription>
+        <value>MyMercedes New Registration</value>
+    </labels>
     <labels>
         <fullName>MyShop_Phone</fullName>
         <language>en_US</language>
@@ -3908,6 +3950,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>My Merc Id</shortDescription>
         <value>My Merc Id</value>
+    </labels>
+	<labels>
+        <fullName>My_Mercedes_Email_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Mercedes Email Id</shortDescription>
+        <value>My Mercedes Email Id</value>
     </labels>
     <labels>
         <fullName>My_Mercedes_ID</fullName>
@@ -4322,6 +4371,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Outlet</shortDescription>
         <value>Out let</value>
+    </labels>
+	<labels>
+        <fullName>Outlet_Registered_To_MyMercedes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Outlet Registered To MyMercedes</shortDescription>
+        <value>Outlet Registered To MyMercedes</value>
     </labels>
     <labels>
         <fullName>Overall_impression</fullName>
@@ -5273,6 +5329,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>RecordTypeId</shortDescription>
         <value>RecordTypeId</value>
+    </labels>
+	<labels>
+        <fullName>Records_Updated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Records Updated</shortDescription>
+        <value>Records Updated</value>
     </labels>
     <labels>
         <fullName>Registered</fullName>
@@ -7047,6 +7110,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Send Information</shortDescription>
         <value>Send Information</value>
     </labels>
+	<labels>
+        <fullName>Send_to_JPOS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send to JPOS</shortDescription>
+        <value>Send to JPOS</value>
+    </labels>
     <labels>
         <fullName>Send_to_spo_translate</fullName>
         <language>en_US</language>
@@ -7254,6 +7324,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Sucessfully Created Retail Copy</shortDescription>
         <value>Sucessfully Created Retail Copy</value>
+    </labels>
+	<labels>
+        <fullName>Sucessfully_Sent_Information_to_JPOS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sucessfully Sent Information to JPOS</shortDescription>
+        <value>Sucessfully Sent Information to JPOS</value>
     </labels>
 	<labels>
         <fullName>Sucessfully_Sent_Information_to_SPO</fullName>
@@ -8606,6 +8683,20 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>3 months</shortDescription>
         <value>3 months</value>
+    </labels>
+	<labels>
+        <fullName>please_enter_valid_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>please enter valid Email</shortDescription>
+        <value>please enter valid Email</value>
+    </labels>
+	<labels>
+        <fullName>please_input_My_Mercedes_Email_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>please input &quot;My Mercedes Email Id&quot;</shortDescription>
+        <value>please input &quot;My Mercedes Email Id&quot;</value>
     </labels>
     <labels>
         <fullName>purchased_vehicle_related_information</fullName>
