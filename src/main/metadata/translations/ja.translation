@@ -168,6 +168,14 @@
         <label><!-- Account Cann&apos;t be Customer --></label>
         <name>Account_Cann_t_be_Customer</name>
     </customLabels>
+	<customLabels>
+        <label>マージ先のレコードに右記の住所区分の住所が存在しません：</label>
+        <name>No_Master</name> 
+    </customLabels>
+	<customLabels>
+        <label>マージ元のレコードに右記の住所区分の住所が存在しません：</label>
+        <name>No_Slave</name>
+    </customLabels>
     <customLabels>
         <label>アカウント作成</label>
         <name>Account_Creation</name>
