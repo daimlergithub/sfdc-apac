@@ -572,6 +572,10 @@ public class AddressSearchValidationController
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {
                         refreshPage = true;
+                        if(TouchPoint !=null)
+                        {
+                        objAccount.Data_Source__c=TouchPoint;
+                        }
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
@@ -726,6 +730,14 @@ public class AddressSearchValidationController
                         system.debug('Validation1:'+Validation );
                         if(Validation == false){
                              system.debug('refreshPage 2:'+refreshPage );
+                      if(TouchPoint !=null)
+                        {
+                        objPersonAccount.Data_Source__c=TouchPoint;
+                        } 
+                        if(objPersonAccount.Acquisition_Objective_Method__c !=null && objPersonAccount.Allow_Data_Sharing2__c =='Yes')
+                        {
+                        objPersonAccount.Acquisition_Record_Date__c=System.today();
+                        }
                             upsert objPersonAccount ;
                             if(AddressObj !=null && (Address_Validated_Flag )){
                                 AddressObj.Customer__c = objPersonAccount.id;
@@ -763,7 +775,21 @@ public class AddressSearchValidationController
     public void selectedRecordTypeValue()
     {
         resetPhoneAreacodes();
-        selectedRecordType = recordType;        
+        selectedRecordType = recordType;       
+   // Added by Venky changes related to SFDCJP-2505
+    u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        market = u.Market__c;
+        
+        if(market == Label.JP){
+        if(u.ContactId !=null && selectedRecordType   =='Company')
+        {
+        TouchPoint='Others'; 
+        } 
+        if(u.ContactId !=null && selectedRecordType   =='Person Account')
+        {
+        TouchPoint='Dealer Outlet'; 
+        }  
+    }       
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -780,7 +806,14 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
             AddressObj.Block__c = '';
             AddressObj.City__c = '';
             AddressObj.District__c = '';
-            AddressObj.Province__c = '';           
+            AddressObj.Province__c = '';  
+            AddressObj.Block_Native__c = '';      
+            AddressObj.City_Native__c = '';        
+            AddressObj.Province_Native__c ='';        
+            AddressObj.District_Native__c = '';        
+            AddressObj.Address_Line_1_Native__c = '';        
+            AddressObj.Address_Line_2_Native__c = '';
+            
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
         }       
         if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_1__c !=null || AddressObj.Block__c != null || AddressObj.City__c != null ||
@@ -824,7 +857,37 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
                     if(ValidStr.contains('Province__c'))
                     {
                         AddressObj.Province__c = response.Addresses[0].Province;                       
-                    }                   
+                    }  
+                      if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Block_Native__c= response.Addresses[0].Block_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + AddressObj.Block_Native__c);
+                    }
+                      if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.City_Native__c= response.Addresses[0].City_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + AddressObj.City_Native__c);
+                    }
+                       if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.District_Native__c= response.Addresses[0].District_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + AddressObj.District_Native__c);
+                    } 
+                    if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Province_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + AddressObj.Province_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_1_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObj.Address_Line_1_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_2_Native__c= response.Addresses[0].Address_Line_2_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObj.Address_Line_2_Native__c);
+                    }
                 }
             }
             if(response != null && response.ValidationStatus == 'ERROR')
@@ -836,6 +899,12 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
                 AddressObj.City__c = '';
                 AddressObj.District__c = '';
                 AddressObj.Province__c = '';
+                AddressObj.Block_Native__c = '';      
+                AddressObj.City_Native__c = '';        
+                AddressObj.Province_Native__c ='';        
+                AddressObj.District_Native__c = '';        
+                AddressObj.Address_Line_1_Native__c = '';        
+                AddressObj.Address_Line_2_Native__c = '';
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));               
             }
         }       
@@ -896,7 +965,13 @@ EP/Tolerant for Validation.
                 AddressObj.City__c = '';
                 AddressObj.District__c = '';
                 AddressObj.Province__c = ''; 
-                AddressObj.MD__c ='';         
+                AddressObj.MD__c ='';
+                AddressObj.Block_Native__c = '';      
+                AddressObj.City_Native__c = '';        
+                AddressObj.Province_Native__c ='';        
+                AddressObj.District_Native__c = '';        
+                AddressObj.Address_Line_1_Native__c = '';        
+                AddressObj.Address_Line_2_Native__c = '';
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
             }
             if(AddressObj.ZipCode__c != null){
@@ -992,9 +1067,41 @@ EP/Tolerant for Validation.
                         AddressObjtemp.Province__c = response.Addresses[i].Province;
                         system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
                     }
+                    if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Block_Native__c= response.Addresses[0].Block_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + AddressObj.Block_Native__c);
+                    }
+                    if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.City_Native__c= response.Addresses[0].City_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + AddressObj.City_Native__c);
+                    }
+                       if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.District_Native__c= response.Addresses[0].District_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + AddressObj.District_Native__c);
+                    } 
+                    if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Province_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + AddressObj.Province_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_1_Native__c= response.Addresses[0].Address_Line_1_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObj.Address_Line_1_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_2_Native__c= response.Addresses[0].Address_Line_2_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObj.Address_Line_2_Native__c);
+                    }
                    mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));  
                 }
                 else if(!response.Addresses[i].Valid){
+                
+                System.debug('^&^&^&^&^&^&^&^&^&^ valid venky'+response.Addresses[i].Valid);
                     string province;  
                     Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
                     UtilAddressTranslation.gettranslatedvalues(Market);
@@ -1015,6 +1122,12 @@ EP/Tolerant for Validation.
                     AddressObj.District__c = '';
                     AddressObj.Province__c = '';
                     AddressObj.ZipCode__C = '';  
+                    AddressObj.Block_Native__c = '';      
+                    AddressObj.City_Native__c = '';        
+                    AddressObj.Province_Native__c ='';        
+                    AddressObj.District_Native__c = '';        
+                    AddressObj.Address_Line_1_Native__c = '';        
+                    AddressObj.Address_Line_2_Native__c = '';
                     //mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));                  
                 }
             }           
@@ -1028,6 +1141,12 @@ EP/Tolerant for Validation.
             AddressObj.City__c = '';
             AddressObj.District__c = '';
             AddressObj.Province__c = '';
+            AddressObj.Block_Native__c = '';      
+            AddressObj.City_Native__c = '';        
+            AddressObj.Province_Native__c ='';        
+            AddressObj.District_Native__c = '';        
+            AddressObj.Address_Line_1_Native__c = '';        
+            AddressObj.Address_Line_2_Native__c = '';
             AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
             AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
                     ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +

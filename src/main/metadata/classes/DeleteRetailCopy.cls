@@ -11,7 +11,7 @@
 public class DeleteRetailCopy{
         static Boolean isDeleted = false;
         static Boolean isRetail_Delete = false;
-        static List<User> integrationUser = [select id,name, profile.Name from user WHERE profile.Name = 'IntegrationAPI' LIMIT 1];
+        static List<User> integrationUser = [select id,name, profile.Name from user WHERE profile.Name = 'IntegrationAPI' AND ISActive = true LIMIT 1];
     public static void updateRetailCopy(){    
        
         Account_Link__c acclnk = [select id,Retail_Delete_Flag__c, fromRole__c,toRole__c from  Account_Link__c WHERE Id = : ApexPages.currentPage().getParameters().get('id')];
@@ -26,7 +26,7 @@ public class DeleteRetailCopy{
         }
         //update new Account_Link__c(id = ApexPages.currentPage().getParameters().get('id'), Retail_Delete_Flag__c = true);
         
-        List<Account_Link__Share> sharesToDelete = [SELECT Id FROM Account_Link__Share WHERE ParentId =: acclnk.Id ];
+        List<Account_Link__Share> sharesToDelete = [SELECT Id FROM Account_Link__Share WHERE ParentId =: acclnk.Id];
         system.debug('sharesToDelete --->'+sharesToDelete );   
         if(!sharesToDelete.isEmpty()){
             System.debug('Deleting the Share');
@@ -34,7 +34,7 @@ public class DeleteRetailCopy{
         }        
     }  
     public static void updateAccoutOwner(set<Id> dealerId){
-		List<AccountShare> AccountsharesToDelete = new  List<AccountShare>();
+        List<AccountShare> AccountsharesToDelete = new  List<AccountShare>();
         List<Account> accountupdateList = new List<Account>();
         //List<Account_Link__c> accountlink = [select id,fromRole__c from Account_Link__c WHERE toRole__c = : dealerId];
         for(Account_Link__c acc : [select id,Retail_Delete_Flag__c, fromRole__c from Account_Link__c WHERE toRole__c = : dealerId AND (RecordType.Developername = 'Retail_Company' OR RecordType.Developername = 'Retail_Person')]){
@@ -48,17 +48,19 @@ public class DeleteRetailCopy{
             if(isDeleted && !isRetail_Delete){
               // Account act = new Account(id=dealerId, ownerid = integrationUser[0].id );
                //accountupdateList .add(act);
-                for(Account act : [Select id , Ownerid from Account where id in:dealerId]){                    
+               
+               //Commented as part of SFDCJP-2593
+                /*for(Account act : [Select id , Ownerid from Account where id in:dealerId]){                    
                     act.OwnerID = integrationUser[0].id;
                    accountupdateList .add(act);
-                }
-				 AccountsharesToDelete = [SELECT Id FROM AccountShare WHERE AccountId IN : dealerId ];
+                }*/
+                 AccountsharesToDelete = [SELECT Id FROM AccountShare WHERE AccountId IN : dealerId ];
             }
     
-        if(!accountupdateList.isEmpty())
-        update accountupdateList;
-		
-		if(!AccountsharesToDelete.isEmpty())
+        //if(!accountupdateList.isEmpty())
+        //update accountupdateList;
+        
+        if(!AccountsharesToDelete.isEmpty())
         database.delete(AccountsharesToDelete,false);
    }
 }

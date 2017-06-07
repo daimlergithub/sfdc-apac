@@ -163,7 +163,7 @@ public without sharing class createRetailCopy {
             if(account.Main_Dealer__c  ==null && account.Main_Dealer__c ==null)
             {    
               ShowHideError=true;                  
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Dealer'));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_Select_Dealer));
             }
             System.debug('CurrentUsr %%%%%%%'+CurrentUsr);
     if(accList.RecordtypeId == accPerson_RecordTypeId)

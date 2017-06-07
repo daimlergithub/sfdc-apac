@@ -156,6 +156,10 @@
         <label><!-- AccountMergeFields --></label>
         <name>AccountMergeFields</name>
     </customLabels>
+	<customLabels>
+        <label>顧客名</label>
+        <name>AccountName</name>
+    </customLabels>
     <customLabels>
         <label><!-- AccountRetailCopy --></label>
         <name>AccountRetailCopy</name>
@@ -167,6 +171,10 @@
     <customLabels>
         <label>アカウント作成</label>
         <name>Account_Creation</name>
+    </customLabels>
+	<customLabels>
+        <label>顧客情報</label>
+        <name>Account_Information</name>
     </customLabels>
     <customLabels>
         <label><!-- Account Merge --></label>
@@ -227,6 +235,10 @@
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Address_2</name>
+    </customLabels>
+	<customLabels>
+        <label>住所</label>
+        <name>Address_Details</name>
     </customLabels>
     <customLabels>
         <label>住所情報</label>
@@ -315,6 +327,18 @@
     <customLabels>
         <label><!-- And Criteria --></label>
         <name>And_Criteria</name>
+    </customLabels>
+	<customLabels>
+        <label>この情報でAutoline送信します。</label>
+        <name>Are_you_sure_want_to_send_information_to_Auto_Line_interface</name>
+    </customLabels>
+	<customLabels>
+        <label>JPOSに送信してよろしいですか？</label>
+        <name>Are_you_sure_want_to_send_information_to_JPOS_interface</name>
+    </customLabels>
+	<customLabels>
+        <label>SPOに送信します。</label>
+        <name>Are_you_sure_want_to_send_information_to_SPO_interface</name>
     </customLabels>
     <customLabels>
         <label><!-- Assign Case To Dealer Branch Name --></label>
@@ -808,6 +832,10 @@
         <label><!-- Cannot Delete Central Campaign --></label>
         <name>Cannot_Delete_Central_Campaign</name>
     </customLabels>
+	<customLabels>
+        <label>車両関係</label>
+        <name>Car_Relation</name>
+    </customLabels>
     <customLabels>
         <label>ケース-</label>
         <name>Case</name>
@@ -936,6 +964,10 @@
         <label><!-- Company Account Record Type --></label>
         <name>Company_Account_Record_Type</name>
     </customLabels>
+	<customLabels>
+        <label>法人</label>
+        <name>Company_Customer</name>
+    </customLabels>
     <customLabels>
         <label>会社名</label>
         <name>Company_Name</name>
@@ -963,6 +995,10 @@
     <customLabels>
         <label>CONFIDENTIAL</label>
         <name>ConfidentialPDF</name>
+    </customLabels>
+	<customLabels>
+        <label>ＯＫ</label>
+        <name>Confirmation</name>
     </customLabels>
     <customLabels>
         <label>本当に住所を削除しますか？</label>
@@ -1011,6 +1047,14 @@
     <customLabels>
         <label><!-- CountryTH --></label>
         <name>CountryTH</name>
+    </customLabels>
+	<customLabels>
+        <label>リテールコピー作成</label>
+        <name>CreateRetailCopy</name>
+    </customLabels>
+	<customLabels>
+        <label>My Shop リストへ自拠点を追加</label>
+        <name>Create_ContactSector</name>
     </customLabels>
     <customLabels>
         <label>車両作成</label>
@@ -1084,6 +1128,14 @@
         <label>促進車種でお客様の抱えている問題や不満は解決可能ですか？</label>
         <name>Customer_Issue</name>
     </customLabels>
+	<customLabels>
+        <label>My Mercedes 入会申込（ID発行）及び関連車両情報送信</label>
+        <name>Customer_My_Merc_Interface_Customer</name>
+    </customLabels>
+	<customLabels>
+        <label>My Mercedes 申請</label>
+        <name>Customer_My_Mercedes_Interface_Customer</name>
+    </customLabels>
     <customLabels>
         <label>会社名</label>
         <name>Customer_Name</name>
@@ -1099,6 +1151,10 @@
     <customLabels>
         <label><!-- Customer Statement --></label>
         <name>Customer_Statement</name>
+    </customLabels>
+	<customLabels>
+        <label>顧客名（法人または個人）</label>
+        <name>Customer_Vehicle_Information</name>
     </customLabels>
     <customLabels>
         <label>以下の通り、お客様関連情報(入電内容、アンケートにおけるご意見、お客様情報変更、等)を展開いたします。</label>
@@ -1169,7 +1225,7 @@
         <name>Dealer_Name</name>
     </customLabels>
     <customLabels>
-        <label>拠点名</label>
+        <label>販売店</label>
         <name>Dealer_Outlet</name>
     </customLabels>
     <customLabels>
@@ -1209,7 +1265,7 @@
         <name>DetailedModelName</name>
     </customLabels>
     <customLabels>
-        <label><!-- Did You Get Agreement From Customer --></label>
+        <label>お客様から入会申込書を受領した場合のみ、実施してください</label>
         <name>Did_You_Get_Agreement_From_Customer</name>
     </customLabels>
     <customLabels>
@@ -1255,6 +1311,14 @@
     <customLabels>
         <label><!-- Elegance --></label>
         <name>Elegance</name>
+    </customLabels>
+	<customLabels>
+        <label>自宅Eメール</label>
+        <name>Email</name>
+    </customLabels>
+    <customLabels>
+        <label>勤務先Eメール</label>
+        <name>Email2</name>
     </customLabels>
     <customLabels>
         <label>Salesforceのリードに割り当てられているので、お客様に通知します。</label>
@@ -1376,6 +1440,10 @@
     <customLabels>
         <label>*ケース情報を確認するには、Salesforceにログインする必要があります。</label>
         <name>Email_salesforcelogin</name>
+    </customLabels>
+	<customLabels>
+        <label>Eメール参照</label>
+        <name>Emails</name>
     </customLabels>
     <customLabels>
         <label><!-- Employee --></label>
@@ -1667,6 +1735,10 @@
     <customLabels>
         <label><!-- If yes, within which period do you plan to purchase --></label>
         <name>If_yes_within_which_period_do_you_plan_to_purchase</name>
+    </customLabels>
+	<customLabels>
+        <label>個人</label>
+        <name>Individual_Customer</name>
     </customLabels>
     <customLabels>
         <label>*販売店/社内関係部門への情報展開</label>
@@ -2149,7 +2221,7 @@
         <name>Memo</name>
     </customLabels>
     <customLabels>
-        <label>リード統合</label>
+        <label>アカウント統合</label>
         <name>Merge</name>
     </customLabels>
     <customLabels>
@@ -2188,9 +2260,29 @@
         <label>モデルレンジ</label>
         <name>ModelRange</name>
     </customLabels>
+	<customLabels>
+        <label>My Mercedes Eメール変更</label>
+        <name>MyMercedes_Email_ID_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>My Mercedes 入会申込（新規ID発行）</label>
+        <name>MyMercedes_New_Registration</name>
+    </customLabels>
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>MyShop_Phone</name>
+    </customLabels>
+	<customLabels>
+        <label>My Mercedes Eメール</label>
+        <name>My_Merc_Email_Id</name>
+    </customLabels>
+    <customLabels>
+        <label>My Mercedes ID</label>
+        <name>My_Merc_Id</name>
+    </customLabels>
+	<customLabels>
+        <label>My Mercedes Eメール</label>
+        <name>My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
         <label><!-- My Mercedes ID --></label>
@@ -2425,6 +2517,10 @@
         <label>販売店</label>
         <name>Outlet</name>
     </customLabels>
+	<customLabels>
+        <label>My Shop リストに自拠点が反映されている</label>
+        <name>Outlet_Registered_To_MyMercedes</name>
+    </customLabels>
     <customLabels>
         <label><!-- Overall impression --></label>
         <name>Overall_impression</name>
@@ -2527,6 +2623,26 @@
         <label><!-- Please Select A Dealer To Add As Participating Dealer --></label>
         <name>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</name>
     </customLabels>
+	<customLabels>
+        <label>販売店を選択してください。</label>
+        <name>Please_Select_Dealer</name>
+    </customLabels>
+    <customLabels>
+        <label>送信中</label>
+        <name>Please_Wait</name>
+    </customLabels>
+	<customLabels>
+        <label>姓（カナ）、生年月日、性別を入力してください。</label>
+        <name>Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender</name>
+    </customLabels>
+    <customLabels>
+        <label>My Mercedes Eメールを入力してください。</label>
+        <name>Please_enter_My_Merc_Email_Id_for_Selected_Account</name>
+    </customLabels>
+    <customLabels>
+        <label>登録拒否理由を入力してください。</label>
+        <name>Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account</name>
+    </customLabels>
     <customLabels>
         <label><!-- Please enter the filter name --></label>
         <name>Please_enter_the_filter_name</name>
@@ -2556,7 +2672,7 @@
         <name>Post</name>
     </customLabels>
     <customLabels>
-        <label><!-- Previous --></label>
+        <label>前へ</label>
         <name>Previous</name>
     </customLabels>
     <customLabels>
@@ -2903,6 +3019,10 @@
         <label><!-- Rating reason --></label>
         <name>Rating_reason</name>
     </customLabels>
+	<customLabels>
+        <label>入会しない理由（入会しない場合必須）</label>
+        <name>Reason</name>
+    </customLabels>
     <customLabels>
         <label><!-- Received By --></label>
         <name>Received_By</name>
@@ -2922,6 +3042,10 @@
     <customLabels>
         <label><!-- RecordTypeId --></label>
         <name>RecordTypeId</name>
+    </customLabels>
+	<customLabels>
+        <label>完了しました。</label>
+        <name>Records_Updated</name>
     </customLabels>
     <customLabels>
         <label>登録</label>
@@ -2966,6 +3090,10 @@
     <customLabels>
         <label><!-- Label used in Task View Acc button --></label>
         <name>Related_Acc_not_present</name>
+    </customLabels>
+	<customLabels>
+        <label>対象会社</label>
+        <name>Related_Company_List</name>
     </customLabels>
     <customLabels>
         <label>契約詳細情報</label>
@@ -3707,6 +3835,10 @@
         <label><!-- SMS Reply History Respond Content --></label>
         <name>SMS_Reply_History_Respond_Content</name>
     </customLabels>
+	<customLabels>
+        <label>SPO登録／申請</label>
+        <name>SPO_Interface_Customer_Vehicle_Info</name>
+    </customLabels>
     <customLabels>
         <label><!-- SSI Dealer Cleans --></label>
         <name>SSI_Dealer_Cleans</name>
@@ -3851,6 +3983,10 @@
         <label><!-- [Select All] --></label>
         <name>Select_All</name>
     </customLabels>
+	<customLabels>
+        <label>（Blank）</label>
+        <name>Select_Company</name>
+    </customLabels>
     <customLabels>
         <label><!-- Select Option None --></label>
         <name>Select_Option_None</name>
@@ -3859,9 +3995,17 @@
         <label><!-- Select User --></label>
         <name>Select_User</name>
     </customLabels>
+	<customLabels>
+        <label>My Mercedesに送信する顧客を選択してください</label>
+        <name>Select_Your_Prefered_Email_Id_For_Customer</name>
+    </customLabels>
     <customLabels>
         <label><!-- Select dropdown --></label>
         <name>Select_dropdown</name>
+    </customLabels>
+	<customLabels>
+        <label>送信内容の確認</label>
+        <name>Selected_Record</name>
     </customLabels>
     <customLabels>
         <label>販売拠点</label>
@@ -3883,12 +4027,25 @@
         <label><!-- SendToSPOErrorMSG --></label>
         <name>SendToSPOErrorMSG</name>
     </customLabels>
+	<customLabels>
+        <label>送信</label>
+        <name>Send_Information</name>
+    </customLabels>
+	<customLabels>
+        <label>JPOS送信</label>
+        <name>Send_to_JPOS</name>
+    </customLabels>
     <customLabels>
-        <label>まずAutolineの情報を設定してください</label>
+        <label>"車両に顧客が紐付いていないか、以下の必須項目がAutolineで設定されていません。 　　
+車検証情報
+登録番号
+初度登録日
+登録日"
+</label>
         <name>Send_to_spo_translate</name>
     </customLabels>
     <customLabels>
-        <label><!-- SentToSPO --></label>
+        <label>SPO送信</label>
         <name>SentToSPO</name>
     </customLabels>
     <customLabels>
@@ -3952,7 +4109,7 @@
         <name>SlashPDF</name>
     </customLabels>
     <customLabels>
-        <label>リード一覧</label>
+        <label>マージ元レコード</label>
         <name>Slave_Record</name>
     </customLabels>
     <customLabels>
@@ -3994,6 +4151,22 @@
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Success_message</name>
+    </customLabels>
+	<customLabels>
+        <label>送信完了</label>
+        <name>Successfully_Sent_Information_to_AutoLine</name>
+    </customLabels>
+	<customLabels>
+        <label>作成完了</label>
+        <name>Sucessfully_Created_Retail_Copy</name>
+    </customLabels>
+	<customLabels>
+        <label>送信完了しました。</label>
+        <name>Sucessfully_Sent_Information_to_JPOS</name>
+    </customLabels>
+	<customLabels>
+        <label>送信完了しました。</label>
+        <name>Sucessfully_Sent_Information_to_SPO</name>
     </customLabels>
     <customLabels>
         <label><!-- SurveyCompleted --></label>
@@ -4219,6 +4392,18 @@
         <label><!-- The filter count is greater than 15 --></label>
         <name>The_filter_count_is_greater_than_15</name>
     </customLabels>
+	<customLabels>
+        <label>リードステータスが購入済、または敗戦の為、送信できません。</label>
+        <name>This_Lead_cannot_be_send_to_Autoline</name>
+    </customLabels>
+    <customLabels>
+        <label>既に別タイプのリードを作成済みです。</label>
+        <name>This_Lead_is_already_converted</name>
+    </customLabels>
+    <customLabels>
+        <label>このリードを敗戦処理し、別タイプのリードを新規作成します。</label>
+        <name>This_will_convert_the_record_type_of_Leads_Please_confirm</name>
+    </customLabels>
     <customLabels>
         <label><!-- Three --></label>
         <name>Three</name>
@@ -4300,12 +4485,16 @@
         <name>Two</name>
     </customLabels>
     <customLabels>
-        <label>顧客ID</label>
+        <label>UCID</label>
         <name>UCID</name>
     </customLabels>
     <customLabels>
         <label><!-- URL --></label>
         <name>URL</name>
+    </customLabels>
+	<customLabels>
+        <label>車台番号</label>
+        <name>US_VIN_Number</name>
     </customLabels>
     <customLabels>
         <label>成約予定日と登録予定日を入力してください</label>
@@ -4471,6 +4660,10 @@
         <label>来店</label>
         <name>Visited</name>
     </customLabels>
+	<customLabels>
+        <label>送信失敗</label>
+        <name>Web_service_callout_failed</name>
+    </customLabels>
     <customLabels>
         <label><!-- Which activity would you like to join in the future? / Your suggestions --></label>
         <name>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</name>
@@ -4632,7 +4825,8 @@
         <name>contact_information</name>
     </customLabels>
     <customLabels>
-        <label><!-- delete confirmation message --></label>
+        <label>この顧客情報を削除します
+（MBJ, MBF, 他販売店が保持している顧客情報は削除されません）</label>
         <name>delete_confirmation_message</name>
     </customLabels>
     <customLabels>
@@ -4706,6 +4900,14 @@
     <customLabels>
         <label><!-- 3 months --></label>
         <name>months</name>
+    </customLabels>
+	<customLabels>
+        <label>正しいEメールを入力してください。</label>
+        <name>please_enter_valid_Email</name>
+    </customLabels>
+    <customLabels>
+        <label>My Mercedes Eメールを入力してください。</label>
+        <name>please_input_My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
         <label><!-- purchased vehicle related information --></label>
@@ -4786,6 +4988,14 @@
     <customLabels>
         <label><!-- &amp;retURL=/apex/SelectSlaveAccount?Id= --></label>
         <name>retURL_apex_SelectSlaveAccount_Id</name>
+    </customLabels>
+	<customLabels>
+        <label>(Blank)</label>
+        <name>select</name>
+    </customLabels>
+    <customLabels>
+        <label>販売店選択</label>
+        <name>select_dealer</name>
     </customLabels>
     <customLabels>
         <label>SPOに送信</label>

@@ -1082,7 +1082,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                 
                 
 
-       List<Account> accList =  [select id,Individual_Home_Phone__c,Primary_Address_Reference__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,End_Date__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r  where End_Date__c =null) From Account where id =:sid ];
+       List<Account> accList =  [select id,Individual_Home_Phone__c,Primary_Address_Display__c,Primary_Address_Reference__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,End_Date__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r  where End_Date__c =null) From Account where id =:sid ];
        
         system.debug('++++++++++++++'+accList);
        for(Account acc : accList){
@@ -1093,7 +1093,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                    
                    if (Velti.Vehicle_address_picklist__c == '--None--')
                     {
-                            Velti.Vehicle_mail__c = acc.Primary_Address_Reference__c;
+                            Velti.Vehicle_mail__c = acc.Primary_Address_Display__c;
                              
                     } 
                    

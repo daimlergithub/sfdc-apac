@@ -46,9 +46,9 @@ public class TestClassHelper{
     public static Account CreateAccount(String Md,string FirstName,String LastName){
         Account objAccount= new Account();
         objAccount.Dealer_DMS_SR_Code__c='test code 2';
-        objAccount.Individual_Home_Phone__c = '000-00-000-964';
+        objAccount.Individual_Home_Phone__c = '+6612000964';
         objAccount.Home_Phone_2__c = '000-00-000-962';
-        objAccount.Work_Phone__c = '000-00-000-942';
+        objAccount.Work_Phone__c = '+6632000942';
         objAccount.Status__c='NoCustomer';
         objAccount.Email__c = 'testemail@test.com';
         objAccount.Email2__c = 'testemail2@test.com';
@@ -56,7 +56,7 @@ public class TestClassHelper{
         objAccount.City__c='Beijing';
         objAccount.Gender__c = 'Male';
         objAccount.Phone = '000-090-000-9661';
-        objAccount.Mobile__c = '+66-03-777-9999';
+        objAccount.Mobile__c = '+66137779999';
         objAccount.Mobile2__c = '000-080-000-2644';
         objAccount.Area_code__c = '0101';
         objAccount.MD__c = Md;

@@ -35,7 +35,7 @@ public class TriggerVehicleRelTriggerHandlerJP
          if(trigger.isBefore && trigger.isUpdate){
                 //vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
                 VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
-                VehicleRelationshipHelperJP.beforeupdateEventAddress(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
+               // VehicleRelationshipHelperJP.beforeupdateEventAddress(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
          }
        // Update Status , Update Vehicle Relationship and Create Account Link 
         /*
@@ -71,11 +71,20 @@ public class TriggerVehicleRelTriggerHandlerJP
      }
    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-
+           List<Vehicle_Relationship__c> velRelNewList = Trigger.new;
+        List<Vehicle_Relationship__c> velRelOldList = Trigger.old;
+        
+        if(!isDelete && !velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'JP')
+        {
       // Implementation to addedd as required in market
          VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
         Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+		
+		//As per Ogi request added updatePortalApplyStatus to integration user.
+       if (trigger.isBefore && trigger.isInsert){ 
+                VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New, new Map<Id,Vehicle_Relationship__c>());
+         }
          // US-CP-007
         /* if (trigger.isBefore && trigger.isInsert){
                 vrHelperJP.validateOverlappingVehicleRelationshiponInsert(trigger.new);
@@ -108,6 +117,7 @@ public class TriggerVehicleRelTriggerHandlerJP
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
+        }
         }
        
 }
