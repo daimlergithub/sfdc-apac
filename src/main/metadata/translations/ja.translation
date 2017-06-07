@@ -2221,7 +2221,7 @@
         <name>Memo</name>
     </customLabels>
     <customLabels>
-        <label>リード統合</label>
+        <label>アカウント統合</label>
         <name>Merge</name>
     </customLabels>
     <customLabels>
@@ -2672,7 +2672,7 @@
         <name>Post</name>
     </customLabels>
     <customLabels>
-        <label><!-- Previous --></label>
+        <label>前へ</label>
         <name>Previous</name>
     </customLabels>
     <customLabels>
@@ -4109,7 +4109,7 @@
         <name>SlashPDF</name>
     </customLabels>
     <customLabels>
-        <label>リード一覧</label>
+        <label>マージ元レコード</label>
         <name>Slave_Record</name>
     </customLabels>
     <customLabels>

@@ -18,15 +18,7 @@ public without sharing class updateCaseDeadLine{
           dateSet.addAll(dateLst);
           dateSet.addAll(weekEnddateLst);
           for (Case c : [select id, Priority, DeadLine__c, MD__c from case where id in:casenewLst]){ 
-            if ((c.Priority == 'A' || c.Priority =='Red >= 4') && c.MD__c == 'KR'){
-                c.DeadLine__c=checkForHolidays(dateSet, system.today() + 1);         
-             }
-           if ((c.Priority == 'B' || c.Priority =='Yellow = 3') && c.MD__c == 'KR'){
-               c.DeadLine__c= checkForHolidays(dateSet, system.today() + 3); 
-            }
-           if ((c.Priority == 'C' || c.Priority =='Green <= 2') && c.MD__c == 'KR'){
-               c.DeadLine__c= checkForHolidays(dateSet, system.today() + 10);           
-            }
+            c.DeadLine__c=checkForHolidays(dateSet, system.today() + 3);  
             caseupdLst.add(c); 
           }
           
