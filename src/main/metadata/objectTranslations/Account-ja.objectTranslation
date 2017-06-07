@@ -6873,7 +6873,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Postal Opt Out Last Modified Date --></label>
+        <label>DM拒否更新日時</label>
         <name>Postal_Opt_Out_Last_Modified_Date__c</name>
     </fields>
     <fields>
@@ -7117,7 +7117,7 @@ Allows up to 240 characters --></help>
         <name>Primary_Address_Display__c</name>
     </fields>
     <fields>
-        <label><!-- Primary Address Last Modified Date --></label>
+        <label>セールス住所更新日時</label>
         <name>Primary_Address_Last_Modified_Date__c</name>
     </fields>
     <fields>
@@ -7154,7 +7154,7 @@ Allows up to 240 characters --></help>
         <name>Primary_Email_Display__c</name>
     </fields>
     <fields>
-        <label><!-- Primary Email Last Modified Date --></label>
+        <label>セールスEメールアドレス更新日時</label>
         <name>Primary_Email_Last_Modified_Date__c</name>
     </fields>
     <fields>
@@ -7178,7 +7178,7 @@ Allows up to 240 characters --></help>
         <name>Primary_Fax_Display__c</name>
     </fields>
     <fields>
-        <label><!-- Primary Fax Last Modified Date --></label>
+        <label>セールスFAX更新日時</label>
         <name>Primary_Fax_Last_Modified_Date__c</name>
     </fields>
     <fields>
@@ -7198,7 +7198,7 @@ Allows up to 240 characters --></help>
         <name>Primary_Phone_Display__c</name>
     </fields>
     <fields>
-        <label><!-- Primary Phone Last Modified Date --></label>
+        <label>セールス電話更新日時</label>
         <name>Primary_Phone_Last_Modified_Date__c</name>
     </fields>
     <fields>
@@ -7607,7 +7607,7 @@ Allows up to 240 characters --></help>
         <name>Sales_Sanction_Comment__c</name>
     </fields>
     <fields>
-        <label><!-- Sales Sanction Last Modified Date --></label>
+        <label>カスタマーフラグ更新日時</label>
         <name>Sales_Sanction_Last_Modified_Date__c</name>
     </fields>
     <fields>
@@ -8225,7 +8225,7 @@ Allows up to 240 characters --></help>
         <name>Vendor_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Visit Opt Out Last Modified Date --></label>
+        <label>訪問拒否更新日時</label>
         <name>Visit_Opt_Out_Last_Modified_Date__c</name>
     </fields>
     <fields>
