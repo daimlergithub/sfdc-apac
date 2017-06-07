@@ -135,6 +135,20 @@
         <value>Account Creation</value>
     </labels>
 	<labels>
+        <fullName>No_Master</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Master</shortDescription>
+        <value>No master address record found to display for</value>
+    </labels>
+	<labels>
+        <fullName>No_Slave</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Slave</shortDescription>
+        <value>No slave address record found to display for</value>
+    </labels>
+	<labels>
         <fullName>Account_Information</fullName>
         <language>en_US</language>
         <protected>false</protected>
