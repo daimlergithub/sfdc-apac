@@ -27,11 +27,11 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
              vehicleId= ApexPages.currentPage().getParameters().get('id');
          
           
-            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,Class__c,Model__c,(SELECT id,Name,Car_Relation__c,Owner_relation__c,Contact__r.Name, Contact__c FROM Vehicle_Relationships__r),(SELECT id,toRole__c,fromRole__c,Retail_sales_consultant__c,Retail_Sales_Consultant__r.name, recordtypeid,Service_Dealer__c,Service_Dealer__r.name,Selling_Dealer__c,Service_Advisor__r.name, Service_Advisor__c,Selling_Dealer__r.Name FROM Account_Links__r) FROM Vehicle__c Where id =:vehicleId LIMIT 1];
+            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,Class__c,Model__c,(SELECT id,Name,Car_Relation__c,Owner_relation__c,Contact__r.Name,End_Date__c,Contact__c FROM Vehicle_Relationships__r),(SELECT id,toRole__c,fromRole__c,Retail_sales_consultant__c,Retail_Sales_Consultant__r.name, recordtypeid,Service_Dealer__c,Service_Dealer__r.name,Selling_Dealer__c,Service_Advisor__r.name, Service_Advisor__c,Selling_Dealer__r.Name FROM Account_Links__r) FROM Vehicle__c Where id =:vehicleId LIMIT 1];
             
             for(Vehicle_relationship__c vr: vehicle .Vehicle_Relationships__r)
             {
-            
+				 if(vr.End_Date__c == null){
                 if (vr.car_relation__c =='Purchaser' ) 
                 {
                     vehiclewrpper.purchaservr= vr;
@@ -58,7 +58,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
                     oldaftersalescontractVRlist.add(vehiclewrpper.aftersalescontactvr);
                     //afterSalesConsultant = vr.Retail_Sales_Consultant__c;
                 }
-     
+			}
             }
      
             for(account_link__c acclink: vehicle .Account_Links__r)
@@ -277,5 +277,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
        }
         
     }
+	
+	
     
 }
