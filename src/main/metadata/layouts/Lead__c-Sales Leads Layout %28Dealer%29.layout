@@ -90,11 +90,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Closing_Option__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Appointment_DateTime__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <height>200</height>
                 <page>MarketCheckOnVehiclePicker</page>
@@ -280,8 +276,9 @@
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Product_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -331,9 +328,8 @@
         <editHeading>true</editHeading>
         <label>Cross-point information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Finance_Product_Name__c</field>
+             <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
