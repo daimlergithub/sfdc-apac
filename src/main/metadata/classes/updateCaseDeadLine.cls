@@ -6,7 +6,8 @@ public without sharing class updateCaseDeadLine{
          system.debug('PSM CASE IDS '+casenewLst);
          List<Case> caseupdLst = new List<case>();
          List<BusinessHours> bHrs = [SELECT Id FROM BusinessHours WHERE Id =:  Label.korea_Business_Hours_Id];
-          List<Holiday> holidaysLst =  BusinessHrHolidaysRetriever.retrieveHolidays(bHrs[0]);
+         User usr = [select id, UserType from user where id =: userInfo.getuserId()];
+          List<Holiday> holidaysLst =  BusinessHrHolidaysRetriever.retrieveHolidays(bHrs[0], usr);
           List<Date> dateLst = new List<Date>();
           for(Holiday hol: holidaysLst){
               dateLst.add(hol.ActivityDate);
@@ -18,7 +19,7 @@ public without sharing class updateCaseDeadLine{
           dateSet.addAll(dateLst);
           dateSet.addAll(weekEnddateLst);
           for (Case c : [select id, Priority, DeadLine__c, MD__c from case where id in:casenewLst]){ 
-            c.DeadLine__c=checkForHolidays(dateSet, system.today() + 3);  
+            c.DeadLine__c=checkForHolidays(dateSet, system.today() + 3); 
             caseupdLst.add(c); 
           }
           

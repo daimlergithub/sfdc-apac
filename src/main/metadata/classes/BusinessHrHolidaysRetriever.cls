@@ -1,6 +1,6 @@
-public with sharing class BusinessHrHolidaysRetriever {
+public without sharing class BusinessHrHolidaysRetriever {
 
-    public static List<Holiday> retrieveHolidays(BusinessHours bh) {
+    public static List<Holiday> retrieveHolidays(BusinessHours bh, user usr) {
         if(bh == null || bh.Id == null) {
             throw new InvalidDataException('Failed to retrieve holidays for a given business hour. Input business hour is invalid');
         }
@@ -8,7 +8,13 @@ public with sharing class BusinessHrHolidaysRetriever {
         if(bHrs.isEmpty()) {
             throw new InvalidDataException('Failed to retrieve holidays for a given business hour. Input business hour is invalid');
         }
-        PageReference pg = new PageReference(BusinessHrHolidaysRetrieverConstants.HOLIDAY_URL_PREFIX + bh.Id);
+        PageReference pg;
+        if(usr.userType != 'PowerPartner'){
+            pg = new PageReference(BusinessHrHolidaysRetrieverConstants.HOLIDAY_URL_PREFIX + bh.Id);
+        }else{
+            pg = new PageReference(BusinessHrHolidaysRetrieverConstants.HOLIDAY_URL_PREFIX_DEALER + bh.Id);
+        }
+                      
         Blob content = Blob.valueOf(BusinessHrHolidaysRetrieverConstants.BLOB_CONTENT_FOR_HOLIDAY_TEST);
         if(!System.Test.isRunningTest()) {
             content = pg.getContent();
