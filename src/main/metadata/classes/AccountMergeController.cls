@@ -26,6 +26,7 @@ public with sharing class AccountMergeController{
     public Account Master {get; set;}
     public Account Slave  {get; set;}
     public String selectedAddress {get; set;}
+    public String selectedAddressnative {get; set;}
     public Account Acct  {get; set;}
     public set<string> SoqlFieldset;
     public set<string> SoqlFieldset1;
@@ -37,7 +38,8 @@ public with sharing class AccountMergeController{
     public Address__C MasterAddresses {get; set;}
     public Address__C SlaveAddresses  {get; set;}
     public List<AddressWrapper> AddWrapList {get; set;}
-    
+    public static final String notmastermsg = Label.No_Master;
+    public static final String notslavemsg = Label.No_Slave;
      /** 
      * @Description : Constructor would be called to get the Master and Slave record
      * @author  Sneha chail
@@ -512,7 +514,7 @@ public with sharing class AccountMergeController{
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy) 
      * @returns "SelectSlaveAccount" page with choosen master and slave record Id as  parameters.     
-     */
+     *///https://developer.salesforce.com/forums/?id=906F00000008o7UIAQ
        public List<SelectOption> getaddtype()
        {
          List<SelectOption> options = new List<SelectOption>();
@@ -534,20 +536,21 @@ public with sharing class AccountMergeController{
             
       return options;
     }  
-    
+      
      public PageReference displayAddress() {
          hasSuspectAdds =true;
          displayAdds=true;      
                if(selectedAddress != null ){  
                system.debug('selectedAddress'+selectedAddress);
-              
+               system.debug('selectedAddressn'+selectedAddressnative);
                try{
                MasterAddresses= this.getQueriedAdd(Master.id,selectedAddress);
              
                }catch(Exception e)
                {
-                 
-                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No master address record found to display for '+selectedAddress));
+                
+    
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,notmastermsg+' '+selectedAddress));
                  displayAdds=false; 
                }
                try{
@@ -556,7 +559,7 @@ public with sharing class AccountMergeController{
                }catch(Exception e)
                {
                 
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No slave address record found to display for '+selectedAddress));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,notslavemsg+' '+selectedAddress));
                 displayAdds=false; 
                }
                  
