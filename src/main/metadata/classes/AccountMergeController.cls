@@ -27,6 +27,7 @@ public with sharing class AccountMergeController{
     public Account Slave  {get; set;}
     public String selectedAddress {get; set;}
     public String selectedAddressnative {get; set;}
+    public String selectedAddressnative1 {get; set;}
     public Account Acct  {get; set;}
     public set<string> SoqlFieldset;
     public set<string> SoqlFieldset1;
@@ -40,6 +41,7 @@ public with sharing class AccountMergeController{
     public List<AddressWrapper> AddWrapList {get; set;}
     public static final String notmastermsg = Label.No_Master;
     public static final String notslavemsg = Label.No_Slave;
+    public map<string,string> labelNvalue=new map<string,string>();
      /** 
      * @Description : Constructor would be called to get the Master and Slave record
      * @author  Sneha chail
@@ -528,8 +530,10 @@ public with sharing class AccountMergeController{
           {
           
            options.add(new SelectOption(f.getValue(), f.getLabel()));
+           labelNvalue.put(f.getValue(), f.getLabel());
           }else{
            options.add(new SelectOption(f.getLabel(), f.getValue()));
+           //labelNvalue.put(f.getValue(), f.getLabel());
            }
           }
           system.debug('options'+options);
@@ -541,25 +545,26 @@ public with sharing class AccountMergeController{
          hasSuspectAdds =true;
          displayAdds=true;      
                if(selectedAddress != null ){  
-               system.debug('selectedAddress'+selectedAddress);
-               system.debug('selectedAddressn'+selectedAddressnative);
+               
                try{
                MasterAddresses= this.getQueriedAdd(Master.id,selectedAddress);
              
                }catch(Exception e)
                {
-                
-    
-                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,notmastermsg+' '+selectedAddress));
+                selectedAddressnative=labelNvalue.get(selectedAddress);
+                 
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,notmastermsg+' '+selectedAddressnative));
                  displayAdds=false; 
                }
                try{
                SlaveAddresses= this.getQueriedAdd(Slave.id,selectedAddress); 
-                system.debug('SlaveAddresses'+SlaveAddresses);  
+                
                }catch(Exception e)
                {
-                
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,notslavemsg+' '+selectedAddress));
+               
+                selectedAddressnative1=labelNvalue.get(selectedAddress);
+               
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,notslavemsg+' '+selectedAddressnative1));
                 displayAdds=false; 
                }
                  

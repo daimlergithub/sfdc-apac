@@ -641,7 +641,7 @@ public class AccountHelperJP
                         Account account = accountmap.get(acc.Id);
                         Account_Link__c acclink = new Account_Link__c();
                         acclink.Primary__c = true;
-                        acclink.Origin__c = account.Name;
+                        acclink.Origin__c = account.Id; //Added as per Jira ticket SFDCJP-2502
                         acclink.toRole__c = account.Id;
                         acclink.System__c = 'UCID';
                         acclink.RecordTypeId = accountinkIndividualCustomerExternalLinkId ;
