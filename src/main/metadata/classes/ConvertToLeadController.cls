@@ -20,7 +20,7 @@ public with sharing class ConvertToLeadController {
         
         if(String.isNotBlank(campaignId)) {
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
             query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND ';
             
             if(objectAPIName == 'Campaign') {
@@ -116,6 +116,7 @@ public with sharing class ConvertToLeadController {
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
         leadRec.Lead_Sub_Type__c = campaignMember.Lead_Sub_Type__c;
+        leadRec.Existing_Contract__c=campaignMember.Contract__c;
         leadRec.Interested_Vehicle_Model__c = campaignMember.Interested_Model__c;
         leadRec.Assigned_Dealer__c=campaignMember.Preferred_Dealer__c;
         leadRec.Finance_Product_Name__c=campaignMember.Finance_Product__c;

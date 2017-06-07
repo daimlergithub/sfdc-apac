@@ -392,7 +392,7 @@ public class LeadHelperJP
      public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate)
              {
                  Set<String> EmailAddress = new Set<String>();
-                 
+                 String advisorid;
                  List<User> serviceAdvisorList = new List<User>();
                  List<String> userIds = new List<String>();  
                  List<Lead__c> LeadUpdate = new List<Lead__c>();             
@@ -449,13 +449,15 @@ public class LeadHelperJP
                                  if(lead.RecordTypeId == salesRecordTypeId)
                                  {                                                            
                                      EmailAddress.add(lead.Service_Advisor__r.Email); 
-                                     system.debug('EmailAddress>>>>>>'+EmailAddress);                     
+                                     system.debug('EmailAddress>>>>>>'+EmailAddress);
+                                     advisorid = lead.Service_Advisor__c;									 
                                  }
                                  if(lead.RecordTypeId == afterSalesRecordTypeId )
                                  { 
                                      //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);
                                      EmailAddress.add(lead.Service_Advisor__r.Email);   
-                                     system.debug('EmailAddress>>>>>>'+EmailAddress);                            
+                                     system.debug('EmailAddress>>>>>>'+EmailAddress); 
+									 advisorid = lead.Service_Advisor__c;
                                  }       
                              }
                          
@@ -472,7 +474,7 @@ public class LeadHelperJP
                  system.debug('+++++++++++++'+EmailAddress);
                  if(EmailAddress !=null)
                  {
-                     serviceAdvisorList = [select id,email from User where email =:EmailAddress];
+                     serviceAdvisorList = [select id,email from User where email =:EmailAddress and id=:advisorid];
                  }
                  system.debug('serviceAdvisorList>>>>' + serviceAdvisorList);
                  if(!DealerAccid.isEmpty() && DealerAccid !=null && isNotificationSendtosalesmanager == true)

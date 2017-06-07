@@ -26,13 +26,13 @@ public class Batch_AutoSegmentationTest  {
 
     Segmentation_Criteria__c scb = New Segmentation_Criteria__c();
    scb.Name = 'sample';
-   scb.Criteria__c = 'Select id,Name From Account' ;
+   //scb.Criteria__c = 'Select id,Name From Account' ;
    insert scb ;
    
    
    Segmentation_Criteria__c scb1 = New Segmentation_Criteria__c();
    scb1.Name = 'sample123';
-   scb1.Criteria__c = 'Select id,Name From abc ';
+   //scb1.Criteria__c = 'Select id,Name From abc ';
    insert scb1 ;
    
    Retail_Campaign__c rcobj1=new Retail_Campaign__c();
