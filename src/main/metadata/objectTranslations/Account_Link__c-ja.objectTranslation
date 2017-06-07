@@ -205,23 +205,23 @@
         <name>Retail_Address_Type__c</name>
         <picklistValues>
             <masterLabel>Business</masterLabel>
-            <translation><!-- Business --></translation>
+            <translation>勤務先</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Home</masterLabel>
-            <translation><!-- Home --></translation>
+            <translation>自宅</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 1</masterLabel>
-            <translation><!-- Other Address 1 --></translation>
+            <translation>その他1</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 2</masterLabel>
-            <translation><!-- Other Address 2 --></translation>
+            <translation>その他2</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 3</masterLabel>
-            <translation><!-- Other Address 3 --></translation>
+            <translation>その他3</translation>
         </picklistValues>
     </fields>
     <fields>
