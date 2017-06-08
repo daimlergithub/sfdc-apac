@@ -47,7 +47,7 @@
             <name>Populate_Sales_Address_Display_KR</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>Address__c.Preferred__c</field>
