@@ -5,6 +5,7 @@
     <narrowComponents>standard-UsefulLinks</narrowComponents>
     <narrowComponents>standard-MessagesAndAlerts</narrowComponents>
     <narrowComponents>Custom link Notification</narrowComponents>
+    <narrowComponents>Mass Update Assignment</narrowComponents>
     <wideComponents>Announcements</wideComponents>
     <wideComponents>standard-Tasks</wideComponents>
     <wideComponents>standard-Calendar</wideComponents>
