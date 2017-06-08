@@ -1,40 +1,35 @@
 public class ChangeContactTarget {
 
 private static final String VehicleExternalLinkRT = Schema.sObjectType.account_link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
-   
+private static final String RetailPerson = Schema.sObjectType.account_link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+private static final String RetailCompany = Schema.sObjectType.account_link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
        Public vehicledataWrpper vehiclewrpper {Set;get;}
       
        public static Id vehicleId;
-       public Vehicle__c vehicle {set;get;}
+       public Vehicle__c vehicle {set;get;}       
        public string salescontacttargetId = '';
+       public string purchaseContactId = '';
        public string aftersalescontacttargetId = '';
        public string salescontacttargetrecordId = '';
        public string aftersalescontacttargetrecordId = '';
        public list<vehicle_relationship__c> oldsalesconractVRlist = new list<vehicle_relationship__c>();
        public list<vehicle_relationship__c> oldaftersalescontractVRlist = new list<vehicle_relationship__c>();
-       
        public String salesOwnerRelation = '';
-       public String SalesConsultant = '';
-       
+       public String SalesConsultant = '';       
        public String afterOwnerRelation = '';
        public String afterSalesConsultant = '';
     public ChangeContactTarget(ApexPages.StandardController controller) {
-     
-        
             this.vehicle= (Vehicle__c)controller.getRecord();
-            vehiclewrpper = new vehicledataWrpper();
-          
+            vehiclewrpper = new vehicledataWrpper();          
              vehicleId= ApexPages.currentPage().getParameters().get('id');
-         
-          
-            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,Class__c,Model__c,(SELECT id,Name,Car_Relation__c,Owner_relation__c,Contact__r.Name,End_Date__c,Contact__c FROM Vehicle_Relationships__r),(SELECT id,toRole__c,fromRole__c,Retail_sales_consultant__c,Retail_Sales_Consultant__r.name, recordtypeid,Service_Dealer__c,Service_Dealer__r.name,Selling_Dealer__c,Service_Advisor__r.name, Service_Advisor__c,Selling_Dealer__r.Name FROM Account_Links__r) FROM Vehicle__c Where id =:vehicleId LIMIT 1];
-            
+            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,Class__c,Model__c,(SELECT id,Name,Car_Relation__c,Owner_relation__c,Contact__r.Name,End_Date__c,Contact__c FROM Vehicle_Relationships__r) FROM Vehicle__c Where id =:vehicleId LIMIT 1];
             for(Vehicle_relationship__c vr: vehicle .Vehicle_Relationships__r)
             {
-				 if(vr.End_Date__c == null){
+                 if(vr.End_Date__c == null){
                 if (vr.car_relation__c =='Purchaser' ) 
                 {
                     vehiclewrpper.purchaservr= vr;
+                    purchaseContactId = vr.Contact__c;
                 }
                 else if (vr.car_relation__c=='Sales Contact Target')
                 {    
@@ -58,42 +53,34 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
                     oldaftersalescontractVRlist.add(vehiclewrpper.aftersalescontactvr);
                     //afterSalesConsultant = vr.Retail_Sales_Consultant__c;
                 }
-			}
             }
-     
-            for(account_link__c acclink: vehicle .Account_Links__r)
-            {
-      
+            }
+            List<Account_Link__c> accountlink = [select id,toRole__c,fromrole__c,Retail_Sales_Consultant__c,Retail_Sales_Consultant__r.Name,Recordtype.DeveloperName from Account_Link__c WHERE (toRole__c =  :salescontacttargetId OR toRole__c = :aftersalescontacttargetId OR toRole__c = :purchaseContactId ) AND (RecordTypeID= :RetailPerson OR RecordTypeID= :RetailCompany )];
+            //for(account_link__c acclink: vehicle .Account_Links__r)
+            for(account_link__c acclink: accountlink )
+            {   
                 if (acclink.recordtypeid == VehicleExternalLinkRT)
                 {
-            
-                    vehiclewrpper.userdealeracclink = acclink;
+                    vehiclewrpper.userdealeracclink = acclink;  
                 }
 
                 else if (acclink.recordtypeid != VehicleExternalLinkRT)
                 {
-
-                    if (acclink.fromrole__c == vehiclewrpper.purchaservr.contact__c)
+                    if (acclink.torole__c == vehiclewrpper.purchaservr.contact__c)
                     {
-
-                        vehiclewrpper.purchaseracclink = acclink;
+                        vehiclewrpper.purchaseracclink = acclink;   
                     }
-                    else if(acclink.fromrole__c == vehiclewrpper .salescontactvr .contact__c)
+                    else if(acclink.torole__c == vehiclewrpper .salescontactvr .contact__c)
                     {
                         vehiclewrpper.salescontactacclink = acclink;
-
                     }
-                    else if(acclink.fromrole__c == vehiclewrpper.aftersalescontactvr .contact__c)
+                    else if(acclink.torole__c == vehiclewrpper.aftersalescontactvr .contact__c)
                     {
-                        vehiclewrpper.salescontactacclink = acclink;
-
+                        vehiclewrpper.aftersalescontactacclink= acclink;
                     }
                 }
             }
     }
-    
- 
-    
     public PageReference updateit()
     {
         boolean issalescontactchanged = false;
@@ -276,8 +263,5 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
        
        }
         
-    }
-	
-	
-    
+    }  
 }
