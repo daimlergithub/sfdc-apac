@@ -2115,7 +2115,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>MainParentCampaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -7159,7 +7159,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10269,7 +10277,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13808,7 +13824,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
