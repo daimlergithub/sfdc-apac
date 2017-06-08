@@ -49,5 +49,16 @@ public class TriggerDMRequestTriggerHandlerJP
 				DMRequestHelperJP.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
 				DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isUpdate);                        
 			}
+			//Added changes related to SFDCJP-2609
+			if (Trigger.isAfter && Trigger.isInsert){
+        
+             DMRequestHelperJP.afterInsertEvent(trigger.new);
+           } 
+		    if (Trigger.isAfter && Trigger.isUpdate)
+			{
+        
+          DMRequestHelperJP.afterUpdateEvent(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap);
+        
+          }
     }
 }
