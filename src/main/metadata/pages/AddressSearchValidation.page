@@ -206,10 +206,11 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
                             <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
+								<apex:selectOptions value="{!areacodeItems}"/>
+                            </apex:selectList>
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
-                                <apex:selectOptions value="{!areacodeItems}"/>
-                           </apex:selectList>                                          
+                                                                          
                             
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem> 
@@ -676,6 +677,15 @@
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
                         <apex:outputField value="{!cr.Mobile__c}"/>
+                    </apex:Column>
+					<apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="Address for Address data">                    
+                        <apex:outputtext value="{!AddressDetails}"/>
                     </apex:Column>
                 </apex:PageBlockTable> 
                 </apex:PageBlock>                
