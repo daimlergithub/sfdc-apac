@@ -77,6 +77,18 @@ public class TriggerLeadTriggerHandlerJP
           if(isAfter && (isUpdate || isInsert)){
         System.debug('welcome');
           LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);}
+		  
+		  if(isAfter && isInsert && LeadUtil.isCreated){      
+             
+            LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            LeadUtil.isCreated = false;
+        }
+		
+		 if(isAfter && isUpdate && LeadUtil.LeadTrigger ){
+             LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);          
+           LeadUtil.LeadTrigger = false;
+            
+        }
     }
 
 }
