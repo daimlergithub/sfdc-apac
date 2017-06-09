@@ -129,7 +129,7 @@ public with sharing class ConvertToLeadController {
         leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
         leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
         leadRec.Cross_Point_Model__c=campaignMember.Cross_Point_Model__c;
-        
+        leadRec.Lead_DataSource__c='Campaign';
         if(leadRTId != null) {
             leadRec.RecordTypeId = leadRTId;
         }

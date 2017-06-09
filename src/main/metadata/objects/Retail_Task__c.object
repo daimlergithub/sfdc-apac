@@ -2763,9 +2763,9 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <fullName>NoClaimBonus__c</fullName>
         <externalId>false</externalId>
         <label>No Claim Bonus</label>
-        <precision>18</precision>
+        <precision>5</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
