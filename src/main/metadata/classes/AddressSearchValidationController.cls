@@ -131,7 +131,7 @@ public class AddressSearchValidationController
         else{
             try{
                 if(UserInfo.getLocale()=='ja_JP')
-                  AddressOptions.add(new SelectOption('--None--','--なし--'));
+                  AddressOptions.add(new SelectOption('--None--','--ãªã—--'));
                 else
                   AddressOptions.add(new SelectOption('--None--','--None--'));  
                 Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
@@ -572,6 +572,10 @@ public class AddressSearchValidationController
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {
                         refreshPage = true;
+                        if(TouchPoint !=null)
+                        {
+                        objAccount.Data_Source__c=TouchPoint;
+                        }
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
@@ -726,6 +730,14 @@ public class AddressSearchValidationController
                         system.debug('Validation1:'+Validation );
                         if(Validation == false){
                              system.debug('refreshPage 2:'+refreshPage );
+                      if(TouchPoint !=null)
+                        {
+                        objPersonAccount.Data_Source__c=TouchPoint;
+                        } 
+                        if(objPersonAccount.Acquisition_Objective_Method__c !=null && objPersonAccount.Allow_Data_Sharing2__c =='Yes')
+                        {
+                        objPersonAccount.Acquisition_Record_Date__c=System.today();
+                        }
                             upsert objPersonAccount ;
                             if(AddressObj !=null && (Address_Validated_Flag )){
                                 AddressObj.Customer__c = objPersonAccount.id;
@@ -763,7 +775,21 @@ public class AddressSearchValidationController
     public void selectedRecordTypeValue()
     {
         resetPhoneAreacodes();
-        selectedRecordType = recordType;        
+        selectedRecordType = recordType;       
+   // Added by Venky changes related to SFDCJP-2505
+    u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        market = u.Market__c;
+        
+        if(market == Label.JP){
+        if(u.ContactId !=null && selectedRecordType   =='Company')
+        {
+        TouchPoint='Others'; 
+        } 
+        if(u.ContactId !=null && selectedRecordType   =='Person Account')
+        {
+        TouchPoint='Dealer Outlet'; 
+        }  
+    }       
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -1165,7 +1191,22 @@ If the user is Saving  same address which matches the fields returned by toleran
            return options;
     }
      
-    public void onLineDeduplication(){  
+    public void onLineDeduplication(){ 
+		if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
+        { 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
+        }
+        else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
+        { 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName is mandatory'));
+        }
+        
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
+        {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
+        }
+        else
+		{
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1182,8 +1223,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
            
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1283,32 +1324,42 @@ If the user is Saving  same address which matches the fields returned by toleran
                     //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
-                        provincetmp = provincetmp.toLowerCase();
+                    {   
+						string provincetmp;
+                        String[] s;
+                        String x,y,finalstring;
+                        if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc != null)
+                        {
+                            provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                            provincetmp = provincetmp.toLowerCase();
+                        }
                         
                         //provincetmp = provincetmp.subString(0,1).toUpperCase();
                         Integer     i=0;
                         List<String> newString =  new List<String>();
-                        String[] s= provincetmp.split(' ');
-                        String x,y,finalstring;
-                        for(String str  : s)
-                        {
-                            i=str.length();
-                            //String x,y,finalstring;
-                            x= str.substring(0,1).toUpperCase();
-                            y= str.substring(1,i) ;
-                            finalstring = x + y  ;
-                            newString.add(finalstring);
-                        }                        
-                        provincetmp = String.valueOf(finalstring);
-                        provincetmp  =provincetmp.replace(',','');
-                      
-                        
-                       // province1 = addtrmapUpdate1.get(provincetmp);
-                        if(addtrmapUpdate1.containsKey(provincetmp)){
-                            province1 = addtrmapUpdate1.get(provincetmp);
-                            system.debug('province1 2:'+province1);
-                        }
+						if(provincetmp != null && provincetmp != '')
+                       {
+							s= provincetmp.split(' ');
+							for(String str  : s)
+							{
+								i=str.length();
+								//String x,y,finalstring;
+								x= str.substring(0,1).toUpperCase();
+								y= str.substring(1,i) ;
+								finalstring = x + y  ;
+								newString.add(finalstring);
+							}                        
+							provincetmp = String.valueOf(finalstring);
+							provincetmp  =provincetmp.replace(',','');
+						  
+							
+						   // province1 = addtrmapUpdate1.get(provincetmp);
+							if(addtrmapUpdate1.containsKey(provincetmp))
+							{
+								province1 = addtrmapUpdate1.get(provincetmp);
+								system.debug('province1 2:'+province1);
+							}
+						}
                         system.debug('province1 3:'+province1);
                         AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         
@@ -1351,8 +1402,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response >>'+response );
            
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1543,6 +1594,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         firstsave = true;       
         secondsave = false;         
     }
+	}
    //Introduced for TH Market
    //Updated for CR#89 - Phone Number Format
     public void onLineDeduplicationTH(){  
@@ -1554,8 +1606,8 @@ If the user is Saving  same address which matches the fields returned by toleran
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
            
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
