@@ -40,22 +40,22 @@ Dev Item : P3
          
         <apex:pageBlockTable value="{!DealerAssignment}" var="dealer" id="myTable" >
              <apex:column id="Rdbtn"><input type="radio" name="selectRadio" onclick="fnbuttoncheck(this.id)" checked="{!dealer.isSelected }" id="{!dealer.usr.id}" /></apex:column>
-            <apex:column value="{!dealer.usr.Name}"/>
-            <apex:column value="{!dealer.usr.ProfileID}">
+            <apex:column value="{!dealer.usr.Name}" headerValue="{!$ObjectType.User.fields.Name.Label}"/>
+            <apex:column value="{!dealer.usr.ProfileID}" headerValue="{!$ObjectType.User.fields.ProfileID.Label}">
             </apex:column>
-            <apex:column value="{!dealer.usr.Title}"/>
-            <apex:column value="{!dealer.usr.Dealer_Outlet_Name__c}"/>
-            <apex:column value="{!dealer.usr.Dealer_Title__c}"/>
-            <apex:column value="{!dealer.usr.CompanyName}"/>
+            <apex:column value="{!dealer.usr.Title}" headerValue="{!$ObjectType.User.fields.Title.Label}"/>
+            <apex:column value="{!dealer.usr.Dealer_Outlet_Name__c}" headerValue="{!$ObjectType.User.fields.Dealer_Outlet_Name__c.Label}"/>
+            <apex:column value="{!dealer.usr.Dealer_Title__c}" headerValue="{!$ObjectType.User.fields.Dealer_Title__c.Label}"/>
+            <apex:column value="{!dealer.usr.CompanyName}" headerValue="{!$ObjectType.User.fields.CompanyName.Label}"/>
            </apex:pageBlockTable>
            
           
            <apex:pageBlockButtons id="btnblock1" location="top">
-           <apex:commandButton value="Assign" oncomplete="RelodeParent()" action="{!AssignLeadtoDealer}" rendered="{!isAvailable }"/>
+           <apex:commandButton value="{!$Label.Assign}" oncomplete="RelodeParent()" action="{!AssignLeadtoDealer}" rendered="{!isAvailable }"/>
           
         <apex:inputHidden value="{!userid1}" id="theHiddenInput"/> 
  
-           <apex:commandButton value="Cancel" oncomplete="RelodeParent()" rendered="{!isAvailable }"/>
+           <apex:commandButton value="{!$Label.Cancel}" oncomplete="RelodeParent()" rendered="{!isAvailable }"/>
            
            </apex:pageBlockButtons>
            </apex:pageblock>
