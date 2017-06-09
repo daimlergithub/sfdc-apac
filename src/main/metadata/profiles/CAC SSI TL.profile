@@ -10828,16 +10828,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.SSI_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.SSI_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.SentTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19199,16 +19189,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.SMS_Content__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.SSI_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.SSI_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
