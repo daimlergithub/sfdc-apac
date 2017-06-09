@@ -170,6 +170,13 @@
         <shortDescription>AddressSearchValidation</shortDescription>
         <value>Account Name</value>
     </labels>
+	<labels>
+        <fullName>Account_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Records</shortDescription>
+        <value>Account Records</value>
+    </labels>
     <labels>
         <fullName>Account_Retail_Copy_Filter</fullName>
         <language>en_US</language>
@@ -447,6 +454,13 @@
         <protected>false</protected>
         <shortDescription>Are you sure want to send information to SPO interface?</shortDescription>
         <value>Are you sure want to send information to SPO interface?</value>
+    </labels>
+	<labels>
+        <fullName>Assign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assign</shortDescription>
+        <value>Assign</value>
     </labels>
     <labels>
         <fullName>Assign_Case_To_Dealer_Branch_Name</fullName>
@@ -1512,6 +1526,13 @@
         <shortDescription>Case Record Type</shortDescription>
         <value>Case Type</value>
     </labels>
+	<labels>
+        <fullName>Case_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Records</shortDescription>
+        <value>Case Records</value>
+    </labels>
     <labels>
         <fullName>Case_received_by_Phone_etc</fullName>
         <categories>Case</categories>
@@ -1868,6 +1889,13 @@
         <protected>false</protected>
         <shortDescription>Current Vehicle Model</shortDescription>
         <value>Current Vehicle Model</value>
+    </labels>
+	<labels>
+        <fullName>Currently_Assigned_To</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Currently Assigned To</shortDescription>
+        <value>Currently Assigned To</value>
     </labels>
     <labels>
         <fullName>Custom_Debug_Log_Switch</fullName>
@@ -2725,6 +2753,13 @@ please contact the number below.</value>
         <shortDescription>Finance Proposal</shortDescription>
         <value>Finance Proposal</value>
     </labels>
+	<labels>
+        <fullName>First</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First</shortDescription>
+        <value>First</value>
+    </labels>
     <labels>
         <fullName>First_Estimate_Amount</fullName>
         <language>en_US</language>
@@ -3554,6 +3589,13 @@ please contact the number below.</value>
         <shortDescription>please visit</shortDescription>
         <value>please visit</value>
     </labels>
+	<labels>
+        <fullName>Last</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last</shortDescription>
+        <value>Last</value>
+    </labels>
     <labels>
         <fullName>Last_Modified_By</fullName>
         <language>en_US</language>
@@ -3623,6 +3665,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Lead Process Sheet</shortDescription>
         <value>Lead Process Sheet</value>
+    </labels>
+	<labels>
+        <fullName>Lead_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Records</shortDescription>
+        <value>Lead Records</value>
     </labels>
     <labels>
         <fullName>Lead_Type</fullName>
@@ -4157,6 +4206,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>New Value</shortDescription>
         <value>New Value</value>
+    </labels>
+	<labels>
+        <fullName>Newly_Assigned_To</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Newly Assigned To</shortDescription>
+        <value>Newly Assigned To</value>
+    </labels>
+    <labels>
+        <fullName>Next</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next</shortDescription>
+        <value>Next</value>
     </labels>
     <labels>
         <fullName>Next_Activity</fullName>
@@ -5587,6 +5650,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Retail Campaign Canlender Page SM Media</shortDescription>
         <value>S&amp;M Media Retail Campaign</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Copy_Only_Related_List</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Copy Only Related List</shortDescription>
+        <value>Retail Copy Only Related List</value>
     </labels>
     <labels>
         <fullName>Retail_Copy_View_Area_For_Dealer_User</fullName>
@@ -8016,6 +8086,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Used-car buy-back/Trade-in</shortDescription>
         <value>Used-car buy-back/Trade-in</value>
     </labels>
+	<labels>
+        <fullName>User_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User Details</shortDescription>
+        <value>User Details</value>
+    </labels>
     <labels>
         <fullName>VEP_Seasonal_Check</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -8242,6 +8319,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Vehicle Price +Maker option price</shortDescription>
         <value>Vehicle Price
 +Maker option price</value>
+    </labels>
+	<labels>
+        <fullName>Vehicle_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Records</shortDescription>
+        <value>Vehicle Records</value>
     </labels>
     <labels>
         <fullName>Vehicle_Relation_Filter</fullName>

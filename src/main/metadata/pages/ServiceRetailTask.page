@@ -100,10 +100,10 @@
                          
                          <apex:pageBlockButtons location="top" >
    <apex:outputPanel id="myButtons"> 
-        <apex:commandButton action="{!Beginning}" title="Beginning" value="First" disabled="{!disablePrevious}" reRender="myPanel,myButtons"/>
-        <apex:commandButton action="{!Previous}" title="Previous" value="Previous" disabled="{!disablePrevious}" reRender="myPanel,myButtons"/>        
-        <apex:commandButton action="{!Next}" title="Next" value="Next" disabled="{!disableNext}" reRender="myPanel,myButtons"/>
-        <apex:commandButton action="{!End}" title="End" value="Last" disabled="{!disableNext}" reRender="myPanel,myButtons"/>        
+        <apex:commandButton action="{!Beginning}" title="Beginning" value="{!$Label.First}" disabled="{!disablePrevious}" reRender="myPanel,myButtons"/>
+        <apex:commandButton action="{!Previous}" title="Previous" value="{!$Label.Previous}" disabled="{!disablePrevious}" reRender="myPanel,myButtons"/>        
+        <apex:commandButton action="{!Next}" title="Next" value="{!$Label.Next}" disabled="{!disableNext}" reRender="myPanel,myButtons"/>
+        <apex:commandButton action="{!End}" title="End" value="{!$Label.Last}" disabled="{!disableNext}" reRender="myPanel,myButtons"/>        
     
    </apex:outputPanel>
    </apex:pageBlockButtons>    
