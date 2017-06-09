@@ -864,11 +864,7 @@
     <fields>
         <label><!-- Executed CSR --></label>
         <name>Executed_CSR__c</name>
-    </fields>
-    <fields>
-        <label><!-- Flow URL --></label>
-        <name>Flow_URL__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Follow Up Date --></label>
         <name>Follow_Up_Date__c</name>
@@ -1068,19 +1064,7 @@
             <masterLabel>9</masterLabel>
             <translation><!-- 9 --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- QC ID --></label>
-        <name>QC_ID__c</name>
-    </fields>
-    <fields>
-        <label><!-- QC Link --></label>
-        <name>QC_Link__c</name>
-    </fields>
-    <fields>
-        <label><!-- QC Quantity --></label>
-        <name>QC_Quantity__c</name>
-    </fields>
+    </fields>  
     <fields>
         <label><!-- Reason --></label>
         <name>Reason__c</name>
@@ -1144,23 +1128,11 @@
             <masterLabel>Unsolved</masterLabel>
             <translation><!-- Unsolved --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- SMS/MMS Template ID --></label>
-        <name>SMSTemplateID__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label>SMS 내용</label>
         <name>SMS_Content__c</name>
-    </fields>
-    <fields>
-        <label><!-- SMS/MMS Response Required --></label>
-        <name>SMS_Response_Required__c</name>
-    </fields>
-    <fields>
-        <label><!-- SSI Number --></label>
-        <name>SSI_Number__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- SSI Status --></label>
         <name>SSI_Status__c</name>
@@ -1312,15 +1284,7 @@
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label>*Survey Result Id</label>
-        <name>Survey_Result_Id__c</name>
-    </fields>
-    <fields>
-        <label><!-- Survey Result Link --></label>
-        <name>Survey_Result_Link__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Task RecordType Name --></label>
         <name>Task_RecordType_Name__c</name>
