@@ -39,8 +39,8 @@ public class TriggerAccountLinkTriggerHandlerKR
     }        
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-		List<Account> accountNewList = Trigger.new;
-        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'KR')
+		List<Account_Link__c> accountLinkNewList = Trigger.new;
+        if(!isDelete && !accountLinkNewList.isEmpty() && accountLinkNewList.size() > 0 && accountLinkNewList[0].MD__c == 'KR')
         {
 			if(Trigger.isAfter && Trigger.isUpdate)
 			{
