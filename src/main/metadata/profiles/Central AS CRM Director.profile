@@ -10627,11 +10627,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Car_Series__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Event.Communication_Method__c</field>
         <readable>false</readable>
@@ -19040,11 +19035,6 @@
         <editable>false</editable>
         <field>Task.Campaign_eDM_Template_Subject__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Car_Series__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
