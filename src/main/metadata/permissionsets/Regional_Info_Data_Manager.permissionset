@@ -8294,11 +8294,6 @@ Account Owner, MB Region, MB Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Car_Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14005,11 +14000,6 @@ Account Owner, MB Region, MB Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Campaign_eDM_Template_Subject__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Car_Series__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
