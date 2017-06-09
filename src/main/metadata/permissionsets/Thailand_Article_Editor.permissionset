@@ -20956,11 +20956,7 @@
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Request_Detail_Page</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MBJ_FS_Case_Request_Inline_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses> 
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Request_Page</apexPage>
         <enabled>false</enabled>
