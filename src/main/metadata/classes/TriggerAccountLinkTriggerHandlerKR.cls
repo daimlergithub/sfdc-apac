@@ -39,14 +39,19 @@ public class TriggerAccountLinkTriggerHandlerKR
     }        
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        if(Trigger.isAfter && Trigger.isUpdate){
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
-        }
-        if(Trigger.isAfter && Trigger.isInsert)
+		List<Account> accountNewList = Trigger.new;
+        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'KR')
         {
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            AccountLinkHelper.afterInsertEvent(Trigger.new);
-        }
+			if(Trigger.isAfter && Trigger.isUpdate)
+			{
+				Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+				AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
+			}
+			if(Trigger.isAfter && Trigger.isInsert)
+			{
+				Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+				AccountLinkHelper.afterInsertEvent(Trigger.new);
+			}
+		}
     }
 }
