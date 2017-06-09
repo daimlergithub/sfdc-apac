@@ -77,6 +77,9 @@ public class AddressSearchValidationController
     // COnstructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
+		
+		Public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+        public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
     
         public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
