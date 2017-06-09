@@ -13533,16 +13533,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.QC_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.QC_Link__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.QC_Quantity__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22549,16 +22539,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Priority__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.QC_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.QC_Link__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
