@@ -10818,17 +10818,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.SMSTemplateID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.SMS_Content__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.SMS_Response_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19203,17 +19193,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Task.SMSTemplateID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Task.SMS_Content__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.SMS_Response_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
