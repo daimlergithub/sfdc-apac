@@ -20948,11 +20948,7 @@
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Quotation_Detail_Page</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MBJ_FS_Case_Quotation_Inline_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses> 
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Quotation_Page</apexPage>
         <enabled>false</enabled>
