@@ -57700,8 +57700,8 @@ alert("{!$Label.NewCaseErrorMsg}");
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
-{ 
-window.open('/MBJapan/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=%2FMBJapan%2F500%2Fo&amp;save_new_url=%2FMBJapan%2F500%2Fe%3FretURL%3D%252FMBJapan%252F500%252Fo'); 
+{
+window.open('{!URLFOR($Site.BaseUrl)}/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId1={!Account.Id}&amp;retURL=%2F500%2Fo');
 } 
 else 
 { 

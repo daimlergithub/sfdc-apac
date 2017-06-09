@@ -9,6 +9,15 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	 <fieldUpdates>
+        <fullName>Update_Call_Duration</fullName>
+        <field>CallDurationInSeconds</field>
+        <formula>FLOOR((End_call_time__c - Start_Call_Time__c)*24*60)</formula>
+        <name>Update Call Duration</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Call_Start_Time</fullName>
         <field>Start_Call_Time__c</field>
@@ -35,6 +44,17 @@
         <description>Autopopulate the phone and email fields based on the selected customer information</description>
         <formula>AND(OR(WhoId  &lt;&gt; Null,WhoId  &lt;&gt; &apos;&apos;),MD__c == &apos;KR&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>Set Call Duration</fullName>
+        <actions>
+            <name>Update_Call_Duration</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This flow is used to set the call duration by doing this start call time minus end call time</description>
+        <formula>IF(((PRIORVALUE(Start_Call_Time__c) != Start_Call_Time__c || PRIORVALUE(End_call_time__c) != End_call_time__c) || (!ISBLANK(Start_Call_Time__c) &amp;&amp; !ISBLANK(End_call_time__c)) &amp;&amp; (TEXT($User.Market__c)==&apos;KR&apos;)), true, false)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Call Start%2FEnd Time</fullName>

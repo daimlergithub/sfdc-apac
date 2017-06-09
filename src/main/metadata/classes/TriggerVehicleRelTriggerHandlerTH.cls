@@ -37,17 +37,21 @@ public class TriggerVehicleRelTriggerHandlerTH
    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       
-        
-       if(trigger.isAfter && (trigger.isInsert))
+	  List<Vehicle_Relationship__c> vehicleNewList = Trigger.new;
+        if(!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0 && vehicleNewList[0].MD__c == 'TH')
         {
-          VehicleRelationshipHelperTH.OnAfterInsert(Trigger.new);
-        }
+			 if(trigger.isAfter && (trigger.isInsert))
+			{
+				VehicleRelationshipHelperTH.OnAfterInsert(Trigger.new);
+			}
         if(trigger.isAfter && Trigger.isUpdate) {
-          Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
-          VehicleRelationshipHelperTH.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
-        } 
+			  Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+			  VehicleRelationshipHelperTH.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+			} 
        if(trigger.isAfter && Trigger.isDelete) {
-          VehicleRelationshipHelperTH.OnAfterDelete(Trigger.old);
-        }
+			VehicleRelationshipHelperTH.OnAfterDelete(Trigger.old);
+			}
+		}
+
     }
 }
