@@ -2464,6 +2464,10 @@
         <label><!-- No Thai --></label>
         <name>No_Thai</name>
     </customLabels>
+	<customLabels>
+        <label>該当者が存在しません。</label>
+        <name>No_Users_are_available_to_assign</name>
+    </customLabels>
     <customLabels>
         <label><!-- No, busy right now --></label>
         <name>No_busy_right_now</name>
