@@ -5,14 +5,14 @@
     Create By: Sriram kalluri
 */
 public with sharing class AddressHelperJP {
-	static User usr = [Select Id,ProfileId,Market__c, Profile.Name from User WHERE ID = : UserInfo.getUserId()];
+    static User usr = [Select Id,ProfileId,Market__c, Profile.Name from User WHERE ID = : UserInfo.getUserId()];
         
        public static Id personAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
        public static Id comAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
        public static Id retPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();     
        public static Id retCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();     
        public static Id individualAddRecordTypeId = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId();     
-    
+       public static boolean addt=true;
        
             
        /**             
@@ -45,7 +45,7 @@ public with sharing class AddressHelperJP {
                     }
             
                 }
-                if(isUpdate)
+                if(isUpdate && addt)
                 {
                     for(Address__c add:triggerNew)
                     {
@@ -65,6 +65,7 @@ public with sharing class AddressHelperJP {
                         }
                 
                     }
+                    addt=false;
                 } 
             } 
       
@@ -80,31 +81,65 @@ public with sharing class AddressHelperJP {
        public static void updatePrimaryAddressOnAccount(map<ID,Address__c> newMap)
     {
         list<Account> accountList = new list<Account>();
+        List<Account> accList = new List<Account>();
+        set<id> accids = new set<id>();
         string regexForNullValue ='null';
         string nullValue ='';
         String province;         
         String market;
         //User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
-    	market = usr.Market__c;
-        Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-		if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
-        {
-			UtilAddressTranslation.gettranslatedvalues(market);
-		}
         for(Address__c addr:newMap.values())
         {
-        	if(addr.preferred__c == true)
-        	{
-	        	if(addtrmap1.containsKey(addr.Province__c))
-	            {
-	                province = addtrmap1.get(addr.Province__c);
-	            }
-	            Account accnt = new Account(Id = addr.Customer__c);
-	            accnt.Primary_Address_Display__c = province+ ' ' +addr.City__c+ ' ' +addr.District__c+ ' ' +addr.Block__c+ ' ' +addr.Address_Line_1__c+ ' ' +addr.Address_Line_2__c;
-	            accnt.Primary_Address_Display__c = accnt.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-	            accountList.add(accnt);
-        	}
+            if(addr.Customer__c != null)
+            {
+                accids.add(addr.Customer__c);
+            }
         }
+        if(!accids.isempty() && accids != null)
+        {
+                accList = [Select Id,Primary_Address_Reference__c,Primary_Address_Reference__r.Address_Type__c from Account where Id =:accids];
+        }
+        system.debug('accList>>>>>' + accList);
+        market = usr.Market__c;
+        Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+        if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
+        {
+            UtilAddressTranslation.gettranslatedvalues(market);
+        }
+        for(Address__c addr:newMap.values())
+        {
+            if(addr.preferred__c == true && market == 'KR')
+            {
+                if(addtrmap1.containsKey(addr.Province__c))
+                {
+                    province = addtrmap1.get(addr.Province__c);
+                }
+                Account accnt = new Account(Id = addr.Customer__c);
+                accnt.Primary_Address_Display__c = province+ ' ' +addr.City__c+ ' ' +addr.District__c+ ' ' +addr.Block__c+ ' ' +addr.Address_Line_1__c+ ' ' +addr.Address_Line_2__c;
+                accnt.Primary_Address_Display__c = accnt.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                accountList.add(accnt);
+            }
+            else if(market == 'JP' )
+                {
+                    system.debug('Enteredddd>>>>');
+                    for(Account acc : accList)
+                    {
+                        system.debug('INsertedddd>>>>');
+                        if(addr.Customer__c == acc.id && addr.Address_Type__c == acc.Primary_Address_Reference__r.Address_Type__c)
+                        {
+                            if(addtrmap1.containsKey(addr.Province__c))
+                            {
+                                province = addtrmap1.get(addr.Province__c);
+                            }
+                            acc.Primary_Address_Display__c = province+ ' ' +addr.City__c+ ' ' +addr.District__c+ ' ' +addr.Block__c+ ' ' +addr.Address_Line_1__c+ ' ' +addr.Address_Line_2__c;
+                            acc.Primary_Address_Display__c = acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                            accountList.add(acc);
+                        }
+                    }
+                }
+            
+        }
+        system.debug('accountList>>>>>' + accountList);
         if(!accountList.isEmpty()||accountList!=null)
         {
             update accountList; 
@@ -157,7 +192,7 @@ public with sharing class AddressHelperJP {
         set<id> accountId = new set<id>();  
         list<Account_Link__c> accountList = new list<Account_Link__c>();
         list<Account_Link__c> accountList1 = new list<Account_Link__c>();
-		if(usr.Profile.Name != 'IntegrationAPI'){
+        if(usr.Profile.Name != 'IntegrationAPI'){
         for(Address__c add:newMap.values()){
            accountId.add(add.id);
         } 
@@ -199,11 +234,11 @@ public with sharing class AddressHelperJP {
             {
                 update accountList1; 
             }
-		}
+        }
     }
-	
-	 /*
-	 This method will only work for dealer user's 
+    
+     /*
+     This method will only work for dealer user's 
     @Description : 1.If person account is creating as Dealer profile, retail preson accountlink will created automatically.
                    2.If you enter address fileds in the person account at the time of creating then it will create address record
                    3.If address is created, then that addresss needs to populate in the retail person accountlink record which is created in step1
@@ -214,7 +249,7 @@ public with sharing class AddressHelperJP {
     @created date: Mar 31st, 2017
     */
     public static void afterInsetAddressUpdateRetailPerson(List<Address__c> addList)
-	{
+    {
         //Checking the user profile is dealer 
         if(userinfo.getUserType()=='PowerPartner'){
             System.debug('AddressHelerpJp.afterInsetAddressUpdateRetailPerson method fired');
@@ -311,5 +346,5 @@ public with sharing class AddressHelperJP {
             }
         }
     }
-	
+    
 }
