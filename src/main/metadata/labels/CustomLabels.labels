@@ -4285,6 +4285,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>No Thai</shortDescription>
         <value>ไม่ได้</value>
     </labels>
+	<labels>
+        <fullName>No_Users_are_available_to_assign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Users are available to assign</shortDescription>
+        <value>No Users are available to assign</value>
+    </labels>
     <labels>
         <fullName>No_busy_right_now</fullName>
         <language>en_US</language>
