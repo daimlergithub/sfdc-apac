@@ -667,11 +667,7 @@
     <classAccesses>
         <apexClass>LeadcustomClone</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_ContractClosing_InlineCntl</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses> 
     <classAccesses>
         <apexClass>MBJ_FS_Case_Inquiry_Controller</apexClass>
         <enabled>false</enabled>
@@ -679,15 +675,7 @@
     <classAccesses>
         <apexClass>MBJ_FS_Case_Intermediate_Controller</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Quotation_InlineController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Request_InlineController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>  
     <classAccesses>
         <apexClass>MarketCheckOnVehiclePickerCon</apexClass>
         <enabled>false</enabled>
@@ -10722,11 +10710,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Car_Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -10778,11 +10761,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Executed_CSR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Flow_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18562,11 +18540,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Car_Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18618,11 +18591,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Executed_CSR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Flow_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -20944,11 +20912,7 @@
     <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MBJ_FS_Case_ContractClosing_Detail_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses> 
     <pageAccesses>
         <apexPage>MBJ_FS_Case_ContractClosing_Inline_Page</apexPage>
         <enabled>false</enabled>
@@ -20972,11 +20936,7 @@
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Quotation_Detail_Page</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MBJ_FS_Case_Quotation_Inline_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses> 
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Quotation_Page</apexPage>
         <enabled>false</enabled>
@@ -20984,11 +20944,7 @@
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Request_Detail_Page</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MBJ_FS_Case_Request_Inline_Page</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses> 
     <pageAccesses>
         <apexPage>MBJ_FS_Case_Request_Page</apexPage>
         <enabled>false</enabled>

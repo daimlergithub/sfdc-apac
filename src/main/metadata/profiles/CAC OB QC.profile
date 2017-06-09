@@ -10627,11 +10627,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Car_Series__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Event.Communication_Method__c</field>
         <readable>false</readable>
@@ -10680,12 +10675,7 @@
         <editable>true</editable>
         <field>Event.Executed_CSR__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Flow_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.Follow_Up_Date__c</field>
@@ -19042,11 +19032,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Car_Series__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Task.Communication_Method__c</field>
         <readable>false</readable>
@@ -19100,12 +19085,7 @@
         <editable>true</editable>
         <field>Task.Executed_CSR__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Flow_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Follow_Up_Date__c</field>

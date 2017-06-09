@@ -8300,11 +8300,6 @@ yujing.he@daimler.com</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Car_Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8356,11 +8351,6 @@ yujing.he@daimler.com</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Executed_CSR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Flow_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14015,11 +14005,6 @@ yujing.he@daimler.com</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Car_Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14071,11 +14056,6 @@ yujing.he@daimler.com</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Executed_CSR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Flow_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
