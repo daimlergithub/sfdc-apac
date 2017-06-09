@@ -1,7 +1,7 @@
 <apex:page standardController="Account" showHeader="false" sidebar="false" extensions="AccountLinkController"  >
 
 <apex:form >
-        <apex:pageBlock title="Retail Copy Only Related List">
+        <apex:pageBlock title="{!$Label.Retail_Copy_Only_Related_List}">
     <apex:pageBlockTable value="{!acclnkrellist}" var="row" >
     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.fromRole__c.Label}">
