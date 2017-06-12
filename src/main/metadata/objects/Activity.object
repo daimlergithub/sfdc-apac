@@ -1977,8 +1977,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.PRIORITY</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>TASK.LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <columns>SMS_Response_Required__c</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns> 
         <columns>SMS_Content__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
