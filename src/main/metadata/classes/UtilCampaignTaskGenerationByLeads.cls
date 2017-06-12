@@ -204,13 +204,12 @@ global Class UtilCampaignTaskGenerationByLeads implements Database.Batchable<sOb
 	                WhatId = cpm.Id,
 	                Email_Address__c = cpm.Lead__r.Contact__r.PersonEmail,
 	                Activity_Status__c = strSentActivityStatus,
-	                Car_Series__c = cpm.Lead__r.Interested_Vehicle_Model__c,
 	                UniqueCampaignEmail__c = cpm.Campaign__c + '-' + cpm.Lead__r.Contact__r.PersonEmail,                                 
 	                ActivityDate = date.today(),
 	                eDM_Template__c = cpm.Campaign__r.Template_Name__c,
 	                UniqueCampaignGenerateTask__c = uniqueTaskField)
 	            );
-	        }         	
+	        }         	 // Removed as part of SFDCJP-1765    Car_Series__c = cpm.Lead__r.Interested_Vehicle_Model__c,
 	       /* else if (cpm.Campaign__r.Execution_Type__c == strDM) {
             taskList.add(new Task(
                 Subject= strDM, 
