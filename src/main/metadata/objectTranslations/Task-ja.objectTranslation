@@ -243,11 +243,7 @@
     <fields>
         <label><!-- SMS Content --></label>
         <name>SMS_Content__c</name>
-    </fields> 
-    <fields>
-        <label><!-- SSI Status --></label>
-        <name>SSI_Status__c</name>
-    </fields>
+    </fields>  
     <fields>
         <label>予定日時</label>
         <name>SentTime__c</name>

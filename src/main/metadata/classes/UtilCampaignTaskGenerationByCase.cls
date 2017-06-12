@@ -155,12 +155,12 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                         Campaign_Name__c = cpm.Campaign.Name, 
                         Activity_Status__c = 'not started',
                         Campaign_Member_ID__c = String.valueOf(cpm.Id),
-                        Flow_URL__c = cpm.Campaign.Flow_URL__c,                                          
+                                                          
                         ActivityDate = date.today(),
                         Vehicle_Case_ID__c = String.valueOf(vr.Id),
                         UniqueCampaignGenerateTask__c = uniqueTaskField)
                     );
-                //}
+                //} Flow_URL__c = cpm.Campaign.Flow_URL__c, removed as part of SFDCJP-1765
             } else if (cpm.Campaign.Execution_Type__c == strSMS && vr.Account.PersonMobilePhone != null && vr.Account.PersonMobilePhone != '') {
                 taskList.add(new Task(
                     Subject= strSMS, 
