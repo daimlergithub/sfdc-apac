@@ -117,7 +117,7 @@
   </apex:pageBlock> 
   
   <apex:pageBlockButtons >
-        <apex:commandButton value="{!$Label.Update}" onclick="return confirm ('Please check and modify if necessary the Sales responsible person for the new contact target');" action="{!updateit}" />
+        <apex:commandButton value="{!$Label.Update}" onclick="return confirm ('{!$Label.Please_check_and_modify_if_necessary_Salesresponsibleperson_for_newcontacttarget}');" action="{!updateit}" />
         <apex:commandButton value="{!$Label.Cancel}" action="{!cancel}"/>
         </apex:pageBlockButtons>
    </apex:pageBlock>
