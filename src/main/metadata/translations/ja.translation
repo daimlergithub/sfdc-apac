@@ -184,6 +184,10 @@
         <label>顧客情報</label>
         <name>Account_Information</name>
     </customLabels>
+	<customLabels>
+        <label>既に同じ顧客間の関係性は登録済みです。</label>
+        <name>Account_Link_record_with_the_same_Role_1_and_Role2_exists</name>
+    </customLabels>
     <customLabels>
         <label><!-- Account Merge --></label>
         <name>Account_Merge</name>

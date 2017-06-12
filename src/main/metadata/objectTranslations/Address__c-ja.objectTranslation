@@ -457,6 +457,10 @@
         <errorMessage>宛名は必ず50文字以下で入力して下さい。</errorMessage>
         <name>CompanyName_NoOfDigits</name>
     </validationRules>
+	<validationRules>
+        <errorMessage>法人名（カナ）はカタカナで入力してください。</errorMessage>
+        <name>Company_Name_Native_Kana</name>
+    </validationRules>
     <validationRules>
         <errorMessage>敬称が御中の場合は、会社名を入力して下さい。</errorMessage>
         <name>Company_Name_Required</name>
