@@ -1142,6 +1142,17 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	 <fields>
+        <fullName>Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.ContractNumber__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
@@ -1990,8 +2001,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.PRIORITY</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>TASK.LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <columns>SMS_Response_Required__c</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns> 
         <columns>SMS_Content__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
