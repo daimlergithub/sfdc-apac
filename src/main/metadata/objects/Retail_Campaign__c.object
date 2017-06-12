@@ -13833,7 +13833,7 @@ alert('The event has yet to be published or has been closed.');
         <url>/apex/MonthlyMarketAmountReport</url>
     </webLinks>
     <webLinks>
-        <fullName>OPRO_Label_Print_PDF</fullName>
+        <fullName>OPRO_DM_Print_PDF</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
@@ -13904,12 +13904,12 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // ---- END ----</url>
     </webLinks>
     <webLinks>
-        <fullName>OPR_Label_Print</fullName>
+        <fullName>OPRO_DM_Print_OPR</fullName>
         <availability>online</availability>
         <description>OPROARTS</description>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>[OPR]Label Print</masterLabel>
+        <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
