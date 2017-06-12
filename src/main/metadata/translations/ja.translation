@@ -213,7 +213,7 @@
         <name>Activity_History</name>
     </customLabels>
     <customLabels>
-        <label><!-- Add --></label>
+        <label>追加</label>
         <name>Add</name>
     </customLabels>
     <customLabels>
@@ -407,6 +407,10 @@
     <customLabels>
         <label>権限がありません。</label>
         <name>Authorization</name>
+    </customLabels>
+	<customLabels>
+        <label>選択可能拠点</label>
+        <name>Available_Contacts</name>
     </customLabels>
     <customLabels>
         <label><!-- Average --></label>
@@ -2476,6 +2480,10 @@
         <label><!-- No, don’t want to talk --></label>
         <name>No_don_t_want_to_talk</name>
     </customLabels>
+	<customLabels>
+        <label>対象リードが存在しません。</label>
+        <name>No_master_record_found_for_duplicate_merge</name>
+    </customLabels>
     <customLabels>
         <label><!-- None --></label>
         <name>None</name>
@@ -2495,6 +2503,18 @@
     <customLabels>
         <label><!-- Not yet decided --></label>
         <name>Not_yet_decided</name>
+    </customLabels>
+	<customLabels>
+        <label>リードアサイン通知</label>
+        <name>Notification_Lead_Dealer_Assignment</name>
+    </customLabels>
+    <customLabels>
+        <label>更新なしリード通知</label>
+        <name>Notification_Lead_No_Update</name>
+    </customLabels>
+    <customLabels>
+        <label>担当者未設定通知</label>
+        <name>Notification_Lead_Not_Assigned</name>
     </customLabels>
     <customLabels>
         <label>販売店を設定してください。</label>
@@ -2678,6 +2698,10 @@
     <customLabels>
         <label>送信中</label>
         <name>Please_Wait</name>
+    </customLabels>
+	<customLabels>
+        <label>変更後の連絡先の販売店担当者を確認し、必要であれば変更してください。</label>
+        <name>Please_check_and_modify_if_necessary_Salesresponsibleperson_for_newcontacttarget</name>
     </customLabels>
 	<customLabels>
         <label>姓（カナ）、生年月日、性別を入力してください。</label>
@@ -3146,6 +3170,10 @@
     <customLabels>
         <label>契約詳細情報</label>
         <name>Related_Dealer_View_for_Contract</name>
+    </customLabels>
+	<customLabels>
+        <label>削除</label>
+        <name>Remove</name>
     </customLabels>
     <customLabels>
         <label><!-- Report Title1 TA Tracing --></label>
@@ -4056,6 +4084,10 @@
         <name>Select_dropdown</name>
     </customLabels>
 	<customLabels>
+        <label>選択済み拠点</label>
+        <name>Selected_Contacts</name>
+    </customLabels>
+	<customLabels>
         <label>送信内容の確認</label>
         <name>Selected_Record</name>
     </customLabels>
@@ -4557,7 +4589,7 @@
         <name>Unknown</name>
     </customLabels>
     <customLabels>
-        <label>更新</label>
+        <label>OK</label>
         <name>Update</name>
     </customLabels>
     <customLabels>
@@ -4571,6 +4603,10 @@
 	<customLabels>
         <label>担当者詳細</label>
         <name>User_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>通知設定</label>
+        <name>User_Notification_Settings</name>
     </customLabels>
     <customLabels>
         <label><!-- VEP(Seasonal Check) --></label>
