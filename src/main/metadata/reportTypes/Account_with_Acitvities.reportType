@@ -3402,12 +3402,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>SSI_Number__c</field>
             <table>Account.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SSI_Status__c</field>
-            <table>Account.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>SentTime__c</field>
