@@ -592,7 +592,7 @@ public class TaskHelper {
         for(Task task : tasks){
             Template__c template = templates.get(task.SMSTemplateID__c);
             if(template != null && template.Type__c == 'Upstream & Downstream'){ 
-			
+            
             }
         }
     }
@@ -933,7 +933,7 @@ public class TaskHelper {
                 for(Lead__c le : lstLead)
                 {
                 // venky : its a design defect Updated as per ogi comments
-                if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) && le.id==t.whatID && t.whatId !=null && t.Status='Closed')
+                if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) && (le.id==t.whatID) && (t.whatId !=null) && (t.Status=='Closed'))
                 {
                 le.Next_Contact_Customer_Date__c=date.valueof(t.SentTime__c);
                 updateLead.put(le.ID,le);
