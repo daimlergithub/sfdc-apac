@@ -30,11 +30,7 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>eDM_Template__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Car_Series__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Campaign_eDM_Template_ID__c</field>

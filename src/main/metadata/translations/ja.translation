@@ -192,6 +192,10 @@
         <label><!-- AddressSearchValidation --></label>
         <name>Account_Name</name>
     </customLabels>
+	<customLabels>
+        <label>顧客</label>
+        <name>Account_Records</name>
+    </customLabels>
     <customLabels>
         <label><!-- Account Retail Copy Filter --></label>
         <name>Account_Retail_Copy_Filter</name>
@@ -347,6 +351,10 @@
 	<customLabels>
         <label>SPOに送信します。</label>
         <name>Are_you_sure_want_to_send_information_to_SPO_interface</name>
+    </customLabels>
+	<customLabels>
+        <label>担当者設定</label>
+        <name>Assign</name>
     </customLabels>
     <customLabels>
         <label><!-- Assign Case To Dealer Branch Name --></label>
@@ -904,6 +912,10 @@
         <label><!-- Case Record Type --></label>
         <name>Case_Record_Type</name>
     </customLabels>
+	<customLabels>
+        <label>ケース</label>
+        <name>Case_Records</name>
+    </customLabels>
     <customLabels>
         <label><!-- Case received by Phone etc --></label>
         <name>Case_received_by_Phone_etc</name>
@@ -1103,6 +1115,10 @@
     <customLabels>
         <label>保有者１モデル</label>
         <name>Current_Vehicle_Model</name>
+    </customLabels>
+	<customLabels>
+        <label>検索対象担当者</label>
+        <name>Currently_Assigned_To</name>
     </customLabels>
     <customLabels>
         <label><!-- Custom Debug Log Switch --></label>
@@ -1592,6 +1608,10 @@
         <label>商品説明提案</label>
         <name>Finance_Proposal</name>
     </customLabels>
+	<customLabels>
+        <label>最初へ</label>
+        <name>First</name>
+    </customLabels>
     <customLabels>
         <label>初回見積もり金額</label>
         <name>First_Estimate_Amount</name>
@@ -2060,6 +2080,10 @@
         <label><!-- please visit --></label>
         <name>LABS_SF_please_visit</name>
     </customLabels>
+	<customLabels>
+        <label>最後へ</label>
+        <name>Last</name>
+    </customLabels>
     <customLabels>
         <label>最終更新者</label>
         <name>Last_Modified_By</name>
@@ -2100,6 +2124,10 @@
         <label>商談プロセスシート</label>
         <name>Lead_Process_Sheet</name>
     </customLabels>
+	<customLabels>
+        <label>リード</label>
+        <name>Lead_Records</name>
+    </customLabels>
     <customLabels>
         <label>商談タイプ</label>
         <name>Lead_Type</name>
@@ -2129,7 +2157,7 @@
         <name>List_Ready_Maintenance</name>
     </customLabels>
     <customLabels>
-        <label><!-- List of Service Retail Task Only --></label>
+        <label>サービス履歴情報</label>
         <name>List_of_Service_Retail_Task_Only</name>
     </customLabels>
     <customLabels>
@@ -2392,6 +2420,14 @@
         <label>新しい値</label>
         <name>New_Value</name>
     </customLabels>
+	<customLabels>
+        <label>変更後担当者</label>
+        <name>Newly_Assigned_To</name>
+    </customLabels>
+    <customLabels>
+        <label>次へ</label>
+        <name>Next</name>
+    </customLabels>
     <customLabels>
         <label>次の活動予定</label>
         <name>Next_Activity</name>
@@ -2427,6 +2463,10 @@
     <customLabels>
         <label><!-- No Thai --></label>
         <name>No_Thai</name>
+    </customLabels>
+	<customLabels>
+        <label>該当者が存在しません。</label>
+        <name>No_Users_are_available_to_assign</name>
     </customLabels>
     <customLabels>
         <label><!-- No, busy right now --></label>
@@ -3183,8 +3223,12 @@
         <label><!-- Retail Campaign Canlender Page SM Media --></label>
         <name>Retail_Campaign_Canlender_Page_SM_Media</name>
     </customLabels>
+	<customLabels>
+        <label>リテールコピー情報</label>
+        <name>Retail_Copy_Only_Related_List</name>
+    </customLabels>
     <customLabels>
-        <label><!-- Retail Copy View Area For Dealer User --></label>
+        <label>販売店内用顧客情報</label>
         <name>Retail_Copy_View_Area_For_Dealer_User</name>
     </customLabels>
     <customLabels>
@@ -4524,6 +4568,10 @@
         <label><!-- Used-car buy-back/Trade-in --></label>
         <name>Used_car_buy_back_trade_in</name>
     </customLabels>
+	<customLabels>
+        <label>担当者詳細</label>
+        <name>User_Details</name>
+    </customLabels>
     <customLabels>
         <label><!-- VEP(Seasonal Check) --></label>
         <name>VEP_Seasonal_Check</name>
@@ -4643,6 +4691,10 @@
     <customLabels>
         <label>車両価格 ＋ﾒｰｶｰｵﾌﾟｼｮﾝ価格</label>
         <name>Vehicle_Price_Maker_option_price</name>
+    </customLabels>
+	<customLabels>
+        <label>車両</label>
+        <name>Vehicle_Records</name>
     </customLabels>
     <customLabels>
         <label><!-- Vehicle_Relation_Filter --></label>

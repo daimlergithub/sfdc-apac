@@ -38,8 +38,8 @@ public class LeadDealerAssignmentProcess{
       
         UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
                                     ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Company Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor' OR Profile.Name ='Campaign Japan Dealer Company Manager')];
-				userid1 = leadslist.Retail_Contact__r.Retail_Sales_Consultant__c;
-			 /*try
+                userid1 = leadslist.Retail_Contact__r.Retail_Sales_Consultant__c;
+             /*try
         {
            Account_Link__c accLink = [select id, Name, Retail_Sales_Consultant__c,Sales_Representative__c,toRole__c,fromRole__c from Account_Link__c WHERE toRole__c =: leadslist.Contact__c  LIMIT 1];
             if (accLink != null && acclink.Retail_Sales_Consultant__c!= null){
@@ -55,21 +55,21 @@ public class LeadDealerAssignmentProcess{
             UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
                                     ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Company Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor' OR Profile.Name ='Campaign Japan Dealer Company Manager')];
             try{
-				Account_Link__c accLink1 = [select id, Name, Sales_Representative__c,Service_Advisor__c,Retail_Sales_Consultant__c,toRole__c,fromRole__c,RecordType.DeveloperName from Account_Link__c WHERE toRole__c =: leadslist.Contact__c AND Recordtype.DeveloperName = 'Vehicle_External_Link' LIMIT 1];
-				if(accLink1 != null && acclink1.Service_Advisor__c != null ){
-					userid1 = acclink1.Service_Advisor__c;
-				}
-			}catch(Exception Ex){
-			
-			}
-			/*if (leadslist.Service_Advisor__c != null ){
+                Account_Link__c accLink1 = [select id, Name, Sales_Representative__c,Service_Advisor__c,Retail_Sales_Consultant__c,toRole__c,fromRole__c,RecordType.DeveloperName from Account_Link__c WHERE toRole__c =: leadslist.Contact__c AND Recordtype.DeveloperName = 'Vehicle_External_Link' LIMIT 1];
+                if(accLink1 != null && acclink1.Service_Advisor__c != null ){
+                    userid1 = acclink1.Service_Advisor__c;
+                }
+            }catch(Exception Ex){
+            
+            }
+            /*if (leadslist.Service_Advisor__c != null ){
                 userid1 = leadslist.Service_Advisor__c ;
             }*/
         
         }
         if(UserDealers.isEmpty()){
             isAvailable = false;
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'No Users are availble to assign'));
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.No_Users_are_available_to_assign));
         }
         System.debug('>>>>>>> Count ++++' + UserDealers.size());
         System.debug('Userid>>>>>>> ' + userid1);
