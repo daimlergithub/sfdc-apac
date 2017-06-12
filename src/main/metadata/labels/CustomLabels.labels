@@ -562,6 +562,13 @@
         <shortDescription>Authorization</shortDescription>
         <value>you do not have the proper authorization</value>
     </labels>
+	<labels>
+        <fullName>Available_Contacts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Available Contacts</shortDescription>
+        <value>Available Contacts</value>
+    </labels>
     <labels>
         <fullName>Average</fullName>
         <categories>Flows</categories>
@@ -4306,6 +4313,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>No, don’t want to talk</shortDescription>
         <value>No, don’t want to talk</value>
     </labels>
+	<labels>
+        <fullName>No_master_record_found_for_duplicate_merge</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No master record found for duplicate merge</shortDescription>
+        <value>No master record found for duplicate merge</value>
+    </labels>
     <labels>
         <fullName>None</fullName>
         <language>en_US</language>
@@ -4341,6 +4355,27 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Not yet decided</shortDescription>
         <value>Not yet decided</value>
+    </labels>
+	<labels>
+        <fullName>Notification_Lead_Dealer_Assignment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notification Lead Dealer Assignment</shortDescription>
+        <value>Notification Lead Dealer Assignment</value>
+    </labels>
+    <labels>
+        <fullName>Notification_Lead_No_Update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notification Lead No Update</shortDescription>
+        <value>Notification Lead No Update</value>
+    </labels>
+    <labels>
+        <fullName>Notification_Lead_Not_Assigned</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notification Lead Not Assigned</shortDescription>
+        <value>Notification Lead Not Assigned</value>
     </labels>
     <labels>
         <fullName>Notify_To_Dealer1</fullName>
@@ -4667,6 +4702,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Please Wait</shortDescription>
         <value>Please Wait</value>
+    </labels>
+	<labels>
+        <fullName>Please_check_and_modify_if_necessary_Salesresponsibleperson_for_newcontacttarget</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please check and modify if necessary Salesresponsibleperson for newcontacttarget</shortDescription>
+        <value>Please check and modify if necessay the Sales responsible person for the new contact target</value>
     </labels>
 	<labels>
         <fullName>Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender</fullName>
@@ -5519,6 +5561,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Related Dealer View for Contract</shortDescription>
         <value>Related Dealer View for Contract</value>
+    </labels>
+	<labels>
+        <fullName>Remove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
     </labels>
     <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
@@ -7160,6 +7209,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>---Select---</value>
     </labels>
 	<labels>
+        <fullName>Selected_Contacts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selected Contacts</shortDescription>
+        <value>Selected Contacts</value>
+    </labels>
+	<labels>
         <fullName>Selected_Record</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8099,6 +8155,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>User Details</shortDescription>
         <value>User Details</value>
+    </labels>
+	<labels>
+        <fullName>User_Notification_Settings</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User Notification Settings</shortDescription>
+        <value>User Notification Settings</value>
     </labels>
     <labels>
         <fullName>VEP_Seasonal_Check</fullName>
