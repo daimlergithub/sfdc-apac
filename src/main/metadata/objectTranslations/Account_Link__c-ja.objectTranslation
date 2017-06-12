@@ -1345,7 +1345,7 @@
         <relationshipLabel>アカウントリンク1</relationshipLabel>
     </fields>
     <fields>
-        <label>アカウントリンク2</label>
+        <label>顧客名</label>
         <name>toRole__c</name>
         <relationshipLabel>アカウントリンク2</relationshipLabel>
     </fields>
@@ -1526,7 +1526,7 @@
         <name>External_Link_Share</name>
     </sharingReasons>
 	<validationRules>
-        <errorMessage>同一人物は紐づけられません</errorMessage>
+        <errorMessage>同じ顧客を設定できません。</errorMessage>
         <name>Account_1_Account_2_cannot_be_same</name>
     </validationRules>
     <validationRules>
@@ -1554,3 +1554,4 @@
         <name>Send_To_AutoLine</name>
     </webLinks>
 </CustomObjectTranslation>
+
