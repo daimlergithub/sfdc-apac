@@ -3137,12 +3137,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>ShowAs</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SMS_Response_Required__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>SMSTemplateID__c</field>
@@ -3161,11 +3156,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Source_System__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SSI_Number__c</field>
             <table>Lead__c.Activities</table>
         </columns> 
         <columns>

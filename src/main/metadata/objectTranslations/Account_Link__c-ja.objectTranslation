@@ -1530,19 +1530,19 @@
         <name>Account_1_Account_2_cannot_be_same</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <errorMessage>法人名（カナ）はカタカナで入力してください。</errorMessage>
         <name>Retail_Company_Name_Native_Kana</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- IT Should be KANA Characters --></errorMessage>
+        <errorMessage>顧客名カナ（名）はカタカナで入力してください。</errorMessage>
         <name>Retail_First_Name_Native_Kana</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <errorMessage>顧客名カナはカタカナで入力してください。</errorMessage>
         <name>Retail_Full_Name_Native_Kana</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <errorMessage>顧客名カナ（姓）はカタカナで入力してください。</errorMessage>
         <name>Retail_Last_Name_Native_Kana</name>
     </validationRules>
     <webLinks>

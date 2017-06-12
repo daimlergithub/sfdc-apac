@@ -553,8 +553,7 @@ public class TaskTriggerHandler
             Map<Id, SSI__c> ssiMap = new Map<Id, SSI__c>([Select Name, DealerName__c, CustomerName__c From SSI__c Where Id In :ssiIds]);
             for (Task tk : tasks) {
                 if (ssiMap.containsKey(tk.WhatId)) {
-                    SSI__c ssi = ssiMap.get(tk.whatId);
-                    tk.SSI_Number__c = ssi.Name;
+                    SSI__c ssi = ssiMap.get(tk.whatId); 
                     tk.Dealer_Name__c = ssi.DealerName__c;
                     tk.CustomerName__c = ssi.CustomerName__c;
                 }
