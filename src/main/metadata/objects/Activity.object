@@ -1680,188 +1680,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), '
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SMS_Response_Required__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used for SMS. Judge whether SMS needs response</description>
-        <externalId>false</externalId>
-        <label>SMS/MMS Response Required</label>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>SSI_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>SSI Number</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SSI_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>SSI Status</label>
-        <picklist>
-            <controllingField>Result__c</controllingField>
-            <picklistValues>
-                <fullName>Successful</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Number Does Not Exist</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unanswered</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fax</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Engaged</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Phone Shut Down</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Insufficient Fund</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Number Expired</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Out of Service</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Voice Mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Call Limitation</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wrong Number (Not the person's phone number within the address book)</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unauthorized Dealer</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unable to Contact Qualified Interviewee</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interviewed</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Language Obstacle</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Status</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Expired</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interview Reservation</fullName>
-                <default>false</default>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejection During the Probing Question Phase</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejection During the Main Part of the Interview</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Sold</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Politely Decline</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inconsistent Car Model</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not the Car Purchase Decision Maker</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inconsistent Car Pick Up Time</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No Purchase</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Status (Transfer to dealer)</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <type>Picklist</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>SentTime__c</fullName>
         <externalId>false</externalId>
@@ -1919,26 +1738,7 @@ noted by Lio on 10.28.2013</description>
         </picklist>
         <required>false</required>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Survey_Result_Id__c</fullName>
-        <description>Store related survey result id, used in Survey Result link.</description>
-        <externalId>false</externalId>
-        <label>*Survey Result Id</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Survey_Result_Link__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR( ISBLANK( Survey_Result_Id__c ), ISNULL(Survey_Result_Id__c)), '', HYPERLINK("/"+ Survey_Result_Id__c , 'View Survey Result') )</formula>
-        <label>Survey Result Link</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Task_RecordType_Name__c</fullName>
         <externalId>false</externalId>
@@ -2185,11 +1985,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <field>Activity_Status__c</field>
             <operation>notEqual</operation>
             <value>Success,Successful,Success</value>
-        </filters>
-        <filters>
-            <field>TASK.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Task.SMS</value>
         </filters>
         <label>All Unsuccessful SMS task</label>
         <language>en_US</language>
