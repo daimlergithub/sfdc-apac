@@ -128,7 +128,7 @@ public class AccountLinkHelper
       
       
     public static void afterInsertEvent(List<Account_Link__c> list_AccountLink){
-		// if(leadUtil.SharingReuleissue == true){ // commented as part of SFDCJP-2542
+        // if(leadUtil.SharingReuleissue == true){ // commented as part of SFDCJP-2542
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> SharingVrsFromAlk = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountIdAndListToAccountId = new Map<Id, List<Id>>();
@@ -318,8 +318,8 @@ public class AccountLinkHelper
         if(CompanyPersonVehicleLinkALK.size() > 0){
             SharePersonCompanyVehicleALK(CompanyPersonVehicleLinkALK,set_ToAccountId);
         }
-		//}
-		//LeadUtil.SharingReuleissue = false;
+        //}
+        //LeadUtil.SharingReuleissue = false;
     }
     
     public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -775,7 +775,7 @@ public class AccountLinkHelper
          List<Account_Link__c> Existlist = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId];
         for(Account_Link__c acclink : accLst ){
             if(Existlist.size()>0 && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId){
-            acclink.addError('Account Link record with the same Role1, Role2 and Relation exists.');
+            acclink.addError(Label.Account_Link_record_with_the_same_Role_1_and_Role2_exists);
            }     
         }
           string regexForNullValue ='null';
@@ -1249,7 +1249,7 @@ public class AccountLinkHelper
      List<Account_Link__c> accountList = new List<Account_Link__c>();
      List<Account_Link__c> accountList1 = new List<Account_Link__c>();
      if(LeadUtil.updateprimaryAddressAccounlink  == true){
-	 for(Account_Link__c acc :list_AccountLink)
+     for(Account_Link__c acc :list_AccountLink)
      {
          if(acc.Retail_Address_Reference__c != null && acc.MD__c == label.MarketJP){
                 if(isInsert || (isUpdate && acc.Retail_Address_Reference__c != oldMap.get(acc.id).Retail_Address_Reference__c)){
@@ -1293,7 +1293,7 @@ public class AccountLinkHelper
                 update accountList1; 
             }
   }
-	LeadUtil.updateprimaryAddressAccounlink = false;
+    LeadUtil.updateprimaryAddressAccounlink = false;
   }
   /*
     LastModifiedDate : 3rd Mar, 2017
