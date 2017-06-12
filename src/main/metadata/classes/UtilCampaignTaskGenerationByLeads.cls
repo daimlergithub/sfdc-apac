@@ -158,7 +158,7 @@ global Class UtilCampaignTaskGenerationByLeads implements Database.Batchable<sOb
                     UniqueCampaignGenerateTask__c = uniqueTaskField)
                 );
             } 
-        } */ Flow_URL__c = cpm.Campaign.Flow_URL__c, removed as part of SFDCJP-1765
+        } */ 
       //  else 
         if (cpm.Campaign__r.Execution_Type__c == strSMS && cpm.Lead__r.Contact__r.PersonMobilePhone != null && cpm.Lead__r.Contact__r.PersonMobilePhone != '') {        	      		
 		         taskList.add(new Task(
