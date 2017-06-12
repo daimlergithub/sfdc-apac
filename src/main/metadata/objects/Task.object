@@ -11261,11 +11261,11 @@ if(proceed){
 //window.open("/apex/TaskMassAssignChangeOwnerJP?objIds=" + idList + "&amp;objCount=" + idList.length + "&amp;retURL=" + retURL, 'Popup', 'height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no'); 
 //window.location.href = "/apex/TaskMassAssignChangeOwnerJP?objIds=" + idList + "&amp;retURL=" + retURL; 
 
-if (sforce.console.isInConsole() &amp;&amp; typeof(srcUp)!='undefined') { 
+/*if (sforce.console.isInConsole() &amp;&amp; typeof(srcUp)!='undefined') { 
 srcUp("/apex/TaskMassAssignChangeOwnerJP?isdtp=vw&amp;objIds=" + idList + "&amp;retURL=" + retURL); 
-} else { 
+} */
 window.location.href = "/apex/TaskMassAssignChangeOwnerJP?objIds=" + idList + "&amp;retURL=" + retURL; 
-} 
+
 }</url>
     </webLinks>
     <webLinks>
