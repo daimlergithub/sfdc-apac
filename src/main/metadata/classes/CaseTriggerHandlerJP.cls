@@ -72,6 +72,30 @@ public class CaseTriggerHandlerJP
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       // Implementation to addedd as required in market
+	  CaseHelperJP caseHelperJPd = new CaseHelperJP();
+	  
+	  if (trigger.isBefore)
+		{
+		if (trigger.isUpdate){
+                caseHelperJPd.calculateComplaintAmount(trigger.new,trigger.oldMap);
+		}		
+		}	
+		
+	   if (trigger.isAfter){
+            if (trigger.isDelete){
+               system.debug('Entered delete condition...');
+               caseHelperJPd.calculateComplaintAmount(trigger.old);
+            }else if (trigger.isInsert){
+               caseHelperJPd.calculateComplaintAmount(trigger.new); 
+            }else if (trigger.isUpdate){
+            caseHelperJPd.updateCase(trigger.new);
+               caseHelperJPd.calculateComplaintAmount(trigger.new);
+                 
+            }
+        
+        }
+			
+		
     }
     
 }
