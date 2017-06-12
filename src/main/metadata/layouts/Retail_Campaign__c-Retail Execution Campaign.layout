@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>OPR_Label_Print</customButtons>
-    <customButtons>OPRO_Label_Print_PDF</customButtons>
+    <customButtons>OPRO_DM_Print_OPR</customButtons>
+    <customButtons>OPRO_DM_Print_PDF</customButtons>
     <customButtons>Segment</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
