@@ -68,7 +68,7 @@ public class LeadMergeController{
          }
         catch(Exception e){
           hasMessage=true;
-          ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No master record found for duplicate merge'));
+          ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,Label.No_master_record_found_for_duplicate_merge));
         }             
         // Populate Inner class List
         If(master!=Null && slave!=Null){            

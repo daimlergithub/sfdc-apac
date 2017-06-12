@@ -42,23 +42,11 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Priority</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>QC_Quantity__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Generate_QC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>QC_Link__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Survey_Result_Link__c</field>
-            </layoutItems>
+            </layoutItems>  
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Campaign_Member_ID__c</field>
@@ -80,11 +68,7 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Related_Task_Id__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Flow_URL__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Campaign_Name__c</field>
