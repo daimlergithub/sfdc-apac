@@ -1688,16 +1688,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), '
         <externalId>false</externalId>
         <label>SMS/MMS Response Required</label>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>SSI_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>SSI Number</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>SentTime__c</fullName>
         <externalId>false</externalId>

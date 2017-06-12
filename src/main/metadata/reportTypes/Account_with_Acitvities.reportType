@@ -3397,11 +3397,6 @@
             <checkedByDefault>false</checkedByDefault>
             <field>SMS_Response_Required__c</field>
             <table>Account.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SSI_Number__c</field>
-            <table>Account.Activities</table>
         </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
