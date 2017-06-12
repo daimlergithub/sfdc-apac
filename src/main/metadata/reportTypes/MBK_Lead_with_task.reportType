@@ -3197,12 +3197,7 @@
             <checkedByDefault>true</checkedByDefault>
             <field>Subject</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Link__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IsTask</field>
