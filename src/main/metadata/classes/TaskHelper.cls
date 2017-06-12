@@ -932,8 +932,8 @@ public class TaskHelper {
                
                 for(Lead__c le : lstLead)
                 {
-                
-                if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) )
+                // venky : its a design defect Updated as per ogi comments
+                if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) && le.id==t.whatID && t.whatId !=null && t.Status='Closed')
                 {
                 le.Next_Contact_Customer_Date__c=date.valueof(t.SentTime__c);
                 updateLead.put(le.ID,le);
