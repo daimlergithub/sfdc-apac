@@ -1919,16 +1919,6 @@ noted by Lio on 10.28.2013</description>
         </picklist>
         <required>false</required>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Survey_Result_Id__c</fullName>
-        <description>Store related survey result id, used in Survey Result link.</description>
-        <externalId>false</externalId>
-        <label>*Survey Result Id</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
     </fields> 
     <fields>
         <fullName>Task_RecordType_Name__c</fullName>

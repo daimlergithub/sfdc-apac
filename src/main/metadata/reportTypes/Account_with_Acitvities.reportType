@@ -3432,11 +3432,6 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Status__c</field>
             <table>Account.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Id__c</field>
-            <table>Account.Activities</table>
         </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>

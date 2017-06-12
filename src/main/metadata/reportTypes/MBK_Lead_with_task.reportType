@@ -2682,12 +2682,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Related_Task_Id__c</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Id__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Account</field>
