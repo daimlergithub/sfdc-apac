@@ -1680,14 +1680,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), '
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SMS_Response_Required__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used for SMS. Judge whether SMS needs response</description>
-        <externalId>false</externalId>
-        <label>SMS/MMS Response Required</label>
-        <type>Checkbox</type>
     </fields> 
     <fields>
         <fullName>SentTime__c</fullName>
@@ -1993,11 +1985,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <field>Activity_Status__c</field>
             <operation>notEqual</operation>
             <value>Success,Successful,Success</value>
-        </filters>
-        <filters>
-            <field>TASK.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Task.SMS</value>
         </filters>
         <label>All Unsuccessful SMS task</label>
         <language>en_US</language>

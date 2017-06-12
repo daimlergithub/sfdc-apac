@@ -11151,14 +11151,7 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR'))</errorConditionF
         <description>During QC execution, QC user should only able to edit fields"Generate QC" &amp; "QC Quantity".</description>
         <errorConditionFormula>(( $Profile.Name = "CAC IB QC") || ($Profile.Name = "CAC OB QC"))&amp;&amp; NOT(ISCHANGED( Generate_QC__c )) &amp;&amp; NOT((ISCHANGED( QC_Quantity__c )))</errorConditionFormula>
         <errorMessage>QC User can only edit "QC Quantity" and "Generate QC" field on this record</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Template_ID_is_required</fullName>
-        <active>false</active>
-        <description>For "SMS Response Required" task,Template ID is required</description>
-        <errorConditionFormula>AND(SMS_Response_Required__c=TRUE, ISBLANK(SMSTemplateID__c) )</errorConditionFormula>
-        <errorMessage>Sorry, for "SMS Response Required" task,Template ID is required</errorMessage>
-    </validationRules>
+    </validationRules> 
     <webLinks>
         <fullName>After_Sales_Lead</fullName>
         <availability>online</availability>
