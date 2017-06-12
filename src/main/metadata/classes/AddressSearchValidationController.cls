@@ -134,7 +134,7 @@ public class AddressSearchValidationController
         else{
             try{
                 if(UserInfo.getLocale()=='ja_JP')
-                  AddressOptions.add(new SelectOption('--None--','--ãªã—--'));
+                  AddressOptions.add(new SelectOption('--None--',System.label.None));
                 else
                   AddressOptions.add(new SelectOption('--None--','--None--'));  
                 Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
