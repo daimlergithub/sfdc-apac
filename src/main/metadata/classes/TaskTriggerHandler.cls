@@ -40,7 +40,7 @@ public class TaskTriggerHandler
             TaskTriggerHandler.updateAccountCallMessage((Map<Id,Task>)Trigger.newMap, (Map<Id,Task>)Trigger.oldMap);
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
             TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);     
+          // Not User for Japan  TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);     
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
@@ -56,7 +56,7 @@ public class TaskTriggerHandler
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
             TaskTriggerHandler.autoUpdateSSISurveyStatus((Task)Trigger.new[0], (Task)Trigger.old[0]);
             TaskTriggerHandler.generateWelcomeCall((Task)Trigger.new[0], (Task)Trigger.old[0]);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+         // Not User for Japan   TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
         }
         if(trigger.isBefore && trigger.isInsert)
         {
