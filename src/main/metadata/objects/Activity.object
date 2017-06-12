@@ -1569,15 +1569,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), '
         </picklist>
         <required>false</required>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>QC_ID__c</fullName>
-        <externalId>true</externalId>
-        <label>QC ID</label>
-        <length>25</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
     </fields> 
     <fields>
         <fullName>QC_Quantity__c</fullName>
@@ -1928,26 +1919,7 @@ noted by Lio on 10.28.2013</description>
         </picklist>
         <required>false</required>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Survey_Result_Id__c</fullName>
-        <description>Store related survey result id, used in Survey Result link.</description>
-        <externalId>false</externalId>
-        <label>*Survey Result Id</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Survey_Result_Link__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR( ISBLANK( Survey_Result_Id__c ), ISNULL(Survey_Result_Id__c)), '', HYPERLINK("/"+ Survey_Result_Id__c , 'View Survey Result') )</formula>
-        <label>Survey Result Link</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Task_RecordType_Name__c</fullName>
         <externalId>false</externalId>

@@ -2682,12 +2682,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Related_Task_Id__c</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Id__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Account</field>
@@ -3117,11 +3112,6 @@
             <checkedByDefault>false</checkedByDefault>
             <field>IsVisibleInSelfService</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>QC_ID__c</field>
-            <table>Lead__c.Activities</table>
         </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -3202,12 +3192,7 @@
             <checkedByDefault>true</checkedByDefault>
             <field>Subject</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Link__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IsTask</field>
