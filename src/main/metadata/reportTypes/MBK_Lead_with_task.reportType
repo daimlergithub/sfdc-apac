@@ -3162,11 +3162,6 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Source_System__c</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SSI_Number__c</field>
-            <table>Lead__c.Activities</table>
         </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>

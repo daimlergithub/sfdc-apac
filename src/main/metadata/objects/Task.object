@@ -11631,7 +11631,7 @@ if('{!Task.What}'.indexOf('a1b') == 0) {
 }
 */
  if (sforce.console.isInConsole()) {
-  sforce.console.openPrimaryTab(undefined, '/{!Task.What}', true, '{!Task.SSI_Number__c}'); 
+  sforce.console.openPrimaryTab(undefined, '/{!Task.What}', true ); 
  } else { 
   window.open('/{!Task.What}', "", "width = 800,height = 600"); 
  }
