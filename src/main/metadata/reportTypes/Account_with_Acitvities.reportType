@@ -3362,11 +3362,6 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Priority__c</field>
             <table>Account.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>QC_ID__c</field>
-            <table>Account.Activities</table>
         </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>

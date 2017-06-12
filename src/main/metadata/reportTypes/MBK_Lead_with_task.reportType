@@ -3117,11 +3117,6 @@
             <checkedByDefault>false</checkedByDefault>
             <field>IsVisibleInSelfService</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>QC_ID__c</field>
-            <table>Lead__c.Activities</table>
         </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>

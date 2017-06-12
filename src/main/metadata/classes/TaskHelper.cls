@@ -393,7 +393,7 @@ public class TaskHelper {
   *@return:This mehtod does not return any value.
 
   */
-   
+   /* This moethod is not used for Japan hence commented.
    public static void SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    
      
@@ -521,7 +521,7 @@ public class TaskHelper {
         }
         update updatedQCs;
     }
-   }
+   } */
     /**
      * By Justin - replaces the merge fields.
      */
