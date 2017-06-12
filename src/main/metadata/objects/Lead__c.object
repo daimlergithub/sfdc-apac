@@ -111522,7 +111522,8 @@ var relatedId=&apos;{!Lead__c.ContactId__c}&apos;;
 
 if({!ISPICKVAL( Lead__c.Dealer_Lead_Status__c , &quot;Lost&quot;)} || relatedId ==&apos;&apos; || {!ISPICKVAL( Lead__c.Dealer_Lead_Status__c , &quot;Purchased(Only Non BDC)&quot;)}) 
 { 
-alert(&quot;This Lead cannot be sent to Autoline&quot;); 
+var alrt = '{!JSENCODE($Label.This_Lead_cannot_be_send_to_Autoline)}';
+alert(alrt); 
 } 
 
 

@@ -19,7 +19,7 @@ public without sharing class updateCaseDeadLine{
           dateSet.addAll(dateLst);
           dateSet.addAll(weekEnddateLst);
           for (Case c : [select id, Priority, DeadLine__c, MD__c from case where id in:casenewLst]){ 
-            c.DeadLine__c=checkForHolidays(dateSet, system.today() + 3); 
+            c.DeadLine__c=checkForHolidays(dateSet, system.today() + 4); 
             caseupdLst.add(c); 
           }
           

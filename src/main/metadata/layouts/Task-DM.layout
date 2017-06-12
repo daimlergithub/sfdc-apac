@@ -23,11 +23,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Activity_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Car_Series__c</field>
-            </layoutItems>
+            </layoutItems> 
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

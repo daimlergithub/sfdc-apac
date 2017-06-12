@@ -81,11 +81,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Generate_QC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>QC_Quantity__c</field>
-            </layoutItems>
+            </layoutItems>  
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>ActivityDate</field>
