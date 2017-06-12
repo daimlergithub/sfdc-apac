@@ -153,13 +153,12 @@ global Class UtilCampaignTaskGenerationByLeads implements Database.Batchable<sOb
                     WhatId = cpm.Id,
                     Activity_Status__c = 'not started',
                     Campaign_Member_ID__c = String.valueOf(cpm.Id), 
-                    Campaign_Name__c = cpm.Campaign__r.Name,
-                    Flow_URL__c = cpm.Campaign__r.Flow_URL__c,                                      
+                    Campaign_Name__c = cpm.Campaign__r.Name,                                      
                     ActivityDate = date.today(),
                     UniqueCampaignGenerateTask__c = uniqueTaskField)
                 );
             } 
-        } */
+        } */ Flow_URL__c = cpm.Campaign.Flow_URL__c, removed as part of SFDCJP-1765
       //  else 
         if (cpm.Campaign__r.Execution_Type__c == strSMS && cpm.Lead__r.Contact__r.PersonMobilePhone != null && cpm.Lead__r.Contact__r.PersonMobilePhone != '') {        	      		
 		         taskList.add(new Task(
