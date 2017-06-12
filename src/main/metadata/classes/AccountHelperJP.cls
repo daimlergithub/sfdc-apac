@@ -31,6 +31,7 @@ public class AccountHelperJP
     public static boolean persongroup11 = false;
     public static boolean companygroup1 = false;
     public static boolean companygroup2=false;
+	public static id acid;
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
@@ -639,9 +640,20 @@ public class AccountHelperJP
                     for(Account acc : accountlist)
                     {
                         Account account = accountmap.get(acc.Id);
+						//Added as per Jira ticket SFDCJP-2502
+						if(account.id !=null)
+                        {
+                        acid=account.id;
+                        }
+						
                         Account_Link__c acclink = new Account_Link__c();
                         acclink.Primary__c = true;
-                        acclink.Origin__c = account.Id; //Added as per Jira ticket SFDCJP-2502
+						//Added as per Jira ticket SFDCJP-2502
+						if(acid !=null)
+                        {
+                        acclink.Origin__c = acid;
+                        }
+                         
                         acclink.toRole__c = account.Id;
                         acclink.System__c = 'UCID';
                         acclink.RecordTypeId = accountinkIndividualCustomerExternalLinkId ;
