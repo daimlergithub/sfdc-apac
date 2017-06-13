@@ -1,8 +1,8 @@
-public class SSORedirectController
+public class MBKSSORedirectController
 {
 
     
-    String internalIdpSettingName = 'MBJCommunitySSOSetup';
+    String internalIdpSettingName = 'MBKCommunitySSOSetup';
     
     String idpUrlWithRelayState = '' ;
     
@@ -10,7 +10,7 @@ public class SSORedirectController
     
     public Boolean ShowErrorMessage {get; set;}
     
-    public SSORedirectController() 
+    public MBKSSORedirectController() 
     {
         ShowErrorMessage = false;
         settingNameToIdpLoginUrl = getExternalServerUrl();
