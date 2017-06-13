@@ -113,7 +113,9 @@
 			</target>
 			<target name="deploy05">
 				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
-					<sf:typeset name="objects"/>
+					<sf:typeset name="objects">
+					<sf:exclude name="Activity"/>
+					</sf:typeset>
 					<sf:typeset name="queues"/>
 					<sf:typeset name="email"/>
 					<sf:typeset name="components"/>
