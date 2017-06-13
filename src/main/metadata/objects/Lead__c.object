@@ -111269,12 +111269,24 @@ window.location.reload();
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
 {!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
 {!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
-if (sforce.console.isInConsole()) { 
-srcUp(&apos;/apex/SelectSlaveLead?Id={!Lead__c.Id}&amp;isdtp=vw&apos;);
-}
-else {
-	var myWindow = window.open(&quot;{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Lead__c.Id}&quot;, &quot;_parent&quot;,&quot;resizable=yes&quot;);
-	}</url>
+
+
+var market = &quot;{!Lead__c.MD__c}&quot;; 
+if(market== &apos;JP&apos;) 
+{ 
+if(typeof(srcUp) == &apos;function&apos;) 
+{ 
+if(sforce.console.isInConsole() ) 
+{ 
+srcUp(&apos;/apex/SelectSlaveLead?Id={!Lead__c.Id}&amp;isdtp=vw&apos;); 
+} 
+} 
+else 
+{ 
+var myWindow = window.open(&quot;{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Lead__c.Id}&quot;, &quot;_parent&quot;,&quot;resizable=yes&quot;); 
+} 
+
+}</url>
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>

@@ -947,7 +947,7 @@ public class TaskHelper {
         {
         for(Lead__c le1 : lstLead)
             {
-                if(le1.id == t1.whatId)
+                if(le1.id == t1.whatId && (t1.Status=='Closed'))
                 {
                     if(t1.intention_status__c=='Contact' && t1.Activity_Date__c!=NULL)
                     {
