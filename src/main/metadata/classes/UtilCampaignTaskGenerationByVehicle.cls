@@ -169,13 +169,12 @@ global class UtilCampaignTaskGenerationByVehicle implements Database.Batchable<s
                         WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
                         Campaign_Name__c = cpm.Campaign.Name, 
                         Activity_Status__c = 'not started',
-                        Campaign_Member_ID__c = String.valueOf(cpm.Id),
-                        Flow_URL__c = cpm.Campaign.Flow_URL__c,                                          
+                        Campaign_Member_ID__c = String.valueOf(cpm.Id),                                  
                         ActivityDate = date.today(),
                         Vehicle_Case_ID__c = String.valueOf(vr.Id),
                         UniqueCampaignGenerateTask__c = uniqueTaskField)
                     );
-                //}
+                //}   Flow_URL__c = cpm.Campaign.Flow_URL__c,        
             } else if (cpm.Campaign.Execution_Type__c == strSMS && vr.Contact__r.PersonMobilePhone != null && vr.Contact__r.PersonMobilePhone != '') {
                 taskList.add(new Task(
                     Subject= strSMS, 

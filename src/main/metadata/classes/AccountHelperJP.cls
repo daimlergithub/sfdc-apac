@@ -31,6 +31,7 @@ public class AccountHelperJP
     public static boolean persongroup11 = false;
     public static boolean companygroup1 = false;
     public static boolean companygroup2=false;
+	public static id acid;
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
@@ -120,6 +121,11 @@ public class AccountHelperJP
                 }
                 
                 if(Acc.Primary_Address__c != Null && Acc.Primary_Address__c != '')
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
+				//Added changes related to SFDCJP-2555
+				if(Acc.Primary_Address_Reference__c != Null && Acc.Primary_Address_Reference__c != '')
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
@@ -264,7 +270,11 @@ public class AccountHelperJP
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
-                
+				// Added changes related to SFDCJP-2555
+                if(Acc.Primary_Address_Reference__c != Null && Acc.Primary_Address_Reference__c != '')
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
                 if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
                 {                    
                     Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
@@ -639,9 +649,20 @@ public class AccountHelperJP
                     for(Account acc : accountlist)
                     {
                         Account account = accountmap.get(acc.Id);
+						//Added as per Jira ticket SFDCJP-2502
+						if(account.id !=null)
+                        {
+                        acid=account.id;
+                        }
+						
                         Account_Link__c acclink = new Account_Link__c();
                         acclink.Primary__c = true;
-                        acclink.Origin__c = account.Id; //Added as per Jira ticket SFDCJP-2502
+						//Added as per Jira ticket SFDCJP-2502
+						if(acid !=null)
+                        {
+                        acclink.Origin__c = acid;
+                        }
+                         
                         acclink.toRole__c = account.Id;
                         acclink.System__c = 'UCID';
                         acclink.RecordTypeId = accountinkIndividualCustomerExternalLinkId ;
@@ -1025,8 +1046,8 @@ if(usr.Profile.Name != 'IntegrationAPI'){
             for(Account acc : listAccounts){
                 if(acc.Company_Name__c != NUll && acc.recordtypeid == RDType){
                    String Company_Legal_Form;
-
-                   if (acc.Company_Legal_form__c != NULL )
+					// Changes related to SFDCJP-2623
+                   if (acc.Company_Legal_form__c != NULL && acc.Company_Legal_Form__c !='Others')
                     {
                      Company_Legal_Form= acc.Company_Legal_form__c;
                      }

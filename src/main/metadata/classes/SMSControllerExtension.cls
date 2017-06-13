@@ -196,8 +196,7 @@ public class SMSControllerExtension
             smsTask.Dealer_Name__c = tempDealer.Name;
         }
         
-        smsTask.SMS_Content__c = templateMessage;
-        smsTask.SMS_Response_Required__c = template.Type__c == 'Upstream & Downstream' ? true : false;
+        smsTask.SMS_Content__c = templateMessage; 
         smsTask.SMSTemplateID__c = templateId;
         if(taskType == 'mms'){
             smsTask.eDM_Template__c = template.Template_ID__c;

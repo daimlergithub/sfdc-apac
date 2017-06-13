@@ -393,7 +393,7 @@ public class TaskHelper {
   *@return:This mehtod does not return any value.
 
   */
-   
+   /* This moethod is not used for Japan hence commented.
    public static void SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    
      
@@ -481,9 +481,9 @@ public class TaskHelper {
         createSMSTaskAfterIBCall(taskMapForSMS.values());
     }
     
-    /**
-     * 2014-3-17 Added by Justin Yu -- Set the Compelted Time field on QC.
-     */
+     
+      // 2014-3-17 Added by Justin Yu -- Set the Compelted Time field on QC.
+     
     Set<String> qcIds = new Set<String>();
     for(Task task : tasks){
         if(task.Activity_Status__c == 'Successful' && (!isUpdate || taskOldMap.get(task.Id).Activity_Status__c != 'Successful')){
@@ -501,9 +501,9 @@ public class TaskHelper {
         update qcs;
     }
     
-    /**
-     * 2014-04-11 Added by Justin Yu -- Set the Last Communication Modified Time field on QC.
-     */
+     
+    // * 2014-04-11 Added by Justin Yu -- Set the Last Communication Modified Time field on QC.
+      
     Set<String> qcIdsInTask = new Set<String>();
     for(Task task : tasks){
         if((task.RecordTypeId == IBTaskRecordTypeId || task.RecordTypeId == OBTaskRecordTypeId || task.RecordTypeId == SSITaskRecordTypeId ||
@@ -521,7 +521,7 @@ public class TaskHelper {
         }
         update updatedQCs;
     }
-   }
+   } */
     /**
      * By Justin - replaces the merge fields.
      */
@@ -591,8 +591,8 @@ public class TaskHelper {
     public static void checkResponseRequired(List<Task> tasks, Map<String, Template__c> templates){
         for(Task task : tasks){
             Template__c template = templates.get(task.SMSTemplateID__c);
-            if(template != null && template.Type__c == 'Upstream & Downstream'){
-                task.SMS_Response_Required__c = true;
+            if(template != null && template.Type__c == 'Upstream & Downstream'){ 
+            
             }
         }
     }
@@ -932,8 +932,8 @@ public class TaskHelper {
                
                 for(Lead__c le : lstLead)
                 {
-                
-                if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) )
+                // venky : its a design defect Updated as per ogi comments
+                if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) && (le.id==t.whatID) && (t.whatId !=null) && (t.Status=='Closed'))
                 {
                 le.Next_Contact_Customer_Date__c=date.valueof(t.SentTime__c);
                 updateLead.put(le.ID,le);

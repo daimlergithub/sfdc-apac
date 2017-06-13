@@ -155,6 +155,13 @@
         <shortDescription>Account Information</shortDescription>
         <value>Account Information</value>
     </labels>
+	<labels>
+        <fullName>Account_Link_record_with_the_same_Role_1_and_Role2_exists</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Link record with the same Role 1 and Role2 exists</shortDescription>
+        <value>Account Link record with the same Role 1 and Role2 exists</value>
+    </labels>
     <labels>
         <fullName>Account_Merge</fullName>
         <language>en_US</language>
@@ -548,6 +555,13 @@
         <shortDescription>Assigned Dealer</shortDescription>
         <value>Assigned Dealer</value>
     </labels>
+	<labels>
+        <fullName>Assigned_Dealer_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assigned Dealer should not be null</shortDescription>
+        <value>Assigned Dealer should not be null</value>
+    </labels>
     <labels>
         <fullName>AttachedPdfError</fullName>
         <language>en_US</language>
@@ -561,6 +575,13 @@
         <protected>false</protected>
         <shortDescription>Authorization</shortDescription>
         <value>you do not have the proper authorization</value>
+    </labels>
+	<labels>
+        <fullName>Available_Contacts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Available Contacts</shortDescription>
+        <value>Available Contacts</value>
     </labels>
     <labels>
         <fullName>Average</fullName>
@@ -1570,6 +1591,20 @@
         <shortDescription>City</shortDescription>
         <value>City</value>
     </labels>
+	<labels>
+        <fullName>City_native_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City native should not be null</shortDescription>
+        <value>City native should not be null</value>
+    </labels>
+    <labels>
+        <fullName>City_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City should not be null</shortDescription>
+        <value>City should not be null</value>
+    </labels>
     <labels>
         <fullName>Class</fullName>
         <language>en_US</language>
@@ -2222,6 +2257,20 @@
         <shortDescription>Discount Total</shortDescription>
         <value>Discount Total</value>
     </labels>
+	<labels>
+        <fullName>Districe_Native_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Districe Native should not be null</shortDescription>
+        <value>Districe Native should not be null</value>
+    </labels>
+    <labels>
+        <fullName>District_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>District should not be null</shortDescription>
+        <value>District should not be null</value>
+    </labels>
     <labels>
         <fullName>Do_you_know_when_and_where_you_can_meet</fullName>
         <language>en_US</language>
@@ -2780,6 +2829,20 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>First Estimate Print</shortDescription>
         <value>First Estimate Print</value>
+    </labels>
+	<labels>
+        <fullName>First_Name_Native_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Name Native should not be null</shortDescription>
+        <value>First Name Native should not be null</value>
+    </labels>
+    <labels>
+        <fullName>First_Name_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Name should not be null</shortDescription>
+        <value>First Name should not be null</value>
     </labels>
     <labels>
         <fullName>Five</fullName>
@@ -3610,6 +3673,20 @@ please contact the number below.</value>
         <shortDescription>Last Modified Date</shortDescription>
         <value>Last Modified Date</value>
     </labels>
+	<labels>
+        <fullName>Last_Name_Native_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Name Native should not be null</shortDescription>
+        <value>Last Name Native should not be null</value>
+    </labels>
+    <labels>
+        <fullName>Last_Name_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Name should not be null</shortDescription>
+        <value>Last Name should not be null</value>
+    </labels>
     <labels>
         <fullName>Latest_Phase_History</fullName>
         <language>en_US</language>
@@ -4306,6 +4383,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>No, don’t want to talk</shortDescription>
         <value>No, don’t want to talk</value>
     </labels>
+	<labels>
+        <fullName>No_master_record_found_for_duplicate_merge</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No master record found for duplicate merge</shortDescription>
+        <value>No master record found for duplicate merge</value>
+    </labels>
     <labels>
         <fullName>None</fullName>
         <language>en_US</language>
@@ -4341,6 +4425,27 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Not yet decided</shortDescription>
         <value>Not yet decided</value>
+    </labels>
+	<labels>
+        <fullName>Notification_Lead_Dealer_Assignment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notification Lead Dealer Assignment</shortDescription>
+        <value>Notification Lead Dealer Assignment</value>
+    </labels>
+    <labels>
+        <fullName>Notification_Lead_No_Update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notification Lead No Update</shortDescription>
+        <value>Notification Lead No Update</value>
+    </labels>
+    <labels>
+        <fullName>Notification_Lead_Not_Assigned</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notification Lead Not Assigned</shortDescription>
+        <value>Notification Lead Not Assigned</value>
     </labels>
     <labels>
         <fullName>Notify_To_Dealer1</fullName>
@@ -4582,6 +4687,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>PersonAccount Record Type From Account</shortDescription>
         <value>012280000000f14AAA</value>
     </labels>
+	<labels>
+        <fullName>PersonBirthDate_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonBirthDate should not be null</shortDescription>
+        <value>PersonBirthDate should not be null</value>
+    </labels>
     <labels>
         <fullName>Person_Account_Information</fullName>
         <categories>AccountCreationPage</categories>
@@ -4661,12 +4773,26 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please Select Dealer</shortDescription>
         <value>Please Select Dealer.</value>
     </labels>
+	<labels>
+        <fullName>Please_Select_gender</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Select gender</shortDescription>
+        <value>Please Select gender</value>
+    </labels>
     <labels>
         <fullName>Please_Wait</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Please Wait</shortDescription>
         <value>Please Wait</value>
+    </labels>
+	<labels>
+        <fullName>Please_check_and_modify_if_necessary_Salesresponsibleperson_for_newcontacttarget</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please check and modify if necessary Salesresponsibleperson for newcontacttarget</shortDescription>
+        <value>Please check and modify if necessay the Sales responsible person for the new contact target</value>
     </labels>
 	<labels>
         <fullName>Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender</fullName>
@@ -4696,12 +4822,68 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please enter the filter name</shortDescription>
         <value>Please enter the filter name</value>
     </labels>
+	<labels>
+        <fullName>Please_enter_value_for_Company_Legal_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter value for Company Legal Form</shortDescription>
+        <value>Please enter value for Company Legal Form</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_value_for_Company_Legal_Form_Positon</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter value for Company Legal Form Positon</shortDescription>
+        <value>Please enter value for Company Legal Form Positon</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_value_for_Company_Legal_Form_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter value for Company Legal Form Text</shortDescription>
+        <value>Please enter value for Company Legal Form Text</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_value_for_Company_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter value for Company Name</shortDescription>
+        <value>Please enter value for Company Name</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_value_for_Company_Name_Native2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter value for Company Name Native2</shortDescription>
+        <value>Please enter value for Company Name Native2</value>
+    </labels>
     <labels>
         <fullName>Please_select_Address</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Please select Address</shortDescription>
         <value>Please select Address</value>
+    </labels>
+	<labels>
+        <fullName>Please_select_Dealer_Outlet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select Dealer Outlet</shortDescription>
+        <value>Please select Dealer Outlet</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_Retail_Sales_Consultant_in_Account_Link</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select Retail Sales Consultant in Account Link</shortDescription>
+        <value>Please select Retail Sales Consultant in Account Link</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_atleast_one_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select atleast one Address</shortDescription>
+        <value>Please select atleast one Address</value>
     </labels>
     <labels>
         <fullName>Please_select_only_one_Master_Record</fullName>
@@ -4808,6 +4990,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Proposed Date(3):</shortDescription>
         <value>Proposed Date(3):</value>
+    </labels>
+	<labels>
+        <fullName>Province_Native_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Province Native should not be null</shortDescription>
+        <value>Province Native should not be null</value>
+    </labels>
+	<labels>
+        <fullName>Province_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Province should not be null</shortDescription>
+        <value>Province should not be null</value>
     </labels>
     <labels>
         <fullName>Pruchase_Plan_Date</fullName>
@@ -5519,6 +5715,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Related Dealer View for Contract</shortDescription>
         <value>Related Dealer View for Contract</value>
+    </labels>
+	<labels>
+        <fullName>Remove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
     </labels>
     <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
@@ -7160,6 +7363,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>---Select---</value>
     </labels>
 	<labels>
+        <fullName>Selected_Contacts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selected Contacts</shortDescription>
+        <value>Selected Contacts</value>
+    </labels>
+	<labels>
         <fullName>Selected_Record</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8100,6 +8310,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>User Details</shortDescription>
         <value>User Details</value>
     </labels>
+	<labels>
+        <fullName>User_Notification_Settings</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User Notification Settings</shortDescription>
+        <value>User Notification Settings</value>
+    </labels>
     <labels>
         <fullName>VEP_Seasonal_Check</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -8633,6 +8850,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Zipcode not found</shortDescription>
         <value>Address search did not return any value, please re enter correct Zip code</value>
+    </labels>
+	<labels>
+        <fullName>Zipcode_should_not_be_null</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zipcode should not be null</shortDescription>
+        <value>Zipcode should not be null</value>
     </labels>
     <labels>
         <fullName>Zipcode_validation</fullName>
