@@ -709,6 +709,87 @@ Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Annual_Income_Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Annual Income Range</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Range 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 11</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 17</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Annual_Mileage__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -13495,6 +13576,77 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+        <picklistValues>
+            <picklist>Annual_Income_Range__c</picklist>
+            <values>
+                <fullName>Range 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
