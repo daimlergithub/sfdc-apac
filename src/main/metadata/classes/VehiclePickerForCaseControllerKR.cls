@@ -1,4 +1,4 @@
-global with sharing class VehiclePickerForCaseControllerKR {
+global without sharing class VehiclePickerForCaseControllerKR {
     public String currentRecordId {get;set;}
     public Case case_Vehicles {get; set;}
     public List<Vehicle_Relationship__c> caseOwnerVehiclesRelationships;
