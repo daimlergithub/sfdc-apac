@@ -9603,6 +9603,38 @@ Modify Reason:
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Estimation</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Service Information</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Used Car</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9916,6 +9948,10 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Lead Latest Phase</label>
         <picklist>
+		    <picklistValues>
+                <fullName>None</fullName>
+                <default>true</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Contact</fullName>
                 <default>false</default>
@@ -11098,7 +11134,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class Coupé</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11108,7 +11144,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class Coupé</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11118,7 +11154,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class Coupé</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11148,7 +11184,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class Coupé</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -12564,11 +12600,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>post</fullName>
+                <fullName>Post</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>sms</fullName>
+                <fullName>SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
