@@ -1,3 +1,3 @@
-<apex:page id="SSOPage" controller="MBKSSORedirectController" action="{!forwardToAuthPage}" title="{!$Label.site.site_login}">
+<apex:page id="MBKSSORedirectPage" controller="MBKSSORedirectController" action="{!forwardToAuthPage}" title="{!$Label.site.site_login}">
     <apex:param name="id" value="{!$CurrentPage.parameters.id}"/>
 </apex:page>
