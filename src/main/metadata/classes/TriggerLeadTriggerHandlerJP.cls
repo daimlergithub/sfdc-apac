@@ -54,14 +54,15 @@ public class TriggerLeadTriggerHandlerJP
            LeadUtil.LeadTrigger = false;
             
         }
-        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.leadAccountlnktrigger){
-            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            if(Userinfo.getUserType() != 'PowerPartner')
-			LeadUtil.leadAccountlnktrigger = false;
+        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' ){
+            if(LeadUtil.leadAccountlnktrigger)
+            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);            
+           if(Userinfo.getUserType() != 'PowerPartner')
+               LeadUtil.leadAccountlnktrigger = false;
          }
-         /*if(isAfter && isInsert){
-           //LeadHelperJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-        }*/
+         if(isAfter && (isInsert||isUpdate)){
+            LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+        }
         /*if(isAfter && isUpdate && LeadUtil.isupdated){
             system.debug('#####$$$$$$$'+isUpdate);
             LeadHelperJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
