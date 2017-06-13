@@ -31,7 +31,7 @@ public with sharing class CustomerMymercInterfaceController {
     public User usr = new user();
     
     public CustomerMymercInterfaceController(ApexPages.StandardController controller) {
-        usr = [Select Id,name,contact.AccountId from User WHERE ID =: UserInfo.getUserId() ];
+        usr = [Select Id,name,contact.AccountId,User.ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
         MyMercVar = false;
         MyMercEmailVar = true;
         RegOutlet  = 'No';
