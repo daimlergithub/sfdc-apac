@@ -344,7 +344,8 @@ public class SendToJPOS{
                {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Legal_Form));
                }
-               if(Acclist.Company_Legal_Form_text__c==null)
+			   // Changes related to SFDCJP-2623
+               if(Acclist.Company_Legal_Form_text__c==null && Acclist.Company_Legal_Form__c =='Others')
                {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Legal_Form_Text));
                }
