@@ -512,15 +512,15 @@
               $scope.vehicleDetail = false;
               $scope.caseVehicleType = vehicleType; 
               $scope.recordId = '{!currentRecordId}';             
-              $scope.brandVal = document.getElementById("brandItems").value;
-              $scope.classVal = document.getElementById("classItems").value;
+               $scope.brandVal = jq('#brandItems :selected').text();//document.getElementById("brandItems").value;
+              $scope.classVal = jq('#classItems :selected').text();//document.getElementById("classItems").value;
               $scope.colourVal = document.getElementById("colourValue").value;
               $scope.trimVal = document.getElementById("trimValue").value;
-              $scope.modelVal = document.getElementById("modelItems").value;
+              $scope.modelVal = jq('#modelItems :selected').text();//document.getElementById("modelItems").value;
               $scope.mileage = document.getElementById("mileageValue").value;               
               $scope.vehicleAttributes = [ { 
-                                             Brand:$scope.brands[parseInt($scope.brandVal)], Class:$scope.relatedClasses[parseInt($scope.classVal)],
-                                             Colour:$scope.colourVal, Model:$scope.models[$scope.modelVal],
+                                             Brand:$scope.brandVal, Class:$scope.classVal,
+                                             Colour:$scope.colourVal, Model:$scope.modelVal,
                                              Trim:$scope.trimVal,Mileage:$scope.mileage, caseVehicleType:$scope.caseVehicleType,
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
