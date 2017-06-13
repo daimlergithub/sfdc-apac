@@ -4148,7 +4148,7 @@
         <name>Select_Address_Msg</name>
     </customLabels>
     <customLabels>
-        <label><!-- [Select All] --></label>
+        <label>全て選択</label>
         <name>Select_All</name>
     </customLabels>
 	<customLabels>
