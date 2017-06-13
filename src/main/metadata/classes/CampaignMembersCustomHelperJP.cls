@@ -46,6 +46,49 @@ public with sharing class CampaignMembersCustomHelperJP {
     }
     
     
+    
+    Public static void addSalesCampaignMember(List<Campaign_Member__c> camMember){
+    
+       Set<id> campaignid = New Set<id>();
+       List<Campaign_Member__c> camList = New List<Campaign_Member__c>();
+       
+       For(Campaign_Member__c camMem : camMember){
+       
+              campaignid.add(camMem.Id);
+            
+            }
+            
+       List<Campaign_Member__c> camMemList =[Select id,Add_Sales_Staff__c,Add_Campaign_Member_ID__c,Add_Service_Staff__c,Campaign_ID__r.Add_Sales_Staff__c,Campaign_ID__r.Add_Service_Staff__c,Campaign_ID__r.Add_Campaign_Member_ID__c From Campaign_Member__c Where Id =:campaignid ]; 
+            
+       if(camMemList.size() >0){
+       
+           for(Campaign_Member__c cam : camMemList ){
+           
+            if(cam.Campaign_ID__r.Add_Sales_Staff__c == true){
+            
+                  cam.Add_Sales_Staff__c = true;
+            
+            }
+            if(cam.Campaign_ID__r.Add_Service_Staff__c == true){
+            
+                   cam.Add_Service_Staff__c = true;
+            
+            }
+            if(cam.Campaign_ID__r.Add_Campaign_Member_ID__c == true){
+            
+            
+                   cam.Add_Campaign_Member_ID__c = true;
+            }
+              
+              camList.add(cam); 
+           } 
+           
+           update camList;
+            
+      }       
+             
+    }
+    
     /*
      Added by : Lokesh 
      trigger : After Insert Campaign member
@@ -231,7 +274,7 @@ public with sharing class CampaignMembersCustomHelperJP {
                         }
                         
                         }
-						
+                        
                 
               For(Address__c add : acc.Addresses__r )
              
