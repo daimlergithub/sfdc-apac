@@ -124,6 +124,11 @@ public class AccountHelperJP
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
+				//Added changes related to SFDCJP-2555
+				if(Acc.Primary_Address_Reference__c != Null)
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
                 
                 if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
                 {                    
@@ -265,7 +270,11 @@ public class AccountHelperJP
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
-                
+				// Added changes related to SFDCJP-2555
+                if(Acc.Primary_Address_Reference__c != Null)
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
                 if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
                 {                    
                     Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
@@ -1037,8 +1046,8 @@ if(usr.Profile.Name != 'IntegrationAPI'){
             for(Account acc : listAccounts){
                 if(acc.Company_Name__c != NUll && acc.recordtypeid == RDType){
                    String Company_Legal_Form;
-
-                   if (acc.Company_Legal_form__c != NULL )
+					// Changes related to SFDCJP-2623
+                   if (acc.Company_Legal_form__c != NULL && acc.Company_Legal_Form__c !='Others')
                     {
                      Company_Legal_Form= acc.Company_Legal_form__c;
                      }
