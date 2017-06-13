@@ -307,7 +307,7 @@ public class AddressDisplayInlineEditController {
             if(addresspicklist!=null)
                 AddressObj.Address_Type__c = addresspicklist;
             if(provincepicklist!=null)
-                AddressObj.Province__c = provincepicklist;
+                AddressObj.Province__c = addressObj.Province__c;
            if(editaddressId ==null){
                 addressobj.Customer__c = acc.id;            
                 try{  

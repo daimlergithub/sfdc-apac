@@ -42,9 +42,11 @@ public with sharing class SelectAddressController {
         {
             accRec.Primary_Address_Reference__c = selectedAddress;
         }
-        else
+        else if(selectedAddress == 'None')
         {
-            accRec.Primary_Address_Reference__c = null;   
+            accRec.Primary_Address_Reference__c = null; 
+            accRec.Primary_Address_Display__c = '';
+            
         }
         update accRec;       
         return null;
