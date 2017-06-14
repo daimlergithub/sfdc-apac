@@ -235,7 +235,7 @@
                 <field>Purchased_CAC_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Service_Date__c</field>
             </layoutItems>
             <layoutItems>
