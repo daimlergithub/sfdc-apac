@@ -399,6 +399,7 @@ background-color: blue;
                 <td rowspan ="2" width ="10%" style ="font-family:Arial Unicode MS">
                     {!$Label.Vehicle}
                 </td>                    
+                
                 <td style ="font-family:Arial Unicode MS">
                     <apex:outputLabel value="{!$Label.Year}"/>               
                     <apex:outputLabel value="{!$Label.Range_Model}" style="border-left:1px solid #000000;margin-left:20px"/>
@@ -416,9 +417,9 @@ background-color: blue;
                     <apex:outputField value="{!Lead__c.Interested_Vehicle__r.Range__c}" style="border-left:1px solid #000000;margin-left:5px"/><apex:outputField value="{!Lead__c.Interested_Vehicle__r.Model__c}"/>
                     </apex:outputLabel>
                 </td>
-                <td style ="font-family:Arial Unicode MS">
-                    <apex:outputLabel style="border-left:1px solid #000000;margin-left:42px"/>
-                    <apex:outputLabel style="border-left:1px solid #000000;margin-left:37px">
+             <td style ="font-family:Arial Unicode MS">&nbsp;
+                    <apex:outputLabel style="border-left:1px solid #000000;margin-left:38px"/>
+                    <apex:outputLabel style="border-left:1px solid #000000;margin-left:35px">
                     <apex:outputField value="{!Lead__c.Car_Model__c}" style="border-left:1px solid #000000;margin-left:5px"/>
                     </apex:outputLabel>
                 </td>
@@ -428,14 +429,14 @@ background-color: blue;
             <tr>
                 <td width="48%" style="border-left-style:hidden;" ></td>
                 <td rowspan="5" width="15%" style ="font-family:Arial Unicode MS">{!$Label.Current_Vehicle3}</td>
-                <td width="19%" style ="font-family:Arial Unicode MS">{!$Label.Range_Model}</td>
+                <td width="20%" style ="font-family:Arial Unicode MS">{!$Label.Range_Model}</td>
                 <td>
                     <apex:outputText value="{!vRList[2].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>&nbsp;
                     <apex:outputText value="{!vRList[2].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>
                 </td>
             </tr>
             <tr>
-                <td width="41%" style="background-color:gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
+                <td width="50%" style="background-color:gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
                 <td style ="font-family:Arial Unicode MS">{!$Label.Registration_Date_Milage}</td>
                 <td>
                     <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}">
@@ -471,7 +472,7 @@ background-color: blue;
                 </td>
             </tr>   
         </table>
-        <br/><br/>
+        <br/><br/><br/><br/>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
             <tr style ="font-family:Arial Unicode MS">
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Pruchase_Plan_Date}</td>
@@ -592,11 +593,11 @@ background-color: blue;
         </table>
         <br/>        
         <apex:form >
-            <apex:pageBlock >
+              <apex:pageBlock >
                 <!--<apex:pageBlockSection columns="2">-->
-                <apex:pageBlockTable value="{!cas}" var="lead" style="width:45%;height:90%;float:left;">
+                <apex:pageBlockTable value="{!cas}" var="lead" style="width:45%;height:90%;float:left;border-left-style:solid;border-top-style:solid;border-right-style:solid;border-bottom-style:solid;">
                     <apex:column >
-                        <h1 style ="font-size:15px;text-align: left;"><b width="25%" style ="font-family:Arial Unicode MS">
+                        <h1 style ="font-size:15px;text-align: left;"><b width="25%" style ="font-family:Arial Unicode MS;">
                          <apex:outputLabel value="{!$Label.Latest_Phase_History}">
                          </apex:outputLabel></b>
                         </h1>                    
@@ -701,7 +702,7 @@ background-color: blue;
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
                             <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Purchase_Reason}"/></b><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Highly_interesed}"/></b><br/>                            
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Highly_interesed}"/></b><br/>                
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
                             <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Comparison_is_being_done_actively}"/></b>
                         </td>
@@ -724,8 +725,14 @@ background-color: blue;
                     </apex:column>
                 </apex:pageBlockTable>-->
             </apex:pageBlock>
+            <apex:outputLabel rendered="{!If($User.ContactId != null,true,false)}">
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </apex:outputLabel>
+            <apex:outputLabel rendered="{!If($User.ContactId == null,true,false)}">
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </apex:outputLabel>
         </apex:form>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
             <tr  style ="font-family:Arial Unicode MS">
                 <td class="TopTdLabel" align="Center" colspan="4" width="30%" height="25" style="border-right-style:solid;background-color:gray">
@@ -943,7 +950,7 @@ background-color: blue;
                     <apex:outputField value="{!Lead__c.Interested_Competitor_Vehicle__r.Brand__c}"/>
                 </td>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
-                    {!$Label.Compared_Vehicle_Brand}
+                    {!$Label.Compared_Vehicle_Model}
                 </td>
                 <td class="TopTd" align="left">
                     <apex:outputField value="{!Lead__c.Interested_Competitor_Vehicle__r.Model__c}"/>
