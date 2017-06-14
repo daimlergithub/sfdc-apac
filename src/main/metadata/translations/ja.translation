@@ -4147,10 +4147,6 @@
         <label>アドレスを選択してください</label>
         <name>Select_Address_Msg</name>
     </customLabels>
-    <customLabels>
-        <label>全て選択</label>
-        <name>Select_All</name>
-    </customLabels>
 	<customLabels>
         <label>（Blank）</label>
         <name>Select_Company</name>
@@ -4170,6 +4166,10 @@
     <customLabels>
         <label><!-- Select dropdown --></label>
         <name>Select_dropdown</name>
+    </customLabels>
+	<customLabels>
+        <label>全て選択</label>
+        <name>Selectall</name>
     </customLabels>
 	<customLabels>
         <label>選択済み拠点</label>
