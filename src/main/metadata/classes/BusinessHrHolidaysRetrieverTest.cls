@@ -1,16 +1,26 @@
 @IsTest
 private class BusinessHrHolidaysRetrieverTest{
     
+    static user usr;
+    static profile pro;
+    
+    public static user makeUser(){
+        Profile pro = [SELECT Id FROM Profile WHERE Name='System Administrator'];
+        User usr = new User(Alias = 'standt1',Country='United Kingdom',Email='demo1@randomdemodomain.com',EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',LocaleSidKey='en_US',ProfileId = pro.Id,TimeZoneSidKey='America/Los_Angeles', UserName='dprobertdemo1@camfed.org');
+        
+        return usr;       
+    }
+    
     private static testMethod void testForInvalidData() {
         System.Test.startTest();
         try{
-            BusinessHrHolidaysRetriever.retrieveHolidays(null);
+            BusinessHrHolidaysRetriever.retrieveHolidays(null, makeUser());
             System.assert(false);
         } catch(Exception e) {
             System.assert(true);
         }
         try{
-            BusinessHrHolidaysRetriever.retrieveHolidays(new BusinessHours());
+            BusinessHrHolidaysRetriever.retrieveHolidays(new BusinessHours(), makeUser());
             System.assert(false);
         } catch(Exception e) {
             System.assert(true);
@@ -37,7 +47,7 @@ private class BusinessHrHolidaysRetrieverTest{
             return;
         }
         
-        List<Holiday> holidays = BusinessHrHolidaysRetriever.retrieveHolidays(bHrs[0]);
+        List<Holiday> holidays = BusinessHrHolidaysRetriever.retrieveHolidays(bHrs[0], makeUser());
         System.assert(holidays != null);
         System.Test.stopTest();
     }
