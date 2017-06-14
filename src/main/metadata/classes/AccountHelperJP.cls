@@ -764,7 +764,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                     AccountIds.add(acc.id); 
                     persongroup11 = true;
             } 
-             
+             /* //Commented as per Ogi's Comments, this will update from Address
             if(oldAccountmap.get(acc.id).Primary_Address_Reference__c  != acc.Primary_Address_Reference__c || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Type__c != acc.Primary_Address_Reference__r.Address_Type__c
                 || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Province__c != acc.Primary_Address_Reference__r.Province__c ||
                     oldAccountmap.get(acc.id).Primary_Address_Reference__r.City__c  != acc.Primary_Address_Reference__r.City__c  ||
@@ -774,7 +774,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                     oldAccountmap.get(acc.id).Primary_Address_Reference__r.ZipCode__c  != acc.Primary_Address_Reference__r.ZipCode__c){
                     AccountIds.add(acc.id); 
                     persongroup9 = true;
-            }
+            }*/
             if(oldAccountmap.get(acc.id).Name != acc.Name || oldAccountmap.get(acc.id).Company_Name_Native_1__c != acc.Company_Name_Native_1__c){
                     AccountIds.add(acc.id);
                     companygroup1 = true;
@@ -892,7 +892,8 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                        
             //acclnk.Retail_UCID__c = acclnk.toRole__r.UCID__c;   
               //Checking Null for sales Address 
-            if(acclnk.toRole__r.Primary_Address_Reference__c != null && persongroup9 == True){ 
+            /*Commented as per Ogi's Comments, this will update from Address objcect
+			if(acclnk.toRole__r.Primary_Address_Reference__c != null && persongroup9 == True){ 
                     acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
                     if(addtrmap1.containsKey(acclnk.toRole__r.Primary_Address_Reference__r.Province__c) )
                     {
@@ -909,7 +910,8 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                     //acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
                     //acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
 
-                }//End if for Sales Address
+                }*/
+				//End if for Sales Address
             
             AccountlnkUpdate.add(acclnk); //Adding Account link to List  
             system.debug('AccountlnkUpdate--->'+AccountlnkUpdate);
