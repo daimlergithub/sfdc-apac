@@ -31,7 +31,7 @@ public with sharing class CustomerMymercInterfaceController {
     public User usr = new user();
     
     public CustomerMymercInterfaceController(ApexPages.StandardController controller) {
-        usr = [Select Id,name,contact.AccountId,User.ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
+        usr = [Select Id,name,contact.AccountId,ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
         MyMercVar = false;
         MyMercEmailVar = true;
         RegOutlet  = 'No';
@@ -150,11 +150,11 @@ public with sharing class CustomerMymercInterfaceController {
             if (!MyMatcher.matches()){ 
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
                 return null;    
-            }
-        }
-        else{ 
+            }else{ 
             accont.Email3__c  = MyMercEmail;
         }
+        }
+        
         if(accont.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account ) {
               if(accont.PersonBirthdate != NUll && accont.LastName_Native_1__c != NULL && accont.Gender__c!= NULL){
               

@@ -55,10 +55,10 @@ public class TriggerLeadTriggerHandlerJP
             
         }
         if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' ){
-            if(LeadUtil.leadAccountlnktrigger)
+            //if(LeadUtil.leadAccountlnktrigger)
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);            
-           if(Userinfo.getUserType() != 'PowerPartner')
-               LeadUtil.leadAccountlnktrigger = false;
+           //if(Userinfo.getUserType() != 'PowerPartner')
+               //LeadUtil.leadAccountlnktrigger = false;
          }
          if(isAfter && (isInsert||isUpdate)){
             LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
