@@ -304,7 +304,7 @@
             <picklistValues>
                 <fullName>E-Class All-Terrain</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues> 
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
