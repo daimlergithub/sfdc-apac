@@ -67,8 +67,9 @@ Public With Sharing class AccountTable{
         
         Dealercars   = new List<SelectOption>();
         Dealercars.add(new SelectOption('','---None--'));
-        Dealercars.add(new SelectOption('Designated','Designated'));
-        Dealercars.add(new SelectOption('Authorized','Authorized'));
+        Dealercars.add(new SelectOption('NORMAL','NORMAL'));
+        Dealercars.add(new SelectOption('SATELLITE','SATELLITE'));
+        Dealercars.add(new SelectOption('AUTHORIZEDFACTORY','AUTHORIZEDFACTORY'));
         Dealercars.add(new SelectOption('Metro','Metro'));
         Dealercars.add(new SelectOption('Provincial','Provincial'));
         Dealercars.add(new SelectOption('Rural','Rural'));
@@ -122,16 +123,16 @@ Public With Sharing class AccountTable{
     if (!String.isBlank(dealerSalestype))
       soql += ' and Dealer_Sales_Type__c =\''+String.escapeSingleQuotes(dealerSalestype)+'\'';  
     if (!String.isBlank(DealerServiceFun ))
-      soql += ' and Dealer_Service_Func__c =\''+String.escapeSingleQuotes(DealerServiceFun)+'\'';
+      soql += ' and Dealer_Service_Func__c ='+String.escapeSingleQuotes(DealerServiceFun);
     if (!String.isBlank(DealerSalesfunc  ))
-      soql += ' and Dealer_Sales_func__c =\''+String.escapeSingleQuotes(DealerSalesfunc  )+'\'';
+      soql += ' and Dealer_Sales_func__c ='+String.escapeSingleQuotes(DealerSalesfunc  );
     if (!String.isBlank(DealerUsedCarFunc ))
-      soql += ' and Dealer_UsedCar_Func__c =\''+String.escapeSingleQuotes(DealerUsedCarFunc )+'\'';  
+      soql += ' and Dealer_UsedCar_Func__c ='+String.escapeSingleQuotes(DealerUsedCarFunc );  
       
       if (!String.isBlank(DealerUsedCarCorner ))
-      soql += ' and Dealer_UsedCarCorner__c =\''+String.escapeSingleQuotes(DealerUsedCarCorner  )+'\'';
+      soql += ' and Dealer_UsedCarCorner__c ='+String.escapeSingleQuotes(DealerUsedCarCorner);
     if (!String.isBlank(DealerAMGPerformance ))
-      soql += ' and Dealer_AMGPerformance__c =\''+String.escapeSingleQuotes(DealerAMGPerformance)+'\'';
+      soql += ' and Dealer_AMGPerformance__c ='+String.escapeSingleQuotes(DealerAMGPerformance);
     if (!String.isBlank(DealerNDCode ))
       soql += ' and Dealer_ND_Code__c =\''+String.escapeSingleQuotes(DealerNDCode )+'\'';  
     if (!String.isBlank(Name ))
