@@ -23,6 +23,5 @@ function selectAllOrNone(allOrNoneCheckbox) {
 }
 </script>
 
-<apex:inputCheckbox onclick="selectAllOrNone(this)" title="Toggle All Rows"/>Select All
-
+<apex:inputCheckbox onclick="selectAllOrNone(this)" title="Toggle All Rows"/>{!$Label.Selectall}
 </apex:component>

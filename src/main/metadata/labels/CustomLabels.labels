@@ -7363,6 +7363,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>---Select---</value>
     </labels>
 	<labels>
+        <fullName>Selectall</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All</shortDescription>
+        <value>Select All</value>
+    </labels>
+	<labels>
         <fullName>Selected_Contacts</fullName>
         <language>en_US</language>
         <protected>false</protected>

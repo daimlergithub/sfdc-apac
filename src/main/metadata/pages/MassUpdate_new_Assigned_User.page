@@ -18,7 +18,7 @@
                 </div>
                 <apex:pageBlock title="{!$Label.Account_Records}" id="pbAcc">
                     <apex:pageBlockTable value="{!Accounts}" var="acs">
-                        <apex:column headerValue="{!$Label.Select_All}">
+                        <apex:column headerValue="{!$Label.Selectall}">
                             <apex:facet name="header">
                                 <c:selectAllChkBox />
                             </apex:facet>
