@@ -58346,7 +58346,7 @@ else {
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
-    <webLinks>
+    <!--<webLinks>
         <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
@@ -58513,5 +58513,5 @@ else
 parent.location.href = theUrl;
 }
 }</url>
-    </webLinks>
+    </webLinks>-->
 </CustomObject>
