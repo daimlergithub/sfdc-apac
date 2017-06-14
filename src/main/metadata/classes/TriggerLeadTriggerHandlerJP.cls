@@ -54,14 +54,15 @@ public class TriggerLeadTriggerHandlerJP
            LeadUtil.LeadTrigger = false;
             
         }
-        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.leadAccountlnktrigger){
-            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            if(Userinfo.getUserType() != 'PowerPartner')
-			LeadUtil.leadAccountlnktrigger = false;
+        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' ){
+            //if(LeadUtil.leadAccountlnktrigger)
+            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);            
+           //if(Userinfo.getUserType() != 'PowerPartner')
+               //LeadUtil.leadAccountlnktrigger = false;
          }
-         /*if(isAfter && isInsert){
-           //LeadHelperJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-        }*/
+         if(isAfter && (isInsert||isUpdate)){
+            LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+        }
         /*if(isAfter && isUpdate && LeadUtil.isupdated){
             system.debug('#####$$$$$$$'+isUpdate);
             LeadHelperJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
@@ -77,6 +78,18 @@ public class TriggerLeadTriggerHandlerJP
           if(isAfter && (isUpdate || isInsert)){
         System.debug('welcome');
           LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);}
+		  
+		  if(isAfter && isInsert && LeadUtil.isCreated){      
+             
+            LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            LeadUtil.isCreated = false;
+        }
+		
+		 if(isAfter && isUpdate && LeadUtil.LeadTrigger ){
+             LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);          
+           LeadUtil.LeadTrigger = false;
+            
+        }
     }
 
 }

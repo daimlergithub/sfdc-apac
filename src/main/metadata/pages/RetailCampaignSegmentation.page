@@ -13,7 +13,7 @@
 
         var filterNames = '';
         var oldFieldValue = '';
-        var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; Last_Successful_Call__c; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c; NextServiceDate__c; NextInspectionDate__c;';
+        var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c; NextServiceDate__c; NextInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
@@ -91,6 +91,32 @@
         function showCriteria(fieldSelect){
             var newFieldValue = $(fieldSelect).val();
             var jQueryFieldRow = $(fieldSelect).parent().parent();
+              
+            // show from for the date fields
+            if(dateInputClass.indexOf(newFieldValue)!=-1){
+                jQueryFieldRow.find('.notDate').children().each(function(){
+                    if(this.style.display == 'block'){
+                        this.style.display = 'none';
+                    }
+                }); 
+                jQueryFieldRow.find('.forDate').children().each(function(){
+                    if(this.style.display == 'none'){
+                        this.style.display = 'block';
+                    }
+                }); 
+            } else {
+                jQueryFieldRow.find('.notDate').children().each(function(){
+                    if(this.style.display == 'none'){
+                        this.style.display = 'block';
+                    }
+                }); 
+                jQueryFieldRow.find('.forDate').children().each(function(){
+                    if(this.style.display == 'block'){
+                        this.style.display = 'none';
+                    }
+                }); 
+            }
+            
             // Hide the criteria element
             jQueryFieldRow.find('.criteria').children().each(function(){
                 if(this.style.display == 'block'){
@@ -192,6 +218,7 @@
 
             criteriaElement.val('');
             criteriaElement.css('display', 'block');
+            
         }
 
        
@@ -403,7 +430,7 @@
                 criteriaValue = temp;
                 var logicText = $(columns[6]).text();
                 result += '{"field":"' + fieldValue + '",';
-                result += '"operation":"' + columns[2].children[0].value + '",';
+                result += '"operation":"' + columns[2].children[0].children[0].value + '",';
                 result += '"criteria":"' + criteriaValue + '",';
                 logicText = logicText == null ? '' : logicText;
                 result += '"logic":"' + logicText + '","bracket":false},';
@@ -484,9 +511,18 @@
                 }
             }
         }
+        function queryName(){
+            var queryName = prompt("Please enter query name", "Query Name here");
+              document.getElementById('{!$Component.form.inptHdn}').value = queryName;
+           
+        }
+        function myOnComplete(){
+            window.alert('Query Saved');
+        }
     </script>
     
     <apex:form id="form">
+       <apex:inputHidden value="{!myProperty}" id="inptHdn"/>
         <apex:inputHidden id="jsonFilter" value="{!jsonFilter}"/>
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
         <apex:pageBlock id="block">
@@ -516,13 +552,14 @@
                                     <option value="Customer_Lifecycle_Phase__c">Customer Stage</option>
                                 </select>
                             </td>
-                            <td>
-                                <select>
+                             <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
@@ -584,13 +621,14 @@
                                     <option value="Retail_OptOutContact_Reason__c">{!$ObjectType.Account_Link__c.Fields.Retail_OptOutContact_Reason__c.Label}</option>
                                 </select>
                             </td>
-                            <td>
-                                <select>
+                            <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                
@@ -656,13 +694,14 @@
                                     </option> 
                                 </select> 
                             </td>
-                            <td>
-                                <select>
+                            <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
-                                    <option>Greater Than</option>
-                                    <option>Less Than</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
@@ -673,7 +712,7 @@
                                 <input class="dateInput" id="LeadTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                             </td>
-                            <td class="criteriaToLead"><span id="tologicLead" class="dateInput2 dateInput" style="display:none;"><center>TO</center></span></td>
+                            <td class="criteriaToLead"><span id="tologicLead" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
                            
                             <td class="criteriaLead">
                             <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput4" size="12" type="text" 
@@ -714,13 +753,14 @@
                                    <option value="Status__c">Recall Status</option> 
                                 </select>
                             </td>
-                            <td>
-                                <select>
+                            <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
-                                    <option>Greater Than</option>
-                                    <option>Less Than</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text" style="display:block;"/>
@@ -729,7 +769,7 @@
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                 
                             </td>
-                            <td class="criteriaToVehicle1"><span id="tologicVeh" class="dateInput2 dateInput" style="display:none;"><center>TO</center></span></td>
+                            <td class="criteriaToVehicle1"><span id="tologicVeh" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
                            <td class="criteriaVehicle"> 
                             <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput5" size="12" type="text" 
                                     onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/> 
@@ -766,13 +806,14 @@
                                     <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>                                                                 
                                 </select>
                             </td>
-                            <td>
-                                <select>
+                            <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
@@ -781,7 +822,7 @@
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/> 
                             </td>
-                            <td class="criteriaToVehicle"><span id="tologicVehRel" class="dateInput2 dateInput" style="display:none;"><center>TO</center></span></td>
+                            <td class="criteriaToVehicle"><span id="tologicVehRel" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
                             <td class="criteria2">
                             <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput2" size="12" type="text" 
                                     onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/> 
@@ -821,20 +862,21 @@
                                     <option value="Service_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}</option> 
                                 </select>
                             </td>
-                            <td>
-                                <select>
+                            <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                   <input class="inputText" type="text" style="display:block;"/>
                                  <input class="dateInput" id="VrTableDateInput12" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                             </td>
-                            <td class="criteriaToVehRet"><span id="tologicVehRet" class="dateInput2 dateInput" style="display:none;"><center>TO</center></span></td>
+                            <td class="criteriaToVehRet"><span id="tologicVehRet" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
                             <td class="criteriaVehRetCopy">
                             <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput8" size="12" type="text" 
                                     onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/> 
@@ -882,13 +924,14 @@
                                   
                                 </select>
                             </td>
-                            <td>
-                                <select>
+                            <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"  style="display:block;"/>
@@ -928,13 +971,14 @@
                                   
                                 </select>
                             </td>
-                            <td>
-                                <select>
+                            <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                 <input class="inputText" Type="text"/>
@@ -976,13 +1020,14 @@
                                     <option value="Province__c">{!$ObjectType.Address__c.Fields.Province__c.Label}</option>                                  
                                 </select>
                             </td>
-                            <td>
-                                <select>
+                            <td><span class="notDate">
+                                <select style="display:block;">
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
                                     <option value="Exclude">Exclude</option>
-                                </select>
+                                </select></span>
+                                <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text" />
@@ -1005,7 +1050,7 @@
             <hr/>
             
             <apex:outputPanel layout="block" id="searchingResult">
-                <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign" status="loadingStatus"
+                <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign,saveCriteria" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
                 <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="addToCampaign"/>
                 <apex:actionStatus id="loadingStatus">
@@ -1013,6 +1058,9 @@
                         <img src="/img/loading24.gif" style="vertical-align:middle;"/>
                     </apex:facet>      
                 </apex:actionStatus>
+                <apex:outputPanel id="saveCriteria" >
+                    <apex:commandButton action="{!saveCriteria}" value="Save Criteria" onclick="queryName()" disabled="{!wrapperList.size = 0 || wrapperList = null}" reRender="none" onComplete="myOnComplete();"/>
+                </apex:outputPanel>
                 <apex:outputPanel rendered="{!wrapperList.size == 0}" id="noMatches">
                  <apex:outputText style="color:red"><h1>   Records found : {!noOfRecords} &nbsp;&nbsp;  No Matches Found, Please try with other filters.</h1></apex:outputtext>
                 </apex:outputPanel>

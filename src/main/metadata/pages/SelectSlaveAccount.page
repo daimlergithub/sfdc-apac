@@ -56,7 +56,7 @@
                   <apex:column headerValue="{!$Label.Master_Record}">
                         <apex:inputCheckbox value="{!accWrap.acc.Master_Record__c}" id="masterId"/>               
                   </apex:column>    
-                  <apex:column headerValue="Slave Record">
+                  <apex:column headerValue="{!$Label.Slave_Record}">
                     <apex:inputCheckbox value="{!accWrap.selected}" id="inputId" />
                   </apex:column>       
                   <apex:repeat value="{!$ObjectType.Account.FieldSets.SuspectAccountFields}" var="column">

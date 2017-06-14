@@ -380,7 +380,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         string nullValue ='';
         String province;
         Map<String, String> addtrmapInsert = UtilAddressTranslation.addtrmap;
-        UtilAddressTranslation.gettranslatedvalues('JP');
+        UtilAddressTranslation.gettranslatedvalues(Usr.Market__c);
                  //get the accountIds 
                  if(triggerNew!=null)
                 {

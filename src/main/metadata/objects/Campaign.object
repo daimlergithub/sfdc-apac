@@ -2115,7 +2115,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>MainParentCampaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -7159,7 +7159,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7168,10 +7172,6 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10269,7 +10269,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10282,10 +10286,6 @@
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13808,7 +13808,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13817,10 +13821,6 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

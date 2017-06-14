@@ -22,6 +22,9 @@
         text-decoration: underline;
         color: #015BA7;
         }
+        hr.style2 {
+      border-top: 3px double #8c8b8b;
+       }
     </style>
     
     <apex:includeScript value="{!$Resource.jquery142}"/>
@@ -52,7 +55,7 @@
     
     <apex:sectionHeader title="{!$Label.Account_Merge}" subtitle="{!$Label.Master_Account}: {!master.Name}"/>
     
-    <apex:form >
+    <apex:form id="forms">
         <apex:pageBlock >
             <apex:pageMessages Id="message"/>            
             <apex:pageBlockButtons >
@@ -61,6 +64,7 @@
                                     onclick="if (confirm('{!$Label.CP_Merge_Account_Confirm}')) return true; return false;"/>
             </apex:pageBlockButtons>          
             <apex:outputpanel Id="detail">
+            
                 <table cellspacing="0" cellpadding="0" width="80%" align="center" class="rollup" style="margin-left:20px">
                     <tbody>
                         <tr class="headerRow">
@@ -92,17 +96,17 @@
                                 <td style="width:40%">
                                     <apex:outputField value="{!master[wrap.fieldAPI]}" rendered="{!wrap.isSame}"/>
                                     <apex:outputPanel rendered="{!NOT(wrap.isMasterNull) && NOT(wrap.isSame)}">
-                                        <apex:outputpanel rendered="{!wrap.isMasterChecked}">
+                                       <apex:outputpanel rendered="{!wrap.isMasterChecked}">
                                             <input type="radio" name="{!wrap.fieldAPI}" checked="checked" value="master"/>
                                             <apex:inputHidden value="{!wrap.isMasterChecked}" />
                                         </apex:outputpanel>
                                         
                                         <apex:outputpanel rendered="{!NOT(wrap.isMasterChecked)}">
-                                            <input type="radio" name="{!wrap.fieldAPI}" value="master"/>
+                                            <input type="radio" name="{!wrap.fieldAPI}" checked="checked" value="master"/>
                                             <apex:inputHidden value="{!wrap.isMasterChecked}" />
                                         </apex:outputpanel>
                                         
-                                        <apex:outputField value="{!master[wrap.fieldAPI]}" />
+                                       <apex:outputField value="{!master[wrap.fieldAPI]}" />
                                     </apex:outputPanel>
                                 </td>
                                 
@@ -123,11 +127,71 @@
                                     </apex:outputPanel>
                                 </td>         
                             </tr>
-                        </apex:repeat>                     
+                        </apex:repeat> 
+                       
                     </tbody>
                 </table>
             </apex:outputpanel>
             
         </apex:pageBlock>
+         <apex:pageBlock title="{!$Label.Address_Select}" Id="pageBlock">
+                
+                
+                <apex:pageBlockSection >
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$Label.Select_Address_Msg}" />
+                        <apex:actionRegion >
+
+                        <apex:selectList id="slectaddtype" multiselect="false" value="{!selectedAddress}" size="1" >
+                            <apex:selectOptions value="{!addtype}"/>
+                           <apex:actionSupport event="onchange" reRender="forms,addfrm,message" action="{!displayAddress}" status="Loading....."/>
+                        </apex:selectList>
+                        </apex:actionRegion>
+
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                 
+                </apex:pageBlock> 
+                <apex:pageMessages Id="message"/> 
+                 <apex:pageBlock id="addressblock" rendered="{!if(hasSuspectAdds = true,true,false)}">
+                  
+                   <apex:outputPanel id="addfrm">
+                      <table cellspacing="0" cellpadding="0" width="80%" align="center" class="rollup" style="margin-left:20px">
+                    <tbody>
+                        <apex:repeat var="wrap1" value="{!wraps1}" >
+                     
+                            <tr onmouseover="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}" 
+                                onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}">
+                                
+                                <td style="text-align:right; width:20%; background-color:#EEEEEE;">
+                                    <b>{!wrap1.fieldLabel}</b>
+                                </td>
+                                
+                                <td style="width:40%;">
+                                   
+                                       <apex:outputField value="{!MasterAddresses[wrap1.fieldAPI1]}" />
+                                    
+                                </td>
+                                
+                                <td style="width:40%;">
+                                      <apex:outputField value="{!SlaveAddresses[wrap1.fieldAPI1]}" />
+                                </td>         
+                            </tr>
+                        </apex:repeat>  
+                       
+                    </tbody>
+                </table>
+          
+                    
+                 
+                   </apex:outputPanel>
+           
+                 
+                 
+                 </apex:pageBlock>
+                 
+           
     </apex:form>
 </apex:page>
+                                        

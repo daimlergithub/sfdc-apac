@@ -77,6 +77,9 @@ public class AddressSearchValidationController
     // COnstructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
+		
+		Public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+        public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
     
         public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
@@ -131,7 +134,7 @@ public class AddressSearchValidationController
         else{
             try{
                 if(UserInfo.getLocale()=='ja_JP')
-                  AddressOptions.add(new SelectOption('--None--','--なし--'));
+                  AddressOptions.add(new SelectOption('--None--',System.label.None));
                 else
                   AddressOptions.add(new SelectOption('--None--','--None--'));  
                 Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
@@ -572,6 +575,10 @@ public class AddressSearchValidationController
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {
                         refreshPage = true;
+                        if(TouchPoint !=null)
+                        {
+                        objAccount.Data_Source__c=TouchPoint;
+                        }
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
@@ -726,6 +733,14 @@ public class AddressSearchValidationController
                         system.debug('Validation1:'+Validation );
                         if(Validation == false){
                              system.debug('refreshPage 2:'+refreshPage );
+                      if(TouchPoint !=null)
+                        {
+                        objPersonAccount.Data_Source__c=TouchPoint;
+                        } 
+                        if(objPersonAccount.Acquisition_Objective_Method__c !=null && objPersonAccount.Allow_Data_Sharing2__c =='Yes')
+                        {
+                        objPersonAccount.Acquisition_Record_Date__c=System.today();
+                        }
                             upsert objPersonAccount ;
                             if(AddressObj !=null && (Address_Validated_Flag )){
                                 AddressObj.Customer__c = objPersonAccount.id;
@@ -777,7 +792,7 @@ public class AddressSearchValidationController
         {
         TouchPoint='Dealer Outlet'; 
         }  
-    } 		
+    }       
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -794,7 +809,14 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
             AddressObj.Block__c = '';
             AddressObj.City__c = '';
             AddressObj.District__c = '';
-            AddressObj.Province__c = '';           
+            AddressObj.Province__c = '';  
+            AddressObj.Block_Native__c = '';      
+            AddressObj.City_Native__c = '';        
+            AddressObj.Province_Native__c ='';        
+            AddressObj.District_Native__c = '';        
+            AddressObj.Address_Line_1_Native__c = '';        
+            AddressObj.Address_Line_2_Native__c = '';
+            
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
         }       
         if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_1__c !=null || AddressObj.Block__c != null || AddressObj.City__c != null ||
@@ -838,7 +860,37 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
                     if(ValidStr.contains('Province__c'))
                     {
                         AddressObj.Province__c = response.Addresses[0].Province;                       
-                    }                   
+                    }  
+                      if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Block_Native__c= response.Addresses[0].Block_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + AddressObj.Block_Native__c);
+                    }
+                      if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.City_Native__c= response.Addresses[0].City_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + AddressObj.City_Native__c);
+                    }
+                       if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.District_Native__c= response.Addresses[0].District_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + AddressObj.District_Native__c);
+                    } 
+                    if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Province_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + AddressObj.Province_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_1_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObj.Address_Line_1_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_2_Native__c= response.Addresses[0].Address_Line_2_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObj.Address_Line_2_Native__c);
+                    }
                 }
             }
             if(response != null && response.ValidationStatus == 'ERROR')
@@ -850,6 +902,12 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
                 AddressObj.City__c = '';
                 AddressObj.District__c = '';
                 AddressObj.Province__c = '';
+                AddressObj.Block_Native__c = '';      
+                AddressObj.City_Native__c = '';        
+                AddressObj.Province_Native__c ='';        
+                AddressObj.District_Native__c = '';        
+                AddressObj.Address_Line_1_Native__c = '';        
+                AddressObj.Address_Line_2_Native__c = '';
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));               
             }
         }       
@@ -910,7 +968,13 @@ EP/Tolerant for Validation.
                 AddressObj.City__c = '';
                 AddressObj.District__c = '';
                 AddressObj.Province__c = ''; 
-                AddressObj.MD__c ='';         
+                AddressObj.MD__c ='';
+                AddressObj.Block_Native__c = '';      
+                AddressObj.City_Native__c = '';        
+                AddressObj.Province_Native__c ='';        
+                AddressObj.District_Native__c = '';        
+                AddressObj.Address_Line_1_Native__c = '';        
+                AddressObj.Address_Line_2_Native__c = '';
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
             }
             if(AddressObj.ZipCode__c != null){
@@ -1006,9 +1070,41 @@ EP/Tolerant for Validation.
                         AddressObjtemp.Province__c = response.Addresses[i].Province;
                         system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
                     }
+                    if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Block_Native__c= response.Addresses[0].Block_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + AddressObj.Block_Native__c);
+                    }
+                    if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.City_Native__c= response.Addresses[0].City_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + AddressObj.City_Native__c);
+                    }
+                       if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.District_Native__c= response.Addresses[0].District_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + AddressObj.District_Native__c);
+                    } 
+                    if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Province_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + AddressObj.Province_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_1_Native__c= response.Addresses[0].Address_Line_1_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObj.Address_Line_1_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_2_Native__c= response.Addresses[0].Address_Line_2_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObj.Address_Line_2_Native__c);
+                    }
                    mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));  
                 }
                 else if(!response.Addresses[i].Valid){
+                
+                System.debug('^&^&^&^&^&^&^&^&^&^ valid venky'+response.Addresses[i].Valid);
                     string province;  
                     Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
                     UtilAddressTranslation.gettranslatedvalues(Market);
@@ -1029,6 +1125,12 @@ EP/Tolerant for Validation.
                     AddressObj.District__c = '';
                     AddressObj.Province__c = '';
                     AddressObj.ZipCode__C = '';  
+                    AddressObj.Block_Native__c = '';      
+                    AddressObj.City_Native__c = '';        
+                    AddressObj.Province_Native__c ='';        
+                    AddressObj.District_Native__c = '';        
+                    AddressObj.Address_Line_1_Native__c = '';        
+                    AddressObj.Address_Line_2_Native__c = '';
                     //mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));                  
                 }
             }           
@@ -1042,6 +1144,12 @@ EP/Tolerant for Validation.
             AddressObj.City__c = '';
             AddressObj.District__c = '';
             AddressObj.Province__c = '';
+            AddressObj.Block_Native__c = '';      
+            AddressObj.City_Native__c = '';        
+            AddressObj.Province_Native__c ='';        
+            AddressObj.District_Native__c = '';        
+            AddressObj.Address_Line_1_Native__c = '';        
+            AddressObj.Address_Line_2_Native__c = '';
             AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
             AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
                     ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
@@ -1179,7 +1287,22 @@ If the user is Saving  same address which matches the fields returned by toleran
            return options;
     }
      
-    public void onLineDeduplication(){  
+    public void onLineDeduplication(){ 
+		if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
+        { 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
+        }
+        else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
+        { 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName is mandatory'));
+        }
+        
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
+        {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
+        }
+        else
+		{
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1196,8 +1319,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
            
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1297,32 +1420,42 @@ If the user is Saving  same address which matches the fields returned by toleran
                     //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
-                        provincetmp = provincetmp.toLowerCase();
+                    {   
+						string provincetmp;
+                        String[] s;
+                        String x,y,finalstring;
+                        if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc != null)
+                        {
+                            provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                            provincetmp = provincetmp.toLowerCase();
+                        }
                         
                         //provincetmp = provincetmp.subString(0,1).toUpperCase();
                         Integer     i=0;
                         List<String> newString =  new List<String>();
-                        String[] s= provincetmp.split(' ');
-                        String x,y,finalstring;
-                        for(String str  : s)
-                        {
-                            i=str.length();
-                            //String x,y,finalstring;
-                            x= str.substring(0,1).toUpperCase();
-                            y= str.substring(1,i) ;
-                            finalstring = x + y  ;
-                            newString.add(finalstring);
-                        }                        
-                        provincetmp = String.valueOf(finalstring);
-                        provincetmp  =provincetmp.replace(',','');
-                      
-                        
-                       // province1 = addtrmapUpdate1.get(provincetmp);
-                        if(addtrmapUpdate1.containsKey(provincetmp)){
-                            province1 = addtrmapUpdate1.get(provincetmp);
-                            system.debug('province1 2:'+province1);
-                        }
+						if(provincetmp != null && provincetmp != '')
+                       {
+							s= provincetmp.split(' ');
+							for(String str  : s)
+							{
+								i=str.length();
+								//String x,y,finalstring;
+								x= str.substring(0,1).toUpperCase();
+								y= str.substring(1,i) ;
+								finalstring = x + y  ;
+								newString.add(finalstring);
+							}                        
+							provincetmp = String.valueOf(finalstring);
+							provincetmp  =provincetmp.replace(',','');
+						  
+							
+						   // province1 = addtrmapUpdate1.get(provincetmp);
+							if(addtrmapUpdate1.containsKey(provincetmp))
+							{
+								province1 = addtrmapUpdate1.get(provincetmp);
+								system.debug('province1 2:'+province1);
+							}
+						}
                         system.debug('province1 3:'+province1);
                         AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         
@@ -1365,8 +1498,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response >>'+response );
            
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1557,6 +1690,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         firstsave = true;       
         secondsave = false;         
     }
+	}
    //Introduced for TH Market
    //Updated for CR#89 - Phone Number Format
     public void onLineDeduplicationTH(){  
@@ -1568,8 +1702,8 @@ If the user is Saving  same address which matches the fields returned by toleran
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
            
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;

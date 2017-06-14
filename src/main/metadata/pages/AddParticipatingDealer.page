@@ -1,5 +1,12 @@
 <apex:page controller="AccountTable" sidebar="false" showHeader="false" >
     <apex:form id="myform">
+    <style>
+.tableStyle {border-collapse:collapse;}
+.colStyle1 { width: 50%;text-align:left; padding-right:30px; border-right:1px solid #000;}
+.colStyle2 { width: 50%; text-align:left; padding-left:30px; }
+
+.rowstyle { padding:0px; }
+</style>
     <script type="text/javascript">
 function closeWin() {
         // window.close();   // Closes the new window
@@ -20,11 +27,53 @@ function closeWin() {
 <!-- <apex:outputpanel id="SearchPanel"  rendered="{!if(panelStopper = false,true,false)}" > -->
         <apex:pageBlock id="table" rendered="{!if(panelStopper = true,true,false)}">
             {!$Label.Filter}
-           <p> {!$Label.Dealer_Type}     <apex:inputText value="{!dealerType}"/> </p>
-           <p> {!$Label.Dealer_Code}     <apex:inputText value="{!dealerCode}"/> </p>
+            <apex:pageBlockSection columns="5" >  
+           
+           <apex:panelGrid columns="1" border="0" styleClass="tableStyle" width="25%" columnClasses="colStyle1,colStyle2" rowClasses="rowstyle"  >
+           
+           
+           <p> {!$ObjectType.Account.Fields.Dealer_Type__c.Label} <apex:selectList value="{!dealerType}" size="1" >
+           <apex:selectOptions value="{!DealerTypepick}"/> 
+           </apex:selectList>  </p>
+        
+             
+                                                              
+            
+           <p> {!$ObjectType.Account.Fields.Dealer_GC_Code__c.Label}    <apex:inputText value="{!dealerCode}"/> </p>
+             
+             
+             <p> {!$ObjectType.Account.Fields.Dealer_Sales_Type__c.Label}         <apex:inputText value="{!dealerSalestype}"/> </p>
+             </apex:panelGrid>
+             <apex:panelGrid columns="1" border="0" styleClass="tableStyle" width="25%" columnClasses="colStyle1,colStyle2" rowClasses="rowstyle"  > 
+            <p> {!$ObjectType.Account.Fields.Dealer_Service_Func__c.Label}         <apex:inputText value="{!DealerServiceFun}"/> </p>
+           
+              <p>{!$ObjectType.Account.Fields.Dealer_Sales_func__c.Label}                        <apex:inputText value="{!DealerSalesfunc}"/> </p>
+              <p> {!$ObjectType.Account.Fields.Dealer_UsedCar_Func__c.Label}                      <apex:inputText value="{!DealerUsedCarFunc}"/> </p>
+              </apex:panelGrid>
+              <apex:panelGrid columns="1" border="0" styleClass="tableStyle"  columnClasses="colStyle1,colStyle2" rowClasses="rowstyle"  > 
+              <p>  {!$ObjectType.Account.Fields.Dealer_UsedCarCorner__c.Label}                     <apex:inputText value="{!DealerUsedCarCorner}"/> </p>
+                <p> {!$ObjectType.Account.Fields.Dealer_AMGPerformance__c.Label}                    <apex:inputText value="{!DealerAMGPerformance}"/> </p>
+               <p>{!$ObjectType.Account.Fields.Dealer_ND_Code__c.Label}                      <apex:inputText value="{!DealerNDCode}"/> </p>
+               </apex:panelGrid>
+               <apex:panelGrid columns="1" border="0" styleClass="tableStyle"  columnClasses="colStyle1,colStyle2" rowClasses="rowstyle"  > 
+              <p> {!$ObjectType.Account.Fields.Company_Name__c.Label}                     <apex:inputText value="{!CompanyName}"/> </p>
+               <p> {!$ObjectType.Account.Fields.Name.Label}                     <apex:inputText value="{!Name}"/> </p>
+              <p> {!$ObjectType.Account.Fields.Dealer_Group__c.Label}                      <apex:selectList value="{!DealerGroup}" size="1" >
+           <apex:selectOptions value="{!Dealerpick}"/> 
+           </apex:selectList> </p> 
+           </apex:panelGrid>
+           <apex:panelGrid columns="1" border="0" styleClass="tableStyle" width="25%" columnClasses="colStyle1,colStyle2" rowClasses="rowstyle"  >
+              <p> {!$ObjectType.Account.Fields.Dealer_Province__c.Label}                      <apex:inputText value="{!DealerProvince}"/> </p>
+              <p> {!$ObjectType.Account.Fields.Dealer_Cars_Dlr_Class_Sales__c .Label}       <apex:selectList value="{!DealerCarsDlrClassSales}" size="1" >
+           <apex:selectOptions value="{!Dealercars}"/> 
+             </apex:selectList> </p>
+             </apex:panelGrid>
+             </apex:pageBlockSection>                           
             <apex:pageBlockButtons location="Bottom">
                 <apex:commandButton value="{!$Label.Search}" action="{!SearchLogic}" reRender="myform" />
             </apex:pageBlockButtons>
+            
+            
         </apex:pageBlock>
 <!-- </apex:outputpanel> -->
         <apex:outputPanel id="accounts" >
@@ -40,6 +89,7 @@ function closeWin() {
                     <apex:column value="{!cc.con.City__c}"/>
                     <apex:column value="{!cc.con.Dealer_GC_Code__c }"/>
                     <apex:column value="{!cc.con.Phone  }"/>
+                    <apex:column value="{!cc.con.Dealer_Type__c}"/>
                 </apex:pageblocktable>
                 <apex:pageBlockButtons location="Bottom">
                     <apex:commandButton value="<<" action="{!first}" reRender="accounts" disabled="{!!hasPrevious}"/>

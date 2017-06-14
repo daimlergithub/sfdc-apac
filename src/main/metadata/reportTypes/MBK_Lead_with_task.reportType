@@ -2682,12 +2682,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Related_Task_Id__c</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Id__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Account</field>
@@ -3117,17 +3112,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>IsVisibleInSelfService</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>QC_ID__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>QC_Link__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>QC_Quantity__c</field>
@@ -3152,12 +3137,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>ShowAs</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SMS_Response_Required__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>SMSTemplateID__c</field>
@@ -3177,17 +3157,7 @@
             <checkedByDefault>false</checkedByDefault>
             <field>Source_System__c</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SSI_Number__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SSI_Status__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Start_Call_Time__c</field>
@@ -3207,12 +3177,7 @@
             <checkedByDefault>true</checkedByDefault>
             <field>Subject</field>
             <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Link__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
+        </columns> 
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IsTask</field>

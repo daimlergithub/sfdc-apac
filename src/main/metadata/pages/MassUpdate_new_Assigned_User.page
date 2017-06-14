@@ -10,15 +10,15 @@
         <apex:pageBlock id="pb" >
             <apex:pageBlockSection columns="1">
                 <div>
-                    <apex:pageBlock title="Currently Assigned To:" >
+                    <apex:pageBlock title="{!$Label.Currently_Assigned_To}" >
                         <apex:inputField value="{!accUsr.OwnerId}" label="">
                             <apex:actionSupport event="onchange" action="{!getFields}" reRender="pbled,pbAcc,pbveh,pbcse"/>
                         </apex:inputField>
                     </apex:pageBlock>
                 </div>
-                <apex:pageBlock title="Account Records" id="pbAcc">
+                <apex:pageBlock title="{!$Label.Account_Records}" id="pbAcc">
                     <apex:pageBlockTable value="{!Accounts}" var="acs">
-                        <apex:column headerValue="selectAll">
+                        <apex:column headerValue="{!$Label.Selectall}">
                             <apex:facet name="header">
                                 <c:selectAllChkBox />
                             </apex:facet>
@@ -31,7 +31,7 @@
                         <apex:column value="{!acs.acc.toRole__c}"/>
                     </apex:pageBlockTable>
                 </apex:pageBlock>
-                <apex:pageBlock title="Vehicle Records" id="pbveh">
+                <apex:pageBlock title="{!$Label.Vehicle_Records}" id="pbveh">
                     <apex:pageBlockTable value="{!Vehicles}" var="var">
                         <apex:column >
                             <apex:facet name="header" >
@@ -54,7 +54,7 @@
                         <apex:column value="{!var.veh.Service_Advisor__c}"/> -->
                     </apex:pageBlockTable>
                 </apex:pageBlock>
-                <apex:pageBlock title="Lead Records" id="pbled">
+                <apex:pageBlock title="{!$Label.Lead_Records}" id="pbled">
                     <apex:pageBlockTable value="{!Leads}" var="lds">
                         <apex:column >
                             <apex:facet name="header" >
@@ -67,7 +67,7 @@
                         <apex:column value="{!lds.led.ownerId}"/>
                     </apex:pageBlockTable>
                 </apex:pageBlock>
-                <apex:pageBlock title="Case Records" id="pbcse">
+                <apex:pageBlock title="{!$Label.Case_Records}" id="pbcse">
                     <apex:pageBlockTable value="{!Cases}" var="ces">
                         <apex:column >
                             <apex:facet name="header" >
@@ -81,13 +81,13 @@
                     </apex:pageBlockTable>
                 </apex:pageBlock>
                 <div>
-                    <apex:pageBlock title="Newly Assigned To:" id="usr">
+                    <apex:pageBlock title="{!$Label.Newly_Assigned_To}" id="usr">
                         <apex:inputField value="{!NewAsignUsr.Portal_Apply_User__c}" label="">
                             <apex:actionSupport event="onchange" action="{!disPlayNewAssignUserInfo}" reRender="usrdetail"/>
                         </apex:inputField>
                     </apex:pageBlock>
                 </div>
-                <apex:pageBlock title="UserDetails" id="usrdetail" >
+                <apex:pageBlock title="{!$Label.User_Details}" id="usrdetail" >
                     <apex:pageBlockSection rendered="{!usr.Firstname!=null}">
                          <apex:outputField value="{!usr.Firstname}"/>
                      <apex:outputField value="{!usr.Lastname}"/>
@@ -97,8 +97,8 @@
                 </apex:pageBlock>
             </apex:pageBlockSection>
             <center>
-                <apex:commandButton value="Update" action="{!massUpdateNewAssign}"  oncomplete="RelodeParent()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" />                     
+                <apex:commandButton value="{!$Label.Update}" action="{!massUpdateNewAssign}"  oncomplete="RelodeParent()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <apex:CommandButton value="{!$Label.Cancel}" oncomplete="RelodeParent()" />                     
                 
             </center>
         </apex:pageBlock>
