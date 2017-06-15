@@ -478,6 +478,9 @@ global with sharing class VehiclePickerController {
                 
             }            
         }
+
+          
+                    
         if(vehicleAttributes.get('Lookup') == 'true'){
            System.debug('Vehicle Type is Interested Vehicle...' +vehicleAttributes);
            Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
@@ -505,5 +508,45 @@ global with sharing class VehiclePickerController {
     
     public class BrandClasses{
         public Map<String, String> name {get;set;}
+    }
+    
+    global static void converttoleadMethod(id ledid,string intmodel){
+                if(ledid!=null){
+                List<Car_Model__c> carModel;
+                Vehicle__c leadVehicle = new vehicle__c();
+                Lead__c lead = [Select Id,Trade_In_Vehicle__c,Interested_Vehicle__c from Lead__c Where Id =:ledid];
+                
+                if(lead.Trade_In_Vehicle__c!=null){
+                Vehicle__c trv=[select id,Brand__c,Class__c,Name,Model__c from Vehicle__c where id=:lead.Trade_In_Vehicle__c];
+                carModel = [Select Id from Car_Model__c Where Brand__c =:trv.Brand__c AND Series__c =:trv.Class__c AND Name =:trv.Model__c ORDER BY CreatedDate ASC NULLS LAST];
+                leadVehicle.Car_Model__c = carModel[0].Id;
+                
+               
+                 
+                    leadVehicle.Id =  lead.Trade_In_Vehicle__c;
+                    leadVehicle.Car_Model__c = carModel[0].Id;       
+                    update leadVehicle;
+                    lead.Trade_In_Vehicle__c = leadVehicle.Id;
+                    update lead;
+                    }
+                    if(intmodel != null){
+                    system.debug('intmodel'+intmodel);
+                    try{
+                    Vehicle__c intv=[select id,Brand__c,Class__c,Name,Model__c from Vehicle__c where Car_Model__r.Model_Code__c=:intmodel];
+                    carModel = [Select Id from Car_Model__c Where Brand__c =:intv.Brand__c AND Series__c =:intv.Class__c AND Name =:intv.Model__c ORDER BY CreatedDate ASC NULLS LAST];
+                    leadVehicle.Car_Model__c = carModel[0].Id;
+                    
+                 
+                    leadVehicle.Id = intv.id;
+                    leadVehicle.Car_Model__c = carModel[0].Id;       
+                    update leadVehicle;
+                    lead.Interested_Vehicle__c= leadVehicle.Id;
+                    update lead;
+                    }catch(Exception e){
+                    
+                    }
+                    }
+                 }    
+            
     }
 }
