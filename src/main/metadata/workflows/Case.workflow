@@ -1098,7 +1098,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline %3A Dealer Notification KR after 72 Hour</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
         <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;B&apos;),ISPICKVAL( Priority , &apos;Yellow = 3&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1228,7 +1228,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR after 24 Hours</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
         <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;A&apos;),ISPICKVAL( Priority , &apos;Red &gt;= 4&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1244,7 +1244,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR after 72 Hour</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
         <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;B&apos;),ISPICKVAL( Priority , &apos;Yellow = 3&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1260,7 +1260,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR before 168 hours</fullName>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
@@ -1300,7 +1300,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR before 17 hours</fullName>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
@@ -1340,7 +1340,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline%3A Dealer Notification KR After 240 hours</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
         <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;C&apos;),ISPICKVAL( Priority , &apos;Green &lt;= 2&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1638,7 +1638,7 @@
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND (2 OR 3) AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
@@ -1724,7 +1724,7 @@
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>(1 OR 2) AND 3 AND 4 AND (5 OR 6 OR 7)</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
