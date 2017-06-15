@@ -197,10 +197,6 @@
         <name>Account_Name</name>
     </customLabels>
 	<customLabels>
-        <label>顧客名は必須項目であるため、必ず入力してください。</label>
-        <name>Account_Name_is_mandatory</name>
-    </customLabels>
-	<customLabels>
         <label>顧客</label>
         <name>Account_Records</name>
     </customLabels>
@@ -973,7 +969,7 @@
         <name>Clear_Button</name>
     </customLabels>
     <customLabels>
-        <label>成約済</label>
+        <label>閉じる</label>
         <name>Close</name>
     </customLabels>
     <customLabels>
@@ -1736,18 +1732,6 @@
         <label><!-- Greater Than --></label>
         <name>Greater_Than</name>
     </customLabels>
-	<customLabels>
-        <label>HOT1（当月に成約かつ登録見込）</label>
-        <name>HOT1</name>
-    </customLabels>
-    <customLabels>
-        <label>HOT2（当月に成約、来月以降登録見込）</label>
-        <name>HOT2</name>
-    </customLabels>
-    <customLabels>
-        <label>HOT3(来月以降に成約、登録見込）</label>
-        <name>HOT3</name>
-    </customLabels>
     <customLabels>
         <label>納車</label>
         <name>Hand_Over</name>
@@ -2135,14 +2119,6 @@
 	<customLabels>
         <label>最後へ</label>
         <name>Last</name>
-    </customLabels>
-	<customLabels>
-        <label>タッチポイントは必須項目であるため、必ず入力してください。</label>
-        <name>LastName_and_TouchPoint_fileds_are_mandatory</name>
-    </customLabels>
-    <customLabels>
-        <label>姓は必須項目であるため、必ず入力してください。</label>
-        <name>LastName_is_mandatory</name>
     </customLabels>
     <customLabels>
         <label>最終更新者</label>
@@ -4411,14 +4387,6 @@
         <label>重複の可能性があるアカウント</label>
         <name>Suspected_Duplicates</name>
     </customLabels>
-	<customLabels>
-        <label>T1（先月以前に成約、当月に登録予定）</label>
-        <name>T1</name>
-    </customLabels>
-    <customLabels>
-        <label>T2（先月以前に成約、来月以降に登録予定）</label>
-        <name>T2</name>
-    </customLabels>
     <customLabels>
         <label><!-- TH --></label>
         <name>TH</name>
@@ -5261,7 +5229,7 @@
         <name>Retail_Campaigns</name>
     </customTabs>
     <customTabs>
-        <label>タスク</label>
+        <label>ToDo</label>
         <name>Tasks</name>
     </customTabs>
     <customTabs>

@@ -178,13 +178,6 @@
         <value>Account Name</value>
     </labels>
 	<labels>
-        <fullName>Account_Name_is_mandatory</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Account Name is mandatory</shortDescription>
-        <value>Account Name is mandatory</value>
-    </labels>
-	<labels>
         <fullName>Account_Records</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2980,27 +2973,6 @@ please contact the number below.</value>
         <shortDescription>Greater Than</shortDescription>
         <value>Greater Than</value>
     </labels>
-	<labels>
-        <fullName>HOT1</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>HOT1</shortDescription>
-        <value>HOT1</value>
-    </labels>
-    <labels>
-        <fullName>HOT2</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>HOT2</shortDescription>
-        <value>HOT2</value>
-    </labels>
-    <labels>
-        <fullName>HOT3</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>HOT3</shortDescription>
-        <value>HOT3</value>
-    </labels>
     <labels>
         <fullName>Hand_Over</fullName>
         <language>en_US</language>
@@ -3686,20 +3658,6 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Last</shortDescription>
         <value>Last</value>
-    </labels>
-	<labels>
-        <fullName>LastName_and_TouchPoint_fileds_are_mandatory</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>LastName and TouchPoint fileds are mandatory</shortDescription>
-        <value>LastName and TouchPoint fileds are mandatory</value>
-    </labels>
-    <labels>
-        <fullName>LastName_is_mandatory</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>LastName is mandatory</shortDescription>
-        <value>LastName is mandatory</value>
     </labels>
     <labels>
         <fullName>Last_Modified_By</fullName>
@@ -7803,20 +7761,6 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Suspected Duplicates</shortDescription>
         <value>Suspected Duplicates</value>
-    </labels>
-	<labels>
-        <fullName>T1</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>T1</shortDescription>
-        <value>T1</value>
-    </labels>
-    <labels>
-        <fullName>T2</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>T2</shortDescription>
-        <value>T2</value>
     </labels>
     <labels>
         <fullName>TH</fullName>
