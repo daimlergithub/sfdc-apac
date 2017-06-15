@@ -93,7 +93,7 @@
     <fields>
         <fullName>Contact_Id__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign_Member__r.Contact_Id__c</formula>
+        <formula>Campaign_Member__r.Contact_Id__r.LastName&amp;' '&amp; Campaign_Member__r.Contact_Id__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contact Id</label>
         <required>false</required>
