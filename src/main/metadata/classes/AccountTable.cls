@@ -38,7 +38,8 @@ Public With Sharing class AccountTable{
     public String Name  {get;set;} 
     public String DealerGroup {get;set;} 
     public String DealerProvince {get;set;} 
-    public String DealerCarsDlrClassSales {get;set;} 
+    public String DealerCarsDlrClassSales {get;set;}
+    public String DealerActive  {get;set;} 
     public String CamId {get;set;}
     public Boolean panelStopper {get;set;}
     public String soql {get;set;}
@@ -143,6 +144,9 @@ Public With Sharing class AccountTable{
       soql += ' and Dealer_Province__c =\''+String.escapeSingleQuotes(DealerProvince)+'\''; 
       if (!String.isBlank(DealerCarsDlrClassSales  ))
       soql += ' and Dealer_Cars_Dlr_Class_Sales__c  =\''+String.escapeSingleQuotes(DealerCarsDlrClassSales )+'\''; 
+      if (!String.isBlank(DealerActive))
+      soql += ' and Dealer_Active__c ='+String.escapeSingleQuotes(DealerActive ); 
+      
        system.debug('++++++++++++++++++++++'+ soql); 
        //runQuery();
         Setcon = new ApexPages.StandardSetController(Database.query(soql));

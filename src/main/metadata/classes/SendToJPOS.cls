@@ -447,7 +447,7 @@ public class SendToJPOS{
           
                     
           // If customer is company send account information to EP
-          if(Acclist.Recordtypeid==accCompany_RecordTypeId && Acclist.Company_Name__c!=null && Acclist.Company_Name_Native_2__c!=null && Acclist.Company_Legal_Form__c!=null && Acclist.Company_Legal_Form_text__c!=null && Acclist.Legal_Form_Position__c!=null && (AddreesSedntoJPOS!=Null) && AddreesSedntoJPOS.Province_Native__c!=null && AddreesSedntoJPOS.City_Native__c!=null && AddreesSedntoJPOS.District_Native__c!=null && AddreesSedntoJPOS.Province__c!=null && AddreesSedntoJPOS.City__c!=null && AddreesSedntoJPOS.District__c!=null && AddreesSedntoJPOS.ZipCode__c!=null && AssignedDealerUserID!=null && AssignedDealer.DMS_UserID__c!=null)
+          if(Acclist.Recordtypeid==accCompany_RecordTypeId && Acclist.Company_Name__c!=null && Acclist.Company_Name_Native_2__c!=null && Acclist.Company_Legal_Form__c!=null && Acclist.Legal_Form_Position__c!=null && (AddreesSedntoJPOS!=Null) && AddreesSedntoJPOS.Province_Native__c!=null && AddreesSedntoJPOS.City_Native__c!=null && AddreesSedntoJPOS.District_Native__c!=null && AddreesSedntoJPOS.Province__c!=null && AddreesSedntoJPOS.City__c!=null && AddreesSedntoJPOS.District__c!=null && AddreesSedntoJPOS.ZipCode__c!=null && AssignedDealerUserID!=null && AssignedDealer.DMS_UserID__c!=null)
          {
                  try
                  {
