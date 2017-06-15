@@ -86,6 +86,7 @@
         public Set<String> specialMarkAcc = new Set<String>{'Automotive related','Dealer','Fire department','Lawyer','Insurance Company','MBJ','Ministry of Transport','Police'};
         public Set<String> accStatus = new Set<String>{'Customer', 'Prospect'};
         public Set<String> LeadDealerStatus = new Set<String>{'Not Started','On-going','Order Placed','Purchased(Only Non BDC)','Lost'};
+        public Set<String> retTaskType = new Set<String>{'Standard Warranty','Used Car Warranty','Loan','Lease','Service Program'};
         
         public String jsonFilter { get; set; }
         public Map<String, Object> filterMap;
@@ -169,6 +170,19 @@
             set;
         }
         
+        public List<SelectOption> RetailTaskType{
+            get{
+                RetailTaskType= new List<SelectOption>();
+                RetailTaskType.add(new SelectOption('', '--None--'));
+                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Type__C;
+                for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                    if(retTaskType.contains(entry.getLabel()))
+                    RetailTaskType.add(new SelectOption(entry.getValue(), entry.getLabel()));
+                }
+                return RetailTaskType;
+            }
+            set;
+        }
        
         public List<SelectOption> SpecialMarkonAccount{
             get{
@@ -450,7 +464,7 @@
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
             AccountLinkSoql = 'SELECT toRole__c,Sales_Representative__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
             AddressSoql = 'SELECT Customer__c From Address__c where ';
-            RetailTaskSoql = 'SELECT Account__c,Product_Name__c,Type__c,Duration__c,Status__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
+            RetailTaskSoql = 'SELECT Account__c,Product_Name__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
             if(u.contactId != NULL){
                 RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND ';
             }
