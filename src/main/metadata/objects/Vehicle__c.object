@@ -21714,37 +21714,32 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <masterLabel>Send to SPO</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 
-var qre = sforce.connection.query("SELECT Id,Car_Relation__c,Portal_Apply_Status__c,Contact__c,Source_Lead__c,Source_Lead__r.Lead_Sub_Type__c FROM Vehicle_Relationship__c WHERE (Portal_Apply_Status__c=null AND End_Date__c=null AND (Car_Relation__c='Purchaser' AND Contact__c!=null)) AND Source_Lead__r.Lead_Sub_Type__c=null AND Vehicle_ID__c='{!Vehicle__c.Id}'"); 
+var qre = sforce.connection.query("SELECT Id,Car_Relation__c,Portal_Apply_Status__c,Contact__c,Source_Lead__c,Source_Lead__r.Lead_Sub_Type__c FROM Vehicle_Relationship__c WHERE (Portal_Apply_Status__c=null AND End_Date__c=null AND (Car_Relation__c='Purchaser' AND Contact__c!=null)) AND Source_Lead__r.Lead_Sub_Type__c=null AND Vehicle_ID__c='{!Vehicle__c.Id}'");
 
-var qrerecords = qre.getArray("records"); 
+var qrerecords = qre.getArray("records");
 
-if(qrerecords.length&gt;0){ 
+if(qrerecords.length>0){
 
-var buttons = parent.document.getElementsByName("send_to_spo"); 
-if(qrerecords.length&gt;0){ 
-for (var i=0; i &lt; buttons.length; i++) { 
-buttons[i].disabled=true; 
-buttons[i].className = 'btnDisabled'; 
-buttons[i].value = "{!$Label.send_to_spo_active}"; 
-} 
-} 
-} 
-else{ 
-var firstRegistration='{!Vehicle__c.FirstRegistrationDate__c}'; 
-var qr = sforce.connection.query("select Id,MOT_USER_NAME__c,MOT_User_Address__c,MOT_Owner_Name__c,MOT_Owner_Address__c,Registration_Number__c,Registration_Date__c,Car_Relation__c,Vehicle_ID__r.FirstRegistrationDate__c from Vehicle_Relationship__c where Vehicle_ID__c='{!Vehicle__c.Id}' AND Car_Relation__c='Purchaser' AND End_Date__c=null"); 
+alert('{!$Label.s8_Please_operate_My_Mercedes_Registration_first}');
 
-var records = qr.getArray("records"); 
 
-if(records.length&gt;0 &amp;&amp; (records[0].MOT_USER_NAME__c!= null &amp;&amp; records[0].MOT_USER_NAME__c!='') &amp;&amp; (records[0].MOT_User_Address__c!= null &amp;&amp; records[0].MOT_User_Address__c!='') &amp;&amp; 
-(records[0].MOT_Owner_Name__c!= null &amp;&amp; records[0].MOT_Owner_Name__c!= '') &amp;&amp; (records[0].MOT_Owner_Address__c!= null &amp;&amp; records[0].MOT_Owner_Address__c!= '') &amp;&amp; records[0].Registration_Number__c!= null &amp;&amp; records[0].Registration_Date__c!= null &amp;&amp; firstRegistration!=''){ 
-window.open("{!URLFOR($Site.Prefix)}/apex/SendVehicleInformationtoSPOJP?Id={!Vehicle__c.Id}"); 
-} 
-else { 
-alert('{!$Label.Send_to_spo_translate}');	
-} 
+}
+else{
+var firstRegistration='{!Vehicle__c.FirstRegistrationDate__c}';
+var qr = sforce.connection.query("select Id,MOT_USER_NAME__c,MOT_User_Address__c,MOT_Owner_Name__c,MOT_Owner_Address__c,Registration_Number__c,Registration_Date__c,Car_Relation__c,Vehicle_ID__r.FirstRegistrationDate__c from Vehicle_Relationship__c where Vehicle_ID__c='{!Vehicle__c.Id}' AND Car_Relation__c='Purchaser' AND End_Date__c=null");
+
+var records = qr.getArray("records");
+
+if(records.length>0 && (records[0].MOT_USER_NAME__c!= null && records[0].MOT_USER_NAME__c!='') && (records[0].MOT_User_Address__c!= null && records[0].MOT_User_Address__c!='') &&
+(records[0].MOT_Owner_Name__c!= null && records[0].MOT_Owner_Name__c!= '') && (records[0].MOT_Owner_Address__c!= null && records[0].MOT_Owner_Address__c!= '') && records[0].Registration_Number__c!= null && records[0].Registration_Date__c!= null && firstRegistration!=''){
+window.open("{!URLFOR($Site.Prefix)}/apex/SendVehicleInformationtoSPOJP?Id={!Vehicle__c.Id}");
+}
+else {
+alert('{!$Label.Send_to_spo_translate}');
+}
 }</url>
     </webLinks>
     <webLinks>
