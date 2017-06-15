@@ -10079,27 +10079,27 @@ Modify Reason:
         <fullName>Lead_Possibility__c</fullName>
         <externalId>false</externalId>
         <formula>IF( 
-NOT(ISBLANK(Network_Registration_Date__c)) , 'Close' , 
+NOT(ISBLANK(Network_Registration_Date__c)) , $Label.Close , 
 IF( 
 (MONTH(Expected_Close_Date__c)= MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), 'HOT1', 
+(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), $Label.HOT1, 
 IF( 
 (MONTH(Expected_Close_Date__c)= MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), 'HOT2', 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), $Label.HOT2, 
 IF( 
 (MONTH(Expected_Close_Date__c)&gt; MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), 'HOT3', 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), $Label.HOT3, 
 IF( 
 (MONTH( Order_Confirmation_Date__c )&lt; MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), 'T1', 
+(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), $Label.T1, 
 IF( 
 (MONTH(Order_Confirmation_Date__c)&lt; MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), 'T2', 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), $Label.T2, 
 IF( 
 ( 
 (ISBLANK(Expected_Close_Date__c)||ISBLANK(Expected_Registration_Date__c )) 
