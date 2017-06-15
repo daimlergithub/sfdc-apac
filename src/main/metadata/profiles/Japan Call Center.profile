@@ -4884,7 +4884,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.SMS_Last_Modified_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -13249,6 +13249,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.Account_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Related_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22224,6 +22229,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Account_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Related_Vehicle__c </field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

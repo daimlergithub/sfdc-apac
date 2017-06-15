@@ -11,7 +11,7 @@ public with sharing class SelectAddressController {
     public String market{get;set;}
     public String selectedAddress {get; set;}
     public List<SelectOption> addressSelectOptionList {get; set;}
-    
+     public map<string,string> labelNvalue=new map<string,string>();
     public SelectAddressController(ApexPages.StandardController stdController) {
         this.stdController = stdController; 
         accountId = ApexPages.currentPage().getParameters().get('id');
@@ -25,11 +25,25 @@ public with sharing class SelectAddressController {
                     Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c =: accountId ];                     
     
  addressSelectOptionList.add(new SelectOption('None', '--None--'));
-    for(Address__c addressRec : addressList) {         
+    /*for(Address__c addressRec : addressList) {         
           String addressType = addressRec.Address_Type__c; 
          addressSelectOptionList.add(new SelectOption(addressRec.Id, addressType));     
-    }    
+         
+    }  */
     
+     Schema.DescribeFieldResult fieldResult = Address__c.Address_Type__c.getDescribe();
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+          for( Schema.PicklistEntry f : ple)
+         {
+             labelNvalue.put(f.getValue(),f.getLabel());
+             system.debug('labelNvalue'+labelNvalue);
+           }
+        for(Address__c addressRec : addressList) {
+            
+             String addressType1=labelNvalue.get(addressRec.Address_Type__c);
+              string addressType=addressType1;
+             addressSelectOptionList.add(new SelectOption(addressRec.Id, addressType));  
+         }
     List<Account> accountList = [select Primary_Address_Reference__c from Account where Id =: accountId];
       if(accountList.size() > 0 && String.isNotBlank(accountList[0].Primary_Address_Reference__c)) {
          selectedAddress = accountList[0].Primary_Address_Reference__c;
@@ -42,9 +56,11 @@ public with sharing class SelectAddressController {
         {
             accRec.Primary_Address_Reference__c = selectedAddress;
         }
-        else
+        else if(selectedAddress == 'None')
         {
-            accRec.Primary_Address_Reference__c = null;   
+            accRec.Primary_Address_Reference__c = null; 
+            accRec.Primary_Address_Display__c = '';
+            
         }
         update accRec;       
         return null;

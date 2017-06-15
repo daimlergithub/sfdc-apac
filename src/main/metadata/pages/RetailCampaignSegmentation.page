@@ -12,15 +12,11 @@
 
 
         var filterNames = '';
-        var oldFieldValue = '';
-        var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c; NextServiceDate__c; NextInspectionDate__c;';
+        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c; NextServiceDate__c; NextInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
                 filterNames += this.value + ';';
-            });
-            $('.aaa').children().each(function(){
-                this.style.display = 'none';
             });
         });
         
@@ -512,23 +508,44 @@
             }
         }
         function queryName(){
-            var queryName = prompt("Please enter query name", "Query Name here");
-              document.getElementById('{!$Component.form.inptHdn}').value = queryName;
            
-        }
-        function myOnComplete(){
-            window.alert('Query Saved');
+                var queryName = prompt("Please enter query name");
+                var query = document.getElementById('que').value;
+                if(queryName){
+                    alert(query);
+                    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.RetailCampaignSegmentationController.saveCriteriaa}',
+                        queryName, query,
+                        function(result, event){ 
+                            if (event.status) {
+                                // Get DOM IDs for HTML and Visualforce elements like this
+                                alert('Query Saved');
+                            } else if (event.type === 'exception') {
+                                document.getElementById("responseErrors").innerHTML = 
+                                    event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                            } else {
+                                document.getElementById("responseErrors").innerHTML = event.message;
+                            }
+                        }, 
+                        {escape: true}
+                    );
+                } else {
+                    alert('query'+query);
+                alert('cancelled');
+                return false;
+            }    
         }
     </script>
     
-    <apex:form id="form">
-       <apex:inputHidden value="{!myProperty}" id="inptHdn"/>
+    <apex:form id="form"> 
         <apex:inputHidden id="jsonFilter" value="{!jsonFilter}"/>
+        <input type="hidden" id="que" value="{!saveQuery}"/>
+        <div id="responseErrors"></div>
+        <apex:pageMessages />
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
         <apex:pageBlock id="block">
             <div id="filterBody" style="margin:10px;">
               
-                <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+                <div class="commonFilterItem">
                     <span class="leftTitle">{!$Label.Customer_Filter}</span>
                     <table id="customerTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -596,7 +613,7 @@
                 </div>
                 
                 
-                 <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+                 <div class="commonFilterItem">
                     <span class="leftTitle">{!$Label.Account_Retail_Copy_Filter}</span>
                     <table id="AccountRetailCopyTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -611,7 +628,7 @@
                             <td>{!$Label.AccountRetailCopy}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
+                                    <option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>
                                     <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
                                     <option value="Retail_Sales_Sanction__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Sanction__c.Label}</option>
                                     <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
@@ -669,7 +686,7 @@
                  <hr style="margin-left:20px; width:650px;"/>
                 </div>
                 
-                <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+                <div class="commonFilterItem">
                     <span class="leftTitle">{!$Label.Lead_Filter}</span>
                     <table id="interestTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -729,7 +746,7 @@
                 <hr style="margin-left:20px; width:650px;"/> 
                 </div>
 
-                <div class="commonFilterItem" style="display:{!if(segmentationBase='Vehicle',"block","none")};">
+                <div class="commonFilterItem">
                     <span class="leftTitle">{!$Label.Vehicle_Filter}</span>
                     <table id="vehicleTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -785,7 +802,7 @@
                     <hr style="margin-left:20px; width:650px;"/>
                 </div>
            
-           <div class="commonFilterItem" style="display:{!if(segmentationBase='Vehicle',"block","none")};">
+           <div class="commonFilterItem">
                     <span class="leftTitle">{!$Label.Vehicle_Relation_Filter}</span>
                     <table id="VehicleRelationTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -838,7 +855,7 @@
                 <hr style="margin-left:20px; width:650px;"/>
                 </div>
                 
-             <div class="commonFilterItem" style="display:{!if(segmentationBase='Vehicle',"block","none")};">
+             <div class="commonFilterItem">
                     <span class="leftTitle">{!$Label.Vehicle_Retail_copy_Filter}</span>
                     <table id="VehicleRetailcopyTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -903,7 +920,7 @@
                     </div>
                     <hr style="margin-left:20px; width:650px;"/>
                 </div>
-             <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+             <div class="commonFilterItem">
                     <span class="leftTitle">{!$Label.Campaigns_Filter}</span>
                     <table id="CampaignTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -949,7 +966,7 @@
                     </div>
                     <hr style="margin-left:20px; width:650px;"/>
                 </div>
-             <div class="commonFilterItem" style="display:{!if(segmentationBase='Contract',"block","none")};">
+             <div class="commonFilterItem">
                     <span class="leftTitle">{!$Label.Contract_related}</span>
                     <table id="ContractrelatedTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
                         <tr class="tableHeader">
@@ -1000,7 +1017,7 @@
                     </div>
                     <hr style="margin-left:20px; width:650px;"/>
                 </div>
-             <div class="commonFilterItem" style="display:{!if(segmentationBase='Customer',"block","none")};">
+             <div class="commonFilterItem">
                    <span class="leftTitle">{!$Label.Address_Filter}</span>  
                     
                     <table id="AddressTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
@@ -1058,9 +1075,9 @@
                         <img src="/img/loading24.gif" style="vertical-align:middle;"/>
                     </apex:facet>      
                 </apex:actionStatus>
-                <apex:outputPanel id="saveCriteria" >
-                    <apex:commandButton action="{!saveCriteria}" value="Save Criteria" onclick="queryName()" disabled="{!wrapperList.size = 0 || wrapperList = null}" reRender="none" onComplete="myOnComplete();"/>
-                </apex:outputPanel>
+                <!--<apex:outputPanel id="saveCriteria" >
+                    <apex:commandButton value="Save Criteria"  onclick="queryName()" disabled="{!wrapperList.size = 0 || wrapperList = null}" reRender="none" />
+                </apex:outputPanel>-->
                 <apex:outputPanel rendered="{!wrapperList.size == 0}" id="noMatches">
                  <apex:outputText style="color:red"><h1>   Records found : {!noOfRecords} &nbsp;&nbsp;  No Matches Found, Please try with other filters.</h1></apex:outputtext>
                 </apex:outputPanel>
@@ -1091,61 +1108,83 @@
                             <apex:inputCheckbox value="{!wrapAcc.isSelected}" />
                             </apex:column>
                             <!-----------------------------for customerBase starts----------------------------------->
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}"  rendered="{!IF(segmentationBase='Customer',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}"  rendered="{!segmentationBase='Customer'}">
                                 <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Status__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Status__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Vehicle_Amount__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Interest_Model__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Interest_Model__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.PersonHomePhone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.PersonMobilePhone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.Phone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}" rendered="{!IF(segmentationBase='Customer',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.PersonEmail}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.accLink.Sales_Representative__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.accLink.Selling_Dealer__c}"/> 
                             </apex:column>
                             <!-----------------------------customerBase ends----------------------------------->
                             <!-----------------------------vehicleBase starts---------------------------------->
-                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.Contact__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.Contact__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.Contact__c}"/>
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Class__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Class__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Class__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Model_Description__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Recall__c.Fields.Status__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                            <!--<apex:column headerValue="{!$ObjectType.Recall__c.Fields.Status__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.recall.Status__c}"/> 
-                            </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}" rendered="{!segmentationBase='Vehicle' && parCampType='Sales Contact Target'}">
+                            </apex:column>-->
+                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.FirstRegistrationDate__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Service_Advisor__c.Label}" rendered="{!segmentationBase='Vehicle'&&parCampType='Aftersales Contact Target 1'}">
-                                <apex:outputField value="{!wrapAcc.accLink.Service_Advisor__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
-                            </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextServiceDate__c.Label}" rendered="{!segmentationBase='Vehicle'&&parCampType='Aftersales Contact Target 1'}">
-                                <apex:outputField value="{!wrapAcc.accLink.NextServiceDate__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
-                            </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'&&parCampType='Aftersales Contact Target 1'}">
-                                <apex:outputField value="{!wrapAcc.accLink.NextInspectionDate__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
-                            </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}" rendered="{!IF(segmentationBase='Vehicle',true,false)}">
+                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.New_Used__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}" rendered="{!segmentationBase='Vehicle'&&parCampType='Sales Contact Target'}">
+                            <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.End_Date__c}"/> 
                             </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Service_Advisor__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.accLink.Service_Advisor__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextServiceDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.accLink.NextServiceDate__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.accLink.NextInspectionDate__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.accLink.Service_Dealer__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            
                             <!-----------------------------vehicleBase Ends---------------------------------->
                             <!-----------------------------contractBase Starts-------------------------------->
                             
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Account__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Account__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.ContractNumber__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.ContractNumber__c}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Product_Name__c}"/> 
@@ -1159,6 +1198,15 @@
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Status__c}"/> 
                             </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Latest_Sales_Person__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Latest_Sales_Person__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Supporting_Dealer__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Supporting_Dealer__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Activation_Dealer_Code__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Activation_Dealer_Code__c}"/> 
+                            </apex:column>
                             <!-----------------------------contractBase Ends---------------------------------->
                      </apex:pageBlockTable>
                     </div>
@@ -1166,4 +1214,4 @@
             </apex:outputPanel>
         </apex:pageBlock>
     </apex:form>
-</apex:page>
+</apex:page> 

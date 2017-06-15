@@ -2,7 +2,7 @@ public class SSORedirectController
 {
 
     
-    String internalIdpSettingName = 'UATSSOSetup';
+    String internalIdpSettingName = 'MBJCommunitySSOSetup';
     
     String idpUrlWithRelayState = '' ;
     

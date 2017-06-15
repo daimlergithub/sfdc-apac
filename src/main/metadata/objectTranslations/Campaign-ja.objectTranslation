@@ -940,7 +940,7 @@
         <name>DM_Comments__c</name>
     </fields>
     <fields>
-        <label>カタログ</label>
+        <label>DMテンプレート</label>
         <name>DM_Material__c</name>
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>

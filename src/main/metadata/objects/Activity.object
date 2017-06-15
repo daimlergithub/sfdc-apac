@@ -1129,6 +1129,30 @@
         <required>false</required>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Activities1</relationshipLabel>
+        <relationshipName>Activities1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	 <fields>
+        <fullName>Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.ContractNumber__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
@@ -1644,6 +1668,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), '
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	  <fields>
+        <fullName>Related_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Result__c</fullName>
         <externalId>false</externalId>
@@ -1977,8 +2014,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.PRIORITY</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>TASK.LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <columns>SMS_Response_Required__c</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns> 
         <columns>SMS_Content__c</columns>
         <filterScope>Everything</filterScope>
         <filters>

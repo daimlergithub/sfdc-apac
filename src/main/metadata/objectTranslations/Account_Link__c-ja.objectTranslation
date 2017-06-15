@@ -1345,7 +1345,7 @@
         <relationshipLabel>アカウントリンク1</relationshipLabel>
     </fields>
     <fields>
-        <label>アカウントリンク2</label>
+        <label>顧客名</label>
         <name>toRole__c</name>
         <relationshipLabel>アカウントリンク2</relationshipLabel>
     </fields>
@@ -1554,3 +1554,4 @@
         <name>Send_To_AutoLine</name>
     </webLinks>
 </CustomObjectTranslation>
+
