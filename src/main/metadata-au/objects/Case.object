@@ -15720,6 +15720,11 @@ Modify Reason:
                 <closed>false</closed>
             </picklistValues>
             <picklistValues>
+                <fullName>Uploaded</fullName>
+                <default>false</default>
+                <closed>false</closed>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Has been upgraded</fullName>
                 <default>false</default>
                 <closed>false</closed>
