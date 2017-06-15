@@ -77,8 +77,8 @@ public class AddressSearchValidationController
     // COnstructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
-		
-		Public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+        
+        Public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
         public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
     
         public AddressSearchValidationController(ApexPages.StandardController controller){
@@ -1288,21 +1288,21 @@ If the user is Saving  same address which matches the fields returned by toleran
     }
      
     public void onLineDeduplication(){ 
-		if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
+        if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
         { 
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName and TouchPoint fileds are mandatory'));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.LastName_and_TouchPoint_fileds_are_mandatory));
         }
         else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
         { 
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'LastName is mandatory'));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.LastName_is_mandatory));
         }
         
         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
         {
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Account Name is mandatory'));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.Account_Name_is_mandatory));
         }
         else
-		{
+        {
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1421,7 +1421,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
                     {   
-						string provincetmp;
+                        string provincetmp;
                         String[] s;
                         String x,y,finalstring;
                         if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc != null)
@@ -1433,29 +1433,29 @@ If the user is Saving  same address which matches the fields returned by toleran
                         //provincetmp = provincetmp.subString(0,1).toUpperCase();
                         Integer     i=0;
                         List<String> newString =  new List<String>();
-						if(provincetmp != null && provincetmp != '')
+                        if(provincetmp != null && provincetmp != '')
                        {
-							s= provincetmp.split(' ');
-							for(String str  : s)
-							{
-								i=str.length();
-								//String x,y,finalstring;
-								x= str.substring(0,1).toUpperCase();
-								y= str.substring(1,i) ;
-								finalstring = x + y  ;
-								newString.add(finalstring);
-							}                        
-							provincetmp = String.valueOf(finalstring);
-							provincetmp  =provincetmp.replace(',','');
-						  
-							
-						   // province1 = addtrmapUpdate1.get(provincetmp);
-							if(addtrmapUpdate1.containsKey(provincetmp))
-							{
-								province1 = addtrmapUpdate1.get(provincetmp);
-								system.debug('province1 2:'+province1);
-							}
-						}
+                            s= provincetmp.split(' ');
+                            for(String str  : s)
+                            {
+                                i=str.length();
+                                //String x,y,finalstring;
+                                x= str.substring(0,1).toUpperCase();
+                                y= str.substring(1,i) ;
+                                finalstring = x + y  ;
+                                newString.add(finalstring);
+                            }                        
+                            provincetmp = String.valueOf(finalstring);
+                            provincetmp  =provincetmp.replace(',','');
+                          
+                            
+                           // province1 = addtrmapUpdate1.get(provincetmp);
+                            if(addtrmapUpdate1.containsKey(provincetmp))
+                            {
+                                province1 = addtrmapUpdate1.get(provincetmp);
+                                system.debug('province1 2:'+province1);
+                            }
+                        }
                         system.debug('province1 3:'+province1);
                         AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         
@@ -1690,7 +1690,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         firstsave = true;       
         secondsave = false;         
     }
-	}
+    }
    //Introduced for TH Market
    //Updated for CR#89 - Phone Number Format
     public void onLineDeduplicationTH(){  
