@@ -458,6 +458,7 @@ public with sharing class VehicleRelationshipHelperJP
                             system.debug('+++++++++++++'+Vels.Contact__r.Primary_Address_Display__c);
                             system.debug('+++++++++++++ vels'+ vels);
                         }
+						
                         //if( vels.vehicle_address_picklist__c == add.Address_Type__c){
                         if( vels.vehicle_address_picklist__c == 'Home Address' && add.Address_Type__c == 'Home')
                         {   
