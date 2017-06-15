@@ -21733,8 +21733,8 @@ var qr = sforce.connection.query("select Id,MOT_USER_NAME__c,MOT_User_Address__c
 
 var records = qr.getArray("records");
 
-if(records.length>0 && (records[0].MOT_USER_NAME__c!= null && records[0].MOT_USER_NAME__c!='') && (records[0].MOT_User_Address__c!= null && records[0].MOT_User_Address__c!='') &&
-(records[0].MOT_Owner_Name__c!= null && records[0].MOT_Owner_Name__c!= '') && (records[0].MOT_Owner_Address__c!= null && records[0].MOT_Owner_Address__c!= '') && records[0].Registration_Number__c!= null && records[0].Registration_Date__c!= null && firstRegistration!=''){
+if(records.length&gt;0 &amp;&amp; (records[0].MOT_USER_NAME__c!= null &amp;&amp; records[0].MOT_USER_NAME__c!='') &amp;&amp; (records[0].MOT_User_Address__c!= null &amp;&amp; records[0].MOT_User_Address__c!='') &amp;&amp; 
+(records[0].MOT_Owner_Name__c!= null &amp;&amp; records[0].MOT_Owner_Name__c!= '') &amp;&amp; (records[0].MOT_Owner_Address__c!= null &amp;&amp; records[0].MOT_Owner_Address__c!= '') &amp;&amp; records[0].Registration_Number__c!= null &amp;&amp; records[0].Registration_Date__c!= null &amp;&amp; firstRegistration!=''){
 window.open("{!URLFOR($Site.Prefix)}/apex/SendVehicleInformationtoSPOJP?Id={!Vehicle__c.Id}");
 }
 else {
