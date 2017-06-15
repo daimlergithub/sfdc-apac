@@ -299,6 +299,7 @@ public Static boolean isCreated =false;
                 acc.Retail_Related_Company__c  = AccountLink[0].id;
                 AccounliunkRetailUpdate.add(acc);
                 System.debug('######$$$'+AccounliunkRetailUpdate);
+				isCreated =false;
             }
         }
         system.debug('LeadLst>>>>' + LeadLst);

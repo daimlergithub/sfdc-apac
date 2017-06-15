@@ -1135,7 +1135,7 @@
         <externalId>false</externalId>
         <label>Contract</label>
         <referenceTo>Retail_Task__c</referenceTo>
-        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipLabel>Activities1</relationshipLabel>
         <relationshipName>Activities1</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>

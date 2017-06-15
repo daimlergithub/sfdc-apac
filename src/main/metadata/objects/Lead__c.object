@@ -664,10 +664,10 @@
     </fields>
     <fields>
         <fullName>AfterSales_VIN__c</fullName>
-        <description>&quot;Read-only field
+        <description>"Read-only field
 Process Builder would update this field with the value according to the rule below:
 If Current_Vehicle_1__r.RecordType = MB, Current_Vehicle_1__r.UsVIN__c.
-If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroVIN__c&quot;</description>
+If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroVIN__c"</description>
         <externalId>false</externalId>
         <label>Aftersales VIN</label>
         <length>255</length>
@@ -3262,7 +3262,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Event/Sâ€™Ship</fullName>
+                <fullName>Event/SÃ¢â‚¬â„¢Ship</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3414,9 +3414,9 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <externalId>false</externalId>
         <formula>IF(
 OR(
-ISPICKVAL(Interested_Vehicle_Brand__c,&apos;MB&apos;),
-ISPICKVAL(Interested_Vehicle_Brand__c,&apos;AMG&apos;)
-), &apos;MB&apos;, &apos;smart&apos;
+ISPICKVAL(Interested_Vehicle_Brand__c,'MB'),
+ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
+), 'MB', 'smart'
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Combine Interested Vehicle Brand</label>
@@ -3467,7 +3467,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,&apos;AMG&apos;)
         <fullName>Consultant_Assignment_Age__c</fullName>
         <description>This field is for Consultant Assignment Age calculation only.</description>
         <externalId>false</externalId>
-        <formula>IF( ISPICKVAL( CAC_Lead_Status__c ,&quot;Closed&quot;),Close_Date__c -   DATEVALUE(Consultant_Assignment_Date__c), TODAY() - DATEVALUE(Consultant_Assignment_Date__c) )</formula>
+        <formula>IF( ISPICKVAL( CAC_Lead_Status__c ,"Closed"),Close_Date__c -   DATEVALUE(Consultant_Assignment_Date__c), TODAY() - DATEVALUE(Consultant_Assignment_Date__c) )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Consultant Assignment Age</label>
         <precision>18</precision>
@@ -3503,7 +3503,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,&apos;AMG&apos;)
         <fullName>Consultant_Overdue_Flag__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND( NOT(ISBLANK(Consultant_Assignment_Date__c)) , OR(AND(ISBLANK(Lead_Closed_Date__c), Consultant_Due_Date__c &lt; Now()), Consultant_Due_Date__c &lt; Lead_Closed_Date__c ), 
-Consultant_Override_Overdue__c != true), IMAGE(&apos;/img/samples/flag_red.gif&apos;,&apos;Consultant Overdue&apos;) , null)</formula>
+Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Consultant Overdue') , null)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Consultant Overdue Flag</label>
         <required>false</required>
@@ -3858,7 +3858,7 @@ Consultant_Override_Overdue__c != true), IMAGE(&apos;/img/samples/flag_red.gif&a
     <fields>
         <fullName>Customer_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISBLANK( Company_Account__c ) , IF( ISBLANK( Collectioner_Name__c ) , &apos;&apos;,   Collectioner_Name__r.LastName   ) , Company_Account__r.Name )</formula>
+        <formula>IF( ISBLANK( Company_Account__c ) , IF( ISBLANK( Collectioner_Name__c ) , '',   Collectioner_Name__r.LastName   ) , Company_Account__r.Name )</formula>
         <label>Customer Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -4360,11 +4360,11 @@ Consultant_Override_Overdue__c != true), IMAGE(&apos;/img/samples/flag_red.gif&a
 IF (ISBLANK(Consultant_Assignment_Date__c) , 
 IF(NOT(ISBLANK(Lead_Closed_Date__c)) , 
 IF(Lead_Closed_Date__c &gt; Dealer_Due_Date__c, 
-IMAGE(&apos;/img/samples/flag_red.gif&apos;,&apos;Dealer Overdue&apos;) , null), 
+IMAGE('/img/samples/flag_red.gif','Dealer Overdue') , null), 
 IF(NOW() &gt; Dealer_Due_Date__c, 
-IMAGE(&apos;/img/samples/flag_red.gif&apos;,&apos;Dealer Overdue&apos;) , null)) , 
+IMAGE('/img/samples/flag_red.gif','Dealer Overdue') , null)) , 
 IF(Dealer_Due_Date__c &lt; Consultant_Assignment_Date__c, 
-IMAGE(&apos;/img/samples/flag_red.gif&apos;,&apos;Dealer Overdue&apos;) , null)), null)</formula>
+IMAGE('/img/samples/flag_red.gif','Dealer Overdue') , null)), null)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Overdue Flag</label>
         <required>false</required>
@@ -4426,32 +4426,32 @@ IMAGE(&apos;/img/samples/flag_red.gif&apos;,&apos;Dealer Overdue&apos;) , null))
         <externalId>false</externalId>
         <formula>IF( 
 AND(
-ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,&apos;Salesforce&apos;),
+ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,'Salesforce'),
 Dealer_Untouched_In_72H__c = False,
 OR(
-ISPICKVAL(Dealer_Lead_Status__c,&apos;First Contact Customer&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Test Drive&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Visited Showroom(Only Non BDC)&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Order Placed&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Lost(Dealer)&apos;)
+ISPICKVAL(Dealer_Lead_Status__c,'First Contact Customer'),
+ISPICKVAL(Dealer_Lead_Status__c,'Test Drive'),
+ISPICKVAL(Dealer_Lead_Status__c,'Visited Showroom(Only Non BDC)'),
+ISPICKVAL(Dealer_Lead_Status__c,'Order Placed'),
+ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)'),
+ISPICKVAL(Dealer_Lead_Status__c,'Lost(Dealer)')
 )
 ),
 True,
 IF(
 AND(
-ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,&apos;LMS&apos;),
+ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,'LMS'),
 Dealer_Untouched_In_72H__c = False,
 NOT(
 OR(
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Assigned&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Received&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Accepted&apos;),
+ISPICKVAL(Dealer_Lead_Status__c,'Assigned'),
+ISPICKVAL(Dealer_Lead_Status__c,'Received'),
+ISPICKVAL(Dealer_Lead_Status__c,'Accepted'),
 AND(
-ISPICKVAL(Dealer_Lead_Status__c,&apos;Lost(Dealer)&apos;),
+ISPICKVAL(Dealer_Lead_Status__c,'Lost(Dealer)'),
 OR(
-ISPICKVAL(Dealer_Lost_Reason__c,&apos;Customer can not be reached&apos;),
-ISPICKVAL(Dealer_Lost_Reason__c,&apos;Customer does not respond&apos;)
+ISPICKVAL(Dealer_Lost_Reason__c,'Customer can not be reached'),
+ISPICKVAL(Dealer_Lost_Reason__c,'Customer does not respond')
 )
 )
 )
@@ -4472,7 +4472,7 @@ False
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-046) 
-Function: If no status is updated more than 72 hours after sales lead is assigned to dealer, &quot;Dealer Untouched(In 72H)&quot; field (formula) shows up the value &quot;Untouched&quot; automatically. 
+Function: If no status is updated more than 72 hours after sales lead is assigned to dealer, "Dealer Untouched(In 72H)" field (formula) shows up the value "Untouched" automatically. 
 
 Used in:
 
@@ -4482,7 +4482,7 @@ Modify Reason:
 */</description>
         <externalId>false</externalId>
         <formula>IF(
-ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,&apos;Salesforce&apos;), 
+ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,'Salesforce'), 
 AND (
     NOW() - 3 &gt; Accepted_Date_Time__c,
 
@@ -4566,9 +4566,9 @@ Contact__r.Email__c
         <fullName>Escalation_Flag__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(NOW()-LastModifiedDate &gt;= 1, NOW()-LastModifiedDate &lt; 3)
-, IMAGE(&apos;/img/samples/flag_yellow.gif&apos;,&apos;24H Untouched&apos;)
-, IF(NOW()-LastModifiedDate &gt;= 3, IMAGE(&apos;/img/samples/flag_red.gif&apos;,&apos;72H Untouched&apos;)
-, &apos;&apos;))</formula>
+, IMAGE('/img/samples/flag_yellow.gif','24H Untouched')
+, IF(NOW()-LastModifiedDate &gt;= 3, IMAGE('/img/samples/flag_red.gif','72H Untouched')
+, ''))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Escalation Flag</label>
         <required>false</required>
@@ -5746,19 +5746,19 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paintï¼ŒRutile-Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paintï¼ŒGermanium-limeï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paintï¼ŒTin-lead-blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paintï¼ŒSapphire blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5790,11 +5790,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paintï¼ŒGarnet Greenï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk whiteï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5806,7 +5806,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paintï¼ŒFlint Greyï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5830,7 +5830,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paintï¼ŒPearl ashï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5842,7 +5842,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paintï¼ŒPalladium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5850,7 +5850,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>799 Paint，Diamond White high color，Metallic paint</fullName>
+                <fullName>799 Paintï¼ŒDiamond White high colorï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5866,7 +5866,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9197 Paint，Obsidian Black，Metallic paint</fullName>
+                <fullName>9197 Paintï¼ŒObsidian Blackï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5890,15 +5890,15 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9723 Paint，Cuban silver，Metallic paint</fullName>
+                <fullName>9723 Paintï¼ŒCuban silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9775 Paint，Iridium silver，Metallic paint</fullName>
+                <fullName>9775 Paintï¼ŒIridium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium-silver</fullName>
+                <fullName>792 Paintï¼ŒPalladium-silver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5910,11 +5910,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blueï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brownï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5922,15 +5922,15 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brownï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya greyï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya greyï¼ˆColorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5938,11 +5938,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya greyï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute grayï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5950,19 +5950,19 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute grayï¼ˆColorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Greenï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Greenï¼ˆColorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blueï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6969,7 +6969,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>smart 62-kilowatt&apos;s ice-cool Special Edition</fullName>
+                <fullName>smart 62-kilowatt's ice-cool Special Edition</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7916,22 +7916,22 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paintï¼ŒRutile-Brown</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paintï¼ŒGermanium-limeï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paintï¼ŒTin-lead-blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paintï¼ŒSapphire blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7971,12 +7971,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paintï¼ŒGarnet Greenï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk whiteï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7991,7 +7991,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paintï¼ŒFlint Greyï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8021,7 +8021,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paintï¼ŒPearl ashï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8036,7 +8036,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paintï¼ŒPalladium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8046,7 +8046,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>799 Paint，Diamond White high color，Metallic paint</fullName>
+                <fullName>799 Paintï¼ŒDiamond White high colorï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8066,7 +8066,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>9197 Paint，Obsidian Black，Metallic paint</fullName>
+                <fullName>9197 Paintï¼ŒObsidian Blackï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8096,17 +8096,17 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>9723 Paint，Cuban silver，Metallic paint</fullName>
+                <fullName>9723 Paintï¼ŒCuban silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>9775 Paint，Iridium silver，Metallic paint</fullName>
+                <fullName>9775 Paintï¼ŒIridium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium-silver</fullName>
+                <fullName>792 Paintï¼ŒPalladium-silver</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8121,12 +8121,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blueï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brownï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8136,17 +8136,17 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brownï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya greyï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya greyï¼ˆColorï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8156,12 +8156,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya greyï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute grayï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8171,22 +8171,22 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute grayï¼ˆColorï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Greenï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Greenï¼ˆColorï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blueï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -8299,23 +8299,23 @@ Modify Reason:
     OR (
 
         AND (
-             RecordType.Name == &quot;Aftersales Leads&quot;,
-             TEXT(CAC_Lead_Status__c) != &quot;Purchased(Only Non BDC)&quot;,
-             TEXT(CAC_Lead_Status__c) != &quot;Lost(CAC)&quot;
+             RecordType.Name == "Aftersales Leads",
+             TEXT(CAC_Lead_Status__c) != "Purchased(Only Non BDC)",
+             TEXT(CAC_Lead_Status__c) != "Lost(CAC)"
         ),
 
         AND (
              OR (
-                 RecordType.Name == &quot;Sales Leads&quot;,
-                 RecordType.Name == &quot;Sales Leads Soft Deleted&quot;
+                 RecordType.Name == "Sales Leads",
+                 RecordType.Name == "Sales Leads Soft Deleted"
                  ),
-                 TEXT(CAC_Lead_Status__c) != &quot;Purchased(Only Non BDC)&quot;,
-                 TEXT(CAC_Lead_Status__c) != &quot;Lost(CAC)&quot;
+                 TEXT(CAC_Lead_Status__c) != "Purchased(Only Non BDC)",
+                 TEXT(CAC_Lead_Status__c) != "Lost(CAC)"
         )
 ),
 
-    &apos;Active&apos;,
-    &apos;Inactive&apos;
+    'Active',
+    'Inactive'
 )</formula>
         <label>Is Active</label>
         <required>false</required>
@@ -8343,8 +8343,8 @@ Modify Reason:
         NOT(ISBLANK(Assigned_Date_Time__c))
     ),
 
-    &apos;Assigned&apos;,
-    &apos;Not Assigned&apos;
+    'Assigned',
+    'Not Assigned'
 )</formula>
         <label>Is Assigned</label>
         <required>false</required>
@@ -8455,7 +8455,7 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Is_Qualify__c</fullName>
-        <defaultValue>&quot;Qualified&quot;</defaultValue>
+        <defaultValue>"Qualified"</defaultValue>
         <description>/* 
 Created by: Mouse Liu
 Used by: Lead__c (US-Lead-13)
@@ -9603,35 +9603,35 @@ Modify Reason:
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Estimation</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Leasing</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Financial</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Product Information</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Service Information</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Used Car</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Broucher</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
@@ -9948,7 +9948,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Lead Latest Phase</label>
         <picklist>
-		    <picklistValues>
+            <picklistValues>
                 <fullName>None</fullName>
                 <default>true</default>
             </picklistValues>
@@ -10183,7 +10183,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Event/S’Ship (new value)</fullName>
+                <fullName>Event/Sâ€™Ship (new value)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10485,7 +10485,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Closed – successful</fullName>
+                <fullName>Closed â€“ successful</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10521,7 +10521,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Closed – lost sale(after sales following, in-active)</fullName>
+                <fullName>Closed â€“ lost sale(after sales following, in-active)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10638,7 +10638,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
         <label>Lost Situation</label>
         <picklist>
             <picklistValues>
-                <fullName>Purchased Competitor&apos;s Car</fullName>
+                <fullName>Purchased Competitor's Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10951,7 +10951,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Purchased Competitor&apos;s Car</fullName>
+                <fullName>Purchased Competitor's Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11134,7 +11134,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11144,7 +11144,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11154,7 +11154,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11184,7 +11184,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11562,7 +11562,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>C-Class CoupÃ©</fullName>
+                <fullName>C-Class CoupÃƒÂ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11572,7 +11572,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLK-Class CoupÃ©</fullName>
+                <fullName>CLK-Class CoupÃƒÂ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11582,7 +11582,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLS-Class CoupÃ©</fullName>
+                <fullName>CLS-Class CoupÃƒÂ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11612,7 +11612,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E-Class CoupÃ©</fullName>
+                <fullName>E-Class CoupÃƒÂ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -11871,11 +11871,11 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;),&apos;JP&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;TH&apos;),&apos;TH&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;)))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'),'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'),'TH', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -12008,11 +12008,11 @@ Modify Reason:
 		Assigned_to_Dealer_Directly__c = true,
 		
 		AND (
-        		TEXT(Contact__r.Allow_Data_Sharing__c) == &quot;Yes&quot;,
+        		TEXT(Contact__r.Allow_Data_Sharing__c) == "Yes",
 
-        		TEXT(CAC_Lead_Status__c) &lt;&gt; &quot;Purchased(Only Non BDC)&quot;,
+        		TEXT(CAC_Lead_Status__c) &lt;&gt; "Purchased(Only Non BDC)",
 
-        		TEXT(CAC_Lead_Status__c) &lt;&gt; &quot;Lost(CAC)&quot;,
+        		TEXT(CAC_Lead_Status__c) &lt;&gt; "Lost(CAC)",
 
         		TEXT(Contact__r.Gender__c) &lt;&gt; NULL,
 
@@ -12025,11 +12025,11 @@ Modify Reason:
         		TEXT(Relation_With_The_Leads__c) &lt;&gt; NULL,
 
         		OR (
-            			TEXT(Lead_Type__c) == &quot;New Car&quot;,
+            			TEXT(Lead_Type__c) == "New Car",
 
            			AND ( 
-                			TEXT(Lead_Type__c) == &quot;Used Car&quot;,
-                			INCLUDES(Lead_Desired_Service__c, &quot;Trade-In&quot;)  
+                			TEXT(Lead_Type__c) == "Used Car",
+                			INCLUDES(Lead_Desired_Service__c, "Trade-In")  
             			)
         		),
 
@@ -12038,15 +12038,15 @@ Modify Reason:
         		TEXT(Interested_Vehicle_Brand__c) &lt;&gt; NULL,
 
         		OR (
-            			INCLUDES(Lead_Desired_Service__c , &quot;Test Drive&quot;),
-           			TEXT(Purchase_Time__c)  == &quot;0 - 3 months&quot;,
-            			TEXT(Purchase_Time__c)  == &quot;4 - 6 months&quot;
+            			INCLUDES(Lead_Desired_Service__c , "Test Drive"),
+           			TEXT(Purchase_Time__c)  == "0 - 3 months",
+            			TEXT(Purchase_Time__c)  == "4 - 6 months"
         		)
 		)
     	),
 
-    &quot;Need&quot;,
-    &quot;Not Need&quot;
+    "Need",
+    "Not Need"
 )</formula>
         <label>Need Assign To Dealer</label>
         <required>false</required>
@@ -12058,7 +12058,7 @@ Modify Reason:
     <fields>
         <fullName>Need_Associate_Campaign__c</fullName>
         <externalId>false</externalId>
-        <formula>IMAGE(&apos;/resource/1426571072000/ReminderForCampaignRelation&apos;,&apos;Need Associate Campaign&apos;)</formula>
+        <formula>IMAGE('/resource/1426571072000/ReminderForCampaignRelation','Need Associate Campaign')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Need Associate Campaign</label>
         <required>false</required>
@@ -12157,7 +12157,7 @@ Modify Reason:
     <fields>
         <fullName>No_Assigned_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Assigned_Dealer__c  &lt;&gt; Null, &quot;&quot;, IMAGE(&apos;resource/1422335657000/Dealer_Reminder&apos;,&apos;Dealer Not Assigned&apos;))</formula>
+        <formula>IF( Assigned_Dealer__c  &lt;&gt; Null, "", IMAGE('resource/1422335657000/Dealer_Reminder','Dealer Not Assigned'))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>No Assigned Dealer</label>
         <required>false</required>
@@ -12212,7 +12212,7 @@ Modify Reason:
     <fields>
         <fullName>OB_Call_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Lead_DataSource__c,&apos;OB Call&apos;),1,0 )</formula>
+        <formula>IF(ISPICKVAL(Lead_DataSource__c,'OB Call'),1,0 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>OB Call Amount</label>
         <precision>18</precision>
@@ -12600,11 +12600,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Post</fullName>
+                <fullName>post</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SMS</fullName>
+                <fullName>sms</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -13384,14 +13384,14 @@ Modify Reason:
         <fullName>R_Accepted_Leads__c</fullName>
         <externalId>false</externalId>
         <formula>IF (OR(
- ISPICKVAL(Dealer_Lead_Status__c,&quot;Accepted&quot;),
- ISPICKVAL(Dealer_Lead_Status__c,&quot;Contact Failed For 3 Days(Only Non BDC)&quot;),
- ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;),
- ISPICKVAL(Dealer_Lead_Status__c,&quot;Test Drive&quot;),
- ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
- ISPICKVAL(Dealer_Lead_Status__c,&quot;Order Placed&quot;),
- ISPICKVAL(Dealer_Lead_Status__c,&quot;Purchased(Only Non BDC)&quot;),
- ISPICKVAL(Dealer_Lead_Status__c,&quot;Lost(Dealer)&quot;)),
+ ISPICKVAL(Dealer_Lead_Status__c,"Accepted"),
+ ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"),
+ ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"),
+ ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"),
+ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
+ ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"),
+ ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"),
+ ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)")),
 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Accepted Leads</label>
@@ -13406,7 +13406,7 @@ Modify Reason:
     <fields>
         <fullName>R_Active_Leads__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Is_Active__c==&apos;Active&apos;,1,0)</formula>
+        <formula>IF(Is_Active__c=='Active',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Active Leads</label>
         <precision>18</precision>
@@ -13420,7 +13420,7 @@ Modify Reason:
     <fields>
         <fullName>R_CAC_Followup__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(ISBLANK(Assigned_Dealer__c), ISPICKVAL(CAC_Lead_Status__c, &apos;Qualified&apos;) ),1,0)</formula>
+        <formula>IF(AND(ISBLANK(Assigned_Dealer__c), ISPICKVAL(CAC_Lead_Status__c, 'Qualified') ),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CAC Followup</label>
         <precision>18</precision>
@@ -13435,11 +13435,11 @@ Modify Reason:
         <fullName>R_CallSuccessful__c</fullName>
         <externalId>false</externalId>
         <formula>IF(Successful_Call_Number__c &gt;=1,1,0) -
-IF(AND(ISPICKVAL(Lead_DataSubSource__c, &quot;Auto Show&quot;)
-        , ISPICKVAL(CAC_Lead_Status__c, &quot;Purchased(Only Non BDC)&quot;)
+IF(AND(ISPICKVAL(Lead_DataSubSource__c, "Auto Show")
+        , ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)")
         , Successful_Call_Number__c=1),1,0) -
-IF(AND(   OR( ISPICKVAL(Lead_DataSource__c, &quot;IB Call&quot;) 
-,ISPICKVAL(Lead_DataSource__c, &quot;OB Call&quot;) 
+IF(AND(   OR( ISPICKVAL(Lead_DataSource__c, "IB Call") 
+,ISPICKVAL(Lead_DataSource__c, "OB Call") 
 ) ,
 Successful_Call_Number__c=1
             )
@@ -13457,7 +13457,7 @@ Successful_Call_Number__c=1
     <fields>
         <fullName>R_Car_Owner_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Contact__r.Status__c,&apos;Customer&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Contact__r.Status__c,'Customer'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Car Owner Amount</label>
         <precision>18</precision>
@@ -13473,9 +13473,9 @@ Successful_Call_Number__c=1
         <externalId>false</externalId>
         <formula>IF(AND(
 (OR
-(ISPICKVAL(Purchase_Time__c, &apos;0 - 3 months&apos;), 
-ISPICKVAL(Purchase_Time__c, &apos;4 - 6 months&apos;))
-), ISPICKVAL( Interested_Vehicle_Brand__c , &apos;&apos;)),&apos;Yes&apos;,&apos;No&apos;)</formula>
+(ISPICKVAL(Purchase_Time__c, '0 - 3 months'), 
+ISPICKVAL(Purchase_Time__c, '4 - 6 months'))
+), ISPICKVAL( Interested_Vehicle_Brand__c , '')),'Yes','No')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Car series</label>
         <required>false</required>
@@ -13487,7 +13487,7 @@ ISPICKVAL(Purchase_Time__c, &apos;4 - 6 months&apos;))
     <fields>
         <fullName>R_Check_Purchase_Time__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Purchase_Time__c ,&apos;&apos;),&apos;Yes&apos;,&apos;No&apos;)</formula>
+        <formula>if( ISPICKVAL( Purchase_Time__c ,''),'Yes','No')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Purchase Time</label>
         <required>false</required>
@@ -13499,7 +13499,7 @@ ISPICKVAL(Purchase_Time__c, &apos;4 - 6 months&apos;))
     <fields>
         <fullName>R_Check_Vehicle_Brand__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Interested_Vehicle_Brand__c ,&apos;&apos;),&apos;Yes&apos;,&apos;No&apos;)</formula>
+        <formula>if( ISPICKVAL( Interested_Vehicle_Brand__c ,''),'Yes','No')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Vehicle Brand</label>
         <required>false</required>
@@ -13539,14 +13539,14 @@ ISPICKVAL(Purchase_Time__c, &apos;4 - 6 months&apos;))
         <fullName>R_ConvertedLeads__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(OR(
-ISPICKVAL(CAC_Lead_Status__c,&quot;Purchased(Only Non BDC)&quot;),
-ISPICKVAL(Life_Cycle__c,&quot;Closed – successful&quot;)
+ISPICKVAL(CAC_Lead_Status__c,"Purchased(Only Non BDC)"),
+ISPICKVAL(Life_Cycle__c,"Closed â€“ successful")
 ),Successful_Call_Number__c&gt;=1),1,0) -
 
-IF(AND(ISPICKVAL(Lead_DataSubSource__c, &quot;Auto Show&quot;)
+IF(AND(ISPICKVAL(Lead_DataSubSource__c, "Auto Show")
         , OR(
-ISPICKVAL(CAC_Lead_Status__c,&quot;Purchased(Only Non BDC)&quot;),
-ISPICKVAL(Life_Cycle__c,&quot;Closed – successful&quot;)
+ISPICKVAL(CAC_Lead_Status__c,"Purchased(Only Non BDC)"),
+ISPICKVAL(Life_Cycle__c,"Closed â€“ successful")
 )
 
         , Successful_Call_Number__c=1),1,0)</formula>
@@ -13563,7 +13563,7 @@ ISPICKVAL(Life_Cycle__c,&quot;Closed – successful&quot;)
     <fields>
         <fullName>R_Count_Converted_Leads__c</fullName>
         <externalId>false</externalId>
-        <formula>if ( R_Lead_Status__c == &apos;Purchased(Only Non BDC)&apos;,1,0)</formula>
+        <formula>if ( R_Lead_Status__c == 'Purchased(Only Non BDC)',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Count Converted Leads</label>
         <precision>18</precision>
@@ -13577,7 +13577,7 @@ ISPICKVAL(Life_Cycle__c,&quot;Closed – successful&quot;)
     <fields>
         <fullName>R_DataSource_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL( Lead_DataSource__c,&apos;&apos;),0,1)</formula>
+        <formula>IF(ISPICKVAL( Lead_DataSource__c,''),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>DataSource Amount</label>
         <precision>18</precision>
@@ -13591,7 +13591,7 @@ ISPICKVAL(Life_Cycle__c,&quot;Closed – successful&quot;)
     <fields>
         <fullName>R_Dealer_Followup__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(Assigned_Dealer__c &lt;&gt; &apos;&apos;,  ISPICKVAL(CAC_Lead_Status__c, &apos;Qualified&apos;) ),1,0)</formula>
+        <formula>IF(AND(Assigned_Dealer__c &lt;&gt; '',  ISPICKVAL(CAC_Lead_Status__c, 'Qualified') ),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Followup</label>
         <precision>18</precision>
@@ -13606,7 +13606,7 @@ ISPICKVAL(Life_Cycle__c,&quot;Closed – successful&quot;)
         <fullName>R_First_Contact_Leads__c</fullName>
         <externalId>false</externalId>
         <formula>IF (
-ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;),
+ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"),
 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>First Contact Leads</label>
@@ -13621,7 +13621,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;),
     <fields>
         <fullName>R_Generate_Leads_Volume__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(ISPICKVAL(Lead_DataSource__c,&apos;IB Call&apos;),ISPICKVAL(Lead_DataSource__c,&apos;OB Call&apos;),( ISPICKVAL( CAC_Lead_Status__c , &apos;Qualified&apos;) )),1,0)</formula>
+        <formula>IF(OR(ISPICKVAL(Lead_DataSource__c,'IB Call'),ISPICKVAL(Lead_DataSource__c,'OB Call'),( ISPICKVAL( CAC_Lead_Status__c , 'Qualified') )),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Generate Leads Volume</label>
         <precision>18</precision>
@@ -13635,7 +13635,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;),
     <fields>
         <fullName>R_Hot_Lead__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(ISPICKVAL(Purchase_Time__c, &apos;0 - 3 months&apos;), ISPICKVAL(Purchase_Time__c, &apos;4 - 6 months&apos;)), 1,0)</formula>
+        <formula>IF(OR(ISPICKVAL(Purchase_Time__c, '0 - 3 months'), ISPICKVAL(Purchase_Time__c, '4 - 6 months')), 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Hot Lead</label>
         <precision>18</precision>
@@ -13649,7 +13649,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;),
     <fields>
         <fullName>R_IB_Call_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Lead_DataSource__c,&apos;IB Call&apos;),1,0 )</formula>
+        <formula>IF(ISPICKVAL(Lead_DataSource__c,'IB Call'),1,0 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>IB Call Amount</label>
         <precision>18</precision>
@@ -13663,7 +13663,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;),
     <fields>
         <fullName>R_Initial_Active_Leads__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Is_Active__c==&apos;Inactive&apos;,1,0)</formula>
+        <formula>IF(Is_Active__c=='Inactive',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Initial Active Leads</label>
         <precision>18</precision>
@@ -13679,11 +13679,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;),
         <externalId>false</externalId>
         <formula>if(
 OR(
-ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
-,ISPICKVAL(CAC_Lead_Status__c,&apos;Lost(CAC)&apos;)
-,ISPICKVAL(CAC_Lead_Status__c,&apos;Lost(Dealer)&apos;)
-,ISPICKVAL(CAC_Lead_Status__c,&apos;New&apos;)
-,ISPICKVAL(CAC_Lead_Status__c,&apos;&apos;)
+ISPICKVAL(CAC_Lead_Status__c,'Purchased(Only Non BDC)')
+,ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)')
+,ISPICKVAL(CAC_Lead_Status__c,'Lost(Dealer)')
+,ISPICKVAL(CAC_Lead_Status__c,'New')
+,ISPICKVAL(CAC_Lead_Status__c,'')
 ),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>IsActiveLead</label>
@@ -13698,7 +13698,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_IsAssigned__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Assigned_Dealer__c &lt;&gt;&apos;&apos;,1,0)</formula>
+        <formula>IF( Assigned_Dealer__c &lt;&gt;'',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>IsAssigned</label>
         <precision>18</precision>
@@ -13712,7 +13712,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_IsConvertedLead__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;),1,0)</formula>
+        <formula>if( ISPICKVAL(CAC_Lead_Status__c,'Purchased(Only Non BDC)'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>IsConvertedLead</label>
         <precision>18</precision>
@@ -13726,7 +13726,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_IsLead__c</fullName>
         <externalId>false</externalId>
-        <formula>if( Name &lt;&gt;&apos;&apos;,1,0)</formula>
+        <formula>if( Name &lt;&gt;'',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Total Leads</label>
         <precision>18</precision>
@@ -13740,7 +13740,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_IsLostLead__c</fullName>
         <externalId>false</externalId>
-        <formula>if(OR(ISPICKVAL(CAC_Lead_Status__c,&apos;Lost(Dealer)&apos;),ISPICKVAL(CAC_Lead_Status__c,&apos;Lost(CAC)&apos;)),1,0)</formula>
+        <formula>if(OR(ISPICKVAL(CAC_Lead_Status__c,'Lost(Dealer)'),ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)')),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Lost Leads</label>
         <precision>18</precision>
@@ -13766,10 +13766,10 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_Lead_Status__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CAC_Lost_Reason__c,&quot;Non-Daimler Purchase&quot;),&quot;Non-Daimler Purchase&quot;,
-IF(ISPICKVAL(CAC_Lost_Reason__c,&quot;Interest Lost&quot;),&quot;Interest Lost&quot;,
-IF(ISPICKVAL(Life_Cycle__c,&quot;Closed – successful&quot;), &quot;Closed – successful&quot;, 
-IF(CONTAINS(Is_Active__c,&quot;Active&quot;),&quot;Active&quot;,&quot;&quot;))))</formula>
+        <formula>IF(ISPICKVAL(CAC_Lost_Reason__c,"Non-Daimler Purchase"),"Non-Daimler Purchase",
+IF(ISPICKVAL(CAC_Lost_Reason__c,"Interest Lost"),"Interest Lost",
+IF(ISPICKVAL(Life_Cycle__c,"Closed â€“ successful"), "Closed â€“ successful", 
+IF(CONTAINS(Is_Active__c,"Active"),"Active",""))))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Lead Status</label>
         <required>false</required>
@@ -13796,11 +13796,11 @@ IF(CONTAINS(Is_Active__c,&quot;Active&quot;),&quot;Active&quot;,&quot;&quot;))))
         <fullName>R_Leads_with_PI_6m__c</fullName>
         <externalId>false</externalId>
         <formula>if(AND(OR(
-ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
-,ISPICKVAL(CAC_Lead_Status__c,&apos;Lost(CAC)&apos;)
-,ISPICKVAL(CAC_Lead_Status__c,&apos;Lost(Dealer)&apos;)
-,ISPICKVAL(CAC_Lead_Status__c,&apos;New&apos;)
-),OR(ISPICKVAL( Purchase_Time__c,&apos;0 - 3 months&apos;), ISPICKVAL( Purchase_Time__c,&apos;4 - 6 months&apos;))),1,0)</formula>
+ISPICKVAL(CAC_Lead_Status__c,'Purchased(Only Non BDC)')
+,ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)')
+,ISPICKVAL(CAC_Lead_Status__c,'Lost(Dealer)')
+,ISPICKVAL(CAC_Lead_Status__c,'New')
+),OR(ISPICKVAL( Purchase_Time__c,'0 - 3 months'), ISPICKVAL( Purchase_Time__c,'4 - 6 months'))),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Leads with PI &lt; 6m</label>
         <precision>18</precision>
@@ -13814,7 +13814,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_No_IP_Lead__c</fullName>
         <externalId>false</externalId>
-        <formula>if( AND (Name &lt;&gt; &apos;&apos;, ISPICKVAL(Purchase_Time__c,&apos;No Plans&apos;)), 1,0)</formula>
+        <formula>if( AND (Name &lt;&gt; '', ISPICKVAL(Purchase_Time__c,'No Plans')), 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>No IP Lead</label>
         <precision>18</precision>
@@ -13828,7 +13828,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_Non_Hot_Lead__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(ISPICKVAL(Purchase_Time__c, &apos;6 - 12 months&apos;), ISPICKVAL(Purchase_Time__c, &apos;Above 12 Months&apos;), ISPICKVAL(Purchase_Time__c, &apos;No Plans&apos;)), 1, 0)</formula>
+        <formula>IF(OR(ISPICKVAL(Purchase_Time__c, '6 - 12 months'), ISPICKVAL(Purchase_Time__c, 'Above 12 Months'), ISPICKVAL(Purchase_Time__c, 'No Plans')), 1, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Non Hot Lead</label>
         <precision>18</precision>
@@ -13870,7 +13870,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_Pending_Leads__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(R_Pending_Days__c &gt;0,ISPICKVAL( Dealer_Lead_Status__c ,&apos;Accepted&apos;)),1,0)</formula>
+        <formula>IF(AND(R_Pending_Days__c &gt;0,ISPICKVAL( Dealer_Lead_Status__c ,'Accepted')),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Pending Lead Amount</label>
         <precision>18</precision>
@@ -13884,7 +13884,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_Prospects_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL( Contact__r.Status__c  ,&apos;Prospects&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL( Contact__r.Status__c  ,'Prospects'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Prospects Amount</label>
         <precision>18</precision>
@@ -13898,7 +13898,7 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
     <fields>
         <fullName>R_Raw_Data__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Is_Qualify__c==&apos;&apos;,1,0)</formula>
+        <formula>IF(Is_Qualify__c=='',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Raw Data</label>
         <precision>18</precision>
@@ -13913,8 +13913,8 @@ ISPICKVAL(CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;)
         <fullName>R_Received_Leads__c</fullName>
         <externalId>false</externalId>
         <formula>IF (OR(
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Received&quot;),
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Assigned&quot;)),
+ISPICKVAL(Dealer_Lead_Status__c,"Received"),
+ISPICKVAL(Dealer_Lead_Status__c,"Assigned")),
 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Pending Leads</label>
@@ -13930,8 +13930,8 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Assigned&quot;)),
         <fullName>R_Unaccepted_Leads__c</fullName>
         <externalId>false</externalId>
         <formula>IF (OR(
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Assigned&quot;),
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Received&quot;)),
+ISPICKVAL(Dealer_Lead_Status__c,"Assigned"),
+ISPICKVAL(Dealer_Lead_Status__c,"Received")),
 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Unaccepted Leads</label>
@@ -13947,7 +13947,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Received&quot;)),
         <fullName>R_Visited_Showroom_Leads__c</fullName>
         <externalId>false</externalId>
         <formula>IF (
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
+ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Visited Showroom Leads</label>
@@ -13962,7 +13962,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
     <fields>
         <fullName>R_check_Is_Qualify__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Is_Qualify__c==&apos;Qualified&apos;,1,0)</formula>
+        <formula>IF(Is_Qualify__c=='Qualified',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>check Is Qualify</label>
         <precision>18</precision>
@@ -13976,7 +13976,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
     <fields>
         <fullName>R_isDealer__c</fullName>
         <externalId>false</externalId>
-        <formula>if(ISPICKVAL(Dealer_Lead_Status__c,&apos;&apos;),0,1)</formula>
+        <formula>if(ISPICKVAL(Dealer_Lead_Status__c,''),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>isDealer</label>
         <precision>18</precision>
@@ -15539,7 +15539,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>smart 62-kilowatt&apos;s ice-cool Special Edition</fullName>
+                <fullName>smart 62-kilowatt's ice-cool Special Edition</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -17077,7 +17077,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>smart 62-kilowatt&apos;s ice-cool Special Edition</fullName>
+                <fullName>smart 62-kilowatt's ice-cool Special Edition</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -18116,7 +18116,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>On assistant driver&apos;s seat</fullName>
+                <fullName>On assistant driver's seat</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -18177,7 +18177,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
     <fields>
         <fullName>Title__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISBLANK( Contact__c ) , &apos;&apos;, text(Contact__r.Salutation))</formula>
+        <formula>IF( ISBLANK( Contact__c ) , '', text(Contact__r.Salutation))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Title</label>
         <required>false</required>
@@ -19160,7 +19160,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>smart 62-kilowatt&apos;s ice-cool Special Edition</fullName>
+                <fullName>smart 62-kilowatt's ice-cool Special Edition</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -21204,7 +21204,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>O&apos;Phee</fullName>
+                <fullName>O'Phee</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -21889,7 +21889,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>O&apos;Phee</fullName>
+                <fullName>O'Phee</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -22761,9 +22761,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>AMGセントラルDM2016</value>
+            <value>AMGã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
-        <label>AMGセントラルDM2016</label>
+        <label>AMGã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22785,14 +22785,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>AMGセントラルDM2016_GTR</value>
+            <value>AMGã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016_GTR</value>
         </filters>
         <filters>
             <field>LAST_UPDATE</field>
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>AMGセントラルDM2016_GTR</label>
+        <label>AMGã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016_GTR</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23023,9 +23023,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>軽井沢・プリンスショッピングプラザ 展示イベント</value>
+            <value>è»½äº•æ²¢ãƒ»ãƒ—ãƒªãƒ³ã‚¹ã‚·ãƒ§ãƒƒãƒ”ãƒ³ã‚°ãƒ—ãƒ©ã‚¶ å±•ç¤ºã‚¤ãƒ™ãƒ³ãƒˆ</value>
         </filters>
-        <label>軽井沢・プリンスショッピングプラザ</label>
+        <label>è»½äº•æ²¢ãƒ»ãƒ—ãƒªãƒ³ã‚¹ã‚·ãƒ§ãƒƒãƒ”ãƒ³ã‚°ãƒ—ãƒ©ã‚¶</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23046,14 +23046,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
+            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
         <filters>
             <field>CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Approving</value>
         </filters>
-        <label>DM_Sクラスセントラル</label>
+        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23074,9 +23074,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>自動車誕生130周年記念キャンペーン</value>
+            <value>è‡ªå‹•è»Šèª•ç”Ÿ130å‘¨å¹´è¨˜å¿µã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³</value>
         </filters>
-        <label>自動車誕生130周年記念キャンペーン</label>
+        <label>è‡ªå‹•è»Šèª•ç”Ÿ130å‘¨å¹´è¨˜å¿µã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23097,14 +23097,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
+            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
         <filters>
             <field>CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Allocated</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016</label>
+        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM 2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23126,9 +23126,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>E&amp;SクラスセントラルDM（Amex）</value>
+            <value>E&amp;Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DMï¼ˆAmexï¼‰</value>
         </filters>
-        <label>E&amp;SクラスセントラルDM（Amex）</label>
+        <label>E&amp;Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DMï¼ˆAmexï¼‰</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23150,7 +23150,7 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+            <value>CLAã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ãƒ–ãƒ¬ãƒ¼ã‚¯ã§è¡Œãã‚´ãƒ«ãƒ•æ—…ï¼ˆGDOï¼‰</value>
         </filters>
         <label>GDO</label>
         <language>ja</language>
@@ -23174,14 +23174,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+            <value>CLAã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ãƒ–ãƒ¬ãƒ¼ã‚¯ã§è¡Œãã‚´ãƒ«ãƒ•æ—…ï¼ˆGDOï¼‰</value>
         </filters>
         <filters>
             <field>CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Approving</value>
         </filters>
-        <label>GDO承認中</label>
+        <label>GDOæ‰¿èªä¸­</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23203,14 +23203,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+            <value>CLAã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ãƒ–ãƒ¬ãƒ¼ã‚¯ã§è¡Œãã‚´ãƒ«ãƒ•æ—…ï¼ˆGDOï¼‰</value>
         </filters>
         <filters>
             <field>CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>New</value>
         </filters>
-        <label>GDO新規</label>
+        <label>GDOæ–°è¦</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23271,7 +23271,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>notEqual</operation>
             <value>Not Allocated</value>
         </filters>
-        <label>未展開リード</label>
+        <label>æœªå±•é–‹ãƒªãƒ¼ãƒ‰</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23314,6 +23314,74 @@ Company_Account__r.Work_Phone__c  ,
         <label>MY LEADS</label>
         <language>en_US</language>
         <sharedTo/>
+    </listViews>
+    <listViews>
+        <fullName>S_SL_SLC_DM2016</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLCã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
+        </filters>
+        <label>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLCã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>S_SL_SLC_DM20161</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLCã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLCã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016_ä»Šæ—¥</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>S_SL_SLC_T</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLC Tãƒã‚¤ãƒ³ãƒˆã‚«ãƒ¼ãƒ‰ä¿æœ‰è€…å‘ã‘ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
+        </filters>
+        <label>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLC Tãƒã‚¤ãƒ³ãƒˆã‚«ãƒ¼ãƒ‰ä¿æœ‰è€…å‘ã‘ã‚»ãƒ³ãƒˆ</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Lead</fullName>
@@ -23360,7 +23428,27 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>001_本日のリード</label>
+        <label>001_æœ¬æ—¥ã®ãƒªãƒ¼ãƒ‰</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View1</fullName>
+        <columns>NAME</columns>
+        <columns>UCID__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>Contact__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>ãƒ¡ãƒ«ã‚»ãƒ‡ã‚¹ ãƒŸãƒ¼ æ±äº¬ç¾½ç”°</value>
+        </filters>
+        <label>ãƒ¡ãƒ«ã‚»ãƒ‡ã‚¹ ãƒŸãƒ¼ æ±äº¬ç¾½ç”°ã®ãƒªãƒ¼ãƒ‰</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23381,10 +23469,34 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>LAST_N_DAYS:7</value>
         </filters>
-        <label>002_過去7日間のリード</label>
+        <label>002_éŽåŽ»7æ—¥é–“ã®ãƒªãƒ¼ãƒ‰</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View3</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>Ã£Æ’Â¡Ã£Æ’Â«Ã£â€šÂ»Ã£Æ’â€¡Ã£â€šÂ¹Ã£Æ’Â»Ã£Æ’â„¢Ã£Æ’Â³Ã£Æ’â€žÃ¤Â½â€œÃ¦â€žÅ¸Ã£â€šÂ­Ã£Æ’Â£Ã£Æ’Â³Ã£Æ’Å¡Ã£Æ’Â¼Ã£Æ’Â³Ã£Æ’â€”Ã£Æ’Â©Ã£â€šÂ¹</value>
+        </filters>
+        <label>Ã£â€šÂ«Ã£Æ’Â¬Ã£â€šÂ³</label>
+        <language>ja</language>
+        <sharedTo>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -23409,7 +23521,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>My Mercedes</value>
         </filters>
-        <label>001_本日のリード(My Mercedes)</label>
+        <label>001_æœ¬æ—¥ã®ãƒªãƒ¼ãƒ‰(My Mercedes)</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23430,14 +23542,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
+            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
         <filters>
             <field>CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>New</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016</label>
+        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM 2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -23458,9 +23570,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
+            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
-        <label>DM_SクラスセントラルDM2016</label>
+        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -24683,7 +24795,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event/Sâ€™Ship</fullName>
+                <fullName>Event%2FSÃ¢%E2%82%AC%E2%84%A2Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28314,7 +28426,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28342,7 +28454,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28350,7 +28462,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28418,7 +28530,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28573,7 +28685,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ%C2%A9</fullName>
+                <fullName>C-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28601,7 +28713,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLK-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28609,7 +28721,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLS-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28677,7 +28789,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ%C2%A9</fullName>
+                <fullName>E-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37442,7 +37554,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40026,6 +40138,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
@@ -40763,7 +40879,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40791,7 +40907,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40799,7 +40915,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40867,7 +40983,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41022,7 +41138,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ%C2%A9</fullName>
+                <fullName>C-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41050,7 +41166,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLK-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41058,7 +41174,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLS-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41126,7 +41242,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ%C2%A9</fullName>
+                <fullName>E-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49538,7 +49654,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event/Sâ€™Ship</fullName>
+                <fullName>Event%2FSÃ¢%E2%82%AC%E2%84%A2Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53425,7 +53541,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53453,7 +53569,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53461,7 +53577,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53529,7 +53645,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53684,7 +53800,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ%C2%A9</fullName>
+                <fullName>C-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53712,7 +53828,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLK-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53720,7 +53836,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLS-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53788,7 +53904,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ%C2%A9</fullName>
+                <fullName>E-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62310,7 +62426,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event/Sâ€™Ship</fullName>
+                <fullName>Event%2FSÃ¢%E2%82%AC%E2%84%A2Ship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66201,7 +66317,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66229,7 +66345,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66237,7 +66353,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66305,7 +66421,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66460,7 +66576,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ%C2%A9</fullName>
+                <fullName>C-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66488,7 +66604,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLK-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66496,7 +66612,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLS-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66564,7 +66680,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ%C2%A9</fullName>
+                <fullName>E-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75954,7 +76070,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79539,7 +79655,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79567,7 +79683,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79575,7 +79691,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79643,7 +79759,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79798,7 +79914,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ%C2%A9</fullName>
+                <fullName>C-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79826,7 +79942,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLK-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79834,7 +79950,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLS-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79902,7 +80018,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ%C2%A9</fullName>
+                <fullName>E-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88974,7 +89090,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92231,7 +92347,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92263,7 +92379,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92271,7 +92387,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92279,7 +92395,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92434,7 +92550,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ%C2%A9</fullName>
+                <fullName>C-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92462,7 +92578,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLK-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92470,7 +92586,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLS-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92538,7 +92654,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ%C2%A9</fullName>
+                <fullName>E-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92830,6 +92946,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone and Email</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100750,7 +100870,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103751,7 +103871,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103779,7 +103899,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103787,7 +103907,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103855,7 +103975,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -104010,7 +104130,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class CoupÃ%C2%A9</fullName>
+                <fullName>C-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -104038,7 +104158,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLK-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -104046,7 +104166,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class CoupÃ%C2%A9</fullName>
+                <fullName>CLS-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -104114,7 +104234,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class CoupÃ%C2%A9</fullName>
+                <fullName>E-Class CoupÃƒ%C2%A9</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -110582,9 +110702,9 @@ Modify Reason:
         <errorConditionFormula>AND( 
 NOT(ISBLANK(Assigned_Dealer__c)), NOT(ISNULL(Assigned_Dealer__c)), 
 NOT(ISNULL(Assigned_Date_Time__c)),
-ISPICKVAL(CAC_Lead_Status__c,&apos;Qualified&apos;), 
-$Profile.Name != &apos;IntegrationAPI&apos;, 
-MD__c=&apos;KR&apos; 
+ISPICKVAL(CAC_Lead_Status__c,'Qualified'), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c='KR' 
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
@@ -110594,22 +110714,22 @@ MD__c=&apos;KR&apos;
         <active>true</active>
         <description>This Rule is created for thailand</description>
         <errorConditionFormula>AND( 
-OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;),ispickval(CAC_Lead_Status__c,&apos;Assigned&apos;), 
+OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),ispickval(CAC_Lead_Status__c,'Assigned'), 
 (ISBlank(Assigned_Date_Time__c)), 
-MD__c=&apos;TH&apos;, 
-$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+MD__c='TH', 
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If  Dealer is assigned and CAC lead status is “assigned” then assigned date &amp; time is required</errorMessage>
+        <errorMessage>If  Dealer is assigned and CAC lead status is â€œassignedâ€ then assigned date &amp; time is required</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
 ISNULL(Service_Date__c), 
-ISPICKVAL(CAC_Lead_Status__c, &apos;Service Completed&apos;),
-$Profile.Name != &apos;IntegrationAPI&apos;, 
-MD__c=&apos;KR&apos;,
-RecordType.DeveloperName = &apos;Aftersales_Leads&apos;
+ISPICKVAL(CAC_Lead_Status__c, 'Service Completed'),
+$Profile.Name != 'IntegrationAPI', 
+MD__c='KR',
+RecordType.DeveloperName = 'Aftersales_Leads'
 )</errorConditionFormula>
         <errorDisplayField>Service_Date__c</errorDisplayField>
         <errorMessage>If CAC Lead Status is Service Completed, Service Date is required.</errorMessage>
@@ -110618,10 +110738,10 @@ RecordType.DeveloperName = &apos;Aftersales_Leads&apos;
         <fullName>CAC_Purchase_Check_Aftersales_Lead_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-ISNULL(Purchased_CAC_Date__c), OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;),
-ISPICKVAL(CAC_Lead_Status__c, &apos;Purchased&apos;), 
-$Profile.Name != &apos;IntegrationAPI&apos;, 
-MD__c=&apos;TH&apos;)</errorConditionFormula>
+ISNULL(Purchased_CAC_Date__c), OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),
+ISPICKVAL(CAC_Lead_Status__c, 'Purchased'), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c='TH')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CAC lead status is Purchased, then Purchased CAC Date and Time field is required</errorMessage>
     </validationRules>
@@ -110638,83 +110758,83 @@ Modify By:
 Modify Reason: 
 */</description>
         <errorConditionFormula>AND ( 
-ISPICKVAL(CAC_Lead_Status__c, &quot;Purchased(Only Non BDC)&quot;),
+ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),
 OR (  
 ISNULL(Purchased_CAC_Date_Time__c), 
 ISBLANK(Purchased_CAC_Date_Time__c) 
 ), 
-RecordType.DeveloperName = &apos;Sales_Leads&apos;,MD__c = &apos;KR&apos;)</errorConditionFormula>
+RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CACDealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead_TH</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, &quot;Purchased&quot;),RecordType.Name = &apos;Sales Leads&apos;,OR( 
-ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,&apos;&apos;),ISPICKVAL(Bought_Vehicle_Class__c,&apos;&apos;),ISPICKVAL(Bought_Vehicle_Model__c,&apos;&apos;))&amp;&amp;MD__c=&apos;TH&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, "Purchased"),RecordType.Name = 'Sales Leads',OR( 
+ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,''),ISPICKVAL(Bought_Vehicle_Class__c,''),ISPICKVAL(Bought_Vehicle_Model__c,''))&amp;&amp;MD__c='TH')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>IF CAC Lead status is “Purchased”, then Purchase Date ,Purchased time ,Bought vehicle brand ,Bought vehicle class and Bought Vehicle model are  required</errorMessage>
+        <errorMessage>IF CAC Lead status is â€œPurchasedâ€, then Purchase Date ,Purchased time ,Bought vehicle brand ,Bought vehicle class and Bought Vehicle model are  required</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Invoice_Number</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Invoice_Number__c ))),ISCHANGED(  Invoice_Number__c  ), MD__c = &apos;JP&apos;,  $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
-        <errorMessage>You can&apos;t change Invoice Number</errorMessage>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Invoice_Number__c ))),ISCHANGED(  Invoice_Number__c  ), MD__c = 'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You can't change Invoice Number</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Contact</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(DMS_Sent_Flag__c, ISCHANGED( Contact__c ), MD__c = &apos;JP&apos;,  $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(DMS_Sent_Flag__c, ISCHANGED( Contact__c ), MD__c = 'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>You cannot change the Contact if DMS Sent Flag is selected</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Quotation_Amount</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Quotation_Amount__c ) )),ISCHANGED( Quotation_Amount__c ),  MD__c = &apos;JP&apos;,  $Profile.Name  &lt;&gt; &apos;IntegrationAPI&apos;)</errorConditionFormula>
-        <errorMessage>You can&apos;t change Quotation Amount</errorMessage>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Quotation_Amount__c ) )),ISCHANGED( Quotation_Amount__c ),  MD__c = 'JP',  $Profile.Name  &lt;&gt; 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You can't change Quotation Amount</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status</fullName>
         <active>false</active>
-        <description>&quot;Lead status changed to &quot;&quot;Approved(waiting)&quot;&quot; or &quot;&quot;Allocated&quot;&quot;
-AND User profile is Call center agent&quot;</description>
-        <errorConditionFormula>AND($Profile.Name =&apos;Japan Call Center&apos; || $Profile.Name =&apos;Korea Call Center&apos;, OR (ISPICKVAL( CAC_Lead_Status__c , &apos;Approved&apos;), ISPICKVAL(CAC_Lead_Status__c , &apos;Allocated&apos;))&amp;&amp; 
-(UPPER( MD__c ) = &apos;JP&apos; || UPPER( MD__c ) = &apos;KR&apos;) &amp;&amp; 
-($Profile.Name != &apos;IntegrationAPI&apos;))</errorConditionFormula>
+        <description>"Lead status changed to ""Approved(waiting)"" or ""Allocated""
+AND User profile is Call center agent"</description>
+        <errorConditionFormula>AND($Profile.Name ='Japan Call Center' || $Profile.Name ='Korea Call Center', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp; 
+(UPPER( MD__c ) = 'JP' || UPPER( MD__c ) = 'KR') &amp;&amp; 
+($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>You can&apos;t change lead status to &quot;Approval(waiting)&quot; or &quot;Allocated&quot;</errorMessage>
+        <errorMessage>You can't change lead status to "Approval(waiting)" or "Allocated"</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status_TH</fullName>
         <active>false</active>
-        <errorConditionFormula>AND(OR($Profile.Name=&apos;Thailand Call Center&apos;,$Profile.Name=&apos;Thailand CRM&apos;),$Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL(CAC_Lead_Status__c,&apos;assigned&apos;),UPPER(MD__c)= &apos;TH&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND(OR($Profile.Name='Thailand Call Center',$Profile.Name='Thailand CRM'),$Profile.Name != 'IntegrationAPI',ISPICKVAL(CAC_Lead_Status__c,'assigned'),UPPER(MD__c)= 'TH',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>CCC  agent  cannot change the CAC lead status to assigned</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Quotation_No</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(ISBLANK( PRIORVALUE(Quotation_Number__c) )),ISCHANGED( Quotation_Number__c ), MD__c  =  &apos;JP&apos;,  $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
-        <errorMessage>You can&apos;t change the  Quotation No</errorMessage>
+        <errorConditionFormula>AND(NOT(ISBLANK( PRIORVALUE(Quotation_Number__c) )),ISCHANGED( Quotation_Number__c ), MD__c  =  'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You can't change the  Quotation No</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Company_Account_Required</fullName>
         <active>true</active>
-        <description>&quot;Customer_Type__c = &quot;&quot;Company Sales&quot;&quot;
-AND Company__c is null&quot;</description>
+        <description>"Customer_Type__c = ""Company Sales""
+AND Company__c is null"</description>
         <errorConditionFormula>AND( 
-ISPICKVAL( Customer_Type__c , &apos;Company Sales&apos;), 
+ISPICKVAL( Customer_Type__c , 'Company Sales'), 
 ISBLANK( Company_Account__c )&amp;&amp; 
-(UPPER( MD__c ) = &apos;JP&apos; || UPPER( MD__c ) = &apos;KR&apos;) &amp;&amp; 
-($Profile.Name != &apos;IntegrationAPI&apos;))</errorConditionFormula>
+(UPPER( MD__c ) = 'JP' || UPPER( MD__c ) = 'KR') &amp;&amp; 
+($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>Company_Account__c</errorDisplayField>
         <errorMessage>Company account is required when company type is Company.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Contact_Failed_Required_Check</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Contact Failed For 3 Days(Only Non BDC)&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
+ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), 
 ISNULL(Contact_Failed_For_3_Days_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Contact_Failed_For_3_Days_Date__c</errorDisplayField>
@@ -110725,25 +110845,25 @@ ISNULL(Contact_Failed_For_3_Days_Date__c)
         <active>true</active>
         <errorConditionFormula>OR(
 AND( OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Lead_Latest_Phase__c)),
-ISPICKVAL( Dealer_Lead_Status__c , &apos;Purchased(Only Non BDC)&apos;), NOT(ISPICKVAL(Lead_Latest_Phase__c, &apos;Registration&apos;)),RecordType.DeveloperName = &apos;Sales_Leads&apos;,MD__c =&apos;JP&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;),
+ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Registration')),RecordType.DeveloperName = 'Sales_Leads',MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'),
 AND(OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Lead_Latest_Phase__c)),
-ISPICKVAL( Dealer_Lead_Status__c , &apos;Purchased(Only Non BDC)&apos;), NOT(ISPICKVAL(Lead_Latest_Phase__c, &apos;Invoiced&apos;)),RecordType.DeveloperName = &apos;Aftersales_Leads&apos;,MD__c =&apos;JP&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;)
+ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced')),RecordType.DeveloperName = 'Aftersales_Leads',MD__c ='JP',
+$Profile.Name != 'IntegrationAPI')
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
-        <errorMessage>&quot;Dealer Lead Status&quot; can change into &quot;Purchased&quot; only if (&quot;Lead Latest Phase&quot; is &quot;Registration&quot; and Leads record type is &quot;Sales Lead&quot;) or (&quot;Lead Latest Phase&quot; is &quot;Invoiced&quot; and Leads record type if &quot;After-Sales Lead&quot;).</errorMessage>
+        <errorMessage>"Dealer Lead Status" can change into "Purchased" only if ("Lead Latest Phase" is "Registration" and Leads record type is "Sales Lead") or ("Lead Latest Phase" is "Invoiced" and Leads record type if "After-Sales Lead").</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Dealer_Purchase_Check_Aftersales_Lead</fullName>
         <active>false</active>
-        <errorConditionFormula>AND ($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c, &quot;Service Completed&quot;), 
+        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
+ISPICKVAL(Dealer_Lead_Status__c, "Service Completed"), 
 OR ( 
 ISNULL(Service_Date__c), 
 ISBLANK(Service_Date__c) 
 ), 
-RecordType.Name == &apos;Aftersales Leads&apos;
+RecordType.Name == 'Aftersales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Service_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Service Completed, Service Date is required.</errorMessage>
@@ -110751,8 +110871,8 @@ RecordType.Name == &apos;Aftersales Leads&apos;
     <validationRules>
         <fullName>Dealer_Purchase_Check_Aftersales_Lead_TH</fullName>
         <active>true</active>
-        <errorConditionFormula>AND ($Profile.Name != &apos;IntegrationAPI&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;), MD__c = &apos;TH&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Purchased&quot;), 
+        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'TH', 
+ISPICKVAL(Dealer_Lead_Status__c,"Purchased"), 
 OR ( 
 ISNULL(Purchased_Date__c), 
 ISBLANK(Purchased_Date__c))
@@ -110763,13 +110883,13 @@ ISBLANK(Purchased_Date__c))
     <validationRules>
         <fullName>Dealer_Purchase_Check_Sales_Lead</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Purchased(Only Non BDC)&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
+ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"), 
 OR( 
 ISNULL(Purchased_CAC_Date_Time__c), 
 ISBLANK(Purchased_CAC_Date_Time__c) 
 ), 
-RecordType.Name == &apos;Sales Leads&apos;
+RecordType.Name == 'Sales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
@@ -110778,8 +110898,8 @@ RecordType.Name == &apos;Sales Leads&apos;
         <fullName>Dealer_lost_Reason_Manadatory</fullName>
         <active>false</active>
         <errorConditionFormula>AND(ISBLANK(Lost_Comment__c),
-ISPICKVAL(Dealer_Lead_Status__c, &apos;Lost&apos;),
-$Profile.Name != &apos;IntegrationAPI&apos;
+ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Lost_Comment__c</errorDisplayField>
         <errorMessage>Lost reasons is mandatory when Dealer  lead status is changed to Lost.</errorMessage>
@@ -110788,29 +110908,29 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Finance_Product_Name_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Product_Name__c))),ISCHANGED(Finance_Product_Name__c),
-$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;JP&apos;)</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Finance_Product_Name__c</errorDisplayField>
         <errorMessage>Finance Product name cannot be changed manually</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Finance_Quotation_No_Check</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_Number__c))),ISCHANGED(Finance_Quotation_Number__c),$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;JP&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_Number__c))),ISCHANGED(Finance_Quotation_Number__c),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Finance_Quotation_Number__c</errorDisplayField>
         <errorMessage>Finance Quotation No cannot be changed manually</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Finance_Quotation_No_History_Check</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_No_History__c))),ISCHANGED(Finance_Quotation_No_History__c),$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;JP&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_No_History__c))),ISCHANGED(Finance_Quotation_No_History__c),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Finance_Quotation_No_History__c</errorDisplayField>
         <errorMessage>Finance Quotation No History cannot be changed manually</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Contact_Customer_Required_Check</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;KR&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;),
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR', 
+ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"),
 ISNULL(First_Contact_Customer_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>First_Contact_Customer_Date__c</errorDisplayField>
@@ -110819,9 +110939,9 @@ ISNULL(First_Contact_Customer_Date__c)
     <validationRules>
         <fullName>First_Contact_Customer_Required_Check_TH</fullName>
         <active>true</active>
-        <description>If Dealer Lead Status is &quot;First Contact Customer&quot;, and if &quot;First Contact Customer date and timeâ€ is blank then an error message is shown.</description>
-        <errorConditionFormula>AND ($Profile.Name != &apos;IntegrationAPI&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;), MD__c = &apos;TH&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;), 
+        <description>If Dealer Lead Status is "First Contact Customer", and if "First Contact Customer date and timeÃ¢â‚¬&#157; is blank then an error message is shown.</description>
+        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'TH', 
+ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), 
 OR ( 
 ISNULL(First_Contact_Customer_Date_Time__c), 
 ISBLANK(First_Contact_Customer_Date_Time__c))
@@ -110832,7 +110952,7 @@ ISBLANK(First_Contact_Customer_Date_Time__c))
     <validationRules>
         <fullName>First_Name_Native_Single</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(REGEX( FirstName_Native_1__c ,&quot;[^\\x00-\\x7F]+&quot;)),
+        <errorConditionFormula>AND(NOT(REGEX( FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
 NOT(ISBLANK(FirstName_Native_1__c )))</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
         <errorMessage>First Name Native should be Double byte.</errorMessage>
@@ -110848,7 +110968,7 @@ NOT(ISBLANK(FirstName_Native_1__c )))</errorConditionFormula>
         <fullName>Last_Name_Native_Single</fullName>
         <active>true</active>
         <description>If Last_Name_Native_1__c contains single byte(ASCII) characters.</description>
-        <errorConditionFormula>AND(NOT(REGEX(  LastName_Native_1__c ,&quot;[^\\x00-\\x7F]+&quot;)), 
+        <errorConditionFormula>AND(NOT(REGEX(  LastName_Native_1__c ,"[^\\x00-\\x7F]+")), 
 NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be Double byte.</errorMessage>
@@ -110859,10 +110979,10 @@ NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
         <errorConditionFormula>AND(
 NOT
 (ISBLANK(PRIORVALUE(Invoice_Amount__c ))),ISCHANGED( Invoice_Amount__c ),
- MD__c = &apos;JP&apos;, 
- $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Invoice_Amount__c</errorDisplayField>
-        <errorMessage>&quot;Invoice Amount&quot; cannot be changed manually.</errorMessage>
+        <errorMessage>"Invoice Amount" cannot be changed manually.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Invoice_Amount_History_Check</fullName>
@@ -110870,10 +110990,10 @@ NOT
         <errorConditionFormula>AND(
 NOT
 (ISBLANK(PRIORVALUE(Invoice_Amount_History__c ))),ISCHANGED(  Invoice_Amount_History__c ),
- MD__c = &apos;JP&apos;, 
- $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Invoice_Amount_History__c</errorDisplayField>
-        <errorMessage>&quot;Invoice Amount History&quot; cannot be changed manually.</errorMessage>
+        <errorMessage>"Invoice Amount History" cannot be changed manually.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Invoice_Number_History_Check</fullName>
@@ -110881,25 +111001,25 @@ NOT
         <errorConditionFormula>AND(
 NOT
 (ISBLANK(PRIORVALUE(Invoice_Number_History__c ))),ISCHANGED(  Invoice_Number_History__c ),
- MD__c = &apos;JP&apos;, 
- $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Invoice_Number_History__c</errorDisplayField>
-        <errorMessage>&quot;Invoice Number History&quot; cannot be changed manually.</errorMessage>
+        <errorMessage>"Invoice Number History" cannot be changed manually.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Latest_Phase_Manual_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c ),
     OR(
-        ISPICKVAL(Lead_Latest_Phase__c , &apos;Quotation&apos;),
-	ISPICKVAL(Lead_Latest_Phase__c , &apos;Order Confirmed&apos;),
-	ISPICKVAL(Lead_Latest_Phase__c , &apos;Order Placed&apos;),
-   ISPICKVAL(Lead_Latest_Phase__c , &apos;Vehicle Registration&apos;),
-	ISPICKVAL(Lead_Latest_Phase__c , &apos;Invoiced&apos;)
+        ISPICKVAL(Lead_Latest_Phase__c , 'Quotation'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Order Confirmed'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Order Placed'),
+   ISPICKVAL(Lead_Latest_Phase__c , 'Vehicle Registration'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
 	),
-RecordType.Name = &apos;Sales Leads&apos;,
-MD__c =&apos;JP&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;
+RecordType.Name = 'Sales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
         <errorMessage>It cannot be changed Manually</errorMessage>
@@ -110909,13 +111029,13 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <active>true</active>
         <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
 	OR(
-	ISPICKVAL(Lead_Latest_Phase__c , &apos;WIP Linkage&apos;),
-	ISPICKVAL(Lead_Latest_Phase__c , &apos;Job Card Issue&apos;),
-	ISPICKVAL(Lead_Latest_Phase__c , &apos;Invoiced&apos;)
+	ISPICKVAL(Lead_Latest_Phase__c , 'WIP Linkage'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Job Card Issue'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
 	),
-RecordType.Name = &apos;Aftersales Leads&apos;,
-MD__c =&apos;JP&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;
+RecordType.Name = 'Aftersales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
         <errorMessage>Lead Latest Phase" cannot be changed into WIP Linkage, Job Card Issue, Invoiced</errorMessage>
@@ -110923,36 +111043,36 @@ $Profile.Name != &apos;IntegrationAPI&apos;
     <validationRules>
         <fullName>Lead_Status_Lost_Check</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c, &apos;Lost&apos;),
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
 	OR(
-	ISPICKVAL(Lead_Latest_Phase__c , &apos;Vehicle Registration&apos;),
-	ISPICKVAL(Lead_Latest_Phase__c , &apos;Invoiced&apos;)
+	ISPICKVAL(Lead_Latest_Phase__c , 'Vehicle Registration'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
 	),
-RecordType.Name = &apos;Sales Leads&apos;,
-MD__c =&apos;JP&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;
+RecordType.Name = 'Sales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
-        <errorMessage>Dealer Lead Status&quot; cannot be changed into â€œLost</errorMessage>
+        <errorMessage>Dealer Lead Status" cannot be changed into Ã¢â‚¬Å“Lost</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_assignment</fullName>
         <active>false</active>
-        <description>If the the Lead is assigned to the dealer then  status to be set as &quot;Assigned&quot;</description>
+        <description>If the the Lead is assigned to the dealer then  status to be set as "Assigned"</description>
         <errorConditionFormula>AND( 
 NOT(ISBLANK(Assigned_Dealer__c)), NOT(ISNULL(Assigned_Dealer__c)), 
-NOT(ISPICKVAL(CAC_Lead_Status__c,&apos;Assigned&apos;)), 
-$Profile.Name != &apos;IntegrationAPI&apos;, 
-MD__c= &apos;JP&apos;||MD__c=&apos;KR&apos; 
+NOT(ISPICKVAL(CAC_Lead_Status__c,'Assigned')), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c= 'JP'||MD__c='KR' 
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>Lead status should be &quot;Assigned&quot; once dealer is assigned to the Lead</errorMessage>
+        <errorMessage>Lead status should be "Assigned" once dealer is assigned to the Lead</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lost_Dealer_Required_Check</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Lost(Dealer)&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
+ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"), 
 ISNULL(Lost_Dealer_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Lost_Dealer_Date__c</errorDisplayField>
@@ -110961,15 +111081,15 @@ ISNULL(Lost_Dealer_Date__c)
     <validationRules>
         <fullName>Lost_Reason_Mandatory</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,&apos;Lost&apos;),($Profile.Name != &apos;IntegrationAPI&apos;)&amp;&amp;(MD__c = &apos;JP&apos;),OR(ISPICKVAL(Dealer_Lost_Reason__c,&apos;&apos;),ISPICKVAL(Lost_Situation__c,&apos;&apos;)))</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,'Lost'),($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),OR(ISPICKVAL(Dealer_Lost_Reason__c,''),ISPICKVAL(Lost_Situation__c,'')))</errorConditionFormula>
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</fullName>
         <active>false</active>
-        <description>On change of status to &quot;Lost(CAC)&quot; there is no validation of entering the Lost Reason &amp; &quot;Lost(CAC) Date&quot; is not updated</description>
-        <errorConditionFormula>AND( OR(ISBLANK( Lost_CAC_Date__c ),(ISBLANK( Lost_Comment__c ))),ISPICKVAL(CAC_Lead_Status__c,&quot;Lost(CAC)&quot;), 
-AND($Profile.Name != &apos;IntegrationAPI&apos;),MD__c=&quot;JP&quot;)</errorConditionFormula>
+        <description>On change of status to "Lost(CAC)" there is no validation of entering the Lost Reason &amp; "Lost(CAC) Date" is not updated</description>
+        <errorConditionFormula>AND( OR(ISBLANK( Lost_CAC_Date__c ),(ISBLANK( Lost_Comment__c ))),ISPICKVAL(CAC_Lead_Status__c,"Lost(CAC)"), 
+AND($Profile.Name != 'IntegrationAPI'),MD__c="JP")</errorConditionFormula>
         <errorMessage>Lost Reason and Lost CAC date fields are required when status changed to Lost(CAC)</errorMessage>
     </validationRules>
     <validationRules>
@@ -110977,49 +111097,49 @@ AND($Profile.Name != &apos;IntegrationAPI&apos;),MD__c=&quot;JP&quot;)</errorCon
         <active>true</active>
         <errorConditionFormula>AND(
  LEN(Lost_To__c) &lt; 1 ,
- ISPICKVAL(Dealer_Lead_Status__c,&apos;Lost&apos;),$Profile.Name != &apos;IntegrationAPI&apos;,MD__c=&apos;KR&apos;
+ ISPICKVAL(Dealer_Lead_Status__c,'Lost'),$Profile.Name != 'IntegrationAPI',MD__c='KR'
 )</errorConditionFormula>
         <errorDisplayField>Lost_To__c</errorDisplayField>
-        <errorMessage>â€œLost Toâ€ field is mandatory when the lead has been lost</errorMessage>
+        <errorMessage>Ã¢â‚¬Å“Lost ToÃ¢â‚¬&#157; field is mandatory when the lead has been lost</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lost_To_Whom_CAC</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
 OR(ISBLANK(Lost_To__c), ISNULL(Lost_To__c)), 
-ISPICKVAL(CAC_Lead_Status__c,&apos;Lost(CAC)&apos;),$Profile.Name != &apos;IntegrationAPI&apos;,MD__c=&apos;KR&apos;)</errorConditionFormula>
+ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__c='KR')</errorConditionFormula>
         <errorDisplayField>Lost_To__c</errorDisplayField>
-        <errorMessage>â€œLost Toâ€ field is mandatory when the CAC lead status has been set to lost(CAC)</errorMessage>
+        <errorMessage>Ã¢â‚¬Å“Lost ToÃ¢â‚¬&#157; field is mandatory when the CAC lead status has been set to lost(CAC)</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
-        <description>You cannot manually select &quot;Approving&quot;.</description>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , &apos;Approving&apos;),OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <description>You cannot manually select "Approving".</description>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Approving'),OR(MD__c ='JP',MD__c ='KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>You cannot manually select &quot;Approving&quot;.</errorMessage>
+        <errorMessage>You cannot manually select "Approving".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Manual_Status_Change_To_Approved_Check</fullName>
         <active>true</active>
-        <description>You cannot manually select &quot;Approved&quot;.</description>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , &apos;Approved&apos;),OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;),$Profile.Name != &apos;IntegrationAPI&apos;, NOT(ISPICKVAL(PRIORVALUE(CAC_Lead_Status__c),&apos;Approved&apos;)))</errorConditionFormula>
+        <description>You cannot manually select "Approved".</description>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Approved'),OR(MD__c ='JP',MD__c ='KR'),$Profile.Name != 'IntegrationAPI', NOT(ISPICKVAL(PRIORVALUE(CAC_Lead_Status__c),'Approved')))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>You cannot manually select &quot;Approved&quot;.</errorMessage>
+        <errorMessage>You cannot manually select "Approved".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Manual_Status_Change_To_Rejected_Check</fullName>
         <active>true</active>
-        <description>You cannot manually select &quot;Rejected&quot;.</description>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , &apos;Rejected&apos;),OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <description>You cannot manually select "Rejected".</description>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Rejected'),OR(MD__c ='JP',MD__c ='KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>You cannot manually select &quot;Rejected&quot;.</errorMessage>
+        <errorMessage>You cannot manually select "Rejected".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Order_Placed_Required_Check_Dealer</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Order Placed&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
+ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), 
 ISNULL(Order_Placed_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
@@ -111028,8 +111148,8 @@ ISNULL(Order_Placed_Date__c)
     <validationRules>
         <fullName>Order_Placed_Required_Check_Dealer_TH</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c = &apos;TH&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Order Placed&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c = 'TH', 
+ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), 
 ISNULL(Order_Placed_Date__c) 
 )</errorConditionFormula>
         <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
@@ -111039,20 +111159,20 @@ ISNULL(Order_Placed_Date__c)
         <fullName>Purchase_Leads_NoChange_Los</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISCHANGED(Dealer_Lead_Status__c),
-				OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),&apos;Purchased(Only Non BDC)&apos;),				ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),&apos;Lost&apos;)),
-RecordType.Name = &apos;Sales Leads&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;JP&apos;)</errorConditionFormula>
+				OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),				ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
+RecordType.Name = 'Sales Leads',
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
-        <errorMessage>Dealer Lead Status current value is &quot;Purchased&quot; or &quot;Lost&quot; AND record type is &quot;Sales Leads&quot;, &quot;Dealer Lead Status&quot; cannot be changed.</errorMessage>
+        <errorMessage>Dealer Lead Status current value is "Purchased" or "Lost" AND record type is "Sales Leads", "Dealer Lead Status" cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Purchase_Leads_NoChange_Lost</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
-				OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),&apos;Purchased(Only Non BDC)&apos;),
-				ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),&apos;Lost&apos;)),
-				RecordType.Name = &apos;Sales Leads&apos;,
-				$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;JP&apos;)</errorConditionFormula>
+				OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),
+				ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
+				RecordType.Name = 'Sales Leads',
+				$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
         <errorMessage>Lead Latest Phase cannot be changed.</errorMessage>
     </validationRules>
@@ -111060,23 +111180,23 @@ $Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;JP&apos;)</errorCondit
         <fullName>Purchased_Leads_NoChange_Lost</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISCHANGED(AfterSales_Vehicle__c),
-	OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),&apos;Purchased(Only Non BDC)&apos;),
-	ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),&apos;Lost&apos;)),
-	RecordType.DeveloperName = &apos;Aftersales_Leads&apos;,
-	$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;JP&apos;)</errorConditionFormula>
+	OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),
+	ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
+	RecordType.DeveloperName = 'Aftersales_Leads',
+	$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>AfterSales_Vehicle__c</errorDisplayField>
         <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Quotation_No_History_Check</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE( Quotation_Number_History__c ))),ISCHANGED(Quotation_Number_History__c ), MD__c = &apos;JP&apos; ,  $Profile.Name  &lt;&gt; &apos;IntegrationAPI&apos;)</errorConditionFormula>
-        <errorMessage>You can&apos;t change  Quotation No History</errorMessage>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE( Quotation_Number_History__c ))),ISCHANGED(Quotation_Number_History__c ), MD__c = 'JP' ,  $Profile.Name  &lt;&gt; 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You can't change  Quotation No History</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>RecommendedDealerMandatory</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;, 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 Visit_Dealer__c = true &amp;&amp; (OR(ISNULL(Recommended_Dealer__c), ISBLANK( Recommended_Dealer__c ))) )</errorConditionFormula>
         <errorDisplayField>Recommended_Dealer__c</errorDisplayField>
         <errorMessage>Please fill in the Recommended Dealer.</errorMessage>
@@ -111084,8 +111204,8 @@ Visit_Dealer__c = true &amp;&amp; (OR(ISNULL(Recommended_Dealer__c), ISBLANK( Re
     <validationRules>
         <fullName>Service_Date_is_Mandatory</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;,
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Service Completed&quot;),
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
+ISPICKVAL(Dealer_Lead_Status__c,"Service Completed"),
 ISNULL(Service_Date__c))</errorConditionFormula>
         <errorDisplayField>Service_Date__c</errorDisplayField>
         <errorMessage>Service Date Field is Mandatory</errorMessage>
@@ -111093,8 +111213,8 @@ ISNULL(Service_Date__c))</errorConditionFormula>
     <validationRules>
         <fullName>Test_Drive_Required_Check</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;,
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Test Drive&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
+ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"), 
 ISNULL(Test_Drive_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Test_Drive_Date__c</errorDisplayField>
@@ -111103,8 +111223,8 @@ ISNULL(Test_Drive_Date__c)
     <validationRules>
         <fullName>Test_Drive_Required_Check_TH</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Test Drive&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'TH',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),
+ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"), 
 ISNULL(Test_Drive_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Test_Drive_Date__c</errorDisplayField>
@@ -111122,10 +111242,10 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;, 
-INCLUDES(Lead_Desired_Service__c, &quot;Trade-In&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
+INCLUDES(Lead_Desired_Service__c, "Trade-In"), 
 TEXT(Trade_In_Vehicle_Brand__c) == NULL ,
-RecordType.DeveloperName = &apos;Sales_Leads&apos; 
+RecordType.DeveloperName = 'Sales_Leads' 
 
 )</errorConditionFormula>
         <errorDisplayField>Lead_Desired_Service__c</errorDisplayField>
@@ -111135,18 +111255,18 @@ RecordType.DeveloperName = &apos;Sales_Leads&apos;
         <fullName>TradeIn_Fields_Required_Check_Others</fullName>
         <active>false</active>
         <errorConditionFormula>AND(
-ISPICKVAL(Trade_In_Vehicle_Brand__c,&apos;Other brands&apos;),       
+ISPICKVAL(Trade_In_Vehicle_Brand__c,'Other brands'),       
 ISBLANK(Trade_In_Other_Vehicle_Model__c),
-RecordType.DeveloperName = &apos;Sales_Leads&apos;
+RecordType.DeveloperName = 'Sales_Leads'
 )</errorConditionFormula>
         <errorDisplayField>Trade_In_Vehicle_Brand__c</errorDisplayField>
-        <errorMessage>If Trade-In Vehicle Brand equals to &quot;Other brands&quot; , Trade-In Other Vehicle Model is required.</errorMessage>
+        <errorMessage>If Trade-In Vehicle Brand equals to "Other brands" , Trade-In Other Vehicle Model is required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Visited_Showroom_Required_Check</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;KR&apos;, 
-ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom&quot;), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
+ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), 
 ISNULL(Visited_Showroom_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Visited_Showroom_Date__c</errorDisplayField>
@@ -111160,15 +111280,15 @@ ISNULL(Visited_Showroom_Date__c)
         <masterLabel>Assign to Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
-var prName = &quot;{!$Profile.Name}&quot;; 
-var market = &quot;{!Lead__c.MD__c}&quot;; 
-if(prName == &apos;Japan Dealer Sales Manager&apos; || prName == &apos;Japan Dealer Service Manager&apos; || prName == &apos;Japan Dealer Company Manager&apos; || prName == &apos;System Administrator&apos;||prName == &apos;Campaign Japan Dealer Company Manager&apos;){ 
-var myWindow = window.open(&quot;{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}&quot;, &quot;_blank&quot;,&quot;resizable=yes&quot;); 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var prName = "{!$Profile.Name}"; 
+var market = "{!Lead__c.MD__c}"; 
+if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Manager' || prName == 'Japan Dealer Company Manager' || prName == 'System Administrator'||prName == 'Campaign Japan Dealer Company Manager'){ 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
 } 
 else{ 
-alert(&quot;{!$Label.Authorization}&quot;); 
+alert("{!$Label.Authorization}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -111180,22 +111300,22 @@ alert(&quot;{!$Label.Authorization}&quot;);
         <masterLabel>Convert</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT("/soap/ajax/13.0/connection.js")}
 
-var leadObj = new sforce.SObject(&quot;Lead__c&quot;);
-leadObj.Id = &apos;{!Lead__c.Id}&apos;;
-if(leadObj.RecordTypeId=&apos;OBJECT_LEAD_SALES_RECORD_TYPE_ID&apos;)
+var leadObj = new sforce.SObject("Lead__c");
+leadObj.Id = '{!Lead__c.Id}';
+if(leadObj.RecordTypeId='OBJECT_LEAD_SALES_RECORD_TYPE_ID')
 {
-		leadObj.RecordTypeId = &apos;OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&apos;;
+		leadObj.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID';
 }
-	else if(leadObj.RecordTypeId=&apos;OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&apos;)
+	else if(leadObj.RecordTypeId='OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID')
 {
-	leadObj.RecordTypeId = &apos;OBJECT_LEAD_SALES_RECORD_TYPE_ID&apos;;
+	leadObj.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID';
 }
 
 	var result = sforce.connection.update([leadObj]);
 
-	if (result[0].success ==&apos;false&apos;) 	
+	if (result[0].success =='false') 	
 {
 		alert (result[0].errors.message);
 } 			
@@ -111212,10 +111332,10 @@ if(leadObj.RecordTypeId=&apos;OBJECT_LEAD_SALES_RECORD_TYPE_ID&apos;)
         <masterLabel>Convert Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
-var relatedId=&apos;{!Lead__c.Related_Leads__c}&apos;; 
-if(relatedId !==&apos;&apos;){ 
+        <url>{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/30.0/apex.js")} 
+var relatedId='{!Lead__c.Related_Leads__c}'; 
+if(relatedId !==''){ 
 var alrt = '{!JSENCODE($Label.This_Lead_is_already_converted)}'; 
 alert(alrt); 
 } 
@@ -111224,9 +111344,9 @@ else{
 var r = confirm("{!$Label.This_will_convert_the_record_type_of_Leads_Please_confirm}"); 
 if(r == true) 
 { 
-var leadCopy=sforce.apex.execute(&quot;LeadcustomClone&quot;,&quot;cloneLead&quot;,{LeadId:&quot;{!Lead__c.Id}&quot;}); 
+var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:"{!Lead__c.Id}"}); 
 
-var relatedId1=&apos;{!Lead__c.Related_Leads__c}&apos;; 
+var relatedId1='{!Lead__c.Related_Leads__c}'; 
 window.location.reload(); 
 } 
 }</url>
@@ -111270,24 +111390,24 @@ window.location.reload();
         <masterLabel>Merge</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
-{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 
-var market = &quot;{!Lead__c.MD__c}&quot;; 
-if(market== &apos;JP&apos;) 
+var market = "{!Lead__c.MD__c}"; 
+if(market== 'JP') 
 { 
-if(typeof(srcUp) == &apos;function&apos;) 
+if(typeof(srcUp) == 'function') 
 { 
 if(sforce.console.isInConsole() ) 
 { 
-srcUp(&apos;/apex/SelectSlaveLead?Id={!Lead__c.Id}&amp;isdtp=vw&apos;); 
+srcUp('/apex/SelectSlaveLead?Id={!Lead__c.Id}&amp;isdtp=vw'); 
 } 
 } 
 else 
 { 
-var myWindow = window.open(&quot;{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Lead__c.Id}&quot;, &quot;_parent&quot;,&quot;resizable=yes&quot;); 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Lead__c.Id}", "_parent","resizable=yes"); 
 } 
 
 }</url>
@@ -111301,22 +111421,22 @@ var myWindow = window.open(&quot;{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 
-if(&apos;{!User.ContactId}&apos; ==&apos;&apos;) { 
+if('{!User.ContactId}' =='') { 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-sforce.console.openPrimaryTab(result.id,&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-sforce.console.openPrimaryTab(result.id,&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 
 } 
@@ -111324,35 +111444,35 @@ sforce.console.openPrimaryTab(result.id,&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJE
 } 
 else 
 { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open(&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open(&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 } 
 }	
 else { 
-if(&apos;{!User.ContactId}&apos; !=&apos;&apos;) { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
+if('{!User.ContactId}' !='') { 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open(&quot;{!URLFOR($Site.Prefix)}OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}&quot;,&apos;_self&apos;); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open(&quot;{!URLFOR($Site.Prefix)}OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}&quot;,&apos;_self&apos;); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 } 
 else{ 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 } 
 }</url>
@@ -111374,14 +111494,14 @@ window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TY
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>&quot;{!URLFOR($Site.Prefix)}/a12/e? 
+        <url>"{!URLFOR($Site.Prefix)}OBJECT_DM_REQUEST_ID? 
 retURL=%2Fa12%2Fo
-&amp;ent=Lead__c&amp;CF00N2800000A9CiT={!Lead__c.Contact__c}
-&amp;ent=Lead__c&amp;CF00N2800000A9CiT_lkid={! Lead__c.ContactId__c}
-&amp;ent=Lead__c&amp;CF00N2800000A9CiN={!Lead__c.Case__c} 
-&amp;ent=Lead__c&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c }
-&amp;ent=Lead__c&amp;CF00N2800000A9Cie={!Lead__c.Name}
-&amp;ent=Lead__c&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&quot;</url>
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={! Lead__c.ContactId__c}
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c} 
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c }
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}
+&amp;ent=Lead__c&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}"</url>
     </webLinks>
     <webLinks>
         <fullName>New_Sales_Lead</fullName>
@@ -111392,23 +111512,23 @@ retURL=%2Fa12%2Fo
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 
-if(&apos;{!User.ContactId}&apos; ==&apos;&apos;){ 
+if('{!User.ContactId}' ==''){ 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
 
-sforce.console.openPrimaryTab(result.id,&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-sforce.console.openPrimaryTab(result.id,&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 
 } 
@@ -111416,38 +111536,38 @@ sforce.console.openPrimaryTab(result.id,&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJE
 }	
 else 
 { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
 
-window.open(&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open(&apos;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&apos;,true, &apos;{!$Label.NewLead}&apos;); 
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 
 } 
 } 
 else { 
-if(&apos;{!User.ContactId}&apos; !=&apos;&apos;) 
+if('{!User.ContactId}' !='') 
 { 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open(&quot;{!URLFOR($Site.Prefix)}OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}&quot;,&apos;_self&apos;); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open(&quot;{!URLFOR($Site.Prefix)}OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}&quot;,&apos;_self&apos;); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 } 
 else{ 
-if(&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID&apos;) 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
-else if (&apos;{!Account.RecordTypeId}&apos; == &apos;OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID&apos;) 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 } 
 }</url>
@@ -111461,7 +111581,7 @@ window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID
         <masterLabel>New Task</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 		window.location.href = '{!URLFOR($Site.Prefix)}/setup/ui/recordtypeselect.jsp?ent=Task&amp;retURL=%{!Lead__c.Id}&amp;save_new_url=%2F00T%2Fe%3Fwho_id%{!Lead__c.ContactId__c}%26what_id%{!Lead__c.Id}%26retURL%3D%252F{!Lead__c.Id}'</url>
     </webLinks>
     <webLinks>
@@ -111472,38 +111592,38 @@ window.open(&quot;OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID
         <masterLabel>Print PDF</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
-var prName = &quot;{!$Profile.Name}&quot;; 
-var market = &quot;{!Lead__c.MD__c}&quot;; 
-if(market== &apos;JP&apos;)
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var prName = "{!$Profile.Name}"; 
+var market = "{!Lead__c.MD__c}"; 
+if(market== 'JP')
 {
-if(typeof(srcUp) == &apos;function&apos;) 
+if(typeof(srcUp) == 'function') 
 {    
-if({!Lead__c.RecordTypeId = &apos;012280000006I7q&apos;} &amp;&amp; sforce.console.isInConsole() )
+if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID'} &amp;&amp; sforce.console.isInConsole() )
 { 
-srcUp(&apos;/apex/printAfterSaleLeadPdf?id={!Lead__c.Id}&amp;isdtp=vw&apos;);
+srcUp('/apex/printAfterSaleLeadPdf?id={!Lead__c.Id}&amp;isdtp=vw');
 } 
-else if ({!Lead__c.RecordTypeId = &apos;012280000006I7s&apos;})
+else if ({!Lead__c.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID'})
 { 
- window.open(&apos;/apex/printLeadPdf?id={!Lead__c.Id}&apos;,&apos;_blank&apos;);
+ window.open('/apex/printLeadPdf?id={!Lead__c.Id}','_blank');
 }
 }
 else{
-if({!Lead__c.RecordTypeId = &apos;012280000006I7q&apos;})
+if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID'})
 { 
-var myWindow = window.open(&quot;{!URLFOR($Site.Prefix)}/apex/printAfterSaleLeadPdf?Id={!Lead__c.Id}&quot;, &quot;_blank&quot;,&quot;resizable=yes&quot;); 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/printAfterSaleLeadPdf?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
 }
-else if({!Lead__c.RecordTypeId = &apos;012280000006I7s&apos;})
+else if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID'})
 { 
-var myWindow = window.open(&quot;{!URLFOR($Site.Prefix)}/apex/printLeadPdf?Id={!Lead__c.Id}&quot;, &quot;_blank&quot;,&quot;resizable=yes&quot;); 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/printLeadPdf?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
 } 
 }
 }
 else
 { 
-alert(&quot;{!$Label.Authorization}&quot;); 
+alert("{!$Label.Authorization}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -111514,20 +111634,20 @@ alert(&quot;{!$Label.Authorization}&quot;);
         <masterLabel>SMS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix &amp; &quot;/support/console/30.0/integration.js&quot;)}  
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}  
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 if (sforce.console.isInConsole()) { 
 javascript:
 var showTabId = function showTabId(result) { 
 var tabid = result.id;
 sforce.console.openSubtab(tabid, 
-&apos;/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;tabId=&apos;+tabid, 
-true, &apos;SMS&apos;);
+'/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;tabId='+tabid, 
+true, 'SMS');
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.open(&quot;/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&quot;, &quot;&quot;, &quot;width = 800,height = 600&quot;); 
+window.open("/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -111538,25 +111658,25 @@ window.open(&quot;/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead
         <masterLabel>Select Assigned Dealer</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix &amp; &quot;/support/console/30.0/integration.js&quot;)}  
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}  
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 
-if (&quot;{!Lead__c.CAC_Lead_Status__c}&quot; == &quot;New&quot; ||
-	&quot;{!Lead__c.CAC_Lead_Status__c}&quot; == &quot;Qualified&quot;) {
+if ("{!Lead__c.CAC_Lead_Status__c}" == "New" ||
+	"{!Lead__c.CAC_Lead_Status__c}" == "Qualified") {
 
 	if (sforce.console.isInConsole()) {
 		javascript:sforce.console.getEnclosingPrimaryTabId(function openSubtab(res) {
 	            sforce.console.openSubtab(res.id, 
-	            	&apos;/apex/SelectAssignedDealer?Id={!Lead__c.Id}&amp;tabId=&apos; + res.id, 
-					true, &apos;Select Prefer Dealer&apos;);
+	            	'/apex/SelectAssignedDealer?Id={!Lead__c.Id}&amp;tabId=' + res.id, 
+					true, 'Select Prefer Dealer');
 		});
 	}
 	else {
-	    window.open(&quot;/apex/SelectAssignedDealer?Id={!Lead__c.Id}&quot;, &quot;&quot;, &quot;width = 800, height = 600&quot;);
+	    window.open("/apex/SelectAssignedDealer?Id={!Lead__c.Id}", "", "width = 800, height = 600");
 	}
 }
 else {
-	alert(&quot;Only new or qualified lead can select prefer dealer.&quot;);
+	alert("Only new or qualified lead can select prefer dealer.");
 }</url>
     </webLinks>
     <webLinks>
@@ -111567,12 +111687,12 @@ else {
         <masterLabel>Send to Autoline</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 
-var relatedId=&apos;{!Lead__c.ContactId__c}&apos;; 
+var relatedId='{!Lead__c.ContactId__c}'; 
 
-if({!ISPICKVAL( Lead__c.Dealer_Lead_Status__c , &quot;Lost&quot;)} || relatedId ==&apos;&apos; || {!ISPICKVAL( Lead__c.Dealer_Lead_Status__c , &quot;Purchased(Only Non BDC)&quot;)}) 
+if({!ISPICKVAL( Lead__c.Dealer_Lead_Status__c , "Lost")} || relatedId =='' || {!ISPICKVAL( Lead__c.Dealer_Lead_Status__c , "Purchased(Only Non BDC)")}) 
 { 
 var alrt = '{!JSENCODE($Label.This_Lead_cannot_be_send_to_Autoline)}';
 alert(alrt); 
@@ -111585,7 +111705,7 @@ var r = confirm("{!$Label.Are_you_sure_want_to_send_information_to_Auto_Line_int
 if(r == true) 
 { 
 var resultMsg= 
-sforce.apex.execute(&quot;UtilWebservice&quot;,&quot;LeadIfnoSendToAL&quot;,{LeadId:&quot;{!Lead__c.Id}&quot;,DealerID:&quot;{!Lead__c.Assigned_DealerId__c}&quot;,AccountLinkId:&quot;{!Lead__c.Retail_ContactId__c}&quot;}); 
+sforce.apex.execute("UtilWebservice","LeadIfnoSendToAL",{LeadId:"{!Lead__c.Id}",DealerID:"{!Lead__c.Assigned_DealerId__c}",AccountLinkId:"{!Lead__c.Retail_ContactId__c}"}); 
 if(resultMsg!=null) 
 { 
 var alrt = '{!JSENCODE($Label.Successfully_Sent_Information_to_AutoLine)}'; 
@@ -111608,11 +111728,11 @@ alert(alrt);
         <masterLabel>Submit Survey</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix &amp; &quot;/support/console/30.0/integration.js&quot;)}   
-{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}   
+{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
 
-var SurveyName=&quot;Happy Call Survey&quot;; 
+var SurveyName="Happy Call Survey"; 
 var SurveyQuestionsList; 
 var SurveyQuestionRecords; 
 var SQ1; 
@@ -111620,15 +111740,15 @@ var SQ2;
 var SQ3; 
 var SQ4; 
 var SQ5; 
-var url = &apos;/flow/Happy_Call_Hour_Survey?LeadID=&apos;; 
-var SurveyList = sforce.connection.query(&quot;SELECT id,name FROM Survey__c where Name=&apos;&quot;+SurveyName+&quot;&apos;&quot;); 
-var SurveyRecords = SurveyList.getArray(&quot;records&quot;); 
+var url = '/flow/Happy_Call_Hour_Survey?LeadID='; 
+var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'"); 
+var SurveyRecords = SurveyList.getArray("records"); 
 var SurveyID=SurveyRecords[0].Id; 
 if(SurveyID == null) { 
-alert(&quot;Oops!! No Happy Call Survey&quot;); 
+alert("Oops!! No Happy Call Survey"); 
 }else{ 
-SurveyQuestionsList= sforce.connection.query(&quot;SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c=&apos;&quot;+SurveyID+&quot;&apos;&quot;); 
-SurveyQuestionRecords=SurveyQuestionsList.getArray(&quot;records&quot;); 
+SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
 
 for(var i=0;i&lt;SurveyQuestionRecords.length;i++){ 
 
@@ -111651,11 +111771,10 @@ SQ5=SurveyQuestionRecords[i].Id;
 } 
 
 
-url += &apos;{!Lead__c.Id}&amp;CurrentUser={!$User.Id}&amp;SurveyID=&apos;+SurveyID+&apos;&amp;Q1_ID=&apos;+SQ1+&apos;&amp;Q2_ID=&apos;+SQ2+&apos;&amp;Q3_ID=&apos;+SQ3+&apos;&amp;Q4_ID=&apos;+SQ4+&apos;&amp;Q5_ID=&apos;+SQ5; 
+url += '{!Lead__c.Id}&amp;CurrentUser={!$User.Id}&amp;SurveyID='+SurveyID+'&amp;Q1_ID='+SQ1+'&amp;Q2_ID='+SQ2+'&amp;Q3_ID='+SQ3+'&amp;Q4_ID='+SQ4+'&amp;Q5_ID='+SQ5; 
 
-window.open(url, &quot;_blank&quot;, &quot;toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400&quot;); 
+window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
 
 }</url>
-</webLinks>
+    </webLinks>
 </CustomObject>
-

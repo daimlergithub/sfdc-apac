@@ -530,6 +530,31 @@ system.debug('++++++'+camUpdateList);
                         
                       
                     }
+              Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
+
+             String dayOfWeek=dt.format('EEEE');
+             System.debug('+++++++++++++++++++++++++++' + dayOfWeek);  
+             
+             if(dayOfWeek == 'Saturday'){
+             
+                  dte = dte+2;
+             }else if(dayOfWeek == 'Sunday'){
+             
+                  dte = dte+1;
+             
+             }else {
+                 dte = dte;
+             
+             } 
+            List<Holiday> holidayCheck  = [Select id,Name,ActivityDate From Holiday Where ActivityDate =: dte ]; 
+
+           if(holidayCheck.size()>0){
+           
+           dte = dte+1;
+           } else {
+           
+            dte = dte;
+           }     
                 
              Camp.Segmentation_Date__c = dte ;
              
@@ -1001,19 +1026,19 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
                      For(Campaign campan : campListMain ){
                      
                      system.debug('+++++++++++++++'+ca.StartDate );
-                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate ){
+                     if(isInsert &&(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate )|| isUpdate && campan.Segmentation_Date__c  !=camOldMap.get(campan.id).Segmentation_Date__c  && (campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate)  ){
                      
                          campan.addError(System.Label.Campaign_Date_3);
                          
                      
                      }
                      
-                     if(campan.Execution_Start_Date__c < System.Today() || campan.Execution_Start_Date__c > ca.EndDate || campan.Execution_Start_Date__c <= campan.Segmentation_Date__c  ){
+                     if(isInsert && (campan.Execution_Start_Date__c < System.Today() || campan.Execution_Start_Date__c > ca.EndDate || campan.Execution_Start_Date__c <= campan.Segmentation_Date__c  )||isUpdate && campan.Execution_Start_Date__c !=camOldMap.get(campan.id).Execution_Start_Date__c && (campan.Execution_Start_Date__c < System.Today() || campan.Execution_Start_Date__c > ca.EndDate || campan.Execution_Start_Date__c <= campan.Segmentation_Date__c  )){
                      
                      
                             campan.addError(System.Label.Campaign_Date_4);
                      }
-                  if(campan.Response_Date__c < System.Today() || campan.Response_Date__c  > ca.EndDate || campan.Response_Date__c <= campan.Execution_Start_Date__c  ){
+                  if(isInsert &&(campan.Response_Date__c < System.Today() || campan.Response_Date__c  > ca.EndDate || campan.Response_Date__c <= campan.Execution_Start_Date__c ) || isUpdate && campan.Response_Date__c  !=camOldMap.get(campan.id).Response_Date__c && (campan.Response_Date__c < System.Today() || campan.Response_Date__c  > ca.EndDate || campan.Response_Date__c <= campan.Execution_Start_Date__c)) {
                      
                      
                             campan.addError(System.Label.Campaign_Date_5);
