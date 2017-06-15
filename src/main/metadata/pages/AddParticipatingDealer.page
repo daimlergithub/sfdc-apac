@@ -67,6 +67,7 @@ function closeWin() {
               <p> {!$ObjectType.Account.Fields.Dealer_Cars_Dlr_Class_Sales__c .Label}       <apex:selectList value="{!DealerCarsDlrClassSales}" size="1" >
            <apex:selectOptions value="{!Dealercars}"/> 
              </apex:selectList> </p>
+             <p> {!$ObjectType.Account.Fields.Dealer_Active__c.Label}                     <apex:inputText value="{!DealerActive }"/> </p>
              </apex:panelGrid>
              </apex:pageBlockSection>                           
             <apex:pageBlockButtons location="Bottom">
