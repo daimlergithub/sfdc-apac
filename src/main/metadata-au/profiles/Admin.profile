@@ -18938,6 +18938,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>SurveyTaker__c.View_By_All__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Survey_Question__c.Choices__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21595,6 +21600,10 @@
         <layout>Case-Case Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Case-Case Layout</layout>
+        <recordType>Case.EventDataLoad</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Case-Case Master Layout</layout>
         <recordType>Case.MBDA_Complaint</recordType>
     </layoutAssignments>
@@ -23625,6 +23634,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Chrysler_Complaint</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.EventDataLoad</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
