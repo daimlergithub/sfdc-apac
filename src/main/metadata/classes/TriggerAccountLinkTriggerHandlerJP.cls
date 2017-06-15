@@ -63,12 +63,14 @@ implements TriggerHandlerIf
                 Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
                 AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
                 AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
+				AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
             }
             if(Trigger.isAfter && Trigger.isInsert)
             {
                 Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
                 AccountLinkHelper.afterInsertEvent(Trigger.new);
                 AccountLinkHelper.afterInsertDeleteEvent(Trigger.new);
+				AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
                 
             }
             if(Trigger.isAfter && Trigger.isDelete)
