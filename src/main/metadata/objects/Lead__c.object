@@ -10075,31 +10075,31 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Lead_Possibility__c</fullName>
         <externalId>false</externalId>
         <formula>IF( 
-NOT(ISBLANK(Network_Registration_Date__c)) , &apos;Close&apos; , 
+NOT(ISBLANK(Network_Registration_Date__c)) , $Label.Close , 
 IF( 
 (MONTH(Expected_Close_Date__c)= MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), &apos;HOT1&apos;, 
+(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), $Label.HOT1, 
 IF( 
 (MONTH(Expected_Close_Date__c)= MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), &apos;HOT2&apos;, 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), $Label.HOT2, 
 IF( 
 (MONTH(Expected_Close_Date__c)&gt; MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), &apos;HOT3&apos;, 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), $Label.HOT3, 
 IF( 
 (MONTH( Order_Confirmation_Date__c )&lt; MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), &apos;T1&apos;, 
+(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), $Label.T1, 
 IF( 
 (MONTH(Order_Confirmation_Date__c)&lt; MONTH(TODAY())) 
 &amp;&amp; 
-(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), &apos;T2&apos;, 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), $Label.T2, 
 IF( 
 ( 
 (ISBLANK(Expected_Close_Date__c)||ISBLANK(Expected_Registration_Date__c )) 
@@ -10108,7 +10108,7 @@ IF(
 || 
 (ISBLANK(Expected_Registration_Date__c ) &amp;&amp; 
 NOT(ISBLANK(Order_Confirmation_Date__c)) ) 
-), $Label.Uncalculated,&apos; &apos; 
+), $Label.Uncalculated,' ' 
 ) 
 ) 
 ) 
