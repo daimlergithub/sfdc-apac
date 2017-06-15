@@ -230,7 +230,7 @@ public class createUpdateRetailCopy
         List<Account> accList = new List<Account>();
         List<Account_Link__c> accLinkList = new List<Account_Link__c>();
         List<Account_Link__c> existAccLinkList = new List<Account_Link__c>();
-        string corelationID = ApexPages.currentPage().getParameters().get('CLNID');
+        //string corelationID = ApexPages.currentPage().getParameters().get('CLNID');
         
         if(!accIds.isEmpty() && accIds != null)
         {
@@ -305,10 +305,10 @@ public class createUpdateRetailCopy
                     exstacclnk.Retail_Fax__c = acc.Fax;
                     exstacclnk.Retail_Industry__c = acc.Industry;
                     
-                    if(corelationID != null && corelationID != '')
+                    /*if(corelationID != null && corelationID != '')
                     {
                         exstacclnk.CorrelationID__c = corelationID;
-                    }
+                    }*/
                     if(acc.MD__c == Label.MarketKR)
                     {
                         exstacclnk.Retail_Country__c = 'Korea';   
@@ -387,10 +387,10 @@ public class createUpdateRetailCopy
                 acclnk.Retail_Fax__c = acc.Fax;
                 acclnk.Retail_Industry__c = acc.Industry;
                 
-                if(corelationID != null && corelationID != '')
+                /*if(corelationID != null && corelationID != '')
                 {
                     acclnk.CorrelationID__c = corelationID;
-                }
+                }*/
                 if(acc.MD__c == Label.MarketKR)
                 {
                     acclnk.Retail_Country__c = 'Korea';   
