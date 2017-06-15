@@ -274,5 +274,4 @@ Public With Sharing class AccountTable{
         Public Account con{get;set;}
         Public boolean bool{get;set;}
     }
-}    }
 }
