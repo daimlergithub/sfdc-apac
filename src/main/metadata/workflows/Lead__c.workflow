@@ -1156,13 +1156,13 @@ Purchased_Date_Time__c
             <name>Email_notification_when_interested_vehicle_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'Salesforce', MD__c = 'KR',  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'), OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 10 days</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND ( ISBLANK(Proxy_Date_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  MD__c = 'KR'  )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1177,7 +1177,7 @@ Purchased_Date_Time__c
     </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 5 days</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND ( ISBLANK(Proxy_Date_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  MD__c = 'KR' )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1933,7 +1933,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
     </rules>
     <rules>
         <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
         <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1949,7 +1949,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
     </rules>
     <rules>
         <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>No modification is made in 15 days (All Modifications)</description>
         <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
