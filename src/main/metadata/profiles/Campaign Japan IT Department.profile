@@ -13341,6 +13341,16 @@
         <field>Event.Communication_date__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Contract__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Contract_Number__c </field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Created_By_EP_Transaction__c</field>
@@ -22320,6 +22330,16 @@
         <editable>false</editable>
         <field>Task.Communication_date__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Contract__c </field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Contract_Number__c  </field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
