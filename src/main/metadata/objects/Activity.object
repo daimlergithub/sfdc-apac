@@ -1030,6 +1030,30 @@
         <label>Comm Date</label>
         <required>false</required>
         <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Activities1</relationshipLabel>
+        <relationshipName>Activities1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	 <fields>
+        <fullName>Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.ContractNumber__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Company__c</fullName>
@@ -1568,6 +1592,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>	
+	  <fields>
+        <fullName>Related_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Result__c</fullName>
