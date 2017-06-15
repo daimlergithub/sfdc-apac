@@ -42,12 +42,20 @@ public class TriggerAccountLinkTriggerHandlerJP
         {        
             system.debug('Entered before TRIGGER');
             AccountLinkHelper.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
-            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );            
+       
         }
+        if(Trigger.isAfter &&  Trigger.isInsert)
+        {
+         AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+        }
+
           if(Trigger.isBefore && Trigger.isUpdate)
           {
           system.debug('Entered b efore update TRIGGER');
             AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+                AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+       
         }
     }
        } 
