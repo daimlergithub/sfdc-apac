@@ -17,6 +17,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
     global Map<String, Id> templateNameToTemplateIdMap;
     
     global Database.QueryLocator start(Database.BatchableContext bc) {
+        Date today = Date.Today();
         String query = 'SELECT ';
         for(String fieldName : getCampaignFields()) {
             query += fieldName + ', ';
@@ -29,7 +30,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         query = query.substring(0, query.length() - 2);
         query += ' FROM Campaign_Members1__r) ';
         
-        query += ' FROM Campaign WHERE RecordType.DeveloperName = \'Campaign_Executiono\'';
+        query += ' FROM Campaign WHERE Response_Date__c =:today ';
         
         //String query = 'Select Id, OwnerId, Owner.Name, Execution_Type__c, Child_Campaign_Status__c, Campaign_CCC_Manager__c, Response_Date__c, ParentId, Parent.Campaign_Type__c, ';
         //query += '(Select Id, OwnerId, Contact_Id__c, Special_Flag_to_Include__c, Special_flag_to_Exclude__c, Delinquency_Flag__c, MBF_Anti_Social_flag__c, Offer_Prohibit_Flag__c, Payment_Suspended_Flag__c from Campaign_Members1__r)';
@@ -225,9 +226,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
     }
     
     
-    private void setNotificationTemplate(String userId, String templateId, String whatId) {
-        notificationWrapperList.add(new NotificationWrapper(userId, templateId, whatId));
-    }  
+    
     
     private List<String> getCampaignFields() {
         List<String> fieldList = new List<String> {'OwnerId',
@@ -268,38 +267,10 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
     }
     
     global void finish(Database.BatchableContext bc) {
-        system.debug('notificationList\n\n' + notificationWrapperList);
         
-        if(campignIdSetForLeadType.size() > 0) {
-            setWrapperListForLeads(campignIdSetForLeadType);
-        }
-        
-        List<Messaging.SingleEmailMessage> msgList= new List<Messaging.SingleEmailMessage>();
-        for(NotificationWrapper notificationWrapperRec : notificationWrapperList) {
-            Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
-            msg.SetsaveAsActivity(false);
-            msg.setTemplateId(notificationWrapperRec.templateId);
-            msg.setTargetObjectId(notificationWrapperRec.userId);  
-            msg.setWhatId(notificationWrapperRec.whatId);  
-            msgList.add(msg);
-        }
-        if(msgList.size() > 0) {
-            Messaging.sendEmail(msgList);     
-        }
     }
     
-    private void setWrapperListForLeads(Set<Id> campignIdSetForLeadType) {
-        List<Campaign> campaignList = [select Campaign_CCC_Manager__c, (select Id from Leads__r where Id IN : newInsertedLeadId) from Campaign where Id IN: campignIdSetForLeadType];
-        String templateId = templateNameToTemplateIdMap.containsKey('Campaign Lead Assignment Notification') 
-                                                    ? templateNameToTemplateIdMap.get('Campaign Lead Assignment Notification')
-                                                    : templateNameToTemplateIdMap.get('Task Notification');
-                                                    
-        for(Campaign campRec : campaignList) {
-            for(Lead__c leadRec : campRec.Leads__r) {
-                setNotificationTemplate(campRec.Campaign_CCC_Manager__c, templateId, leadRec.Id);
-            }
-        }
-    }
+    
     
     global void execute(SchedulableContext ctx) {
         Database.executeBatch(new Batch_AutoResponseJP(), 1);
