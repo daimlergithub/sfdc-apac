@@ -18,7 +18,7 @@ public class AccountLinkHelper
     public static Id AccountLink_Contact2ContactRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
     public static Id AccountLink_CompanyCustomerRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
     public static Id AccountLink_contact2conatctRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
-	public static Id DealerAccid= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    public static Id DealerAccid= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     public Account_Link__c oldals {set;get;}
 /** 
 * @Description  This method is for parsing crmCode
@@ -129,7 +129,7 @@ public class AccountLinkHelper
       
       
     public static void afterInsertEvent(List<Account_Link__c> list_AccountLink){
-        // if(leadUtil.SharingReuleissue == true){ // commented as part of SFDCJP-2542
+		// if(leadUtil.SharingReuleissue == true){ // commented as part of SFDCJP-2542
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> SharingVrsFromAlk = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountIdAndListToAccountId = new Map<Id, List<Id>>();
@@ -319,8 +319,8 @@ public class AccountLinkHelper
         if(CompanyPersonVehicleLinkALK.size() > 0){
             SharePersonCompanyVehicleALK(CompanyPersonVehicleLinkALK,set_ToAccountId);
         }
-        //}
-        //LeadUtil.SharingReuleissue = false;
+		//}
+		//LeadUtil.SharingReuleissue = false;
     }
     
     public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -757,128 +757,108 @@ public class AccountLinkHelper
         }
     }
     
- public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
-//if(LeadUtil.Retailcopy){
-        system.debug('------>Method is called');
-        Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
-        List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
-        
-        Set<String> FromAccountIds = new set<String>();
-        if(Integrationusr.profile.Name != 'IntegrationAPI'){
-        for(Account_Link__c acc : accLst){
-            if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
-                AccountIds.add(acc.toRole__c); //Adding accountId's to set
-                 FromAccountIds.add(acc.fromRole__c);  
-                System.debug('AccountID--->'+acc.id);        
-            }
-            
-        }
-         List<Account_Link__c> Existlist = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId];
-        for(Account_Link__c acclink : accLst ){
-            if(Existlist.size()>0 && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId){
-            acclink.addError(Label.Account_Link_record_with_the_same_Role_1_and_Role2_exists);
-           }     
-        }
-          string regexForNullValue ='null';
-            string nullValue ='';                            
-            String province;
-            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            UtilAddressTranslation.gettranslatedvalues('JP');
-        Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
-        Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
-        Map<id,Account> accountMap = new Map<id,Account>([select id,Name,RecordType.Name, LastName, FirstName, Salutation__c, LastName_Native_1__c,
-                                                FirstName_Native_1__c, Gender__c, PersonBirthdate, Occupation__c, Industry, 
-                                                Preferred_Language__c, Primary_Phone__c, Special_Care__c, Special_Needs_Class__c,
-                                                Allow_Data_Sharing2__c, Individual_Home_Phone__c, Work_Phone__c, Mobile__c, Fax,
-                                                Email__c,Primary_Address_Reference__r.Address_Type__c, Primary_Address_Reference__r.Province__c,
-                                                Primary_Address_Reference__r.City__c, Primary_Address_Reference__r.District__c, Primary_Address_Reference__r.Block__c,
-                                                Primary_Address_Reference__r.Address_Line_1__c, Primary_Address_Reference__r.Address_Line_2__c, Primary_Address_Reference__r.ZipCode__c,
-                                                Company_Name_Native_1__c, Commercial_Reg_No__c, Vat_No__c, 
-                                                Foundation_Date__c, Website, Primary_Address_Reference__r.CreatedDate,UCID__c,
-                                                Primary_Address_Reference__r.LastModifiedDate
-                                                from Account WHERE Id IN :AccountIds]);
-        System.debug('Accountlinklist------>'+accountMap);
-        //Account link iteration
-        for(Account_Link__c acclink : accLst ){
-            if(acclink.toRole__c != null){
-            if(accountMap.get(acclink.toRole__c).RecordType.Name == 'Person Account') {
-                acclink.Retail_LastName__c = accountMap.get(acclink.toRole__c).LastName;
-                acclink.Retail_FirstName__c = accountMap.get(acclink.toRole__c).FirstName;
-                //acclink.Retail_Salutation__c = accountMap.get(acclink.toRole__c).Salutation__c;
-                acclink.Retail_Full_Name__c = ((accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'')+ '  ' + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(25);
-                acclink.Retail_Full_Name_Title__c = ((accountMap.get(acclink.toRole__c).Salutation__c!= null ? accountMap.get(acclink.toRole__c).Salutation__c: '')+ '  '+(accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + '  '+(accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(140);
-                acclink.Retail_LastName_Native__c = accountMap.get(acclink.toRole__c).LastName_Native_1__c;
-                acclink.Retail_FirstName_Native__c = accountMap.get(acclink.toRole__c).FirstName_Native_1__c; 
-                acclink.Retail_Full_Name_Native__c = ((accountMap.get(acclink.toRole__c).LastName_Native_1__c != null ? accountMap.get(acclink.toRole__c).LastName_Native_1__c:'')+ ' ' +(accountMap.get(acclink.toRole__c).FirstName_Native_1__c != null ? accountMap.get(acclink.toRole__c).FirstName_Native_1__c:'')).left(50); 
-                acclink.Retail_Gender__c = accountMap.get(acclink.toRole__c).Gender__c;
-                acclink.Retail_PersonBirthdate__c = accountMap.get(acclink.toRole__c).PersonBirthdate;
-                acclink.Retail_Occupation__c = accountMap.get(acclink.toRole__c).Occupation__c;                
-                acclink.Retail_Preferred_Language__c = accountMap.get(acclink.toRole__c).Preferred_Language__c;
-                acclink.Retail_Primary_Phone__c = accountMap.get(acclink.toRole__c).Primary_Phone__c;
-                acclink.Retail_Special_Care__c = accountMap.get(acclink.toRole__c).Special_Care__c;
-                acclink.Retail_Special_Needs_Class__c = accountMap.get(acclink.toRole__c).Special_Needs_Class__c;
-                acclink.Retail_Allow_Data_Sharing__c = accountMap.get(acclink.toRole__c).Allow_Data_Sharing2__c;                
-                acclink.Retail_Work_Phone__c = accountMap.get(acclink.toRole__c).Work_Phone__c;
-                acclink.Retail_Mobile__c = accountMap.get(acclink.toRole__c).Mobile__c;                
-                acclink.Retail_Email__c = accountMap.get(acclink.toRole__c).Email__c;
-                acclink.Retail_Individual_Home_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
-            }
-            //Checking the Company RecordType
-            if(accountMap.get(acclink.toRole__c).RecordType.Name=='Company'){ 
-                acclink.Retail_Company_Name__c = accountMap.get(acclink.toRole__c).Name;
-                acclink.Retail_Company_Name_Native1__c = accountMap.get(acclink.toRole__c).Company_Name_Native_1__c;
-                acclink.Retail_Commercial_Reg_No__c = accountMap.get(acclink.toRole__c).Commercial_Reg_No__c;
-                acclink.Retail_Vat_No__c = accountMap.get(acclink.toRole__c).Vat_No__c;
-                if(accountMap.get(acclink.toRole__c).Foundation_Date__c != null)
-                {
-                    Integer FoundationDate = accountMap.get(acclink.toRole__c).Foundation_Date__c.month();
-                    if(FoundationDate <= 9){
-                        acclink.Retail_Foundation_Month__c = '0'+String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.month())+ String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.Year());      
-                    }else {                    
-                        acclink.Retail_Foundation_Month__c = String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.month())+ String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.Year());
-                    }
-                 }
-                 acclink.Retail_Company_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
-                 acclink.Retail_Company_Other_Phone__c =  accountMap.get(acclink.toRole__c).Work_Phone__c;
-            }//End if for Company record type
-            acclink.Retail_Industry__c = accountMap.get(acclink.toRole__c).Industry; 
-            acclink.Retail_Website__c = accountMap.get(acclink.toRole__c).website;
-            //acclink.Retail_Individual_Home_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
-            acclink.Retail_Fax__c = accountMap.get(acclink.toRole__c).Fax;
-            acclink.Retail_UCID__c = accountMap.get(acclink.toRole__c).UCID__c;
-            
-            //Checking Null for sales Address 
-            if(accountMap.get(acclink.toRole__c).Primary_Address_Reference__c != null){ 
-                    acclink.Retail_Address_Type__c = accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Type__c; 
-                    if(addtrmap1.containsKey(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c) )
-                    {
-                         province = addtrmap1.get(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c);
-                    } 
-                    acclink.Retail_Province__c = province ;  
-                     if(province ==null)
-                    {
-                    acclink.Retail_Province__c  =acclink.Retail_Province__c.replaceAll(regexForNullValue,nullValue); 
-                    }
-                    //acclink.Retail_Province__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c !=null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c: '' ); 
-                    acclink.Retail_City__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c != null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c:'').left(17);
-                    acclink.Retail_Distinct__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c!=null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c : '')+(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c!= null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c : '')).left(17);
-                    acclink.Retail_Address_Line_1__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_1__c)!=null?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_1__c:'').left(17);
-                    acclink.Retail_Address_Line_2__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_2__c)!=null?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_2__c:'').left(17);
-                    acclink.Retail_ZipCode__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.ZipCode__c!=null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.ZipCode__c : '' );
-                    acclink.Retail_Address_CreatedDate__c = Date.ValueOf(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.CreatedDate);
-                    acclink.Retail_Address_LastModifiedDate__c = Date.ValueOf(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.LastModifiedDate);
-
-                }//End if for Sales Address
-            }
-           //AccountlnkUpdate.add(acclink); //Adding Account link to Lsit  
-        }//End of for loop
-        }
-       // if(!AccountlnkUpdate.isEmpty())
-      
-        //   update AccountlnkUpdate;
-       //}
-      //LeadUtil.Retailcopy=false;   
-    }//End of Method
+ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,List<Account_Link__c> accLst)
+ {
+     set<id> accids = new set<id>();
+     set<id> acclnkids = new set<id>();
+     set<id> vechids = new set<id>();
+     Set<String> AccountIds = new set<String>();
+     List<Account> dealerAccList = new List<Account>();
+     set<string> dealerGCCode = new set<string>();
+     List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();
+     List<Account_Link__c> ExistC2CList = new List<Account_Link__c>();
+     List<Account_Link__c> retailcopyList = new List<Account_Link__c>();
+     map<id,Account_Link__c> retailCopyMap = new map<id,Account_Link__c>();
+     Set<String> FromAccountIds = new set<String>();
+     for(Account_Link__c aclnk : accLst)
+     {
+         if(aclnk.toRole__c!= null && aclnk.MD__c == label.MarketJp && aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
+         { 
+             AccountIds.add(aclnk.toRole__c);       
+         }
+         else if(aclnk.Vehicle__c != null && aclnk.MD__c == label.MarketJp && aclnk.RecordTypeId == AccountLink_VehicleExternalRecordTypeId)
+         {
+             vechids.add(aclnk.Vehicle__c);
+         }
+         if(aclnk.fromRole__c != null && aclnk.MD__c == label.MarketJp)
+         {   
+             FromAccountIds.add(aclnk.fromRole__c);
+         }
+     }
+     System.debug('AccountID--->'+AccountIds);
+     System.debug('FromAccountIds--->'+FromAccountIds);
+     if(!FromAccountIds.isEmpty() && FromAccountIds != null)
+     {
+         dealerAccList = [select id,Dealer_GC_Code__c from Account where id =:FromAccountIds];
+     }
+     for(Account accdealr : dealerAccList)
+     {
+         if(accdealr.Dealer_GC_Code__c != null && accdealr.Dealer_GC_Code__c != '')
+         {
+             dealerGCCode.add(accdealr.Dealer_GC_Code__c);
+         }
+     }
+     if(!AccountIds.isEmpty() && AccountIds != null && !FromAccountIds.isEmpty() && FromAccountIds != null)
+     {
+         ExistC2CList = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND (recordtypeid =: AccountLink_contact2conatctRecordTypeId OR recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
+     }
+     if((!AccountIds.isEmpty() || !vechids.isEmpty()) && !FromAccountIds.isEmpty() && FromAccountIds != null)
+     {
+         retailcopyList = [Select id,Vehicle__c,torole__c,fromRole__c,fromRole__r.Dealer_GC_Code__c,recordtypeid from Account_Link__c where (torole__c =:AccountIds OR Vehicle__c =:vechids) AND Retail_Dealer_CompanyCode__c =:dealerGCCode AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId OR recordtypeId =:AccountLink_VehicleExternalRecordTypeId) ORDER BY CreatedDate ASC limit 1];
+     }
+     
+     System.debug('ExistC2CList--->'+ExistC2CList);
+     System.debug('retailcopyList--->'+retailcopyList);
+     if(!retailcopyList.isEmpty() && retailcopyList != null)
+     {
+         for(Account_Link__c acl : retailcopyList)
+         {
+             if(acl.toRole__c != null && (acl.RecordTypeId == AccountLink_RetailPersonRecordTypeId || acl.RecordTypeId == AccountLink_RetailCompanyRecordTypeId))
+             {
+                 retailCopyMap.put(acl.toRole__c, acl);
+             }
+             if(isUpdate && acl.RecordTypeId == AccountLink_VehicleExternalRecordTypeId && acl.Vehicle__c != null)
+             {
+                 retailCopyMap.put(acl.Vehicle__c, acl);
+             }
+         }
+     }
+     system.debug('retailCopyMap>>>>' + retailCopyMap);
+     for(Account_Link__c acclink : accLst )
+     {
+         if(ExistC2CList.size()>0 && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId)
+         {
+             acclink.addError(Label.Account_Link_record_with_the_same_Role_1_and_Role2_exists);
+         }
+         if(isInsert && ExistC2CList.size()>0 && ExistC2CList != null && (acclink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || acclink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId))
+         {
+             acclink.addError('Retail Copy is already Exist for the Customer');
+         }
+         if(!retailCopyMap.isEmpty() && retailCopyMap != null && retailCopyMap.get(acclink.toRole__c) != null)
+         {
+             acclnkids.add(retailCopyMap.get(acclink.toRole__c).id);
+         }
+         else if(!retailCopyMap.isEmpty() && retailCopyMap != null && retailCopyMap.get(acclink.Vehicle__c) != null)
+         {
+             acclnkids.add(retailCopyMap.get(acclink.Vehicle__c).id);
+         }
+         else if(acclink.toRole__c != null)
+         {
+             accids.add(acclink.toRole__c);
+         }
+     }
+     system.debug('acclnkids>>>>' + acclnkids);
+     if(!acclnkids.isEmpty() && acclnkids != null)
+     {
+         system.debug('Entereed>>>>>');
+         createUpdateRetailCopy.updateRetailCopyFromAccountLink(acclnkids, accLst);
+     }
+     if(!accids.isEmpty() && accids != null)
+     {
+         system.debug('Entereed>>>>>');
+         createUpdateRetailCopy.updateRetailCopyFromAccount(accids, accLst);
+     }
+ }
 //created by:surya varma
 //sfdcjp-578
   /*created by :Surya Varma
@@ -1244,58 +1224,6 @@ public class AccountLinkHelper
             Database.delete(list_SharingDele, false);
         }
     }
- 
-   public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
-     Set<Id> accountId = new Set<Id>();
-     List<Account_Link__c> accountList = new List<Account_Link__c>();
-     List<Account_Link__c> accountList1 = new List<Account_Link__c>();
-     if(LeadUtil.updateprimaryAddressAccounlink  == true){
-     for(Account_Link__c acc :list_AccountLink)
-     {
-         if(acc.Retail_Address_Reference__c != null && acc.MD__c == label.MarketJP){
-                if(isInsert || (isUpdate && acc.Retail_Address_Reference__c != oldMap.get(acc.id).Retail_Address_Reference__c)){
-                    accountId.add(acc.Retail_Address_Reference__c);
-                }
-        } 
-    }   
-      string regexForNullValue ='null';
-            string nullValue ='';                            
-            String province;
-            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            UtilAddressTranslation.gettranslatedvalues('JP');
-            accountList = [select id,fromRole__r.Dealer_Rollout_Status__c,Retail_Address_Reference__c , Retail_Address_Type__c ,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,
-                           Retail_Address_Reference__r.District__c,Retail_Address_Reference__r.Block__c,Retail_Address_Reference__r.Address_Line_1__c,
-                            Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Address_Reference__r.Address_Type__c,Retail_Address_Reference__r.City__c,Retail_Address_Reference__r.Address_Line_2__c,
-                            Retail_Address_Reference__r.ZipCode__c,Retail_Address_Reference__r.Province__c,Retail_Address_Reference__r.CreatedDate,Retail_Address_Reference__r.LastModifiedDate,
-                            Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c from Account_Link__c where Retail_Address_Reference__c IN:accountId];
-        if(accountList.size() > 0){
-            for(Account_Link__c acc: accountList){  
-              if(acc.fromRole__r.Dealer_Rollout_Status__c == 'Done'){                     
-                acc.Retail_Address_Type__c = acc.Retail_Address_Reference__r.Address_Type__c;                       
-                  acc.Retail_City__c = (acc.Retail_Address_Reference__r.City__c != null ? acc.Retail_Address_Reference__r.City__c : '').left(17);
-                acc.Retail_Distinct__c = ((acc.Retail_Address_Reference__r.District__c !=null ? acc.Retail_Address_Reference__r.District__c : '')+ (acc.Retail_Address_Reference__r.Block__c!=null ? acc.Retail_Address_Reference__r.Block__c : '')).left(17);               
-               acc.Retail_Address_Line_1__c  = (acc.Retail_Address_Reference__r.Address_Line_1__c !=null? acc.Retail_Address_Reference__r.Address_Line_1__c :'').left(17);
-               acc.Retail_Address_Line_2__c =  (acc.Retail_Address_Reference__r.Address_Line_2__c !=null? acc.Retail_Address_Reference__r.Address_Line_2__c :'').left(17);
-                acc.Retail_ZipCode__c = acc.Retail_Address_Reference__r.ZipCode__c;
-                if(addtrmap1.containsKey(acc.Retail_Address_Reference__r.Province__c) )
-                {
-                    province = addtrmap1.get(acc.Retail_Address_Reference__r.Province__c);
-                }                
-               acc.Retail_Province__c = province ;//+ acc.Retail_Address_Reference__r.City__c + acc.Retail_Address_Reference__r.District__c + acc.Retail_Address_Reference__r.Block__c+ acc.Retail_Address_Reference__r.Address_Line_1__c + ' ' + acc.Retail_Address_Reference__r.Address_Line_2__c ;
-                //acc.Retail_Province__c  =acc.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
-                acc.Retail_Address_CreatedDate__c = (acc.Retail_Address_Reference__r.CreatedDate).date();
-                acc.Retail_Address_LastModifiedDate__c = (acc.Retail_Address_Reference__r.LastModifiedDate).date();
-                    accountList1.add(acc);
-            }
-          }  
-        }
-        if(!accountList1.isEmpty()||accountList1!=null)
-            {
-                update accountList1; 
-            }
-  }
-    LeadUtil.updateprimaryAddressAccounlink = false;
-  }
   /*
     LastModifiedDate : 3rd Mar, 2017
     LastModifedBY    : Lokesh M
@@ -1426,136 +1354,134 @@ public class AccountLinkHelper
             }
         }
     }
-     
-	 
-	 //Added venky changes related to SFDCJP-2617
+	//Added venky changes related to SFDCJP-2617
 	
-	  public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
-     {
-          Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
-         Set<Id> RetailPersonID=new Set<Id>();
-         Set<Id> RetailcompanyID=new Set<Id>();
-         Set<Id> FromRoleID=new Set<Id>();
-         Set<Id> ToRoleID=new Set<Id>();
-           Set<Id> RetailPersonDealerID=new Set<Id>();
-         Set<Id> RetailcompanyDealerID=new Set<Id>();
-         List<Account_Link__c> lstC2c=new List<Account_Link__c>();
-         List<Account_Link__c> lstPersonCompany=new List<Account_Link__c>();
-          List<Id> acclnkid = new List<id>();
-          Set<String> dealerAccNameSet = new Set<String>();
-           Set<String> GcCode = new Set<String>();
-           List<Account> dealerAccList =new  List<Account>();
-               Set<String> dealerAccNameSet1 = new Set<String>();
+    public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
+    {
+        Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
+        Set<Id> RetailPersonID=new Set<Id>();
+        Set<Id> RetailcompanyID=new Set<Id>();
+        Set<Id> FromRoleID=new Set<Id>();
+        Set<Id> ToRoleID=new Set<Id>();
+        Set<Id> RetailPersonDealerID=new Set<Id>();
+        Set<Id> RetailcompanyDealerID=new Set<Id>();
+        List<Account_Link__c> lstC2c=new List<Account_Link__c>();
+        List<Account_Link__c> lstPersonCompany=new List<Account_Link__c>();
+        List<Id> acclnkid = new List<id>();
+        Set<String> dealerAccNameSet = new Set<String>();
+        Set<String> GcCode = new Set<String>();
+        List<Account> dealerAccList =new  List<Account>();
+        Set<String> dealerAccNameSet1 = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>(); 
         List<Account_Link__Share> Sharealk= new List<Account_Link__Share>();
-      for(Account_Link__c alk:accLst)
-      {
-       acclnkid.add(alk.id);
-       if(alk.RecordtypeID== AccountLink_Contact2ContactRecordTypeId )
-      {
-      FromRoleID.add(alk.fromRole__c);
-      ToRoleID.add(alk.toRole__c);
-      }
-      if(alk.RecordtypeID== AccountLink_RetailPersonRecordTypeId)
-      {
-     RetailPersonDealerID.add(alk.fromRole__c);  // Dealer Acc
-      RetailPersonID.add(alk.toRole__c);        //Customer Acc
-      }
-      if(alk.RecordtypeID== AccountLink_RetailCompanyRecordTypeId )
-      {
-       RetailcompanyDealerID.add(alk.fromRole__c);  // Dealer Acc
-      RetailcompanyID.add(alk.toRole__c);     //Customer Acc
-      }
-      }
-         if(RetailcompanyID !=null && RetailPersonID !=null)
+        for(Account_Link__c alk:accLst)
         {
-          lstC2c=[Select id,fromRole__c,Retail_Delete_Flag__c ,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where  ( (fromRole__c=: RetailPersonID OR fromRole__c=:RetailcompanyID) OR (toRole__c=: RetailPersonID OR toRole__c=:RetailcompanyID)) and RecordtypeId=:AccountLink_Contact2ContactRecordTypeId  ];
-        }
-           if( ToRoleID !=null && FromRoleID!=null)
-           {
-          lstPersonCompany=[ Select id,Retail_Delete_Flag__c ,fromRole__c,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where (toRole__c =:ToRoleID OR toRole__c=:FromRoleID) AND (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId=:AccountLink_RetailCompanyRecordTypeId)];
-          }
-          
-          
-          if(lstC2c!=null)
-          {
-          for(Account_Link__c accountLink : lstC2c){
-        if(accountLink.Retail_Delete_Flag__c == false){
-            
-              dealerAccNameSet.add(accountLink.fromRole__r.Name);
-              GcCode.add(accountLink.fromRole__r.Dealer_GC_Code__c);
-            }
-            }
-            }
-            
-            System.debug('%&%&%&%&%&%&%& lstPersonCompany'+lstPersonCompany);
-            
-            if(lstPersonCompany !=null)
+            acclnkid.add(alk.id);
+            if(alk.RecordtypeID== AccountLink_Contact2ContactRecordTypeId )
             {
-            for(Account_Link__c acctLink : lstPersonCompany){
-        if(acctLink.Retail_Delete_Flag__c == false)
-        {
-         GcCode.add(acctLink.fromRole__r.Dealer_GC_Code__c);
-              dealerAccNameSet.add(acctLink.fromRole__r.Name);
+                FromRoleID.add(alk.fromRole__c);
+                ToRoleID.add(alk.toRole__c);
             }
+            if(alk.RecordtypeID== AccountLink_RetailPersonRecordTypeId)
+            {
+                RetailPersonDealerID.add(alk.fromRole__c);  // Dealer Acc
+                RetailPersonID.add(alk.toRole__c);        //Customer Acc
             }
+            if(alk.RecordtypeID== AccountLink_RetailCompanyRecordTypeId )
+            {
+                RetailcompanyDealerID.add(alk.fromRole__c);  // Dealer Acc
+                RetailcompanyID.add(alk.toRole__c);     //Customer Acc
             }
-            
-             system.debug('dealerAccNameSet dealerAccNameSet>>>> ' + dealerAccNameSet);
-             if(  dealerAccNameSet !=null)
-             {
-             
-              dealerAccList = [select Name from Account where Dealer_GC_Code__c=:GcCode and RecordtypeId=:DealerAccid];
-              system.debug('dealerAccList>>>> ' + dealerAccList );
-             }
-             
-            
-       
-             if(dealerAccList !=null)
-             {
-        for(Account dealerRec : dealerAccList) {
-            dealerAccNameSet1.add(dealerRec.Name);
-            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
         }
+        if(RetailcompanyID !=null && RetailPersonID !=null)
+        {
+            lstC2c=[Select id,fromRole__c,Retail_Delete_Flag__c ,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where  ( (fromRole__c=: RetailPersonID OR fromRole__c=:RetailcompanyID) OR (toRole__c=: RetailPersonID OR toRole__c=:RetailcompanyID)) and RecordtypeId=:AccountLink_Contact2ContactRecordTypeId  ];
+        }
+        if( ToRoleID !=null && FromRoleID!=null)
+        {
+            lstPersonCompany=[ Select id,Retail_Delete_Flag__c ,fromRole__c,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where (toRole__c =:ToRoleID OR toRole__c=:FromRoleID) AND (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId=:AccountLink_RetailCompanyRecordTypeId)];
+        }
+        
+        
+        if(lstC2c!=null)
+        {
+            for(Account_Link__c accountLink : lstC2c){
+                if(accountLink.Retail_Delete_Flag__c == false){
+                    
+                    dealerAccNameSet.add(accountLink.fromRole__r.Name);
+                    GcCode.add(accountLink.fromRole__r.Dealer_GC_Code__c);
+                }
+            }
+        }
+        
+        System.debug('%&%&%&%&%&%&%& lstPersonCompany'+lstPersonCompany);
+        
+        if(lstPersonCompany !=null)
+        {
+            for(Account_Link__c acctLink : lstPersonCompany){
+                if(acctLink.Retail_Delete_Flag__c == false)
+                {
+                    GcCode.add(acctLink.fromRole__r.Dealer_GC_Code__c);
+                    dealerAccNameSet.add(acctLink.fromRole__r.Name);
+                }
+            }
+        }
+        
+        system.debug('dealerAccNameSet dealerAccNameSet>>>> ' + dealerAccNameSet);
+        if(  dealerAccNameSet !=null)
+        {
+            
+            dealerAccList = [select Name from Account where Dealer_GC_Code__c=:GcCode and RecordtypeId=:DealerAccid];
+            system.debug('dealerAccList>>>> ' + dealerAccList );
+        }
+        
+        
+        
+        if(dealerAccList !=null)
+        {
+            for(Account dealerRec : dealerAccList) {
+                dealerAccNameSet1.add(dealerRec.Name);
+                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+            }
         }
         system.debug('dealerAccNameSet>>>> ' + dealerAccNameSet1);
         system.debug('accNameToAccIdMap>>>> ' + accNameToAccIdMap);
-     if(dealerAccNameSet1 !=null)
-     {
-      for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet1]){
-        system.debug('INsertedededsd>>>>');
-        if(lstC2c!=null )
+        if(dealerAccNameSet1 !=null)
         {
-        for(Account_Link__c aclink : lstC2c)
-        {
-         if(accNameToAccIdMap.containsKey(groupRec.Name))
-         {
-           Account_Link__Share accountLinkShare = new Account_Link__Share();
-                    accountLinkShare.AccessLevel = 'Edit';
-                    accountLinkShare.UserOrGroupId = groupRec.Id;
-                    accountLinkShare.ParentId = aclink.id;
-                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    Sharealk.add(accountLinkShare);
-         }
-        }
-        }
-        for(Account_Link__c aclink : accLst)
-        {
-         if(accNameToAccIdMap.containsKey(groupRec.Name))
-         {
-           Account_Link__Share accountLinkShare = new Account_Link__Share();
-                    accountLinkShare.AccessLevel = 'Edit';
-                    accountLinkShare.UserOrGroupId = groupRec.Id;
-                    accountLinkShare.ParentId = aclink.id;
-                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    Sharealk.add(accountLinkShare);
-         }
-        }
-        }
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet1]){
+                system.debug('INsertedededsd>>>>');
+                if(lstC2c!=null )
+                {
+                    for(Account_Link__c aclink : lstC2c)
+                    {
+                        if(accNameToAccIdMap.containsKey(groupRec.Name))
+                        {
+                            Account_Link__Share accountLinkShare = new Account_Link__Share();
+                            accountLinkShare.AccessLevel = 'Edit';
+                            accountLinkShare.UserOrGroupId = groupRec.Id;
+                            accountLinkShare.ParentId = aclink.id;
+                            accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                            Sharealk.add(accountLinkShare);
+                        }
+                    }
+                }
+                for(Account_Link__c aclink : accLst)
+                {
+                    if(accNameToAccIdMap.containsKey(groupRec.Name))
+                    {
+                        Account_Link__Share accountLinkShare = new Account_Link__Share();
+                        accountLinkShare.AccessLevel = 'Edit';
+                        accountLinkShare.UserOrGroupId = groupRec.Id;
+                        accountLinkShare.ParentId = aclink.id;
+                        accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                        Sharealk.add(accountLinkShare);
+                    }
+                }
+            }
         }
         if(Sharealk.size() > 0){
             Database.insert(Sharealk, false);
         }
-     
+        
     }
 }
