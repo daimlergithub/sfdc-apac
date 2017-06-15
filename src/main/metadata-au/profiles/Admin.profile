@@ -21600,6 +21600,10 @@
         <layout>Case-Case Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Case-Case Layout</layout>
+        <recordType>Case.EventDataLoad</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Case-Case Master Layout</layout>
         <recordType>Case.MBDA_Complaint</recordType>
     </layoutAssignments>
@@ -23630,6 +23634,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Chrysler_Complaint</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.EventDataLoad</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
