@@ -160,6 +160,11 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                             task.priority = 'Normal';
                             task.RecordTypeId = taskRecTypeId;
                             task.ActivityDate = camp.Execution_Start_Date__c;
+							task.Whatid = campaignMemberRec.Campaign_Id__c ;
+                            task.whoid = campaignMemberRec.Contact_Id__c ;
+                            task.Account_Name__c =campaignMemberRec.Company_Name__c;
+                            task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
+                            task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
                             tskLst.add(task);
                             
                             campaignMemberRec.Status__c = 'Executed';
@@ -192,6 +197,11 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                         task.RecordTypeId = taskRecTypeId;
                         task.ActivityDate = camp.Execution_Start_Date__c;
                         task.Campaign_Name__c = camp.Campaign_Code__c;
+						task.Whatid = campaignMemberRec.Campaign_Id__c ;
+                        task.whoid = campaignMemberRec.Contact_Id__c ;
+                        task.Account_Name__c =campaignMemberRec.Company_Name__c;
+                        task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
+                        task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
                         tskLst.add(task);
                     }
                     
