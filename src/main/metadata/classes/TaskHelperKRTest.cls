@@ -107,7 +107,7 @@ public class TaskHelperKRTest {
     system.debug('$$$$$$$$$$$$'+dmr);
     system.debug('$$$$$$$$$$$$'+dmr.id);
   }
-  public static testmethod void updateAccountMobileTest() {
+ /* public static testmethod void updateAccountMobileTest() {
     createTestData();
     test.starttest();
       TaskHelperKR.updateAccountMobile(tasklist);
@@ -120,5 +120,5 @@ public class TaskHelperKRTest {
       TaskHelperKR.CustomerConsenment(tasklist);
     test.stoptest();     
     system.assertEquals(taskobj.Activity_Status__c,'Successful');
-  }
+  }*/
 }
