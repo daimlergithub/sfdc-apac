@@ -1546,7 +1546,7 @@
         <name>Retail_Last_Name_Native_Kana</name>
     </validationRules>
     <webLinks>
-        <label><!-- Delete_retail_copy --></label>
+        <label>削除</label>
         <name>Delete_retail_copy</name>
     </webLinks>
     <webLinks>

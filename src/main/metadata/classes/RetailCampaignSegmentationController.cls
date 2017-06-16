@@ -387,16 +387,16 @@
             }
     
             system.debug('accountIdsetbeforegogingtoSegmentationBase'+accountIdSet);
-            if(segmentationBase == 'Customer' && accountSoql.length()>accountLenght){
+            if(segmentationBase == 'Customer' ){
                 //Searhs the accounts according to all other filters
                 if(accountIdSet.size()==0 && accountFilter){
                     accountSoql += '';
                 }
-                else if(accountSoql.endsWith('and ')){
-                    accountSoql += 'Id in :accountIdSet ';
+                else if(accountSoql.endsWith('AND ') || accountSoql.endsWith('AND  ')){
+                    accountSoql += 'ID IN :accountIdSet ';
                 }
                 else{
-                    accountSoql += ' and Id in :accountIdSet ';
+                    accountSoql += ' AND ID IN :accountIdSet ';
                 }
                 system.debug('FinalAccountSoql>>>>>>>>'+accountSoql);
                 List<account> accList = Database.Query(accountSoql+' LIMIT 50000');
@@ -421,7 +421,7 @@
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
-            } else if(segmentationBase == 'Vehicle' && vehicleRelSoql.length()>vehRelLength){
+            } else if(segmentationBase == 'Vehicle'){
                 if(accountIdSet.size()>0){
                     vehicleRelSoql+=' AND Vehicle_ID__r.Related_Customer__C IN : accountIdSet';
                 }
@@ -434,7 +434,7 @@
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
-            } else if(segmentationBase == 'Contract' && RetailTaskSoql.length()>retailaskLength){
+            } else if(segmentationBase == 'Contract'){
                 if(accountIdSet.size()>0){
                     RetailTaskSoql +=' AND Related_Contact__c IN : accountIdSet';
                 }
