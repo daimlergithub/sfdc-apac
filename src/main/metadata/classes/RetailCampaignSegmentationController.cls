@@ -162,7 +162,7 @@
                 RetailTaskStatus.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Status__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retTaskStatus.contains(entry.getLabel()))
+                    if(retTaskStatus.contains(entry.getValue()))
                     RetailTaskStatus.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return RetailTaskStatus;
@@ -176,7 +176,7 @@
                 RetailTaskType.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Type__C;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retTaskType.contains(entry.getLabel()))
+                    if(retTaskType.contains(entry.getValue()))
                     RetailTaskType.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return RetailTaskType;
@@ -190,7 +190,7 @@
                 SpecialMarkonAccount.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Special_Mark_on_Account__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(specialMarkAcc.contains(entry.getLabel()))
+                    if(specialMarkAcc.contains(entry.getValue()))
                     SpecialMarkonAccount.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return SpecialMarkonAccount;
@@ -217,7 +217,7 @@
                 status.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Status__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(accStatus.contains(entry.getLabel()))
+                    if(accStatus.contains(entry.getValue()))
                     status.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return status;
@@ -231,7 +231,7 @@
                 DealerLeadStatus.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Lead__c.fields.Dealer_Lead_Status__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(LeadDealerStatus.contains(entry.getLabel()))
+                    if(LeadDealerStatus.contains(entry.getValue()))
                     DealerLeadStatus.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return DealerLeadStatus;
