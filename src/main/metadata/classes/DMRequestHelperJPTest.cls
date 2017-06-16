@@ -96,7 +96,7 @@ public class DMRequestHelperJPTest {
          dmr.Status3__c='Success';
           dmr.View_By_All__c = true;
          dmr.Sent_Date__c=system.today().addDays(-10);
-        insert dmr;
+    //    insert dmr;
         
             dmr2 = new  DM_Request__c();
          dmr2.Status__c='to be sent'; 
@@ -140,10 +140,10 @@ public class DMRequestHelperJPTest {
         insert dmr;
         }
       }  
-    public static testMethod void UpdateDMRequestTest(){
+  /*  public static testMethod void UpdateDMRequestTest(){
         //create test data
          createTestData();
-         createDMRequest();
+        createDMRequest();
         
         //start test
         test.startTest();
@@ -156,11 +156,11 @@ public class DMRequestHelperJPTest {
         dmr=[select Province__c  from DM_Request__c where id=:dmr.id];
         //system.assertEquals(dmr.Province__c, 'testrequest');           
         
-    }
+    }*/
     public static testMethod void updateStatusTest(){
         //create test data
          createTestData();
-         createDMRequest();
+      //   createDMRequest();
         
          /*system.runAs(usr){
          DM_Request__c dmr1 = new  DM_Request__c();  
