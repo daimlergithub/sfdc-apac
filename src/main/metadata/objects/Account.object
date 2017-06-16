@@ -11713,7 +11713,7 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
