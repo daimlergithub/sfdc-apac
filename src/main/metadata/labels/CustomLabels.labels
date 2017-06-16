@@ -7631,6 +7631,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Status - Approved</shortDescription>
         <value>Approved</value>
     </labels>
+	<labels>
+        <fullName>s8_Please_operate_My_Mercedes_Registration_first</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>s8 Please operate My Mercedes Registration first</shortDescription>
+        <value>Please operate My Mercedes Registration first</value>
+    </labels>
     <labels>
         <fullName>Status_Cancel_Application</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
@@ -7654,6 +7661,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Stocks for interested vehicle</shortDescription>
         <value>Stocks for intereseted vehicler?</value>
     </labels>
+	
     <labels>
         <fullName>Store</fullName>
         <language>en_US</language>

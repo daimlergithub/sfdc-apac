@@ -86,6 +86,7 @@
         public Set<String> specialMarkAcc = new Set<String>{'Automotive related','Dealer','Fire department','Lawyer','Insurance Company','MBJ','Ministry of Transport','Police'};
         public Set<String> accStatus = new Set<String>{'Customer', 'Prospect'};
         public Set<String> LeadDealerStatus = new Set<String>{'Not Started','On-going','Order Placed','Purchased(Only Non BDC)','Lost'};
+        public Set<String> retTaskType = new Set<String>{'Standard Warranty','Used Car Warranty','Loan','Lease','Service Program'};
         
         public String jsonFilter { get; set; }
         public Map<String, Object> filterMap;
@@ -169,6 +170,19 @@
             set;
         }
         
+        public List<SelectOption> RetailTaskType{
+            get{
+                RetailTaskType= new List<SelectOption>();
+                RetailTaskType.add(new SelectOption('', '--None--'));
+                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Type__C;
+                for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                    if(retTaskType.contains(entry.getLabel()))
+                    RetailTaskType.add(new SelectOption(entry.getValue(), entry.getLabel()));
+                }
+                return RetailTaskType;
+            }
+            set;
+        }
        
         public List<SelectOption> SpecialMarkonAccount{
             get{
@@ -373,16 +387,16 @@
             }
     
             system.debug('accountIdsetbeforegogingtoSegmentationBase'+accountIdSet);
-            if(segmentationBase == 'Customer' && accountSoql.length()>accountLenght){
+            if(segmentationBase == 'Customer' ){
                 //Searhs the accounts according to all other filters
                 if(accountIdSet.size()==0 && accountFilter){
                     accountSoql += '';
                 }
-                else if(accountSoql.endsWith('and ')){
-                    accountSoql += 'Id in :accountIdSet ';
+                else if(accountSoql.endsWith('AND ') || accountSoql.endsWith('AND  ')){
+                    accountSoql += 'ID IN :accountIdSet ';
                 }
                 else{
-                    accountSoql += ' and Id in :accountIdSet ';
+                    accountSoql += ' AND ID IN :accountIdSet ';
                 }
                 system.debug('FinalAccountSoql>>>>>>>>'+accountSoql);
                 List<account> accList = Database.Query(accountSoql+' LIMIT 50000');
@@ -407,7 +421,7 @@
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
-            } else if(segmentationBase == 'Vehicle' && vehicleRelSoql.length()>vehRelLength){
+            } else if(segmentationBase == 'Vehicle'){
                 if(accountIdSet.size()>0){
                     vehicleRelSoql+=' AND Vehicle_ID__r.Related_Customer__C IN : accountIdSet';
                 }
@@ -420,7 +434,7 @@
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
-            } else if(segmentationBase == 'Contract' && RetailTaskSoql.length()>retailaskLength){
+            } else if(segmentationBase == 'Contract'){
                 if(accountIdSet.size()>0){
                     RetailTaskSoql +=' AND Related_Contact__c IN : accountIdSet';
                 }
@@ -450,7 +464,7 @@
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
             AccountLinkSoql = 'SELECT toRole__c,Sales_Representative__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
             AddressSoql = 'SELECT Customer__c From Address__c where ';
-            RetailTaskSoql = 'SELECT Account__c,Product_Name__c,Type__c,Duration__c,Status__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
+            RetailTaskSoql = 'SELECT Account__c,Product_Name__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
             if(u.contactId != NULL){
                 RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND ';
             }
