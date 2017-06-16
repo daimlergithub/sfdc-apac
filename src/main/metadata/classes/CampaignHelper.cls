@@ -404,6 +404,7 @@ system.debug('++++++'+camUpdateList);
    Integer Day;       
    String mont; 
    Integer NewDay;
+   Set<Date> sid = New Set<Date>();
       
    Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();       
         
@@ -460,70 +461,33 @@ system.debug('++++++'+camUpdateList);
             /*  for ( NewDay = 1; NewDay  < day ; NewDay ++) {
            
            
-            string stringDate = year + '-' + mont + '-' + NewDay ; 
-            
-            
-            // DateTime mainDate = Date.valueOf(stringDate ); 
-             // Date dte = date.newInstance(2016,9,7 );
-             Date dte = date.newInstance(yearint,month ,day  );
+            string stringDate = year + '-' + mont + '-' + NewDay ;                
              
-             Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
-
-             String dayOfWeek=dt.format('EEEE');
-             System.debug('+++++++++++++++++++++++++++' + dayOfWeek);  
-             
-             if(dayOfWeek == 'Saturday'){
-             
-                  dte = dte+2;
-             }else if(dayOfWeek == 'Sunday'){
-             
-                  dte = dte+1;
-             
-             }else {
-                 dte = dte;
-             
-             }
-             
-             system.debug('++++++++++++++'+dte );
-             
-             //List<Holiday> hol = [Select id,Name,ActivityDate From Holiday ];   
-             
-            // Map<Date,List<Holiday>> holidayCheck = new Map<Date,List<Holiday>>([Select id,Name,ActivityDate From Holiday]);
-             
-             //holidayCheck.get(dte);
-             List<Holiday> holidayCheck  = [Select id,Name,ActivityDate From Holiday Where ActivityDate =: dte ]; 
-             
-             
-             if(holidayCheck.size()>0){
-             
-               dte = dte+1;
-              system.debug('++++++++++++++'+dte );
-               //Holidaychecker(dte);
-               system.debug('++++++++++++++'+dte );
-               //dte=Holidaychecker(dte);
-               system.debug('++++++++++++++'+dte );
-              //Camp.Segmentation_Date__c = dte ; 
-             // }else{
-             
-             
-             
-                
-          //Camp.Segmentation_Date__c = Date.valueOf(stringDate );       
-            // Camp.Segmentation_Date__c = dte ;
-             }
+             //Map<Date,List<Holiday>> holidayCheck = new Map<Date,List<Holiday>>([Select id,Name,ActivityDate From Holiday]);
+ 
              
              Camp.Segmentation_Date__c = dte ;
              }   */
              
+             
+             for(Holiday hol :[Select id,Name,ActivityDate From Holiday ]){
+             
+                //String DateFormat = String.ValueOf(hol.ActivityDate );
+                 
+                 sid.add(hol.ActivityDate);
+             
+             
+             }
+             
              Integer NewDays = 1;
              String stringDate = year + '-' + mont + '-' + NewDays ;
              Date dte = Date.valueOf(stringDate );   
-             List<Holiday> holidays=[Select StartTimeInMinutes, Name, ActivityDate From Holiday ];
+           
              
              for(Integer k=1;k<N ;k++ ){
              
-             Holidaychecker(dte);
-               dte = Holidaychecker(dte);
+             Holidaychecker(dte,sid);
+               dte = Holidaychecker(dte,sid);
 
                system.debug('+++++ return date +++++++'+dte); 
                 dte = dte.addDays(1);                     
@@ -546,15 +510,18 @@ system.debug('++++++'+camUpdateList);
                  dte = dte;
              
              } 
-            List<Holiday> holidayCheck  = [Select id,Name,ActivityDate From Holiday Where ActivityDate =: dte ]; 
+          
 
-           if(holidayCheck.size()>0){
+           if(sid.contains(dte)){
            
-           dte = dte+1;
-           } else {
-           
-            dte = dte;
-           }     
+          dte = dte+1;
+              
+               Holidaychecker(dte,sid);
+               
+               dte=Holidaychecker(dte,sid);
+               
+              camp.Segmentation_Date__c = dte ; 
+              }else{
                 
              Camp.Segmentation_Date__c = dte ;
              
@@ -566,8 +533,9 @@ system.debug('++++++'+camUpdateList);
         
 } 
 }
+}
 
-Private static Date Holidaychecker( Date dte){
+Private static Date Holidaychecker( Date dte, set<Date> sid){
 
 Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
 
@@ -587,11 +555,8 @@ Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
              }
              
              system.debug('+++++++dayof week result+++++++'+dte );
-             
-             
-             List<Holiday> holidayCheck  = [Select id,Name,ActivityDate From Holiday Where ActivityDate =: dte ]; 
 
-           if(holidayCheck.size()>0){
+           if(sid.contains(dte)){
            
            dte = dte+1;
            } else {
