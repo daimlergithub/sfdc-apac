@@ -1064,15 +1064,19 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                                            acc.name =  (acc.Company_Name__c!=null ?acc.Company_Name__c : '' );
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Pre') {
-                                        if(usr.LanguageLocaleKey == 'ja')
+                                       if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
+                                        {
                                             acc.name = (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form): '')  + (acc.Company_Name__c!= null ? acc.Company_Name__c : '');
-                                        else
+                                        }
+										else
                                            acc.name = (Company_Legal_Form != null?Company_Legal_Form:'' ) + (acc.Company_Name__c != null ?acc.Company_Name__c : '' );     
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Post'){
-                                        if(usr.LanguageLocaleKey == 'ja')
+                                       if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
+                                        {
                                             acc.name = (acc.Company_Name__c!= null ?acc.Company_Name__c : '' ) + (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form):'');
-                                        else
+										}                                       
+									   else
                                             acc.name = (acc.Company_Name__c != null ? acc.Company_Name__c : '') + (Company_Legal_Form != null ? Company_Legal_Form:'');    
                                     }
                                 
