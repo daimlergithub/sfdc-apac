@@ -290,16 +290,17 @@ public with sharing class AddressHelperJP {
                     if(curAcc.Account_Links__r.size()==1){
                         for(Account_Link__c accLink : curAcc.Account_Links__r ){
                             //Checking the account retail address reference field is null to confirm this is the first time adding address
-                            If(accLink.Retail_Address_Reference__c == NUll)
-                            accLink.Retail_Address_Reference__c = accIdAddIdMap.get(curAcc.Id).Id;
-                            accLink.Retail_Address_Type__c = accIdAddIdMap.get(curAcc.Id).Address_Type__c;
-                            accLink.Retail_ZipCode__c = accIdAddIdMap.get(curAcc.Id).ZipCode__c;
-                            accLink.Retail_Province__c = accIdAddIdMap.get(curAcc.Id).Province__c;
-                            accLink.Retail_City__c = accIdAddIdMap.get(curAcc.Id).City__c;
-                            accLink.Retail_Distinct__c = accIdAddIdMap.get(curAcc.Id).District__c;
-                            accLink.Retail_Address_Line_1__c = accIdAddIdMap.get(curAcc.Id).Address_Line_1__c;
-                            accLink.Retail_Address_Line_2__c = accIdAddIdMap.get(curAcc.Id).Address_Line_2__c;
-                            updateList.add(accLink);
+                            If(accLink.Retail_Address_Reference__c == NUll){
+                                accLink.Retail_Address_Reference__c = accIdAddIdMap.get(curAcc.Id).Id;
+                                accLink.Retail_Address_Type__c = accIdAddIdMap.get(curAcc.Id).Address_Type__c;
+                                accLink.Retail_ZipCode__c = accIdAddIdMap.get(curAcc.Id).ZipCode__c;
+                                accLink.Retail_Province__c = accIdAddIdMap.get(curAcc.Id).Province__c;
+                                accLink.Retail_City__c = accIdAddIdMap.get(curAcc.Id).City__c;
+                                accLink.Retail_Distinct__c = accIdAddIdMap.get(curAcc.Id).District__c;
+                                accLink.Retail_Address_Line_1__c = accIdAddIdMap.get(curAcc.Id).Address_Line_1__c;
+                                accLink.Retail_Address_Line_2__c = accIdAddIdMap.get(curAcc.Id).Address_Line_2__c;
+                                updateList.add(accLink);
+                            }
                         }
                     }
                 }
@@ -310,16 +311,17 @@ public with sharing class AddressHelperJP {
                     if(curAcc.Account_Links__r.size()==1){
                         for(Account_Link__c accLink : curAcc.Account_Links__r ){
                             //Checking the account retail address reference field is null to confirm this is the first time adding address
-                            If(accLink.Retail_Address_Reference__c == NUll)
-                            accLink.Retail_Address_Reference__c = accIdAddIdMap.get(curAcc.Id).Id;
-                            accLink.Retail_Address_Type__c = accIdAddIdMap.get(curAcc.Id).Address_Type__c;
-                            accLink.Retail_ZipCode__c = accIdAddIdMap.get(curAcc.Id).ZipCode__c;
-                            accLink.Retail_Province__c = accIdAddIdMap.get(curAcc.Id).Province__c;
-                            accLink.Retail_City__c = accIdAddIdMap.get(curAcc.Id).City__c;
-                            accLink.Retail_Distinct__c = accIdAddIdMap.get(curAcc.Id).District__c;
-                            accLink.Retail_Address_Line_1__c = accIdAddIdMap.get(curAcc.Id).Address_Line_1__c;
-                            accLink.Retail_Address_Line_2__c = accIdAddIdMap.get(curAcc.Id).Address_Line_2__c;
-                            updateList.add(accLink);
+                            If(accLink.Retail_Address_Reference__c == NUll){
+                                accLink.Retail_Address_Reference__c = accIdAddIdMap.get(curAcc.Id).Id;
+                                accLink.Retail_Address_Type__c = accIdAddIdMap.get(curAcc.Id).Address_Type__c;
+                                accLink.Retail_ZipCode__c = accIdAddIdMap.get(curAcc.Id).ZipCode__c;
+                                accLink.Retail_Province__c = accIdAddIdMap.get(curAcc.Id).Province__c;
+                                accLink.Retail_City__c = accIdAddIdMap.get(curAcc.Id).City__c;
+                                accLink.Retail_Distinct__c = accIdAddIdMap.get(curAcc.Id).District__c;
+                                accLink.Retail_Address_Line_1__c = accIdAddIdMap.get(curAcc.Id).Address_Line_1__c;
+                                accLink.Retail_Address_Line_2__c = accIdAddIdMap.get(curAcc.Id).Address_Line_2__c;
+                                updateList.add(accLink);
+                            }
                         }
                     }
                 }
