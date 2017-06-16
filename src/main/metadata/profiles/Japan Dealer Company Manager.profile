@@ -14238,7 +14238,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Cross_Point_Model__c</field>
+         <field>Lead__c.Cross_Point_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
