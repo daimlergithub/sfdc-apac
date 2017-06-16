@@ -21,6 +21,48 @@
         <shortDescription>A6 Invitation to an event / event at the car dealership</shortDescription>
         <value>Invitation to an event / event at the car dealership</value>
     </labels>
+	 <labels>
+        <fullName>Customer_Stage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Stage</shortDescription>
+        <value>Customer Stage</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Email_OptOut</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Email OptOut</shortDescription>
+        <value>Retail Email OptOut</value>
+    </labels>
+	<labels>
+        <fullName>Sales_dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales dealer</shortDescription>
+        <value>Sales dealer</value>
+    </labels>
+	<labels>
+        <fullName>Last_Service_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Service Date</shortDescription>
+        <value>Last Service Date</value>
+    </labels>
+	<labels>
+        <fullName>Campaign_member_status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign member status</shortDescription>
+        <value>Campaign member status</value>
+    </labels>
+	<labels>
+        <fullName>Recall_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Recall Status</shortDescription>
+        <value>Recall Status</value>
+    </labels>
     <labels>
         <fullName>A6_Other_contact_channels</fullName>
         <language>en_US</language>

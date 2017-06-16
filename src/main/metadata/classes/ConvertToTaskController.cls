@@ -85,6 +85,12 @@ public with sharing class ConvertToTaskController
         taskRec.status= 'New';
         taskRec.Priority='Low';
         taskRec.subject = 'Campaign Executed';
+		taskRec.Whatid = campaignMember.Campaign_Id__c ;
+        taskRec.whoid = campaignMember.Contact_Id__c ;
+        taskRec.Account_Name__c =campaignMember.Company_Name__c;
+        taskRec.Phone__c = campaignMember.Contract_Phone_1__c;
+        taskRec.Phone_number__c= campaignMember.Contract_Phone_2__c;
+  
   
         if(objectAPIName == 'Campaign' || objectAPIName == 'Retail_Campaign__c')
          {
