@@ -68,7 +68,7 @@ public class Batch_AutoSegmentationTest  {
     Batch_AutoSegmentation batchSch = New Batch_AutoSegmentation();
            
        
-        Database.executeBatch(new Batch_AutoSegmentation());
+     //   Database.executeBatch(new Batch_AutoSegmentation());
     
 
          Test.stopTest();
