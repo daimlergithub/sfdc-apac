@@ -306,6 +306,16 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Change_Case_Owner_to_CCC_Team</fullName>
+        <field>OwnerId</field>
+        <lookupValue>MBF_Customer_Care_CCC_Team</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Change Case Owner to CCC Team</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Change_Status_to_Final_Approval_Rejecte</fullName>
         <field>Status</field>
         <literalValue>Final approval rejected</literalValue>
@@ -1710,7 +1720,7 @@
             <operation>equals</operation>
             <value>True</value>
         </criteriaItems>
-		 <criteriaItems>
+        <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
             <value>Thailand System Admin</value>
@@ -1840,7 +1850,7 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
-		 <criteriaItems>
+        <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
             <value>Thailand System Admin</value>
@@ -2084,6 +2094,35 @@
             <timeLength>1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Share to Regional Office</fullName>
+        <actions>
+            <name>Change_Case_Owner_to_CCC_Team</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Share_to_Regional_Office__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MBF Contract Closing Case,MBF Finance Inquiry Case,MBF Finance Quotation Case,MBF Customer Request Case</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Time Dependent</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Share_to_Regional_Office__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Update Case status to %22Waiting for Response approval%22</fullName>
