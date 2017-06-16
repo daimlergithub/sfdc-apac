@@ -566,7 +566,7 @@
                                     <option value="Interest_Model__c">{!$ObjectType.Account.Fields.Interest_Model__c.Label}</option>
                                     <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>                                   
                                     <option value="Status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
-                                    <option value="Customer_Lifecycle_Phase__c">Customer Stage</option>
+                                    <option value="Customer_Lifecycle_Phase__c">{!$Label.Customer_Stage}</option>
                                 </select>
                             </td>
                              <td><span class="notDate">
@@ -634,7 +634,7 @@
                                     <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
                                     <option value="Retail_Phone_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Phone_OptOut__c.Label}</option>
                                     <option value="Retail_Fax_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Fax_OptOut__c.Label}</option>
-                                    <option value="Retail_Email_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Email_OptOut__c.Label}</option>
+                                    <option value="Retail_Email_OptOut__c">{!$Label.Retail_Email_OptOut}</option>
                                     <option value="Retail_OptOutContact_Reason__c">{!$ObjectType.Account_Link__c.Fields.Retail_OptOutContact_Reason__c.Label}</option>
                                 </select>
                             </td>
@@ -767,7 +767,7 @@
                                    <option value="Modification_Package__c">{!$ObjectType.Vehicle__c.Fields.Modification_Package__c.Label}</option>
                                    <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
                                    <option value="Recall_No__c">{!$ObjectType.Recall__c.Fields.Recall_No__c.Label}</option> 
-                                   <option value="Status__c">Recall Status</option> 
+                                   <option value="Status__c">{!$Label.Recall_Status}</option> 
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -872,7 +872,7 @@
                                 <select onchange="showCriteria(this);">                                                                     
                                     <option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>
                                     <option value="Service_Advisor__c">{!$ObjectType.Account_Link__c.Fields.Service_Advisor__c.Label}</option>
-                                    <option value="LastServiceDate__c">{!$ObjectType.Account_Link__c.Fields.LastServiceDate__c.Label}</option>                              
+                                    <option value="LastServiceDate__c">{!$Label.Last_Service_Date}</option>                              
                                     <option value="NextServiceDate__c">{!$ObjectType.Account_Link__c.Fields.NextServiceDate__c.Label}</option>
                                     <option value="NextInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}</option>
                                     <option value="CurrentMileage__c">{!$ObjectType.Account_Link__c.Fields.CurrentMileage__c.Label}</option> 
@@ -937,7 +937,7 @@
                                 <select onchange="showCriteria(this);"> 
                                   
                                   <option value="Name">{!$ObjectType.Campaign.Fields.Name.Label}</option>
-                                  <option value="Status__c">Campaign Member Status</option>
+                                  <option value="Status__c">{!$Label.Campaign_Member_Status}</option>
                                   
                                 </select>
                             </td>
