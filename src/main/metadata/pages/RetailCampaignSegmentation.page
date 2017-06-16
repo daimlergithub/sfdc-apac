@@ -674,7 +674,7 @@
                                         <div>
                     <table id="AccountRetailCopyTable" class="" border="0" cellspacing="0" cellpadding="2">
                             <tr class="tableHeader">
-                                &nbsp;<th width="10%">Sales Dealer</th>
+                                &nbsp;<th width="10%">{!$Label.Sales_Dealer}</th>
                                 <td>
                                     <apex:selectList value="{!selectedValue}" multiselect="false" size="1">
                                             <apex:selectOptions value="{!items}"/>
