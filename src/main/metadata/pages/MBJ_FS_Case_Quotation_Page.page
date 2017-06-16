@@ -10,6 +10,8 @@
             <apex:pageblockSection id="section1" title="General Information">
                 <apex:inputField value="{!Case.Subject}"/>
                 <apex:inputField value="{!Case.Status}"/>
+                <apex:inputField value="{!Case.Ownerid}"/>
+                <apex:inputField value="{!Case.Accountid}"/>
                 <apex:inputField value="{!Case.Retail_Task__c}">
                     <apex:actionSupport event="onchange" action="{!populateContractNumber}" reRender="contractNoId"/>
                 </apex:inputField>
@@ -143,11 +145,21 @@
                 <apex:inputField value="{!Case.Payer_address__c}" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Payer_Fax_Email_address__c}"/>
             </apex:pageblockSection>
-            
+          
             <apex:pageBlockSection >
                 <apex:inputField value="{!Case.TL_Reviewed__c}"/>
                 <apex:inputField value="{!Case.Document_sending_date__c}"/>
             </apex:pageBlockSection>
+            
+            /*Added for Escalate to MBF and Escalate to Dealer functionality on 14June2017 */
+            <apex:pageblockSection title="Dealer Suggestion">
+                <apex:inputField value="{!Case.Already_Contacted_Dealer__c}"/>
+                <apex:inputField value="{!Case.Requires_Dealer_Contact__c}"/>
+                <apex:inputField value="{!Case.Case_Dealer__c}"/>
+                <apex:inputField value="{!Case.Case_Dealer_User__c}"/>
+                <apex:inputField value="{!Case.Share_to_Regional_Office__c}"/>
+                <apex:inputField value="{!Case.Retail_Case_Notice_Dealer_Flag__c}"/>
+            </apex:pageblockSection>
                         
         </apex:pageBlock>
     </apex:form>
