@@ -4367,6 +4367,10 @@
         <label>アンケート</label>
         <name>SurveyID</name>
     </customLabels>
+	<customLabels>
+        <label>MyMercedes送信を先に実施してください。</label>
+        <name>s8_Please_operate_My_Mercedes_Registration_first</name>
+    </customLabels>
     <customLabels>
         <label><!-- SurveyQuesResponse --></label>
         <name>SurveyQuesResponse</name>

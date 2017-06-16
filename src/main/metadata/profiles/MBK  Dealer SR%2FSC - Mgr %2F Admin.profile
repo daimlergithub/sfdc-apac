@@ -5934,7 +5934,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.System__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -26308,12 +26308,12 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.Retail_Company</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
