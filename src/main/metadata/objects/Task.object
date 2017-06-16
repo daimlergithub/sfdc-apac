@@ -11241,9 +11241,9 @@ window.location.href = "/apex/TaskMassChangeOwner?objIds=" + idList + "&amp;retU
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>// Include and initialize the AJAX toolkit library 
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
-{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
-{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
 var idList = {!GETRECORDIDS($ObjectType.Task)}; 
 var retURL = window.location.toString(); 
 var proceed = true; 
