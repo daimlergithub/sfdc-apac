@@ -901,18 +901,6 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>CAMPAIGN.NAME</fields>
-        <fields>CAMPAIGN.START_DATE</fields>
-        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
-        <fields>CM.STATUS</fields>
-        <fields>Campaign_Channels__c</fields>
-        <fields>CM.RESPONDED</fields>
-        <fields>CM.LAST_UPDATE</fields>
-        <relatedList>RelatedCampaignList</relatedList>
-        <sortField>CAMPAIGN.CAMPAIGN_TYPE</sortField>
-        <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
         <customButtons>New_Sales_Lead</customButtons>
         <customButtons>New_AfterSales_Lead</customButtons>
         <fields>NAME</fields>
@@ -976,13 +964,12 @@
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
+        <customButtons>Convert_to_Lead</customButtons>
+        <customButtons>Convert_To_DM_Request</customButtons>
+        <customButtons>Convert_To_Task</customButtons>
         <fields>NAME</fields>
         <relatedList>Campaign_Member__c.Contact_Id__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Campaign_Member__c.Preferred_Dealer__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
