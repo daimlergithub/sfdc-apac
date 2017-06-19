@@ -1689,7 +1689,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND( 2 or 3) AND 4 AND 5 AND 6</booleanFilter>
+        <booleanFilter>1 AND( 2 or 3 or 7) AND 4 AND 5 AND 6</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>

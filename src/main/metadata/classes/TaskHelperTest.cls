@@ -339,8 +339,8 @@ private class TaskHelperTest {
         mapTask.put(testSMSTask.id, testSMSTask);
         
         TaskHelper.createSMSTaskAfterIBCall(lstTask);   
-        TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(lstTask,mapTask,true,false);
-        TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(lstTask,mapTask,false,true);
+    //    TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(lstTask,mapTask,true,false);
+     //   TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(lstTask,mapTask,false,true);
         TaskHelper.updateCampaignMemberStatus(lstTask,mapTask,false,true);
         Test.stopTest();
         system.assertNotEquals(null, lstTask);
