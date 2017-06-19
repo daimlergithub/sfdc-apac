@@ -976,6 +976,10 @@
         <label>成約済</label>
         <name>Close</name>
     </customLabels>
+	<customLabels>
+        <label>閉じる</label>
+        <name>Closee</name>
+    </customLabels>
     <customLabels>
         <label><!-- Cluster --></label>
         <name>Cluster</name>
@@ -1267,6 +1271,30 @@
     <customLabels>
         <label>販売店コメント</label>
         <name>Dealer_Memo</name>
+    </customLabels>
+	<customLabels>
+        <label>ステージ</label>
+        <name>Customer_Stage</name>
+    </customLabels>
+	<customLabels>
+        <label>Eメール受信拒否</label>
+        <name>Retail_Email_OptOut</name>
+    </customLabels>
+	<customLabels>
+        <label>販売拠点</label>
+        <name>Sales_dealer</name>
+    </customLabels>
+	<customLabels>
+        <label>最終サービス日</label>
+        <name>Last_Service_Date</name>
+    </customLabels>
+	<customLabels>
+        <label>対象者ステータス</label>
+        <name>Campaign_member_status</name>
+    </customLabels>
+	<customLabels>
+        <label>ステータス(リコール)</label>
+        <name>Recall_Status</name>
     </customLabels>
     <customLabels>
         <label><!-- Dealer Name --></label>
@@ -6198,3 +6226,4 @@
         </sections>
     </reportTypes>
 </Translations>
+

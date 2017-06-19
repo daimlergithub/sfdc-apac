@@ -656,6 +656,10 @@
         <editHeading>true</editHeading>
         <label>Cross Point Information</label>
         <layoutColumns>
+		 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cross_Point_Model__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Existing_Contract_No__c</field>

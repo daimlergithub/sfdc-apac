@@ -14,7 +14,7 @@ public class TriggerCampaignMembersCustomHandlerJP
     {
        if(isAfter && isInsert){
            CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection(Trigger.new);
-                      CampaignMembersCustomHelperJP.batchbounce(trigger.new);
+                     // CampaignMembersCustomHelperJP.batchbounce(trigger.new);
                       CampaignMembersCustomHelperJP.addSalesCampaignMember(Trigger.new);
 
         }

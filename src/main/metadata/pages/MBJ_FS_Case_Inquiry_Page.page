@@ -10,6 +10,8 @@
             <apex:pageblockSection id="pbs1id" title="General Information">
                 <apex:inputField value="{!Case.Subject}"/>
                 <apex:inputField value="{!Case.Status}"/>
+                <apex:inputField value="{!Case.Ownerid}"/>
+                <apex:inputField value="{!Case.Accountid}"/>
                 <apex:inputField value="{!Case.Retail_Task__c}">
                     <apex:actionSupport event="onchange" action="{!populateContractNumber}" reRender="contractNoId"/>
                 </apex:inputField>
@@ -20,7 +22,6 @@
                 </apex:pageBlockSectionItem>
                 <apex:inputField value="{!Case.Case_Complainant__c}"/>
                 <apex:inputField value="{!Case.Case_Class__c}"/>
-                <apex:inputField value="{!Case.Ownerid}"/>
                 <apex:inputField value="{!Case.Case_Type__c}"/>
                 <apex:inputField value="{!Case.External_Case_ID__c}"/>
                 <apex:inputField value="{!Case.Case_SubType__c}"/>
@@ -79,7 +80,9 @@
                 <apex:inputField value="{!Case.Already_Contacted_Dealer__c}"/>
                 <apex:inputField value="{!Case.Requires_Dealer_Contact__c}"/>
                 <apex:inputField value="{!Case.Case_Dealer__c}"/>
-                <apex:inputField value="{!Case.Campaign__c}"/>
+                <apex:inputField value="{!Case.Case_Dealer_User__c}"/>
+                <apex:inputField value="{!Case.Share_to_Regional_Office__c}"/>
+                <apex:inputField value="{!Case.Retail_Case_Notice_Dealer_Flag__c}"/>
             </apex:pageblockSection>
         </apex:pageBlock>
     </apex:form>

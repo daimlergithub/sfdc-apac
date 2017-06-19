@@ -14,7 +14,14 @@ public with sharing class VehicleRelationshipHelperJP
 {  
     Public String[] ignoredAccounts = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
     Public Static String[] ignoredAccount = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
-    Public Static Set<Id> setIgnoredAccounts=new Set<Id>();     
+    Public Static Set<Id> setIgnoredAccounts=new Set<Id>();  
+     static User usr = [Select id, LanguageLocaleKey,Market__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];    
+     
+      public static Id vehicleRelationship_VRRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();
+    public static Id vehicleRelationship_VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
+    
+
+	
         
     Public static void IgnoredAccounts(){
     for(Account acc:[select id from Account Where Name Like :ignoredAccount]){
@@ -347,7 +354,10 @@ public with sharing class VehicleRelationshipHelperJP
             system.debug('Error'+e.getLineNumber());             
         }
     }
-    public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList,Map<id,Vehicle_Relationship__c> vRoldmap,boolean isInsert,boolean isUpdate)
+    
+    
+    
+      public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList,Map<id,Vehicle_Relationship__c> vRoldmap,boolean isInsert,boolean isUpdate)
   {
       system.debug('@#@##@##veReList'+veReList);
       system.debug('&*&*&*&vRoldmap'+vRoldmap); 
@@ -355,10 +365,14 @@ public with sharing class VehicleRelationshipHelperJP
         string nullValue ='';
         set<id> sid = new set<id>();
         set<id> addressids = new set<id>();
-        List<Address__c> addresslist = new List<Address__c> ();   
+         Map<Id,Address__c> addr;
+       // List<Address__c> addr = new List<Address__c> ();   
         List<Vehicle_Relationship__c> Updatelist = new List<Vehicle_Relationship__c> ();
         List<Vehicle_Relationship__c> vrList = new List<Vehicle_Relationship__c> ();
-        
+                    String province;
+            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+            UtilAddressTranslation.gettranslatedvalues('JP');
+                   
       if(LeadUtil.verTrigger)
       { 
         for (Vehicle_Relationship__c ve : veReList ) 
@@ -389,15 +403,15 @@ public with sharing class VehicleRelationshipHelperJP
       }
           LeadUtil.verTrigger = false;
                 system.debug('++++++++++++++++++++'+sid);
-            if(addressids != Null && !addressids.isempty())
+            if(addressids.size()>0)
       {
-        addresslist = [Select ID,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,
-                       Province_Native__c,City__c,City_Native__c,District__c,District_Native__c,Block__c,Block_Native__c,
-                       Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,
-                       Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Address__c where customer__c =: addressids];
-      }
+        //addr = [Select ID,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,
+          //             Province_Native__c,City__c,City_Native__c,District__c,District_Native__c,Block__c,Block_Native__c,
+          //             Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,
+          //             Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Address__c where customer__c =: addressids];
+          addr = new map<id,Address__c>([select Customer__c,Province__c,Address_Type__c ,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =: addressids]); 
       
-      system.debug('++++++++++++++++++'+addresslist);
+      system.debug('++++++++++++++++++'+addr);
       for(Vehicle_Relationship__c Vels  : vrList)
       {
         if (vels.Vehicle_Phone_picklist__c == Null)
@@ -446,55 +460,76 @@ public with sharing class VehicleRelationshipHelperJP
         {
           vels.vehicle_mail__c = Vels.Contact__r.Email3__c;
         }
-                if(!addresslist.isEmpty() && addresslist != null)
+               if(!addr.isEmpty() && addr != null)
                 {
-                    for( Address__c add : addresslist)
+                    for( Address__c add : addr.values())
                     {
-                        system.debug('+++++++++++++ vels.vehicle_address_picklist__c'+vels.vehicle_address_picklist__c);
+                        system.debug('+++++++++++++ add '+add );
                         if( vels.vehicle_address_picklist__c == Null  || vels.vehicle_address_picklist__c == '')
                         {
+                            
                             //  vels.vehicle_address__c = acc.Sales_Address_Type__c;
                             vels.Vehicle_Address_Display__c  = Vels.Contact__r.Primary_Address_Display__c;
                             system.debug('+++++++++++++'+Vels.Contact__r.Primary_Address_Display__c);
                             system.debug('+++++++++++++ vels'+ vels);
                         }
-						
+                        
                         //if( vels.vehicle_address_picklist__c == add.Address_Type__c){
                         if( vels.vehicle_address_picklist__c == 'Home Address' && add.Address_Type__c == 'Home')
-                        {   
+                        { 
+                            if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }                   
                             vels.vehicle_address__c = add.Id;
                             //vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
-                            vels.Vehicle_Address_Display__c  = add.province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
-							vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                            vels.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                            vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                             
                         }
                         else if( vels.vehicle_address_picklist__c == 'Work address' && add.Address_Type__c == 'Business')
                         { 
+                          if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }                   
                             vels.vehicle_address__c = add.Id; 
                             //vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
-                            vels.Vehicle_Address_Display__c  = add.province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
-						   vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                            vels.Vehicle_Address_Display__c  = province  +add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
+                           vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         }
                         if( vels.vehicle_address_picklist__c == 'Other Address 1' && add.Address_Type__c == 'Other Address 1')
                         {
+                                                        if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }                   
                             vels.vehicle_address__c = add.Id;
                           //  vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
-                            vels.Vehicle_Address_Display__c  = add.province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
-						  vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                            vels.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
+                          vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         }
                         if( vels.vehicle_address_picklist__c == 'Other Address 2' && add.Address_Type__c == 'Other Address 2')
                         {
+                          if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }                   
                             vels.vehicle_address__c = add.Id;
                           //  vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
-                            vels.Vehicle_Address_Display__c  = add.province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
-						   vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                            vels.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
+                           vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                          //   vels.End_Reason__c = 'Updated EndDate';
                         }
                         if( vels.vehicle_address_picklist__c == 'Other Address 3' && add.Address_Type__c == 'Other Address 3'){
+                            if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }                   
                             vels.vehicle_address__c = add.Id;
                          //   vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
-                            vels.Vehicle_Address_Display__c  = add.province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
-						  vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                            vels.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
+                          vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         }
                     }
                 }                   
@@ -502,7 +537,7 @@ public with sharing class VehicleRelationshipHelperJP
             }
               
                             
-  // update Updatelist;
+ //update Updatelist;
   
  Database.update(Updatelist, false);
  LeadUtil.verTrigger = false;
@@ -515,11 +550,8 @@ public with sharing class VehicleRelationshipHelperJP
     * Desc: Sharing code of Vehicle relationship
     * Updated: Dec 16, 2016
     */
-    
-    public static Id vehicleRelationship_VRRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();
-    public static Id vehicleRelationship_VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
-    
-    
+    }
+   
     public static void afterInsertEvent(List<Vehicle_Relationship__c> newList){ 
     
         Map<Id, List<Id>> map_AccountIdAndListVCId = new Map<Id, List<Id>>();

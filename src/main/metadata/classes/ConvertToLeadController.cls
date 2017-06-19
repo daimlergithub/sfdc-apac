@@ -15,6 +15,7 @@ public with sharing class ConvertToLeadController {
     public List<CampaignMemberInfo> campaignMembers {get; set;}
     private String leadRTId {get; set;}
     private String leadRTId1 {get; set;}
+    List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
     @testvisible private String objectAPIName;
     
     public ConvertToLeadController() {
@@ -75,21 +76,28 @@ public with sharing class ConvertToLeadController {
                 if(duplicateLeadRec.Id == null){
                     if(objectAPIName == 'Campaign') {
                         leadListToInsert.add(setLeadRecordFields(campaignId, campaignMemberObj.campaignMember));
+                        camIdCamMemMap.add(campaignMemberObj.campaignMember);
                     } else if(objectAPIName == 'Retail_Campaign__c') {
                         leadListToInsert.add(setLeadRecordFields(campaignId, campaignMemberObj.campaignMember));
+                        camIdCamMemMap.add(campaignMemberObj.campaignMember);
                     }
                 } else {
                     leadList.add(duplicateLeadRec);
                 }
+                system.debug('leadListtttttttttttttttttt'+leadListToInsert);
             }
         }
         
         if(leadListToInsert.size() > 0) {
             insert leadListToInsert;
             system.debug('leadListToInsert'+leadListToInsert);
-            
-             VehiclePickerController.converttoleadMethod(leadListToInsert[0].id,interstmodel);
-             
+            for(lead__c leadlst:leadListToInsert){
+            try{
+            system.debug('interstmodel--'+interstmodel);
+             VehiclePickerController.converttoleadMethod(leadlst.id,camIdCamMemMap.get(0).Interested_Model__c);
+             camIdCamMemMap.remove(0);
+             }catch(Exception e){}
+             }
              system.debug('afterrrrrrrrrrrrrrrrrrrrrrr');
         }
         insertCampaignLeadRecords(leadListToInsert, leadList);
@@ -140,20 +148,26 @@ public with sharing class ConvertToLeadController {
         leadRec.Finance_Total_V_Price_Tax__c=campaignMember.Total_Vehicle_Price_with_tax__c;
         leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
         leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
-        leadRec.Cross_Point_Model__c=campaignMember.Cross_Point_Model__c;
+        
         leadRec.Lead_DataSource__c='Campaign';
         leadRec.UsVIN__c=campaignMember.UsVIN__c;
-        interstmodel=campaignMember.Interested_Model__c;
-        if(leadRTId1 != null && ((campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales' && campaignMember.Campaign_ID__r.Execution_Type__c=='Lead') || (campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance' && campaignMember.Campaign_ID__r.Execution_Type__c=='Lead'))) {
+        
+        if(leadRTId1 != null && ((campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales'))) {
             leadRec.RecordTypeId = leadRTId1;
             leadRec.AfterSales_Vehicle__c=campaignMember.Vehicle__c;
-        }else if(leadRTId != null && campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' && campaignMember.Campaign_ID__r.Execution_Type__c=='Lead')
+        }else if(leadRTId != null && campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
         {
             leadRec.RecordTypeId = leadRTId;
         }
-        if(campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' && campaignMember.Campaign_ID__r.Segmentation_Base__c=='Contract')
+        if(campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
         {
            leadRec.Trade_In_Vehicle__c=campaignMember.Vehicle__c;
+        }
+        if(campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
+        {
+          leadRec.Cross_Point_Model__c=campaignMember.Cross_Point_Model__c;
+          interstmodel=campaignMember.Interested_Model__c;
+          system.debug('interstmodecccccl---'+interstmodel);
         }
         return leadRec;
     }

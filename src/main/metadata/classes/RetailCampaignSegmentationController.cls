@@ -162,7 +162,7 @@
                 RetailTaskStatus.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Status__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retTaskStatus.contains(entry.getLabel()))
+                    if(retTaskStatus.contains(entry.getValue()))
                     RetailTaskStatus.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return RetailTaskStatus;
@@ -176,7 +176,7 @@
                 RetailTaskType.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Type__C;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retTaskType.contains(entry.getLabel()))
+                    if(retTaskType.contains(entry.getValue()))
                     RetailTaskType.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return RetailTaskType;
@@ -190,7 +190,7 @@
                 SpecialMarkonAccount.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Special_Mark_on_Account__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(specialMarkAcc.contains(entry.getLabel()))
+                    if(specialMarkAcc.contains(entry.getValue()))
                     SpecialMarkonAccount.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return SpecialMarkonAccount;
@@ -217,7 +217,7 @@
                 status.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Status__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(accStatus.contains(entry.getLabel()))
+                    if(accStatus.contains(entry.getValue()))
                     status.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return status;
@@ -231,7 +231,7 @@
                 DealerLeadStatus.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Lead__c.fields.Dealer_Lead_Status__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(LeadDealerStatus.contains(entry.getLabel()))
+                    if(LeadDealerStatus.contains(entry.getValue()))
                     DealerLeadStatus.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return DealerLeadStatus;
@@ -305,7 +305,7 @@
             }
             
             if(AccountLinkSoql.length()>accLinkLength){
-                AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
+                AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name');
                 saveQuery += 'AND Id IN('+AccountLinkSoql+')';
                 system.debug('FianlAccountLinkSoql '+AccountLinkSoql);
                 List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
@@ -327,7 +327,7 @@
             if(campaignMemSoql.length()>campLength){
                 saveQuery += 'AND Id IN('+campaignMemSoql+')';
                 system.debug('FinalcampaignMemSoql'+campaignMemSoql);
-                List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 50000');
+                List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
                 for(Campaign_Member__c vr : camMemList ){
                     accountIdSet.add(vr.Contact_Id__c);
                 }
@@ -337,7 +337,7 @@
             if(recallSoql.length()>recallLength){
                 System.debug('recallSoqlFinal>>>>'+recallSoql);
                 saveQuery += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
-                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 50000');
+                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 10000');
                 for(recall__c rc : recallList){
                     vehIdSet.add(rc.Vehicle_Id__c);
                     vehIdRecallRecMap.put(rc.Vehicle_Id__C,rc);
@@ -350,7 +350,7 @@
                 VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Service_Advisor__c', 'Service_Advisor__r.Name').replace('Service_Dealer__c', 'Service_Dealer__r.name');
                 system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
                 saveQuery += 'AND Vehicle_Id__c IN ('+VehRetCopySoql+') ';
-                List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 50000');
+                List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 10000');
                 for(Account_Link__c ac : vehRetialList){
                     vehIdSet1.add(ac.Vehicle__c);
                     vehIdAccLinkRecMap.put(ac.vehicle__c,ac);
@@ -361,7 +361,7 @@
             if(vehicleRelSoql.length()>vehRelLength && segmentationBase != 'Vehicle'){
                 vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
                 system.debug('vehiclerelSoqlAtCommon>>>>'+vehicleRelSoql);
-                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 50000');
+                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
                 For(Vehicle_relationship__C vr : vehRelList){
                     if(segmentationBase == 'Customer')
                     accountIdSet.add(vr.Contact__c);
@@ -372,7 +372,7 @@
             
             if(accountSoql.length()>accountLenght && segmentationBase != 'Customer'){
                 system.debug('AccountSoqlatCommon ' + accountSoql);
-                List<account> accList = Database.Query(accountSoql+' LIMIT 50000');
+                List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
                 for(Account acc : accList){
                     accountIdSet.add(acc.Id);
                 }
@@ -380,26 +380,26 @@
             
             if(RetailTaskSoql.length()>retailaskLength && segmentationBase != 'Contract'){
                  system.debug('FinalRetaiTaskSoqlatCommmon>>>>>>>>'+RetailTaskSoql);
-                 List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 50000'); 
+                 List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000'); 
                  for(Retail_Task__c rt : retTaskList){
                      accountIdSet.add(rt.account__c);
                  }
             }
     
             system.debug('accountIdsetbeforegogingtoSegmentationBase'+accountIdSet);
-            if(segmentationBase == 'Customer' && accountSoql.length()>accountLenght){
+            if(segmentationBase == 'Customer' ){
                 //Searhs the accounts according to all other filters
                 if(accountIdSet.size()==0 && accountFilter){
                     accountSoql += '';
                 }
-                else if(accountSoql.endsWith('and ')){
-                    accountSoql += 'Id in :accountIdSet ';
+                else if(accountSoql.endsWith('AND ') || accountSoql.endsWith('AND  ')){
+                    accountSoql += 'ID IN :accountIdSet ';
                 }
                 else{
-                    accountSoql += ' and Id in :accountIdSet ';
+                    accountSoql += ' AND ID IN :accountIdSet ';
                 }
                 system.debug('FinalAccountSoql>>>>>>>>'+accountSoql);
-                List<account> accList = Database.Query(accountSoql+' LIMIT 50000');
+                List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
                 Map<Id,Account> accIdAccountMap = new Map<Id,Account>();
                 for(Account acc : accList){
                     accIdToGetRetailPerson.add(acc.Id);
@@ -421,12 +421,12 @@
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
-            } else if(segmentationBase == 'Vehicle' && vehicleRelSoql.length()>vehRelLength){
+            } else if(segmentationBase == 'Vehicle'){
                 if(accountIdSet.size()>0){
                     vehicleRelSoql+=' AND Vehicle_ID__r.Related_Customer__C IN : accountIdSet';
                 }
                 system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
-                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 50000');
+                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
                 for(Vehicle_Relationship__c vr : vehRelList){
                     vehIdToGetVehExtLink.add(vr.Vehicle_ID__c);
                 }
@@ -434,7 +434,7 @@
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
-            } else if(segmentationBase == 'Contract' && RetailTaskSoql.length()>retailaskLength){
+            } else if(segmentationBase == 'Contract'){
                 if(accountIdSet.size()>0){
                     RetailTaskSoql +=' AND Related_Contact__c IN : accountIdSet';
                 }
@@ -442,7 +442,7 @@
                     RetailTaskSoql += ' AND Related_Vehicle__c IN : vehIdSetForContract';
                 }
                 system.debug('finalRetailTaskSoql>>>>'+RetailTaskSoql);
-                List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ ' limit 50000'); 
+                List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ ' limit 10000'); 
                 con = new ApexPages.StandardSetController(retTaskList);
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
@@ -462,7 +462,7 @@
             VehRetCopySoql = 'SELECT Vehicle__c,NextInspectionDate__c,NextServiceDate__c,Service_Advisor__c,Service_Dealer__c FROM Account_Link__c WHERE RecordTypeId = \'' + vehRetCopyRecType + '\' AND ';
             leadSoql = 'SELECT Contact__c from Lead__c where ';
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
-            AccountLinkSoql = 'SELECT toRole__c,Sales_Representative__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
+            AccountLinkSoql = 'SELECT toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
             AddressSoql = 'SELECT Customer__c From Address__c where ';
             RetailTaskSoql = 'SELECT Account__c,Product_Name__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
             if(u.contactId != NULL){
@@ -834,12 +834,12 @@
         private void setFieldType(){
             numberFields = new Set<String>{'Vehicle_Amount__c', 'CurrentMileage__c'};
             dateFields = new Set<String>{'PersonBirthdate', 'LastServiceDate__c', 'End_Date__c','LastServiceDate__c', 'NextServiceDate__c','FirstRegistrationDate__c', 'Registration_Date__c', 'Expected_Close_Date__c','Expected_Registration_Date__c','NextInspectionDate__c'};
-            textFields = new Set<String>{'Recall_No__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'ZipCode__c', 'Selling_Dealer__c','Name','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c','Service_Dealer__c'};
+            textFields = new Set<String>{'Recall_No__c','Retail_Sales_Consultant__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'ZipCode__c', 'Selling_Dealer__c','Name','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c','Service_Dealer__c'};
             pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','New_Used__c'};
             multiplePickListFields = new Set<String>{'Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
             vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','FirstRegistrationDate__c', 'Class__c'};
             vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
-            AccountLinkFields =new Set<String>{'Sales_Representative__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c' };  
+            AccountLinkFields =new Set<String>{'Sales_Representative__c','Retail_Sales_Consultant__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c' };  
             recallFields = new Set<String>{'Recall_No__c','Status__c'};
             retialCampaignFields =new Set<String>{'Name'};
             RetailTaskFields =new Set<String>{ 'Product_Name__c', 'Type__c', 'Duration__c', 'Status__c'};
