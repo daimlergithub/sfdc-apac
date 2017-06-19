@@ -110711,7 +110711,7 @@ MD__c='KR'
     </validationRules>
     <validationRules>
         <fullName>CAC_Lead_Status_Check_After_Assigned_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>This Rule is created for thailand</description>
         <errorConditionFormula>AND( 
 OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),ispickval(CAC_Lead_Status__c,'Assigned'), 
@@ -110771,7 +110771,7 @@ RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <fullName>CAC_Purchase_Check_Sales_Lead_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, "Purchased"),RecordType.Name = 'Sales Leads',OR( 
-ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,''),ISPICKVAL(Bought_Vehicle_Class__c,''),ISPICKVAL(Bought_Vehicle_Model__c,''))&amp;&amp;MD__c='TH')</errorConditionFormula>
+ISNULL(Purchased_CAC_Date__c),ISBLANK(Purchased_CAC_Date__c),ISPICKVAL(Bought_Vehicle_Brand__c,''),ISPICKVAL(Bought_Vehicle_Class__c,''),ISPICKVAL(Bought_Vehicle_Model__c,''))&amp;&amp;MD__c='TH')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>IF CAC Lead status is “Purchased”, then Purchase Date ,Purchased time ,Bought vehicle brand ,Bought vehicle class and Bought Vehicle model are  required</errorMessage>
     </validationRules>
