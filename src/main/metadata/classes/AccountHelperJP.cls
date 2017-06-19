@@ -28,7 +28,7 @@ public class AccountHelperJP
     public static boolean persongroup8 = false;
     public static boolean persongroup9 = false;
     public static boolean persongroup10 = false;
-    public static boolean persongroup11 = false;
+    //public static boolean persongroup11 = false;
     public static boolean companygroup1 = false;
     public static boolean companygroup2=false;
 	public static id acid;
@@ -760,10 +760,11 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                     AccountIds.add(acc.id); 
                     persongroup10 = true;
             } 
-            if(oldAccountmap.get(acc.id).Complaint_Amount__c != acc.Complaint_Amount__c){
+			//This is Covereed from CasehelperJp
+            /*if(oldAccountmap.get(acc.id).Complaint_Amount__c != acc.Complaint_Amount__c){
                     AccountIds.add(acc.id); 
                     persongroup11 = true;
-            } 
+            }*/ 
              /* //Commented as per Ogi's Comments, this will update from Address
             if(oldAccountmap.get(acc.id).Primary_Address_Reference__c  != acc.Primary_Address_Reference__c || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Type__c != acc.Primary_Address_Reference__r.Address_Type__c
                 || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Province__c != acc.Primary_Address_Reference__r.Province__c ||
@@ -849,9 +850,9 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                 if(persongroup10 == true){  
                     acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
                 }   
-                if(persongroup11 == true){  
+                /*if(persongroup11 == true){  
                     acclnk.Retail_Complaint_Amount__c = acclnk.toRole__r.Complaint_Amount__c ;
-                }              
+                }*/              
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company'){ 
