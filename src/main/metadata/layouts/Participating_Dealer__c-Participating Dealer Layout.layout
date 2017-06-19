@@ -128,6 +128,14 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>NewAccount__c</fields>
+        <fields>Campaign_Member__c</fields>
+        <fields>List_Maintenance_CM_Status__c</fields>
+        <fields>Company_Name__c</fields>
+        <fields>Contract_Number__c</fields>
+        <fields>Sales_Representative__c</fields>
+        <fields>Service_Representative__c</fields>
+        <fields>Contract_Responsible_Person__c</fields>
         <relatedList>Dealer_List_Member__c.Participating_Dealer__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
