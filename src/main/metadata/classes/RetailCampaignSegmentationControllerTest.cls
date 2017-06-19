@@ -15,6 +15,9 @@ public Without Sharing class RetailCampaignSegmentationControllerTest
  Private Static  List<SelectOption> leadClassOptions;
  Private Static  List<SelectOption> VehicleClassOptions;
  Private Static  List<SelectOption> SpecialMarkonAccount;
+ Private Static  List<SelectOption> RetailTaskStatus;
+ Private Static  List<SelectOption> RetailTaskType;
+ Private Static  List<SelectOption> DealerLeadStatus;
  Private Static  List<SelectOption> Customerphase;
  Private Static  List<SelectOption> RetailOptOutContactReason;
  Private Static  List<SelectOption> status;
@@ -40,21 +43,32 @@ Private Static  List<SelectOption> getItems;
             insert con;
             //Contact con = 
             //[select Id, SegmentationFilters__c from Contact where Id = :u.ContactId];
-            con.SegmentationFilters__c = '[{"name":"Filter One", "content":{"Customer":[{"field":"PersonBirthdate","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"PersonEmail","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Retail_Interested_Vehicle_Class__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Retail_Interested_Vehicle_Class__c","operation":"Not Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"filter two", "content":{"Customer":[{"field":"FileName__c","operation":"Less Than","criteria":"11","logic":"AND","bracket":false},{"field":"Hobby__c","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Lead_Source__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Lead_Type__c","operation":"Greater Than","criteria":"33","logic":"","bracket":false}],"Vehicle":[{"field":"Baumuster__c","operation":"Equals","criteria":"11","logic":"AND","bracket":true},{"field":"Baumuster__c","operation":"Not Equals","criteria":"22","logic":"AND","bracket":false},{"field":"Baumuster__c","operation":"Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"Filter Three", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"","bracket":false}]}}]';
+            con.SegmentationFilters__c = '[{"name":"Filter One", "content":{"Customer":[{"field":"PersonBirthdate","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"PersonEmail","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Retail_Interested_Vehicle_Class__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Retail_Interested_Vehicle_Class__c","operation":"Not Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"filter two", "content":{"Customer":[{"field":"FileName__c","operation":"Less Than","criteria":"11","logic":"AND","bracket":false},{"field":"Hobby__c","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Lead_Source__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Lead_Type__c","operation":"Greater Than","criteria":"33","logic":"","bracket":false}],"Vehicle":[{"field":"Baumuster__c","operation":"Equals","criteria":"11","logic":"AND","bracket":true},{"field":"Baumuster__c","operation":"Not Equals","criteria":"22","logic":"AND","bracket":false},{"field":"Baumuster__c","operation":"Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"Filter Three", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"17-25","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"Unknown","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"Unknown","logic":"","bracket":false}]}}]';
             update con;
             
             system.runAs(u){
                 String acc3rdPartyRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                 String segmentationRTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Segmentation Only').getRecordTypeId();
+                String segmentationRTId1 = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
                 
                 Account customer = new Account(Dealer_DMS_SR_Code__c='',Status__c='xCustomer',City__c='Beijing',phone = '1344444', PersonOtherPhone='0231456987',PersonHomePhone='0231456989',PersonMobilePhone='0231456439',
-                                             Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989', Retail_Mobile__c='0231456949', Retail_Work_Phone__c='0231056989',Area_code__c = '010',Age_Range__c = '26-35',
+                                             Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989', Retail_Mobile__c='0231456949', Retail_Work_Phone__c='0231056989',Area_code__c = '010',Occupation__c='Office Staff',
                                             LastName = 'galaxy2', ZipCode__c='000000',Branch_name__c = '2014/06/05', File_Name__pc = 'C://User/folder',RecordTypeId=acc3rdPartyRTId);
                 insert customer;
-                 rc = new Retail_Campaign__c(Name = 'testCampaign',RecordTypeId=segmentationRTId ,Campaign_Execution_Channels__c ='DM' );
+              
+                 Retail_Campaign__c rcobj1=new Retail_Campaign__c();
+                 rcobj1.Name='Test Campaign1';
+                 rcobj1.Status__c='Draft';
+                 rcobj1.Execution_Start_Date__c=system.today()+1;
+                 rcobj1.Segmentation_Date__c=system.today();
+                 rcobj1.Execution_Type__c='eMail';
+                 rcobj1.Campaign_Type__c='sales';
+                 rcobj1.RecordTypeId=segmentationRTId1;
+                 insert rcobj1;
+                 rc = new Retail_Campaign__c(Name = 'testCampaign',RecordTypeId=segmentationRTId ,Campaign_Execution_Channels__c ='DM',Segmentation_Base__c='Customer',Parent_Campaign1__c=rcobj1.id);
                 insert rc;
                 
-                String filterString = '[{"name":"Filter One", "content":{"Customer":[{"field":"PersonBirthdate","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"PersonEmail","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Retail_Interested_Vehicle_Class__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Retail_Interested_Vehicle_Class__c","operation":"Not Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"filter two", "content":{"Customer":[{"field":"FileName__c","operation":"Less Than","criteria":"11","logic":"AND","bracket":false},{"field":"Hobby__c","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Lead_Source__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Lead_Type__c","operation":"Greater Than","criteria":"33","logic":"","bracket":false}],"Vehicle":[{"field":"Baumuster__c","operation":"Equals","criteria":"11","logic":"AND","bracket":true},{"field":"Baumuster__c","operation":"Not Equals","criteria":"22","logic":"AND","bracket":false},{"field":"Baumuster__c","operation":"Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"Filter Three", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"","bracket":false}]}}]';
+                String filterString = '[{"name":"Filter One", "content":{"Customer":[{"field":"PersonBirthdate","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Occupation__c","operation":"Equals","criteria":"Office Staff","logic":"","bracket":false},{"field":"PersonEmail","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Retail_Interested_Vehicle_Class__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Retail_Interested_Vehicle_Class__c","operation":"Not Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"filter two", "content":{"Customer":[{"field":"FileName__c","operation":"Less Than","criteria":"11","logic":"AND","bracket":false},{"field":"Hobby__c","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Lead_Source__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Lead_Type__c","operation":"Greater Than","criteria":"33","logic":"","bracket":false}],"Vehicle":[{"field":"Baumuster__c","operation":"Equals","criteria":"11","logic":"AND","bracket":true},{"field":"Baumuster__c","operation":"Not Equals","criteria":"22","logic":"AND","bracket":false},{"field":"Baumuster__c","operation":"Equals","criteria":"33","logic":"","bracket":false}]}}]';
                 
                 PageReference retailCampaignSegmentation = Page.RetailCampaignSegmentation;
                 retailCampaignSegmentation.getParameters().put('id',rc.id);
@@ -70,15 +84,18 @@ Private Static  List<SelectOption> getItems;
                 getItems =extension.getItems();
                 //VehicleClassOptions=extension.VehicleClassOptions;
                 SpecialMarkonAccount = extension.SpecialMarkonAccount;
+                RetailTaskType=extension.RetailTaskType;
+                RetailTaskStatus=extension.RetailTaskStatus;
+                DealerLeadStatus=extension.DealerLeadStatus;
                 Customerphase = extension.Customerphase;
                 RetailOptOutContactReason = extension.RetailOptOutContactReason;
                 status = extension.status;
              
-                extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
+                extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Occupation__c","operation":"Equals","criteria":"Office Staff","logic":"","bracket":false}]}}';
               
                 extension.searchAccount();
                 extension.addToCampaign();
-               
+                extension.getloadwrapAccountList();
                  
                  extension.hasnext = True;
                  extension.hasPrevious= True;                
@@ -91,10 +108,13 @@ Private Static  List<SelectOption> getItems;
             }
             
             RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
-           
+            string query='select id,name from account limit 1';
+            RetailCampaignSegmentationController.saveCriteriaa('hello',query);
              //filterOptions = extension.filterOptions;
-            extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
+            extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Occupation__c","operation":"Equals","criteria":"Office Staff","logic":"","bracket":false}]}}';
+            
             extension.searchAccount();
+            extension.getSelectedRecords();
        }
        else
        {
