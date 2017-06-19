@@ -95,6 +95,8 @@ public class CaseHelperJP
     
     public void calculateComplaintAmount(List<Case> cases)
     {
+        Set<Id> accountIds = new Set<Id>();
+        set<String> primarydealercompany = new set<String>();
         system.debug('Incoming Cases...' +cases);
         Set<Id> accounts = new Set<Id>();
         List<Account> accRecords;
@@ -107,7 +109,7 @@ public class CaseHelperJP
         }                       
         system.debug('Accounts...' +accounts);
         
-        List<Case> case_acc = [Select Id, AccountId From Case 
+        List<Case> case_acc = [Select Id, AccountId,Case_Dealer__c,Case_Dealer__r.Company_Name__c From Case 
                                Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
                                       AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
                                                                            AND Case_Class__c = 'Claim') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
@@ -118,6 +120,14 @@ public class CaseHelperJP
         {                                         
             for(Case c : case_acc)
             {
+                system.debug('primarydealercompany####'+c.Case_Dealer__r.Company_Name__c);
+                if(c.Case_Dealer__c != null){
+                
+                primarydealercompany.add(c.Case_Dealer__r.Company_Name__c);
+                system.debug('primarydealercompany####'+primarydealercompany);
+                }
+                
+                
                 tmpCaseIds = accountCaseMap.get(c.AccountId);
                 if (tmpCaseIds == null)
                 {
@@ -143,7 +153,7 @@ public class CaseHelperJP
         }
         else
         {
-            Set<Id> accountIds = new Set<Id>();
+            
             for (Id accId : accounts)
             {
                 accountIds.add(accId);
@@ -155,8 +165,27 @@ public class CaseHelperJP
                 updateAccount.add(acc);
             } 
         }
-        update updateAccount;                                                                                                                 
-    }
+        update updateAccount;
+           system.debug('primarydealercompany ###' +primarydealercompany );
+           system.debug('accRecords ###' +accRecords );
+          List<Account_Link__c> AccountlinkUpdate = new list<Account_Link__c>();
+          List<Account_Link__c> acclnkUpdate  = [select Id, Name, fromRole__r.Company_Name__c, fromRole__c,toRole__c from Account_Link__c WHERE toRole__c IN :accRecords ANd fromRole__r.Company_Name__c IN : primarydealercompany];
+            List<Case> caseCount = [Select id, AccountId,Case_Dealer__r.Company_Name__c,Case_Dealer__c from Case WHERE AccountId IN: accRecords AND Case_Dealer__r.Company_Name__c IN :primarydealercompany AND (Case_Class__c = 'Claim' OR Case_Class__c = 'Complaint')];
+            List<Case> caseList = new List<Case>();            
+            for(Account_Link__c acclnk : acclnkUpdate){
+                integer count = 0;
+                for(Case cse : caseCount){
+                    if(acclnk.fromRole__r.Company_Name__c == cse.Case_Dealer__r.Company_Name__c){
+                        count++;   
+                    }
+                }
+                
+                
+                acclnk.Retail_Complaint_Amount__c =  count;
+                AccountlinkUpdate.add(acclnk);
+            }
+            update AccountlinkUpdate;
+        }
   
     public static void caseOwner(List<Case> CaseList,Map<Id,Case> Maplist){
 
@@ -360,7 +389,7 @@ public class CaseHelperJP
            }  
         }        
     }
-/* This method is of not in use, There is new class written from updateCaseDeadline	*/
+/* This method is of not in use, There is new class written from updateCaseDeadline */
    public void updateCaseDeadline(List<Case> cases, Map<Id,SObject> case_Map){  
 /*   
          for (Case c : cases){ 
@@ -376,7 +405,7 @@ public class CaseHelperJP
                c.DeadLine__c= System.Now() + 10;          
             } 
           }    
-*/		  
+*/        
        }  
 
 public  void updateCase (List<case> caseSta) {
@@ -475,9 +504,9 @@ List<Account> accUpdLst = new List<Account>();
                     //         System.debug('sent email details'+sentemails ); 
              } 
     }
-	
-	// Added by Venky @5/26/2017 Changes related to JP-1039
-	 public static void UpdatePrimarycasedealer(List<Case> shcaseList)
+    
+    // Added by Venky @5/26/2017 Changes related to JP-1039
+     public static void UpdatePrimarycasedealer(List<Case> shcaseList)
     {
     // Changes related to JP-1039
     if(LeadUtil.CaseWithDealers )
@@ -517,7 +546,7 @@ List<Account> accUpdLst = new List<Account>();
     
     //
     }
-	
+    
  /*
  Share case record with Japan Dealer Company Manager,Japan Dealer Sales Manager,Japan Dealer Service Manager,
   if this Case record belongs to the dealer user's company and Dealer_Contact__c value as "Yes" and
@@ -842,7 +871,7 @@ List<Account> accUpdLst = new List<Account>();
             shareAccountRecord.shareAccountRecordNow(caseIds);
         }
     }
-	
+    
     public void updateCaseDealer(List<case> dealerCaseList,boolean isInsert,boolean isUpdate,Map<id,Case> caseOldMap)
     {
         List<User> userList = new List<User>();
