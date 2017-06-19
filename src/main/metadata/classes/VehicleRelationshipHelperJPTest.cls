@@ -242,7 +242,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicleRelationshipObj1.vehicle_address__c=address1.id;
            update vehicleRelationshipObj1;
           
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+               
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -305,7 +305,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicleRelationshipObj1.Owner_Dealer__c=accobj2.id;
            update vehicleRelationshipObj1;
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+              
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -374,7 +374,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
             update vehicleRelationshipObj1;
             update listcampaigns;
                VehicleRelationshipHelperJP.afterInsertEvent(listcampaigns);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+               
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
               
@@ -446,7 +446,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
          
                //VehicleRelationshipHelperJP.OnAfterInsert(listcampaigns);
                VehicleRelationshipHelperJP.afterInsertEvent(listcampaigns);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+               
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
               
@@ -530,7 +530,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            
                
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+              
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -633,7 +633,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            
                VehicleRelationshipHelperJP.createAccountLink(vh,vr,conn);
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+               
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -749,7 +749,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            
                
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+              
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -833,7 +833,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            
                
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+           
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -918,7 +918,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            
                
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+               
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -996,7 +996,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
               VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap1);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+             
                
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -1150,7 +1150,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicleRelationshipObj1.vehicle_address__c=address1.id;
            update vehicleRelationshipObj1;
           
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+             
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -1222,7 +1222,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicleRelationshipObj1.vehicle_address__c=address1.id;
            update vehicleRelationshipObj1;
           
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+              
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -1294,7 +1294,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicleRelationshipObj1.vehicle_address__c=address1.id;
            update vehicleRelationshipObj1;
           
-               VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
+              
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
