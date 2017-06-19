@@ -628,7 +628,8 @@
                             <td>{!$Label.AccountRetailCopy}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>
+                                    <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
+                                    <option value="Retail_Sales_Consultant__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}</option>
                                     <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
                                     <option value="Retail_Sales_Sanction__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Sanction__c.Label}</option>
                                     <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
