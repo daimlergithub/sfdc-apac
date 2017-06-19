@@ -51,7 +51,7 @@
                                        </table>
                                     </apex:pageblockSection>
                                         <!--<apex:commandButton value="Save" action="{!savepop}"/>-->
-                                        <apex:commandButton value="{!$Label.Close}" action="{!closePopup}" rerender="one"/>
+                                        <apex:commandButton value="{!$Label.Closee}" action="{!closePopup}" rerender="one"/>
                                 </apex:outputPanel>
                             </apex:outputPanel>
                         </apex:repeat>
