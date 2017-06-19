@@ -24740,6 +24740,10 @@
     <layoutAssignments>
         <layout>CaseClose-Case Close Master Layout</layout>
         <recordType>Case.Chrysler_Complaint</recordType>
+    </layoutAssignments>	
+	<layoutAssignments>
+        <layout>Case-Event Data Load</layout>
+        <recordType>Case.EventDataLoad</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseClose-Case Close Master Layout</layout>
@@ -26495,6 +26499,11 @@
         <default>false</default>
         <recordType>Case.Chrysler_Complaint</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.EventDataLoad</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
