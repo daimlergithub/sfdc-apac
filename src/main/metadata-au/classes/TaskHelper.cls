@@ -741,43 +741,113 @@ public class TaskHelper {
   //Added as per Jira ticket SFDCAU-488
   public static void au_Before_Insert_Update_Events_Task(list<task> listTaskNew,boolean isInsert,boolean isUpdate)
     {
-          Set<Id> RECORD_TYPE_SET = new Set<Id>();
-          id emcTask=Schema.SObjectType.Task.getRecordTypeInfosByName().get('EMC Task').getRecordTypeId();
-          RECORD_TYPE_SET.add(emcTask);
-          id personAccount=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-          set<Id> Leadid=new set<Id>();
-          Schema.DescribeSobjectResult r= Lead__c.sObjectType.getDescribe();
-          string keyPrefix=r.getKeyPrefix();
-          
-         for(Task task : listTaskNew)
-         {
-             if(RECORD_TYPE_SET.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(keyPrefix))
-              {
-                  Leadid.add(task.WhatId);
-              }
-         }
-         
-             if(Leadid !=null && !Leadid.isEmpty())
-              {
-              
-              Map<Id, Lead__c> leads= new Map<Id, Lead__c>([select id,Contact__c,Contact__r.PersonContactId from Lead__c where  contact__r.Recordtypeid=:personAccount and Id in :Leadid]);    
-               if(leads !=null && !leads.isEmpty() && listTaskNew !=null && !listTaskNew.isEmpty())  
-               {                             
-              for(Task task : listTaskNew)
-               {
-              
-              if(RECORD_TYPE_SET.contains(task.RecordTypeId) && leads.containsKey(task.WhatId)) 
-               {
-               
-               if(task.RecordTypeId==emcTask && (leads.get(task.WhatId).Contact__c!=null))
-               {              
-                    task.whoid=leads.get(task.WhatId).Contact__r.PersonContactId;
-                  
+        User u = [select id,profile.Name from User where Id =:userinfo.getuserId()];
+        Set<Id> RECORD_TYPE = new Set<Id>();
+        id emcTask=Schema.SObjectType.Task.getRecordTypeInfosByName().get('EMC Task').getRecordTypeId();
+        RECORD_TYPE.add(emcTask);
+        id personAccount=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        set<Id> Leadid=new set<Id>();
+        Schema.DescribeSobjectResult ret= Lead__c.sObjectType.getDescribe();
+        string Prefix=ret.getKeyPrefix();
+        
+        for(Task task : listTaskNew)
+        {
+            if(RECORD_TYPE.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(Prefix))
+            {
+                Leadid.add(task.WhatId);
+            }
+        }
+        
+        if(Leadid !=null && !Leadid.isEmpty())
+        {
+            if(u.profile.name != 'IntegrationAPI')
+            {
+                Map<Id, Lead__c> leads= new Map<Id, Lead__c>([select id,Contact__c,Contact__r.PersonContactId from Lead__c where  contact__r.Recordtypeid=:personAccount and Id in :Leadid]);    
+                if(leads !=null && !leads.isEmpty() && listTaskNew !=null && !listTaskNew.isEmpty())  
+                {                             
+                    for(Task task : listTaskNew)
+                    {
+                        
+                        if(RECORD_TYPE.contains(task.RecordTypeId) && leads.containsKey(task.WhatId)) 
+                        {
+                            
+                            if(task.RecordTypeId==emcTask && (leads.get(task.WhatId).Contact__c!=null))
+                            {              
+                                task.whoid=leads.get(task.WhatId).Contact__r.PersonContactId;
+                                
+                            }
+                        }
                     }
-               }
-              }
-              }
-              }    
+                }
+            }
+        }
+        if(isInsert || isUpdate){
+            List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+            for(Task task : listTaskNew) {
+                if(task.ActivityDate != null){
+                    task.Notification_Email_Time__c = datetime.newInstance(task.ActivityDate, Time.newInstance(9, 0, 0, 0));
+                }
+                if(task.Notification_Email_Flag__c){
+                    User us = [Select Id, FirstName, LastName, Email From User Where Id = :task.OwnerId];
+                    Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+                    message.setSubject(task.Subject);
+                    message.setPlainTextBody('Due Task' +
+                                             '\nTo:'+ us.FirstName + us.LastName + '\nPlease action this task!' + '\nSubject: ' + task.Subject + '\nPriority: ' + task.Priority + '\nFor more details, click the following link: \n' + 'https://c.ap1.visual.force.com/' + task.id);
+                    message.setToAddresses(new String[] {us.Email});
+                    message.setSaveAsActivity(false);
+                    task.Notification_Email_Flag__c = false;
+                    mails.add(message);
+                }
+            }
+            if (mails.size() > 0) {
+                try {
+                    Messaging.sendEmail(mails);
+                }
+                catch(Exception ex) {
+                    system.debug('Send Due Task Email Exception :' + ex.getMessage());
+                }
+            }
+        }
+        
+        if(isInsert) {
+            Set<Id> RECORD_TYPE_SET = new Set<Id>();
+            id recAnnualId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
+            id recEOCId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId();
+            id recWelcomeId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId(); 
+            RECORD_TYPE_SET.add(recAnnualId);
+            RECORD_TYPE_SET.add(recEOCId);
+            RECORD_TYPE_SET.add(recWelcomeId);
+            Set<Id> contractIds = new Set<Id>();
+            Schema.DescribeSobjectResult r= Retail_Task__c.sObjectType.getDescribe();
+            string keyPrefix=r.getKeyPrefix();
+            for(Task task : listTaskNew) {
+                if(RECORD_TYPE_SET.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(keyPrefix))  {
+                    contractIds.add(task.WhatId);
+                }
+            }
+            if(contractIds !=null && !contractIds.isEmpty())
+            { 
+                Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, Account__c,Account__r.Individual_Home_Phone__c,Account__r.Work_Phone__c,Account__r.Mobile__c,
+                                                                                 StartDate__c,EndDate__c from Retail_Task__c where Id in :contractIds]);
+                
+                for(Task task : listTaskNew) {
+                    if(RECORD_TYPE_SET.contains(task.RecordTypeId) && contracts.containsKey(task.WhatId))  {
+                        //TODO
+                        system.debug('contractIds>>>>'+json.serializepretty(contracts));
+                        if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c!=null)
+                            task.HomeMobilePhone__c=contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c;
+                        if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Work_Phone__c!=null)  
+                            task.OfficePhone__c=contracts.get(task.WhatId).Account__r.Work_Phone__c;
+                        if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Mobile__c!=null)  
+                            task.PersonHomePhone__c=contracts.get(task.WhatId).Account__r.Mobile__c;
+                        if(task.RecordTypeId==recAnnualId || task.RecordTypeId==recWelcomeId && (contracts.get(task.WhatId).StartDate__c!=null))
+                            task.Activity_Date__c=contracts.get(task.WhatId).StartDate__c;
+                        if(task.RecordTypeId==recEOCId && (contracts.get(task.WhatId).EndDate__c!=null))
+                            task.Activity_Date__c=contracts.get(task.WhatId).EndDate__c;  
+                    }
+                }
+            }
+        }
     }
     /**
         @method: Add methods for AU May Release for updating Comment with Timestamp
@@ -912,7 +982,7 @@ public class TaskHelper {
         system.debug('changeOwnVrMap>>>' + changeOwnVrMap);
         if(!vRId.isEmpty() && vRId != null)
         {
-        	changeOwnerVrList=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vRId];
+          changeOwnerVrList=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vRId];
         }
         system.debug('changeOwnerVrList>>>' + changeOwnerVrList);
         for(Vehicle_Relationship__c coVr : changeOwnerVrList)
@@ -932,7 +1002,7 @@ public class TaskHelper {
         {
             if(!updateVrList.isEmpty() && updateVrList != null)
             {
-            	update updateVrList;
+              update updateVrList;
             }
         }
         catch (DMLException e) 
@@ -946,30 +1016,16 @@ public class TaskHelper {
         Id removeAccountRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Remove Account').getRecordTypeId(); 
         Id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
         Id assignedToId=[select id from user where name = 'Clare Yan' limit 1].Id;
-        List<task> taskListco = new List<Task>();        
-        List<Task> updateTaskList = new List<Task>();
         set<id> taskId = new set<id>();
         for(Task tk : listTaskNew)
         {
-            if(tk.RecordTypeId == removeAccountRecordId || tk.RecordTypeId == changeOwnerRecordId)
+            if(userinfo.getUserType() == 'PowerPartner')
             {
-                taskId.add(tk.Id);
+                if(tk.RecordTypeId == removeAccountRecordId || tk.RecordTypeId == changeOwnerRecordId)
+                {    
+                    tk.OwnerId=assignedToId;
+                }
             }
-        }
-        taskListco = [select id ,createdById ,OwnerId from task where Id =:taskId];
-        System.debug('assigned to'+assignedToId);
-        for(Task tsk : taskListco)
-        {
-            String tskCreatedBy=userInfo.getUserType();
-            if(tskCreatedBy.contains('Partner'))
-            {    
-                tsk.OwnerId=assignedToId;
-                updateTaskList.add(tsk);
-            } 
-        }
-        if(!updateTaskList.isEmpty() && updateTaskList != null)
-        {
-            update updateTaskList;
-        }        
+        }       
     }  
 }
