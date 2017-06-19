@@ -1682,6 +1682,13 @@
         <shortDescription>Close</shortDescription>
         <value>Close</value>
     </labels>
+	<labels>
+        <fullName>Closee</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Closee</shortDescription>
+        <value>Close</value>
+    </labels>
     <labels>
         <fullName>Cluster</fullName>
         <language>en_US</language>
