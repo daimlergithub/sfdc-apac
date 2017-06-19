@@ -18157,7 +18157,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Recall__c.Created_By_EP_Transaction__c</field>
         <readable>false</readable>
