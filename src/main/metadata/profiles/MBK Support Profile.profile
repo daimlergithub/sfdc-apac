@@ -908,10 +908,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadHelperAccountLinkCreateKR</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadHelperJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
