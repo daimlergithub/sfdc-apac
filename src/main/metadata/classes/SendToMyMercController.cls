@@ -26,7 +26,7 @@ public with sharing class SendToMyMercController {
     public Vehicle_Relationship__c lstVinfo{get;set;}
     public boolean displayPopup {get; set;} 
     public static User usr = new user();
-    
+     public map<string,string> labelNvalue=new map<string,string>(); 
     public SendToMyMercController(ApexPages.StandardController controller) {
         vehpageid = ApexPages.currentPage().getParameters().get('id');
         vehicleRecord = (Vehicle__c)controller.getRecord();
@@ -46,6 +46,13 @@ public with sharing class SendToMyMercController {
         Map<ID,string> accountLinkId = new Map<Id,string>();
         List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Contact__c,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null AND RecordtypeId =: vehRelType];
         System.debug('========vR'+lstVehicle_Relationship);
+          Schema.DescribeFieldResult fieldResult = Vehicle_Relationship__c.Car_Relation__c.getDescribe();
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+            for( Schema.PicklistEntry f : ple)
+         {
+             labelNvalue.put(f.getValue(),f.getLabel());
+             system.debug('labelNvalue'+labelNvalue);
+           }
         for(Vehicle_Relationship__c vch:lstVehicle_Relationship){
             setAccountID.add(vch.Contact__c);
         }
@@ -60,10 +67,15 @@ public with sharing class SendToMyMercController {
         Map<id,string> accountCarmap = new Map<id,string>();
         Set<id> uniqueids = new Set<id>();
         for(Vehicle_Relationship__c eachVRelationships:lstVehicle_Relationship){
-            if(accountCarmap.containskey(eachVRelationships.contact__c))
-                accountCarmap.put(eachVRelationships.contact__c,accountCarmap.get(eachVRelationships.contact__c)+'/'+eachVRelationships.Car_Relation__c);
-            else
-                accountCarmap.put(eachVRelationships.contact__c,eachVRelationships.Car_Relation__c);
+            if(accountCarmap.containskey(eachVRelationships.contact__c)){
+              String Carrelt=labelNvalue.get(eachVRelationships.Car_Relation__c);
+              
+                accountCarmap.put(eachVRelationships.contact__c,accountCarmap.get(eachVRelationships.contact__c)+'/'+Carrelt);
+            }
+            else{
+                String Carrelt=labelNvalue.get(eachVRelationships.Car_Relation__c);
+                accountCarmap.put(eachVRelationships.contact__c,Carrelt);
+                }
         }
         
         for(Vehicle_Relationship__c eachVRelationships:lstVehicle_Relationship){
@@ -79,6 +91,7 @@ public with sharing class SendToMyMercController {
             {
                 if(!uniqueids.contains(eachVRelationships.Contact__c)) {
                     lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,eachVRelationships.Retail_Contact__r.Name,eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,eachVRelationships.Portal_Visiblity__c));
+                    system.debug('-----'+accountCarmap.get(eachVRelationships.Contact__c));
                     uniqueids.add(eachVRelationships.Contact__c);
                 }
             }

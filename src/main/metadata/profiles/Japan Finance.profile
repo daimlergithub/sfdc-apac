@@ -23827,7 +23827,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Vehicle_Relationship__c.UsedWarranty_Apply_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23912,7 +23912,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Vehicle_Relationship__c.Warranty_Apply_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
