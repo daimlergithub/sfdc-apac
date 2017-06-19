@@ -22,7 +22,8 @@ public String recordTypeId2 { get; set; }
     }
 
         public string SelectedType {
-            get{if(SelectedType == null) SelectedType = '2'; return SelectedType;}
+		//Changes related to SFDCJP-2649
+            get{if(SelectedType == null) SelectedType = '1'; return SelectedType;}
             set;}
 
            
