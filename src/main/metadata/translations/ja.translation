@@ -976,6 +976,10 @@
         <label>成約済</label>
         <name>Close</name>
     </customLabels>
+	<customLabels>
+        <label>閉じる</label>
+        <name>Closee</name>
+    </customLabels>
     <customLabels>
         <label><!-- Cluster --></label>
         <name>Cluster</name>
