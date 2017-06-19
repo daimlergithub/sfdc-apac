@@ -26600,10 +26600,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>PrintInquiryCase_KR</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>PrintSalesLead_KR</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
