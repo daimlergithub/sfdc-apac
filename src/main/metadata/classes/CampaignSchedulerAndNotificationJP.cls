@@ -380,7 +380,10 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                                                     'Campaign_ID__r.Parent.Campaign_Type__c',
                                                     'Zip_Code_Finance__c',
                                                     'Zip_Code__c',
-                                                    'Campaign_ID__r.OwnerId'
+                                                    'Campaign_ID__r.OwnerId',
+													'Company_Name__c',
+													'Contract_Phone_1__c',
+													'Contract_Phone_2__c'
                                                 };
         
         return fieldList;

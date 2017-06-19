@@ -20,7 +20,8 @@ public with sharing class VehicleRelationshipHelperJP
       public static Id vehicleRelationship_VRRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();
     public static Id vehicleRelationship_VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
     
-    
+
+	
         
     Public static void IgnoredAccounts(){
     for(Account acc:[select id from Account Where Name Like :ignoredAccount]){
