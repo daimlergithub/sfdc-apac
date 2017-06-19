@@ -652,12 +652,11 @@
         <fields>Expected_Registration_Date__c</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
     </relatedLists>
-    <relatedLists>
+	<relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
-        <fields>CAMPAIGN.STATUS</fields>
-        <fields>Campaign_Channels__c</fields>
+        <fields>CM.STATUS</fields>
         <fields>CM.RESPONDED</fields>
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
