@@ -423,7 +423,11 @@
                 getloadwrapAccountList(); 
             } else if(segmentationBase == 'Vehicle'){
                 if(accountIdSet.size()>0){
-                    vehicleRelSoql+=' AND Vehicle_ID__r.Related_Customer__C IN : accountIdSet';
+                    if(vehicleRelSoql.endsWith('AND ')){    
+                        vehicleRelSoql+='Vehicle_ID__r.Related_contact__c IN : accountIdSet';
+                    } else {
+                        vehicleRelSoql+=' AND Vehicle_ID__r.Related_contact__c IN : accountIdSet';
+                    }
                 }
                 system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
                 List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
@@ -436,10 +440,18 @@
                 getloadwrapAccountList(); 
             } else if(segmentationBase == 'Contract'){
                 if(accountIdSet.size()>0){
-                    RetailTaskSoql +=' AND Related_Contact__c IN : accountIdSet';
+                    if(RetailTaskSoql.endsWith('AND ')){    
+                        RetailTaskSoql +='Related_Contact__c IN : accountIdSet';
+                    } else {
+                        RetailTaskSoql +=' AND Related_Contact__c IN : accountIdSet';
+                    } 
                 }
                 if(vehIdSetForContract.size()>0){
-                    RetailTaskSoql += ' AND Related_Vehicle__c IN : vehIdSetForContract';
+                    if(RetailTaskSoql.endsWith('AND ')){    
+                        RetailTaskSoql += 'Related_Vehicle__c IN : vehIdSetForContract';
+                    } else {
+                        RetailTaskSoql += ' AND Related_Vehicle__c IN : vehIdSetForContract';
+                    } 
                 }
                 system.debug('finalRetailTaskSoql>>>>'+RetailTaskSoql);
                 List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ ' limit 10000'); 
