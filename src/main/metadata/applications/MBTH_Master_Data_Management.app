@@ -7,11 +7,11 @@
     <tab>Address__c</tab>
     <tab>Account_Link__c</tab>
     <tab>Tasks</tab>
+	<tab>Lead__c</tab>
     <tab>Car_Model__c</tab>
     <tab>Dealer_Locator__c</tab>
     <tab>DM_Material__c</tab>
     <tab>RegionMasterInfo__c</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Contract</tab>
-    <tab>standard-Lead</tab>
 </CustomApplication>
