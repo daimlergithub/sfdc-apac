@@ -13,44 +13,45 @@ public class TriggerAccountLinkTriggerHandlerJP
 { 
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
-          if(LeadUtil.isAcctrigger ){
-          if(Trigger.isAfter && Trigger.isInsert)
-          {
-          system.debug('Entered aFTER TRIGGER');
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-               AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
+        if(LeadUtil.isAcctrigger )
+        {
+            if(Trigger.isBefore && Trigger.isInsert)
+            {        
+                system.debug('Entered before TRIGGER');
+                AccountLinkHelper.updateRetailCopy(trigger.isUpdate,trigger.isinsert,trigger.new,(Map<Id,Account_Link__c>)Trigger.oldmap);
+                AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+            }
+            if(Trigger.isBefore && Trigger.isUpdate)
+            {
+                AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+            }
+            if(Trigger.isAfter && Trigger.isInsert)
+            {
+                system.debug('Entered aFTER TRIGGER');
+                Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+                AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
                 AccountLinkHelper.afterInsertEvent(Trigger.new);
-            AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+                AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+                //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+            }
+            if(Trigger.isAfter && Trigger.isDelete)
+            {
+                system.debug('Entered delete TRIGGER');
+                AccountLinkHelper.afterDeleteEvent(Trigger.old);
+            }
+            if(Trigger.isAfter && Trigger.isUpdate)
+            {
+                system.debug('Entered aFTER update TRIGGER');
+                Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+                AccountLinkHelper.updateRetailCopyafterUpdate(Trigger.new, oldmap);
+                AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
+                AccountLinkHelper.ExportNotification(Trigger.new, oldmap);
+                AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+                
+                //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+            }
         }
-        if(Trigger.isAfter && Trigger.isDelete)
-        {
-            system.debug('Entered delete TRIGGER');
-            AccountLinkHelper.afterDeleteEvent(Trigger.old);
-            
-
-        }
-        if(Trigger.isAfter && Trigger.isUpdate)
-        {
-        system.debug('Entered aFTER update TRIGGER');
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
-            AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
-            AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
-        }
-         //if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert) )
-          if(Trigger.isBefore &&  Trigger.isInsert)
-        {        
-            system.debug('Entered before TRIGGER');
-            AccountLinkHelper.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
-            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
-        }
-          if(Trigger.isBefore && Trigger.isUpdate)
-          {
-          system.debug('Entered b efore update TRIGGER');
-            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
-        }
-    }
-       } 
+    } 
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         // Implementation to addedd as required in market
