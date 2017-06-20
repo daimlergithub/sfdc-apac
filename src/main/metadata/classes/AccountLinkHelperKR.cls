@@ -758,30 +758,46 @@ public class AccountLinkHelperKR
        
         Map<Id, List<Id>> map_AccountIdListUser = new Map<Id, List<Id>>();
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
+		List<Vehicle__Share> list_VehicleSharingRecord = new List<Vehicle__Share>();
        
-        List<Vehicle_Relationship__c> list_VehicleRelationRecord = new List<Vehicle_Relationship__c>([SELECT Id, Contact__c
+        List<Vehicle_Relationship__c> list_VehicleRelationRecord = new List<Vehicle_Relationship__c>([SELECT Id, Contact__c, Vehicle_ID__c
                                                                                                         FROM Vehicle_Relationship__c
                                                                                                         WHERE Contact__c IN: map_FromAccountIdAndListToAccountId.keySet()]);
-        if(list_VehicleRelationRecord.size() > 0){
-            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
-                for(Vehicle_Relationship__c vehicleR : list_VehicleRelationRecord){
-                    if(map_FromAccountIdAndListToAccountId.containsKey(vehicleR.Contact__c)){
-                        for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){                          
-                                 
-                                    Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
-                                    vehicleRelationShare.AccessLevel = 'Edit';
-                                    vehicleRelationShare.UserOrGroupId = groupRec.id;
-                                    vehicleRelationShare.ParentId = vehicleR.Id;
-                                    vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
-                                    list_SharingRecord.add(vehicleRelationShare);                               
+        if(list_VehicleRelationRecord.size() > 0)
+		{
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet])
+			{
+                for(Vehicle_Relationship__c vehicleR : list_VehicleRelationRecord)
+				{
+                    if(map_FromAccountIdAndListToAccountId.containsKey(vehicleR.Contact__c))
+					{
+                        for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c))
+						{    
+							Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
+							vehicleRelationShare.AccessLevel = 'Edit';
+							vehicleRelationShare.UserOrGroupId = groupRec.id;
+							vehicleRelationShare.ParentId = vehicleR.Id;
+							vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
+							list_SharingRecord.add(vehicleRelationShare);   
+
+							Vehicle__Share vehicleShare = new Vehicle__Share();
+							vehicleShare.AccessLevel = 'Edit';
+							vehicleShare.UserOrGroupId = groupRec.id;
+							vehicleShare.ParentId = vehicleR.Vehicle_ID__c;
+							list_VehicleSharingRecord.add(vehicleShare); 
                              
                         }
                     }
                 }
              }
            
-            if(list_SharingRecord.size() > 0){
+            if(list_SharingRecord.size() > 0)
+			{
                 Database.insert(list_SharingRecord, false);
+            }
+			if(list_VehicleSharingRecord.size() > 0)
+			{
+                Database.insert(list_VehicleSharingRecord, false);
             }
         }
     }
