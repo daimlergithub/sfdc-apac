@@ -38,6 +38,18 @@
                 <behavior>Edit</behavior>
                 <field>Activity_Status__c</field>
             </layoutItems>
+			           <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Account_Name__c</field>
+            </layoutItems>
+			           <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contract_Number__c</field>
+            </layoutItems>           
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contract__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Priority</field>
@@ -79,7 +91,19 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Phone__c</field>
+            </layoutItems>          
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Phone</field>
             </layoutItems>
+			           <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_Vehicle__c</field>
+            </layoutItems>
+			           <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Phone_number__c</field>
+            </layoutItems>           
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status</field>
