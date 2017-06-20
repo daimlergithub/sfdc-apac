@@ -17940,6 +17940,11 @@
         <field>SurveyTaker__c.Task_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.To_Be_Deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SurveyTaker__c.Updated_By_EP_Transactions__c</field>
