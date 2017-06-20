@@ -49,6 +49,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Car_Model__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>FirstRegistrationDate__c</field>
             </layoutItems>
         </layoutColumns>
@@ -327,7 +331,7 @@
         <fields>Service_Invoice_Number__c</fields>
         <fields>Related_Lead__c</fields>
         <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
-    </relatedLists>	
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>ContractNumber__c</fields>
@@ -335,7 +339,7 @@
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
         <fields>Status__c</fields>
-        <fields>Related_Dealer__c</fields> 
+        <fields>Related_Dealer__c</fields>
         <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>

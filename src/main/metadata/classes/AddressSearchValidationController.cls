@@ -786,11 +786,11 @@ public class AddressSearchValidationController
         if(market == Label.JP){
         if(u.ContactId !=null && selectedRecordType   =='Company')
         {
-        TouchPoint='Others'; 
+        TouchPoint=Label.Others; 
         } 
         if(u.ContactId !=null && selectedRecordType   =='Person Account')
         {
-        TouchPoint='Dealer Outlet'; 
+        TouchPoint=Label.Dealer_Outlet; 
         }  
     }       
     }

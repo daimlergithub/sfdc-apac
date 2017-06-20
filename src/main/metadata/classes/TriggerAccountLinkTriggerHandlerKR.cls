@@ -18,7 +18,7 @@ public class TriggerAccountLinkTriggerHandlerKR
 			AccountLinkHelperKR.updateRetailPositionfromC2C(Trigger.isUpdate, Trigger.isAfter ,Trigger.isInsert, trigger.new);
 			AccountLinkHelperKR.ExportNotification(Trigger.new, oldmap);
 			system.debug('Entered After TRIGGER');
-            AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+            //AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
             system.debug('Trigger 5 :');
         }     
         if(isBefore && isInsert)
