@@ -633,13 +633,8 @@
             <field>CA_Lead_Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>
-		<displayedFields>
-            <field>Car_Model__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-		        <displayedFields>
+        </displayedFields> 
+        <displayedFields>
             <field>Case__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
