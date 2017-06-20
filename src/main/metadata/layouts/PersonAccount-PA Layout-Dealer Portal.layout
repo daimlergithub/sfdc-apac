@@ -661,6 +661,17 @@
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
     </relatedLists>
+	<relatedLists>
+        <customButtons>Convert_to_Lead</customButtons>
+        <customButtons>Convert_To_Task</customButtons>
+        <fields>Campaign_ID__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>Contract__c</fields>
+        <fields>Preferred_Dealer__c</fields>
+        <fields>Status__c</fields>
+        <fields>RespondedDate__c</fields>
+        <relatedList>Campaign_Member__c.Contact_Id__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>
@@ -728,12 +739,6 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <customButtons>Convert_to_Lead</customButtons>
-        <customButtons>Convert_To_Task</customButtons>
-        <fields>NAME</fields>
-        <relatedList>Campaign_Member__c.Contact_Id__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

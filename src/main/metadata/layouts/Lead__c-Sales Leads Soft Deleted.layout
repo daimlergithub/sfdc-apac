@@ -399,10 +399,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>First_Contact_Customer_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>First_Contact_Customer_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
