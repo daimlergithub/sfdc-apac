@@ -7,7 +7,7 @@
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
     <tab>standard-report</tab>
-    <tab>standard-Lead</tab>
+    <tab>Lead__c</tab>
     <tab>Vehicle_Relationship__c</tab>
     <tab>Vehicle__c</tab>
     <tab>standard-Campaign</tab>
