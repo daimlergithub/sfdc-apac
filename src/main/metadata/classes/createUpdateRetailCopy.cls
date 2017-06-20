@@ -243,7 +243,7 @@ public class createUpdateRetailCopy
                                 Retail_Company_Name_Native1__c,Retail_Commercial_Reg_No__c,Retail_Vat_No__c,Retail_Foundation_Month__c ,Retail_Company_Phone__c,
                                 Retail_Company_Other_Phone__c,Retail_Industry__c ,Retail_Website__c,Retail_Fax__c,Retail_UCID__c,Retail_Address_Type__c,
                                 Retail_Province__c ,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,
-                                Retail_Address_CreatedDate__c,Retail_Address_Reference__c,Retail_Address_LastModifiedDate__c from Account_Link__c where torole__c =:accountIds AND Retail_Dealer_CompanyCode__c =:dealergcCodeset];
+                                Retail_Address_CreatedDate__c,Retail_Address_Reference__c,Retail_Address_LastModifiedDate__c from Account_Link__c where (torole__c =:accountIds OR Vehicle__c =:accountIds) AND Retail_Dealer_CompanyCode__c =:dealergcCodeset];
         }
         for(Account_Link__c acl : acclkList)
         {

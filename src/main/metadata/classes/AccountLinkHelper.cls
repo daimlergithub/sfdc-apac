@@ -819,7 +819,8 @@ public class AccountLinkHelper
         set<string> dealerGCCodeList = new set<string>();
         for(Account_Link__c acclnk : acclnkList)
         {
-            if(acclnk.toRole__c != null && acclnk.fromRole__c != null)
+            if(acclnk.toRole__c != null && acclnk.fromRole__c != null && acclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId
+               || acclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
             {
                 if(acclnk.Retail_FirstName__c != oldacclnkMap.get(acclnk.Id).Retail_FirstName__c ||
                   acclnk.Retail_LastName__c != oldacclnkMap.get(acclnk.Id).Retail_LastName__c ||
@@ -856,6 +857,13 @@ public class AccountLinkHelper
                     dealerIds.add(acclnk.fromRole__c);
                     dealerGCCodeList.add(acclnk.Retail_Dealer_CompanyCode__c);
                 }
+            }
+            else if(acclnk.Vehicle__c != null && acclnk.fromRole__c != null && acclnk.RecordTypeId == AccountLink_VehicleExternalRecordTypeId &&
+                   acclnk.CurrentMileage__c != oldacclnkMap.get(acclnk.Id).CurrentMileage__c)
+            {
+                customerIds.add(acclnk.Vehicle__c);
+                dealerIds.add(acclnk.fromRole__c);
+                dealerGCCodeList.add(acclnk.Retail_Dealer_CompanyCode__c);
             }
         }
         system.debug('customerIds>>>>' + customerIds);
