@@ -694,16 +694,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		        <displayedFields>
+		 <displayedFields>
             <field>Lead_Desired_Service__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>
-		<displayedFields>
-            <field>Lead_Latest_Phase__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
+        </displayedFields> 
 		<displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
