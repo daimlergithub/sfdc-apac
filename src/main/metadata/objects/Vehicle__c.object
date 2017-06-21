@@ -21562,6 +21562,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <customTabListAdditionalFields>Colour__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>UsVIN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>EuroVIN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RegistrationNo__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Brand__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Class__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Model__c</lookupDialogsAdditionalFields>
@@ -21721,7 +21722,7 @@ var qre = sforce.connection.query("SELECT Id,Car_Relation__c,Portal_Apply_Status
 
 var qrerecords = qre.getArray("records");
 
-if(qrerecords.length>0){
+if(qrerecords.length&gt;0){
 
 alert('{!$Label.s8_Please_operate_My_Mercedes_Registration_first}');
 
