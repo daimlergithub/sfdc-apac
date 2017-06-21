@@ -502,7 +502,9 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         addrValues.Address_Line_1_Native= AddressObj.Address_Line_1_Native__c;        
         addrValues.Address_Line_2_Native= AddressObj.Address_Line_2_Native__c;
         sendingCustomerDetails.Address_xc.add(addrValues);
-        
+        //Added by Touseef for Thailand Market
+        if(Usr.Market__c=='TH')
+            addrValues.Sub_District_xc=AddressObj.Sub_District__c;
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
             sendingCustomerDetails.RecordType = 'PersonAccount';     
