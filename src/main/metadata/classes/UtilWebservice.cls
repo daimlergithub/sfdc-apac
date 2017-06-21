@@ -495,14 +495,10 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         addrValues.Temp_ZipCode_xc=AddressObj.Temp_ZipCode__c;
         addrValues.TitleOfHonor_xc=AddressObj.TitleOfHonor__c;
         addrValues.Address_Type_xc=AddressObj.Address_Type__c;
-        addrValues.Block_Native = AddressObj.Block_Native__c;      
-        addrValues.City_Native= AddressObj.City_Native__c;        
-        addrValues.Province_Native= AddressObj.Province_Native__c;        
-        addrValues.District_Native= AddressObj.District_Native__c;        
-        addrValues.Address_Line_1_Native= AddressObj.Address_Line_1_Native__c;        
-        addrValues.Address_Line_2_Native= AddressObj.Address_Line_2_Native__c;
         sendingCustomerDetails.Address_xc.add(addrValues);
-        
+        //Added by Touseef for Thailand Market
+        if(Usr.Market__c=='TH')
+            addrValues.Sub_District_xc=AddressObj.Sub_District__c;
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
             sendingCustomerDetails.RecordType = 'PersonAccount';     

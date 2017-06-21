@@ -609,6 +609,226 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+		 <displayedFields>
+            <field>Accepted_Date_Time__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Assigned_Date_Time__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Assigned_Dealer__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Service_Advisor__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>CA_Lead_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields> 
+        <displayedFields>
+            <field>Case__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Company_Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Existing_Contract__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Cross_Point_Model__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Assigned_Dealer_by_Rule__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Customer_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Dealer_Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Dealer_Comment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Drop_off_Time__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Interested_Vehicle_Note__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>LastModifiedBy</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lead_DataSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		 <displayedFields>
+            <field>Lead_Desired_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields> 
+		<displayedFields>
+            <field>Lead_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lead_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lost_Comment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lost_Situation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Network_Registration_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Opportunity_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Order_No__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Order_Placed_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Payment_Condition__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		        <displayedFields>
+            <field>Portal_Request_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Preferred_Contact_Method__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Preferred_Negotiation_Place__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Price_Range__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Purchase_Time__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Vehicle_Need_Text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		        <displayedFields>
+            <field>Questionnair__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>RecordType</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Retail_Campaign_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>ServiceProgram_Proposal_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Source_Campaign__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Test_Drive_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		        <displayedFields>
+            <field>Test_Drive_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Test_Drive_Detail__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>UCID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Vehicle_Need__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Visited_Showroom_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields> 
         <label>LeadMergeFieldsSet</label>
     </fieldSets>
     <fieldSets>
@@ -5910,11 +6130,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue (Light colors)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown (Dark)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5922,15 +6142,15 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown (Light colors)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey (Dark)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey (Color)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5938,11 +6158,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey (Light colors)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray (Light colors)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5950,19 +6170,19 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray (Color)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green (Dark)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green (Color)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue (Dark)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -25497,7 +25717,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25517,7 +25737,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>491 Rocky Mountain Brown %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25581,7 +25801,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>697 Rocky Mountain Brown %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25589,7 +25809,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>725 Himalaya grey %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25609,7 +25829,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>756 Himalaya grey %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25625,11 +25845,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>770 Himalaya grey %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>773 Di Yi flute gray %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25649,7 +25869,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>781 Di Yi flute gray %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25669,7 +25889,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>808 Ireland Green %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25677,7 +25897,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>886 Ireland Green %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25697,7 +25917,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>947 France coast blue %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37554,7 +37774,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37574,7 +37794,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>491 Rocky Mountain Brown %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37638,7 +37858,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>697 Rocky Mountain Brown %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37646,7 +37866,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>725 Himalaya grey %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37666,7 +37886,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>756 Himalaya grey %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37682,11 +37902,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>770 Himalaya grey %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>773 Di Yi flute gray %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37706,7 +37926,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>781 Di Yi flute gray %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37726,7 +37946,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>808 Ireland Green %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37734,7 +37954,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>886 Ireland Green %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37754,7 +37974,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>947 France coast blue %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50284,7 +50504,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50304,7 +50524,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>491 Rocky Mountain Brown %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50368,7 +50588,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>697 Rocky Mountain Brown %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50376,7 +50596,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>725 Himalaya grey %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50396,7 +50616,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>756 Himalaya grey %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50412,11 +50632,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>770 Himalaya grey %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>773 Di Yi flute gray %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50436,7 +50656,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>781 Di Yi flute gray %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50456,7 +50676,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>808 Ireland Green %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50464,7 +50684,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>886 Ireland Green %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50484,7 +50704,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>947 France coast blue %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63060,7 +63280,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63080,7 +63300,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>491 Rocky Mountain Brown %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63144,7 +63364,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>697 Rocky Mountain Brown %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63152,7 +63372,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>725 Himalaya grey %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63172,7 +63392,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>756 Himalaya grey %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63188,11 +63408,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>770 Himalaya grey %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>773 Di Yi flute gray %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63212,7 +63432,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>781 Di Yi flute gray %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63232,7 +63452,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>808 Ireland Green %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63240,7 +63460,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>886 Ireland Green %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63260,7 +63480,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>947 France coast blue %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76070,7 +76290,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76090,7 +76310,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>491 Rocky Mountain Brown %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76154,7 +76374,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>697 Rocky Mountain Brown %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76162,7 +76382,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>725 Himalaya grey %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76182,7 +76402,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>756 Himalaya grey %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76198,11 +76418,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>770 Himalaya grey %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>773 Di Yi flute gray %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76222,7 +76442,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>781 Di Yi flute gray %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76242,7 +76462,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>808 Ireland Green %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76250,7 +76470,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>886 Ireland Green %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76270,7 +76490,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>947 France coast blue %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89090,7 +89310,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89110,7 +89330,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>491 Rocky Mountain Brown %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89174,7 +89394,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>697 Rocky Mountain Brown %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89182,7 +89402,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>725 Himalaya grey %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89202,7 +89422,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>756 Himalaya grey %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89218,11 +89438,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>770 Himalaya grey %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>773 Di Yi flute gray %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89242,7 +89462,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>781 Di Yi flute gray %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89262,7 +89482,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>808 Ireland Green %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89270,7 +89490,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>886 Ireland Green %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89290,7 +89510,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>947 France coast blue %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100870,7 +101090,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>385 France coast blue %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100890,7 +101110,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>491 Rocky Mountain Brown %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100954,7 +101174,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>697 Rocky Mountain Brown %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100962,7 +101182,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>725 Himalaya grey %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100982,7 +101202,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>756 Himalaya grey %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100998,11 +101218,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>770 Himalaya grey %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
+                <fullName>773 Di Yi flute gray %28Light colors%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101022,7 +101242,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>781 Di Yi flute gray %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101042,7 +101262,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>808 Ireland Green %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101050,7 +101270,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
+                <fullName>886 Ireland Green %28Color%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101070,7 +101290,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
+                <fullName>947 France coast blue %28Dark%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -110711,7 +110931,7 @@ MD__c='KR'
     </validationRules>
     <validationRules>
         <fullName>CAC_Lead_Status_Check_After_Assigned_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>This Rule is created for thailand</description>
         <errorConditionFormula>AND( 
 OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),ispickval(CAC_Lead_Status__c,'Assigned'), 
@@ -110771,7 +110991,7 @@ RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <fullName>CAC_Purchase_Check_Sales_Lead_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, "Purchased"),RecordType.Name = 'Sales Leads',OR( 
-ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,''),ISPICKVAL(Bought_Vehicle_Class__c,''),ISPICKVAL(Bought_Vehicle_Model__c,''))&amp;&amp;MD__c='TH')</errorConditionFormula>
+ISNULL(Purchased_CAC_Date__c),ISBLANK(Purchased_CAC_Date__c),ISPICKVAL(Bought_Vehicle_Brand__c,''),ISPICKVAL(Bought_Vehicle_Class__c,''),ISPICKVAL(Bought_Vehicle_Model__c,''))&amp;&amp;MD__c='TH')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>IF CAC Lead status is “Purchased”, then Purchase Date ,Purchased time ,Bought vehicle brand ,Bought vehicle class and Bought Vehicle model are  required</errorMessage>
     </validationRules>
@@ -111778,3 +111998,4 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
+
