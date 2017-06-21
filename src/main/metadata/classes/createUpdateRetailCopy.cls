@@ -247,8 +247,8 @@ public class createUpdateRetailCopy
         }
         for(Account_Link__c acl : acclkList)
         {
-            if(acl.toRole__c != null && acl.fromRole__c != null && acl.RecordTypeId == AccountLink_RetailPersonRecordTypeId ||
-              acl.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
+            if((acl.toRole__c !=null || acl.Vehicle__c != null) && acl.fromRole__c != null && acl.RecordTypeId == AccountLink_RetailPersonRecordTypeId ||
+              acl.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || acl.RecordTypeId == AccountLink_VehicleExternalRecordTypeId)
             {
                 updatedacclnkMap.put(acl.Retail_Dealer_CompanyCode__c, acl);
             }
@@ -299,10 +299,18 @@ public class createUpdateRetailCopy
                     aclnk.Retail_Company_Other_Phone__c =  updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Company_Other_Phone__c;
                 }
             }
-            system.debug('RetailIndivisualHome>>>>>>>>' + aclnk.Retail_Individual_Home_Phone__c);
             if(updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Vehicle__c != null && updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).RecordTypeId == AccountLink_VehicleExternalRecordTypeId)
             {
-                aclnk.CurrentMileage__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).CurrentMileage__c;
+                aclnk.LastServiceDate__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).LastServiceDate__c;
+                aclnk.Service_Dealer__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Service_Dealer__c;
+                aclnk.LastServiceMileage__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).LastServiceMileage__c;
+                aclnk.NextInspectionDate__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).NextInspectionDate__c;
+                aclnk.NextServiceDate__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).NextServiceDate__c;
+                aclnk.NextMileage__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).NextMileage__c;
+                aclnk.Responsible_Dealer__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Responsible_Dealer__c;
+                aclnk.Sales_Representative__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Sales_Representative__c;
+                aclnk.Selling_Dealer__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Selling_Dealer__c;
+                aclnk.Service_Advisor__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Service_Advisor__c;
             }
             updateacclnkList.add(aclnk);
         }

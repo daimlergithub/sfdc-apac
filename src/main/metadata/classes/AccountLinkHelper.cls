@@ -859,7 +859,16 @@ public class AccountLinkHelper
                 }
             }
             else if(acclnk.Vehicle__c != null && acclnk.fromRole__c != null && acclnk.RecordTypeId == AccountLink_VehicleExternalRecordTypeId &&
-                   acclnk.CurrentMileage__c != oldacclnkMap.get(acclnk.Id).CurrentMileage__c)
+                   acclnk.LastServiceDate__c != oldacclnkMap.get(acclnk.Id).LastServiceDate__c ||
+                   acclnk.LastServiceMileage__c != oldacclnkMap.get(acclnk.Id).LastServiceMileage__c ||
+                   acclnk.Service_Dealer__c != oldacclnkMap.get(acclnk.Id).Service_Dealer__c ||
+                   acclnk.NextInspectionDate__c != oldacclnkMap.get(acclnk.Id).NextInspectionDate__c ||
+                   acclnk.NextServiceDate__c != oldacclnkMap.get(acclnk.Id).NextServiceDate__c ||
+                   acclnk.NextMileage__c != oldacclnkMap.get(acclnk.Id).NextMileage__c ||
+                   acclnk.Responsible_Dealer__c != oldacclnkMap.get(acclnk.Id).Responsible_Dealer__c ||
+                   acclnk.Sales_Representative__c != oldacclnkMap.get(acclnk.Id).Sales_Representative__c ||
+                   acclnk.Selling_Dealer__c != oldacclnkMap.get(acclnk.Id).Selling_Dealer__c ||
+                   acclnk.Service_Advisor__c != oldacclnkMap.get(acclnk.Id).Service_Advisor__c)
             {
                 customerIds.add(acclnk.Vehicle__c);
                 dealerIds.add(acclnk.fromRole__c);
