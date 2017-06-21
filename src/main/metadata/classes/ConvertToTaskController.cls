@@ -8,6 +8,7 @@ public with sharing class ConvertToTaskController
 {
     private final String campaignId = ApexPages.currentPage().getParameters().get('CampaignId');
     private String objectAPIName;
+    public account contactList=new account();
     public List<CampaignMemberInfo> campaignMembers {get; set;}
     public static Id OB_Call = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
     public ConvertToTaskController()
@@ -90,16 +91,17 @@ public with sharing class ConvertToTaskController
         System.debug('camid<<<'+campaignMember.Contract_Phone_2__c);
         System.debug('camid<<<'+campaignMember.Contact_Id__c);
         Task taskRec = new Task(RecordTypeId = OB_Call);
+        contactList=[select id,PersonContactId from account where id=:campaignMember.Contact_Id__c];
         taskRec.status= 'New';
         taskRec.Priority='Low';
         taskRec.subject = 'Campaign Executed';
         taskRec.Whatid = campaignMember.Campaign_Id__c ;
-      //  taskRec.whoid = campaignMember.Contact_Id__c;
-       taskRec.Contract__c = campaignMember.Contract__c ;
-       taskRec.Related_Vehicle__c= campaignMember.Vehicle__c;    
+        taskRec.whoid = contactList.PersonContactId;
+        taskRec.Contract__c = campaignMember.Contract__c ;
+        taskRec.Related_Vehicle__c= campaignMember.Vehicle__c;    
         taskRec.Account_Name__c =campaignMember.Company_Name__c;
         taskRec.Phone__c = campaignMember.Contract_Phone_1__c;
-        taskRec.Phone_number__c= campaignMember.Contract_Phone_2__c;
+       taskRec.Phone_number__c= campaignMember.Contract_Phone_2__c;
   
   
         if(objectAPIName == 'Campaign' || objectAPIName == 'Retail_Campaign__c')
