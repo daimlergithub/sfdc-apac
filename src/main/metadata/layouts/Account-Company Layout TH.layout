@@ -3,7 +3,6 @@
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
-    <customButtons>New_Case</customButtons>
     <customButtons>Create_Vehicle</customButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
@@ -324,6 +323,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Individual_Home_Phone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mobile__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -801,15 +804,22 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Vehicle_Model__c</fields>
-        <fields>UsVIN__c</fields>
-        <fields>New_Used__c</fields>
-        <fields>Car_Relation__c</fields>
-        <fields>Finance_Method__c</fields>
-        <fields>End_Date__c</fields>
-        <fields>Selling_Dealer__c</fields>
-        <fields>Last_Service_Dealer__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>fromRole__c</fields>
+        <fields>Role__c</fields>
+        <fields>Role2__c</fields>
+        <fields>Portal_Email__c</fields>
+        <relatedList>Account_Link__c.toRole__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
         <fields>Vehicle_ID__c</fields>
+        <fields>Vehicle_Model__c</fields>
+        <fields>Registration_Number__c</fields>
+        <fields>Euro_Vin__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>Vehicle_Range__c</fields>
+        <fields>Handover_Date__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -867,9 +877,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Inquiry</customButtons>
-        <customButtons>New_MB_Complaint</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>
