@@ -35,6 +35,7 @@ public class SendToJPOS{
     public  Boolean ShowHideError{set;get;}
     public String AssignedDealerUserID;
     public String MyMercedesID{set;get;}
+    public String locallang{get;set;}
     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     public static Id alkIndividualRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
@@ -43,7 +44,13 @@ public class SendToJPOS{
     
     //Constructor
     public SendToJPOS(ApexPages.StandardController controller) { 
-    CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = : UserInfo.getUserId()];
+    CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id,LanguageLocaleKey FROM User WHERE Id = : UserInfo.getUserId()];
+     if(CurrentUsr.LanguageLocaleKey  == 'en_US'){
+         locallang = label.Select;    
+     }
+     else{
+         locallang = '';
+     }
      addr=new Address__c();
      ShowHideError=false;
      address=new List<Address__c>();
@@ -344,7 +351,7 @@ public class SendToJPOS{
                {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Legal_Form));
                }
-			   // Changes related to SFDCJP-2623
+               // Changes related to SFDCJP-2623
                if(Acclist.Company_Legal_Form_text__c==null && Acclist.Company_Legal_Form__c =='Others')
                {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Legal_Form_Text));
