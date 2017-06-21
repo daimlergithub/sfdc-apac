@@ -4427,7 +4427,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Personal_Agreement__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5032,7 +5032,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.System_Data_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>

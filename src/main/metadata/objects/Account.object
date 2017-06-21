@@ -21476,12 +21476,12 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Japanese</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Thai</fullName>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Thai</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50475,12 +50475,12 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Japanese</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Thai</fullName>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Others</fullName>
+            <values>
+                <fullName>Thai</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -56809,7 +56809,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Fax_NoOfDigits_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Fax),ISNEW()), 
 	NOT(ISBLANK(Fax)), 
 	LEN(Fax) &lt; 11, 
@@ -56840,7 +56840,7 @@ NOT( ISBLANK(Retail_Fax__c) ) )</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Fax_Validation_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Fax) ), 
 		NOT( ISBLANK(Fax) ) ,
 		$Profile.Name != 'IntegrationAPI', 
@@ -57040,19 +57040,18 @@ MD__c = 'JP'
         <fullName>ID_Type</fullName>
         <active>true</active>
         <description>"ID Type to be created as Picklist with values as National ID, Other. If National ID is selected from the Picklist, system should do character length check. For Thailand it should be 13 characters</description>
-        <errorConditionFormula>IF( ISPICKVAL( ID_Type__c, 'National ID'), 
-		AND 
-		( 
-		OR 
-		( 
-		ISNULL(ID_Number__c), 
-		NOT(LEN(ID_Number__c) = 13), 
-		NOT(REGEX( ID_Number__c, "^[AZaz09]+$")) 
-		), 
-		$Profile.Name != 'IntegrationAPI', 
-		MD__c=='TH' 
-		) 
-		,false)</errorConditionFormula>
+        <errorConditionFormula>IF(
+AND(
+ISPICKVAL( ID_Type__c, 'National ID'),
+$Profile.Name != 'IntegrationAPI',
+MD__c=='TH'),
+IF(
+AND
+(
+LEN(ID_Number__c) == 13,
+REGEX( ID_Number__c, "^[a-zA-Z0-9]*$")
+),false,true),
+false)</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
         <errorMessage>If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number or alphabet.</errorMessage>
     </validationRules>
@@ -58613,7 +58612,7 @@ else {
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
-    <!--<webLinks>
+    <webLinks>
         <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
@@ -58780,5 +58779,5 @@ else
 parent.location.href = theUrl;
 }
 }</url>
-    </webLinks>-->
+    </webLinks>
 </CustomObject>
