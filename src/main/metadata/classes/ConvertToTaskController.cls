@@ -8,6 +8,7 @@ public with sharing class ConvertToTaskController
 {
     private final String campaignId = ApexPages.currentPage().getParameters().get('CampaignId');
     private String objectAPIName;
+    public account contactList=new account();
     public List<CampaignMemberInfo> campaignMembers {get; set;}
     public static Id OB_Call = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
     public ConvertToTaskController()
@@ -15,7 +16,7 @@ public with sharing class ConvertToTaskController
            if(String.isNotBlank(campaignId)) 
            {
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId, Contact_Id__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId, Vehicle__c,Contact_Id__c,Company_Name__c,Contract__c ,Contract_Phone_1__c,Contract_Phone_2__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
             query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND ';
             
             if(objectAPIName == 'Campaign')
@@ -62,10 +63,12 @@ public with sharing class ConvertToTaskController
             {
               if(objectAPIName == 'Campaign')
               {
+                    System.debug('inserting>>1');
                     taskListToInsert.add(setTaskRecordFields(campaignId, campaignMemberObj.campaignMember));
               }
               else if(objectAPIName == 'Retail_Campaign__c') 
               {
+              System.debug('inserting>>2');
                         taskListToInsert.add(setTaskRecordFields(campaignId, campaignMemberObj.campaignMember));
               }
             }
@@ -81,15 +84,24 @@ public with sharing class ConvertToTaskController
      
   @TestVisible   private Task setTaskRecordFields(String campaignId, Campaign_Member__c campaignMember) 
      {
+
+        System.debug('camid<<<'+campaignMember.Campaign_Id__c);
+        System.debug('camid<<<'+campaignMember.Company_Name__c);
+        System.debug('camid<<<'+campaignMember.Contract_Phone_1__c);
+        System.debug('camid<<<'+campaignMember.Contract_Phone_2__c);
+        System.debug('camid<<<'+campaignMember.Contact_Id__c);
         Task taskRec = new Task(RecordTypeId = OB_Call);
+        contactList=[select id,PersonContactId from account where id=:campaignMember.Contact_Id__c];
         taskRec.status= 'New';
         taskRec.Priority='Low';
         taskRec.subject = 'Campaign Executed';
-		taskRec.Whatid = campaignMember.Campaign_Id__c ;
-        taskRec.whoid = campaignMember.Contact_Id__c ;
+        taskRec.Whatid = campaignMember.Campaign_Id__c ;
+        taskRec.whoid = contactList.PersonContactId;
+        taskRec.Contract__c = campaignMember.Contract__c ;
+        taskRec.Related_Vehicle__c= campaignMember.Vehicle__c;    
         taskRec.Account_Name__c =campaignMember.Company_Name__c;
         taskRec.Phone__c = campaignMember.Contract_Phone_1__c;
-        taskRec.Phone_number__c= campaignMember.Contract_Phone_2__c;
+       taskRec.Phone_number__c= campaignMember.Contract_Phone_2__c;
   
   
         if(objectAPIName == 'Campaign' || objectAPIName == 'Retail_Campaign__c')

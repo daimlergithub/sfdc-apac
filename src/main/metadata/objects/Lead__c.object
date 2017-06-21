@@ -700,11 +700,6 @@
             <isRequired>false</isRequired>
         </displayedFields> 
 		<displayedFields>
-            <field>Name</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-		<displayedFields>
             <field>Lead_Sub_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -112003,3 +111998,4 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
+
