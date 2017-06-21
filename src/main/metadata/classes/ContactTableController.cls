@@ -28,6 +28,8 @@ public class ContactTableController
     public String wkphoneNumber{get;set;}
     public String wkPhonepart1{get;set;}
     public String wkPhonepart2{get;set;}
+    public String faxCountryCode{get;set;}
+    public String faxphoneNumber{get;set;}
     
     public String homePhoneAreaCodePart1{get;set;}
     public String homePhoneAreaCodePart2{get;set;}
@@ -87,6 +89,7 @@ public class ContactTableController
             mbCountryCode='+66';
             hmCountryCode='+66';
             wkCountryCode='+66';
+            faxCountryCode='+66';
         }
         else
         {
@@ -282,10 +285,11 @@ public class ContactTableController
      //Pavan start
     public void PhoneNumberFormatTH()
     {      
-            string localhmPhone,localwkPhone,localMBPhone;
+            string localhmPhone,localwkPhone,localMBPhone,localFaxPhone;
             localhmPhone=string.valueOf(ParAcc.Individual_Home_Phone__c);
              localwkPhone=string.valueOf(ParAcc.Work_Phone__c);
              localMBPhone=string.valueOf(ParAcc.Mobile__c);
+              localFaxPhone=string.valueOf(ParAcc.fax);
             if ((!String.IsBlank(localhmPhone))&&(localhmPhone.length()>3))
             {
                 hmCountryCode=localhmPhone.substring(0,3); 
@@ -304,6 +308,13 @@ public class ContactTableController
                 
                 mbCountryCode=localMBPhone.substring(0,3);      
                 mbphoneNumber=localMBPhone.length()>3?localMBPhone.substring(3,localMBPhone.length()):mbCountryCode;
+
+           }
+            if ((!String.IsBlank(localFaxPhone)) && (localFaxPhone.length()>3))
+           {
+                
+                faxCountryCode=localFaxPhone.substring(0,3);      
+                faxphoneNumber=localFaxPhone.length()>3?localFaxPhone.substring(3,localFaxPhone.length()):faxCountryCode;
 
            }
     }
@@ -380,7 +391,24 @@ public class ContactTableController
       {             
              ParAcc.Mobile__c='';
       }
+       if
+      (
+      (String.isBlank(faxphoneNumber)) &&
+      (String.isBlank(faxCountryCode)) 
+      )
       
+      {              
+               ParAcc.fax='';
+      }
+       else if(faxphoneNumber!='' && faxCountryCode!='')
+      {     
+      
+               ParAcc.fax=faxCountryCode+faxphoneNumber;              
+      }        
+      else
+      {             
+             ParAcc.fax='';
+      }
         try
         {
             if
