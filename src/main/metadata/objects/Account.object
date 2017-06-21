@@ -57958,7 +57958,7 @@ else if(userMarket[0].Market__c == 'TH'){
 window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&retURL={!Account.Id}", "","width = 800, height = 600"); 
 }else{ 
 alert('Error: Your Market Is Not defined '); 
-}</url>
+} </url>
     </webLinks>
     <webLinks>
         <fullName>Mergeexample</fullName>
