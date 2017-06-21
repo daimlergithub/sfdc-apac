@@ -157,13 +157,13 @@ public class crmasiaDaimlerApacComCustomeridentif {
         private String[] field_order_type_info = new String[]{'TransactionId','ResultStatus','ResultMessage','CustomerIdentificationResponseMessage'};
     }
     public class CustomerIdentificationPort {
-        public String endpoint_x = 'http://sadca0000095:9080/webservices/CustomerIdentification';
-        public Map<String,String> inputHttpHeaders_x;
+        public String endpoint_x = UtilCustomSettings.getWebserviceUrl('EPUrlOnlineDedupValidation');
+		public Map<String,String> inputHttpHeaders_x;
         public Map<String,String> outputHttpHeaders_x;
         public String clientCertName_x;
         public String clientCert_x;
         public String clientCertPasswd_x;
-        public Integer timeout_x;
+        public Integer timeout_x=120000;
         private String[] ns_map_type_info = new String[]{'http://crmasia.daimler-apac.com/CustomerIdentification_1.0', 'crmasiaDaimlerApacComCustomeridentif'};
         public crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse IdentifyCustomer(crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType CustomerIdentificationRequestMessage) {
             crmasiaDaimlerApacComCustomeridentif.IdentifyCustomer request_x = new crmasiaDaimlerApacComCustomeridentif.IdentifyCustomer();

@@ -57940,8 +57940,15 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 {!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
 sforce.connection.sessionId = "{!$Api.Session_ID}"; 
 var userDetails = sforce.connection.query("SELECT Id, Market__c from User WHERE id ='" + sforce.connection.getUserInfo().userId + "'"); 
-var userMarket = userDetails.getArray("records"); 
-if(userMarket[0].Market__c == 'JP'){ 
+var userMarket = userDetails.getArray("records");
+
+if(typeof(srcUp) == 'function') 
+{ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/SelectSlaveAccount?Id={!Account.Id}');
+} 
+}
+else if(userMarket[0].Market__c == 'JP'){ 
 window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
 }
 else if(userMarket[0].Market__c == 'KR'){ 
