@@ -133,12 +133,20 @@
                 <behavior>Edit</behavior>
                 <field>Assigned_Dealer__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Lost_Reason__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Recommended_Dealer__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Lead_Status__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Visit_Dealer__c</field>
@@ -198,6 +206,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Desired_Service__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Advisor__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
