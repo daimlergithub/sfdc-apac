@@ -36,20 +36,8 @@ public class crmasiaDaimlerApacComCustomeridentif {
         public String Temp_ZipCode_xc;
         public String TitleOfHonor_xc;
         public String Address_Type_xc;
-        public String Address_Line_1_Native;
-        public String Address_Line_2_Native;
-        public String Block_Native;
-        public String City_Native;
-        public String Province_Native;
-        public String District_Native;
-        private String[] Address_Line_1_Native_type_info = new String[]{'Address_Line_1_Native','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
-         private String[] Address_Line_2_Native_type_info = new String[]{'Address_Line_2_Native','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
-          private String[] Block_Native_type_info = new String[]{'Block_Native','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
-       
-         private String[] City_Native_type_info = new String[]{'City_Native','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
-        private String[] District_Native_type_info = new String[]{'District_Native','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
-        private String[] Province_Native_type_info = new String[]{'Province_Native','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
-      
+        public String Sub_District_xc; 
+		
         private String[] Id_type_info = new String[]{'Id','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Address_Code_xc_type_info = new String[]{'Address_Code__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Address_Line_1_xc_type_info = new String[]{'Address_Line_1__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
@@ -68,8 +56,9 @@ public class crmasiaDaimlerApacComCustomeridentif {
         private String[] Temp_ZipCode_xc_type_info = new String[]{'Temp_ZipCode__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] TitleOfHonor_xc_type_info = new String[]{'TitleOfHonor__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Address_Type_xc_type_info = new String[]{'Address_Type__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        private String[] Sub_District_xc_type_info = new String[]{'Sub_District__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/CustomerIdentification_1.0','true','false'};
-        private String[] field_order_type_info = new String[]{'Id','Address_Code_xc','Address_Line_1_xc','Address_Line_2_xc','Block_xc','City_xc','District_xc','Province_xc','ZipCode_xc','Country_xc','Company_Name_xc','Company_Name_Native_xc','Delivery_Point_ID_xc','HouseNumber_xc','Temp_Address_xc','Temp_ZipCode_xc','TitleOfHonor_xc','Address_Type_xc','Address_Line_1_Native','Address_Line_2_Native','Block_Native','City_Native','District_Native','Province_Native'};
+        private String[] field_order_type_info = new String[]{'Id','Address_Code_xc','Address_Line_1_xc','Address_Line_2_xc','Block_xc','City_xc','District_xc','Province_xc','ZipCode_xc','Country_xc','Company_Name_xc','Company_Name_Native_xc','Delivery_Point_ID_xc','HouseNumber_xc','Temp_Address_xc','Temp_ZipCode_xc','TitleOfHonor_xc','Address_Type_xc'};
     }
     public class IdentifyCustomerResponse {
         public crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse CustomerIdentificationResponse;
@@ -103,7 +92,7 @@ public class crmasiaDaimlerApacComCustomeridentif {
         public String Foundation_date_xc;
         public String Commercial_reg_no_xc;
         public String Vat_No_xc;
-        
+        public String ID_Number_xc;
         public crmasiaDaimlerApacComCustomeridentif.Address[] Address_xc;
         private String[] Id_type_info = new String[]{'Id','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] FirstName_type_info = new String[]{'FirstName','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
@@ -124,19 +113,17 @@ public class crmasiaDaimlerApacComCustomeridentif {
         private String[] Salutation_type_info = new String[]{'Salutation','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] RecordType_type_info = new String[]{'RecordType','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'1','1','false'};
         private String[] Vin_type_info = new String[]{'Vin','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
-        
         private String[] Name_type_info = new String[]{'Name','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Company_Name_xc_type_info = new String[]{'Company_Name__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Company_Name_Native_1_xc_type_info = new String[]{'Company_Name_Native_1__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Foundation_date_xc_type_info = new String[]{'Foundation_date__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Commercial_reg_no_xc_type_info = new String[]{'Commercial_reg_no__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Vat_No_xc_type_info = new String[]{'Vat_No__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
-               
-        
+        private String[] ID_Number_xc_type_info = new String[]{'ID_Number__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Address_xc_type_info = new String[]{'Address__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/CustomerIdentification_1.0','true','false'};
-        private String[] field_order_type_info = new String[]{'Id','FirstName','LastName','LastName_Native_1_xc','FirstName_Native_1_xc','PersonBirthdate','LoyaltyCardNo','Individual_Home_Phone_xc','Home_Phone_2_xc','Work_Phone_xc','Phone','Mobile_xc','Mobile2_xc','Email_xc','Email2_xc','Email3_xc','Salutation','RecordType','Vin','Name','Company_Name_xc','Company_Name_Native_1_xc','Foundation_date_xc','Commercial_reg_no_xc','Vat_No_xc','Address_xc'};
-       }
+        private String[] field_order_type_info = new String[]{'Id','FirstName','LastName','LastName_Native_1_xc','FirstName_Native_1_xc','PersonBirthdate','LoyaltyCardNo','Individual_Home_Phone_xc','Home_Phone_2_xc','Work_Phone_xc','Phone','Mobile_xc','Mobile2_xc','Email_xc','Email2_xc','Email3_xc','Salutation','RecordType','Vin','Name','Company_Name_xc','Company_Name_Native_1_xc','Foundation_date_xc','Commercial_reg_no_xc','Vat_No_xc','ID_Number_xc','Address_xc'};
+    }
     public class CustomerIdentificationMessageFaultType {
         public String errorCode;
         public String errorMessageText;
@@ -171,7 +158,7 @@ public class crmasiaDaimlerApacComCustomeridentif {
     }
     public class CustomerIdentificationPort {
         public String endpoint_x = UtilCustomSettings.getWebserviceUrl('EPUrlOnlineDedupValidation');
-        public Map<String,String> inputHttpHeaders_x;
+		public Map<String,String> inputHttpHeaders_x;
         public Map<String,String> outputHttpHeaders_x;
         public String clientCertName_x;
         public String clientCert_x;
@@ -197,7 +184,6 @@ public class crmasiaDaimlerApacComCustomeridentif {
               'crmasiaDaimlerApacComCustomeridentif.IdentifyCustomerResponse'}
             );
             response_x = response_map_x.get('response_x');
-             System.debug('$%$%$%$%$$  %^%^%%^ '+response_x.CustomerIdentificationResponse);
             return response_x.CustomerIdentificationResponse;
         }
     }

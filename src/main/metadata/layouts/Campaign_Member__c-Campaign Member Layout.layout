@@ -55,6 +55,10 @@
                 <behavior>Readonly</behavior>
                 <field>Zip_Code__c</field>
             </layoutItems>
+						            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Task__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Contract__c</field>

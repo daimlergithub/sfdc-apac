@@ -206,7 +206,7 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
                             <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
-								<apex:selectOptions value="{!areacodeItems}"/>
+                                <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
@@ -368,8 +368,15 @@
                    <apex:inputField value="{!objAccount.Email__c}" />                             
                    <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>    
                        
-                
-                   <apex:inputField value="{!objAccount.Fax}" /> 
+                 <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Fax.Label}" />
+                        <apex:outputPanel >
+                            <apex:inputText value="{!faxCountryCode}" id="faxbCountryCode" style="width:30px"/>
+                         <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber"  style="width:120px"/>                      
+                            
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>  
+               <!--      <apex:inputField value="{!objAccount.Fax}" /> -->
                 </apex:pageBlockSection>       
         <!--  THAILAND MARKET Company Account - End -->
 
@@ -639,7 +646,7 @@
         </div>
         <div>
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
-                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'JP', true, false)}">
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF((market == 'TH' || market == 'JP'), true, false)}">
                      <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
@@ -678,7 +685,7 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
                         <apex:outputField value="{!cr.Mobile__c}"/>
                     </apex:Column>
-					<apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>
                     </apex:Column>
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
