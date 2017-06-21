@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Merge</customButtons>
-    <customButtons>New_Task</customButtons>
     <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
