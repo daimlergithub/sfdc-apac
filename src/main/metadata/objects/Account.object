@@ -21474,7 +21474,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Japanese</fullName>
-                <default>true</default>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Thai</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
@@ -50469,6 +50473,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

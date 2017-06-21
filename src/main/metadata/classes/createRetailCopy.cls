@@ -18,6 +18,7 @@ public without sharing class createRetailCopy {
     public Account DealerID { get; set; }
     public User  CurrentUsr{set;get;}
     public List<Account> Dealeracc{set;get;}
+    public String locallang{get;set;}
     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
@@ -32,7 +33,13 @@ public without sharing class createRetailCopy {
      account=new Account();
      ShowHideError=false; 
      
-     CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
+     CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id,LanguageLocaleKey  FROM User WHERE Id = :UserInfo.getUserId()];
+     if(CurrentUsr.LanguageLocaleKey  == 'en_US'){
+         locallang = label.Select;    
+     }
+     else{
+         locallang = '';
+     }
      account = (Account)controller.getRecord();
      if(AccId!=null)
      {
