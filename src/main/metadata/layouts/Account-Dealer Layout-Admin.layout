@@ -471,10 +471,6 @@
                 <field>Dealer_Email__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Website</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Dealer_General_Manager__c</field>
             </layoutItems>
