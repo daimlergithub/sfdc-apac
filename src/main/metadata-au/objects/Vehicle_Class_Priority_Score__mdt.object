@@ -513,5 +513,4 @@
     </fields>
     <label>Vehicle Class Priority Score</label>
     <pluralLabel>Vehicle Class Priority Scores</pluralLabel>
-    <visibility>Public</visibility>
 </CustomObject>
