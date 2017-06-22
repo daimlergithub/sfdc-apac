@@ -462,6 +462,18 @@
                 <fullName>Vito</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>AMG E 63 S Sedan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class All-Terrain</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marco Polo ACTIVITY</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>true</sorted>
         </picklist>
