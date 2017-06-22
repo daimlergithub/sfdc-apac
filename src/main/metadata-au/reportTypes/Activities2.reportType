@@ -463,16 +463,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>QC_ID__c</field>
-            <table>Activity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>QC_Link__c</field>
-            <table>Activity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>QC_Quantity__c</field>
             <table>Activity</table>
         </columns>
