@@ -3,7 +3,6 @@
     <fields>
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
-        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Customer Type</label>
         <picklist>
             <picklistValues>
@@ -23,7 +22,6 @@
     <fields>
         <fullName>Vehicle_Class_Score__c</fullName>
         <externalId>false</externalId>
-        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Vehicle Class Score</label>
         <precision>3</precision>
         <required>false</required>
@@ -34,7 +32,6 @@
     <fields>
         <fullName>Vehicle_Class__c</fullName>
         <externalId>false</externalId>
-        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Vehicle Class</label>
         <picklist>
             <picklistValues>
@@ -474,7 +471,6 @@
     <fields>
         <fullName>Vehicle_Classification__c</fullName>
         <externalId>false</externalId>
-        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Vehicle Classification</label>
         <picklist>
             <picklistValues>
