@@ -5421,11 +5421,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Address__c.Sub_District__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Address__c.Temp_Address__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -24507,7 +24502,6 @@
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userLicense>Premier Support</userLicense>
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateContract</name>
