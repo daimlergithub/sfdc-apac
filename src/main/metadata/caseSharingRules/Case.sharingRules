@@ -55,6 +55,11 @@
             <operation>equals</operation>
             <value>S24h - MMC</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
         <caseAccessLevel>Read</caseAccessLevel>
         <name>Case Record Share</name>
     </criteriaBasedRules>

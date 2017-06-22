@@ -688,23 +688,23 @@ background-color: blue;
                              </apex:outputLabel></b>
                             </h1>                                                
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Did_you_visit_home_or_company}"/></b><br/>
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Did_you_visit_home_or_company}"/></b><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Family_company_hobby_have_you_heard}"/></b><br/>
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Family_company_hobby_have_you_heard}"/></b><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Garage_information_and_specifications_have_you_heard}"/></b><br/>
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Garage_information_and_specifications_have_you_heard}"/></b><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Do_you_know_when_and_where_you_can_meet}"/></b><br/>
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Do_you_know_when_and_where_you_can_meet}"/></b><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Customer_Issue}"/></b><br/>
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Customer_Issue}"/></b><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Stocks_for_interested_vehicle}"/></b><br/>
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Stocks_for_interested_vehicle}"/></b><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Purchase_Reason}"/></b><br/>
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Purchase_Reason}"/></b><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Highly_interesed}"/></b><br/>                
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Highly_interesed}"/></b><br/>                
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
-                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel value="{!$Label.Comparison_is_being_done_actively}"/></b>
+                            <b style ="font-family:Arial Unicode MS"><apex:outputLabel style="font-size:12px" value="{!$Label.Comparison_is_being_done_actively}"/></b>
                         </td>
                     </tr>                
                 </table>
