@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Merge</customButtons>  
+    <customButtons>Merge</customButtons>
     <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
+    <customButtons>New_DM_Request</customButtons>
     <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -475,6 +476,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>First_Contact_Customer_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Insurance_Proposal_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -531,7 +536,7 @@
                 <behavior>Edit</behavior>
                 <field>Handover_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Quotation_Date__c</field>
             </layoutItems>
@@ -651,10 +656,6 @@
         <editHeading>true</editHeading>
         <label>Cross Point Information</label>
         <layoutColumns>
-		 <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Cross_Point_Model__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Existing_Contract_No__c</field>
@@ -747,7 +748,7 @@
                 <behavior>Edit</behavior>
                 <field>Finance_Quotation_Number__c</field>
             </layoutItems>
-		   <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Next_Contact_Customer_Date__c</field>
             </layoutItems>
