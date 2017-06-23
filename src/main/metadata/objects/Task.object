@@ -13918,11 +13918,7 @@ if ("{!Task.Task_RecordType_Name__c}" == "OB Task") {
 	url = "/flow/{!Task.Flow_URL__c}?campaignId={!Task.What}&amp;contactId={!Task.Who}&amp;taskId={!Task.Id}&amp;redo=true"; 
  window.open(url, "", "width = 800, height = 600"); 
 } 
-/*
-else if ('{!Task.QC_ID__c}' != null &amp;&amp; '{!Task.QC_ID__c}'.length &gt; 0) {
-	alert('外呼任务已完成，您不能再修改问卷结果。');
-}
-*/
+
 else if ("{!Task.Task_RecordType_Name__c}" == "smart SSI Task"){
 	var url = '/flow/smart_Welcome_Call?';
 
