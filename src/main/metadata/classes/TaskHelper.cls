@@ -478,7 +478,7 @@ public class TaskHelper {
     Set<String> qcIds = new Set<String>();
     for(Task task : tasks){
         if(task.Activity_Status__c == 'Successful' && (!isUpdate || taskOldMap.get(task.Id).Activity_Status__c != 'Successful')){
-            qcIds.add(task.QC_ID__c);
+           // qcIds.add(task.QC_ID__c);
         }
     }
     
@@ -500,7 +500,7 @@ public class TaskHelper {
         if((task.RecordTypeId == IBTaskRecordTypeId || task.RecordTypeId == OBTaskRecordTypeId || task.RecordTypeId == SSITaskRecordTypeId ||
            task.RecordTypeId == WelcomeCallRecordTypeId) 
            && (!isUpdate || task.isClosed && !taskOldMap.get(task.Id).isClosed)){
-            qcIdsInTask.add(task.QC_ID__c);
+           // qcIdsInTask.add(task.QC_ID__c);
         }
     }
     
