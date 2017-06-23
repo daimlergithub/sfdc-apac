@@ -132,6 +132,7 @@ public class AddressSearchValidationControllerTest
         createTestData();        
         
         ApexPages.currentPage().getParameters().put('recordType','company');
+        Test.setMock(WebServiceMock.class, new WSMockCustomerIdenticationResp());
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount1);
         AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
         JPAcccontroller.Address_Validated_Flag = true;
