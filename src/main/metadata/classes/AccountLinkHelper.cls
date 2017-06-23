@@ -762,9 +762,32 @@ public class AccountLinkHelper
         Set<id> AccountIds = new set<id>();
         set<string> dealerGCCode = new set<string>();
         set<id> accLinkIds = new set<id>();
+        set<id> pilotretailcpyIds = new set<id>();
+        List<Account_Link__c> accLinkList = new List<Account_Link__c>();
         List<Account_Link__c> ExistC2CList = new List<Account_Link__c>();
         List<Account_Link__c> retailcopyList = new List<Account_Link__c>();
         Set<String> FromAccountIds = new set<String>();
+        for(Account_Link__c acclink : accLst)
+        {
+            if((acclink.toRole__c != null || acclink.Vehicle__c != null) && acclink.fromRole__c != null && acclink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || 
+               acclink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || acclink.RecordTypeId == AccountLink_VehicleExternalRecordTypeId)
+            {
+                pilotretailcpyIds.add(acclink.Id);
+            }
+        }
+        if(!pilotretailcpyIds.isEmpty() && pilotretailcpyIds != null)
+        {
+            accLinkList = [select id,torole__c,Vehicle__c,CurrentMileage__c,RecordType.Name,Retail_LastName__c,Retail_FirstName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,
+                           Retail_LastName_Native__c,Retail_FirstName_Native__c ,Retail_Full_Name_Native__c ,
+                           Retail_Gender__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Preferred_Language__c,
+                           Retail_Primary_Phone__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_Allow_Data_Sharing__c,
+                           Retail_Work_Phone__c,Retail_Mobile__c,Retail_Email__c,Retail_Individual_Home_Phone__c ,Retail_Company_Name__c,
+                           Retail_Company_Name_Native1__c,Retail_Commercial_Reg_No__c,Retail_Vat_No__c,Retail_Foundation_Month__c ,Retail_Company_Phone__c,
+                           Retail_Company_Other_Phone__c,Retail_Industry__c ,Retail_Website__c,Retail_Fax__c,Retail_UCID__c,Retail_Address_Type__c,
+                           Retail_Province__c ,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,
+                           Retail_Address_CreatedDate__c,Retail_Address_Reference__c,Retail_Address_LastModifiedDate__c from Account_Link__c where id =:pilotretailcpyIds 
+                           AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
+        }
         for(Account_Link__c aclnk : accLst)
         {
             if(aclnk.toRole__c!= null && aclnk.MD__c == label.MarketJp && aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
@@ -783,7 +806,7 @@ public class AccountLinkHelper
         }
         if(!AccountIds.isEmpty() && !FromAccountIds.isEmpty() && FromAccountIds != null)
         {
-            retailcopyList = [Select id,Vehicle__c,Retail_Individual_Home_Phone__c,torole__c,fromRole__c,fromRole__r.Dealer_GC_Code__c,recordtypeid from Account_Link__c where torole__c =:AccountIds AND fromrole__r.Dealer_GC_Code__c =:dealerGCCode AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId) Order BY CreatedDate ASC];
+            retailcopyList = [Select id,Vehicle__c,Retail_Individual_Home_Phone__c,torole__c,fromRole__c,fromRole__r.Dealer_GC_Code__c,recordtypeid from Account_Link__c where torole__c =:AccountIds AND fromrole__r.Dealer_Rollout_Status__c = 'Done' AND fromrole__r.Dealer_GC_Code__c =:dealerGCCode AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId) Order BY CreatedDate ASC];
         }
         if(!retailcopyList.isEmpty() && retailcopyList != null)
         {
@@ -807,9 +830,9 @@ public class AccountLinkHelper
         {
             createUpdateRetailCopy.updateRetailCopyFromAccountLinkbeforeInsert(accLinkIds, accLst);
         }
-        else
+        else if(!accLinkList.isEmpty() && accLinkList != null)
         {
-            createUpdateRetailCopy.updateRetailCopyFromAccount(AccountIds, accLst);
+            createUpdateRetailCopy.updateRetailCopyFromAccount(AccountIds, accLinkList);
         }
     }
 	public static void updateRetailCopyafterUpdate(List<Account_Link__c> acclnkList ,map<id,Account_Link__c> oldacclnkMap)

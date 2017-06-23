@@ -11,7 +11,7 @@
 **/
 public class AccountHelperJP
 {
-    static User usr = [Select id, LanguageLocaleKey,Market__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
+    static User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,Contact.Account.Dealer_Rollout_Status__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
 **  Created By: Sudhir 
 **  Date: 2015-12-22
@@ -961,7 +961,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         set<id> insrtaccids = new set<id>();
         for(Account acc : accLst)
         {
-            if(acc.MD__c == 'JP' && isInsert && userinfo.getUserType()=='PowerPartner')
+            if(acc.MD__c == 'JP' && isInsert && userinfo.getUserType()=='PowerPartner' & usr.Contact.Account.Dealer_Rollout_Status__c == 'Done')
             {
                 insrtaccids.add(acc.Id);
             }
