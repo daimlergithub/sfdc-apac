@@ -26,7 +26,7 @@ public with sharing class  DMRequestHelperJP {
         string nullValue ='';
         String province;
         Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-        if(!test.isrunningtest() && Usr.Profile.Name != 'IntegrationAPI')
+        if(!test.isrunningtest() && Usr.Profile.Name != 'IntegrationAPI' && usr.Market__c !=null)
         {
 			UtilAddressTranslation.gettranslatedvalues(Usr.Market__c);
 		}
@@ -380,7 +380,10 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         string nullValue ='';
         String province;
         Map<String, String> addtrmapInsert = UtilAddressTranslation.addtrmap;
+		  if(!test.isrunningtest() && Usr.Profile.Name != 'IntegrationAPI' && usr.Market__c !=null)
+        {
         UtilAddressTranslation.gettranslatedvalues(Usr.Market__c);
+		}
                  //get the accountIds 
                  if(triggerNew!=null)
                 {
