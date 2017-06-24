@@ -171,6 +171,9 @@ public with sharing class LeadHelperTest {
         lead.Business_Unit__c= BusinessUnitValue;
         lead.Sub_BusinessUnit__c='Parts';
         lead.X24H_Untouched__c=false;
+		lead.Purchase_Time__c = 'Not sure';
+        lead.MB_Vehicle_Interest__c ='Actros';
+		lead.Assigned_Dealer__c=dealer.id;
         lead.X72H_Untouched__c=false;
         insert lead;
        
