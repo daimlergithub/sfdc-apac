@@ -266,8 +266,7 @@ public class createUpdateRetailCopy
                 aclnk.Retail_Website__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Website__c;
                 aclnk.Retail_Fax__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Fax__c;
                 aclnk.Retail_UCID__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_UCID__c;
-                
-                system.debug('ENTERE%^$^%$^$%');
+				
                 if(updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).RecordTypeId == AccountLink_RetailPersonRecordTypeId)
                 {
                     system.debug('accountLinkId>>>>' + aclnk.Id);
@@ -281,7 +280,7 @@ public class createUpdateRetailCopy
                     aclnk.Retail_Full_Name_Native__c =  updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Full_Name_Native__c;
                     aclnk.Retail_Gender__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Gender__c;
                     aclnk.Retail_PersonBirthdate__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_PersonBirthdate__c;
-                    //aclnk.Retail_Occupation__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Occupation__c;                
+                    aclnk.Retail_Occupation__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Occupation__c;                
                     aclnk.Retail_Preferred_Language__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Preferred_Language__c;
                     aclnk.Retail_Primary_Phone__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Primary_Phone__c;
                     aclnk.Retail_Special_Care__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Special_Care__c;

@@ -12,10 +12,16 @@ public class TriggerRetailTaskTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        // Implementation to addedd as required in market
+        if(trigger.isAfter && (trigger.isInsert || trigger.isUpdate))
+        {
+            RetailTaskHelperJP.RetailTaskDetails(trigger.new,(map<id,retail_task__c>)trigger.oldmap,trigger.isInsert,trigger.isUpdate);
+        }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-    	// Implementation to addedd as required in market
+    	if(trigger.isAfter && (trigger.isInsert || trigger.isUpdate))
+        {
+            RetailTaskHelperJP.RetailTaskDetails(trigger.new,(map<id,retail_task__c>)trigger.oldmap,trigger.isInsert,trigger.isUpdate);
+        }
     }
 }
