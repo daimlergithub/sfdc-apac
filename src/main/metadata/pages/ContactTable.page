@@ -222,8 +222,8 @@
                          <apex:selectList value="{!mobilePhoneAreaCodePart1}" size="1" style="width:80px" rendered="{!editMode}">
                                 <apex:selectOptions value="{!MobileAreacodeItems}"/>
                          </apex:selectList>    
-                         //<apex:inputText value="{!mobilePhoneAreaCodePart2}" id="mobilePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
-                         //<apex:inputText value="{!mobilePhoneAreaCodePart3}" id="mobilePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
+                            <apex:inputText value="{!mobilePhoneAreaCodePart2}" id="mobilePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
+                            <apex:inputText value="{!mobilePhoneAreaCodePart3}" id="mobilePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
                          <apex:outputPanel rendered="{!!editMode}"> 
                          <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');">
                           {!ParAcc.Mobile__c}
@@ -519,16 +519,42 @@
                        </td>      
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date2__c}"/></td>        
                    </tr>
-                   <tr>        
-                       <th style="text-align: Right;">{!$Label.Fax}</th>        
-                       <td><apex:inputField value="{!ParAcc.Fax}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Fax}" rendered="{!!editMode}"/>
-                       </td>                           
+                  <!--   <tr>        
+                       <th style="text-align: Right;">{!$Label.Fax}</th>       
+                       <td>
+                         <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" rendered="{!editMode}" style="width:30px"/>
+                         <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber" rendered="{!editMode}" style="width:120px"/>
+                         
+                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.fax}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
+                             javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.fax}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.fax} </a> 
+                       </apex:outputPanel>    
+                       </td> 
                        <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!!editMode}"/>
-                       </td>   
-                       <td></td>
-                       <td></td>
+                           <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!NOT(editMode)}"/>
+                       </td>     
+                       <td>  
+                                 
+                       </td>        
+                       <td> </td>    
+                   </tr>  -->
+                   
+                    <tr>        
+                       <th style="text-align: Right;">{!$Label.Fax}</th>       
+                       <td>
+                         <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" rendered="{!editMode}" style="width:30px"/>
+                         <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber" rendered="{!editMode}" style="width:120px"/>
+                         
+                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.fax}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
+                             javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.fax}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.fax} </a> 
+                       </apex:outputPanel>    
+                       </td> 
+                       <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!NOT(editMode)}"/>
+                       </td>     
+                       <td>  
+                                 
+                       </td>        
+                       <td> </td>    
                    </tr> 
                </table>    
              </apex:pageBlock> 

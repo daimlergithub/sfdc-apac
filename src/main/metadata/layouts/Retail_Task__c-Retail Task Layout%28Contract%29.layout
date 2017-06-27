@@ -71,7 +71,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Service_Vehicle_VIN__c</field>
+                <field>VIN_Link__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>

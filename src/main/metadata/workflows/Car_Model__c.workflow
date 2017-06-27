@@ -16,18 +16,9 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Car_Model__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Car_Model__c.Colour__c</field>
-            <operation>equals</operation>
-            <value>null</value>
-        </criteriaItems>
         <description>/* Used for Thailand */ 
-If the Colour__c field is blank during record creation, add the default value as &quot;No colour added&quot;</description>
+If the Colour__c field is blank during record creation, add the default value as &quot;NA&quot;</description>
+        <formula>AND(ISBLANK(Colour__c),MD__c  = &apos;TH&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

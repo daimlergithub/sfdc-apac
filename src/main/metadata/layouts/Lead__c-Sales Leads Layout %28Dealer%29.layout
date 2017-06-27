@@ -2,7 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Assign_to_Leads</customButtons>
     <customButtons>Convert_Lead</customButtons>
-    <customButtons>New_Task</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
@@ -91,10 +90,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Closing_Option__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Appointment_DateTime__c</field>
             </layoutItems>
             <layoutItems>
                 <height>200</height>
@@ -282,7 +277,8 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Finance_Product_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -333,8 +329,7 @@
         <label>Cross-point information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Finance_Product_Name__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -668,6 +663,10 @@
                 <behavior>Readonly</behavior>
                 <field>Name</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_Leads__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -710,10 +709,6 @@
         <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedHistoryList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>StepStatus</fields>
-        <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

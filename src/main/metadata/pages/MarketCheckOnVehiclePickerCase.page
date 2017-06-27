@@ -1,4 +1,5 @@
 <apex:page standardController="case" extensions="MarketCheckOnVehiclePickerConKR">
   <apex:include pageName="VehiclePickerforCaseKR" rendered="{!usr.Market__c == 'KR'}"/>
+  <apex:include pageName="VehiclePickerforCaseKR" rendered="{!usr.Market__c == 'TH'}"/>
   <apex:include pageName="VehiclePickerforCase" rendered="{!usr.Market__c == 'JP'}"/>
 </apex:page>

@@ -28,9 +28,10 @@ public class AccountHelperJP
     public static boolean persongroup8 = false;
     public static boolean persongroup9 = false;
     public static boolean persongroup10 = false;
-    public static boolean persongroup11 = false;
+    //public static boolean persongroup11 = false;
     public static boolean companygroup1 = false;
     public static boolean companygroup2=false;
+	public static id acid;
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
@@ -120,6 +121,11 @@ public class AccountHelperJP
                 }
                 
                 if(Acc.Primary_Address__c != Null && Acc.Primary_Address__c != '')
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
+				//Added changes related to SFDCJP-2555
+				if(Acc.Primary_Address_Reference__c != Null)
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
@@ -264,7 +270,11 @@ public class AccountHelperJP
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
-                
+				// Added changes related to SFDCJP-2555
+                if(Acc.Primary_Address_Reference__c != Null)
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
                 if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
                 {                    
                     Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
@@ -639,9 +649,20 @@ public class AccountHelperJP
                     for(Account acc : accountlist)
                     {
                         Account account = accountmap.get(acc.Id);
+						//Added as per Jira ticket SFDCJP-2502
+						if(account.id !=null)
+                        {
+                        acid=account.id;
+                        }
+						
                         Account_Link__c acclink = new Account_Link__c();
                         acclink.Primary__c = true;
-                        acclink.Origin__c = account.Name;
+						//Added as per Jira ticket SFDCJP-2502
+						if(acid !=null)
+                        {
+                        acclink.Origin__c = acid;
+                        }
+                         
                         acclink.toRole__c = account.Id;
                         acclink.System__c = 'UCID';
                         acclink.RecordTypeId = accountinkIndividualCustomerExternalLinkId ;
@@ -739,11 +760,12 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                     AccountIds.add(acc.id); 
                     persongroup10 = true;
             } 
-            if(oldAccountmap.get(acc.id).Complaint_Amount__c != acc.Complaint_Amount__c){
+			//This is Covereed from CasehelperJp
+            /*if(oldAccountmap.get(acc.id).Complaint_Amount__c != acc.Complaint_Amount__c){
                     AccountIds.add(acc.id); 
                     persongroup11 = true;
-            } 
-             
+            }*/ 
+             /* //Commented as per Ogi's Comments, this will update from Address
             if(oldAccountmap.get(acc.id).Primary_Address_Reference__c  != acc.Primary_Address_Reference__c || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Type__c != acc.Primary_Address_Reference__r.Address_Type__c
                 || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Province__c != acc.Primary_Address_Reference__r.Province__c ||
                     oldAccountmap.get(acc.id).Primary_Address_Reference__r.City__c  != acc.Primary_Address_Reference__r.City__c  ||
@@ -753,7 +775,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                     oldAccountmap.get(acc.id).Primary_Address_Reference__r.ZipCode__c  != acc.Primary_Address_Reference__r.ZipCode__c){
                     AccountIds.add(acc.id); 
                     persongroup9 = true;
-            }
+            }*/
             if(oldAccountmap.get(acc.id).Name != acc.Name || oldAccountmap.get(acc.id).Company_Name_Native_1__c != acc.Company_Name_Native_1__c){
                     AccountIds.add(acc.id);
                     companygroup1 = true;
@@ -828,9 +850,9 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                 if(persongroup10 == true){  
                     acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
                 }   
-                if(persongroup11 == true){  
+                /*if(persongroup11 == true){  
                     acclnk.Retail_Complaint_Amount__c = acclnk.toRole__r.Complaint_Amount__c ;
-                }              
+                }*/              
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company'){ 
@@ -871,7 +893,8 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                        
             //acclnk.Retail_UCID__c = acclnk.toRole__r.UCID__c;   
               //Checking Null for sales Address 
-            if(acclnk.toRole__r.Primary_Address_Reference__c != null && persongroup9 == True){ 
+            /*Commented as per Ogi's Comments, this will update from Address objcect
+			if(acclnk.toRole__r.Primary_Address_Reference__c != null && persongroup9 == True){ 
                     acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
                     if(addtrmap1.containsKey(acclnk.toRole__r.Primary_Address_Reference__r.Province__c) )
                     {
@@ -888,7 +911,8 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                     //acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
                     //acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
 
-                }//End if for Sales Address
+                }*/
+				//End if for Sales Address
             
             AccountlnkUpdate.add(acclnk); //Adding Account link to List  
             system.debug('AccountlnkUpdate--->'+AccountlnkUpdate);
@@ -1025,8 +1049,8 @@ if(usr.Profile.Name != 'IntegrationAPI'){
             for(Account acc : listAccounts){
                 if(acc.Company_Name__c != NUll && acc.recordtypeid == RDType){
                    String Company_Legal_Form;
-
-                   if (acc.Company_Legal_form__c != NULL )
+					// Changes related to SFDCJP-2623
+                   if (acc.Company_Legal_form__c != NULL && acc.Company_Legal_Form__c !='Others')
                     {
                      Company_Legal_Form= acc.Company_Legal_form__c;
                      }
@@ -1041,15 +1065,19 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                                            acc.name =  (acc.Company_Name__c!=null ?acc.Company_Name__c : '' );
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Pre') {
-                                        if(usr.LanguageLocaleKey == 'ja')
+                                       if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
+                                        {
                                             acc.name = (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form): '')  + (acc.Company_Name__c!= null ? acc.Company_Name__c : '');
-                                        else
+                                        }
+										else
                                            acc.name = (Company_Legal_Form != null?Company_Legal_Form:'' ) + (acc.Company_Name__c != null ?acc.Company_Name__c : '' );     
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Post'){
-                                        if(usr.LanguageLocaleKey == 'ja')
+                                       if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
+                                        {
                                             acc.name = (acc.Company_Name__c!= null ?acc.Company_Name__c : '' ) + (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form):'');
-                                        else
+										}                                       
+									   else
                                             acc.name = (acc.Company_Name__c != null ? acc.Company_Name__c : '') + (Company_Legal_Form != null ? Company_Legal_Form:'');    
                                     }
                                 
@@ -1082,7 +1110,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                 
                 
 
-       List<Account> accList =  [select id,Individual_Home_Phone__c,Primary_Address_Reference__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,End_Date__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r  where End_Date__c =null) From Account where id =:sid ];
+       List<Account> accList =  [select id,Individual_Home_Phone__c,Primary_Address_Display__c,Primary_Address_Reference__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,End_Date__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r  where End_Date__c =null) From Account where id =:sid ];
        
         system.debug('++++++++++++++'+accList);
        for(Account acc : accList){
@@ -1093,7 +1121,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                    
                    if (Velti.Vehicle_address_picklist__c == '--None--')
                     {
-                            Velti.Vehicle_mail__c = acc.Primary_Address_Reference__c;
+                            Velti.Vehicle_mail__c = acc.Primary_Address_Display__c;
                              
                     } 
                    

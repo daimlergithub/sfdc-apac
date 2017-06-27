@@ -90,7 +90,7 @@ public class shareAccountRecord
         }
         List<Group> grpLst = new List<Group>([select id, Name from Group where Name in: allDealerNdCode]);
         system.debug('grpLst>>>>' + grpLst);
-        if(!dealerAccIds.isEmpty() && dealerAccIds != null)
+        /*if(!dealerAccIds.isEmpty() && dealerAccIds != null)
         {
             gateKeeperList= [select Id, AccountId,contactId,Contact.AccountId from User where isActive = true and AccountId in :dealerAccIds and Contact.Dealer_Lead_Gate_Keeper__c = true];       
         }
@@ -114,7 +114,7 @@ public class shareAccountRecord
         {
             TriggerCaseTriggerHandlerKR.isFutureUpdate = true;
             update caseUpdLst;
-        }
+        }*/
         for(Case Cashre :lstCase)
         {
             if(grpLst.size()>0)

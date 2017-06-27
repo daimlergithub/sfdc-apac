@@ -4971,19 +4971,6 @@
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Campaign Member --></description>
-        <label><!-- Campaign Member --></label>
-        <name>Campaign_Member</name>
-        <sections>
-            <label><!-- Campaign Members --></label>
-            <name>Campaign Members</name>
-        </sections>
-        <sections>
-            <label><!-- Campaigns --></label>
-            <name>Campaigns</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description><!-- Campaign Report type-30-38 --></description>
         <label><!-- Campaign Report type-30-38 --></label>
         <name>Campaign_Report_type_30_38</name>

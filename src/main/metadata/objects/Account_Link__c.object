@@ -268,7 +268,7 @@
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
-IF(ISPICKVAL($User.Market__c, 'JP'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -847,6 +847,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>New Zealand</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thailand</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2929,7 +2937,39 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <picklistValues>
             <picklist>Retail_Race__c</picklist>
             <values>
+                <fullName>American</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laotian</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2937,7 +2977,35 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3165,7 +3233,39 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <picklistValues>
             <picklist>Retail_Race__c</picklist>
             <values>
+                <fullName>American</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laotian</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3173,7 +3273,35 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5600,7 +5728,7 @@ alert("{!$Label.DeleteretailcopyErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var r = confirm("Are you sure want to send information to Auto Line interface?");
+var r = confirm("{!$Label.Are_you_sure_want_to_send_information_to_Auto_Line_interface}");
 
 if(r == true)
 { 
@@ -5608,7 +5736,8 @@ var resultMsg=
 sforce.apex.execute("UtilWebservice","AccountLinkIfnoSendToAL",{RTCustomerId:"{!Account_Link__c.Id__c}",DealerID:"{!Account_Link__c.fromRoleId__c}",CorrelationId:"{!Account_Link__c.CorrelationID__c}"});
 if(resultMsg!=null)
 {
-alert("Successfully Sent Information to AutoLine");
+var alrt = '{!JSENCODE($Label.Successfully_Sent_Information_to_AutoLine)}'; 
+alert(alrt); 
 function updateAccountLink(){
 //Create a New Account and Set the Fields
 var accountlinkToUpdate = new sforce.SObject("Account_Link__c");
@@ -5636,7 +5765,8 @@ updateAccountLink();
 }
 else
 {
-alert("Web service callout failed");
+var alrt = '{!JSENCODE($Label.Web_service_callout_failed)}'; 
+alert(alrt); 
 }
 }</url>
     </webLinks>

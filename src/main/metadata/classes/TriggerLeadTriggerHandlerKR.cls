@@ -24,7 +24,7 @@ public class TriggerLeadTriggerHandlerKR
             } 
 			   //SFDCKR-1060
 			   LeadHelperJP.updateAssignedDealer(trigger.new, saleConIds);
-             //LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
+               LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
         }        
         if(isBefore && isUpdate)
         {

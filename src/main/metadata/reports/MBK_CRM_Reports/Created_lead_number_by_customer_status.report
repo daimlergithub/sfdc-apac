@@ -42,10 +42,10 @@
         <field>Lead__c.Customer_Type__c</field>
     </columns>
     <columns>
-        <field>Lead__c.Description__c</field>
-    </columns>
-    <columns>
         <field>Lead__c.R_Lead_Status__c</field>
+    </columns>	
+    <columns>
+        <field>Lead__c.Description__c</field>
     </columns>
     <description>Created lead number by customer status</description>
     <format>Summary</format>

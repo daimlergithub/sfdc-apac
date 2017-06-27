@@ -46,6 +46,49 @@ public with sharing class CampaignMembersCustomHelperJP {
     }
     
     
+    
+    Public static void addSalesCampaignMember(List<Campaign_Member__c> camMember){
+    
+       Set<id> campaignid = New Set<id>();
+       List<Campaign_Member__c> camList = New List<Campaign_Member__c>();
+       
+       For(Campaign_Member__c camMem : camMember){
+       
+              campaignid.add(camMem.Id);
+            
+            }
+            
+       List<Campaign_Member__c> camMemList =[Select id,Add_Sales_Staff__c,Add_Campaign_Member_ID__c,Add_Service_Staff__c,Campaign_ID__r.Add_Sales_Staff__c,Campaign_ID__r.Add_Service_Staff__c,Campaign_ID__r.Add_Campaign_Member_ID__c From Campaign_Member__c Where Id =:campaignid ]; 
+            
+       if(camMemList.size() >0){
+       
+           for(Campaign_Member__c cam : camMemList ){
+           
+            if(cam.Campaign_ID__r.Add_Sales_Staff__c == true){
+            
+                  cam.Add_Sales_Staff__c = true;
+            
+            }
+            if(cam.Campaign_ID__r.Add_Service_Staff__c == true){
+            
+                   cam.Add_Service_Staff__c = true;
+            
+            }
+            if(cam.Campaign_ID__r.Add_Campaign_Member_ID__c == true){
+            
+            
+                   cam.Add_Campaign_Member_ID__c = true;
+            }
+              
+              camList.add(cam); 
+           } 
+           
+           update camList;
+            
+      }       
+             
+    }
+    
     /*
      Added by : Lokesh 
      trigger : After Insert Campaign member
@@ -188,78 +231,6 @@ public with sharing class CampaignMembersCustomHelperJP {
             update listRetCamp;
     } 
          
-/* 
-            Dinesh
-            batch trigger for export set invalid flag
-            
-            */
-
-
-         Public static void batchbounce(List<Campaign_Member__c> campgnm)
-{
-   List<Account> accMainList = New List<Account>(); 
-   List<Address__c> AddNewList = New List<Address__c>();
-   
-     set<id> camAccount = new set<id>();
-     for(Campaign_Member__c camp : campgnm)
-                {
-             
-                        if(camp.Status__c =='Bounced')
-                        {                                   
-                                camAccount.add(camp.Contact_Id__c);
-                         }
-          system.debug('+++++++++++++ camp'+camp);
-                } 
-        
-         List<Account> addList = [Select Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Status__c ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: camAccount];
-        
-        For(Account acc : addList )
-        {
-            
-             for(Campaign_Member__c campCheck : campgnm)
-                {
-            
-                        if(acc.Email_Last_Modified_Date__c < campCheck.Campaign_ID__r.Execution_Start_Date__c)
-                        {
-                            acc.Email_Status__c = 'Invalid';
-                
-                        }
-                        if(acc.SMS_Last_Modified_Date__c < campCheck.Campaign_ID__r.Execution_Start_Date__c)
-                        {
-                                acc.Mobile_Status__c = 'Invalid';
-             
-                        }
-                        
-                        }
-						
-                
-              For(Address__c add : acc.Addresses__r )
-             
-               {
-                 system.debug('++++++++++'+acc.Addresses__r);
-                
-                     
-                     add.Status__c = 'Dead Mail';
-                                
-                   AddNewList.add(add);                   
-               }
-               
-            
-              accMainList.add(acc); 
-              System.debug('++++++++++'+acc);  
-              System.debug('++++++++++'+acc.Email_Status__c);
-              System.debug('++++++++++'+acc.Mobile_Status__c);
-                        
-              }  
-              
-              System.debug('++++++++++'+accMainList); 
-                                 
-        update accMainList;
-        update AddNewList;       
-        
-        
-    }
-   
     
     public static void beforeDeleteOperation(List<Campaign_Member__c> oldList) {
         List<String> CHILD_CAMPAIGN_STATUS_LIST = new List<String> {'Execution', 'Response collection', 'Completed'};

@@ -84,6 +84,7 @@ public class SendAccountInfoToSPO {
     if((Acc.Warranty_Apply_Status__c ==null) || (Acc.Warranty_Apply_Status__c=='none') )
     {
     acc.Warranty_Apply_Status__c='To be Sent';
+	acc.Warranty_Apply_Date__c=System.today();
     Accupdate.put(acc.id,acc);
      System.debug('acc Accupdate'+Accupdate);
     }

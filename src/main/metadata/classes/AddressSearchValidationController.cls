@@ -72,11 +72,16 @@ public class AddressSearchValidationController
     public String hmphoneNumber{get;set;}
     public String wkCountryCode{get;set;}
     public String wkphoneNumber{get;set;}
+    public String faxCountryCode{get;set;}
+    public String faxphoneNumber{get;set;}
     Public User u{get;set;}
     
     // COnstructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
+        
+        Public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+        public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
     
         public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
@@ -113,6 +118,7 @@ public class AddressSearchValidationController
             mbCountryCode='+66';
             hmCountryCode='+66';
             wkCountryCode='+66';
+            faxCountryCode='+66';
         }
         else
         {
@@ -131,7 +137,7 @@ public class AddressSearchValidationController
         else{
             try{
                 if(UserInfo.getLocale()=='ja_JP')
-                  AddressOptions.add(new SelectOption('--None--','--なし--'));
+                  AddressOptions.add(new SelectOption('--None--',System.label.None));
                 else
                   AddressOptions.add(new SelectOption('--None--','--None--'));  
                 Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
@@ -572,6 +578,10 @@ public class AddressSearchValidationController
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {
                         refreshPage = true;
+                        if(TouchPoint !=null)
+                        {
+                        objAccount.Data_Source__c=TouchPoint;
+                        }
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
@@ -726,6 +736,14 @@ public class AddressSearchValidationController
                         system.debug('Validation1:'+Validation );
                         if(Validation == false){
                              system.debug('refreshPage 2:'+refreshPage );
+                      if(TouchPoint !=null)
+                        {
+                        objPersonAccount.Data_Source__c=TouchPoint;
+                        } 
+                        if(objPersonAccount.Acquisition_Objective_Method__c !=null && objPersonAccount.Allow_Data_Sharing2__c =='Yes')
+                        {
+                        objPersonAccount.Acquisition_Record_Date__c=System.today();
+                        }
                             upsert objPersonAccount ;
                             if(AddressObj !=null && (Address_Validated_Flag )){
                                 AddressObj.Customer__c = objPersonAccount.id;
@@ -763,7 +781,21 @@ public class AddressSearchValidationController
     public void selectedRecordTypeValue()
     {
         resetPhoneAreacodes();
-        selectedRecordType = recordType;        
+        selectedRecordType = recordType;       
+   // Added by Venky changes related to SFDCJP-2505
+    u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        market = u.Market__c;
+        
+        if(market == Label.JP){
+        if(u.ContactId !=null && selectedRecordType   =='Company')
+        {
+        TouchPoint=Label.Others; 
+        } 
+        if(u.ContactId !=null && selectedRecordType   =='Person Account')
+        {
+        TouchPoint=Label.Dealer_Outlet; 
+        }  
+    }       
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -780,7 +812,14 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
             AddressObj.Block__c = '';
             AddressObj.City__c = '';
             AddressObj.District__c = '';
-            AddressObj.Province__c = '';           
+            AddressObj.Province__c = '';  
+            AddressObj.Block_Native__c = '';      
+            AddressObj.City_Native__c = '';        
+            AddressObj.Province_Native__c ='';        
+            AddressObj.District_Native__c = '';        
+            AddressObj.Address_Line_1_Native__c = '';        
+            AddressObj.Address_Line_2_Native__c = '';
+            
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
         }       
         if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_1__c !=null || AddressObj.Block__c != null || AddressObj.City__c != null ||
@@ -824,7 +863,37 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
                     if(ValidStr.contains('Province__c'))
                     {
                         AddressObj.Province__c = response.Addresses[0].Province;                       
-                    }                   
+                    }  
+                      if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Block_Native__c= response.Addresses[0].Block_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + AddressObj.Block_Native__c);
+                    }
+                      if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.City_Native__c= response.Addresses[0].City_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + AddressObj.City_Native__c);
+                    }
+                       if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.District_Native__c= response.Addresses[0].District_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + AddressObj.District_Native__c);
+                    } 
+                    if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Province_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + AddressObj.Province_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_1_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObj.Address_Line_1_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_2_Native__c= response.Addresses[0].Address_Line_2_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObj.Address_Line_2_Native__c);
+                    }
                 }
             }
             if(response != null && response.ValidationStatus == 'ERROR')
@@ -836,6 +905,12 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
                 AddressObj.City__c = '';
                 AddressObj.District__c = '';
                 AddressObj.Province__c = '';
+                AddressObj.Block_Native__c = '';      
+                AddressObj.City_Native__c = '';        
+                AddressObj.Province_Native__c ='';        
+                AddressObj.District_Native__c = '';        
+                AddressObj.Address_Line_1_Native__c = '';        
+                AddressObj.Address_Line_2_Native__c = '';
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));               
             }
         }       
@@ -896,7 +971,13 @@ EP/Tolerant for Validation.
                 AddressObj.City__c = '';
                 AddressObj.District__c = '';
                 AddressObj.Province__c = ''; 
-                AddressObj.MD__c ='';         
+                AddressObj.MD__c ='';
+                AddressObj.Block_Native__c = '';      
+                AddressObj.City_Native__c = '';        
+                AddressObj.Province_Native__c ='';        
+                AddressObj.District_Native__c = '';        
+                AddressObj.Address_Line_1_Native__c = '';        
+                AddressObj.Address_Line_2_Native__c = '';
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
             }
             if(AddressObj.ZipCode__c != null){
@@ -992,9 +1073,41 @@ EP/Tolerant for Validation.
                         AddressObjtemp.Province__c = response.Addresses[i].Province;
                         system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
                     }
+                    if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Block_Native__c= response.Addresses[0].Block_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + AddressObj.Block_Native__c);
+                    }
+                    if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.City_Native__c= response.Addresses[0].City_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + AddressObj.City_Native__c);
+                    }
+                       if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.District_Native__c= response.Addresses[0].District_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + AddressObj.District_Native__c);
+                    } 
+                    if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Province_Native__c= response.Addresses[0].Province_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + AddressObj.Province_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_1_Native__c= response.Addresses[0].Address_Line_1_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObj.Address_Line_1_Native__c);
+                    }
+                     if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_2_Native__c= response.Addresses[0].Address_Line_2_Native;
+                       system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObj.Address_Line_2_Native__c);
+                    }
                    mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));  
                 }
                 else if(!response.Addresses[i].Valid){
+                
+                System.debug('^&^&^&^&^&^&^&^&^&^ valid venky'+response.Addresses[i].Valid);
                     string province;  
                     Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
                     UtilAddressTranslation.gettranslatedvalues(Market);
@@ -1015,6 +1128,12 @@ EP/Tolerant for Validation.
                     AddressObj.District__c = '';
                     AddressObj.Province__c = '';
                     AddressObj.ZipCode__C = '';  
+                    AddressObj.Block_Native__c = '';      
+                    AddressObj.City_Native__c = '';        
+                    AddressObj.Province_Native__c ='';        
+                    AddressObj.District_Native__c = '';        
+                    AddressObj.Address_Line_1_Native__c = '';        
+                    AddressObj.Address_Line_2_Native__c = '';
                     //mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));                  
                 }
             }           
@@ -1028,6 +1147,12 @@ EP/Tolerant for Validation.
             AddressObj.City__c = '';
             AddressObj.District__c = '';
             AddressObj.Province__c = '';
+            AddressObj.Block_Native__c = '';      
+            AddressObj.City_Native__c = '';        
+            AddressObj.Province_Native__c ='';        
+            AddressObj.District_Native__c = '';        
+            AddressObj.Address_Line_1_Native__c = '';        
+            AddressObj.Address_Line_2_Native__c = '';
             AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
             AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
                     ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
@@ -1165,7 +1290,22 @@ If the user is Saving  same address which matches the fields returned by toleran
            return options;
     }
      
-    public void onLineDeduplication(){  
+    public void onLineDeduplication(){ 
+        if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
+        { 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.LastName_and_TouchPoint_fileds_are_mandatory));
+        }
+        else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
+        { 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.LastName_is_mandatory));
+        }
+        
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Name == NULL||String.isBlank(objAccount.Name)))
+        {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.Account_Name_is_mandatory));
+        }
+        else
+        {
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1182,8 +1322,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
            
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1283,31 +1423,41 @@ If the user is Saving  same address which matches the fields returned by toleran
                     //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
-                        provincetmp = provincetmp.toLowerCase();
+                    {   
+                        string provincetmp;
+                        String[] s;
+                        String x,y,finalstring;
+                        if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc != null)
+                        {
+                            provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                            provincetmp = provincetmp.toLowerCase();
+                        }
                         
                         //provincetmp = provincetmp.subString(0,1).toUpperCase();
                         Integer     i=0;
                         List<String> newString =  new List<String>();
-                        String[] s= provincetmp.split(' ');
-                        String x,y,finalstring;
-                        for(String str  : s)
-                        {
-                            i=str.length();
-                            //String x,y,finalstring;
-                            x= str.substring(0,1).toUpperCase();
-                            y= str.substring(1,i) ;
-                            finalstring = x + y  ;
-                            newString.add(finalstring);
-                        }                        
-                        provincetmp = String.valueOf(finalstring);
-                        provincetmp  =provincetmp.replace(',','');
-                      
-                        
-                       // province1 = addtrmapUpdate1.get(provincetmp);
-                        if(addtrmapUpdate1.containsKey(provincetmp)){
-                            province1 = addtrmapUpdate1.get(provincetmp);
-                            system.debug('province1 2:'+province1);
+                        if(provincetmp != null && provincetmp != '')
+                       {
+                            s= provincetmp.split(' ');
+                            for(String str  : s)
+                            {
+                                i=str.length();
+                                //String x,y,finalstring;
+                                x= str.substring(0,1).toUpperCase();
+                                y= str.substring(1,i) ;
+                                finalstring = x + y  ;
+                                newString.add(finalstring);
+                            }                        
+                            provincetmp = String.valueOf(finalstring);
+                            provincetmp  =provincetmp.replace(',','');
+                          
+                            
+                           // province1 = addtrmapUpdate1.get(provincetmp);
+                            if(addtrmapUpdate1.containsKey(provincetmp))
+                            {
+                                province1 = addtrmapUpdate1.get(provincetmp);
+                                system.debug('province1 2:'+province1);
+                            }
                         }
                         system.debug('province1 3:'+province1);
                         AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
@@ -1351,8 +1501,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response >>'+response );
            
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1543,19 +1693,187 @@ If the user is Saving  same address which matches the fields returned by toleran
         firstsave = true;       
         secondsave = false;         
     }
+    }
    //Introduced for TH Market
    //Updated for CR#89 - Phone Number Format
     public void onLineDeduplicationTH(){  
-        objAccountDeDup= new Account();
-        List<Account>   lstAcc = New List<Account>();    
+       objAccountDeDup= new Account();
+        Map<String, String> addtrmapUpdate1 = UtilAddressTranslation.addtrmap;
+        List<Account>   lstAcc = New List<Account>();
         List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType> listmess=new List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType>();
-        
+        String province1;        
         if(objAccount.LastName !=null ) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
-           
-            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            if(recordType !=null && recordType=='Company')
+            {
+                objAccount.Recordtypeid=companyRecordTypeId;
+            }            
+            if(recordType !=null && recordType== 'Person Account')
+            {             
+                objAccount.Recordtypeid=PersonAccountRecordTypeID ;
+            }
+            if(market == System.Label.TH)
+            {
+                if(hmCountryCode!= '' && hmphoneNumber!='')
+                {                      
+                    objAccount.Individual_Home_Phone__c =hmCountryCode+ hmphoneNumber;
+                }
+                else
+                {
+                    objAccount.Individual_Home_Phone__c = '';
+                }
+                if(wkCountryCode!='' && wkphoneNumber!= '')
+                {                         
+                    objAccount.Work_Phone__c = wkCountryCode+ wkphoneNumber;
+                }
+                else
+                {
+                    objAccount.Work_Phone__c = '';
+                }
+                if(mbCountryCode!='' && mbphoneNumber!= '')
+                {              
+                    objAccount.Mobile__c=mbCountryCode+ mbphoneNumber;
+                }
+                else
+                {
+                    objAccount.Mobile__c = '';
+                }   
+                if(faxCountryCode!='' && faxphoneNumber!= '')
+                {              
+                    objAccount.fax=faxCountryCode+ faxphoneNumber;
+                }
+                else
+                {
+                    objAccount.fax = '';
+                }    
+                if(province!='' && province!='--Select--')
+                    AddressObj.Province__c=province;
+                if(district!='' && district!='--Select--')
+                    AddressObj.District__c=district;
+                if(subdistrict!='' && subdistrict!='--Select--')
+                    AddressObj.Sub_District__c=subdistrict;
+                if(zip!='' && zip!='--Select--')
+                    AddressObj.ZipCode__c=zip;
+            }
+             system.debug('@@@'+objAccount);
+             system.debug('@@@'+AddressObj);             
+           Address__c NewAdd=new Address__c();
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.LastName!=null)
+            {              
+              system.debug('@@@In');
+              response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
+              system.debug('@@@In'+response);
+            }
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
+            {              
+               system.debug('@@@In');
+              response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
+              system.debug('@@@In'+response);
+            }
+            if(AddressObj.Address_Type__c==null)
+            {
+                system.debug('@@@In'+objAccount.LastName);
+                if(objAccount.LastName !=null)
+                {
+                    system.debug('@@@In');
+                    response =  UtilWebservice.validateCustomerDetails(objAccount); 
+                    system.debug('@@@In'+response);
+                }            
+                 
+                 if(objAccount.Name !=null)
+                {                
+                    response =  UtilWebservice.validateCustomerDetails(objAccount); 
+                }
+            }        
+            if(response != null){
+                if(response.CustomerIdentificationResponseMessage!=null && objAccount.LastName !=null)
+                {
+                show = true;
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
+                    {
+                        objAccountDeDup.Lastname=response.CustomerIdentificationResponseMessage[0].Customer.Lastname;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Firstname !=null)
+                    {
+                        objAccountDeDup.Firstname=response.CustomerIdentificationResponseMessage[0].Customer.Firstname;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                    {
+                        objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
+                    }                     
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
+                    {   
+                        objAccountDeDup.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    {
+                        objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    }
+                    
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
+                    {   
+                        string provincetmp;
+                        String[] s;
+                        String x,y,finalstring;
+                        if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc != null)
+                        {
+                            provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                            provincetmp = provincetmp.toLowerCase();
+                        }
+                        Integer     i=0;
+                        List<String> newString =  new List<String>();
+                        if(provincetmp != null && provincetmp != '')
+                                   {
+                          s= provincetmp.split(' ');
+                          for(String str  : s)
+                          {
+                            i=str.length();                         
+                            x= str.substring(0,1).toUpperCase();
+                            y= str.substring(1,i) ;
+                            finalstring = x + y  ;
+                            newString.add(finalstring);
+                          }                        
+                          provincetmp = String.valueOf(finalstring);
+                          provincetmp  =provincetmp.replace(',','');
+                          if(addtrmapUpdate1.containsKey(provincetmp))
+                          {
+                            province1 = addtrmapUpdate1.get(provincetmp);
+                            system.debug('province1 2:'+province1);
+                          }
+                        }                                   
+                        AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                        AddressDetails = AddressDetails.replace('null',' ');
+                   }
+                }
+                show = true;
+                if(response.CustomerIdentificationResponseMessage ==null)
+                {
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                }
+                lstAcc = [Select Name,MD__c,DMS_Customer_ID__c,Company_Name__c,FirstName,LastName,Phone ,Email__c,
+                          Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c,PersonHasOptedOutOfEmail,
+                          PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,PersonDoNotCall,Postal_Opt_Out__c,
+                          Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
+                          Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
+                          UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
+                          PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
+                          From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
+                 
+                cResult = lstAcc;
+            }
+            if(response == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
+            }
+        }
+        if(objAccount.Name !=null) 
+        {
+            crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
+            companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -1589,32 +1907,36 @@ If the user is Saving  same address which matches the fields returned by toleran
                 else
                 {
                     objAccount.Mobile__c = '';
-                }               
-            }            
-             Address__c NewAdd=new Address__c();
-            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
-            {
-                AddressObj.Address_Type__c = addresspicklist;
-                response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
+                }    
+                 if(faxCountryCode!='' && faxphoneNumber!= '')
+                {              
+                    objAccount.fax=faxCountryCode+ faxphoneNumber;
+                }
+                else
+                {
+                    objAccount.fax = '';
+                }    
+                if(province!='' && province!='--Select--')
+                    AddressObj.Province__c=province;
+                if(district!='' && district!='--Select--')
+                    AddressObj.District__c=district;
+                if(subdistrict!='' && subdistrict!='--Select--')
+                    AddressObj.Sub_District__c=subdistrict;
+                if(zip!='' && zip!='--Select--')
+                    AddressObj.ZipCode__c=zip;               
             }
-            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
-            {
-                AddressObj.Address_Type__c = addresspicklist;
+            
+            Address__c NewAdd=new Address__c();
+            
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
+            { 
                 response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
             }
-             if(AddressObj == NewAdd)
+            system.debug('AddressObj :'+AddressObj);
+            system.debug('NewAdd :'+NewAdd);
+            if(AddressObj.Address_Type__c==null)
             {
-                if(objPersonAccount.LastName !=null)
-                {
-                    response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
-                }
-                 
-                 //@Venky:Added Below if condition Changes related to SFDCJP-995
-                 if(objAccount.Name !=null)
-                {
-                    System.debug('objAccount &**&*&**&**&*&*'+objAccount );
-                    response =  UtilWebservice.validateCustomerDetails(objAccount); 
-                }
+                response =  UtilWebservice.validateCustomerDetails(objAccount); 
             }
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null)
@@ -1630,8 +1952,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
-                    }                    
-                     
+                    }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
                     {   
                         objAccountDeDup.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
@@ -1640,31 +1961,93 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     }
-                   
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
+                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                        provincetmp = provincetmp.toLowerCase();
+                        
+                        Integer     i=0;
+                        List<String> newString =  new List<String>();
+                        String[] s= provincetmp.split(' ');
+                        String x,y,finalstring;
+                        for(String str  : s)
+                        {
+                            i=str.length();
+                            //String x,y,finalstring;
+                            x= str.substring(0,1).toUpperCase();
+                            y= str.substring(1,i) ;
+                            finalstring = x + y  ;
+                            newString.add(finalstring);
+                        }                        
+                        provincetmp = String.valueOf(finalstring);
+                        provincetmp  =provincetmp.replace(',','');
+                      
+                        if(addtrmapUpdate1.containsKey(provincetmp)){
+                            province1 = addtrmapUpdate1.get(provincetmp);
+                            system.debug('province1 2:'+province1);
+                        }
+                        system.debug('province1 3:'+province1);
+                        AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                        
+                        AddressDetails = AddressDetails.replace('null',' ');
+                   }
+                }
+                
+                if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null)
+                {                    
+                CompanyConfirmedMatch=true;
+                     
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                    {
+                        objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
+                    } 
+                     if(response.CustomerIdentificationResponseMessage[0].Customer.Name!=null)
+                    {
+                        objAccountDeDup.Name=response.CustomerIdentificationResponseMessage[0].Customer.Name;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
+                    {
+                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
+                    {   
+                        objAccountDeDup.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    {
+                        objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    }
+                    
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
                     {   
                         AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }
-                show = true;
+                
+                
                 if(response.CustomerIdentificationResponseMessage ==null)
                 {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
-                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName];// and FirstName =: objPersonAccount.FirstName];
-                 
-                cResult = lstAcc;  
+                
+                lstAcc = [Select Name,MD__c,DMS_Customer_ID__c,Company_Name__c,FirstName,LastName,Phone ,Email__c,
+                          Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c,PersonHasOptedOutOfEmail,
+                          PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,PersonDoNotCall,Postal_Opt_Out__c,
+                          Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
+                          Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
+                          UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
+                          PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,
+                          Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
+                          From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
+                cResult = lstAcc;                 
             }
             if(response == null)
             {
-                
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found+objAccountDeDup));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
-            //objAccountDeDup=[select LastName,FirstName,Id,vin__c,Email__c,Mobile__c,Dealer_Address_EN__c from Account limit 1];
-        }
-        firstsave = true;  
-        secondsave = false;     
+        }       
+        firstsave = true;       
+        secondsave = false;        
     }
     
     
@@ -1834,7 +2217,25 @@ If the user is Saving  same address which matches the fields returned by toleran
                       {             
                              objAccount.Mobile__c='';
                       } 
-                             
+                           if
+                      (
+                          (String.isBlank(faxphoneNumber)) &&
+                          (String.isBlank(faxCountryCode))
+                      )
+                      
+                      {              
+                               objAccount.fax='';
+                      }
+                      else if(faxCountryCode!='' && faxphoneNumber!='' && faxphoneNumber!=null)
+                      {     
+                        if(faxphoneNumber.startsWith('0'))
+                            faxphoneNumber=faxphoneNumber.removeStart('0');
+                               objAccount.fax=faxCountryCode+faxphoneNumber;
+                      }        
+                      else
+                      {             
+                             objAccount.fax='';
+                      }                           
                     if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }                   

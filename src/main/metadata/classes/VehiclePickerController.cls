@@ -478,6 +478,9 @@ global with sharing class VehiclePickerController {
                 
             }            
         }
+
+          
+                    
         if(vehicleAttributes.get('Lookup') == 'true'){
            System.debug('Vehicle Type is Interested Vehicle...' +vehicleAttributes);
            Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
@@ -505,5 +508,51 @@ global with sharing class VehiclePickerController {
     
     public class BrandClasses{
         public Map<String, String> name {get;set;}
+    }
+    
+    global static void converttoleadMethod(id ledid,string intmodel){
+                if(ledid!=null){
+                List<Car_Model__c> carModel;
+                Vehicle__c leadVehicle = new vehicle__c();
+                Vehicle__c leadVehicle1 = new vehicle__c();
+                Lead__c lead = [Select Id,Trade_In_Vehicle__c,Interested_Vehicle__c from Lead__c Where Id =:ledid];
+                
+                if(lead.Trade_In_Vehicle__c!=null){
+                Vehicle__c trv=[select id,Brand__c,Class__c,Name,Model__c from Vehicle__c where id=:lead.Trade_In_Vehicle__c];
+                carModel = [Select Id from Car_Model__c Where Brand__c =:trv.Brand__c AND Series__c =:trv.Class__c AND Name =:trv.Model__c ORDER BY CreatedDate ASC NULLS LAST];
+                leadVehicle.Car_Model__c = carModel[0].Id;
+                 
+                    leadVehicle.Id =  lead.Trade_In_Vehicle__c;
+                    leadVehicle.Car_Model__c = carModel[0].Id;
+                          
+                    update leadVehicle;
+                    lead.Trade_In_Vehicle__c = leadVehicle.Id;
+                    update lead;
+                    }
+                    if(intmodel != null){
+                    system.debug('intmodel'+intmodel);
+                    try{
+                   
+                    carModel = [select id,Brand__c,Series__c,Name,Model__c,Colour__c,Trim__c from Car_Model__c Where Model_Code__c=:intmodel and Status__c='Own Sellable' ORDER BY CreatedDate ASC NULLS LAST];
+                    system.debug('carModel'+carModel);
+                    Id rec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c','Vehicle Product');
+                    System.debug('Rec_Id :' +rec_Id);
+                    leadVehicle1.RecordTypeId = rec_Id;
+                    leadVehicle1.Car_Model__c = carModel[0].Id;
+                    leadVehicle1.Brand__c=carModel[0].Brand__c;
+                    leadVehicle1.Class__c=carModel[0].Series__c;
+                    leadVehicle1.Colour__c=carModel[0].Colour__c;
+                    leadVehicle1.Trim__c =carModel[0].Trim__c;
+                    leadVehicle1.Model_Description__c =carModel[0].Name;
+                    insert leadVehicle1;
+                    
+                    lead.Interested_Vehicle__c= leadVehicle1.Id;
+                    update lead;
+                    }catch(Exception e){
+                    
+                    }
+                    }
+                 }    
+            
     }
 }

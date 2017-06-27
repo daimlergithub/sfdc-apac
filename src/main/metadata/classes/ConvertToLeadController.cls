@@ -10,17 +10,22 @@ public with sharing class ConvertToLeadController {
     
     private final String campaignId = ApexPages.currentPage().getParameters().get('CampaignId');
     public String leadRT {get; set;}
+    public String interstmodel {get; set;}
+    public String leadRT1 {get; set;}
     public List<CampaignMemberInfo> campaignMembers {get; set;}
     private String leadRTId {get; set;}
+    private String leadRTId1 {get; set;}
+    List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
     @testvisible private String objectAPIName;
     
     public ConvertToLeadController() {
         leadRT = 'Sales Leads';
+        leadRT1 ='Aftersales Leads';
         leadRTId = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :leadRT].id;
-        
+        leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :leadRT1].id;
         if(String.isNotBlank(campaignId)) {
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId, Contact_Id__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            String query = 'SELECT Name, Campaign_ID__r.OwnerId,UsVIN__c,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
             query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND ';
             
             if(objectAPIName == 'Campaign') {
@@ -71,17 +76,29 @@ public with sharing class ConvertToLeadController {
                 if(duplicateLeadRec.Id == null){
                     if(objectAPIName == 'Campaign') {
                         leadListToInsert.add(setLeadRecordFields(campaignId, campaignMemberObj.campaignMember));
+                        camIdCamMemMap.add(campaignMemberObj.campaignMember);
                     } else if(objectAPIName == 'Retail_Campaign__c') {
                         leadListToInsert.add(setLeadRecordFields(campaignId, campaignMemberObj.campaignMember));
+                        camIdCamMemMap.add(campaignMemberObj.campaignMember);
                     }
                 } else {
                     leadList.add(duplicateLeadRec);
                 }
+                system.debug('leadListtttttttttttttttttt'+leadListToInsert);
             }
         }
         
         if(leadListToInsert.size() > 0) {
             insert leadListToInsert;
+            system.debug('leadListToInsert'+leadListToInsert);
+            for(lead__c leadlst:leadListToInsert){
+            try{
+            system.debug('interstmodel--'+interstmodel);
+             VehiclePickerController.converttoleadMethod(leadlst.id,camIdCamMemMap.get(0).Interested_Model__c);
+             camIdCamMemMap.remove(0);
+             }catch(Exception e){}
+             }
+             system.debug('afterrrrrrrrrrrrrrrrrrrrrrr');
         }
         insertCampaignLeadRecords(leadListToInsert, leadList);
         return new PageReference('/' + campaignId);
@@ -104,7 +121,9 @@ public with sharing class ConvertToLeadController {
     }
     @testvisible
     private Lead__c setLeadRecordFields(String campaignId, Campaign_Member__c campaignMember) {
-        Lead__c leadRec = new Lead__c(RecordTypeId = leadRTId);
+    
+        Lead__c leadRec = new Lead__c();
+        system.debug('CM!11'+campaignMember.Campaign_ID__r.parent.Campaign_Type__c);
         leadRec.CAC_Lead_Status__c = 'New';
         if(objectAPIName == 'Campaign') {
             leadRec.Source_Campaign__c = campaignId;
@@ -113,13 +132,42 @@ public with sharing class ConvertToLeadController {
             leadRec.Retail_Campaign_Name__c = campaignId;
             leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
         } 
+       
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
         leadRec.Lead_Sub_Type__c = campaignMember.Lead_Sub_Type__c;
+        leadRec.Existing_Contract__c=campaignMember.Contract__c;
         leadRec.Interested_Vehicle_Model__c = campaignMember.Interested_Model__c;
+        leadRec.Assigned_Dealer__c=campaignMember.Preferred_Dealer__c;
+        leadRec.Finance_Product_Name__c=campaignMember.Finance_Product__c;
+        leadRec.Finance_Contract_Term__c=campaignMember.Term__c;
+        leadRec.Finance_Monthly_Payment__c=campaignMember.Monthly_Payment__c;
+        leadRec.Finance_Interest_Rate__c=campaignMember.Interest_Rate__c;
+        leadRec.Finance_RV_Ballon__c=campaignMember.RV_Ballon__c;
+        leadRec.Finance_Total_V_Price_NoTax__c=campaignMember.Total_Vehicle_Price_without_tax__c;
+        leadRec.Finance_Total_V_Price_Tax__c=campaignMember.Total_Vehicle_Price_with_tax__c;
+        leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
+        leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
         
-        if(leadRTId != null) {
+        leadRec.Lead_DataSource__c='Campaign';
+        leadRec.UsVIN__c=campaignMember.UsVIN__c;
+        
+        if(leadRTId1 != null && ((campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales'))) {
+            leadRec.RecordTypeId = leadRTId1;
+            leadRec.AfterSales_Vehicle__c=campaignMember.Vehicle__c;
+        }else if(leadRTId != null && campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
+        {
             leadRec.RecordTypeId = leadRTId;
+        }
+        if(campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
+        {
+           leadRec.Trade_In_Vehicle__c=campaignMember.Vehicle__c;
+        }
+        if(campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
+        {
+          leadRec.Cross_Point_Model__c=campaignMember.Cross_Point_Model__c;
+          interstmodel=campaignMember.Interested_Model__c;
+          system.debug('interstmodecccccl---'+interstmodel);
         }
         return leadRec;
     }

@@ -1333,14 +1333,10 @@
     <tab>Account_Link__c</tab>
     <tab>standard-Knowledge</tab>
     <tab>standard-KnowledgePublishing</tab>
-    <tab>Campaign_Member__c</tab>
     <workspaceMappings>
         <mapping>
             <fieldName>fromRole__c</fieldName>
             <tab>Account_Link__c</tab>
-        </mapping>
-        <mapping>
-            <tab>Campaign_Member__c</tab>
         </mapping>
         <mapping>
             <fieldName>Car_Model__c</fieldName>

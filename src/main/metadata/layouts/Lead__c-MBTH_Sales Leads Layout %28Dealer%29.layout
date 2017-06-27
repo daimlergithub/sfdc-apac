@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Convert_Lead</customButtons>
     <customButtons>New_Task</customButtons>
     <customButtons>Print_PDF</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
@@ -37,10 +36,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Dealer_Lead_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Purchased_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -85,6 +80,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle_Need__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CAC_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -135,6 +134,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Preferred_Rep__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Current_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -225,7 +228,7 @@
                 <field>Lost_CAC_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>CAC_Lost_Reason__c</field>
             </layoutItems>
             <layoutItems>
@@ -771,7 +774,7 @@
         <label>Lost Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Dealer_Lost_Reason__c</field>
             </layoutItems>
             <layoutItems>
@@ -861,7 +864,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0k000000RGQ1</masterLabel>
+        <masterLabel>00h0k000000Ecf6</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

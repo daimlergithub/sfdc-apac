@@ -8,28 +8,28 @@
     <apex:form >
             <apex:pagemessages ></apex:pagemessages>
 
-        <apex:pageBlock title="Customer My Mercedes Interface Customer" id="a">
+        <apex:pageBlock title="{!$Label.Customer_My_Mercedes_Interface_Customer}" id="a">
            <!-- <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> -->
                 <apex:pageblockButtons location="bottom">
-                     <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}" Onclick="if(!confirm('Did you get the agreement from customer?')){return false};"/>
-                     <apex:commandButton action="{!savepop}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}" Onclick="if(!confirm('Did you get the agreement from customer?')){return false};"/><!-- oncomplete="myfunction();"/>-->
-                     <apex:commandButton action="{!createContractSector}" value="Create ContactSector" disabled="{!ContactSectorvar}" Onclick="if(!confirm('Did you get the agreement from customer?')){return false};"/>
-                     <apex:commandButton action="{!cancel}" value="Cancel"/>
+                     <apex:commandButton action="{!mymercnew}" value="{!$Label.MyMercedes_New_Registration}" disabled="{!MyMercVar}" Onclick="if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};"/>
+                     <apex:commandButton action="{!savepop}" value="{!$Label.MyMercedes_Email_ID_Edit}" disabled="{!MyMercEmailVar}" Onclick="if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};"/><!-- oncomplete="myfunction();"/>-->
+                     <apex:commandButton action="{!createContractSector}" value="{!$Label.Create_ContactSector}" disabled="{!ContactSectorvar}" Onclick="if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};"/>
+                     <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}"/>
                 </apex:pageblockButtons>
                   
-                <apex:pageBlockSection title="Select Your Preferred Email Id For Customer" columns="1">
+                <apex:pageBlockSection title="{!$Label.Select_Your_Prefered_Email_Id_For_Customer}" columns="1">
                     <apex:pageblockTable value="{!accl[0]}" var="ac">
-                        <apex:column value="{!ac.toRole__c}" headerValue="Account Name"/>
-                        <apex:column headerValue="My Mercedes Id" value="{!myMercId}"/>
-                        <apex:column headerValue="My Mercedes Email Id">
+                        <apex:column value="{!ac.toRole__c}" headerValue="{!$Label.AccountName}"/>
+                        <apex:column headerValue="{!$Label.My_Mercedes_ID}" value="{!myMercId}"/>
+                        <apex:column headerValue="{!$Label.My_Mercedes_Email_Id}">
                         <apex:inputText value="{!MyMercEmail}"/>
                         </apex:column>
                         <apex:column >
-                            <apex:commandLink value="Emails" action="{!showPopup}">
+                            <apex:commandLink value="{!$Label.Emails}" action="{!showPopup}">
                                  <apex:param name="recordID" value="{!ac.ID}"/>
                             </apex:commandLink>
                         </apex:column>
-                        <apex:column headerValue="Outlet Registered To MyMercedes" value="{!RegOutlet}"/>
+                        <apex:column headerValue="{!$Label.Outlet_Registered_To_MyMercedes}" value="{!RegOutlet}"/>
                     </apex:pageblockTable>
                     <apex:outputPanel id="one">
                         <apex:repeat value="{!aLink}" var="eachWrap">
@@ -40,18 +40,18 @@
                                        <table width="100%">
                                            <tr>
                                                <td width="25">
-                                                   <apex:outputtext value="{!eachWrap.toRole__r.Email__c}" label="Email" />
+                                                   <apex:outputtext value="{!eachWrap.toRole__r.Email__c}" label="{!$Label.Email}" />
                                                </td>
                                            </tr>
                                            <tr>
                                                <td width="25">
-                                                     <apex:outputtext value="{!eachWrap.toRole__r.Email2__c}" label="Email2" />
+                                                     <apex:outputtext value="{!eachWrap.toRole__r.Email2__c}" label="{!$Label.Email2}" />
                                                </td>
                                            </tr>
                                        </table>
                                     </apex:pageblockSection>
                                         <!--<apex:commandButton value="Save" action="{!savepop}"/>-->
-                                        <apex:commandButton value="Close" action="{!closePopup}" rerender="one"/>
+                                        <apex:commandButton value="{!$Label.Closee}" action="{!closePopup}" rerender="one"/>
                                 </apex:outputPanel>
                             </apex:outputPanel>
                         </apex:repeat>
@@ -63,7 +63,8 @@
     <script>
         function myfunction()
         {
-            alert('Records updated');
+        var alrt = '{!($Label.Records_Updated)}';
+        alert(alrt);
         }
     </script>
       <style type="text/css">
