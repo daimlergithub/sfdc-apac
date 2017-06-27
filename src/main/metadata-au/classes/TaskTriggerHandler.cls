@@ -26,62 +26,10 @@ public class TaskTriggerHandler
     private static Id OBTRTID;
     
     public void handleTrigger()
-    {
-    user obj=[select id,profileid,profile.Name from user where id=:userinfo.getuserid()];
-       /* if(trigger.isAfter && trigger.isInsert)
-        {
-          //todo commented: need to add trigger wsitching mechanism
-            if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
-                TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            }
-            
-            if (TriggerUtil.isTriggerEnabled('TriggerTask')) {
-                TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            }
-            
-            TaskTriggerHandler.updateAccountCallMessage((Map<Id,Task>)Trigger.newMap, (Map<Id,Task>)Trigger.oldMap);
-            TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
-            TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);     
-        }*/
-        /* if(trigger.isAfter && trigger.isUpdate)
-        {
-          //todo commented: need to add trigger wsitching mechanism
-           
-            if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
-                TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            }
-            
-            if (TriggerUtil.isTriggerEnabled('TriggerTask')) {
-                TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            }
-            
-            TaskTriggerHandler.updateAccountCallMessage((Map<Id,Task>)Trigger.newMap, (Map<Id,Task>)Trigger.oldMap);
-            TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
-            TaskTriggerHandler.autoUpdateSSISurveyStatus((Task)Trigger.new[0], (Task)Trigger.old[0]);
-            TaskTriggerHandler.generateWelcomeCall((Task)Trigger.new[0], (Task)Trigger.old[0]);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-        }*/
-        if(trigger.isAfter && trigger.isInsert)
-        {
-            TaskHelper.au_After_Insert_Update_Events_Task(trigger.new, trigger.isInsert, trigger.isUpdate);
-            TaskHelper.au_before_Insert_Events_Task(Trigger.new,trigger.isinsert);
-        }
-        if(trigger.isAfter && trigger.isUpdate)
-        {
-            TaskHelper.au_After_Insert_Update_Events_Task(trigger.new, trigger.isInsert, trigger.isUpdate);
-        }
+    {  
+        
         if(trigger.isBefore && trigger.isInsert)
         {
-          //todo commented: need to add trigger wsitching mechanism
-            /*
-             // Update Activity Status after new records created
-            TaskTriggerHandler.taskFieldsUpdate(Trigger.new, (Map<Id,Task>)Trigger.oldMap);
-            TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
-            //Existing AU functionality
-            TaskTriggerHandler.au_Before_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate);
-            if(obj.profile.Name!='IntegrationAPI')
             TaskHelper.au_Before_Insert_Update_Events_Task(Trigger.new,trigger.isinsert,trigger.isupdate);
             TaskHelper.updateCommentWithTimeStamp(Trigger.new,trigger.isinsert,trigger.isupdate);
             TaskHelper.validateAccount(Trigger.new,trigger.isinsert,trigger.isupdate);
@@ -90,18 +38,17 @@ public class TaskTriggerHandler
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
-          //todo commented: need to add trigger wsitching mechanism
-            /*
-            // Update Activity Status after new records created
-            TaskTriggerHandler.taskFieldsUpdate(Trigger.new, (Map<Id,Task>)Trigger.oldMap);
-            TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
-            //Existing AU functionality
-            TaskTriggerHandler.au_Before_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate);
-            if(obj.profile.Name!='IntegrationAPI')
             TaskHelper.au_Before_Insert_Update_Events_Task(Trigger.new,trigger.isinsert,trigger.isupdate);
             TaskHelper.updateCommentWithTimeStamp(Trigger.new,trigger.isinsert,trigger.isupdate);
             TaskHelper.validateAccount(Trigger.new,trigger.isinsert,trigger.isupdate);
+        }
+    if(trigger.isAfter && trigger.isInsert)
+        {
+            TaskHelper.au_After_Insert_Update_Events_Task(trigger.new, trigger.isInsert, trigger.isUpdate);
+        }
+        if(trigger.isAfter && trigger.isUpdate)
+        {
+            TaskHelper.au_After_Insert_Update_Events_Task(trigger.new, trigger.isInsert, trigger.isUpdate);
         }
     }
     
@@ -642,77 +589,4 @@ public class TaskTriggerHandler
             }
         }
     }
-    
-    //Existing au functionality starts here
-    public static void au_Before_Insert_Update_Events(list<task> listTaskNew,boolean isInsert,boolean isUpdate)
-    {
-       if(isInsert || isUpdate){
-          List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
-          for(Task task : listTaskNew) {
-              if(task.ActivityDate != null){
-                  task.Notification_Email_Time__c = datetime.newInstance(task.ActivityDate, Time.newInstance(9, 0, 0, 0));
-              }
-              if(task.Notification_Email_Flag__c){
-                  User us = [Select Id, FirstName, LastName, Email From User Where Id = :task.OwnerId];
-                  Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-                  message.setSubject(task.Subject);
-                  message.setPlainTextBody('Due Task' +
-                  '\nTo:'+ us.FirstName + us.LastName + '\nPlease action this task!' + '\nSubject: ' + task.Subject + '\nPriority: ' + task.Priority + '\nFor more details, click the following link: \n' + 'https://c.ap1.visual.force.com/' + task.id);
-                  message.setToAddresses(new String[] {us.Email});
-                  message.setSaveAsActivity(false);
-                  task.Notification_Email_Flag__c = false;
-                  mails.add(message);
-              }
-          }
-          if (mails.size() > 0) {
-              try {
-                  Messaging.sendEmail(mails);
-              }
-              catch(Exception ex) {
-                  system.debug('Send Due Task Email Exception :' + ex.getMessage());
-              }
-          }
-      }
-      
-      if(isInsert) {
-          Set<Id> RECORD_TYPE_SET = new Set<Id>();
-          id recAnnualId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
-          id recEOCId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId();
-          id recWelcomeId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId(); 
-          RECORD_TYPE_SET.add(recAnnualId);
-          RECORD_TYPE_SET.add(recEOCId);
-          RECORD_TYPE_SET.add(recWelcomeId);
-          Set<Id> contractIds = new Set<Id>();
-          Schema.DescribeSobjectResult r= Retail_Task__c.sObjectType.getDescribe();
-          string keyPrefix=r.getKeyPrefix();
-          for(Task task : listTaskNew) {
-              if(RECORD_TYPE_SET.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(keyPrefix))  {
-                  contractIds.add(task.WhatId);
-              }
-          }
-             if(contractIds !=null && !contractIds.isEmpty())
-              { 
-              Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, Account__c,Account__r.Individual_Home_Phone__c,Account__r.Work_Phone__c,Account__r.Mobile__c,
-                                          StartDate__c,EndDate__c from Retail_Task__c where Id in :contractIds]);
-          
-          for(Task task : listTaskNew) {
-              if(RECORD_TYPE_SET.contains(task.RecordTypeId) && contracts.containsKey(task.WhatId))  {
-                //TODO
-                system.debug('contractIds>>>>'+json.serializepretty(contracts));
-                if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c!=null)
-                    task.HomeMobilePhone__c=contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c;
-                  if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Work_Phone__c!=null)  
-                    task.OfficePhone__c=contracts.get(task.WhatId).Account__r.Work_Phone__c;
-                  if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Mobile__c!=null)  
-                    task.PersonHomePhone__c=contracts.get(task.WhatId).Account__r.Mobile__c;
-                  if(task.RecordTypeId==recAnnualId || task.RecordTypeId==recWelcomeId && (contracts.get(task.WhatId).StartDate__c!=null))
-                    task.Activity_Date__c=contracts.get(task.WhatId).StartDate__c;
-                  if(task.RecordTypeId==recEOCId && (contracts.get(task.WhatId).EndDate__c!=null))
-                    task.Activity_Date__c=contracts.get(task.WhatId).EndDate__c;  
-              }
-          }
-          }
-      }
-    }
-    //existing au functionality ends here
 }

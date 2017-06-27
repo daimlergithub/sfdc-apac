@@ -179,7 +179,7 @@
         <picklist>
             <picklistValues>
                 <fullName>AU</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CN</fullName>

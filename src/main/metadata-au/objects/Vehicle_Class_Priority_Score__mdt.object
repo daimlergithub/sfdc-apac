@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
         <fullName>Customer_Type__c</fullName>
@@ -16,6 +16,7 @@
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -34,8 +35,16 @@
         <label>Vehicle Class</label>
         <picklist>
             <picklistValues>
+                <fullName>A 45 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>A-Class</fullName>
                 <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A-Class POV</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>All New A-Class</fullName>
@@ -50,7 +59,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>C 350 e Sedan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>C63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C 63 AMG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -62,7 +79,27 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>C-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Coupé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class POV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -78,6 +115,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>CLA Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>CLC-Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -86,7 +127,23 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>CL-Class POV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>CLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLK-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLK-Class Coupé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLK-Class POV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -98,6 +155,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>CLS-Class Coupé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>CLS Shooting Brake</fullName>
                 <default>false</default>
             </picklistValues>
@@ -106,11 +167,39 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>E 350 e</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>E63 AMG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>E 63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>E-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Coupé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class POV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -142,11 +231,47 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>GLC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC Coupé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>GL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>GLE 500 e</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -178,7 +303,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>M-Class POV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Maybach S-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -210,6 +343,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>S 500 e</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>S65 AMG</fullName>
                 <default>false</default>
             </picklistValues>
@@ -218,11 +355,35 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class POV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Saloon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>SL63 AMG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>SLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SL-Class POV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -231,6 +392,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLK-Class POV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -297,9 +462,22 @@
                 <fullName>Vito</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>AMG E 63 S Sedan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class All-Terrain</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marco Polo ACTIVITY</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -338,6 +516,7 @@
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <label>Vehicle Class Priority Score</label>

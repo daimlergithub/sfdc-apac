@@ -14,7 +14,7 @@ History:
 
 public with sharing class VehicleRelationshipHelper 
 {
-	private static final String contact2ContactRT = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();	
+  private static final String contact2ContactRT = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();  
     
     public static void shareVR(List<Vehicle_Relationship__c> vRelationshipNew)
     {
@@ -408,10 +408,11 @@ public with sharing class VehicleRelationshipHelper
         if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty() && insertCvrs!=null && !insertCvrs.isEmpty() ){
             updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,isInsert,isupdate,isdeleteValue,brandValue,tenureValue);
         }
-            if (isInsert || isdelete ) {
+        // Commented by Rakesh for Too Many SOQl error issue.   
+        /* if (isInsert || isdelete ) {
                    //share owner and finance dealer
                  shareOwnerandFinanceDealers(listVRNew);
-                }
+                }*/
         
     }
     public static void auBefore_Insert_Update_Events(list<Vehicle_Relationship__c> listVRNew)

@@ -1098,6 +1098,30 @@
         <required>false</required>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Activities1</relationshipLabel>
+        <relationshipName>Activities1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	 <fields>
+        <fullName>Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.ContractNumber__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Company__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1653,25 +1677,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>QC_ID__c</fullName>
-        <externalId>true</externalId>
-        <label>QC ID</label>
-        <length>25</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>QC_Link__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR( ISBLANK( QC_ID__c ),  ISNULL(QC_ID__c)), '', HYPERLINK("/"+ QC_ID__c , "View QC") )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>QC Link</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>QC_Quantity__c</fullName>
         <externalId>false</externalId>
         <label>QC Quantity</label>
@@ -1744,6 +1749,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	  <fields>
+        <fullName>Related_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Result__c</fullName>
@@ -2779,7 +2797,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.SUBJECT</columns>
         <columns>TASK.CALLTYPE</columns>
         <columns>TASK.CALLDURATION</columns>
-        <columns>QC_Link__c</columns>
         <columns>Generate_QC__c</columns>
         <filterScope>Mine</filterScope>
         <filters>

@@ -136,7 +136,7 @@ public with sharing class LeadHelperTest {
         }
     }
 
-    @istest(seealldata = false)
+   /* @istest(seealldata = false)
     public static void LeadHelperTest3() {
         
         Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
@@ -171,6 +171,9 @@ public with sharing class LeadHelperTest {
         lead.Business_Unit__c= BusinessUnitValue;
         lead.Sub_BusinessUnit__c='Parts';
         lead.X24H_Untouched__c=false;
+		lead.Purchase_Time__c = 'Not sure';
+        lead.MB_Vehicle_Interest__c ='Actros';
+		lead.Assigned_Dealer__c=dealer.id;
         lead.X72H_Untouched__c=false;
         insert lead;
        
@@ -197,7 +200,7 @@ public with sharing class LeadHelperTest {
            }
         
         
-    }
+    }  */
      @istest(seealldata = false)
     public static void LeadHelperTest5() {
         
@@ -275,6 +278,71 @@ public with sharing class LeadHelperTest {
                
            }
     }
+	@istest(seealldata = false)
+    public static void LeadHelperTestAssign() {
+        
+        Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
+        createUser(profile);       
+       
+           system.runAs( user) {
+          
+            
+            getLead(user);
+                 createDealer();
+               Contact contact1 = new Contact ( AccountId = dealer.id,
+                                               
+                                         Inactive__c=false,
+                                         Business_Unit__c=BusinessUnitValue,
+                                         Sub_BusinessUnit__c=SubBusinessUnitValue,
+                                         FirstName = 'lai3',
+                                         LastName = 'sichao3',
+                                         Email = 'sichao3.lai@nttdata.com',
+                                         EOC_Recipient_Type__c = EOCRecipientTypeValue,
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
+                   insert contact1;
+                Test.startTest();             
+                 
+         lead = new Lead__c();
+        
+        lead.Contact__c = personaccount1.Id;
+        lead.recordTypeId = leadVehicleRt;
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c='Brochure Request';
+        lead.Business_Unit__c= BusinessUnitValue;
+        lead.Sub_BusinessUnit__c='Parts';
+        lead.X24H_Untouched__c=false;
+        lead.Purchase_Time__c = 'Not sure';
+        lead.MB_Vehicle_Interest__c ='Actros';
+        lead.X72H_Untouched__c=false;
+        lead.Assigned_Dealer__c=dealer.id;
+        insert lead;
+       
+         lead.X24H_Untouched__c=true;
+         lead.X72H_Untouched__c=true;
+         lead.Is_Finance_Send_Email_Before_20_Days__c=true;
+         update lead;
+               
+               lead.Assigned_Dealer__c=dealer.id;
+               lead.Business_Unit__c=BusinessUnitValue;
+               lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+               update lead;
+               map<id,id> NewCaseLeadIds = new  map<id,id>();
+               NewCaseLeadIds.put(lead.id, lead.id);
+               
+               LeadHelper.UpdateCasesWithLeadId(NewCaseLeadIds);
+               LeadHelper.insertLeadSharing(NewCaseLeadIds,NewCaseLeadIds);
+                  Test.stopTest();
+               
+               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead.id ];
+               system.assertEquals(leadList.Assigned_Dealer__c, lead.Assigned_Dealer__c);
+               system.assertEquals(leadList.Business_Unit__c, lead.Business_Unit__c);
+               
+           }
+        
+        
+    }  
     @istest(seealldata = false)
     public static void LeadHelperTest7() {
         
