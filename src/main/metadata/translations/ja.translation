@@ -4596,6 +4596,10 @@
         <name>Ten</name>
     </customLabels>
     <customLabels>
+        <label>車両顧客関係</label>
+        <name>Test</name>
+    </customLabels>
+    <customLabels>
         <label>車両手放し情報</label>
         <name>TerminateVehicleRelationship</name>
     </customLabels>
