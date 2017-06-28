@@ -49,8 +49,8 @@
                    </tr>
                    
                     <tr> 
-                   <td> {!$Label.Sales_Contact_Target_Purchaser_Relation} </td>     
-                   <td> <apex:outputtext value="{!vehiclewrpper.salescontactvr.Owner_Relation__c}"/>  </td>        
+                   <td> {!$Label.Sales_Contact_Target_Purchaser_Relation} </td> 
+                   <td> <apex:outputfield value="{!vehiclewrpper.salescontactvr.Owner_Relation__c}"/>  </td>       
                    <td> <apex:inputField value="{!vehiclewrpper.salescontactvr.Owner_Relation__c}"/></td>   
                    </tr>
                    
@@ -77,7 +77,7 @@
                    
                     <tr> 
                    <td> {!$Label.After_Sales_Contact_Target_Purchaser_Relation}</td>     
-                   <td> <apex:outputtext value="{!vehiclewrpper.aftersalescontactvr.Owner_Relation__c}"/> </td>        
+                   <td> <apex:outputfield value="{!vehiclewrpper.aftersalescontactvr.Owner_Relation__c}"/> </td>        
                    <td> <apex:inputField value="{!vehiclewrpper.aftersalescontactvr.Owner_Relation__c}"/></td>   
                    </tr>
                    
