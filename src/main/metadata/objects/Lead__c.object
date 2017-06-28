@@ -609,226 +609,226 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		 <displayedFields>
+        <displayedFields>
             <field>Accepted_Date_Time__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Assigned_Date_Time__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Assigned_Dealer__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Service_Advisor__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>CA_Lead_Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields> 
+        </displayedFields>
         <displayedFields>
             <field>Case__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Company_Account__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Existing_Contract__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Cross_Point_Model__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Assigned_Dealer_by_Rule__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Customer_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Dealer_Comments__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Dealer_Comment__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Drop_off_Time__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Interested_Vehicle_Note__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
-            <field>LastModifiedBy</field>
+        <displayedFields>
+            <field>LastModifiedById</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Lead_DataSource__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		 <displayedFields>
+        <displayedFields>
             <field>Lead_Desired_Service__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields> 
-		<displayedFields>
+        </displayedFields>
+        <displayedFields>
             <field>Lead_Sub_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Lead_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Lost_Comment__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Lost_Situation__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Network_Registration_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Opportunity_Name__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Order_No__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Order_Placed_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Payment_Condition__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		        <displayedFields>
+        <displayedFields>
             <field>Portal_Request_ID__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Preferred_Contact_Method__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Preferred_Negotiation_Place__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Price_Range__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Purchase_Time__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Vehicle_Need_Text__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		        <displayedFields>
+        <displayedFields>
             <field>Questionnair__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
-            <field>RecordType</field>
+        <displayedFields>
+            <field>RecordTypeId</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Retail_Campaign_Name__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>ServiceProgram_Proposal_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Source_Campaign__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Test_Drive_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		        <displayedFields>
+        <displayedFields>
             <field>Test_Drive_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Test_Drive_Detail__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>UCID__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Vehicle_Need__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Visited_Showroom_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields> 
+        </displayedFields>
         <label>LeadMergeFieldsSet</label>
     </fieldSets>
     <fieldSets>
@@ -37110,6 +37110,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
+                <fullName>Purchased</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -37238,6 +37242,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -37267,6 +37275,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed%2FService Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -111998,4 +112010,3 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
-
