@@ -21560,14 +21560,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <customTabListAdditionalFields>Model__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Model_Description__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Colour__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>UsVIN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>EuroVIN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>RegistrationNo__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EuroVIN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EngineNumber__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Range__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>National_Model__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Colour__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Brand__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Class__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Model__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Model_Description__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Colour__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>BodyType__c</searchFilterFields>
         <searchFilterFields>Colour__c</searchFilterFields>
