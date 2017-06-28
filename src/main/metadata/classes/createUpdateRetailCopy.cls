@@ -18,7 +18,7 @@ public class createUpdateRetailCopy
     public static string nullValue ='';
     public static Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
     
-    public static void updateRetailCopyFromAccount(set<Id> accountIds ,List<Account_Link__c> acclnkList)
+    public static void updateRetailCopyFromAccount(set<Id> accountIds ,List<Account_Link__c> acclnkList,set<string> gcCodeSet)
     {
         List<Account> accountList = new List<Account>();
         Map<id,Account> accountMap = new Map<id,Account>();
@@ -39,6 +39,7 @@ public class createUpdateRetailCopy
                            Primary_Address_Reference__r.LastModifiedDate
                            from Account WHERE Id IN :AccountIds];
         }
+        system.debug('accountList>>>>' + accountList);
         if(!accountList.isEmpty() && accountList!= null)
         {
             accountMap.putAll(accountList);
@@ -47,7 +48,7 @@ public class createUpdateRetailCopy
         {
             for(Account_Link__c acclink : acclnkList)
             {
-                if(!accountMap.isEmpty() && accountMap != null && accountMap.get(acclink.toRole__c) != null)
+                if(!accountMap.isEmpty() && accountMap != null && accountMap.get(acclink.toRole__c) != null && !gcCodeSet.isEmpty() && gcCodeSet.contains(acclink.Retail_Dealer_CompanyCode__c))
                 {
                     if(accountMap.get(acclink.toRole__c).RecordType.Name == 'Person Account')
                     {
