@@ -83,7 +83,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Service_Vehicle_VIN__c</field>
+                <field>VIN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
