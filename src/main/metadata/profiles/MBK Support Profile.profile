@@ -27484,6 +27484,10 @@
         <tab>Getting_Started</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+        <tab>Lead__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Recall__c</tab>
         <visibility>DefaultOn</visibility>
@@ -27576,7 +27580,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-SocialPost</tab>
         <visibility>DefaultOff</visibility>
