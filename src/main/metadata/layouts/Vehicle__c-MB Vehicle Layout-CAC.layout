@@ -310,12 +310,12 @@
         <relatedList>Case.Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
+        <fields>Recall_No__c</fields>
         <fields>Status__c</fields>
         <fields>Recall_Reason__c</fields>
         <fields>Recall_Date__c</fields>
         <fields>Recall_Type__c</fields>
-        <fields>Recall_No__c</fields>
+        <fields>NAME</fields>
         <fields>Recall_Class__c</fields>
         <relatedList>Recall__c.Vehicle_ID__c</relatedList>
     </relatedLists>
