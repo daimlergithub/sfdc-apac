@@ -892,10 +892,10 @@
         <fields>NAME</fields>
         <fields>Vehicle_ID__c</fields>
         <fields>Registration_Number__c</fields>
-        <fields>Euro_Vin__c</fields>
         <fields>Car_Relation__c</fields>
         <fields>Vehicle_Range__c</fields>
         <fields>Handover_Date__c</fields>
+        <fields>Owner_Dealer__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
