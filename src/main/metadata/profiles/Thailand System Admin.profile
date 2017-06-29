@@ -3248,7 +3248,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_ND_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -27180,6 +27180,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>DM_Material__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Account_Link__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
