@@ -21692,11 +21692,20 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <fullName>Change_Contact_Target</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Change Contact Target</masterLabel>
-        <openType>replace</openType>
-        <page>ChangeContactTarget</page>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
+records = ReferraAccepted.getArray("records"); 
+if(records != ''){
+window.open("{!URLFOR($Site.Prefix)}/apex/ChangeContactTarget?Id={!Vehicle__c.Id}",target = "_self");
+}
+else
+alert("{!$Label.ChangeContacttarget}");</url>
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>

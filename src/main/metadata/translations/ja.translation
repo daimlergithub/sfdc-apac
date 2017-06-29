@@ -935,6 +935,10 @@
     <customLabels>
         <label><!-- Case received by Phone etc --></label>
         <name>Case_received_by_Phone_etc</name>
+    </customLabels>	
+    <customLabels>
+        <label>この車両に適切なVRを追加してください</label>
+        <name>ChangeContacttarget</name>
     </customLabels>
     <customLabels>
         <label><!-- Check DuplicatesErrorMsg --></label>

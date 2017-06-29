@@ -1611,6 +1611,13 @@
         <shortDescription>Case received by Phone etc</shortDescription>
         <value>Case received by Phone etc</value>
     </labels>
+	<labels>
+        <fullName>ChangeContacttarget</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeContacttarget</shortDescription>
+        <value>Please select proper VR&apos;s for this Vehicle</value>
+    </labels>
     <labels>
         <fullName>Check_DuplicatesErrorMsg</fullName>
         <language>en_US</language>
