@@ -1611,6 +1611,13 @@
         <shortDescription>Case received by Phone etc</shortDescription>
         <value>Case received by Phone etc</value>
     </labels>
+	<labels>
+        <fullName>ChangeContacttarget</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeContacttarget</shortDescription>
+        <value>Please select proper VR&apos;s for this Vehicle</value>
+    </labels>
     <labels>
         <fullName>Check_DuplicatesErrorMsg</fullName>
         <language>en_US</language>
@@ -8166,6 +8173,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Test Drive</shortDescription>
         <value>Test Drive</value>
+    </labels>	
+    <labels>
+        <fullName>Test</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test</shortDescription>
+        <value>Please fill out Primary Case Dealer</value>
     </labels>
     <labels>
         <fullName>ThankYouLink</fullName>

@@ -19325,7 +19325,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Apparel %26 Accessories%2FFashion</fullName>
+                <fullName>Apparel &amp; Accessories/Fashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48556,7 +48556,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Apparel %26 Accessories%2FFashion</fullName>
+                <fullName>Apparel &amp; Accessories/Fashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -58403,7 +58403,7 @@ else {
     window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
-    <webLinks>
+	    <webLinks>
         <fullName>Send_to_JPOS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -58411,23 +58411,30 @@ else {
         <masterLabel>SendtoJPOS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
-
-if (sforce.console.isInConsole()) { 
-javascript:sforce.console.openPrimaryTab(null, '/apex/SendToJPOS?id={!Account.Id}'); 
-} 
-else
-
 { 
-window.open('{!URLFOR($Site.Prefix)}/apex/SendToJPOS?id={!Account.Id}'); 
+
+if(typeof(srcUp) == 'function') 
+{ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+
+} 
+} 
+else { 
+window.open("{!URLFOR($Site.Prefix)}/apex/SendToJPOS?id={!Account.Id}",'_blank'); 
+} 
 } 
 else 
 { 
-alert("{!$Label.SendToJPOSErrorMsg}"); 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -58438,24 +58445,30 @@ alert("{!$Label.SendToJPOSErrorMsg}");
         <masterLabel>Send to MyMercedes</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
-
-
-if (sforce.console.isInConsole()) { 
- javascript:sforce.console.openPrimaryTab(null, '/apex/CustomerMymercInterface?id={!Account.Id}');
-} 
-else
 { 
-window.open('{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}'); 
+
+if(typeof(srcUp) == 'function') 
+{ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/CustomerMymercInterface?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/CustomerMymercInterface?id={!Account.Id}','_blank'); 
+
+} 
+} 
+else { 
+window.open("{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}",'_blank'); 
+} 
 } 
 else 
 { 
-alert("{!$Label.SendToMyMercedesErrorMsg}"); 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -58466,25 +58479,30 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
         <masterLabel>Send to SPO</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
-
-if (sforce.console.isInConsole()) { 
-javascript:sforce.console.openPrimaryTab(null, '/apex/SendAccountInfoToSPO?id={!Account.Id}'); 
-} 
-else
-
-
 { 
-window.open('{!URLFOR($Site.Prefix)}/apex/SendAccountInfoToSPO?id={!Account.Id}'); 
+
+if(typeof(srcUp) == 'function') 
+{ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+
+} 
+} 
+else { 
+window.open("{!URLFOR($Site.Prefix)}/apex/SendAccountInfoToSPO?id={!Account.Id}",'_blank'); 
+} 
 } 
 else 
 { 
-alert("{!$Label.SendToSPOErrorMSG}"); 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>
