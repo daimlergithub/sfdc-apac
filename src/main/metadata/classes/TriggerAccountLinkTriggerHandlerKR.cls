@@ -45,12 +45,12 @@ public class TriggerAccountLinkTriggerHandlerKR
 			if(Trigger.isAfter && Trigger.isUpdate)
 			{
 				Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-				AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
+				AccountLinkHelperKR.afterUpdateEvent(Trigger.new, oldmap);
 			}
 			if(Trigger.isAfter && Trigger.isInsert)
 			{
 				Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-				AccountLinkHelper.afterInsertEvent(Trigger.new);
+				AccountLinkHelperKR.afterInsertEvent(Trigger.new);
 			}
 		}
     }
