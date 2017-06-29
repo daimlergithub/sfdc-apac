@@ -12174,15 +12174,13 @@ ISPICKVAL( Activity_Status__c, '' )
         <errorConditionFormula>(( $Profile.Name = "CAC IB QC") || ($Profile.Name = "CAC OB QC"))&amp;&amp; NOT(ISCHANGED( Generate_QC__c )) &amp;&amp; NOT((ISCHANGED( QC_Quantity__c )))</errorConditionFormula>
         <errorMessage>QC User can only edit "QC Quantity" and "Generate QC" field on this record</errorMessage>
     </validationRules>
-	/*
     <validationRules>
         <fullName>Template_ID_is_required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>For "SMS Response Required" task,Template ID is required</description>
         <errorConditionFormula>AND(SMS_Response_Required__c=TRUE, ISBLANK(SMSTemplateID__c) )</errorConditionFormula>
         <errorMessage>Sorry, for "SMS Response Required" task,Template ID is required</errorMessage>
     </validationRules>
-	*/
     <webLinks>
         <fullName>Bulk_Assign</fullName>
         <availability>online</availability>
