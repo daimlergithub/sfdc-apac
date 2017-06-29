@@ -152,7 +152,6 @@
                 <apex:inputField value="{!Case.Document_sending_date__c}"/>
             </apex:pageBlockSection>
             
-            /*Added for Escalate to MBF and Escalate to Dealer functionality on 14June2017 */
             <apex:pageblockSection title="Dealer Suggestion">
                 <apex:inputField value="{!Case.Already_Contacted_Dealer__c}"/>
                 <apex:inputField value="{!Case.Requires_Dealer_Contact__c}"/>
