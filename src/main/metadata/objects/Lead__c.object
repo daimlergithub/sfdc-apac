@@ -88571,11 +88571,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>Loan Return SWP</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>Pay Off Loan</fullName>
                 <default>false</default>
@@ -88855,11 +88851,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>Loan Return SWP</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>Pay Off Loan</fullName>
                 <default>false</default>
