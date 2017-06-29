@@ -7690,12 +7690,8 @@
         <field>Campaign.Total_Budget__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Campaign.Total_Budget_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
+
+     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Total_Budget_old__c</field>
         <readable>false</readable>
