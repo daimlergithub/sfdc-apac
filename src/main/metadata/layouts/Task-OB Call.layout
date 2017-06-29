@@ -81,10 +81,6 @@
                 <field>Related_Task_Id__c</field>
             </layoutItems> 
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Campaign_Name__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>WhoId</field>
             </layoutItems>
