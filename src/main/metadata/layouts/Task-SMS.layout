@@ -74,10 +74,6 @@
                 <behavior>Edit</behavior>
                 <field>Activity_DataSubSource__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SMS_Response_Required__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

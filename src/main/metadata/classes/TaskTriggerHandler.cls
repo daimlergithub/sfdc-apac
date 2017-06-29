@@ -298,7 +298,7 @@ public class TaskTriggerHandler
                 tk.Phone__c = tk.Caller__c;
             }
             
-            if (tk.RecordTypeId == OBRTID && tk.CallType == 'Outbound') {
+          /*  if (tk.RecordTypeId == OBRTID && tk.CallType == 'Outbound') {
                 getCTIMessage(tk, ctiTasks);
                 if(tk.SSI_Status__c == null) {
                     tk.Activity_Status__c = tk.OB_Status__c;
@@ -306,7 +306,7 @@ public class TaskTriggerHandler
                     tk.Activity_Status__c = tk.SSI_Status__c;
                 }                
                 tk.Phone__c = tk.Called__c;
-            }
+            } */
             // By Shuang Li US-smart_SSI-008---- start
             if ((tk.RecordTypeId == SSIRTID || tk.RecordTypeId == WCRTID) 
                 && tk.Activity_Status__c == UtilConstant.SUCCESSFUL) {
@@ -416,6 +416,8 @@ public class TaskTriggerHandler
             tk.End_call_time__c = cti.End_call_time__c;
         }
     }
+	
+	
     
     public static void autoUpdateTaskAfterLogInserted(Task tk){
         getRecordTypeId();
@@ -436,7 +438,7 @@ public class TaskTriggerHandler
                     Where RecordTypeId = :OBRTID And Related_Task_Id__c = :tk.Related_Task_Id__c And WhatId = :tk.WhatId And Start_call_time__c != null]; 
             } 
            
-            List<Task> tasks = [
+         /*   List<Task> tasks = [
                 Select Id, OB_Call_Times__c, UCID__c, Caller__c, Called__c, Start_call_time__c, End_call_time__c, Last_OB_Call__c, SSI_Status__c 
                 From Task 
                 Where Id = :tk.Related_Task_Id__c And ( RecordTypeId = :OBTRTID Or RecordTypeId =: WCRTID Or RecordTypeId =: SSIRTID)
@@ -455,7 +457,7 @@ public class TaskTriggerHandler
                     t.Called__c = tk.Called__c;
                     t.Start_call_time__c = tk.Start_call_time__c;
                     t.End_call_time__c = tk.End_call_time__c;
-                    t.SSI_Status__c = tk.SSI_Status__c;
+                   // t.SSI_Status__c = tk.SSI_Status__c;
                     t.CallObject = tk.CallObject;
                     try{
                         update t;
@@ -463,7 +465,7 @@ public class TaskTriggerHandler
                         System.debug('errormessage>>' + ex.getmessage());
                     } 
                 }           
-            }
+            }  */
         }
     }
     
@@ -556,7 +558,7 @@ public class TaskTriggerHandler
             for (Task tk : tasks) {
                 if (ssiMap.containsKey(tk.WhatId)) {
                     SSI__c ssi = ssiMap.get(tk.whatId);
-                    tk.SSI_Number__c = ssi.Name;
+                   // tk.SSI_Number__c = ssi.Name;
                     tk.Dealer_Name__c = ssi.DealerName__c;
                     tk.CustomerName__c = ssi.CustomerName__c;
                 }

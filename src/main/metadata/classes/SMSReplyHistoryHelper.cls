@@ -65,7 +65,7 @@ public class SMSReplyHistoryHelper{
                             
             // Finds the related tasks and customers
             Map<String, Task> taskMap;
-            taskMap = new Map<String, Task>([select Id, Subject, WhoId, WhatId, SMSTemplateID__c, SMS_Response_Required__c, OwnerId, Phone__c,
+            taskMap = new Map<String, Task>([select Id, Subject, WhoId, WhatId, SMSTemplateID__c, OwnerId, Phone__c,
                                             SMS_Content__c, Activity_Status__c, RecordTypeId, Priority__c, Related_Task_Id__c, Campaign_Name__c, 
                                             AccountId, Account.SMSOptOut__pc, Status
                                             from Task where Id in :taskIds]);
