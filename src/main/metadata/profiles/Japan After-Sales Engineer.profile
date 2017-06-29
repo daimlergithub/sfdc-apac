@@ -26511,7 +26511,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -26520,6 +26520,7 @@
         <recordType>Campaign.MB_Best_Practice</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
