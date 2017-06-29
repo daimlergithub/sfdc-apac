@@ -144,7 +144,7 @@ public class createUpdateRetailCopy
                                Retail_Address_CreatedDate__c,Retail_Address_Reference__c,Retail_Address_LastModifiedDate__c,
                                Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Duplicate_Flag__c,Retail_Delete_Flag__c,
                                Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Position__c,Retail_Visit_OptOut__c,
-                               Selling_Dealer__c,To_Be_Deleted__c,Retail_DMS_Customer_ID__c
+                               Selling_Dealer__c,To_Be_Deleted__c,Retail_DMS_Customer_ID__c,Retail_Postal_OptOut__c
                                from Account_Link__c where id =:accountlinkIds Order BY CreatedDate ASC limit 1];
         }
         system.debug('accountLinkList>>>>' + accountLinkList);
@@ -256,7 +256,7 @@ public class createUpdateRetailCopy
                                 Retail_Address_CreatedDate__c,Retail_Address_Reference__c,Retail_Address_LastModifiedDate__c,
                                 Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Duplicate_Flag__c,Retail_Delete_Flag__c,
                                 Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Position__c,Retail_Visit_OptOut__c,
-                                Selling_Dealer__c,To_Be_Deleted__c,Retail_DMS_Customer_ID__c,Retail_Dealer_CompanyCode__c 
+                                Selling_Dealer__c,To_Be_Deleted__c,Retail_DMS_Customer_ID__c,Retail_Dealer_CompanyCode__c,Retail_Postal_OptOut__c 
                                 from Account_Link__c where (torole__c =:accountIds OR Vehicle__c =:accountIds) AND Retail_Dealer_CompanyCode__c =:dealergcCodeset AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
         }
         for(Account_Link__c acl : acclkList)
