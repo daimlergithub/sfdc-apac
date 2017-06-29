@@ -56,7 +56,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             }
             }
             if(salescontacttargetId != '' || aftersalescontacttargetId != '' || purchaseContactId != ''){
-             List<Account_Link__c> accountlink = [select id,toRole__c,fromrole__c,Retail_Sales_Consultant__c,Retail_Sales_Consultant__r.Name,Selling_Dealer__c,Service_Dealer__c,Service_Advisor__c,Selling_Dealer__r.Name,Service_Dealer__r.Name,Service_Advisor__r.Name,Recordtype.DeveloperName from Account_Link__c WHERE (toRole__c =  :salescontacttargetId OR toRole__c = :aftersalescontacttargetId OR toRole__c = :purchaseContactId  OR Vehicle__c = : ApexPages.currentPage().getParameters().get('id')) AND (RecordTypeID= :RetailPerson OR RecordTypeID= :RetailCompany OR RecordTypeId = :VehicleExternalLinkRT)];
+             List<Account_Link__c> accountlink = [select id,toRole__c,fromrole__c,Retail_Sales_Consultant__c,Retail_Sales_Consultant__r.Name,Selling_Dealer__c,Service_Dealer__c,Service_Advisor__c,Selling_Dealer__r.Name,Service_Dealer__r.Name,Service_Advisor__r.Name,Recordtype.DeveloperName from Account_Link__c WHERE (toRole__c =  :salescontacttargetId OR toRole__c = :aftersalescontacttargetId OR toRole__c = :purchaseContactId  OR Vehicle__c = : ApexPages.currentPage().getParameters().get('id'))  AND (RecordTypeID= :RetailPerson OR RecordTypeID= :RetailCompany OR RecordTypeId = :VehicleExternalLinkRT) LIMIT 1];
             //for(account_link__c acclink: vehicle .Account_Links__r)
             for(account_link__c acclink: accountlink )
             {   
@@ -142,7 +142,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                         //salesvr.Retail_Sales_Consultant__c = SalesConsultant;
                          salesvr.End_Date__c = date.today();
                          salesvr.End_Reason__c = 'Updated EndDate';
-                         salesvr.Start_Date__c = null; 
+                         //salesvr.Start_Date__c = null; //SFDCJP-2708
                          vrlisttoUpdate.add(salesvr); 
                     }
                 }
@@ -154,7 +154,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                         //aftersalesvr.Retail_Sales_Consultant__c = afterSalesConsultant;                     
                         aftersalesvr.End_Date__c = date.today(); 
                         aftersalesvr.End_Reason__c = 'Updated EndDate';
-                        aftersalesvr.Start_Date__c = null;
+                        //aftersalesvr.Start_Date__c = null; //SFDCJP-2708
                         vrlisttoUpdate.add(aftersalesvr);
                              
                     }   
