@@ -300,4 +300,8 @@
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
+	<miniLayout>
+        <fields>Name</fields>
+       <fields>Retail_Company_Name__c</fields>
+   </miniLayout>
 </Layout>
