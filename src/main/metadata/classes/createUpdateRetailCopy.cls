@@ -144,7 +144,7 @@ public class createUpdateRetailCopy
                                Retail_Address_CreatedDate__c,Retail_Address_Reference__c,Retail_Address_LastModifiedDate__c,
                                Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Duplicate_Flag__c,Retail_Delete_Flag__c,
                                Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Position__c,Retail_Visit_OptOut__c,
-                               Selling_Dealer__c,To_Be_Deleted__c,Retail_DMS_Customer_ID__c
+                               Selling_Dealer__c,To_Be_Deleted__c,Retail_DMS_Customer_ID__c,Retail_Postal_OptOut__c
                                from Account_Link__c where id =:accountlinkIds Order BY CreatedDate ASC limit 1];
         }
         system.debug('accountLinkList>>>>' + accountLinkList);
@@ -199,6 +199,7 @@ public class createUpdateRetailCopy
                         aclnk.Retail_Visit_OptOut__c = accountLinkMap.get(aclnk.toRole__c).Retail_Visit_OptOut__c;
                         aclnk.Selling_Dealer__c = accountLinkMap.get(aclnk.toRole__c).Selling_Dealer__c;
                         aclnk.To_Be_Deleted__c = accountLinkMap.get(aclnk.toRole__c).To_Be_Deleted__c;
+                        aclnk.Retail_Postal_OptOut__c = accountLinkMap.get(aclnk.toRole__c).Retail_Postal_OptOut__c;
                         
                         if(accountLinkMap.get(aclnk.toRole__c).RecordType.Name == 'Retail Person')
                         {
@@ -220,6 +221,7 @@ public class createUpdateRetailCopy
                             aclnk.Retail_Individual_Home_Phone__c = accountLinkMap.get(aclnk.toRole__c).Retail_Individual_Home_Phone__c;
                         	aclnk.Retail_Phone_OptOut__c = accountLinkMap.get(aclnk.toRole__c).Retail_Phone_OptOut__c;
                             aclnk.Retail_Position__c = accountLinkMap.get(aclnk.toRole__c).Retail_Position__c;
+                        	aclnk.Retail_Phone_OptOut__c = accountLinkMap.get(aclnk.toRole__c).Retail_Phone_OptOut__c;
                         }
                         if(accountLinkMap.get(aclnk.toRole__c).RecordType.Name == 'Retail Company')
                         { 
@@ -254,7 +256,7 @@ public class createUpdateRetailCopy
                                 Retail_Address_CreatedDate__c,Retail_Address_Reference__c,Retail_Address_LastModifiedDate__c,
                                 Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Duplicate_Flag__c,Retail_Delete_Flag__c,
                                 Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Position__c,Retail_Visit_OptOut__c,
-                                Selling_Dealer__c,To_Be_Deleted__c,Retail_DMS_Customer_ID__c 
+                                Selling_Dealer__c,To_Be_Deleted__c,Retail_DMS_Customer_ID__c,Retail_Dealer_CompanyCode__c,Retail_Postal_OptOut__c 
                                 from Account_Link__c where (torole__c =:accountIds OR Vehicle__c =:accountIds) AND Retail_Dealer_CompanyCode__c =:dealergcCodeset AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
         }
         for(Account_Link__c acl : acclkList)
@@ -274,6 +276,7 @@ public class createUpdateRetailCopy
             if(aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId
                || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId && updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Id != aclnk.Id)
             {
+                aclnk.Retail_Postal_OptOut__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Postal_OptOut__c;
                 aclnk.Retail_Industry__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Industry__c;
                 aclnk.Retail_Website__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Website__c;
                 aclnk.Retail_Fax__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Fax__c;
@@ -283,19 +286,19 @@ public class createUpdateRetailCopy
                 aclnk.Retail_Special_Care__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Special_Care__c;
                 aclnk.Retail_Special_Needs_Class__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Special_Needs_Class__c;
                 aclnk.Retail_Sales_Sanction_Comment__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Sales_Sanction_Comment__c;
-                aclnk.Retail_Delete_Flag__c = updatedacclnkMap.get(aclnk.toRole__c).Retail_Delete_Flag__c;
-                aclnk.Retail_Duplicate_Flag__c = updatedacclnkMap.get(aclnk.toRole__c).Retail_Duplicate_Flag__c;
-                aclnk.Retail_Email__c = updatedacclnkMap.get(aclnk.toRole__c).Retail_Email__c;
-                aclnk.Retail_Email_OptOut__c = updatedacclnkMap.get(aclnk.toRole__c).Retail_Email_OptOut__c;
-                aclnk.Retail_Visit_OptOut__c = updatedacclnkMap.get(aclnk.toRole__c).Retail_Visit_OptOut__c;
-                aclnk.Selling_Dealer__c = updatedacclnkMap.get(aclnk.toRole__c).Selling_Dealer__c;
-                aclnk.To_Be_Deleted__c = updatedacclnkMap.get(aclnk.toRole__c).To_Be_Deleted__c;
+                aclnk.Retail_Delete_Flag__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Delete_Flag__c;
+                aclnk.Retail_Duplicate_Flag__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Duplicate_Flag__c;
+                aclnk.Retail_Email__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Email__c;
+                aclnk.Retail_Email_OptOut__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Email_OptOut__c;
+                aclnk.Retail_Visit_OptOut__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Visit_OptOut__c;
+                aclnk.Selling_Dealer__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Selling_Dealer__c;
+                aclnk.To_Be_Deleted__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).To_Be_Deleted__c;
                 
                 if(updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).RecordTypeId == AccountLink_RetailPersonRecordTypeId)
                 {
                     system.debug('accountLinkId>>>>' + aclnk.Id);
                     system.debug('INS%$%$%$%$%$');
-                    aclnk.Retail_DMS_Customer_ID__c = updatedacclnkMap.get(aclnk.toRole__c).Retail_DMS_Customer_ID__c;
+                    aclnk.Retail_DMS_Customer_ID__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_DMS_Customer_ID__c;
                     aclnk.Retail_LastName__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_LastName__c;
                     aclnk.Retail_FirstName__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_FirstName__c;
                     aclnk.Retail_Full_Name__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Full_Name__c;
@@ -311,6 +314,7 @@ public class createUpdateRetailCopy
                     aclnk.Retail_Mobile__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Mobile__c;                
                     aclnk.Retail_Email__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Email__c;
                     aclnk.Retail_Individual_Home_Phone__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Individual_Home_Phone__c;
+                	aclnk.Retail_Phone_OptOut__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Phone_OptOut__c;
                 }
                 if(updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
                 { 
@@ -345,7 +349,7 @@ public class createUpdateRetailCopy
             update updateacclnkList;
         }
     }
-    public static void createUpdateRetailCopyAccountCreation(set<Id> accIds)
+    public static void createUpdateRetailCopyAccountCreation(set<Id> accIds ,string corelationID)
     {
         List<Account> accList = new List<Account>();
         List<Account_Link__c> accLinkList = new List<Account_Link__c>();
@@ -426,10 +430,10 @@ public class createUpdateRetailCopy
                     exstacclnk.Retail_Fax__c = acc.Fax;
                     exstacclnk.Retail_Industry__c = acc.Industry;
                     
-                    /*if(corelationID != null && corelationID != '')
+                    if(corelationID != null && corelationID != '')
                     {
                         exstacclnk.CorrelationID__c = corelationID;
-                    }*/
+                    }
                     if(acc.MD__c == Label.MarketKR)
                     {
                         exstacclnk.Retail_Country__c = 'Korea';   
