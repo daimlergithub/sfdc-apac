@@ -838,7 +838,8 @@ public class AccountLinkHelper
             if(acclnk.toRole__c != null && acclnk.fromRole__c != null && acclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId
                || acclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
             {
-                if(acclnk.Retail_FirstName__c != oldacclnkMap.get(acclnk.Id).Retail_FirstName__c ||
+                if(acclnk.Name != oldacclnkMap.get(acclnk.Id).Name ||
+                   acclnk.Retail_FirstName__c != oldacclnkMap.get(acclnk.Id).Retail_FirstName__c ||
                    acclnk.Retail_LastName__c != oldacclnkMap.get(acclnk.Id).Retail_LastName__c ||
                    acclnk.Retail_Full_Name__c != oldacclnkMap.get(acclnk.Id).Retail_Full_Name__c ||
                    acclnk.Retail_Full_Name_Title__c != oldacclnkMap.get(acclnk.Id).Retail_Full_Name_Title__c ||
@@ -878,7 +879,10 @@ public class AccountLinkHelper
                    acclnk.Retail_Visit_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Visit_OptOut__c ||
                    acclnk.Selling_Dealer__c != oldacclnkMap.get(acclnk.Id).Selling_Dealer__c ||
                    acclnk.To_Be_Deleted__c != oldacclnkMap.get(acclnk.Id).To_Be_Deleted__c ||
-                   acclnk.Retail_DMS_Customer_ID__c != oldacclnkMap.get(acclnk.Id).Retail_DMS_Customer_ID__c)
+                   acclnk.Retail_DMS_Customer_ID__c != oldacclnkMap.get(acclnk.Id).Retail_DMS_Customer_ID__c ||
+                   acclnk.Retail_Sales_Consultant__c != oldacclnkMap.get(acclnk.Id).Retail_Sales_Consultant__c ||
+                   acclnk.Retail_Complaint_Amount__c != oldacclnkMap.get(acclnk.Id).Retail_Complaint_Amount__c ||
+                   acclnk.Retail_Comments__c != oldacclnkMap.get(acclnk.Id).Retail_Comments__c)
                 {
                     customerIds.add(acclnk.toRole__c);
                     dealerIds.add(acclnk.fromRole__c);
