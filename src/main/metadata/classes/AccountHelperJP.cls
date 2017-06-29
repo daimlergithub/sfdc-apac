@@ -959,10 +959,12 @@ public class AccountHelperJP
 public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAccountmap,boolean isInsert, boolean isUpdate)
     {
         set<id> insrtaccids = new set<id>();
+        string corelnId;
         for(Account acc : accLst)
         {
-            if(acc.MD__c == 'JP' && isInsert && userinfo.getUserType()=='PowerPartner' & usr.Contact.Account.Dealer_Rollout_Status__c == 'Done')
+            if(acc.MD__c == 'JP' && isInsert && userinfo.getUserType()=='PowerPartner' && usr.Contact.Account.Dealer_Rollout_Status__c == 'Done')
             {
+                corelnId = ApexPages.currentPage().getParameters().get('CLNID');
                 insrtaccids.add(acc.Id);
             }
             else if(acc.MD__c == 'JP' && isUpdate)
@@ -1024,7 +1026,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         if(!insrtaccids.isEmpty() && insrtaccids != null)
         {
             system.debug('INsretddsadasd>>>>>');
-            createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids);
+            createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids,corelnId);
         }
     }
 
