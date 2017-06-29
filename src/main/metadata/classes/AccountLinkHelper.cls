@@ -882,7 +882,8 @@ public class AccountLinkHelper
                    acclnk.Retail_DMS_Customer_ID__c != oldacclnkMap.get(acclnk.Id).Retail_DMS_Customer_ID__c ||
                    acclnk.Retail_Sales_Consultant__c != oldacclnkMap.get(acclnk.Id).Retail_Sales_Consultant__c ||
                    acclnk.Retail_Complaint_Amount__c != oldacclnkMap.get(acclnk.Id).Retail_Complaint_Amount__c ||
-                   acclnk.Retail_Comments__c != oldacclnkMap.get(acclnk.Id).Retail_Comments__c)
+                   acclnk.Retail_Comments__c != oldacclnkMap.get(acclnk.Id).Retail_Comments__c ||
+                   acclnk.Retail_OptOutContact_Reason__c != oldacclnkMap.get(acclnk.Id).Retail_OptOutContact_Reason__c)
                 {
                     customerIds.add(acclnk.toRole__c);
                     dealerIds.add(acclnk.fromRole__c);
