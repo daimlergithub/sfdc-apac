@@ -1002,7 +1002,7 @@ public static Contact contactObj;
            al1.Retail_Special_Care__c='TestJa';
            update al1;
            update listcampaigns1;
-          AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
@@ -1092,7 +1092,7 @@ public static Contact contactObj;
            update al1;
            update listcampaigns1;
            AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
-          AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
@@ -1200,7 +1200,7 @@ public static Contact contactObj;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterDeleteEvent(listcampaigns1);
            AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
-          AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
@@ -1319,7 +1319,7 @@ public static Contact contactObj;
            update listcampaigns1;
            //AccountLinkHelperKR.updateRetailCopy(true,true,true,listcampaigns1);
           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
-          AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
@@ -1449,7 +1449,7 @@ public static Contact contactObj;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           
            AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
-          AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
@@ -1557,7 +1557,7 @@ public static Contact contactObj;
            system.debug('listcampaigns1--'+listcampaigns1);
            
            
-           Account_Link__c listCampaign =[select Name,toRole__c,MD__c,Retail_Gender__c,fromRole__c,Retail_Fax__c,RecordTypeId,Retail_UCID__c,Retail_LastName__c,Status__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           Account_Link__c listCampaign =[select Name,toRole__c,MD__c,Retail_Gender__c,fromRole__c,Retail_Fax__c,RecordTypeId,Retail_UCID__c,Retail_LastName__c,Status__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c,Retail_Sales_Sanction_Comment__c from Account_Link__c where id IN:listcampaigns1 ];
            list<Account_Link__c> oldList = new  list<Account_Link__c>();
            oldList.add(listCampaign);
            map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
@@ -1569,7 +1569,8 @@ public static Contact contactObj;
            update listcampaigns1;
            //AccountLinkHelperKR.updateRetailCopy(true,true,true,listcampaigns1);
           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
-          AccountLinkHelper.updateAccountlinksonPrimaryAddress(listcampaigns1,oldMap,false,true);
+          AccountlinkHelper.updateRetailCopy(true, true, listcampaigns1, oldMap);
+           AccountlinkHelper.updateRetailCopyafterUpdate(listcampaigns1, oldMap);
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
           
