@@ -6752,14 +6752,12 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <lookupDialogsAdditionalFields>Selling_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Last_Service_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Vehicle_ID__c</lookupDialogsAdditionalFields>
-        <searchResultsAdditionalFields>Vehicle_Model__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>UsVIN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>New_Used__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Car_Relation__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Finance_Method__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Registration_Number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Selling_Dealer__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Last_Service_Dealer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Owner_Dealer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Vehicle_Range__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Vehicle_ID__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>

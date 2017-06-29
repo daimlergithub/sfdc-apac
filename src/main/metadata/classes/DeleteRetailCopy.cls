@@ -50,15 +50,18 @@ public class DeleteRetailCopy{
                //accountupdateList .add(act);
                
                //Commented as part of SFDCJP-2593
-                /*for(Account act : [Select id , Ownerid from Account where id in:dealerId]){                    
-                    act.OwnerID = integrationUser[0].id;
-                   accountupdateList .add(act);
-                }*/
+                for(Account act : [Select id , Ownerid,CreatedById,CreatedBy.Profile.Name from Account where id in:dealerId]){
+                    System.debug('act.CreatedBy.Profile.Name'+act.CreatedBy.Profile.Name);                    
+                    if(act.CreatedBy.Profile.Name.Contains('Japan Dealer')){
+                        act.OwnerID = integrationUser[0].id;
+                       accountupdateList .add(act);
+                   }
+                }
                  AccountsharesToDelete = [SELECT Id FROM AccountShare WHERE AccountId IN : dealerId ];
             }
     
-        //if(!accountupdateList.isEmpty())
-        //update accountupdateList;
+        if(!accountupdateList.isEmpty())
+        update accountupdateList;
         
         if(!AccountsharesToDelete.isEmpty())
         database.delete(AccountsharesToDelete,false);
