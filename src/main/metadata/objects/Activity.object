@@ -150,7 +150,7 @@
     <fields>
         <fullName>Account_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Account Name</label>
+        <label>Company Name</label>
         <length>255</length>
         <required>false</required>
         <type>Text</type>
@@ -1537,14 +1537,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), '
         <fullName>Phone__c</fullName>
         <description>DMS</description>
         <externalId>false</externalId>
-        <label>Phone</label>
+        <label>Contract Phone 1</label>
         <required>false</required>
         <type>Phone</type>
     </fields>
     <fields>
         <fullName>Phone_number__c</fullName>
         <externalId>false</externalId>
-        <label>Phone number</label>
+        <label>Contract Phone 2</label>
         <required>false</required>
         <type>Phone</type>
     </fields>
