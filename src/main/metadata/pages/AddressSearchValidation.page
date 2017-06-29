@@ -103,6 +103,9 @@
                     <apex:inputField value="{!objAccount.Company_Name_Native_1__c}" />               
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />
                     <apex:inputField value="{!objAccount.Legal_Form_Position__c}" />
+					<apex:inputField value="{!objAccount.Company_Legal_Form_text__c}" />
+                    <apex:pageBlockSectionItem >
+                    </apex:pageBlockSectionItem>
                     <apex:inputField value="{!objAccount.Individual_Home_Phone__c}" />
                     <apex:inputField value="{!objAccount.Mobile__c}" />
                     <apex:inputField value="{!objAccount.Work_Phone__c}" />
