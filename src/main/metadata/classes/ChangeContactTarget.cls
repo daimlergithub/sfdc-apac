@@ -22,7 +22,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             this.vehicle= (Vehicle__c)controller.getRecord();
             vehiclewrpper = new vehicledataWrpper();          
              vehicleId= ApexPages.currentPage().getParameters().get('id');
-            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,Class__c,Model__c,(SELECT id,Name,Car_Relation__c,Owner_relation__c,Contact__r.Name,End_Date__c,Contact__c FROM Vehicle_Relationships__r) FROM Vehicle__c Where id =:vehicleId LIMIT 1];
+            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,Class__c,Model__c,(SELECT id,Name,Car_Relation__c,Owner_relation__c,Contact__r.Name,End_Date__c,Contact__c,Selling_Dealer__c,Last_Service_Dealer__c,MOT_USER_NAME__c,MOT_User_Address__c,MOT_Owner_Name__c,MOT_Owner_Address__c,Customer_Type__c,Ownership__c,New_Used__c,Registration_Number__c,Registration_Date__c,Handover_Date__c FROM Vehicle_Relationships__r) FROM Vehicle__c Where id =:vehicleId LIMIT 1];
             for(Vehicle_relationship__c vr: vehicle .Vehicle_Relationships__r)
             {
                  if(vr.End_Date__c == null){
