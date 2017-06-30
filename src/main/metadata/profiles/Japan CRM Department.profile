@@ -14319,7 +14319,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.DMS_Sent_Flag__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
