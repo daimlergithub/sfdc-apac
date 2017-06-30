@@ -23,7 +23,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Brand__c</field>
+                <field>Competitor_Brand__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
