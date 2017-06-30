@@ -36,13 +36,14 @@ public with sharing class VehicleExtension {
         // ***For Thailand*** Start
         nonThaiUserLoggedIn = true;
         // ***For Thailand*** End
+        
+        vehicle = (Vehicle__C)stdController.getRecord();
         string returnId = ApexPages.currentPage().getParameters().get('accId');
+        
         if(returnId!=null)
         {
          vehicle.Related_contact__c=returnId;
         }
-        vehicle = (Vehicle__C)stdController.getRecord();
-        
         // ***For Thailand*** Start
         id id1 = userinfo.getProfileId();
         Profile p =[select Name from profile where id = :id1];
@@ -240,16 +241,28 @@ public with sharing class VehicleExtension {
     { 
           string returnId = ApexPages.currentPage().getParameters().get('accId');
           string returnId2 = ApexPages.currentPage().getParameters().get('Id');
-        if(returnId!=null){
+          String y=ApexPages.currentPage().getURL();
+           string pre=Vehicle__c.getSObjectType().getDescribe().getKeyprefix();
+        if(returnId!=null && profileval == false){
           nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
-        }else if(returnId2!=null){
+        }else if(returnId!=null && profileval == true){
+         nextPage = new PageReference('{!URLFOR($Site.Prefix)}/'+returnId);
+        }
+        else if(returnId2!=null && profileval == false){
          nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId2);
-
+         }else if(returnId2!=null && profileval == true)
+         {
+          nextPage = new PageReference('{!URLFOR($Site.Prefix)}/'+returnId2);
+         }
+        else if(profileval == false){
+           
+            nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+pre+'/o');
+        }
+        else if(profileval == true){
+            nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/MBJapan/'+pre+'/o');
         }
         else{
-            string pre=Vehicle__c.getSObjectType().getDescribe().getKeyprefix();
-            System.debug('Pre'+pre);
-            nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+pre+'/o');
+         nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+pre+'/o');
         }
           nextPage.setRedirect(true);
           return nextPage;
@@ -333,7 +346,7 @@ public with sharing class VehicleExtension {
             if(tempSet == null){
                 rangeVgMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Vehicle_Group__c});
             }else{
-                tempSet.add(cm.Vehicle_Group__c);
+                tempSet.add(cm.Vehicle_Group__c); 
             }
         
         //Create  Range steering group map.
