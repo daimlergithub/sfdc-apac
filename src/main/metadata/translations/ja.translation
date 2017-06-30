@@ -1657,7 +1657,7 @@
         <name>FinanceMethod</name>
     </customLabels>
     <customLabels>
-        <label>試乗</label>
+        <label>ファイナンス見積</label>
         <name>Finance_Estimate</name>
     </customLabels>
     <customLabels>
@@ -1669,7 +1669,7 @@
         <name>Finance_Estimate_History</name>
     </customLabels>
     <customLabels>
-        <label>商品説明提案</label>
+        <label>ファイナンス提案</label>
         <name>Finance_Proposal</name>
     </customLabels>
 	<customLabels>
@@ -1873,7 +1873,7 @@
         <name>Insurance_Promotion</name>
     </customLabels>
     <customLabels>
-        <label>ファイナンス提案</label>
+        <label>自動車保険提案</label>
         <name>Insurance_Proposal</name>
     </customLabels>
     <customLabels>
@@ -4296,7 +4296,7 @@
         <name>Service_Product_Promotion</name>
     </customLabels>
     <customLabels>
-        <label>自動車保険提案</label>
+        <label>サービスプログラム提案 </label>
         <name>Service_Program_Proposal</name>
     </customLabels>
     <customLabels>
@@ -4320,7 +4320,7 @@
         <name>Share</name>
     </customLabels>
     <customLabels>
-        <label>サービスプログラム提案</label>
+        <label>簡易見積</label>
         <name>Simple_Estimation</name>
     </customLabels>
     <customLabels>
@@ -4612,7 +4612,7 @@
         <name>Terminate_Vehicle_Relationship</name>
     </customLabels>
     <customLabels>
-        <label><!-- Test Drive --></label>
+        <label>試乗</label>
         <name>Test_Drive</name>
     </customLabels>
     <customLabels>
