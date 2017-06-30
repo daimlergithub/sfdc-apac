@@ -24562,10 +24562,6 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Campaign_Member__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>Campaign_Partner__c</tab>
         <visibility>None</visibility>
     </tabSettings>
