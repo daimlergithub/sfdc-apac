@@ -2349,7 +2349,11 @@
         <apexClass>usernotificationsetting</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <custom>true</custom>
+	<classAccesses>
+        <apexClass>VehicleEditExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+   <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.ASLead_Notification_Timing__c</field>
@@ -14317,7 +14321,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.DMS_Sent_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -18157,19 +18161,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>QuestionList__c.Choices__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>QuestionList__c.Question__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>QuestionList__c.Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -21392,9 +21396,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Segmentation_Criteria__c.Criteria__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22037,9 +22041,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Survey_Question__c.Campaign_Question_Ref__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22077,9 +22081,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25781,6 +25785,10 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>Edit_Vehicle</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

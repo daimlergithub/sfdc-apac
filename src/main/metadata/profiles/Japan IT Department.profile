@@ -209,7 +209,11 @@
         <apexClass>AccountHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
+        <apexClass>VehicleEditExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+  <classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -22040,9 +22044,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Survey_Question__c.Campaign_Question_Ref__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22080,9 +22084,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

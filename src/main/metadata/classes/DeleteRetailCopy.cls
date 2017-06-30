@@ -10,7 +10,7 @@
 **/
 public class DeleteRetailCopy{
         static Boolean isDeleted = false;
-        static Boolean isRetail_Delete = false;
+        //static Boolean isRetail_Delete = false;
         static List<User> integrationUser = [select id,name, profile.Name from user WHERE profile.Name = 'IntegrationAPI' AND ISActive = true LIMIT 1];
     public static void updateRetailCopy(){    
        
@@ -41,11 +41,11 @@ public class DeleteRetailCopy{
             if(acc.Retail_Delete_Flag__c){
                 isDeleted = true;
             }
-            if(!acc.Retail_Delete_Flag__c){
+            /*if(!acc.Retail_Delete_Flag__c){
                 isRetail_Delete = true;            
-            }
+            }*/
           }  
-            if(isDeleted && !isRetail_Delete){
+            if(isDeleted ){
               // Account act = new Account(id=dealerId, ownerid = integrationUser[0].id );
                //accountupdateList .add(act);
                
@@ -54,10 +54,10 @@ public class DeleteRetailCopy{
                     System.debug('act.CreatedBy.Profile.Name'+act.CreatedBy.Profile.Name);                    
                     if(act.CreatedBy.Profile.Name.Contains('Japan Dealer')){
                         act.OwnerID = integrationUser[0].id;
-                       accountupdateList .add(act);
+                       accountupdateList.add(act);
                    }
                 }
-                 AccountsharesToDelete = [SELECT Id FROM AccountShare WHERE AccountId IN : dealerId ];
+                 AccountsharesToDelete = [SELECT Id,RowCause FROM AccountShare WHERE AccountId IN : dealerId AND RowCause = 'Manual'];
             }
     
         if(!accountupdateList.isEmpty())

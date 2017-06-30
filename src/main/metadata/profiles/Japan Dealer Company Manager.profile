@@ -2051,7 +2051,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleExtension</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleExtensionTest</apexClass>
@@ -2341,7 +2341,11 @@
         <apexClass>updateCaseDeadLine</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
+        <apexClass>VehicleEditExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+  <classAccesses>
         <apexClass>usernotificationsetting</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -14307,7 +14311,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.DMS_Sent_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -25757,6 +25761,10 @@
         <apexPage>ALKDeleteConformationpage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>Edit_Vehicle</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>false</enabled>
@@ -25915,7 +25923,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>CustomerMymercInterface</apexPage>

@@ -140,7 +140,15 @@
         <label>了承済み</label>
         <name>Accepted</name>
     </customLabels>
-    <customLabels>
+	<customLabels>
+        <label>編集</label>
+        <name>Vehicle_Edit</name>
+    </customLabels>
+	<customLabels>
+        <label>保有情報</label>
+        <name>Registration_Information</name>
+    </customLabels>
+	<customLabels>
         <label>付属品価格＋販売店装備品価格</label>
         <name>Accessory_price_Dealer_Option_price</name>
     </customLabels>
