@@ -2335,7 +2335,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
                         Validation = TRUE; 
                     }
-                    
+                     
                     if(addressobj.District__c == null )
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.')); 

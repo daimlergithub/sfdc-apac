@@ -346,7 +346,7 @@ public with sharing class VehicleExtension {
             if(tempSet == null){
                 rangeVgMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Vehicle_Group__c});
             }else{
-                tempSet.add(cm.Vehicle_Group__c);
+                tempSet.add(cm.Vehicle_Group__c); 
             }
         
         //Create  Range steering group map.

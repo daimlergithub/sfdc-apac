@@ -245,7 +245,7 @@ public with sharing class VehicleEditExtension {
        
          options.add(new SelectOption('',''));
         
-         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Brand__c=:compBrand] )
+         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Brand__c=:compBrand ] )
          {
           
           options.add(new SelectOption(m.Name,m.Name));
