@@ -21717,6 +21717,16 @@ alert("{!$Label.ChangeContacttarget}");</url>
         <page>SendVehicleInfoMyMercedes</page>
         <protected>false</protected>
     </webLinks>
+	<webLinks>
+        <fullName>EditVehicle</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Edit Vehicle</masterLabel>
+        <openType>replace</openType>
+        <page>Edit_Vehicle</page>
+        <protected>false</protected>
+    </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
         <availability>online</availability>

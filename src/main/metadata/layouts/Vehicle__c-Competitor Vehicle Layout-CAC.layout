@@ -5,6 +5,8 @@
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
+	<excludeButtons>Edit</excludeButtons>
+	<customButtons>EditVehicle</customButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -21,7 +23,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Brand__c</field>
+                <field>Competitor_Brand__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
