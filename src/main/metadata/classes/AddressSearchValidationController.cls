@@ -26,7 +26,7 @@ public class AddressSearchValidationController
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}   
     Public Boolean Validation;
-    
+    public map<string,string> labelNvalue=new map<string,string>();
     // KOREA related parameters - Start
     public String market{get;set;}
     public String homePhoneAreaCodePart1{get;set;}   
@@ -240,10 +240,22 @@ public class AddressSearchValidationController
     
     public pagereference saveAccount(){    
         system.debug('enter 1 :');
+        
         if(addresspicklist!=null)
         AddressObj.Address_Type__c = addresspicklist;
         //AddressObj.Province__c = provincepicklist;
         Validation = false;
+        
+         if(TouchPoint == '販売店')
+         {
+           TouchPoint = 'Dealer Outlet';
+           
+         }else if(TouchPoint == '使用しないでください'){
+         
+          TouchPoint = 'Others';
+         }
+         
+          
         // Save record without Address record if no value is Entered in Address section
         if((AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '--None--') && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
            AddressObj.ZipCode__c == null && AddressObj.Block__c ==  null && AddressObj.City__c == null &&  AddressObj.District__c == null &&
@@ -266,7 +278,7 @@ public class AddressSearchValidationController
                         refreshPage = true;
                         if(TouchPoint !=null)
                         {
-                        objAccount.Data_Source__c=TouchPoint;
+                         objAccount.Data_Source__c=TouchPoint;
                         }
                         
                         insert objAccount ;
@@ -290,6 +302,7 @@ public class AddressSearchValidationController
                         refreshPage = true;
                         if(TouchPoint !=null)
                         {
+                        
                         objPersonAccount.Data_Source__c=TouchPoint;
                         } 
                         if(objPersonAccount.Acquisition_Objective_Method__c !=null && objPersonAccount.Allow_Data_Sharing2__c =='Yes')
@@ -580,6 +593,7 @@ public class AddressSearchValidationController
                         refreshPage = true;
                         if(TouchPoint !=null)
                         {
+                        
                         objAccount.Data_Source__c=TouchPoint;
                         }
                         insert objAccount ;
@@ -784,6 +798,7 @@ public class AddressSearchValidationController
         selectedRecordType = recordType;       
    // Added by Venky changes related to SFDCJP-2505
     u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
+      
         market = u.Market__c;
         
         if(market == Label.JP){
@@ -793,7 +808,7 @@ public class AddressSearchValidationController
         } 
         if(u.ContactId !=null && selectedRecordType   =='Person Account')
         {
-        TouchPoint=Label.Dealer_Outlet; 
+          TouchPoint=Label.Dealer_Outlet; 
         }  
     }       
     }
@@ -1468,7 +1483,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }
-                show = true;
+             //   show = true;
                 if(response.CustomerIdentificationResponseMessage ==null)
                 {
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
