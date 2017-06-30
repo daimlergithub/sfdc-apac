@@ -9729,7 +9729,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
+                <fullName>Apparel & Accessories/Fashion</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -19325,7 +19325,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
+                <fullName>Apparel & Accessories/Fashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48556,7 +48556,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
+                <fullName>Apparel & Accessories/Fashion</fullName>
                 <default>false</default>
             </values>
             <values>
