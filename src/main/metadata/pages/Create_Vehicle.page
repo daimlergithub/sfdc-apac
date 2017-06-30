@@ -11,10 +11,13 @@
     function saveDetail() 
     { 
         var recordTypeValue = document.getElementById("singleSelect").value;
+        
         if(recordTypeValue == 'MB'){
+        
         var brandVal = document.getElementById("brandItems").value;
-           
+         
         var classVal = document.getElementById("classItems").value;
+         
         //Var classVal   = document.getElementById("classItems").value;
         var modelVal = document.getElementById("modelItems").value;  
         var rangeVal = document.getElementById("rangeItems").value; 
@@ -22,7 +25,14 @@
         var VehicleGPVal = document.getElementById("vgItems").value; 
         var steeringVal = document.getElementById("steeringItems").value; 
             echoMB(brandVal,classVal,modelVal,recordTypeValue,rangeVal,modpackVal,VehicleGPVal,steeringVal);
-           }else{
+           }else if(recordTypeValue == 'Self Registered'){
+             var brandVal = document.getElementById("brandItems1").value;
+             var classVal = document.getElementById("classItems1").value;
+            var modelVal = document.getElementById("modelItems1").value;  
+             var rangeVal = document.getElementById("rangeItems1").value; 
+              echoSR(brandVal,classVal,modelVal,recordTypeValue,rangeVal);
+           }
+           else{
         
         var compBrand = document.getElementById("compBrandItems").value;
          var compModel = document.getElementById("compMdelItems").value;
@@ -45,7 +55,14 @@
         var VehicleGPVal = document.getElementById("vgItems").value; 
         var steeringVal = document.getElementById("steeringItems").value;  
             echoMBnew(brandVal,classVal,modelVal,recordTypeValue,rangeVal,modpackVal,VehicleGPVal,steeringVal);
-           }else{
+           }else if(recordTypeValue == 'Self Registered'){
+             var brandVal = document.getElementById("brandItems1").value;
+             var classVal = document.getElementById("classItems1").value;
+            var modelVal = document.getElementById("modelItems1").value;  
+             var rangeVal = document.getElementById("rangeItems1").value; 
+              echoSRnew(brandVal,classVal,modelVal,recordTypeValue,rangeVal);
+           }
+           else{
         
         var compBrand = document.getElementById("compBrandItems").value;
         var compModel = document.getElementById("compMdelItems").value;
@@ -69,7 +86,7 @@
         $scope.vehicle_brand_classes = []; 
       
         
-       $scope.availableOptions = ['--Select--','MB','Competitor'];
+       $scope.availableOptions = ['--Select--','MB','Competitor','Self Registered'];
        $scope.selectedRecordType=$scope.availableOptions[0];
           
            
@@ -163,6 +180,24 @@
                             <apex:param name="seventhParam" assignTo="{!VG}" value="" />
                             <apex:param name="eightParam" assignTo="{!steering}" value="" />
                         </apex:actionFunction>
+                        <apex:actionFunction name="echoSR" action="{!saveVal}" rerender="showmsg">
+                            <!--param to pass the perameters to the controller-->
+                            <apex:param name="firstParam" assignTo="{!brand}" value="" />
+                            <apex:param name="secondParam" assignTo="{!class1}" value="" />
+                            <apex:param name="thirdParam" assignTo="{!model}" value="" />
+                            <apex:param name="fourthParam" assignTo="{!recordType}" value="" />
+                            <apex:param name="fifthParam" assignTo="{!range}" value="" />
+                            
+                        </apex:actionFunction>
+                        <apex:actionFunction name="echoSRnew" action="{!saveAndNew}" rerender="showmsg">
+                            <!--param to pass the perameters to the controller-->
+                            <apex:param name="firstParam" assignTo="{!brand}" value="" />
+                            <apex:param name="secondParam" assignTo="{!class1}" value="" />
+                            <apex:param name="thirdParam" assignTo="{!model}" value="" />
+                            <apex:param name="fourthParam" assignTo="{!recordType}" value="" />
+                            <apex:param name="fifthParam" assignTo="{!range}" value="" />
+                            
+                        </apex:actionFunction>
                         <apex:actionFunction name="echocomp" action="{!saveVal}" rerender="showmsg">
                             <!--param to pass the perameters to the controller-->
                             <apex:param name="secondParamComp" assignTo="{!compBrand}" value="" />
@@ -188,8 +223,21 @@
                             <apex:param name="thirdParamComp" assignTo="{!compModel}" value="" />
                         </apex:actionFunction> 
                                                   
-                                
-                                <apex:pageBlockSectionItem >
+                               
+                                <apex:pageBlockSectionItem rendered="{!profileval}">
+                                    <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.RecordTypeId.Label}" />
+                                    <div class = "requiredInput"  >
+                                    <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>         
+                                     <table>
+                                        <tr>
+                                            <td class="dataCol requiredInput" >
+                                            <select id="singleSelect"  style="width:160px" ng-change="getCarModels(selectedRecordType)" ng-model="selectedRecordType"   ng-options="availableOption for availableOption in availableOptions| filter : 't' track by availableOption"/>
+                                            </td> 
+                                        </tr> 
+                                     </table>
+                                    </div>
+                                </apex:pageBlockSectionItem>
+                                 <apex:pageBlockSectionItem rendered="{!!profileval}" >
                                     <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.RecordTypeId.Label}" />
                                     <div class = "requiredInput"  >
                                     <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>         
@@ -274,7 +322,7 @@
                                         <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.BaumusterEx__c.Label}" />
                                         <select id="steeringItems" style="width:174px" ng-change="getSelectedRange(selectedSteering)" ng-model="selectedSteering" ng-options="Steering for Steering in Steerings track by Steering"/>                           
                                   </apex:pageBlockSectionItem>   
-                                  <apex:inputField value="{!vehicle.UsVIN__c}"/>
+                                  
                                                         
                             <apex:inputField value="{!vehicle.Model_Description__c}"/>
                         
@@ -385,7 +433,72 @@
                          <apex:inputField value="{!vehicle.Portal_Vehicle_ID__c}"/>
                     </apex:pageBlockSection>
                 </span>
-                 
+                <span ng-switch-when="Self Registered">
+                   <apex:pageBlockSection title="{!$Label.Vehicle_Information}" > 
+                     <apex:inputField value="{!vehicle.EuroVIN__c}"/>
+                     <apex:pageBlockSectionItem >
+                                         <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Class__c.Label}" />                  
+                                         <select id="classItems1" style="width:174px" ng-model="selectedClasses" ng-blur="setModelValue(selectedBrand+selectedClasses)" ng-change="setModelValue(selectedBrand+selectedClasses)" ng-options="class for class in relatedClasses track by class"/>              
+                                  </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem >
+                                     <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Brand__c.Label}" />
+                                    
+                                            <div class = "requiredInput"  >
+                                            <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
+                                             <table>
+                                                <tr>
+                                                    <td class="dataCol requiredInput" >
+                                                    
+                                                    <select  id="brandItems1" style="width:160px" ng-blur="setSelectedValue(selectedBrand)" ng-change="setSelectedValue(selectedBrand)" ng-model="selectedBrand" ng-options="brand for brand in brands track by brand" />
+                                                    </td> 
+                                                </tr> 
+                                             </table>
+                                            </div>
+                                  </apex:pageBlockSectionItem>
+                                   <apex:pageBlockSectionItem >
+                                         <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Range__c.Label}" />
+                                         <select id="rangeItems1" style="width:174px" ng-blur="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-change="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-model="selectedRange" ng-options="range for range in ranges track by range"/>                          
+                                   </apex:pageBlockSectionItem>
+                                   <apex:pageBlockSectionItem > 
+                                         <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Model__c.Label}"  />
+                                         <div>
+                                            <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
+                                             <table>
+                                                <tr>
+
+                                                    <td class="dataCol requiredInput">
+                                         <select id="modelItems1" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>
+
+                                                     </td> 
+                                                </tr> 
+                                             </table>
+
+                                            </div>
+                                        
+                                    </apex:pageBlockSectionItem>
+                                   
+                                   <apex:inputField value="{!vehicle.Model_Description__c}"/>
+                                   
+                                   
+                                   <apex:inputField value="{!vehicle.ModelYear__c}"/>&nbsp;
+                                   <apex:inputField value="{!vehicle.Colour__c}"/>
+                                   <apex:inputField value="{!vehicle.Product_Model__c}"/>
+                                   
+                   </apex:pageBlockSection>
+                </span>
+                 <span ng-switch-when="Self Registered">
+                    <apex:pageBlockSection title="Registration Information" > 
+                        <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
+                         <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                        <apex:inputField value="{!vehicle.MOT_Expired_Date__c}"/>
+                         <apex:inputField value="{!vehicle.Related_contact__c}"/>&nbsp;
+                         <apex:inputField value="{!vehicle.Related_From__c}"/>
+                        <apex:inputField value="{!vehicle.Related_To__c}"/> 
+                        <apex:inputField value="{!vehicle.New_Used__c}"/> 
+                        <apex:inputField value="{!vehicle.Finance_Method__c}"/>   
+                    </apex:pageBlockSection>
+                </span>
                  <apex:pageBlockButtons >
                      <apex:commandButton value="{!$Label.Save_Button}" onclick="saveDetail();return false;"/>
                      <apex:commandButton value="{!$Label.Save_New_Button}"  onclick="saveAndNewDetail();return false;"/>
