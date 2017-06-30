@@ -209,7 +209,7 @@
         <apexClass>AccountHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -25778,7 +25778,7 @@
         <apexPage>ALKDeleteConformationpage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
+	<pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
