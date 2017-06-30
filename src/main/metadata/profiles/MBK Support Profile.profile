@@ -22174,11 +22174,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Survey_Question__c.Camp_Question__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Survey_Question__c.Campaign_Question_Ref__c</field>
         <readable>false</readable>
     </fieldPermissions>
