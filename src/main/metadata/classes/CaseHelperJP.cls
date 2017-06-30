@@ -563,6 +563,12 @@ List<Account> accUpdLst = new List<Account>();
          Set<String> DealerGccode = new Set<String>();
           List<Account> DealeAcc=new List<Account>();  
         Id caseRecId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+        Id caseMBFInquiry = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_FinanceInquriy);
+        Id caseMBFComplaint = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_Complaint);
+        Id caseMBFContract = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_ContractClosing);
+        Id caseMBFRequest = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_CustomerRequest);
+        Id caseMBFQuotation = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_FinanceQuotation);
+        
         List<CaseShare> CaseSharingRecord = new List<CaseShare>();
         List<Caseshare> shareList = new List<Caseshare>();
         List<Case> caserecList = new List<Case>();
@@ -582,7 +588,7 @@ List<Account> accUpdLst = new List<Account>();
         {
         for(Case c : shcaseList)
         {
-            if(c.RecordTypeId == caseRecId && c.Dealer_Contact__c == 'Yes' && c.Case_Dealer__c != null)
+            if((c.RecordTypeId == caseRecId || c.RecordTypeId == caseMBFInquiry || c.RecordTypeId == caseMBFComplaint || c.RecordTypeId == caseMBFContract || c.RecordTypeId == caseMBFRequest || c.RecordTypeId == caseMBFQuotation) && c.Dealer_Contact__c == 'Yes' && c.Case_Dealer__c != null)
              {
                 shrcaseId.add(c.Id);
                 dealerId.add(c.Case_Dealer__c);

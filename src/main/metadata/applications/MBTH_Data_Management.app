@@ -2,12 +2,11 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>MBTH Data Management</label>
-    <logo>Logo/MBTH_LOGO_FV2.png</logo>
     <tab>Tasks</tab>
     <tab>standard-Account</tab>
+    <tab>Lead__c</tab>
     <tab>standard-Case</tab>
     <tab>standard-report</tab>
-    <tab>Lead__c</tab>
     <tab>Vehicle_Relationship__c</tab>
     <tab>Vehicle__c</tab>
     <tab>standard-Campaign</tab>

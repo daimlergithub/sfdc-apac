@@ -597,9 +597,7 @@
         <fields>Role__c</fields>
         <fields>toRole__c</fields>
         <fields>Role2__c</fields>
-        <fields>Portal_Email__c</fields>
         <fields>Retail_Email_OptOut__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -609,9 +607,7 @@
         <fields>fromRole__c</fields>
         <fields>Role__c</fields>
         <fields>Role2__c</fields>
-        <fields>Portal_Email__c</fields>
         <fields>Retail_Email_OptOut__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>

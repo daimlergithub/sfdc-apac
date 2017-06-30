@@ -3,7 +3,7 @@
         <apex:pageBlock mode="maindetail">
         
         <apex:pageblockSection >
-                <apex:outputField value="{!Case.Case_Complainant__c}"/>
+                <!--<apex:outputField value="{!Case.Case_Complainant__c}"/>-->
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:outputField value="{!Case.Case_Class__c}"/>
                 <apex:outputField value="{!Case.Case_Type__c}"/>
