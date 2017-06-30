@@ -28062,11 +28062,7 @@ if('{!Task.What}'.indexOf('a1b') == 0) {
  var result = sforce.connection.update(newRecords);
 }
 */
- if (sforce.console.isInConsole()) {
-  sforce.console.openPrimaryTab(undefined, '/{!Task.What}', true, '{!Task.SSI_Number__c}'); 
- } else { 
-  window.open('/{!Task.What}', "", "width = 800,height = 600"); 
- }
+ 
 }</url>
     </webLinks>
 </CustomObject>
