@@ -6,7 +6,7 @@
        
          
             <!--PageBlock starts here-->
-            <apex:pageBlock title="Vehicle Edit" mode="edit" id="block" rendered="{! If((recrdType=='MB' && profileav == false) || (recrdType=='Competitor') || (recrdType=='Self Registered'),true,false) }">
+            <apex:pageBlock title="{!$Label.Vehicle_Edit}" mode="edit" id="block" rendered="{! If((recrdType=='MB' && profileav == false) || (recrdType=='Competitor') || (recrdType=='Self Registered'),true,false) }">
               
                                <apex:pageblockSection > 
                                                
@@ -237,7 +237,7 @@
                     </apex:pageBlockSection>
                   </apex:outputPanel> 
                     <apex:outputPanel rendered="{! If(recrdType=='Self Registered',true,false) }"> 
-                     <apex:pageBlockSection title="Registration Information" > 
+                     <apex:pageBlockSection title="{!$Label.Registration_Information}" > 
                         <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
                          <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
                         <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>

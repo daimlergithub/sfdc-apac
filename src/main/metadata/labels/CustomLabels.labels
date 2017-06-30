@@ -36,6 +36,20 @@
         <value>Retail Email OptOut</value>
     </labels>
 	<labels>
+        <fullName>Vehicle_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Edit</shortDescription>
+        <value>Vehicle Edit</value>
+    </labels>
+	<labels>
+        <fullName>Registration_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Information</shortDescription>
+        <value>Registration Information</value>
+    </labels>
+	<labels>
         <fullName>Sales_dealer</fullName>
         <language>en_US</language>
         <protected>false</protected>
