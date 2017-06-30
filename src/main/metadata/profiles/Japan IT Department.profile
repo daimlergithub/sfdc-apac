@@ -209,7 +209,11 @@
         <apexClass>AccountHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
+        <apexClass>VehicleEditExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+  <classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -291,11 +295,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountTable</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountTableTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AddToCampaign</apexClass>
@@ -421,21 +425,29 @@
         <apexClass>BatchUpdateRecordsTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+ <classAccesses>
+        <apexClass>Batch_AutoResponseJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+<classAccesses>
+        <apexClass>Batch_AutoResponseJPTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>Batch_AutoSegmentation</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_AutoSegmentationTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_BounceStatus</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_BounceStatusTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_CreateCampaignNotification</apexClass>
@@ -455,7 +467,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_DistributionCampaignMembers</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BusinessHrHolidaysRetriever</apexClass>
@@ -511,11 +523,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberDisribution</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberDisributionTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMembersCustomHelperJP</apexClass>
@@ -543,11 +555,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignSchedulerAndNotificationJP</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignSchedulerAndNotificationJP_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CaseEscalationController</apexClass>
@@ -667,11 +679,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConsolidationContorller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConsolidationContorllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ContactHelper</apexClass>
@@ -699,7 +711,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToDMRequestTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToLeadController</apexClass>
@@ -707,7 +719,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToLeadControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToTaskController</apexClass>
@@ -1167,7 +1179,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignSchedulerAndNotificationJP</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignSegmentationController</apexClass>
@@ -1251,27 +1263,27 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleCampCompletion</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleCampCompletionTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleRetailCampCompletion</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleRetailCampCompletionTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SegmentationCriteriaController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SegmentationCriteriaControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SelectAddressController</apexClass>
@@ -1451,7 +1463,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassAssignChangeOwnerJPTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
@@ -2307,15 +2319,15 @@
     </classAccesses>
     <classAccesses>
         <apexClass>exportCampaignMembers</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>exportCampaignMembersTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>segmentationredirect</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
