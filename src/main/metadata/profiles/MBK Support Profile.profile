@@ -564,10 +564,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CampaignSchedulerAndNotificationJPTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CampaignSchedulerAndNotificationJP_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
