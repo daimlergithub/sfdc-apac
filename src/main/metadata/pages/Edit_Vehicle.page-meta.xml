@@ -3,5 +3,5 @@
     <apiVersion>35.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <label>Create_Vehicle</label>
+    <label>Edit_Vehicle</label>
 </ApexPage>
