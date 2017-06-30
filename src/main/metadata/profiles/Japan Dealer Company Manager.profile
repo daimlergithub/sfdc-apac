@@ -291,11 +291,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountTable</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountTableTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AddToCampaign</apexClass>
@@ -421,21 +421,25 @@
         <apexClass>BatchUpdateRecordsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+  <classAccesses>
+        <apexClass>Batch_AutoResponseJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>Batch_AutoSegmentation</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_AutoSegmentationTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_BounceStatus</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_BounceStatusTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_CreateCampaignNotification</apexClass>
@@ -455,7 +459,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_DistributionCampaignMembers</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BusinessHrHolidaysRetriever</apexClass>
@@ -487,7 +491,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignHelperTH</apexClass>
@@ -499,7 +503,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignHelperTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberAfterTriggerHandler</apexClass>
@@ -511,11 +515,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberDisribution</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberDisributionTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMembersCustomHelperJP</apexClass>
@@ -547,7 +551,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignSchedulerAndNotificationJP_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CaseEscalationController</apexClass>
@@ -667,11 +671,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConsolidationContorller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConsolidationContorllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ContactHelper</apexClass>
@@ -699,7 +703,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToDMRequestTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToLeadController</apexClass>
@@ -707,7 +711,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToLeadControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToTaskController</apexClass>
@@ -715,7 +719,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToTaskControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CustomLogUtil</apexClass>
@@ -1155,7 +1159,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignMemberHelper</apexClass>
@@ -1259,19 +1263,19 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleRetailCampCompletion</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleRetailCampCompletionTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SegmentationCriteriaController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SegmentationCriteriaControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SelectAddressController</apexClass>
@@ -1451,7 +1455,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassAssignChangeOwnerJPTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
@@ -26500,10 +26504,10 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Executiono</recordType>
-        <visible>false</visible>
+           <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -26513,9 +26517,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

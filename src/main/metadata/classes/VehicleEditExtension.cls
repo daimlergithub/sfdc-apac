@@ -42,7 +42,7 @@ public with sharing class VehicleEditExtension {
              vehicleId= ApexPages.currentPage().getParameters().get('id');
          
            
-            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,EuroVIN__c,Competitor_Brand__c,Competitor_Model__c,Model_Description__c,New_Used__c,Related_contact__c,Finance_Method__c,Related_From__c,Related_To__c,Portal_Vehicle_ID__c,InsuranceExpiryDate__c,MOT_Expired_Date__c,Vehicle_Role__c,FirstRegistrationDate__c,Transmission__c,RegistrationNo__c,System_Data_Source__c,VehicleStatus__c,ProductionDate__c,NextServiceDate__c,NextInspectionDate__c,recordtypeid,recordtype.name,Class__c,Model__c,Range__c,Modification_Package__c,Vehicle_Group__c,BaumusterEx__c,OptionCode__c,Colour__c,EngineNumber__c,Trim__c,CurrentMileage__c,CylinderCapacity__c,Fuel__c,Height__c,Length__c,Width__c,Weight__c,ModelYear__c,National_Model__c,VehicleAge__c,Product_Model__c,Category_Code__c FROM Vehicle__c Where id =:vehicleId];
+            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,EuroVIN__c,Competitor_Brand__c,Competitor_Model__c,Model_Description__c,New_Used__c,Related_contact__c,Finance_Method__c,Related_From__c,Related_To__c,Portal_Vehicle_ID__c,InsuranceExpiryDate__c,MOT_Expired_Date__c,Vehicle_Role__c,FirstRegistrationDate__c,Transmission__c,RegistrationNo__c,System_Data_Source__c,VehicleStatus__c,ProductionDate__c,NextServiceDate__c,NextInspectionDate__c,recordtypeid,recordtype.name,Class__c,Model__c,Range__c,Modification_Package__c,Vehicle_Group__c,BaumusterEx__c,OptionCode__c,Colour__c,EngineNumber__c,Trim__c,CurrentMileage__c,CylinderCapacity__c,Fuel__c,Height__c,Length__c,Width__c,Weight__c,ModelYear__c,National_Model__c,VehicleAge__c,Product_Model__c,Category_Code__c FROM Vehicle__c Where id =:vehicleId limit 1];
             system.debug('vehicleeeeeeeeee'+vehicle);
             recrdType=vehicle.recordtype.name;
             if(recrdType == 'MB'){
@@ -101,6 +101,7 @@ public with sharing class VehicleEditExtension {
           options.add(new SelectOption(brands,brands));
           
           }
+          system.debug('optionssssss'+options.size());
         return options;
     } 
     
@@ -125,6 +126,7 @@ public with sharing class VehicleEditExtension {
           
           }
          }
+         system.debug('optionssssss'+options.size());
         return options;
     }     
     public List<SelectOption> getmodels()
@@ -134,12 +136,13 @@ public with sharing class VehicleEditExtension {
         
           options.add(new SelectOption('',''));
          
-         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Series__c=:class1] )
+         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Series__c=:class1 and Brand__c=:brand ] )
          {
           system.debug('m'+m);
           options.add(new SelectOption(m.Name,m.Name));
          }
          }
+         system.debug('optionssssss'+options.size());
         return options;
     }     
     
@@ -159,6 +162,7 @@ public with sharing class VehicleEditExtension {
           }
          }
          }
+         system.debug('optionssssss'+options.size());
         return options;
     }     
     
@@ -177,6 +181,7 @@ public with sharing class VehicleEditExtension {
           }
          }
          }
+         system.debug('optionssssss'+options.size());
         return options;
     }     
     public List<SelectOption> getvgs()
@@ -193,6 +198,7 @@ public with sharing class VehicleEditExtension {
           }
          }
          }
+         system.debug('optionssssss'+options.size());
         return options;
     }     
      
@@ -204,7 +210,7 @@ public with sharing class VehicleEditExtension {
          
         options.add(new SelectOption('',''));
           
-         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Vehicle_Group__c=:VG] )
+         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Vehicle_Group__c=:VG limit 1000] )
          {
           system.debug('m'+m);
           if(m.Steering__c !=null){
@@ -212,6 +218,7 @@ public with sharing class VehicleEditExtension {
           }
          }
          }
+         system.debug('optionssssss'+options.size());
         return options;
     }      
      
@@ -409,11 +416,16 @@ public with sharing class VehicleEditExtension {
     
     
     public PageReference Cancel()
-    { 
+    {     system.debug('profileav-------- '+profileav);
           string returnId = ApexPages.currentPage().getParameters().get('Id');
-        if(returnId!=null){
+          
+        if(returnId!=null && profileav == false){
           nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
-        }else{
+        }
+        else if(returnId!=null && profileav == true){
+         nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/MBJapan/'+returnId);
+        }
+        else{
             string returnId1=Vehicle__c.sObjectType.getDescribe().getKeyprefix();
 
             nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId1+'/o');
