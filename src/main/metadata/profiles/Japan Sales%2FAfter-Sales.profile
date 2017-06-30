@@ -24622,16 +24622,16 @@
         <layout>Campaign-Central Campaign Layout</layout>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Central Campaign Layout</layout>
+	    <layoutAssignments>
+        <layout>Campaign-Campaign Execution</layout>
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Central Campaign Layout</layout>
+	<layoutAssignments>
+        <layout>Campaign-Planning %26 Design Campaign</layout>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25103,12 +25103,12 @@
         <layout>Retail_Campaign__c-AS Retail Campaign</layout>
         <recordType>Retail_Campaign__c.AS_Retail_Campaign</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Campaign__c-AS Retail Campaign</layout>
+	    <layoutAssignments>
+        <layout>Retail_Campaign__c-Retail Execution Campaign</layout>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-AS Retail Campaign</layout>
+        <layout>Retail_Campaign__c-Retail Parent Campaign</layout>
         <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -26536,10 +26536,10 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Executiono</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -26549,9 +26549,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -26835,9 +26835,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
