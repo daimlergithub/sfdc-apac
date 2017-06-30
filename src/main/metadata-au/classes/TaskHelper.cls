@@ -34,7 +34,10 @@ public class TaskHelper {
     public static String leet_vans_RECORDTYPEID = Schema.Sobjecttype.Lead__c.getRecordTypeInfosByName().get(UtilConstant.Fleet_Vans).getRecordTypeId();
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
-       
+    
+    public static Boolean RecursiveCheck = true; 
+    public static Boolean RecursiveCheckOne = true;  
+    public static Boolean aubeforeInsertEventsTask = true;
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
         set<Id> setTaskIds = new set<Id>();
@@ -854,11 +857,15 @@ public class TaskHelper {
     **/
     
     public static void updateCommentWithTimeStamp(List<Task> tsklst, Boolean isInsert, Boolean isUpdate){
+        if(RecursiveCheckOne == true){ 
+         
          List<Task> drmtasklst = new List<Task>();
        
          Id recordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.DRM_Task).getRecordTypeId();
+         system.debug('+++++++++++++List+++++++++++'+tsklst);
+         Map<Id,Task> taskMap = new Map<Id,Task>([SELECT Id,LastModifiedBy.Name,CreatedBy.Name FROM Task where Id IN:tsklst and RecordTypeId =:recordTypeId  ]);
+         system.debug('+++++++taskMap +++++++++++'+taskMap );
          
-         Map<Id,Task> taskMap = new Map<Id,Task>([SELECT Id,LastModifiedBy.Name,CreatedBy.Name FROM Task where Id IN:tsklst and RecordTypeId =:recordTypeId]);
          for(Task taskObj : tsklst){
               if(taskMap  != null){
                         system.debug('taskObj.RecordType1--'+taskObj.RecordType.DeveloperName);
@@ -867,6 +874,7 @@ public class TaskHelper {
                         if(taskMap.containsKey(taskObj.Id)){
                             if(isInsert){
                                taskObj.Description = taskObj.createdDate+ '-'+ taskMap.get(taskObj.Id).CreatedBy.Name;
+                               system.debug('++++++des+++++++++++'+taskObj.Description);
                             }else{
                                 taskObj.Description = taskObj.lastModifiedDate + '-'+ taskMap.get(taskObj.Id).LastModifiedBy.Name;
                             }
@@ -875,7 +883,9 @@ public class TaskHelper {
              }
              system.debug('Task---Description--'+taskObj.Description);
          }
-    
+         }
+         
+    RecursiveCheckOne = false;
     }
     /**
     **/
@@ -921,6 +931,7 @@ public class TaskHelper {
      */
    public static void updateCompany(List<Task> newTask){
          system.debug('userMap'+Finance_Fleet_lead_RECORDTYPEID);
+          if(RecursiveCheck == true){       
                     map<id,id> taskMap =new  map<id,id>();
                     map<id,id> leadMap = new map<id,id>();
                     map<id,id> leadAccountMap = new map<id,id>();       
@@ -955,8 +966,9 @@ public class TaskHelper {
                             
                         
                     }
+                 }
                    
-        
+              RecursiveCheck = false;
        }
     
     /* Vehicle Relationship Field update on creation and updation of task record
@@ -1013,6 +1025,7 @@ public class TaskHelper {
     /*Change OwnerId i.e. AssignedTo in Task */
     public static void au_before_Insert_Events_Task(list<task> listTaskNew,boolean isInsert)
     {        
+        if(aubeforeInsertEventsTask == true){
         Id removeAccountRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Remove Account').getRecordTypeId(); 
         Id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
         Id assignedToId=[select id from user where name = 'Clare Yan' limit 1].Id;
@@ -1020,12 +1033,14 @@ public class TaskHelper {
         for(Task tk : listTaskNew)
         {
             if(userinfo.getUserType() == 'PowerPartner')
-            {
+           {
                 if(tk.RecordTypeId == removeAccountRecordId || tk.RecordTypeId == changeOwnerRecordId)
                 {    
                     tk.OwnerId=assignedToId;
                 }
             }
-        }       
+        }
+        }
+       aubeforeInsertEventsTask = false;        
     }  
 }
