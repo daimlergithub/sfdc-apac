@@ -1380,11 +1380,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Id__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Account</field>
             <table>Lead__c.Activities</table>
         </columns>
@@ -1850,11 +1845,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>SMS_Response_Required__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>SMSTemplateID__c</field>
             <table>Lead__c.Activities</table>
         </columns>
@@ -1880,16 +1870,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>SSI_Number__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SSI_Status__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Start_Call_Time__c</field>
             <table>Lead__c.Activities</table>
         </columns>
@@ -1906,11 +1886,6 @@
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Subject</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Result_Link__c</field>
             <table>Lead__c.Activities</table>
         </columns>
         <columns>
