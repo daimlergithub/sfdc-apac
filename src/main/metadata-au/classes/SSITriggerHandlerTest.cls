@@ -103,7 +103,7 @@ private class SSITriggerHandlerTest {
             Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
             
             Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = SubjectValue);
-            ssiTask.SSI_Number__c=ssi.Name;
+           // ssiTask.SSI_Number__c=ssi.Name;
             insert ssiTask;
 
             Test.startTest();
@@ -166,7 +166,7 @@ private class SSITriggerHandlerTest {
             Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
             
             Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = SubjectValue);
-            ssiTask.SSI_Number__c=ssi.Name;
+            //ssiTask.SSI_Number__c=ssi.Name;
             insert ssiTask;
 
             Test.startTest();

@@ -505,7 +505,7 @@ public class TaskHelper {
         for(Task task : tasks){
             Template__c template = templates.get(task.SMSTemplateID__c);
             if(template != null && template.Type__c == 'Upstream & Downstream'){
-                task.SMS_Response_Required__c = true;
+               // task.SMS_Response_Required__c = true;
             }
         }
     }
