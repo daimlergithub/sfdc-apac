@@ -100,7 +100,7 @@
                     
                     <!-- <apex:inputField value="{!objAccount.Name}" /> -->
                     <apex:inputField value="{!objAccount.Company_Name__c}" />
-                    <apex:inputField value="{!objAccount.Company_Name_Native_1__c}" />               
+                    <apex:inputField value="{!objAccount.Company_Name_Native_2__c}" />               
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />
                     <apex:inputField value="{!objAccount.Legal_Form_Position__c}" />
 					<apex:inputField value="{!objAccount.Company_Legal_Form_text__c}" />

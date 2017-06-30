@@ -97,7 +97,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_Call_Center</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -163,12 +163,12 @@
     <applicationVisibilities>
         <application>standard__Chatter</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Community</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Content</application>
@@ -192,13 +192,13 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Sales</application>
-        <default>true</default>
-        <visible>true</visible>
+        <default>false</default>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Service</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
@@ -2294,6 +2294,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>createUpdateRetailCopy</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>crmasiaDaimlerApacComCustomeridentif</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -3244,7 +3248,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_ND_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25477,11 +25481,11 @@
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+        <layout>Vehicle_Relationship__c-MBTH Vehicle Relationship Layout-Retail</layout>
+        <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Retail</layout>
-        <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Soft Deleted</layout>
@@ -27166,6 +27170,10 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Account_Link__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Car_Model__c</tab>
         <visibility>DefaultOff</visibility>

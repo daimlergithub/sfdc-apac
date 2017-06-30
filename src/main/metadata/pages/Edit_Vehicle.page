@@ -1,0 +1,259 @@
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Vehicle__c" extensions="VehicleEditExtension">
+    
+   
+   <apex:form id="form">  
+        <apex:pageMessages id="showmsg"></apex:pageMessages>
+       
+         
+            <!--PageBlock starts here-->
+            <apex:pageBlock title="{!$Label.Vehicle_Edit}" mode="edit" id="block" rendered="{! If((recrdType=='MB' && profileav == false) || (recrdType=='Competitor') || (recrdType=='Self Registered'),true,false) }">
+              
+                               <apex:pageblockSection > 
+                                               
+                               
+                                   <apex:pageBlockSectionItem >
+                                    <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.RecordTypeId.Label}" />
+                                    {!recrdType}
+                                     
+                                     <input type="hidden" value="{!recrdType}" id="singleSelect" ng-model="selectedRecordType"/>
+                                      </apex:pageBlockSectionItem> 
+                                   
+                               
+                               </apex:pageblockSection> 
+                               
+                        <apex:outputPanel rendered="{! If(recrdType=='MB',true,false) }">     
+                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}"> 
+                             
+                                
+                                    <!--Custom brand picklist to get the values from carmodal object-->
+                <apex:pageblockSectionItem >{!$ObjectType.Vehicle__c.fields.Brand__c.Label}
+                    
+                    <apex:selectList size="1" value="{!brand}" id="brandItems" >
+                    <apex:selectOptions value="{!brands}"/>
+                    <apex:actionSupport event="onchange" reRender="classitems,modelitems,rangeitems,modeldescitem,vgitems,steeritem"/>
+                    </apex:selectList>     
+                </apex:pageblockSectionItem>
+                
+                        
+                                  
+                    <apex:pageBlockSectionItem >{!$ObjectType.Vehicle__c.fields.Class__c.Label}
+                    <apex:outputPanel id="classitems">   
+                    <apex:selectList size="1" value="{!class1}" >
+                    <apex:selectOptions value="{!classes}"/>
+                    <apex:actionSupport event="onchange" reRender="modelitems,rangeitems,modeldescitem,vgitems,steeritem"/>
+                    </apex:selectList>           
+                  </apex:outputPanel>
+                     </apex:pageBlockSectionItem>
+                                     <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Model__c.Label}
+                                         <apex:outputPanel id="modelitems">   
+                                           <apex:selectList size="1" value="{!model}"  >
+                                              <apex:selectOptions value="{!models}"/>
+                                           <apex:actionSupport event="onchange" reRender="rangeitems,modeldescitem,vgitems,steeritem"/>
+                                       </apex:selectList>           
+                                    </apex:outputPanel>
+                                                                               
+                                       
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Range__c.Label}
+                                         <apex:outputPanel id="rangeitems">   
+                                           <apex:selectList size="1" value="{!range}" >
+                                              <apex:selectOptions value="{!ranges}"/>
+                                           <apex:actionSupport event="onchange" reRender="modeldescitem,vgitems,steeritem"/>
+                                       </apex:selectList>           
+                                    </apex:outputPanel>
+                                                                               
+                                       
+                                    </apex:pageBlockSectionItem>
+                                   
+                               
+                                   <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Modification_Package__c.Label}
+                                         <apex:outputPanel id="modeldescitem">   
+                                           <apex:selectList size="1" value="{!modPackage}" >
+                                              <apex:selectOptions value="{!modeldesc}"/>
+                                           <apex:actionSupport event="onchange" reRender="vgitems,steeritem"/>
+                                       </apex:selectList>           
+                                    </apex:outputPanel>
+                                         
+                                   </apex:pageBlockSectionItem>
+            
+                                   <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Vehicle_Group__c.Label}
+                                     <apex:outputPanel id="vgitems">   
+                                           <apex:selectList size="1" value="{!VG}" >
+                                              <apex:selectOptions value="{!vgs}"/>
+                                           <apex:actionSupport event="onchange" reRender="steeritem"/>
+                                       </apex:selectList>           
+                                    </apex:outputPanel>
+                                        
+                                   </apex:pageBlockSectionItem>
+                              
+                            
+                                  <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.BaumusterEx__c.Label}
+                                          <apex:outputPanel id="steeritem">   
+                                           <apex:selectList size="1" value="{!steering}" >
+                                              <apex:selectOptions value="{!steers}"/>
+                                       </apex:selectList>           
+                                    </apex:outputPanel>                                        
+                                  </apex:pageBlockSectionItem>   
+                                  <apex:inputField value="{!vehicle.UsVIN__c}"/>
+                                                        
+                            <apex:inputField value="{!vehicle.Model_Description__c}"/>
+                        
+                     </apex:pageBlockSection>  
+              
+                </apex:outputPanel>
+                 <apex:outputPanel rendered="{! If(recrdType=='MB',true,false) }">
+                   <apex:pageBlockSection title="{!$Label.Vehicle_Detail}" > 
+                        <apex:inputField value="{!vehicle.OptionCode__c}"/> 
+                        <apex:inputField value="{!vehicle.Colour__c}"/>
+                        <apex:inputField value="{!vehicle.EngineNumber__c}"/>
+                        <apex:inputField value="{!vehicle.Trim__c}"/>
+                        <apex:inputField value="{!vehicle.CurrentMileage__c}"/>
+                        <apex:inputField value="{!vehicle.CylinderCapacity__c}"/>
+                        <apex:inputField value="{!vehicle.Fuel__c}" id="fuleVal" />
+                        <apex:inputField value="{!vehicle.Height__c}"/>
+                        <apex:inputField value="{!vehicle.Length__c}"/>
+                        <apex:inputField value="{!vehicle.Width__c}"/>
+                        <apex:inputField value="{!vehicle.Weight__c}"/>
+                        <apex:inputField value="{!vehicle.ModelYear__c}"/>
+                        <apex:inputField value="{!vehicle.National_Model__c}"/>
+                        <apex:inputField value="{!vehicle.VehicleAge__c}"/>
+                        <apex:inputField value="{!vehicle.Product_Model__c}"/>
+                        <apex:inputField value="{!vehicle.Category_Code__c}"/>
+                    </apex:pageBlockSection> 
+                </apex:outputPanel>
+               
+                 <apex:outputPanel rendered="{! If(recrdType=='MB',true,false) }">
+                    <apex:pageBlockSection title="{!$Label.Date_Information}">
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                        <apex:inputField value="{!vehicle.ProductionDate__c}"/>
+                        <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
+                        <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
+
+
+                        
+                    </apex:pageBlockSection>
+                 </apex:outputPanel>
+                
+                 <apex:outputPanel rendered="{! If(recrdType=='MB',true,false) }">
+                    <apex:pageBlockSection title="{!$Label.Other_Information}">
+                        <apex:inputField value="{!vehicle.Transmission__c}"/>
+                        <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
+                        <apex:inputField value="{!vehicle.System_Data_Source__c}"/>
+                        <apex:inputField value="{!vehicle.VehicleStatus__c}"/>
+                    </apex:pageBlockSection>
+               </apex:outputPanel>
+                <apex:outputPanel rendered="{!If(recrdType=='Competitor',true,false) }">
+               
+                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}" > 
+                         <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Competitor_Brand__c.Label}
+                                   <apex:selectList size="1" value="{!compBrand}">
+                                   <apex:selectOptions value="{!compbrands}"/>
+                                 <apex:actionSupport event="onchange" reRender="compmodelitems"/>
+                                 </apex:selectList>  
+                         </apex:pageBlockSectionItem>
+                            
+                         <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Competitor_Model__c.Label}
+                                       <apex:outputPanel id="compmodelitems">   
+                                           <apex:selectList size="1" value="{!compModel}" >
+                                              <apex:selectOptions value="{!compmodels}"/>
+                                       </apex:selectList>           
+                                    </apex:outputPanel>         
+                                    
+                        </apex:pageBlockSectionItem>
+                            
+                         <apex:inputField value="{!vehicle.Related_contact__c}"/>
+                         <apex:inputField value="{!vehicle.Vehicle_Role__c}"/>
+                         <apex:inputField value="{!vehicle.ModelYear__c}"/>    
+                        
+                     </apex:pageBlockSection>  
+               
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{! If(recrdType=='Competitor',true,false) }">
+                    <apex:pageBlockSection title="{!$Label.Date_Information}" > 
+                        <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                        <apex:inputField value="{!vehicle.Related_From__c}"/>
+                        <apex:inputField value="{!vehicle.Related_To__c}"/> 
+                         </apex:pageBlockSection>
+                </apex:outputPanel>
+                 
+                <apex:outputPanel rendered="{! If(recrdType=='Competitor',true,false) }">
+                    <apex:pageBlockSection title="{!$Label.Other_Information}" > 
+                         <apex:inputField value="{!vehicle.Portal_Vehicle_ID__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                 
+                 <apex:outputPanel rendered="{! If(recrdType=='Self Registered',true,false) }">     
+                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}">
+                    <apex:outputField value="{!Vehicle__c.Name}"/> &nbsp;
+                    <apex:inputField value="{!vehicle.EuroVIN__c}"/>
+                     <apex:pageBlockSectionItem >{!$ObjectType.Vehicle__c.fields.Class__c.Label}
+                    <apex:outputPanel id="classitems1">   
+                    <apex:selectList size="1" value="{!class1}" >
+                    <apex:selectOptions value="{!classes}"/>
+                    <apex:actionSupport event="onchange" reRender="modelitems1"/>
+                    </apex:selectList>           
+                  </apex:outputPanel>
+                     </apex:pageBlockSectionItem>
+                    
+                      <apex:pageblockSectionItem >{!$ObjectType.Vehicle__c.fields.Brand__c.Label}
+                    
+                    <apex:selectList size="1" value="{!brand}" id="brandItems" >
+                    <apex:selectOptions value="{!brands}"/>
+                    <apex:actionSupport event="onchange" reRender="classitems1"/>
+                    </apex:selectList>     
+                </apex:pageblockSectionItem>
+               
+                 <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Range__c.Label}
+                                         <apex:outputPanel id="rangeitems1">   
+                                           <apex:selectList size="1" value="{!range}" >
+                                              <apex:selectOptions value="{!ranges}"/>
+                                           
+                                       </apex:selectList>           
+                                    </apex:outputPanel>
+                                                                               
+                                       
+                                    </apex:pageBlockSectionItem>
+                        
+                                  
+                    
+                                     <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Model__c.Label}
+                                         <apex:outputPanel id="modelitems1">   
+                                           <apex:selectList size="1" value="{!model}"  >
+                                              <apex:selectOptions value="{!models}"/>
+                                           <apex:actionSupport event="onchange" reRender="rangeitems1"/>
+                                       </apex:selectList>           
+                                    </apex:outputPanel>
+                                                                               
+                                       
+                                    </apex:pageBlockSectionItem>
+                                    <apex:inputField value="{!vehicle.Model_Description__c}"/>
+                                   
+                                   
+                                   <apex:inputField value="{!vehicle.ModelYear__c}"/>&nbsp;
+                                   <apex:inputField value="{!vehicle.Colour__c}"/>
+                                   <apex:inputField value="{!vehicle.Product_Model__c}"/>
+                                   
+                    </apex:pageBlockSection>
+                  </apex:outputPanel> 
+                    <apex:outputPanel rendered="{! If(recrdType=='Self Registered',true,false) }"> 
+                     <apex:pageBlockSection title="{!$Label.Registration_Information}" > 
+                        <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
+                         <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                        <apex:inputField value="{!vehicle.MOT_Expired_Date__c}"/>
+                         <apex:inputField value="{!vehicle.Related_contact__c}"/>&nbsp;
+                         <apex:inputField value="{!vehicle.Related_From__c}"/>
+                        <apex:inputField value="{!vehicle.Related_To__c}"/> 
+                        <apex:inputField value="{!vehicle.New_Used__c}"/> 
+                        <apex:inputField value="{!vehicle.Finance_Method__c}"/>   
+                    </apex:pageBlockSection> 
+                    </apex:outputPanel>          
+                 <apex:pageBlockButtons >
+                     <apex:commandButton value="{!$Label.Save_Button}" action="{!saveveh}"/>
+                     <apex:commandButton value="{!$Label.Save_New_Button}"  action="{!saveAndNew}"/>
+                     <apex:commandButton action="{!Cancel}" value="{!$Label.Cancel_Button}"/>                    
+                 </apex:pageBlockButtons>
+                </apex:pageBlock>
+    </apex:form>
+</apex:page>
