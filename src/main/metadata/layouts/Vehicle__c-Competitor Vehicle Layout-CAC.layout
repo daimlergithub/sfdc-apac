@@ -22,11 +22,11 @@
                 <field>UsVIN__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Competitor_Brand__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Model__c</field>
             </layoutItems>
             <layoutItems>

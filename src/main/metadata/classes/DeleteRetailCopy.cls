@@ -36,10 +36,13 @@ public class DeleteRetailCopy{
     public static void updateAccoutOwner(set<Id> dealerId){
         List<AccountShare> AccountsharesToDelete = new  List<AccountShare>();
         List<Account> accountupdateList = new List<Account>();
+        List<String> accNames=new List<String>();
+        set<String> DealerGCCode = new set<String>();
         //List<Account_Link__c> accountlink = [select id,fromRole__c from Account_Link__c WHERE toRole__c = : dealerId];
-        for(Account_Link__c acc : [select id,Retail_Delete_Flag__c, fromRole__c from Account_Link__c WHERE toRole__c = : dealerId AND (RecordType.Developername = 'Retail_Company' OR RecordType.Developername = 'Retail_Person')]){
+        for(Account_Link__c acc : [select id,Retail_Delete_Flag__c, fromRole__c,Retail_Dealer_CompanyCode__c from Account_Link__c WHERE toRole__c = : dealerId AND (RecordType.Developername = 'Retail_Company' OR RecordType.Developername = 'Retail_Person')]){
             if(acc.Retail_Delete_Flag__c){
                 isDeleted = true;
+                DealerGCCode.add(acc.Retail_Dealer_CompanyCode__c);
             }
             /*if(!acc.Retail_Delete_Flag__c){
                 isRetail_Delete = true;            
@@ -50,6 +53,7 @@ public class DeleteRetailCopy{
                //accountupdateList .add(act);
                
                //Commented as part of SFDCJP-2593
+               
                 for(Account act : [Select id , Ownerid,CreatedById,CreatedBy.Profile.Name from Account where id in:dealerId]){
                     System.debug('act.CreatedBy.Profile.Name'+act.CreatedBy.Profile.Name);                    
                     if(act.CreatedBy.Profile.Name.Contains('Japan Dealer')){
@@ -57,7 +61,11 @@ public class DeleteRetailCopy{
                        accountupdateList.add(act);
                    }
                 }
-                 AccountsharesToDelete = [SELECT Id,RowCause FROM AccountShare WHERE AccountId IN : dealerId AND RowCause = 'Manual'];
+                for(Account DealerAcc : [select Id, Name,Dealer_GC_Code__c  from Account Where Dealer_GC_Code__c IN : DealerGCCode]){
+                    accNames.add(DealerAcc.Name); 
+                }
+                List<Group> list_User = new List<Group>( [select Id, Name, Type from Group where Name IN:accNames]);
+                 AccountsharesToDelete = [SELECT Id,RowCause FROM AccountShare WHERE AccountId IN : dealerId AND RowCause = 'Manual' AND UserOrGroupId IN :list_User];
             }
     
         if(!accountupdateList.isEmpty())
