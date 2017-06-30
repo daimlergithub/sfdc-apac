@@ -10,6 +10,7 @@
     <customButtons>Merge</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Case_Dealer</customButtons>
+	<customButtons>Create_Vehicle</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
