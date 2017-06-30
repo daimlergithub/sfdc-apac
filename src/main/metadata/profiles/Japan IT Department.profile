@@ -25813,7 +25813,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddParticipatingDealer</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddToCampaign</apexPage>
@@ -25929,11 +25929,11 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ConsolidationDisplayList</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Consolidation_List</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
@@ -25977,7 +25977,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ExportAsCsvCampaign</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>FileNotFound</apexPage>
@@ -26197,11 +26197,11 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Segmentation</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SegmentationCriteria</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SelectAddress</apexPage>
