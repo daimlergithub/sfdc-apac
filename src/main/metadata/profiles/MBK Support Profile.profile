@@ -26735,10 +26735,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>PrintPDF</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>PrintSalesLead_KR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
