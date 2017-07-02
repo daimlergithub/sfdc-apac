@@ -445,20 +445,35 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
 	</changetext>
-			<changetext>
+	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_CASE_ID</token>
 	</changetext>
-				<changetext>
+	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_VEHICLE</token>
 	</changetext>
-					<changetext>
+	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_VEHICLE_LKID</token>
+	</changetext>		
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
@@ -823,6 +838,36 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_Wholesale']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ID</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID_lkid</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID_lkid</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead_Wholesale']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CASE_ID</token>
 	</changetext>
 	 <changetext>
 		<filename>objects\Case.object</filename>
