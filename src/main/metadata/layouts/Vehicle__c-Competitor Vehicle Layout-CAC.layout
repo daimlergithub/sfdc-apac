@@ -5,6 +5,8 @@
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
+	<excludeButtons>Edit</excludeButtons>
+	<customButtons>EditVehicle</customButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -20,11 +22,11 @@
                 <field>UsVIN__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Brand__c</field>
+                <behavior>Readonly</behavior>
+                <field>Competitor_Brand__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Model__c</field>
             </layoutItems>
             <layoutItems>

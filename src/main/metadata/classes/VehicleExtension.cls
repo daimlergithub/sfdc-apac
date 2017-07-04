@@ -8,6 +8,7 @@ public with sharing class VehicleExtension {
     
     public String recordType {set;get;} 
     public boolean check{set;get;}
+    public boolean profileval{set;get;}
     public Vehicle__c vehicle{get;set;}
     public String brand{get;set;}
     public String class1{get;set;}
@@ -37,10 +38,24 @@ public with sharing class VehicleExtension {
         // ***For Thailand*** End
         
         vehicle = (Vehicle__C)stdController.getRecord();
+        string returnId = ApexPages.currentPage().getParameters().get('accId');
         
+        if(returnId!=null)
+        {
+         vehicle.Related_contact__c=returnId;
+        }
         // ***For Thailand*** Start
-        
+        id id1 = userinfo.getProfileId();
+        Profile p =[select Name from profile where id = :id1];
+        if(p.name.contains('Japan Dealer'))
+        {
+        profileval =true;
+        }else{
+          profileval =false;
+        }
+        system.debug('profileval'+profileval);
         userId=userinfo.getUserId();
+        
         // thailandUserCount = [select id,name,Market__c,profile.name from user where Id=:userId and Market__c = 'TH' and ((profile.name LIKE 'Thailand %') or (Profile.name = 'System Administrator'))].size();
         thailandUserCount = [select id,name,Market__c,profile.name from user where Id=:userId and Market__c = 'TH'].size();
         if(thailandUserCount > 0 && (Apexpages.currentpage().getparameters().get('id')==Null)){
@@ -63,8 +78,9 @@ public with sharing class VehicleExtension {
 
      public PageReference saveVal()
     {
-        
-        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question ))||(recordType == UtilConstant.Competitor && (compBrand == UtilConstant.Question ))){
+        system.debug('I am hereaaaasave val'+recordType);
+         system.debug('I am hereaaaasave val'+brand);
+        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question ))||(recordType == UtilConstant.Competitor && (compBrand == UtilConstant.Question ))||(recordType == 'Self Registered' && (compBrand == UtilConstant.Question ))){
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
                 return null;
                 nextPage = null;
@@ -106,7 +122,7 @@ public with sharing class VehicleExtension {
     public PageReference saveAndNew()
     {
           
-        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question))||(recordType == UtilConstant.Competitor && compBrand == UtilConstant.Question )){
+        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question))||(recordType == UtilConstant.Competitor && compBrand == UtilConstant.Question )||(recordType == 'Self Registered' && (compBrand == UtilConstant.Question ))){
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
                 nextPage = null;
          }
@@ -144,6 +160,7 @@ public with sharing class VehicleExtension {
     **/  
     
     public void save(){
+     
         if(brand == UtilConstant.Question){
             brand=null;
         }
@@ -173,6 +190,13 @@ public with sharing class VehicleExtension {
         }
         if(recordType == UtilConstant.MB){
             list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Own Sellable' order by CreatedDate ];
+            if(!carModelId.isEmpty()){
+                vehicle.Car_Model__c=carModelId[0].id;
+                vehicle.Model_Description__c=model;
+            }
+        }else if(recordType == 'Self Registered'){
+        system.debug('I am hereaaaa');
+            list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Competitor' order by CreatedDate ];
             if(!carModelId.isEmpty()){
                 vehicle.Car_Model__c=carModelId[0].id;
                 vehicle.Model_Description__c=model;
@@ -216,12 +240,29 @@ public with sharing class VehicleExtension {
     public PageReference Cancel()
     { 
           string returnId = ApexPages.currentPage().getParameters().get('accId');
-        if(returnId!=null){
+          string returnId2 = ApexPages.currentPage().getParameters().get('Id');
+          String y=ApexPages.currentPage().getURL();
+           string pre=Vehicle__c.getSObjectType().getDescribe().getKeyprefix();
+        if(returnId!=null && profileval == false){
           nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
-        }else{
-            string pre=Vehicle__c.getSObjectType().getDescribe().getKeyprefix();
-            System.debug('Pre'+pre);
+        }else if(returnId!=null && profileval == true){
+         nextPage = new PageReference('{!URLFOR($Site.Prefix)}/'+returnId);
+        }
+        else if(returnId2!=null && profileval == false){
+         nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId2);
+         }else if(returnId2!=null && profileval == true)
+         {
+          nextPage = new PageReference('{!URLFOR($Site.Prefix)}/'+returnId2);
+         }
+        else if(profileval == false){
+           
             nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+pre+'/o');
+        }
+        else if(profileval == true){
+            nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/MBJapan/'+pre+'/o');
+        }
+        else{
+         nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+pre+'/o');
         }
           nextPage.setRedirect(true);
           return nextPage;
@@ -257,6 +298,9 @@ public with sharing class VehicleExtension {
         
         if(type==UtilConstant.MB){
             type='Own Sellable';
+        }else if(type == 'Self Registered')
+        {
+           type='Competitor';
         }
                     
         carModels = [SELECT Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c Where Status__c =:type];
@@ -302,7 +346,7 @@ public with sharing class VehicleExtension {
             if(tempSet == null){
                 rangeVgMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Vehicle_Group__c});
             }else{
-                tempSet.add(cm.Vehicle_Group__c);
+                tempSet.add(cm.Vehicle_Group__c); 
             }
         
         //Create  Range steering group map.

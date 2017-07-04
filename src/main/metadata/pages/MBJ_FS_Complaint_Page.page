@@ -15,7 +15,7 @@
                 <apex:inputField value="{!Case.Origin}"/>
                 <apex:inputField value="{!Case.ownerId}"/>
                 <apex:inputField value="{!Case.AccountId}"/>
-                <apex:inputField value="{!Case.Case_Complainant__c}"/>
+                <!--<apex:inputField value="{!Case.Case_Complainant__c}"/>-->
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:inputField value="{!Case.Case_Class__c}"/>
                 <apex:inputField value="{!Case.ownerId}"/>

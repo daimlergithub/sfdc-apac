@@ -21560,14 +21560,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <customTabListAdditionalFields>Model__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Model_Description__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Colour__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>UsVIN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>EuroVIN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>RegistrationNo__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EuroVIN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EngineNumber__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Range__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>National_Model__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Colour__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Brand__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Class__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Model__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Model_Description__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Colour__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>BodyType__c</searchFilterFields>
         <searchFilterFields>Colour__c</searchFilterFields>
@@ -21691,11 +21692,20 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <fullName>Change_Contact_Target</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Change Contact Target</masterLabel>
-        <openType>replace</openType>
-        <page>ChangeContactTarget</page>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
+records = ReferraAccepted.getArray("records"); 
+if(records != ''){
+window.open("{!URLFOR($Site.Prefix)}/apex/ChangeContactTarget?Id={!Vehicle__c.Id}",target = "_self");
+}
+else
+alert("{!$Label.ChangeContacttarget}");</url>
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
@@ -21705,6 +21715,16 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <masterLabel>Send to MyMercedes</masterLabel>
         <openType>replace</openType>
         <page>SendVehicleInfoMyMercedes</page>
+        <protected>false</protected>
+    </webLinks>
+	<webLinks>
+        <fullName>EditVehicle</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Edit Vehicle</masterLabel>
+        <openType>replace</openType>
+        <page>Edit_Vehicle</page>
         <protected>false</protected>
     </webLinks>
     <webLinks>
