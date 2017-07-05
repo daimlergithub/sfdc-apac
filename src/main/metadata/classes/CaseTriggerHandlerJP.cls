@@ -14,12 +14,12 @@ public class CaseTriggerHandlerJP
     if (trigger.isInsert){
     System.debug('$$$$$$@@@@'+trigger.new);
     caseHelperJP.shareCaseWithDealers(trigger.new);
-    caseHelperJP.SendEmailToNotifyDealer(trigger.new);
+     caseHelperJP.SendEmailToNotifyDealer(trigger.new,(Map<Id,Case>)Trigger.OldMap);
     }
     if (trigger.isUpdate){
     System.debug('$$$$$$@@@@'+trigger.new);
     caseHelperJP.shareCaseWithDealers(trigger.new);
-    caseHelperJP.SendEmailToNotifyDealer(trigger.new);
+     caseHelperJP.SendEmailToNotifyDealer(trigger.new,(Map<Id,Case>)Trigger.OldMap);
     }
     } 
         system.debug('Entered handler...JP handler');
