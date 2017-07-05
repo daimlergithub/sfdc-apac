@@ -252,7 +252,7 @@ public with sharing class SendToMyMercController {
                 
             }
             if(personBirthdate){
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.SendToMyMercedesJPUserErr));    
+                    //ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.SendToMyMercedesJPUserErr));    
             }        
             else if(accfinal != null && !accfinal.isEmpty()){
                 update accfinal.values();
