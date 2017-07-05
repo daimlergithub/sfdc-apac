@@ -33,9 +33,11 @@ public with sharing class CustomerMymercInterfaceController {
     public CustomerMymercInterfaceController(ApexPages.StandardController controller) {
         usr = [Select Id,name,contact.AccountId,ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
         MyMercVar = false;
-        MyMercEmailVar = true;
+        MyMercEmailVar = false;
         RegOutlet  = 'No';
         ContactSectorvar = true;
+         MyMercEmailVar = true;
+
         RecordType rec = [select id from RecordType where sObjecttype = 'Account_Link__c' AND Name = 'ContactSector' limit 1];
         ContactSector = rec.Id;
         aclsize = new list<Account_Link__c>();
@@ -50,11 +52,19 @@ public with sharing class CustomerMymercInterfaceController {
                 if(acc.System__c == 'My Mercedes'){
                     myMercId = acc.name;
                     MyMercVar = true;
+                    //MyMercEmailVar = true;
+                    if(string.IsnotBlank(acc.name)){
                     MyMercEmailVar = false;
+                    }else{
+                    MyMercEmailVar = true;
+
+                    }                                         
                     ContactSectorvar = false;
                     aclId = acc.Id;
                     if(string.IsnotBlank(acc.Portal_Email__c)){
-                        MyMercEmail = acc.Portal_Email__c;        
+                        MyMercEmail = acc.Portal_Email__c; 
+                        MyMercEmailVar = true;
+                        
                     }
                 }
             }
@@ -121,6 +131,7 @@ public with sharing class CustomerMymercInterfaceController {
         else{ 
             Account_Link__c aLink = [SELECT id,Portal_Email__c,toRole__c from Account_Link__c where ID=:aclId limit 1];
             aLink.Portal_Email__c = MyMercEmail;
+
             Database.SaveResult results = Database.Update(aLink);
             accont.Email3__c  = MyMercEmail;
             Database.SaveResult accResults = Database.Update(accont);
@@ -156,7 +167,7 @@ public with sharing class CustomerMymercInterfaceController {
         }
         
         if(accont.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account ) {
-              if(accont.PersonBirthdate != NUll && accont.LastName_Native_1__c != NULL && accont.Gender__c!= NULL){
+              
               
                  accont.Portal_Apply_Date__c = system.today();
                  accont.Portal_Apply_Status__c = 'To be Sent';
@@ -164,7 +175,7 @@ public with sharing class CustomerMymercInterfaceController {
                  if(accont.Allow_Data_Sharing2__c == 'No' && accont.Data_Source__C == 'Dealer Outlet'){
                      accont.Allow_Data_Sharing2__c= 'Yes';
                      accont.Data_Source__C = 'My Mercedes';
-                 }
+                 
                  system.debug('accountMainDealer'+accont.main_dealer__C);
                  if(accont.Main_Dealer__c == NULL ){
                      system.debug('usrcontactaccountid'+usr.contact.AccountId);    
@@ -174,10 +185,7 @@ public with sharing class CustomerMymercInterfaceController {
                  update accont;
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,Label.Records_Updated));
              }
-            else{
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender));
-                 return null; 
-            }
+            
         }
        }
        catch(exception e){
