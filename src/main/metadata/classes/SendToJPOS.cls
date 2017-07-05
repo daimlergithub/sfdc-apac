@@ -405,11 +405,12 @@ public class SendToJPOS{
                    ShowHideError=True;
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_select_Retail_Sales_Consultant_in_Account_Link));
                    }
-                  if(AssignedDealer.DMS_UserID__c==null)
+				   // Commented as part of SFDCJP-2737
+                 /* if(AssignedDealer.DMS_UserID__c==null)
                    {
                    ShowHideError=True;
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Assigned_Dealer_should_not_be_null));
-                   } 
+                   } */
             }
             
                // If customer is Person account send account information to EP        
