@@ -4240,7 +4240,7 @@
         <name>Selected_Contacts</name>
     </customLabels>
 	<customLabels>
-        <label>送信内容の確認</label>
+        <label>送信内容の確認　＊注意：SPO送信時はアカウントの"自宅"住所が送信されます。送信前に自宅住所が空白でないかをアカウント画面でご確認ください</label>
         <name>Selected_Record</name>
     </customLabels>
     <customLabels>
