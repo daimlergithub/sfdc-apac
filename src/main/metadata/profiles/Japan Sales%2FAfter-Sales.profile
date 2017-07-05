@@ -22035,9 +22035,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>SurveyTaker__c.View_By_All__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -25646,7 +25646,7 @@
     </objectPermissions>
 	 <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
+        <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -27081,10 +27081,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>
-        <tab>Campaign_Member__c</tab>
-        <visibility>DefaultOn</visibility>
-</tabVisibilities>
-    <tabVisibilities>
         <tab>Car_Model__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -27097,10 +27093,6 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
 	<tabVisibilities>
-        <tab>Dealer_List_Member__c</tab>
-        <visibility>DefaultOn</visibility>
-</tabVisibilities>
-    <tabVisibilities>
         <tab>DM_Material__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

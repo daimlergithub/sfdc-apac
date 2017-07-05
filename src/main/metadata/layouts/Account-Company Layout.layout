@@ -60,11 +60,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name_Native_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Company__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Legal_Form__c</field>
