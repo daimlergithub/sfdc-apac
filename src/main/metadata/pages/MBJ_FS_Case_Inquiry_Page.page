@@ -7,7 +7,7 @@
                 <apex:commandButton action="{!cancel}" value="Cancel"/>
             </apex:pageblockButtons>
             
-            <apex:pageblockSection id="pbs1id" title="General Information">
+            <apex:pageblockSection id="pbs1id" title="{!$Label.MBF_General_Information_Section}">
                 <apex:inputField value="{!Case.Subject}"/>
                 <apex:inputField value="{!Case.Status}"/>
                 <apex:inputField value="{!Case.Ownerid}"/>
@@ -17,13 +17,13 @@
                 </apex:inputField>
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:pageBlockSectionItem >
-                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLabel value="{!$Label.MBF_Contract_Number_Field}"/>
                     <apex:outputLink id="contractNoId" value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
                 </apex:pageBlockSectionItem>
                 <!--<apex:inputField value="{!Case.Case_Complainant__c}"/>-->
                 <apex:inputField value="{!Case.Case_Class__c}"/>
                 <apex:inputField value="{!Case.Case_Type__c}"/>
-                <apex:inputField value="{!Case.External_Case_ID__c}"/>
+                <apex:inputField value="{!Case.ParentID}"/>
                 <apex:inputField value="{!Case.Case_SubType__c}"/>
                 <apex:inputField value="{!Case.Lead__c}"/>
                 <apex:inputField value="{!Case.Inquiry_Comments__c}" style="width:300px; height:100px"/>
@@ -31,14 +31,14 @@
                 <apex:inputField value="{!Case.Dealer_Contact__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Authentification">
+            <apex:pageblockSection title="{!$Label.MBF_Authentication_Section}">
                 <apex:inputField value="{!Case.Full_Name__c}"/>
                 <apex:inputField value="{!Case.DOB__c}"/>
                 <apex:inputField value="{!Case.Registered_Phone_no__c}"/>
                 <apex:inputField value="{!Case.Authentification_Address__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection id="pbs2id" title="Requestor">
+            <apex:pageblockSection id="pbs2id" title="{!$Label.MBF_Requestor_Section}">
                 <apex:inputField id="reqId" value="{!Case.Requestor__c}">
                     <apex:actionSupport event="onchange" action="{!nullifyReqCompPersonPhone}" reRender="pbs2id,pbs3id,rssid,rcvId,rcvCppId,rcvInDlrId,rcvSprtDlrId"/>
                 </apex:inputField>
@@ -57,9 +57,10 @@
                 <apex:inputField value="{!Case.Contact_Number__c}"/>
                 <apex:inputField value="{!Case.Requestor_Fax_E_mail_address__c}"/>
                 <apex:inputField value="{!Case.Customer_Address__c}" style="width:300px; height:100px"/>
+                <apex:inputField value="{!Case.Requires_Dealer_Contact__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection id="pbs3id" title="Receiver">
+            <apex:pageblockSection id="pbs3id" title="{!$Label.MBF_Receiver_Section}">
                 <apex:inputcheckbox id="rssid" value="{!Case.Receiver_Same_as_Requestor__c}"  disabled="{!Case.Requestor__c == ''}">
                     <apex:actionSupport event="onchange" action="{!ReceiverSameAsRequestor}" rerender="pbs3id,rcvId,rcvOutputText,rcvCppId,rcvInDlrId,rcvSprtDlrId"/>
                 </apex:inputcheckbox>
@@ -77,9 +78,8 @@
                 <apex:inputField value="{!Case.Receiver_Fax_Email_address__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Dealer Suggestion">
+            <apex:pageblockSection title="{!$Label.MBF_Dealer_Suggestion}">
                 <apex:inputField value="{!Case.Already_Contacted_Dealer__c}"/>
-                <apex:inputField value="{!Case.Requires_Dealer_Contact__c}"/>
                 <apex:inputField value="{!Case.Case_Dealer__c}"/>
                 <apex:inputField value="{!Case.Case_Dealer_User__c}"/>
                 <apex:inputField value="{!Case.Share_to_Regional_Office__c}"/>
