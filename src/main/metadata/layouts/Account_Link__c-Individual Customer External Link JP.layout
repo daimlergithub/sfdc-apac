@@ -53,10 +53,6 @@
                 <behavior>Edit</behavior>
                 <field>Sales_Person_Id__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ValidationCheck__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
