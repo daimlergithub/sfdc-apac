@@ -6,7 +6,7 @@
                 <apex:outputField value="{!Case.Retail_Task__c}"/>
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:pageBlockSectionItem >
-                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLabel value="{!$Label.MBF_Contract_Number_Field}"/>
                     <apex:outputLink value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
                 </apex:pageBlockSectionItem>
                 <!--<apex:outputField value="{!Case.Case_Complainant__c}"/>-->
@@ -18,7 +18,7 @@
                 <apex:outputField value="{!Case.Dealer_Contact__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="MBF Change Request (WO CA)" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
+            <apex:pageblockSection title="{!$Label.MBF_Change_Request_WO_CA}" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
                 <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
                 <apex:outputText ></apex:outputText>
                 <apex:outputField value="{!Case.Name__c}"/>
@@ -36,7 +36,7 @@
                 <apex:outputField value="{!Case.Reason__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="MBF Documentation Request" rendered="{!IF(Case.Case_Type__c == 'MBF Documentation Request',true,false)}">
+            <apex:pageblockSection title="{!$Label.MBF_Documentation_Request_Section}" rendered="{!IF(Case.Case_Type__c == 'MBF Documentation Request',true,false)}">
                 <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
                 <apex:outputText ></apex:outputText>
                 <apex:outputField value="{!Case.Certificate_of_Outstanding_Balance__c}"/>
@@ -46,19 +46,19 @@
                 <apex:outputField value="{!Case.Reason__c}"/>
             </apex:pageblockSection>
           
-            <apex:pageblockSection title="MBF Change Request (W CA)" columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (W CA)',true,false)}">
+            <apex:pageblockSection title="{!$Label.MBF_Change_Request_W_CA_Section}" columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (W CA)',true,false)}">
                 <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
                 <apex:outputField value="{!Case.Reason__c}"/> 
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Authentification">
+            <apex:pageblockSection title="{!$Label.MBF_Authentication_Section}">
                 <apex:outputField value="{!Case.Full_Name__c}"/>
                 <apex:outputField value="{!Case.DOB__c}"/>
                 <apex:outputField value="{!Case.Registered_Phone_no__c}"/>
                 <apex:outputField value="{!Case.Authentification_Address__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Requestor">
+            <apex:pageblockSection title="{!$Label.MBF_Requestor_Section}">
                 <apex:outputField value="{!Case.Requestor__c}"/>
                 <apex:outputText rendered="{!IF(Case.Requestor__c == '' || Case.Requestor__c == 'Contractor' || Case.Requestor__c == 'Guarantor',true,false)}"/>
                 <apex:outputField value="{!Case.Requestor_Company_Person_Phone__c}" rendered="{!IF(Case.Requestor__c == 'Others',true,false)}"/>
@@ -69,7 +69,7 @@
                 <apex:outputField value="{!Case.Request_date_time__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Receiver">
+            <apex:pageblockSection title="{!$Label.MBF_Receiver_Section}">
                 <apex:outputfield value="{!Case.Receiver_Same_as_Requestor__c}"/>
                 <apex:outputText ></apex:outputText>
                 <apex:outputField value="{!Case.Receiver1_For_quotation__c}"/>
@@ -85,7 +85,7 @@
                 <apex:outputField value="{!Case.TL_Reviewed__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Dealer Suggestion">
+            <apex:pageblockSection title="{!$Label.MBF_Dealer_Suggestion}">
                 <apex:outputField value="{!Case.Already_Contacted_Dealer__c}"/>
                 <apex:outputField value="{!Case.Requires_Dealer_Contact__c}"/>
                 <apex:outputField value="{!Case.Case_Dealer__c}"/>
