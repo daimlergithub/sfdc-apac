@@ -5,4 +5,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>MBTH</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Daimler_APAC</parentRole>
 </Role>
