@@ -4423,7 +4423,7 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5091,7 +5091,7 @@
             </values>
             <values>
                 <fullName>Japanese</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Korean</fullName>
@@ -14519,7 +14519,7 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -24601,7 +24601,7 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>

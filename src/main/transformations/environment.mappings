@@ -33,12 +33,15 @@ dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
 dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev1
 
 
+
 #kernel PROD org
 kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com
 kernel_prod_2=raghuprasad.halakere.ntt@kernel.daimler-apac.com
 
 # Asia Dev Sandboxes
 dev_sb_asia_dev1=sukumar.rajashekaran.ntt@mbj.daimler-apac.com.asiadev1
+dev_sb_asia_compassdev=rajesh.k2@infosys.com
+dev_sb_asia_STouch=rajesh.k22@infosys.com.stouch
 dev_sb_asia_dev2=arun.iyer.ntt@asia.daimler-apac.com.asiadev2,sekhara.vanga.ntt@asia.daimler-apac.com.asiadev2
 dev_sb_asia_dev3=sneha.chail.ntt@asia.daimler-apac.com.asiadev3
 dev_sb_asia_dev4=narasimha.gundurao.ntt@asia.daimler-apac.com.asiadev4,rakeshbabugoud.balagani@nttdata.com.asiadev4
@@ -68,7 +71,7 @@ dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
 dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
-dev_sb_asiaDevTh4=pavankumar_d01@infosys.com.asiadevth4
+dev_sb_asiaDevTh4=pavankumar_d01@infosys.com.asiadevth4,dhanamjaya.d@infosys.com.asiadevth4
 
 # Asia Korea Dev Sandboxes
 dev_sb_asia_dev11=
@@ -90,7 +93,8 @@ dev_sb_asia_Stage7=deployment.user@mbj.daimler-apac.com.staging
 
 # ASIA TH development
 CIThailand=pavankumar_01@infosys.com.cithailand
-dev_sb_asia_uatth=pavankumar_01@infosys.com.uatth
+dev_sb_asia_uatth=karthik_chakrapani@infosys.com.uatth
 dev_sb_asiaDevTh8=pavankumar_d01@infosys.com.asiadevth8
 dev_sb_AsiaDevTH7=prabhata_rath@infosys.com.asiadevth7
-
+dev_sb_asiadevth2=mohammedtouseef.a@infosys.com.aisadevth2
+dev_sb_AsiaDevTH3=prabhata_rath@infosys.com.asiadevth3

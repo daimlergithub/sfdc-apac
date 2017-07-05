@@ -6,4 +6,5 @@
     <tab>Tasks</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+	<tab>Lead__c</tab>
 </CustomApplication>

@@ -37,12 +37,12 @@
     <columns>
         <field>OWNER</field>
     </columns>
-    <columns>
-        <field>CREATED_DATEONLY</field>
-    </columns>
-    <columns>
+	<columns>
         <field>CLOSED_DATEONLY</field>
     </columns>
+    <columns>
+        <field>CREATED_DATEONLY</field>
+    </columns>    
     <columns>
         <field>PRIORITY</field>
     </columns>

@@ -4009,6 +4009,48 @@
             <role>Central</role>
         </sharedTo>
     </listViews>
+	<listViews>
+        <fullName>MBK_My_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>My Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+	<listViews>
+        <fullName>MBK_All_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>All Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
         <fullName>AS_Central_Campaign</fullName>
@@ -7162,11 +7204,7 @@
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>MMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
+			<values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -7176,10 +7214,6 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10281,10 +10315,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -10298,10 +10328,6 @@
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13828,10 +13854,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -13841,10 +13863,6 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -4,8 +4,10 @@
     <customButtons>Merge</customButtons>
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>New_Case</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -231,6 +233,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Work_Phone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PersonHomePhone</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>COS_Flag__c</field>
             </layoutItems>
             <layoutItems>
@@ -356,6 +366,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ID_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -876,18 +890,13 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Vehicle_Model__c</fields>
-        <fields>UsVIN__c</fields>
-        <fields>New_Used__c</fields>
-        <fields>Car_Relation__c</fields>
-        <fields>Start_Date__c</fields>
-        <fields>End_Date__c</fields>
-        <fields>Selling_Dealer__c</fields>
-        <fields>Last_Service_Dealer__c</fields>
         <fields>Vehicle_ID__c</fields>
+        <fields>Registration_Number__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>Vehicle_Range__c</fields>
+        <fields>Handover_Date__c</fields>
+        <fields>Owner_Dealer__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
-        <sortField>Start_Date__c</sortField>
-        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -920,9 +929,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Inquiry</customButtons>
-        <customButtons>New_MB_Complaint</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>

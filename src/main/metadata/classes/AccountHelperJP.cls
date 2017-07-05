@@ -848,13 +848,13 @@ public class AccountHelperJP
                                            acc.name =  (acc.Company_Name__c!=null ?acc.Company_Name__c : '' );
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Pre') {
-                                        if(usr.LanguageLocaleKey == 'ja')
+                                        if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
                                             acc.name = (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form): '')  + (acc.Company_Name__c!= null ? acc.Company_Name__c : '');
                                         else
                                            acc.name = (Company_Legal_Form != null?Company_Legal_Form:'' ) + (acc.Company_Name__c != null ?acc.Company_Name__c : '' );     
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Post'){
-                                        if(usr.LanguageLocaleKey == 'ja')
+                                        if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
                                             acc.name = (acc.Company_Name__c!= null ?acc.Company_Name__c : '' ) + (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form):'');
                                         else
                                             acc.name = (acc.Company_Name__c != null ? acc.Company_Name__c : '') + (Company_Legal_Form != null ? Company_Legal_Form:'');    
@@ -959,10 +959,12 @@ public class AccountHelperJP
 public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAccountmap,boolean isInsert, boolean isUpdate)
     {
         set<id> insrtaccids = new set<id>();
+        string corelnId;
         for(Account acc : accLst)
         {
-            if(acc.MD__c == 'JP' && isInsert && userinfo.getUserType()=='PowerPartner' & usr.Contact.Account.Dealer_Rollout_Status__c == 'Done')
+            if(acc.MD__c == 'JP' && isInsert && userinfo.getUserType()=='PowerPartner' && usr.Contact.Account.Dealer_Rollout_Status__c == 'Done')
             {
+                corelnId = ApexPages.currentPage().getParameters().get('CLNID');
                 insrtaccids.add(acc.Id);
             }
             else if(acc.MD__c == 'JP' && isUpdate)
@@ -1024,7 +1026,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         if(!insrtaccids.isEmpty() && insrtaccids != null)
         {
             system.debug('INsretddsadasd>>>>>');
-            createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids);
+            createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids,corelnId);
         }
     }
 

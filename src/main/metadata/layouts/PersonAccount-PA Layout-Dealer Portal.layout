@@ -2,13 +2,15 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>New_Leads</customButtons>
     <customButtons>New_AfterSales_Leads</customButtons>
-    <customButtons>New_Inquiry</customButtons> 
+    <customButtons>New_Inquiry</customButtons>
+    <customButtons>New_MB_Complaint</customButtons>
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Case_Dealer</customButtons>
+	<customButtons>Create_Vehicle</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
@@ -196,6 +198,13 @@
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>200</height>
+                <page>SelectAddress</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
@@ -589,9 +598,9 @@
         <fields>Role__c</fields>
         <fields>toRole__c</fields>
         <fields>Role2__c</fields>
-        <fields>Portal_Email__c</fields>
+		<fields>Portal_Email__c</fields>
         <fields>Retail_Email_OptOut__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
+		<fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -601,9 +610,9 @@
         <fields>fromRole__c</fields>
         <fields>Role__c</fields>
         <fields>Role2__c</fields>
-        <fields>Portal_Email__c</fields>
+		<fields>Portal_Email__c</fields>
         <fields>Retail_Email_OptOut__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
+		<fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -634,7 +643,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Lead_Desired_Service__c</fields>
+        <fields>Dealer_Lead_Status__c</fields>
         <fields>Assigned_Date_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
         <fields>Lead_Latest_Phase__c</fields>
@@ -644,15 +653,25 @@
         <fields>Expected_Registration_Date__c</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
     </relatedLists>
-    <relatedLists>
+	<relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
-        <fields>CAMPAIGN.STATUS</fields>
-        <fields>Campaign_Channels__c</fields>
+        <fields>CM.STATUS</fields>
         <fields>CM.RESPONDED</fields>
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
+    </relatedLists>
+	<relatedLists>
+        <customButtons>Convert_to_Lead</customButtons>
+        <customButtons>Convert_To_Task</customButtons>
+        <fields>Campaign_ID__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>Contract__c</fields>
+        <fields>Preferred_Dealer__c</fields>
+        <fields>Status__c</fields>
+        <fields>RespondedDate__c</fields>
+        <relatedList>Campaign_Member__c.Contact_Id__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -678,6 +697,7 @@
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>NewCase</excludeButtons>
         <customButtons>New_Inquiry</customButtons>
         <customButtons>New_MB_Complaint</customButtons>
         <fields>CASES.CASE_NUMBER</fields>

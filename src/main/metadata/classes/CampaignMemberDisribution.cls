@@ -10,7 +10,7 @@ global class CampaignMemberDisribution{
          system.debug('++++++++camid++++++++++++++'+camid);
          
          
-         List<Campaign> camList = [Select id,Name,(Select Id ,Name,Preferred_Dealer__c From Campaign_Members1__r) From Campaign Where Id =: camid];
+         List<Campaign> camList = [Select id,Name,(Select Id ,Name,Preferred_Dealer__c,Contact_Id__c From Campaign_Members1__r) From Campaign Where Id =: camid];
          
          system.debug('++++++++++camList++++++++++++'+camList);
          For(Campaign CamNew : camList){
@@ -42,7 +42,8 @@ global class CampaignMemberDisribution{
                       dlist.Participating_Dealer__c = par.id;
                       dlist.Campaign_Member__c = CamMem.id;
                       dlist.Name = CamMem.Name;
-                      dlist.List_Maintenance_CM_Status__c ='Ready'; 
+                      dlist.List_Maintenance_CM_Status__c ='Ready';
+                      dlist.NewAccount__c =CamMem.Contact_Id__c;
                    dealerMainList.add(dlist);
                    
                    }

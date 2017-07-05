@@ -181,21 +181,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__Insights</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -2797,9 +2782,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Data_Sub_Source__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3547,9 +3532,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Email3__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3557,9 +3542,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Email_Last_Modified_By3__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3572,9 +3557,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Email_Last_Modified_Date3__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3597,9 +3582,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Email_Status_3__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3787,9 +3772,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Fax_Validity2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3892,14 +3877,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Home_Phone_2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Home_Phone_Last_Modified_By2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3907,9 +3892,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Home_Phone_Last_Modified_Date2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3917,9 +3902,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Home_Phone_Status_2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4197,14 +4182,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Mobile2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Mobile_Status__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4902,9 +4887,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.SMS_MMS_IM_Status_2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5282,9 +5267,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Work_Phone_Status_2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5307,9 +5292,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Active__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5397,9 +5382,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.MBConnection__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5449,7 +5434,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Portal_Email__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5457,14 +5442,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Portal_Mail_Opt_Out__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Portal_Message_Opt_Out__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5472,19 +5457,19 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Portal_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Position__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Primary__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5882,7 +5867,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Role2__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5892,14 +5877,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Role__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Sales_Person_Id__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5949,7 +5934,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.System__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5972,12 +5957,12 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.fromRole__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.toRole__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10497,9 +10482,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Priority</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -13338,11 +13323,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Car_Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13399,11 +13379,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Executed_CSR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Flow_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13543,21 +13518,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.QC_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.QC_Link__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.QC_Quantity__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Reason__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13573,27 +13533,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.SMSTemplateID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.SMS_Content__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.SMS_Response_Required__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.SSI_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.SSI_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13619,16 +13559,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Survey_Result_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Survey_Result_Link__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14014,7 +13944,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.AfterSales_Vehicle__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14162,12 +14092,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Check_In_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Check_Out_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14787,7 +14717,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Invoice_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14802,7 +14732,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Invoice_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14872,12 +14802,12 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Job_Card_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Job_Card_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14952,7 +14882,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Lead_Latest_Phase__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15262,7 +15192,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Order_Placed_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16237,12 +16167,12 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.WIP_Created_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.WIP_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22373,11 +22303,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Car_Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -22434,11 +22359,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Executed_CSR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Flow_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22568,21 +22488,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.QC_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.QC_Link__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.QC_Quantity__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Reason__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -22598,27 +22503,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.SMSTemplateID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.SMS_Content__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.SMS_Response_Required__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.SSI_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.SSI_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22644,16 +22529,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Survey_Result_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Survey_Result_Link__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -25516,7 +25391,7 @@
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Address__c</object>
@@ -25586,18 +25461,18 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DM_Material__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DM_Request__c</object>
@@ -26428,7 +26303,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.ContactSector</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -27033,10 +26908,6 @@
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Account_Link__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Campaign_Member__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

@@ -7,7 +7,8 @@ function afterSave(){
 //{
 if({!ShowHideError} ==false)
 {
-alert('Sucessfully Sent Information to JPOS');
+var alrt = '{!($Label.Sucessfully_Sent_Information_to_JPOS)}';
+alert(alrt);
 window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";
  
 }
@@ -68,7 +69,7 @@ else
             <div class="PopupPanel">
                 <table border="0" width="100%" height="100%">
                     <tr>
-                        <td align="center"><b>Please Wait</b></td>
+                        <td align="center"><b>{!$Label.Please_Wait}</b></td>
                     </tr>
                     
                 </table>
@@ -80,7 +81,7 @@ else
     <div align="Center">
                         <apex:outputPanel rendered="{!CurrentUsr.IsPortalEnabled =False}">
 
-            <tb>  <tb>    Dealer Outlet</tb>   </tb> <apex:inputfield value=" {!Account.Main_Dealer__c}">
+            <tb>  <tb>    {!$Label.Dealer_Outlet}</tb>   </tb> <apex:inputfield value=" {!Account.Main_Dealer__c}">
                              <apex:actionSupport event="onchange" action="{!getDealer}"   rerender="PbId" >
                                        <apex:param name="DealerID" value="{!Account.Id}"/>
                                   </apex:actionSupport>
@@ -93,7 +94,7 @@ else
      
       
       
-             <apex:pageblockSection title="Account Information" columns="2" >
+             <apex:pageblockSection title="{!$Label.Account_Information}" columns="2" >
            <!--  <apex:outputField value="{!Account.Recordtype.Name}"/>-->
                           <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Account.fields.UCID__c.Label}"/>
@@ -178,17 +179,17 @@ else
            </apex:pageblockSection>
         </apex:pageBlock>
         
-        <apex:pageBlock title="Address Details" id="adddetails">
+        <apex:pageBlock title="{!$Label.Address_Details}" id="adddetails">
           <apex:pageBlockButtons location="bottom">
-            <apex:commandButton value="Send to JPOS" action="{!SendToJPOS}" Onclick="if(!confirm('Are you sure want to send information to JPOS interface?')){return false};" oncomplete="afterSave()"  status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
-        <apex:commandButton value="cancel" action="{!Cancel}"/>
+            <apex:commandButton value="{!$Label.Send_to_JPOS}" action="{!SendToJPOS}" Onclick="if(!confirm('{!$Label.Are_you_sure_want_to_send_information_to_JPOS_interface}')){return false};" oncomplete="afterSave()"  status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
+        <apex:commandButton value="{!$Label.Cancel}" action="{!Cancel}"/>
         </apex:pageBlockButtons>
        <apex:pageBlockTable value="{!address}" var="a">
           <!--  <apex:column >
             <apex:selectRadio />
         </apex:column>-->
         
-         <apex:column headerValue="Select">
+         <apex:column headerValue="{!locallang}">
                 <input type="radio" value="{!a.id}"  id="radio" Name="SelectedCustomer">
                                   <apex:actionSupport event="onclick" action="{!getSelected}" rerender="Selected_PBS">
                                        <apex:param name="idselected" value="{!a.id}" assignTo="{!AddrecordId}"/>
@@ -201,8 +202,8 @@ else
             <apex:column headerValue="{!$ObjectType.Address__c.fields.Customer__c.Label}">
             <apex:outputField value="{!a.Customer__c}"/>
             </apex:column>
-             <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Code__c.Label}">
-            <apex:outputField value="{!a.Address_Code__c}"/>
+             <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
+            <apex:outputField value="{!a.Address_Type__c}"/>
             </apex:column>
              <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
             <apex:outputField value="{!a.ZipCode__c}"/>

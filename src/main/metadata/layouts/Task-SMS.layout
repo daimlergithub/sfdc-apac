@@ -35,11 +35,7 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Vehicle_Case_ID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SMSTemplateID__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SentTime__c</field>
@@ -77,11 +73,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Activity_DataSubSource__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SMS_Response_Required__c</field>
-            </layoutItems>
+            </layoutItems> 
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

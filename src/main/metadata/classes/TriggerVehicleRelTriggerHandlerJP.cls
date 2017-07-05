@@ -35,7 +35,7 @@ public class TriggerVehicleRelTriggerHandlerJP
          if(trigger.isBefore && trigger.isUpdate){
                 //vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
                 VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
-                VehicleRelationshipHelperJP.beforeupdateEventAddress(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
+               // VehicleRelationshipHelperJP.beforeupdateEventAddress(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
          }
        // Update Status , Update Vehicle Relationship and Create Account Link 
         /*
@@ -80,6 +80,11 @@ public class TriggerVehicleRelTriggerHandlerJP
          VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
         Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+		
+		//As per Ogi request added updatePortalApplyStatus to integration user.
+       if (trigger.isBefore && trigger.isInsert){ 
+                VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New, new Map<Id,Vehicle_Relationship__c>());
+         }
          // US-CP-007
         /* if (trigger.isBefore && trigger.isInsert){
                 vrHelperJP.validateOverlappingVehicleRelationshiponInsert(trigger.new);
@@ -97,7 +102,7 @@ public class TriggerVehicleRelTriggerHandlerJP
         {
           VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
           VehicleRelationshipHelperJP.afterInsertEvent(Trigger.new);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation,true,false);
+        //  VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation,true,false);
           
         }
         if(trigger.isAfter && Trigger.isUpdate) {
@@ -108,7 +113,7 @@ public class TriggerVehicleRelTriggerHandlerJP
           }
           
           VehicleRelationshipHelperJP.afterUpdateEvent(Trigger.new, oldmapVehicleRelship);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation,true,false);
+         // VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation,true,false);
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);

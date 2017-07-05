@@ -44,7 +44,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
             //Creating Retailcopy from dealer #SFDCKR-696 && #SFDCKR-1073
-            //AccountHelperKR.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+            AccountHelperKR.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
             system.debug('createSharingRecord :');
             //#SFDCKR-1015
             AccountHelperKR.createSharingRecord ((Map<Id,Account>)Trigger.NewMap);

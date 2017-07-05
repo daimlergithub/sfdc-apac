@@ -4,6 +4,7 @@ public without sharing class BusinessHrHolidaysRetrieverConstants {
     public static final Integer MAX_NUMBER_OF_HOLIDAYS = 100;
     public static final Integer MAX_NUMBER_OF_BUSINESS_HRS = 100;
     public static final String HOLIDAY_URL_PREFIX = '/' + HOLIDAY_PREFIX  + '?t=b&rowsperpage=' + MAX_NUMBER_OF_HOLIDAYS + '&id='; 
+    public static final String HOLIDAY_URL_PREFIX_DEALER = '/'+ 'MBKorea/' + HOLIDAY_PREFIX  + '?t=b&rowsperpage=' + MAX_NUMBER_OF_HOLIDAYS + '&id='; 
     public static final String BUSINESS_HR_URL_PREFIX = '/' + BUSINESS_HR_PREFIX  + '?t=b&rowsperpage=' + MAX_NUMBER_OF_BUSINESS_HRS + '&id=';  
     public static final String PAGE_BODY_CLASS = 'pbBody';
     public static final String TABLE_ROW_END = '</tr>';

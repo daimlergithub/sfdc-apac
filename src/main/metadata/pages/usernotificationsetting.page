@@ -13,23 +13,23 @@ Description       : usernotificationsetting
        }
       
       </script>
-       <apex:pageBlock title="User Notification Settings" >
+       <apex:pageBlock title="{!$Label.User_Notification_Settings}" >
        <br></br>
-       <b> <apex:outputLabel value="Notification Lead Dealer Assignment"/></b>
+       <b> <apex:outputLabel value="{!$Label.Notification_Lead_Dealer_Assignment}"/></b>
         <apex:outputPanel id="multiselectPanel" layout="block" styleClass="duelingListBox">
             <table class="layout">
                 <tbody>
                     <tr>
                         <td class="selectCell">
                             <apex:outputPanel layout="block" styleClass="selectTitle">
-                                <apex:outputLabel value="Available Contacts" for="multiselectPanel:leftList" />
+                                <apex:outputLabel value="{!$Label.Available_Contacts}" for="multiselectPanel:leftList" />
                             </apex:outputPanel>
                             <apex:selectList id="availableUsersBlock" value="{!selectedUserIds}" multiselect="true" size="5" style="width: 200px;">
                                 <apex:selectOptions value="{!availableUsers}"/>
                             </apex:selectList>
                         </td>
                         <td class="buttonCell">
-                            <apex:outputPanel layout="block" styleClass="text">Add</apex:outputPanel>
+                            <apex:outputPanel layout="block" styleClass="text">{!$Label.Add}</apex:outputPanel>
                             <apex:outputPanel layout="block" styleClass="text">
                                 <apex:commandLink action="{!add}" rerender="availableUsersBlock, selectedUsersBlock" id="btnRight"> 
                                     <apex:image value="/s.gif" alt="Add" styleClass="rightArrowIcon" title="Add" />
@@ -39,12 +39,12 @@ Description       : usernotificationsetting
                                 <apex:commandLink action="{!remove}" rerender="availableUsersBlock, selectedUsersBlock" id="btnLeft">
                                     <apex:image value="/s.gif" alt="Remove" styleClass="leftArrowIcon" title="Remove" />
                                 </apex:commandLink>
-                                <apex:outputPanel layout="block" styleClass="duelingText">Remove</apex:outputPanel>
+                                <apex:outputPanel layout="block" styleClass="duelingText">{!$Label.Remove}</apex:outputPanel>
                             </apex:outputPanel>
                         </td>
                         <td class="selectCell">
                             <apex:outputPanel layout="block" styleClass="selectTitle">
-                                <apex:outputLabel value="Selected Contacts" for="multiselectPanel:rightList" />
+                                <apex:outputLabel value="{!$Label.Selected_Contacts}" for="multiselectPanel:rightList" />
                             </apex:outputPanel>
                             <apex:selectList id="selectedUsersBlock" value="{!removedUserIds}" multiselect="true" size="5" style="width: 200px;">
                                 <apex:selectOptions value="{!selectedUsers}"/>
@@ -55,21 +55,21 @@ Description       : usernotificationsetting
             </table>
         </apex:outputPanel>
         <br></br><br></br>
-        <b> <apex:outputLabel value="Notification Lead Not Assigned"/></b>
+        <b> <apex:outputLabel value="{!$Label.Notification_Lead_Not_Assigned}"/></b>
         <apex:outputPanel id="multiselectPanel2" layout="block" styleClass="duelingListBox">
             <table class="layout">
                 <tbody>
                     <tr>
                         <td class="selectCell">
                             <apex:outputPanel layout="block" styleClass="selectTitle">
-                                <apex:outputLabel value="Available Contacts" for="multiselectPanel:leftList" />
+                                <apex:outputLabel value="{!$Label.Available_Contacts}" for="multiselectPanel:leftList" />
                             </apex:outputPanel>
                             <apex:selectList id="availableUsersBlock2" value="{!selectedUserIds2}" multiselect="true" size="5" style="width: 200px;">
                                 <apex:selectOptions value="{!availableUsers2}"/>
                             </apex:selectList>
                         </td>
                         <td class="buttonCell">
-                            <apex:outputPanel layout="block" styleClass="text">Add</apex:outputPanel>
+                            <apex:outputPanel layout="block" styleClass="text">{!$Label.Add}</apex:outputPanel>
                             <apex:outputPanel layout="block" styleClass="text">
                                 <apex:commandLink action="{!add2}" rerender="availableUsersBlock2, selectedUsersBlock2" id="btnRight2"> 
                                     <apex:image value="/s.gif" alt="Add" styleClass="rightArrowIcon" title="Add" />
@@ -79,12 +79,12 @@ Description       : usernotificationsetting
                                 <apex:commandLink action="{!remove2}" rerender="availableUsersBlock2, selectedUsersBlock2" id="btnLeft2">
                                     <apex:image value="/s.gif" alt="Remove" styleClass="leftArrowIcon" title="Remove" />
                                 </apex:commandLink>
-                                <apex:outputPanel layout="block" styleClass="duelingText">Remove</apex:outputPanel>
+                                <apex:outputPanel layout="block" styleClass="duelingText">{!$Label.Remove}</apex:outputPanel>
                             </apex:outputPanel>
                         </td>
                         <td class="selectCell">
                             <apex:outputPanel layout="block" styleClass="selectTitle">
-                                <apex:outputLabel value="Selected Contacts" for="multiselectPanel:rightList" />
+                                <apex:outputLabel value="{!$Label.Selected_Contacts}" for="multiselectPanel:rightList" />
                             </apex:outputPanel>
                             <apex:selectList id="selectedUsersBlock2" value="{!removedUserIds2}" multiselect="true" size="5" style="width: 200px;">
                                 <apex:selectOptions value="{!selectedUsers2}"/>
@@ -95,21 +95,21 @@ Description       : usernotificationsetting
             </table>
         </apex:outputPanel>
         <br></br><br></br>
-        <b> <apex:outputLabel value="Notification Lead No Update"/></b>
+        <b> <apex:outputLabel value="{!$Label.Notification_Lead_No_Update}"/></b>
         <apex:outputPanel id="multiselectPanel3" layout="block" styleClass="duelingListBox">
             <table class="layout">
                 <tbody>
                     <tr>
                         <td class="selectCell">
                             <apex:outputPanel layout="block" styleClass="selectTitle">
-                                <apex:outputLabel value="Available Contacts" for="multiselectPanel:leftList" />
+                                <apex:outputLabel value="{!$Label.Available_Contacts}" for="multiselectPanel:leftList" />
                             </apex:outputPanel>
                             <apex:selectList id="availableUsersBlock3" value="{!selectedUserIds3}" multiselect="true" size="5" style="width: 200px;">
                                 <apex:selectOptions value="{!availableUsers3}"/>
                             </apex:selectList>
                         </td>
                         <td class="buttonCell">
-                            <apex:outputPanel layout="block" styleClass="text">Add</apex:outputPanel>
+                            <apex:outputPanel layout="block" styleClass="text">{!$Label.Add}</apex:outputPanel>
                             <apex:outputPanel layout="block" styleClass="text">
                                 <apex:commandLink action="{!add3}" rerender="availableUsersBlock3, selectedUsersBlock3" id="btnRight3"> 
                                     <apex:image value="/s.gif" alt="Add" styleClass="rightArrowIcon" title="Add" />
@@ -119,12 +119,12 @@ Description       : usernotificationsetting
                                 <apex:commandLink action="{!remove3}" rerender="availableUsersBlock3, selectedUsersBlock3" id="btnLeft3">
                                     <apex:image value="/s.gif" alt="Remove" styleClass="leftArrowIcon" title="Remove" />
                                 </apex:commandLink>
-                                <apex:outputPanel layout="block" styleClass="duelingText">Remove</apex:outputPanel>
+                                <apex:outputPanel layout="block" styleClass="duelingText">{!$Label.Remove}</apex:outputPanel>
                             </apex:outputPanel>
                         </td>
                         <td class="selectCell">
                             <apex:outputPanel layout="block" styleClass="selectTitle">
-                                <apex:outputLabel value="Selected Contacts" for="multiselectPanel:rightList" />
+                                <apex:outputLabel value="{!$Label.Selected_Contacts}" for="multiselectPanel:rightList" />
                             </apex:outputPanel>
                             <apex:selectList id="selectedUsersBlock3" value="{!removedUserIds3}" multiselect="true" size="5" style="width: 200px;">
                                 <apex:selectOptions value="{!selectedUsers3}"/>
@@ -137,8 +137,8 @@ Description       : usernotificationsetting
         <br></br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <apex:commandbutton value="update" action="{!updateit}"  oncomplete="RelodeParent()"/>
-        &nbsp;&nbsp; <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" /> 
+        <apex:commandbutton value="{!$Label.Update}" action="{!updateit}"  oncomplete="RelodeParent()"/>
+        &nbsp;&nbsp; <apex:CommandButton value="{!$Label.Cancel}" oncomplete="RelodeParent()" /> 
       </apex:pageBlock>
     </apex:form>
 </apex:page>

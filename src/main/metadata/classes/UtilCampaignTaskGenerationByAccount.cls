@@ -158,13 +158,12 @@ system.debug('&******************'+cpList);
                     WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
                     Campaign_Member_ID__c = String.valueOf(cpm.Id), 
                     Campaign_Name__c = cpm.Campaign.Name, 
-                    Flow_URL__c = cpm.Campaign.Flow_URL__c,
                     Activity_Status__c = 'not started',
                     ActivityDate = date.today(),
                     UniqueCampaignGenerateTask__c = uniqueTaskField,
                     OwnerId= usr.Id));
             
-            //}
+            //} Flow_URL__c = cpm.Campaign.Flow_URL__c, removed as part of SFDCJP-1765
         } else if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
             taskList.add(new Task(
                 Subject= strSMS, 

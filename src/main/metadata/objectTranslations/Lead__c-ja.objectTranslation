@@ -16408,15 +16408,15 @@
         <name>CAC_Purchase_Check_Sales_Lead</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You can&apos;t change Invoice Number --></errorMessage>
+        <errorMessage>請求番号は手動で設定できません。</errorMessage>
         <name>Cannnot_Change_Invoice_Number</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You cannot change the Contact if DMS Sent Flag is selected --></errorMessage>
+        <errorMessage>Autolineに送信後は顧客を変更できません。</errorMessage>
         <name>Cannnot_Change_Lead_Contact</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You can&apos;t change Quotation Amount --></errorMessage>
+        <errorMessage>見積金額は手動で設定できません。</errorMessage>
         <name>Cannnot_Change_Lead_Quotation_Amount</name>
     </validationRules>
     <validationRules>
@@ -16424,11 +16424,11 @@
         <name>Cannnot_Change_Lead_Status</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You can&apos;t change the  Quotation No --></errorMessage>
+        <errorMessage>初回見積番号は手動で設定できません。</errorMessage>
         <name>Cannnot_Change_Quotation_No</name>
     </validationRules>
     <validationRules>
-        <errorMessage>商談タイプが法人商談の場合、契約対象会社を選択して下さい。</errorMessage>
+        <errorMessage>商談タイプが法人商談の場合、契約対象会社を選択してください。</errorMessage>
         <name>Company_Account_Required</name>
     </validationRules>
     <validationRules>
@@ -16436,7 +16436,7 @@
         <name>Contact_Failed_Required_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- &quot;Dealer Lead Status&quot; can change into &quot;Purchased&quot; only if (&quot;Lead Latest Phase&quot; is &quot;Registration&quot; and Leads record type is &quot;Sales Lead&quot;) or (&quot;Lead Latest Phase&quot; is &quot;Invoiced&quot; and Leads record type if &quot;After-Sales Lead&quot;). --></errorMessage>
+        <errorMessage>リードステータスは手動で購入済に変更できません。</errorMessage>
         <name>Dealer_Lead_Status_Manual_Check</name>
     </validationRules>
     <validationRules>
@@ -16452,15 +16452,15 @@
         <name>Dealer_lost_Reason_Manadatory</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Finance Product name cannot be changed manually --></errorMessage>
+        <errorMessage>ファイナンス商品名は手動で設定できません。</errorMessage>
         <name>Finance_Product_Name_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Finance Quotation No cannot be changed manually --></errorMessage>
+        <errorMessage>ファイナンス見積番号は手動で設定できません。</errorMessage>
         <name>Finance_Quotation_No_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Finance Quotation No History cannot be changed manually --></errorMessage>
+        <errorMessage>ファイナンス見積履歴は手動で設定できません。</errorMessage>
         <name>Finance_Quotation_No_History_Check</name>
     </validationRules>
     <validationRules>
@@ -16480,27 +16480,27 @@
         <name>Last_Name_Native_Single</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- &quot;Invoice Amount&quot; cannot be changed manually. --></errorMessage>
+        <errorMessage>請求金額は手動で設定できません。</errorMessage>
         <name>Lead_Invoice_Amount_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- &quot;Invoice Amount History&quot; cannot be changed manually. --></errorMessage>
+        <errorMessage>請求金額情報履歴は手動で設定できません。</errorMessage>
         <name>Lead_Invoice_Amount_History_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- &quot;Invoice Number History&quot; cannot be changed manually. --></errorMessage>
+        <errorMessage>請求番号履歴は手動で設定できません。</errorMessage>
         <name>Lead_Invoice_Number_History_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- It cannot be changed Manually --></errorMessage>
+        <errorMessage>最新フェーズは見積書印刷、注文書印刷、受注確定、登録、請求に手動で変更できません。</errorMessage>
         <name>Lead_Latest_Phase_Manual_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Lead Latest Phase&quot; cannot be changed into “WIP Linkage”, “Job Card Issue”, “Invoiced” --></errorMessage>
+        <errorMessage>最新フェーズはWIP作成済み、リペアオーダー印刷、請求に変更できません。</errorMessage>
         <name>Lead_Latest_Phase_Manual_Check_AS</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Dealer Lead Status&quot; cannot be changed into “Lost --></errorMessage>
+        <errorMessage>最新フェーズが登録、請求の場合は失注に変更できません。</errorMessage>
         <name>Lead_Status_Lost_Check</name>
     </validationRules>
     <validationRules>
@@ -16512,7 +16512,7 @@
         <name>Lost_Dealer_Required_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Dealer Lost Reason and Lost Situation cannot be Null --></errorMessage>
+        <errorMessage>リードステータスが失注の場合は、敗戦理由、敗戦した状況は必須です。</errorMessage>
         <name>Lost_Reason_Mandatory</name>
     </validationRules>
     <validationRules>
@@ -16544,19 +16544,19 @@
         <name>Order_Placed_Required_Check_Dealer</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Dealer Lead Status current value is &quot;Purchased&quot; or &quot;Lost&quot; AND record type is &quot;Sales Leads&quot;, &quot;Dealer Lead Status&quot; cannot be changed. --></errorMessage>
+        <errorMessage>リードステータスが購入済、失注の場合はリードステータスを変更できません。</errorMessage>
         <name>Purchase_Leads_NoChange_Los</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Lead Latest Phase cannot be changed. --></errorMessage>
+        <errorMessage>リードステータスが購入済、失注の場合は最新フェーズを変更できません。</errorMessage>
         <name>Purchase_Leads_NoChange_Lost</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Aftersales Vehicle cannot be changed --></errorMessage>
+        <errorMessage>リードステータスが購入済、失注の場合は対象車両を変更できません。</errorMessage>
         <name>Purchased_Leads_NoChange_Lost</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You can&apos;t change  Quotation No History --></errorMessage>
+        <errorMessage>見積番号履歴は手動で設定できません。</errorMessage>
         <name>Quotation_No_History_Check</name>
     </validationRules>
     <validationRules>
@@ -16608,11 +16608,11 @@
         <name>Merge</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_AfterSales_Lead --></label>
+        <label>新規アフターセールス</label>
         <name>New_AfterSales_Lead</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Sales_Lead --></label>
+        <label>新規セールスリード</label>
         <name>New_Sales_Lead</name>
     </webLinks>
     <webLinks>

@@ -264,6 +264,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <excludeButtons>NewTask</excludeButtons>
         <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
@@ -299,4 +300,8 @@
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
+	<miniLayout>
+        <fields>Name</fields>
+       <fields>Retail_Company_Name__c</fields>
+   </miniLayout>
 </Layout>

@@ -285,7 +285,7 @@
     <fields>
         <fullName>Contract_Phone_1__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Task__r.Contractor_Phone1__c</formula>
+        <formula>Contract__r.Contractor_Phone1__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract Phone 1</label>
         <required>false</required>
@@ -296,7 +296,7 @@
     <fields>
         <fullName>Contract_Phone_2__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Task__r.Contractor_MobilePhone1__c</formula>
+        <formula>Contract__r.Contractor_MobilePhone1__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract Phone 2</label>
         <required>false</required>
@@ -307,7 +307,7 @@
     <fields>
         <fullName>Contract_Responsible_Person__c</fullName>
         <externalId>false</externalId>
-        <formula>Contract__r.Contractor_Name__c</formula>
+        <formula>Contract__r.Latest_Sales_Person__c </formula>
         <label>Contract Responsible Person</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -360,7 +360,7 @@
     <fields>
         <fullName>Contractor_Individual_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Contract__r.Account__c</formula>
+        <formula>Contract__r.Account__r.LastName&amp;' '&amp; Contract__r.Account__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Individual Name</label>
         <required>false</required>
@@ -1017,7 +1017,7 @@
     <fields>
         <fullName>Sales_Representative__c</fullName>
         <externalId>false</externalId>
-        <formula>Vehicle_Relationship__r.Sales_Consultant__c</formula>
+        <formula>Vehicle_Relationship__r.Sales_Consultant__r.LastName&amp;' '&amp;Vehicle_Relationship__r.Sales_Consultant__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Representative</label>
         <required>false</required>
@@ -1037,7 +1037,7 @@
     <fields>
         <fullName>Service_Representative__c</fullName>
         <externalId>false</externalId>
-        <formula>Vehicle_Relationship__r.Service_Advisor__c</formula>
+        <formula>Vehicle_Relationship__r.Service_Advisor__r.LastName&amp;' '&amp;Vehicle_Relationship__r.Service_Advisor__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Representative</label>
         <required>false</required>
@@ -1140,6 +1140,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Total_Vehicle_Price_with_tax__c</fullName>

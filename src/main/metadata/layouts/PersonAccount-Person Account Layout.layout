@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Create_Vehicle</customButtons>
     <customButtons>New_Sales_Lead_WS</customButtons>
     <customButtons>New_After_Sales_Lead_WS</customButtons>
     <customButtons>Merge</customButtons>
@@ -11,6 +10,7 @@
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>New_Case</customButtons>
+	<customButtons>Create_Vehicle</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -900,17 +900,26 @@
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-    <relatedLists>
+	<relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
         <fields>CM.STATUS</fields>
-        <fields>Campaign_Channels__c</fields>
         <fields>CM.RESPONDED</fields>
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
-        <sortField>CAMPAIGN.CAMPAIGN_TYPE</sortField>
-        <sortOrder>Asc</sortOrder>
+    </relatedLists>
+	<relatedLists>
+        <customButtons>Convert_to_Lead</customButtons>
+        <customButtons>Convert_To_DM_Request</customButtons>
+        <customButtons>Convert_To_Task</customButtons>
+        <fields>Campaign_ID__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>Contract__c</fields>
+        <fields>Preferred_Dealer__c</fields>
+        <fields>Status__c</fields>
+        <fields>RespondedDate__c</fields>
+        <relatedList>Campaign_Member__c.Contact_Id__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>New_Sales_Lead</customButtons>

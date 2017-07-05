@@ -49,8 +49,8 @@
                    </tr>
                    
                     <tr> 
-                   <td> {!$Label.Sales_Contact_Target_Purchaser_Relation} </td>     
-                   <td> <apex:outputtext value="{!vehiclewrpper.salescontactvr.Owner_Relation__c}"/>  </td>        
+                   <td> {!$Label.Sales_Contact_Target_Purchaser_Relation} </td> 
+                   <td> <apex:outputfield value="{!vehiclewrpper.salescontactvr.Owner_Relation__c}"/>  </td>       
                    <td> <apex:inputField value="{!vehiclewrpper.salescontactvr.Owner_Relation__c}"/></td>   
                    </tr>
                    
@@ -77,7 +77,7 @@
                    
                     <tr> 
                    <td> {!$Label.After_Sales_Contact_Target_Purchaser_Relation}</td>     
-                   <td> <apex:outputtext value="{!vehiclewrpper.aftersalescontactvr.Owner_Relation__c}"/> </td>        
+                   <td> <apex:outputfield value="{!vehiclewrpper.aftersalescontactvr.Owner_Relation__c}"/> </td>        
                    <td> <apex:inputField value="{!vehiclewrpper.aftersalescontactvr.Owner_Relation__c}"/></td>   
                    </tr>
                    
@@ -117,7 +117,7 @@
   </apex:pageBlock> 
   
   <apex:pageBlockButtons >
-        <apex:commandButton value="{!$Label.Update}" onclick="return confirm ('Please check and modify if necessary the Sales responsible person for the new contact target');" action="{!updateit}" />
+        <apex:commandButton value="{!$Label.Update}" onclick="return confirm ('{!$Label.Please_check_and_modify_if_necessary_Salesresponsibleperson_for_newcontacttarget}');" action="{!updateit}" />
         <apex:commandButton value="{!$Label.Cancel}" action="{!cancel}"/>
         </apex:pageBlockButtons>
    </apex:pageBlock>

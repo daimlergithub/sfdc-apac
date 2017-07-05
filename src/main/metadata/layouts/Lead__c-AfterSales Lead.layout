@@ -2,7 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Convert_Lead</customButtons>
-    <customButtons>New_Task</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
     <layoutSections>
@@ -115,10 +114,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Next_Contact_Customer_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Lead_Possibility_text__c</field>
             </layoutItems>
             <layoutItems>
@@ -138,17 +133,17 @@
                 <behavior>Edit</behavior>
                 <field>Assigned_Dealer__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Lost_Reason__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Recommended_Dealer__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Lost_Reason__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Lead_Status__c</field>
             </layoutItems>
@@ -212,13 +207,13 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Desired_Service__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBK_Lead_Desired_Service__c</field>
+                <field>Service_Advisor__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Service_Advisor__c</field>
+                <field>MBK_Lead_Desired_Service__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -435,6 +430,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Quotation_Amount__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Next_Contact_Customer_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Quotation_Number_History__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

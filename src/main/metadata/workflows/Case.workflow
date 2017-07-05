@@ -306,6 +306,16 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Change_Case_Owner_to_CCC_Team</fullName>
+        <field>OwnerId</field>
+        <lookupValue>MBF_Customer_Care_CCC_Team</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Change Case Owner to CCC Team</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Change_Status_to_Final_Approval_Rejecte</fullName>
         <field>Status</field>
         <literalValue>Final approval rejected</literalValue>
@@ -1098,7 +1108,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline %3A Dealer Notification KR after 72 Hour</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
         <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;B&apos;),ISPICKVAL( Priority , &apos;Yellow = 3&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1228,7 +1238,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR after 24 Hours</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
         <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;A&apos;),ISPICKVAL( Priority , &apos;Red &gt;= 4&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1244,7 +1254,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR after 72 Hour</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
         <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;B&apos;),ISPICKVAL( Priority , &apos;Yellow = 3&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1260,7 +1270,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR before 168 hours</fullName>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
@@ -1300,7 +1310,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR before 17 hours</fullName>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
@@ -1340,7 +1350,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline%3A Dealer Notification KR After 240 hours</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
         <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;C&apos;),ISPICKVAL( Priority , &apos;Green &lt;= 2&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1382,7 +1392,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1414,7 +1424,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1446,7 +1456,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1478,7 +1488,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1510,7 +1520,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1542,7 +1552,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1574,7 +1584,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1606,7 +1616,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1638,7 +1648,7 @@
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND (2 OR 3) AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
@@ -1679,7 +1689,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND( 2 or 3) AND 4 AND 5 AND 6</booleanFilter>
+        <booleanFilter>1 AND( 2 or 3 or 7) AND 4 AND 5 AND 6</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
@@ -1710,7 +1720,7 @@
             <operation>equals</operation>
             <value>True</value>
         </criteriaItems>
-		 <criteriaItems>
+        <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
             <value>Thailand System Admin</value>
@@ -1724,7 +1734,7 @@
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>(1 OR 2) AND 3 AND 4 AND (5 OR 6 OR 7)</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
@@ -1840,7 +1850,7 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
-		 <criteriaItems>
+        <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
             <value>Thailand System Admin</value>
@@ -2084,6 +2094,35 @@
             <timeLength>1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Share to Regional Office</fullName>
+        <actions>
+            <name>Change_Case_Owner_to_CCC_Team</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Share_to_Regional_Office__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MBF Contract Closing Case,MBF Finance Inquiry Case,MBF Finance Quotation Case,MBF Customer Request Case</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Time Dependent</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Share_to_Regional_Office__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Update Case status to %22Waiting for Response approval%22</fullName>

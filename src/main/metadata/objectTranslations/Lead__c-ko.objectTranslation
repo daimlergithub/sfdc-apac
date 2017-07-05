@@ -5344,11 +5344,11 @@
         <name>Lead_Additional_Service__c</name>
         <picklistValues>
             <masterLabel>1 Year Inspection</masterLabel>
-            <translation><!-- 1 Year Inspection --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>6 month Inspection</masterLabel>
-            <translation><!-- 6 month Inspection --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Buy</masterLabel>
@@ -5364,7 +5364,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>General Repair</masterLabel>
-            <translation><!-- General Repair --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Inspection</masterLabel>
@@ -5376,15 +5376,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MOT</masterLabel>
-            <translation><!-- MOT --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Paint</masterLabel>
-            <translation><!-- Paint --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Participate</masterLabel>
@@ -5392,11 +5392,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Plus Check</masterLabel>
-            <translation><!-- Plus Check --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall</masterLabel>
-            <translation><!-- Recall --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Repair</masterLabel>
@@ -6480,11 +6480,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Order Confirmed</masterLabel>
-            <translation><!-- Order Confirmed --></translation>
+            <translation>주문 확정</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Order Placed</masterLabel>
-            <translation><!-- Order Placed --></translation>
+            <translation>주문서 발행</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product Proposal</masterLabel>
@@ -6492,7 +6492,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Quotation</masterLabel>
-            <translation><!-- Quotation --></translation>
+            <translation>견적서 발행</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Registration</masterLabel>
@@ -6684,7 +6684,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Lease</masterLabel>
-            <translation>커티시 차량</translation>
+            <translation>다임러 임직원 차량</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Demo Car</masterLabel>
@@ -6732,35 +6732,35 @@
         <name>Lead_Type__c</name>
         <picklistValues>
             <masterLabel>Activities</masterLabel>
-            <translation>기타</translation>
+            <translation>AS - 기타</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Need Follow Up</masterLabel>
-            <translation>후속 조치 불필요</translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New Car</masterLabel>
-            <translation>신차</translation>
+            <translation>세일즈 - 신차</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No Need Follow Up</masterLabel>
-            <translation>후속 조치 불필요</translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product</masterLabel>
-            <translation>제품</translation>
+            <translation>AS - 제품</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service</masterLabel>
-            <translation>서비스</translation>
+            <translation>AS - 서비스</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TA&amp;C</masterLabel>
-            <translation>테크니컬 악세서리&amp;컬렉션</translation>
+            <translation>AS - 테크니컬 악세서리&amp컬렉션</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Used Car</masterLabel>
-            <translation>중고차</translation>
+            <translation>세일즈 - 중고차</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -8489,7 +8489,7 @@
         <name>Quotation_Amount__c</name>
     </fields>
     <fields>
-        <label>Quotation 날짜</label>
+        <label>견적 날짜</label>
         <name>Quotation_Date__c</name>
     </fields>
     <fields>

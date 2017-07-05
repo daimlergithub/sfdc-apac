@@ -569,6 +569,24 @@ Lost_CAC_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>TH_UpdataLostDealerDatetime</fullName>
+        <field>Lost_Dealer_Date_Time__c</field>
+        <formula>IF ( MD__c = 'TH',if(!isblank( Lost_Dealer_Date_Time__c ), Lost_Dealer_Date_Time__c,now()),Lost_Dealer_Date_Time__c)</formula>
+        <name>TH_UpdataLostDealerDatetime</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>TH_UpdateTestDriveDateTime</fullName>
+        <field>Test_Drive_Date_Time__c</field>
+        <formula>IF ( MD__c = 'TH',if(!isblank( 	Test_Drive_Date_Time__c), Test_Drive_Date_Time__c,now()),	Test_Drive_Date_Time__c)</formula>
+        <name>TH_UpdateTestDriveDateTime</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>TH_Update_ContactFailed_Date_Time_to_now</fullName>
         <description>Update Contact Failed Date Time to Now</description>
         <field>Contact_Failed_For_3_Days_Date__c</field>
@@ -894,11 +912,7 @@ First_Contact_Customer_Date__c
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Lost_Dealer</fullName>
         <field>Lost_Dealer_Date__c</field>
-        <formula>IF ( 
-ISBLANK(Lost_Dealer_Date__c), 
-TODAY(), 
-Lost_Dealer_Date__c 
-)</formula>
+        <formula>IF ( MD__c = 'KR',if(!isblank( Lost_Dealer_Date__c ), Lost_Dealer_Date__c,TODAY()),Lost_Dealer_Date__c)</formula>
         <name>Update Proxy Date Time to Lost(Dealer)</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -933,11 +947,7 @@ Proxy_Date_Time__c
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Test_Drive</fullName>
         <field>Test_Drive_Date__c</field>
-        <formula>IF ( 
-ISBLANK(Test_Drive_Date__c), 
-TODAY(), 
-Test_Drive_Date__c 
-)</formula>
+        <formula>IF ( MD__c = 'KR',if(!isblank( Test_Drive_Date__c ), Test_Drive_Date__c,TODAY()),Test_Drive_Date__c)</formula>
         <name>Update Proxy Date Time to Test Drive</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -960,9 +970,9 @@ Proxy_Date_Time__c
         <fullName>Update_Purchased_CAC_Date_Time_to_Now</fullName>
         <field>Purchased_CAC_Date_Time__c</field>
         <formula>IF ( 
-ISBLANK(Purchased_Date_Time__c), 
-NOW(), 
-Purchased_Date_Time__c
+ISBLANK(Purchased_Date_Time__c ), 
+now(), 
+Purchased_Date_Time__c  
 )</formula>
         <name>Update Purchased(CAC) Date Time to Now</name>
         <notifyAssignee>false</notifyAssignee>
@@ -1093,7 +1103,7 @@ Purchased_Date_Time__c
             <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>IF(((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Service Completed') &amp;&amp; RecordType.Name == 'Aftersales Leads') ||  (ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Service Completed') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Aftersales Leads')) &amp;&amp; Text($User.Market__c) == 'KR',  true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1156,13 +1166,13 @@ Purchased_Date_Time__c
             <name>Email_notification_when_interested_vehicle_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'Salesforce', MD__c = 'KR',  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'), OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 10 days</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND ( ISBLANK(Proxy_Date_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  MD__c = 'KR'  )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1177,7 +1187,7 @@ Purchased_Date_Time__c
     </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 5 days</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND ( ISBLANK(Proxy_Date_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  MD__c = 'KR' )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1933,7 +1943,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
     </rules>
     <rules>
         <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
         <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1949,7 +1959,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
     </rules>
     <rules>
         <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>No modification is made in 15 days (All Modifications)</description>
         <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -2339,6 +2349,10 @@ Modify Reason:
     <rules>
         <fullName>Update Lost%28Dealer%29 Date Time</fullName>
         <actions>
+            <name>TH_UpdataLostDealerDatetime</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
             <name>Update_Proxy_Date_Time_to_Lost_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
@@ -2383,7 +2397,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"),MD__c="KR"),AND(MD__c="TH",ISPICKVAL(Dealer_Lead_Status__c,"Purchased"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"),MD__c="KR"),AND(MD__c="TH",ISPICKVAL(CAC_Lead_Status__c,"Purchased"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2452,6 +2466,10 @@ Function: update assigned date, recieved data and accepted date to now, and stat
     </rules>
     <rules>
         <fullName>Update Test Drive Date Time</fullName>
+        <actions>
+            <name>TH_UpdateTestDriveDateTime</name>
+            <type>FieldUpdate</type>
+        </actions>
         <actions>
             <name>Update_Proxy_Date_Time_to_Test_Drive</name>
             <type>FieldUpdate</type>

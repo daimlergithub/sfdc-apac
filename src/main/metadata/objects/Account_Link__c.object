@@ -849,6 +849,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>New Zealand</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -5720,7 +5728,7 @@ alert("{!$Label.DeleteretailcopyErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var r = confirm("Are you sure want to send information to Auto Line interface?");
+var r = confirm("{!$Label.Are_you_sure_want_to_send_information_to_Auto_Line_interface}");
 
 if(r == true)
 { 
@@ -5728,7 +5736,8 @@ var resultMsg=
 sforce.apex.execute("UtilWebservice","AccountLinkIfnoSendToAL",{RTCustomerId:"{!Account_Link__c.Id__c}",DealerID:"{!Account_Link__c.fromRoleId__c}",CorrelationId:"{!Account_Link__c.CorrelationID__c}"});
 if(resultMsg!=null)
 {
-alert("Successfully Sent Information to AutoLine");
+var alrt = '{!JSENCODE($Label.Successfully_Sent_Information_to_AutoLine)}'; 
+alert(alrt); 
 function updateAccountLink(){
 //Create a New Account and Set the Fields
 var accountlinkToUpdate = new sforce.SObject("Account_Link__c");
@@ -5756,7 +5765,8 @@ updateAccountLink();
 }
 else
 {
-alert("Web service callout failed");
+var alrt = '{!JSENCODE($Label.Web_service_callout_failed)}'; 
+alert(alrt); 
 }
 }</url>
     </webLinks>

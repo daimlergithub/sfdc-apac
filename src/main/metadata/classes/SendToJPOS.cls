@@ -35,6 +35,7 @@ public class SendToJPOS{
     public  Boolean ShowHideError{set;get;}
     public String AssignedDealerUserID;
     public String MyMercedesID{set;get;}
+    public String locallang{get;set;}
     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     public static Id alkIndividualRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
@@ -43,7 +44,13 @@ public class SendToJPOS{
     
     //Constructor
     public SendToJPOS(ApexPages.StandardController controller) { 
-    CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = : UserInfo.getUserId()];
+    CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id,LanguageLocaleKey FROM User WHERE Id = : UserInfo.getUserId()];
+     if(CurrentUsr.LanguageLocaleKey  == 'en_US'){
+         locallang = label.Select;    
+     }
+     else{
+         locallang = '';
+     }
      addr=new Address__c();
      ShowHideError=false;
      address=new List<Address__c>();
@@ -58,7 +65,7 @@ public class SendToJPOS{
        AddRecords=[select id,Address_Type__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,ZipCode__c from Address__c where Customer__c=:AccId ];
           if(AddRecords!=null && AddRecords.Size()>0)
                 {
-       address=[select id,Customer__c,Address_Code__c ,ZipCode__c,Province__c,Province_Native__c,Block__c,Block_Native__c,City__c,City_Native__c,District__c,District_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c from address__c where Customer__c=:AccId];     
+       address=[select id,Customer__c,Address_Type__c,Address_Code__c,ZipCode__c,Province__c,Province_Native__c,Block__c,Block_Native__c,City__c,City_Native__c,District__c,District_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c from address__c where Customer__c=:AccId];     
        }
        
        
@@ -206,13 +213,13 @@ public class SendToJPOS{
           if(addId==null)
             {
             ShowHideError=True;
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select atleast one Address'));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_select_atleast_one_Address));
             }
             //For MBJ User if user not selected  Dealer Outlet display error message
             if(DealerID.Main_Dealer__c ==null && CurrentUsr.contactid==null)
             {
             ShowHideError=True;             
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Dealer Outlet'));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_select_Dealer_Outlet));
             }
             
             //Query to get selected address record Id
@@ -299,27 +306,27 @@ public class SendToJPOS{
            ShowHideError=True;
                    if(Acclist.Gender__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Gender'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_Select_gender));
                    }
                    if(Acclist.FirstName==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'First Name Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.First_Name_should_not_be_null));
                    }
                    if(Acclist.LastName==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Last Name Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Last_Name_should_not_be_null));
                    }
                    if(Acclist.FirstName_Native_1__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'First Name Native Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.First_Name_Native_should_not_be_null));
                    }
                    if(Acclist.LastName_Native_1__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Last  Name Native Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Last_Name_Native_should_not_be_null));
                    }
                    if(Acclist.PersonBirthdate==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'PersonBirthdate Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.PersonBirthDate_should_not_be_null));
                    }    
            }
            
@@ -330,7 +337,7 @@ public class SendToJPOS{
            ShowHideError=True;
                if(Acclist.Company_Name__c==null)
                {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Company Name'));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Name));
                }
               /*  if(Acclist.Company_Name_Native_1__c==null)
                {
@@ -338,19 +345,20 @@ public class SendToJPOS{
                }*/
                if(Acclist.Company_Name_Native_2__c==null)
                {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Company Name Native2'));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Name_Native2));
                }
                if(Acclist.Company_Legal_Form__c==null)
                {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Company Legal Form'));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Legal_Form));
                }
-               if(Acclist.Company_Legal_Form_text__c==null)
+               // Changes related to SFDCJP-2623
+               if(Acclist.Company_Legal_Form_text__c==null && Acclist.Company_Legal_Form__c =='Others')
                {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Company Legal Form Text'));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Legal_Form_Text));
                }
                 if(Acclist.Legal_Form_Position__c==null)
                {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Legal Form Position'));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_enter_value_for_Company_Legal_Form_Positon));
                }
            
            }
@@ -361,31 +369,31 @@ public class SendToJPOS{
             ShowHideError=True;
                  if(AddreesSedntoJPOS.Province_Native__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Province Native Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Province_Native_should_not_be_null));
                    }
                    if(AddreesSedntoJPOS.City_Native__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'City Native Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.City_native_should_not_be_null));
                    }
                    if(AddreesSedntoJPOS.District_Native__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'District Native Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Districe_Native_should_not_be_null));
                    }
                    if(AddreesSedntoJPOS.Province__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Province Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Province_should_not_be_null));
                    }
                    if(AddreesSedntoJPOS.City__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'City Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.City_should_not_be_null));
                    }
                    if(AddreesSedntoJPOS.District__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'District Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.District_should_not_be_null));
                    }    
                    if(AddreesSedntoJPOS.ZipCode__c==null)
                    {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Zip Code Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Zipcode_should_not_be_null));
                    }    
             }
             
@@ -395,12 +403,12 @@ public class SendToJPOS{
                  if(AssignedDealerUserID==null)
                    {
                    ShowHideError=True;
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Retail Sales Consultant in Account Link'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_select_Retail_Sales_Consultant_in_Account_Link));
                    }
                   if(AssignedDealer.DMS_UserID__c==null)
                    {
                    ShowHideError=True;
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Assigned Dealer Should not be null'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Assigned_Dealer_should_not_be_null));
                    } 
             }
             
@@ -446,7 +454,7 @@ public class SendToJPOS{
           
                     
           // If customer is company send account information to EP
-          if(Acclist.Recordtypeid==accCompany_RecordTypeId && Acclist.Company_Name__c!=null && Acclist.Company_Name_Native_2__c!=null && Acclist.Company_Legal_Form__c!=null && Acclist.Company_Legal_Form_text__c!=null && Acclist.Legal_Form_Position__c!=null && (AddreesSedntoJPOS!=Null) && AddreesSedntoJPOS.Province_Native__c!=null && AddreesSedntoJPOS.City_Native__c!=null && AddreesSedntoJPOS.District_Native__c!=null && AddreesSedntoJPOS.Province__c!=null && AddreesSedntoJPOS.City__c!=null && AddreesSedntoJPOS.District__c!=null && AddreesSedntoJPOS.ZipCode__c!=null && AssignedDealerUserID!=null && AssignedDealer.DMS_UserID__c!=null)
+          if(Acclist.Recordtypeid==accCompany_RecordTypeId && Acclist.Company_Name__c!=null && Acclist.Company_Name_Native_2__c!=null && Acclist.Company_Legal_Form__c!=null && Acclist.Legal_Form_Position__c!=null && (AddreesSedntoJPOS!=Null) && AddreesSedntoJPOS.Province_Native__c!=null && AddreesSedntoJPOS.City_Native__c!=null && AddreesSedntoJPOS.District_Native__c!=null && AddreesSedntoJPOS.Province__c!=null && AddreesSedntoJPOS.City__c!=null && AddreesSedntoJPOS.District__c!=null && AddreesSedntoJPOS.ZipCode__c!=null && AssignedDealerUserID!=null && AssignedDealer.DMS_UserID__c!=null)
          {
                  try
                  {

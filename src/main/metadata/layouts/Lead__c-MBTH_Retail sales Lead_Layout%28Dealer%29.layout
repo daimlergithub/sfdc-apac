@@ -17,6 +17,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Current_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Lost_Dealer_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -84,6 +88,10 @@
                 <field>Created_By_EP_Transaction__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CAC_Lead_Status__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lead_Possibility__c</field>
             </layoutItems>
@@ -92,7 +100,7 @@
                 <field>Lead_Latest_Phase__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>CAC_Lost_Reason__c</field>
             </layoutItems>
             <layoutItems>
@@ -263,7 +271,7 @@
                 <field>Dealer_Comments__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Dealer_Lost_Reason__c</field>
             </layoutItems>
             <layoutItems>
@@ -470,10 +478,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Invoice_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Purchased_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -740,9 +744,9 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h28000006X7X1</masterLabel>
-        <sizeX>4</sizeX>
-        <sizeY>0</sizeY>
-        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    <masterLabel>00h0k000000Ecf4</masterLabel>
+    <sizeX>4</sizeX>
+    <sizeY>0</sizeY>
+    <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>

@@ -181,21 +181,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__Insights</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -306,11 +291,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountTable</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountTableTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AddToCampaign</apexClass>
@@ -436,21 +421,25 @@
         <apexClass>BatchUpdateRecordsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+  <classAccesses>
+        <apexClass>Batch_AutoResponseJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>Batch_AutoSegmentation</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_AutoSegmentationTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_BounceStatus</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_BounceStatusTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_CreateCampaignNotification</apexClass>
@@ -470,7 +459,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_DistributionCampaignMembers</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BusinessHrHolidaysRetriever</apexClass>
@@ -502,7 +491,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignHelperTH</apexClass>
@@ -514,7 +503,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignHelperTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberAfterTriggerHandler</apexClass>
@@ -526,11 +515,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberDisribution</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberDisributionTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMembersCustomHelperJP</apexClass>
@@ -562,7 +551,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignSchedulerAndNotificationJP_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CaseEscalationController</apexClass>
@@ -682,11 +671,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConsolidationContorller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConsolidationContorllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ContactHelper</apexClass>
@@ -714,7 +703,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToDMRequestTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToLeadController</apexClass>
@@ -722,7 +711,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToLeadControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToTaskController</apexClass>
@@ -730,7 +719,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ConvertToTaskControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CustomLogUtil</apexClass>
@@ -1170,7 +1159,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignMemberHelper</apexClass>
@@ -1274,19 +1263,19 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleRetailCampCompletion</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleRetailCampCompletionTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SegmentationCriteriaController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SegmentationCriteriaControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SelectAddressController</apexClass>
@@ -1466,7 +1455,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassAssignChangeOwnerJPTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
@@ -2066,7 +2055,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleExtension</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleExtensionTest</apexClass>
@@ -2356,7 +2345,11 @@
         <apexClass>updateCaseDeadLine</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
+        <apexClass>VehicleEditExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+  <classAccesses>
         <apexClass>usernotificationsetting</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -13271,6 +13264,11 @@
         <field>Event.Account_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Related_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Activity_CommChannel__c</field>
@@ -13297,9 +13295,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Event.Activity_Resolution__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -13339,11 +13337,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Campaign_eDM_Template_Subject__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Car_Series__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13404,11 +13397,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Executed_CSR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Flow_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13548,21 +13536,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.QC_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.QC_Link__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.QC_Quantity__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Reason__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13578,27 +13551,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.SMSTemplateID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.SMS_Content__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.SMS_Response_Required__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.SSI_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.SSI_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13625,16 +13578,6 @@
         <editable>true</editable>
         <field>Event.Status__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Survey_Result_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Survey_Result_Link__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14303,7 +14246,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Cross_Point_Model__c</field>
+         <field>Lead__c.Cross_Point_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14372,7 +14315,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.DMS_Sent_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22301,6 +22244,11 @@
         <field>Task.Account_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Related_Vehicle__c </field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.ActivityDate</field>
@@ -22332,9 +22280,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Task.Activity_Resolution__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -22374,11 +22322,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Campaign_eDM_Template_Subject__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Car_Series__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22439,11 +22382,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Executed_CSR__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Flow_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22573,21 +22511,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.QC_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.QC_Link__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.QC_Quantity__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Reason__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -22603,27 +22526,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.SMSTemplateID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.SMS_Content__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.SMS_Response_Required__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.SSI_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.SSI_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22650,16 +22553,6 @@
         <editable>true</editable>
         <field>Task.Status__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Survey_Result_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Survey_Result_Link__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -23942,7 +23835,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Vehicle_Relationship__c.UsedWarranty_Apply_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -24027,7 +23920,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Vehicle_Relationship__c.Warranty_Apply_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -24344,7 +24237,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.Model__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -24796,6 +24689,10 @@
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.Chrysler_Complaint</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Case-Event Data Load</layout>
+        <recordType>Case.EventDataLoad</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
@@ -25856,9 +25753,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Vehicle__c</object>
@@ -25866,6 +25763,10 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>Edit_Vehicle</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -25886,7 +25787,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddParticipatingDealer</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddToCampaign</apexPage>
@@ -26002,11 +25903,11 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ConsolidationDisplayList</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Consolidation_List</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
@@ -26026,7 +25927,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>CustomerMymercInterface</apexPage>
@@ -26270,11 +26171,11 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Segmentation</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SegmentationCriteria</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SelectAddress</apexPage>
@@ -26603,10 +26504,10 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Executiono</recordType>
-        <visible>false</visible>
+           <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -26616,9 +26517,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -26639,6 +26540,11 @@
         <default>false</default>
         <recordType>Case.Chrysler_Complaint</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.EventDataLoad</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
@@ -27123,10 +27029,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Campaign_Lead__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Campaign_Member__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

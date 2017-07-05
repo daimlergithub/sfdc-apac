@@ -14,7 +14,8 @@ global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Data
     global Database.QueryLocator start(Database.BatchableContext bc) {
         
         Date today = Date.Today();
-        String query = 'Select Id,Name, OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: today AND IsAutoSegmentationExecuted__c = false';
+        //String query = 'Select Id,Name, OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: today AND IsAutoSegmentationExecuted__c = false';
+        String query = 'Select Id,Name, OwnerId, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: today AND IsAutoSegmentationExecuted__c = false';
          system.debug('+++++++ Query'+query);
         return Database.getQueryLocator(query);
          
@@ -29,7 +30,7 @@ global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Data
         List<Campaign_Member__c> campMemList = new List<Campaign_Member__c>();
 
         for(Retail_Campaign__c camp : scope){
-             sid=camp.Segmentation_Criteria__r.Criteria__c;
+             //sid=camp.Segmentation_Criteria__r.Criteria__c;
         } 
         system.debug('+++++++++sid'+sid);    
         accQuery = sid;

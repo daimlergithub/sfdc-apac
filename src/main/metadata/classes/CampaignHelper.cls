@@ -403,6 +403,8 @@ system.debug('++++++'+camUpdateList);
    String rect ; 
    Integer Day;       
    String mont; 
+   Integer NewDay;
+   Set<Date> sid = New Set<Date>();
       
    Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();       
         
@@ -412,7 +414,7 @@ system.debug('++++++'+camUpdateList);
    if(isInsert && camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true || (isUpdate && camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true && (camp.SegWorkingDay__c != camOldMap.get(camp.id).SegWorkingDay__c || camp.SegWorkingMonth__c != camOldMap.get(camp.id).SegWorkingMonth__c ))){           
              rect = camp.SegWorkingDay__c ;  
              day =  Integer.valueOf(camp.SegWorkingDay__c);      
-                    
+             //NewDay = 1;       
              if(camp.SegWorkingMonth__c == 'Jan'){      
                         
                  mont = '1';        
@@ -455,15 +457,44 @@ system.debug('++++++'+camUpdateList);
              String year = SampDate ; 
              Integer yearint = Integer.valueOf(SampDate);      
               Integer month = Integer.valueOf(mont);      
-                    
-            string stringDate = year + '-' + mont + '-' + rect; 
-            
-            
-            // DateTime mainDate = Date.valueOf(stringDate ); 
-             // Date dte = date.newInstance(2016,9,7 );
-             Date dte = date.newInstance(yearint,month ,day  );
+              Integer N = Integer.valueOf(rect );      
+            /*  for ( NewDay = 1; NewDay  < day ; NewDay ++) {
+           
+           
+            string stringDate = year + '-' + mont + '-' + NewDay ;                
              
-             Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
+             //Map<Date,List<Holiday>> holidayCheck = new Map<Date,List<Holiday>>([Select id,Name,ActivityDate From Holiday]);
+ 
+             
+             Camp.Segmentation_Date__c = dte ;
+             }   */
+             
+             
+             for(Holiday hol :[Select id,Name,ActivityDate From Holiday ]){
+             
+                //String DateFormat = String.ValueOf(hol.ActivityDate );
+                 
+                 sid.add(hol.ActivityDate);
+             
+             
+             }
+             
+             Integer NewDays = 1;
+             String stringDate = year + '-' + mont + '-' + NewDays ;
+             Date dte = Date.valueOf(stringDate );   
+           
+             
+             for(Integer k=1;k<N ;k++ ){
+             
+             Holidaychecker(dte,sid);
+               dte = Holidaychecker(dte,sid);
+
+               system.debug('+++++ return date +++++++'+dte); 
+                dte = dte.addDays(1);                     
+                        
+                      
+                    }
+              Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
 
              String dayOfWeek=dt.format('EEEE');
              System.debug('+++++++++++++++++++++++++++' + dayOfWeek);  
@@ -478,44 +509,33 @@ system.debug('++++++'+camUpdateList);
              }else {
                  dte = dte;
              
-             }
-             
-             system.debug('++++++++++++++'+dte );
-             
-             //List<Holiday> hol = [Select id,Name,ActivityDate From Holiday ];   
-             
-            // Map<Date,List<Holiday>> holidayCheck = new Map<Date,List<Holiday>>([Select id,Name,ActivityDate From Holiday]);
-             
-             //holidayCheck.get(dte);
-             List<Holiday> holidayCheck  = [Select id,Name,ActivityDate From Holiday Where ActivityDate =: dte ]; 
-             
-             
-             if(holidayCheck.size()>0){
-             
-               dte = dte+1;
-              system.debug('++++++++++++++'+dte );
-               Holidaychecker(dte);
-               system.debug('++++++++++++++'+dte );
-               dte=Holidaychecker(dte);
-               system.debug('++++++++++++++'+dte );
-              Camp.Segmentation_Date__c = dte ; 
+             } 
+          
+
+           if(sid.contains(dte)){
+           
+          dte = dte+1;
+              
+               Holidaychecker(dte,sid);
+               
+               dte=Holidaychecker(dte,sid);
+               
+              camp.Segmentation_Date__c = dte ; 
               }else{
-             
-             
-             
                 
-          //Camp.Segmentation_Date__c = Date.valueOf(stringDate );       
              Camp.Segmentation_Date__c = dte ;
-             }
              
-             Camp.Segmentation_Date__c = dte ;
-             }      
+             system.debug('++++++++++++day+++++++'+dte);
+             
+             
                 
 }       
         
 } 
+}
+}
 
-Private static Date Holidaychecker( Date dte){
+Private static Date Holidaychecker( Date dte, set<Date> sid){
 
 Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
 
@@ -534,29 +554,22 @@ Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
              
              }
              
-             system.debug('++++++++++++++'+dte );
-             
-             
-             List<Holiday> holidayCheck  = [Select id,Name,ActivityDate From Holiday Where ActivityDate =: dte ]; 
+             system.debug('+++++++dayof week result+++++++'+dte );
 
-           if(holidayCheck.size()>0){
+           if(sid.contains(dte)){
            
            dte = dte+1;
-           system.debug('++++++++++++++'+dte ); 
-           Holidaychecker(dte);
-           dte = Holidaychecker(dte);
-           system.debug('++++++++++++++'+dte );  
            } else {
            
-              dte = dte;
-           
+            dte = dte;
            }
-           system.debug('++++++++++++++'+dte ); 
            
+           system.debug('+++ returnstatement+++++++'+dte);
            return dte;
           
            
 }
+
 
 /**
   *@Description : Actions which are performed as a part of before Delete. This gets called from Campaign TriggerHandler
@@ -978,19 +991,19 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
                      For(Campaign campan : campListMain ){
                      
                      system.debug('+++++++++++++++'+ca.StartDate );
-                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate ){
+                     if(isInsert &&(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate )|| isUpdate && campan.Segmentation_Date__c  !=camOldMap.get(campan.id).Segmentation_Date__c  && (campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate)  ){
                      
                          campan.addError(System.Label.Campaign_Date_3);
                          
                      
                      }
                      
-                     if(campan.Execution_Start_Date__c < System.Today() || campan.Execution_Start_Date__c > ca.EndDate || campan.Execution_Start_Date__c <= campan.Segmentation_Date__c  ){
+                     if(isInsert && (campan.Execution_Start_Date__c < System.Today() || campan.Execution_Start_Date__c > ca.EndDate || campan.Execution_Start_Date__c <= campan.Segmentation_Date__c  )||isUpdate && campan.Execution_Start_Date__c !=camOldMap.get(campan.id).Execution_Start_Date__c && (campan.Execution_Start_Date__c < System.Today() || campan.Execution_Start_Date__c > ca.EndDate || campan.Execution_Start_Date__c <= campan.Segmentation_Date__c  )){
                      
                      
                             campan.addError(System.Label.Campaign_Date_4);
                      }
-                  if(campan.Response_Date__c < System.Today() || campan.Response_Date__c  > ca.EndDate || campan.Response_Date__c <= campan.Execution_Start_Date__c  ){
+                  if(isInsert &&(campan.Response_Date__c < System.Today() || campan.Response_Date__c  > ca.EndDate || campan.Response_Date__c <= campan.Execution_Start_Date__c ) || isUpdate && campan.Response_Date__c  !=camOldMap.get(campan.id).Response_Date__c && (campan.Response_Date__c < System.Today() || campan.Response_Date__c  > ca.EndDate || campan.Response_Date__c <= campan.Execution_Start_Date__c)) {
                      
                      
                             campan.addError(System.Label.Campaign_Date_5);

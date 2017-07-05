@@ -23,6 +23,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>OwnerId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>SuppliedEmail</field>
             </layoutItems>
         </layoutColumns>
@@ -38,6 +42,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Origin</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AccountId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -114,7 +122,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000HbC6</masterLabel>
+        <masterLabel>00h28000006jLOu</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

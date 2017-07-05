@@ -546,39 +546,39 @@ public class AccountLinkHelper
     
     private static void ShareehicleALK(Set<Id> set_ToAccountId,Set<Id> VehiclealkId)
     {
-    List<Account_Link__C> Vehiclelist_AccountLink = new List<Account_Link__C>();
-    List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-    List<User> portaluser=new List<User>();
-    if(VehiclealkId !=null && set_ToAccountId!=null)
-    {
-     Vehiclelist_AccountLink =[SELECT Id,Retail_Delete_Flag__c,recordtypeID,Vehicle__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId and Vehicle__c=:VehiclealkId] ;
-     }
-     if(set_ToAccountId!=null)
-     {
-         portaluser=[SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true];
-           }
-      
-      if(portaluser!=null)
-       {
-        for(User usr :portaluser){
-            
-            if(Vehiclelist_AccountLink!=null)
-            {
-                 for(Account_Link__c alk:Vehiclelist_AccountLink)
-                 {
-                 if(alk.recordtypeID ==AccountLink_VehicleExternalRecordTypeId && alk.Retail_Delete_Flag__c == false)
-                 {
-                    Account_Link__Share accountLinkShare = new Account_Link__Share();
-                    accountLinkShare.AccessLevel = 'Edit';
-                    accountLinkShare.UserOrGroupId = usr.Id;
-                    accountLinkShare.ParentId = alk.id;
-                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    list_SharingRecord.add(accountLinkShare);
-                 }
-                
-             }
-             }
+        List<Account_Link__C> Vehiclelist_AccountLink = new List<Account_Link__C>();
+        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        List<User> portaluser=new List<User>();
+        if(VehiclealkId !=null && set_ToAccountId!=null)
+        {
+            Vehiclelist_AccountLink =[SELECT Id,Retail_Delete_Flag__c,recordtypeID,Vehicle__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId and Vehicle__c=:VehiclealkId] ;
         }
+        if(set_ToAccountId!=null)
+        {
+            portaluser=[SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true];
+        }
+        
+        if(portaluser!=null)
+        {
+            for(User usr :portaluser){
+                
+                if(Vehiclelist_AccountLink!=null)
+                {
+                    for(Account_Link__c alk:Vehiclelist_AccountLink)
+                    {
+                        if(alk.recordtypeID ==AccountLink_VehicleExternalRecordTypeId && alk.Retail_Delete_Flag__c == false)
+                        {
+                            Account_Link__Share accountLinkShare = new Account_Link__Share();
+                            accountLinkShare.AccessLevel = 'Edit';
+                            accountLinkShare.UserOrGroupId = usr.Id;
+                            accountLinkShare.ParentId = alk.id;
+                            accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                            list_SharingRecord.add(accountLinkShare);
+                        }
+                        
+                    }
+                }
+            }
         }
         
         
@@ -838,36 +838,54 @@ public class AccountLinkHelper
             if(acclnk.toRole__c != null && acclnk.fromRole__c != null && acclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId
                || acclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
             {
-                if(acclnk.Retail_FirstName__c != oldacclnkMap.get(acclnk.Id).Retail_FirstName__c ||
-                  acclnk.Retail_LastName__c != oldacclnkMap.get(acclnk.Id).Retail_LastName__c ||
-                  acclnk.Retail_Full_Name__c != oldacclnkMap.get(acclnk.Id).Retail_Full_Name__c ||
-                  acclnk.Retail_Full_Name_Title__c != oldacclnkMap.get(acclnk.Id).Retail_Full_Name_Title__c ||
-                  acclnk.Retail_LastName_Native__c != oldacclnkMap.get(acclnk.Id).Retail_LastName_Native__c ||
-                  acclnk.Retail_FirstName_Native__c != oldacclnkMap.get(acclnk.Id).Retail_FirstName_Native__c ||
-                  acclnk.Retail_Full_Name_Native__c != oldacclnkMap.get(acclnk.Id).Retail_Full_Name_Native__c ||
-                  acclnk.Retail_Gender__c != oldacclnkMap.get(acclnk.Id).Retail_Gender__c ||
-                  acclnk.Retail_PersonBirthdate__c != oldacclnkMap.get(acclnk.Id).Retail_PersonBirthdate__c ||
-                  acclnk.Retail_Occupation__c != oldacclnkMap.get(acclnk.Id).Retail_Occupation__c ||
-                  acclnk.Retail_Preferred_Language__c != oldacclnkMap.get(acclnk.Id).Retail_Preferred_Language__c ||
-                  acclnk.Retail_Primary_Phone__c != oldacclnkMap.get(acclnk.Id).Retail_Primary_Phone__c ||
-                  acclnk.Retail_Special_Care__c != oldacclnkMap.get(acclnk.Id).Retail_Special_Care__c ||
-                  acclnk.Retail_Special_Needs_Class__c != oldacclnkMap.get(acclnk.Id).Retail_Special_Needs_Class__c ||
-                  acclnk.Retail_Allow_Data_Sharing__c != oldacclnkMap.get(acclnk.Id).Retail_Allow_Data_Sharing__c ||
-                  acclnk.Retail_Mobile__c != oldacclnkMap.get(acclnk.Id).Retail_Mobile__c ||
-                  acclnk.Retail_Email__c != oldacclnkMap.get(acclnk.Id).Retail_Email__c ||
-                  acclnk.Retail_Individual_Home_Phone__c != oldacclnkMap.get(acclnk.Id).Retail_Individual_Home_Phone__c ||
-                  acclnk.Retail_Sales_Sanction_Comment__c != oldacclnkMap.get(acclnk.Id).Retail_Sales_Sanction_Comment__c ||
-                  acclnk.Retail_Company_Name__c != oldacclnkMap.get(acclnk.Id).Retail_Company_Name__c ||
-                  acclnk.Retail_Company_Name_Native1__c != oldacclnkMap.get(acclnk.Id).Retail_Company_Name_Native1__c ||
-                  acclnk.Retail_Commercial_Reg_No__c != oldacclnkMap.get(acclnk.Id).Retail_Commercial_Reg_No__c ||
-                  acclnk.Retail_Vat_No__c != oldacclnkMap.get(acclnk.Id).Retail_Vat_No__c ||
-                  acclnk.Retail_Foundation_Month__c != oldacclnkMap.get(acclnk.Id).Retail_Foundation_Month__c ||
-                  acclnk.Retail_Company_Phone__c != oldacclnkMap.get(acclnk.Id).Retail_Company_Phone__c ||
-                  acclnk.Retail_Company_Other_Phone__c != oldacclnkMap.get(acclnk.Id).Retail_Company_Other_Phone__c ||
-                  acclnk.Retail_Industry__c != oldacclnkMap.get(acclnk.Id).Retail_Industry__c ||
-                  acclnk.Retail_Website__c != oldacclnkMap.get(acclnk.Id).Retail_Website__c ||
-                  acclnk.Retail_Fax__c != oldacclnkMap.get(acclnk.Id).Retail_Fax__c ||
-                  acclnk.Retail_UCID__c != oldacclnkMap.get(acclnk.Id).Retail_UCID__c)
+                if(acclnk.Name != oldacclnkMap.get(acclnk.Id).Name ||
+                   acclnk.Retail_FirstName__c != oldacclnkMap.get(acclnk.Id).Retail_FirstName__c ||
+                   acclnk.Retail_LastName__c != oldacclnkMap.get(acclnk.Id).Retail_LastName__c ||
+                   acclnk.Retail_Full_Name__c != oldacclnkMap.get(acclnk.Id).Retail_Full_Name__c ||
+                   acclnk.Retail_Full_Name_Title__c != oldacclnkMap.get(acclnk.Id).Retail_Full_Name_Title__c ||
+                   acclnk.Retail_LastName_Native__c != oldacclnkMap.get(acclnk.Id).Retail_LastName_Native__c ||
+                   acclnk.Retail_FirstName_Native__c != oldacclnkMap.get(acclnk.Id).Retail_FirstName_Native__c ||
+                   acclnk.Retail_Full_Name_Native__c != oldacclnkMap.get(acclnk.Id).Retail_Full_Name_Native__c ||
+                   acclnk.Retail_Gender__c != oldacclnkMap.get(acclnk.Id).Retail_Gender__c ||
+                   acclnk.Retail_PersonBirthdate__c != oldacclnkMap.get(acclnk.Id).Retail_PersonBirthdate__c ||
+                   acclnk.Retail_Occupation__c != oldacclnkMap.get(acclnk.Id).Retail_Occupation__c ||
+                   acclnk.Retail_Preferred_Language__c != oldacclnkMap.get(acclnk.Id).Retail_Preferred_Language__c ||
+                   acclnk.Retail_Primary_Phone__c != oldacclnkMap.get(acclnk.Id).Retail_Primary_Phone__c ||
+                   acclnk.Retail_Special_Care__c != oldacclnkMap.get(acclnk.Id).Retail_Special_Care__c ||
+                   acclnk.Retail_Special_Needs_Class__c != oldacclnkMap.get(acclnk.Id).Retail_Special_Needs_Class__c ||
+                   acclnk.Retail_Allow_Data_Sharing__c != oldacclnkMap.get(acclnk.Id).Retail_Allow_Data_Sharing__c ||
+                   acclnk.Retail_Mobile__c != oldacclnkMap.get(acclnk.Id).Retail_Mobile__c ||
+                   acclnk.Retail_Email__c != oldacclnkMap.get(acclnk.Id).Retail_Email__c ||
+                   acclnk.Retail_Individual_Home_Phone__c != oldacclnkMap.get(acclnk.Id).Retail_Individual_Home_Phone__c ||
+                   acclnk.Retail_Sales_Sanction_Comment__c != oldacclnkMap.get(acclnk.Id).Retail_Sales_Sanction_Comment__c ||
+                   acclnk.Retail_Company_Name__c != oldacclnkMap.get(acclnk.Id).Retail_Company_Name__c ||
+                   acclnk.Retail_Company_Name_Native1__c != oldacclnkMap.get(acclnk.Id).Retail_Company_Name_Native1__c ||
+                   acclnk.Retail_Commercial_Reg_No__c != oldacclnkMap.get(acclnk.Id).Retail_Commercial_Reg_No__c ||
+                   acclnk.Retail_Vat_No__c != oldacclnkMap.get(acclnk.Id).Retail_Vat_No__c ||
+                   acclnk.Retail_Foundation_Month__c != oldacclnkMap.get(acclnk.Id).Retail_Foundation_Month__c ||
+                   acclnk.Retail_Company_Phone__c != oldacclnkMap.get(acclnk.Id).Retail_Company_Phone__c ||
+                   acclnk.Retail_Company_Other_Phone__c != oldacclnkMap.get(acclnk.Id).Retail_Company_Other_Phone__c ||
+                   acclnk.Retail_Industry__c != oldacclnkMap.get(acclnk.Id).Retail_Industry__c ||
+                   acclnk.Retail_Website__c != oldacclnkMap.get(acclnk.Id).Retail_Website__c ||
+                   acclnk.Retail_Fax__c != oldacclnkMap.get(acclnk.Id).Retail_Fax__c ||
+                   acclnk.Retail_UCID__c != oldacclnkMap.get(acclnk.Id).Retail_UCID__c ||
+                   acclnk.Retail_Sales_Sanction__c != oldacclnkMap.get(acclnk.Id).Retail_Sales_Sanction__c ||
+                   acclnk.Retail_Duplicate_Flag__c != oldacclnkMap.get(acclnk.Id).Retail_Duplicate_Flag__c ||
+                   acclnk.Retail_Delete_Flag__c != oldacclnkMap.get(acclnk.Id).Retail_Delete_Flag__c ||
+                   acclnk.Retail_Email_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Email_OptOut__c ||
+                   acclnk.Retail_Fax_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Fax_OptOut__c ||
+                   acclnk.Retail_Phone_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Phone_OptOut__c ||
+                   acclnk.Retail_Position__c != oldacclnkMap.get(acclnk.Id).Retail_Position__c ||
+                   acclnk.Retail_Visit_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Visit_OptOut__c ||
+                   acclnk.Selling_Dealer__c != oldacclnkMap.get(acclnk.Id).Selling_Dealer__c ||
+                   acclnk.To_Be_Deleted__c != oldacclnkMap.get(acclnk.Id).To_Be_Deleted__c ||
+                   acclnk.Retail_DMS_Customer_ID__c != oldacclnkMap.get(acclnk.Id).Retail_DMS_Customer_ID__c ||
+                   acclnk.Retail_Sales_Consultant__c != oldacclnkMap.get(acclnk.Id).Retail_Sales_Consultant__c ||
+                   acclnk.Retail_Complaint_Amount__c != oldacclnkMap.get(acclnk.Id).Retail_Complaint_Amount__c ||
+                   acclnk.Retail_Comments__c != oldacclnkMap.get(acclnk.Id).Retail_Comments__c ||
+                   acclnk.Retail_OptOutContact_Reason__c != oldacclnkMap.get(acclnk.Id).Retail_OptOutContact_Reason__c ||
+                   acclnk.Retail_Related_Company__c != oldacclnkMap.get(acclnk.Id).Retail_Related_Company__c)
+
                 {
                     customerIds.add(acclnk.toRole__c);
                     dealerIds.add(acclnk.fromRole__c);
@@ -1388,8 +1406,8 @@ public class AccountLinkHelper
         }
     }
 	//Added venky changes related to SFDCJP-2617
-	
-    public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
+	public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
+
     {
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Set<Id> RetailPersonID=new Set<Id>();
@@ -1434,13 +1452,12 @@ public class AccountLinkHelper
         {
             lstPersonCompany=[ Select id,Retail_Delete_Flag__c ,fromRole__c,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where (toRole__c =:ToRoleID OR toRole__c=:FromRoleID) AND (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId=:AccountLink_RetailCompanyRecordTypeId)];
         }
-        
-        
         if(lstC2c!=null)
         {
-            for(Account_Link__c accountLink : lstC2c){
-                if(accountLink.Retail_Delete_Flag__c == false){
-                    
+            for(Account_Link__c accountLink : lstC2c)
+            {
+                if(accountLink.Retail_Delete_Flag__c == false)
+                { 
                     dealerAccNameSet.add(accountLink.fromRole__r.Name);
                     GcCode.add(accountLink.fromRole__r.Dealer_GC_Code__c);
                 }
@@ -1451,7 +1468,8 @@ public class AccountLinkHelper
         
         if(lstPersonCompany !=null)
         {
-            for(Account_Link__c acctLink : lstPersonCompany){
+            for(Account_Link__c acctLink : lstPersonCompany)
+            {
                 if(acctLink.Retail_Delete_Flag__c == false)
                 {
                     GcCode.add(acctLink.fromRole__r.Dealer_GC_Code__c);
@@ -1467,12 +1485,10 @@ public class AccountLinkHelper
             dealerAccList = [select Name from Account where Dealer_GC_Code__c=:GcCode and RecordtypeId=:DealerAccid];
             system.debug('dealerAccList>>>> ' + dealerAccList );
         }
-        
-        
-        
         if(dealerAccList !=null)
         {
-            for(Account dealerRec : dealerAccList) {
+            for(Account dealerRec : dealerAccList) 
+            {
                 dealerAccNameSet1.add(dealerRec.Name);
                 accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
             }
@@ -1481,7 +1497,8 @@ public class AccountLinkHelper
         system.debug('accNameToAccIdMap>>>> ' + accNameToAccIdMap);
         if(dealerAccNameSet1 !=null)
         {
-            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet1]){
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet1])
+            {
                 system.debug('INsertedededsd>>>>');
                 if(lstC2c!=null )
                 {
@@ -1512,9 +1529,9 @@ public class AccountLinkHelper
                 }
             }
         }
-        if(Sharealk.size() > 0){
+        if(Sharealk.size() > 0)
+        {
             Database.insert(Sharealk, false);
         }
-        
     }
 }

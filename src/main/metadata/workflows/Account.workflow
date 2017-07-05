@@ -40,7 +40,7 @@
     <fieldUpdates>
         <fullName>HomePhone_Update</fullName>
         <field>Individual_Home_Phone__c</field>
-        <formula>IF(NOT(ISBLANK(Individual_Home_Phone__c)), &apos;+66&apos; + Individual_Home_Phone__c, Individual_Home_Phone__c)</formula>
+        <formula>IF(ISNEW() &amp;&amp; NOT(ISBLANK(Individual_Home_Phone__c)), &apos;+66&apos; + Individual_Home_Phone__c, IF(NOT(ISBLANK(Individual_Home_Phone__c)) &amp;&amp; LEFT(Individual_Home_Phone__c,3) &lt;&gt; &apos;+66&apos;,&apos;+66&apos; + Individual_Home_Phone__c,Individual_Home_Phone__c))</formula>
         <name>HomePhone_Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -76,7 +76,7 @@
     <fieldUpdates>
         <fullName>Mobile_Update</fullName>
         <field>Mobile__c</field>
-        <formula>IF(NOT(ISBLANK(Mobile__c)),&apos;+66&apos;+Mobile__c,Mobile__c)</formula>
+        <formula>IF(ISNEW() &amp;&amp; NOT(ISBLANK(Mobile__c)), &apos;+66&apos; + Mobile__c, IF(NOT(ISBLANK(Mobile__c)) &amp;&amp; LEFT(Mobile__c,3) &lt;&gt; &apos;+66&apos;,&apos;+66&apos; + Mobile__c,Mobile__c))</formula>
         <name>Mobile_Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -96,6 +96,15 @@
         <field>System_Data_Source__c</field>
         <formula>&apos;Salesforce&apos;</formula>
         <name>UpdateDataSource</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Company_Name</fullName>
+        <field>Company_Name__c</field>
+        <formula>Name</formula>
+        <name>Update Company Name</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -186,7 +195,7 @@
     <fieldUpdates>
         <fullName>WorkPhone_Update</fullName>
         <field>Work_Phone__c</field>
-        <formula>IF(NOT(ISBLANK(Work_Phone__c)), &apos;+66&apos; + Work_Phone__c, Work_Phone__c)</formula>
+        <formula>IF(ISNEW() &amp;&amp; NOT(ISBLANK(Work_Phone__c)), &apos;+66&apos; + Work_Phone__c, IF(NOT(ISBLANK(Work_Phone__c)) &amp;&amp; LEFT(Work_Phone__c,3) &lt;&gt; &apos;+66&apos;,&apos;+66&apos; + Work_Phone__c,Work_Phone__c))</formula>
         <name>WorkPhone_Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -204,6 +213,17 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>MBK Populate Company Name</fullName>
+        <actions>
+            <name>Update_Company_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This rule is used to populate company name with account name when record type is company</description>
+        <formula>IF((RecordType.Name == &apos;Company&apos;) &amp;&amp; (TEXT( $User.Market__c)==&apos;KR&apos;), true, false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>MBTH_Add_Plus_66</fullName>
         <actions>
             <name>HomePhone_Update</name>
@@ -218,17 +238,8 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>User.ProfileId</field>
-            <operation>equals</operation>
-            <value>IntegrationAPI</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
         <description>This workflow is the prefix +66 to all phone numbers</description>
+        <formula>OR(CreatedBy.Profile.Name = &apos;IntegrationAPI&apos;, LastModifiedBy.Profile.Name = &apos;IntegrationAPI&apos;) &amp;&amp; OR(ISNEW(), OR(ISCHANGED(Mobile__c),ISCHANGED(Work_Phone__c),ISCHANGED(Individual_Home_Phone__c))) &amp;&amp; MD__c = &apos;TH&apos;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

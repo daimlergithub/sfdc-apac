@@ -31,6 +31,10 @@
         <label>Lead Information</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Current_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Existing_Contract_End_Date__c</field>
             </layoutItems>
@@ -177,7 +181,7 @@
                 <field>Company_Account__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>CAC_Lost_Reason__c</field>
             </layoutItems>
             <layoutItems>
@@ -205,7 +209,7 @@
                 <field>Purchased_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Required</behavior>
                 <field>Dealer_Lost_Reason__c</field>
             </layoutItems>
             <layoutItems>
@@ -585,7 +589,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0k000000RGQ2</masterLabel>
+        <masterLabel>00h0k000000Ecf7</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

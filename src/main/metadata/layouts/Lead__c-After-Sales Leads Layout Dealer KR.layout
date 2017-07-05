@@ -4,7 +4,6 @@
     <customButtons>Convert_Lead</customButtons>
     <customButtons>New_Task</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
-    <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
@@ -159,15 +158,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Order_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Order_Confirmation_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Appointment_DateTime__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AfterSales_Vehicle__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -198,14 +193,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Handover_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Registration_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Network_Registration_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
