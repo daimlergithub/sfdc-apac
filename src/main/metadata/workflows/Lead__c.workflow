@@ -1211,6 +1211,17 @@ Purchased_Date_Time__c
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>JP_Automatic Task Creation</fullName>
+        <actions>
+            <name>Lead_Customer_Intention_OB_Call_Task</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( CONTAINS($Profile.Name,'MBF'),MD__c='JP', RecordType.Name ='Sales Leads', NOT(ISNULL(Existing_Contract__c)),  ISPICKVAL(Existing_Contract__r.Status__c,'Active'),ISPICKVAL(Existing_Contract__r.Sales_Type__c, 'Retail'),NOT(ispickval(Customer_Intention__c ,'')), AND(NOT(IsPICKVAL(Finance_Product_Name__c,'Re-loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Start Up Plan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Normal Loan'))
+,NOT(IsPICKVAL(Finance_Product_Name__c,'Dual Auto Loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Welcome Plan Plus')),NOT(IsPICKVAL(Finance_Product_Name__c,'Super Welcome Plan Plus'))))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
         <active>false</active>
         <criteriaItems>
@@ -2492,4 +2503,15 @@ Function: update assigned date, recieved data and accepted date to now, and stat
         <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+    <tasks>
+        <fullName>Lead_Customer_Intention_OB_Call_Task</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>Please Take the OB Call from Lead</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>General</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Lead Customer Intention OB Call Task</subject>
+    </tasks>
 </Workflow>
