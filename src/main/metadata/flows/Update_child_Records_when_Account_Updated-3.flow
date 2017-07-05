@@ -111,86 +111,15 @@
         <processMetadataValues>
             <name>reference</name>
             <value>
-                <stringValue>[Account].Account_Links1__r</stringValue>
+                <stringValue>[Account].Addresses__r</stringValue>
             </value>
         </processMetadataValues>
         <name>myRule_1_A1</name>
-        <label>Updating Account Link</label>
+        <label>Updating Address</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
         <connector>
             <targetReference>myRule_1_A2</targetReference>
-        </connector>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <field>fromRole__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>Boolean</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>To Be Deleted</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Boolean</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>To_Be_Deleted__c</field>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputAssignments>
-        <object>Account_Link__c</object>
-    </recordUpdates>
-    <recordUpdates>
-        <processMetadataValues>
-            <name>evaluationType</name>
-            <value>
-                <stringValue>always</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>isChildRelationship</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>reference</name>
-            <value>
-                <stringValue>[Account].Addresses__r</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_1_A2</name>
-        <label>Updating Address</label>
-        <locationX>100</locationX>
-        <locationY>300</locationY>
-        <connector>
-            <targetReference>myRule_1_A3</targetReference>
         </connector>
         <filters>
             <processMetadataValues>
@@ -256,12 +185,12 @@
                 <stringValue>[Account].Cases</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_1_A3</name>
+        <name>myRule_1_A2</name>
         <label>Updating Cases</label>
         <locationX>100</locationX>
-        <locationY>400</locationY>
+        <locationY>300</locationY>
         <connector>
-            <targetReference>myRule_1_A4</targetReference>
+            <targetReference>myRule_1_A3</targetReference>
         </connector>
         <filters>
             <processMetadataValues>
@@ -327,12 +256,12 @@
                 <stringValue>[Account].Lead_Contact__r</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_1_A4</name>
+        <name>myRule_1_A3</name>
         <label>Updating Leads</label>
         <locationX>100</locationX>
-        <locationY>500</locationY>
+        <locationY>400</locationY>
         <connector>
-            <targetReference>myRule_1_A5</targetReference>
+            <targetReference>myRule_1_A4</targetReference>
         </connector>
         <filters>
             <processMetadataValues>
@@ -398,12 +327,12 @@
                 <stringValue>[Account].DM_Request__r</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_1_A5</name>
+        <name>myRule_1_A4</name>
         <label>Updating DM request</label>
         <locationX>100</locationX>
-        <locationY>600</locationY>
+        <locationY>500</locationY>
         <connector>
-            <targetReference>myRule_1_A6</targetReference>
+            <targetReference>myRule_1_A5</targetReference>
         </connector>
         <filters>
             <processMetadataValues>
@@ -469,12 +398,12 @@
                 <stringValue>[Account].Surveys_Taken__r</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_1_A6</name>
+        <name>myRule_1_A5</name>
         <label>Updating Survey Taken</label>
         <locationX>100</locationX>
-        <locationY>700</locationY>
+        <locationY>600</locationY>
         <connector>
-            <targetReference>myRule_1_A7</targetReference>
+            <targetReference>myRule_1_A6</targetReference>
         </connector>
         <filters>
             <processMetadataValues>
@@ -540,12 +469,12 @@
                 <stringValue>[Account].Vehicle_Relationships2__r</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_1_A7</name>
+        <name>myRule_1_A6</name>
         <label>Updating Vehicle Relationships</label>
         <locationX>100</locationX>
-        <locationY>800</locationY>
+        <locationY>700</locationY>
         <connector>
-            <targetReference>myRule_1_A8</targetReference>
+            <targetReference>myRule_1_A7</targetReference>
         </connector>
         <filters>
             <processMetadataValues>
@@ -611,10 +540,13 @@
                 <stringValue>[Account].Retail_Tasks5__r</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_1_A8</name>
+        <name>myRule_1_A7</name>
         <label>Updating Retail Task</label>
         <locationX>100</locationX>
-        <locationY>900</locationY>
+        <locationY>800</locationY>
+        <connector>
+            <targetReference>myRule_1_A8</targetReference>
+        </connector>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
@@ -659,6 +591,145 @@
             </value>
         </inputAssignments>
         <object>Retail_Task__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Account].Campaign_Members2__r</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A8</name>
+        <label>Updating Campaign Member</label>
+        <locationX>100</locationX>
+        <locationY>900</locationY>
+        <connector>
+            <targetReference>myRule_1_A9</targetReference>
+        </connector>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Contact_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>To Be Deleted</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>To_Be_Deleted__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Campaign_Member__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Account].Account_Links__r</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A9</name>
+        <label>Updating AccountLink</label>
+        <locationX>100</locationX>
+        <locationY>1000</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>toRole__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>To Be Deleted</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>To_Be_Deleted__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Account_Link__c</object>
     </recordUpdates>
     <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
     <variables>
