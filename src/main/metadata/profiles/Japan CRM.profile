@@ -24571,7 +24571,7 @@
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Individual Customer External Link</layout>
+        <layout>Account_Link__c-Individual Customer External Link JP</layout>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
