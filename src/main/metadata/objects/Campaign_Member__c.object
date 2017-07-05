@@ -349,7 +349,7 @@
     <fields>
         <fullName>Contractor_Company_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Contract__r.Company_Name__c</formula>
+        <formula>Contract_r.Contractor_Company_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Company Name</label>
         <required>false</required>
@@ -360,7 +360,7 @@
     <fields>
         <fullName>Contractor_Individual_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Contract__r.Account__r.LastName&amp;' '&amp; Contract__r.Account__r.FirstName</formula>
+        <formula>Contract_r.Contractor_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Individual Name</label>
         <required>false</required>
