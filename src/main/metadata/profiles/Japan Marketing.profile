@@ -27090,11 +27090,7 @@
         <tab>Custom_Debug_Info__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-	<tabVisibilities>
-        <tab>Dealer_List_Member__c</tab>
-        <visibility>DefaultOn</visibility>
-</tabVisibilities>
-    <tabVisibilities>
+	 <tabVisibilities>
         <tab>DM_Material__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
