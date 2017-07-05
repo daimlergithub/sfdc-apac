@@ -15001,6 +15001,18 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>StouchUniqueId__c</fullName>
+        <description>Unique id for Stouch.</description>
+        <externalId>false</externalId>
+        <label>StouchUniqueId</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Suffix__c</fullName>
         <description>Suffix - shall be displayed together with Title Fist Name &amp; Surname</description>
