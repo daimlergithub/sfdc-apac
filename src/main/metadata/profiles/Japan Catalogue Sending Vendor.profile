@@ -27073,10 +27073,6 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
 	<tabVisibilities>
-        <tab>Dealer_List_Member__c</tab>
-        <visibility>DefaultOn</visibility>
-</tabVisibilities>
-    <tabVisibilities>
         <tab>DM_Material__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
