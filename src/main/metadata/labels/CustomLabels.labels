@@ -219,13 +219,6 @@
         <value>Account Link record with the same Role 1 and Role2 exists</value>
     </labels>
     <labels>
-        <fullName>Account_Link_record_with_the_same_Role_1_and_Role2_exists</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Account Link record with the same Role 1 and Role2 exists</shortDescription>
-        <value>Account Link record with the same Role 1 and Role2 exists</value>
-    </labels>
-    <labels>
         <fullName>Account_Merge</fullName>
         <language>en_US</language>
         <protected>false</protected>
