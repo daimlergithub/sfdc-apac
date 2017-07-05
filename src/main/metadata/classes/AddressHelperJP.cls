@@ -413,9 +413,10 @@ public with sharing class AddressHelperJP {
                                 province = addtrmap1.get(add.Province__c);
                             }     
                             vr.vehicle_address_picklist__c = 'Home Address' ;
-                            UpdateVr.add(vr);
+                            
                             vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
                             vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+							UpdateVr.add(vr);
                             
                         }
                        else if(add.Address_Type__c == 'Business')
@@ -425,9 +426,10 @@ public with sharing class AddressHelperJP {
                                 province = addtrmap1.get(add.Province__c);
                             } 
                             vr.vehicle_address_picklist__c = 'Work address' ;
-                            UpdateVr.add(vr);
+                            
                             vr.Vehicle_Address_Display__c  = province  +add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
                            vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+						   UpdateVr.add(vr);
                         }
                       
                       if(add.Address_Type__c == 'Other Address 1')
@@ -437,9 +439,10 @@ public with sharing class AddressHelperJP {
                                 province = addtrmap1.get(add.Province__c);
                             }  
                             vr.vehicle_address_picklist__c = 'Other Address 1';
-                            UpdateVr.add(vr);
+                            
                           vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
                           vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+						  UpdateVr.add(vr);
                         
                         }
                         if(add.Address_Type__c == 'Other Address 2')
@@ -449,10 +452,10 @@ public with sharing class AddressHelperJP {
                                 province = addtrmap1.get(add.Province__c);
                             }        
                             vr.vehicle_address_picklist__c = 'Other Address 2' ;
-                            UpdateVr.add(vr);
+                            
                            vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
                            vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                        
+                        UpdateVr.add(vr);
                         }
                         if(add.Address_Type__c == 'Other Address 3'){
                             if(addtrmap1.containsKey(add.Province__c))
@@ -460,9 +463,10 @@ public with sharing class AddressHelperJP {
                                 province = addtrmap1.get(add.Province__c);
                             }             
                             vr.vehicle_address_picklist__c='Other Address 3';
-                            UpdateVr.add(vr);
+                            
                           vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
                           vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+						  UpdateVr.add(vr);
                         }
                       
                   }
