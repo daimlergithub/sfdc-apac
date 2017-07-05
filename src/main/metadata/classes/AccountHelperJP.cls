@@ -11,6 +11,9 @@
 **/
 public class AccountHelperJP
 {
+    public static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+    public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+    
     static User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,Contact.Account.Dealer_Rollout_Status__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
 **  Created By: Sudhir 
@@ -959,7 +962,13 @@ public class AccountHelperJP
 public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAccountmap,boolean isInsert, boolean isUpdate)
     {
         set<id> insrtaccids = new set<id>();
+        List<Account_Link__c> updateextaccLinkList = new List<Account_Link__c>();
         string corelnId;
+        if(!accLst.isEmpty() && accLst != null)
+        {
+            updateextaccLinkList = [select id from Account_Link__c where torole__c =:accLst AND 
+                                    (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId =:AccountLink_RetailCompanyRecordTypeId)];
+        }
         for(Account acc : accLst)
         {
             if(acc.MD__c == 'JP' && isInsert && userinfo.getUserType()=='PowerPartner' && usr.Contact.Account.Dealer_Rollout_Status__c == 'Done')
@@ -967,7 +976,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
                 corelnId = ApexPages.currentPage().getParameters().get('CLNID');
                 insrtaccids.add(acc.Id);
             }
-            else if(acc.MD__c == 'JP' && isUpdate)
+            else if(acc.MD__c == 'JP' && isUpdate && !updateextaccLinkList.isEmpty() && updateextaccLinkList != null)
             {
                 if(oldAccountmap.get(Acc.id).LastName !=  acc.LastName || oldAccountmap.get(Acc.id).FirstName != acc.FirstName || oldAccountmap.get(Acc.id).LastName_Native_1__c != acc.LastName_Native_1__c || oldAccountmap.get(Acc.id).FirstName_Native_1__c != acc.FirstName_Native_1__c)
                 {
