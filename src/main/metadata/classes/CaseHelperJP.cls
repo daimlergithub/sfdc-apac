@@ -442,10 +442,13 @@ List<Account> accUpdLst = new List<Account>();
  
 }
  
-          /*
+           /*
  Sent email to Dealer Sales/Dealer Service manager profile users if Retail_Case_Notice_Dealer_Flag__c =true in case object.
+ Modified by : Venky
+ Modified on : 7/5/2017
+ Description : Changes related to SFDCJP-2728,Every time case is edited email is sending i  have  added a condition it will send  only  when Retail_Case_Notice_Dealer_Flag__c true
  */
- public static void SendEmailToNotifyDealer(List<Case> caseList)
+ public static void SendEmailToNotifyDealer(List<Case> caseList,map<id,Case> OldcaseList)
     {
     Set<ID> dealerID=new Set<Id>();
     Set<ID> dealerName=new Set<Id>();
@@ -479,7 +482,7 @@ List<Account> accUpdLst = new List<Account>();
                              if(c.Case_Dealer__c !=null )
                              {
                              System.debug('user email details');
-                              if(c.Retail_Case_Notice_Dealer_Flag__c  ==true)
+                              if((trigger.isInsert && c.Retail_Case_Notice_Dealer_Flag__c  ==true) || (trigger.isUpdate && c.Retail_Case_Notice_Dealer_Flag__c  != OldcaseList.get(c.id).Retail_Case_Notice_Dealer_Flag__c  && c.Retail_Case_Notice_Dealer_Flag__c  ==true) )
                               {
                                Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
                             mail.setTargetObjectId(u.id);  
