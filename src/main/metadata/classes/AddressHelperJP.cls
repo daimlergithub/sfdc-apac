@@ -348,5 +348,132 @@ public with sharing class AddressHelperJP {
             }
         }
     }
+	
+	
+  /*    
+  Added By      : venky
+  Created date  : 7/4/2017
+ Descrption     : This method will fire only fire for Integration User.
+                 Whenever Address type is changed, update Address type in Vehicle relation  ship record.    
+  Jira          : SFDCJP-2057
+    Event       : After Update
+   */  
+    
+    public static void afterUpdateVehicleRelationship(List<Address__c> addList,Map<Id,Address__c> OldMap){
+        Set<Id> CustomerId=new Set<Id>();
+        Set<Id> VrId=new Set<Id>();
+        String regexForNullValue ='null';
+        String nullValue ='';
+        Map<Id,Address__c> MapAcc=new Map<Id,Address__c>();
+        List<Vehicle_Relationship__c> listVr=new List<Vehicle_Relationship__c>();
+        List<Vehicle_Relationship__c> UpdateVr=new List<Vehicle_Relationship__c>();
+        List<Account> listAccount=new List<Account>();
+        String province;
+        Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+        UtilAddressTranslation.gettranslatedvalues('JP');
+            
+            if(addList !=null)
+        {
+             for(Address__c adr:addList)
+                {
+                    if(adr.Address_Type__c !=null && adr.Address_Type__c  !=OldMap.get(adr.id).Address_Type__c )
+                    {
+                         CustomerId.add(adr.Customer__c);
+                            if( CustomerId !=null)
+                            {                        
+                            MapAcc.put(adr.Customer__c,adr);
+                            }
+                    }
+                   
+                }
+        }
+        
+        if(MapAcc !=null)
+        {
+            System.debug('$%$%$%$$$$MapAcc'+MapAcc);
+            System.debug('$%$%$%$$$$MapAcckey set'+MapAcc.keySet());
+            listVr=[select id,vehicle_address_picklist__c,Contact__c from Vehicle_Relationship__c where contact__c=:MapAcc.keySet()];
+        
+            
+            if(listVr !=null)
+          {
+              for(Address__c add:addList)
+              {
+                  for(Vehicle_Relationship__c vr:listVr)
+                  {
+                      if(   add.Address_Type__c == '')
+                      {
+                            vr.vehicle_address_picklist__c = '';
+                          UpdateVr.add(vr);
+                      }
+                      if(add.Address_Type__c == 'Home')
+                        { 
+                            if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }     
+                            vr.vehicle_address_picklist__c = 'Home Address' ;
+                            UpdateVr.add(vr);
+                            vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                            vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                            
+                        }
+                       else if(add.Address_Type__c == 'Business')
+                        { 
+                          if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            } 
+                            vr.vehicle_address_picklist__c = 'Work address' ;
+                            UpdateVr.add(vr);
+                            vr.Vehicle_Address_Display__c  = province  +add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
+                           vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        }
+                      
+                      if(add.Address_Type__c == 'Other Address 1')
+                        {
+                             if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }  
+                            vr.vehicle_address_picklist__c = 'Other Address 1';
+                            UpdateVr.add(vr);
+                          vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
+                          vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        
+                        }
+                        if(add.Address_Type__c == 'Other Address 2')
+                        {
+                          if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }        
+                            vr.vehicle_address_picklist__c = 'Other Address 2' ;
+                            UpdateVr.add(vr);
+                           vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
+                           vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        
+                        }
+                        if(add.Address_Type__c == 'Other Address 3'){
+                            if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }             
+                            vr.vehicle_address_picklist__c='Other Address 3';
+                            UpdateVr.add(vr);
+                          vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
+                          vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        }
+                      
+                  }
+              }
+          }
+            if(UpdateVr !=null)
+            {                
+             Database.update(UpdateVr, false);
+            }
+        }
+        
+    }
     
 }
