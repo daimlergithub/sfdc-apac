@@ -21711,11 +21711,14 @@ alert("{!$Label.ChangeContacttarget}");</url>
         <fullName>Send_to_MyMercedes</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Send to MyMercedes</masterLabel>
-        <openType>replace</openType>
-        <page>SendVehicleInfoMyMercedes</page>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+window.open('{!URLFOR($Site.Prefix)}/apex/SendVehicleInfoMyMercedes?id={!Vehicle__c.Id}');</url>
     </webLinks>
 	<webLinks>
         <fullName>EditVehicle</fullName>
