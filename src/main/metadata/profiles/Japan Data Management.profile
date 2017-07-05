@@ -27059,7 +27059,11 @@
         <tab>Address__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <tabVisibilities>
+	 <tabVisibilities>
+        <tab>Campaign_Lead__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
         <tab>Car_Model__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -27071,7 +27075,7 @@
         <tab>Custom_Debug_Info__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    <tabVisibilities>
+	<tabVisibilities>
         <tab>DM_Material__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -27091,12 +27095,24 @@
         <tab>Lead__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	 <tabVisibilities>
+        <tab>Participating_Dealer__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Recall__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	 <tabVisibilities>
+        <tab>Retail_Campaign__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Task__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	 <tabVisibilities>
+        <tab>Segmentation_Criteria__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
