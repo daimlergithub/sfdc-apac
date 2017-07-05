@@ -107,7 +107,10 @@ public class createUpdateRetailCopy
                         {
                             province = addtrmap1.get(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c);
                         } 
+						if(province !=null)
+						{
                         acclink.Retail_Province__c = province ;  
+						}
                         if(province ==null && province == '')
                         {
                             acclink.Retail_Province__c  =acclink.Retail_Province__c.replaceAll(regexForNullValue,nullValue); 
@@ -467,7 +470,10 @@ public class createUpdateRetailCopy
                         {
                             province = addtrmap1.get(exstacclnk.Retail_Address_Reference__r.Province__c);
                         } 
+						if(province !=null)
+						{
                         exstacclnk.Retail_Province__c = province ;
+						}
                         if(province ==null && province == '')
                         {
                             exstacclnk.Retail_Province__c =exstacclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue); 
@@ -552,8 +558,14 @@ public class createUpdateRetailCopy
                     {
                         province = addtrmap1.get(acclnk.Retail_Address_Reference__r.Province__c);
                     } 
+					if( province !=null)
+					{
                     acclnk.Retail_Province__c = province ; 
+					}
+					 if(province ==null && province == '')
+                     {
                     acclnk.Retail_Province__c  =acclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
+					}
                     acclnk.Retail_City__c = (acc.Primary_Address_Reference__r.City__c != null ? acc.Primary_Address_Reference__r.City__c : '').left(17);
                     acclnk.Retail_Distinct__c = ((acc.Primary_Address_Reference__r.District__c != null ? acc.Primary_Address_Reference__r.District__c : '') + ' ' + (acc.Primary_Address_Reference__r.Block__c != null ? acc.Primary_Address_Reference__r.Block__c : '' )).left(17);
                 }
