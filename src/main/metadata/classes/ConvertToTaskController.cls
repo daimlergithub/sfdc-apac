@@ -102,6 +102,8 @@ public with sharing class ConvertToTaskController
         taskRec.Account_Name__c =campaignMember.Company_Name__c;
         taskRec.Phone__c = campaignMember.Contract_Phone_1__c;
        taskRec.Phone_number__c= campaignMember.Contract_Phone_2__c;
+	   taskRec.Campaign_Member_ID__c = campaignMember.Name; 
+
   
   
         if(objectAPIName == 'Campaign' || objectAPIName == 'Retail_Campaign__c')
