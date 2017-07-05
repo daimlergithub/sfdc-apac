@@ -187,7 +187,7 @@ public with sharing class SendToMyMercController {
                 }   
             }
             if(accset !=null && !accset.isEmpty() ){
-                for(Account eachAcc : [select id,Allow_Data_Sharing2__c,Data_Source__C,Portal_Apply_Status__c,Main_Dealer__c,recordtypeid,Email3__c,PersonBirthdate,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
+                for(Account eachAcc : [select id,Allow_Data_Sharing2__c,Data_Source__C,Portal_Apply_Status__c,Main_Dealer__c,recordtypeid,Email3__c,FirstName_Native_1__c,PersonBirthdate,FirstName ,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
                     for(Account_link__c accLink : eachAcc.Account_Links__r){
                         if(accLink.RecordTypeId == IndividualCustomerExternaLink && accLink.System__c == 'My Mercedes' && accLink.toRole__c == eachAcc.Id && accLink.Primary__c == True){
                             myMercAcc.put(eachAcc.Id,eachAcc);
@@ -200,7 +200,7 @@ public with sharing class SendToMyMercController {
                     System.debug('SelectedAccountBirthdAte'+eachAcc.PersonBirthdate);
                     System.debug('===='+eachAcc.LastName_Native_1__c);
                     System.debug('===='+eachAcc.RecordTypeId);
-                    if(eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c) || eachAcc.Gender__c == NULL){
+                    if(eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c) || eachAcc.Gender__c == NULL || String.isBlank(eachAcc.FirstName_Native_1__c)|| eachAcc.FirstName == NULL){
                         personBirthdate = true;    
                     }
                     System.debug('===='+personBirthdate);
@@ -210,7 +210,9 @@ public with sharing class SendToMyMercController {
                     usr = [Select Id,name,contact.AccountId from User WHERE ID = :UserInfo.getUserId() ];
                     for(Account acc : myMercAcc.values()){
                         acc.Email3__c = email3update.get(acc.Id);
+                        
                         idAccLinkMap.get(acc.Id).Portal_Email__C = email3update.get(acc.Id);
+                        
                         accfinal.put(acc.Id, acc);
                         accLinkFinal.add(idAccLinkMap.get(acc.Id));
                     }
@@ -250,7 +252,7 @@ public with sharing class SendToMyMercController {
                 
             }
             if(personBirthdate){
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender));    
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.SendToMyMercedesJPUserErr));    
             }        
             else if(accfinal != null && !accfinal.isEmpty()){
                 update accfinal.values();

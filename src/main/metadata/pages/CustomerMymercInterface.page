@@ -12,7 +12,7 @@
            <!-- <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> -->
                 <apex:pageblockButtons location="bottom">
                      <apex:commandButton action="{!mymercnew}" value="{!$Label.MyMercedes_New_Registration}" disabled="{!MyMercVar}" Onclick="if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};"/>
-                     <apex:commandButton action="{!savepop}" value="{!$Label.MyMercedes_Email_ID_Edit}" disabled="{!MyMercEmailVar}" Onclick="if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};"/><!-- oncomplete="myfunction();"/>-->
+                     <apex:commandButton action="{!savepop}" value="{!$Label.MyMercedes_Email_ID_Edit}" disabled="{!MyMercEmailVar}"   Onclick="if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};"/><!-- oncomplete="myfunction();"/>-->
                      <apex:commandButton action="{!createContractSector}" value="{!$Label.Create_ContactSector}" disabled="{!ContactSectorvar}" Onclick="if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};"/>
                      <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}"/>
                 </apex:pageblockButtons>
@@ -22,10 +22,11 @@
                         <apex:column value="{!ac.toRole__c}" headerValue="{!$Label.AccountName}"/>
                         <apex:column headerValue="{!$Label.My_Mercedes_ID}" value="{!myMercId}"/>
                         <apex:column headerValue="{!$Label.My_Mercedes_Email_Id}">
-                        <apex:inputText value="{!MyMercEmail}"/>
+                        <apex:inputText value="{!MyMercEmail}" rendered="{!IF(myMercId == null, true, false)}" />
+                        <apex:outputText value="{!MyMercEmail}" rendered="{!IF(myMercId != null, true, false)}" />
                         </apex:column>
                         <apex:column >
-                            <apex:commandLink value="{!$Label.Emails}" action="{!showPopup}">
+                            <apex:commandLink value="{!$Label.Emails}" action="{!showPopup}" >
                                  <apex:param name="recordID" value="{!ac.ID}"/>
                             </apex:commandLink>
                         </apex:column>
@@ -51,7 +52,7 @@
                                        </table>
                                     </apex:pageblockSection>
                                         <!--<apex:commandButton value="Save" action="{!savepop}"/>-->
-                                        <apex:commandButton value="{!$Label.Closee}" action="{!closePopup}" rerender="one"/>
+                                        <apex:commandButton value="{!$Label.Close}" action="{!closePopup}" rerender="one"/>
                                 </apex:outputPanel>
                             </apex:outputPanel>
                         </apex:repeat>
