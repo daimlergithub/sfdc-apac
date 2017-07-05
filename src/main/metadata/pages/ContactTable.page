@@ -165,8 +165,8 @@
                    
                   <tr>        
                        <th style="text-align: Right;">{!$Label.Other_Email}</th>        
-                       <td><apex:inputField value="{!ParAcc.Email3__c}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Email3__c}" rendered="{!!editMode}"/>
+                       <td><apex:inputField value="{!ParAcc.Email3__c}" rendered="{!editMode2}"/>
+                           <apex:outputField value="{!ParAcc.Email3__c}" rendered="{!!editMode2}"/>
                        </td>                           
                        <td><apex:inputField value="{!ParAcc.Email_Status_3__c}"  rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Email_Status_3__c}"  rendered="{!!editMode}"/>
