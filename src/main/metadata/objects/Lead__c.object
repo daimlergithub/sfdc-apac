@@ -18043,6 +18043,19 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>StouchLeadID__c</fullName>
+        <description>Lead id for Stouch.</description>
+        <externalId>false</externalId>
+        <label>StouchLeadID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Sub_BusinessUnit__c</fullName>
         <externalId>false</externalId>

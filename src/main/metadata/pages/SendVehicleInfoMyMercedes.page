@@ -24,7 +24,9 @@
                     </apex:column>
                     <apex:column headerValue="{!$Label.Car_Relation}"  value="{!eachWrap.CarRelation}"/>
                     <apex:column headerValue="{!$Label.My_Merc_Email_Id}"  >
-                       <apex:inputText value="{!eachWrap.PortalEmail}" ID="txtName"/>
+                       <apex:inputText value="{!eachWrap.PortalEmail}" ID="txtName" rendered="{!IF(eachWrap.vehicleRelationship == null, true, false)}"/>
+                      <apex:outputText value="{!eachWrap.PortalEmail}" ID="txtName1" rendered="{!IF(eachWrap.vehicleRelationship != null, true, false)}"/>
+                       
                     </apex:column>
                     <apex:column >
                    <apex:commandLink value="{!$Label.Emails}" action="{!showPopup}" reRender="one">

@@ -348,8 +348,8 @@ public with sharing class AddressHelperJP {
             }
         }
     }
-	
-	
+    
+    
   /*    
   Added By      : venky
   Created date  : 7/4/2017
@@ -362,9 +362,9 @@ public with sharing class AddressHelperJP {
     public static void afterUpdateVehicleRelationship(List<Address__c> addList,Map<Id,Address__c> OldMap){
         Set<Id> CustomerId=new Set<Id>();
         Set<Id> VrId=new Set<Id>();
+        Set<Id> AddId=new Set<Id>();
         String regexForNullValue ='null';
-        String nullValue ='';
-        Map<Id,Address__c> MapAcc=new Map<Id,Address__c>();
+        String nullValue ='';  
         List<Vehicle_Relationship__c> listVr=new List<Vehicle_Relationship__c>();
         List<Vehicle_Relationship__c> UpdateVr=new List<Vehicle_Relationship__c>();
         List<Account> listAccount=new List<Account>();
@@ -378,21 +378,16 @@ public with sharing class AddressHelperJP {
                 {
                     if(adr.Address_Type__c !=null && adr.Address_Type__c  !=OldMap.get(adr.id).Address_Type__c )
                     {
-                         CustomerId.add(adr.Customer__c);
-                            if( CustomerId !=null)
-                            {                        
-                            MapAcc.put(adr.Customer__c,adr);
-                            }
+                    AddId.add(adr.Id);                         
                     }
                    
                 }
         }
         
-        if(MapAcc !=null)
+        if(AddId!=null)
         {
-            System.debug('$%$%$%$$$$MapAcc'+MapAcc);
-            System.debug('$%$%$%$$$$MapAcckey set'+MapAcc.keySet());
-            listVr=[select id,vehicle_address_picklist__c,Contact__c from Vehicle_Relationship__c where contact__c=:MapAcc.keySet()];
+            
+            listVr=[select id,vehicle_address_picklist__c,Contact__c,vehicle_address__c from Vehicle_Relationship__c where vehicle_address__c=:AddId];
         
             
             if(listVr !=null)
@@ -416,7 +411,7 @@ public with sharing class AddressHelperJP {
                             
                             vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
                             vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-							UpdateVr.add(vr);
+                            UpdateVr.add(vr);
                             
                         }
                        else if(add.Address_Type__c == 'Business')
@@ -429,7 +424,7 @@ public with sharing class AddressHelperJP {
                             
                             vr.Vehicle_Address_Display__c  = province  +add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
                            vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-						   UpdateVr.add(vr);
+                           UpdateVr.add(vr);
                         }
                       
                       if(add.Address_Type__c == 'Other Address 1')
@@ -442,7 +437,7 @@ public with sharing class AddressHelperJP {
                             
                           vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
                           vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-						  UpdateVr.add(vr);
+                          UpdateVr.add(vr);
                         
                         }
                         if(add.Address_Type__c == 'Other Address 2')
@@ -466,7 +461,7 @@ public with sharing class AddressHelperJP {
                             
                           vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
                           vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-						  UpdateVr.add(vr);
+                          UpdateVr.add(vr);
                         }
                       
                   }

@@ -15001,6 +15001,18 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>StouchUniqueId__c</fullName>
+        <description>Unique id for Stouch.</description>
+        <externalId>false</externalId>
+        <label>StouchUniqueId</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Suffix__c</fullName>
         <description>Suffix - shall be displayed together with Title Fist Name &amp; Surname</description>
@@ -58445,30 +58457,25 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <masterLabel>Send to MyMercedes</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var market = "{!Account.MD__c}"; 
-if(market == 'JP') 
+var FirstName = "{!Account.FirstName}"; 
+var FirstNameNative = "{!Account.FirstName_Native_1__c}"; 
+var LastNameNative = "{!Account.LastName_Native_1__c}"; 
+var Birthdate = "{!Account.PersonBirthdate}"; 
+var Gender = "{!Account.Gender__c}"; 
+if(market == 'JP' &amp;&amp; FirstName != '' &amp;&amp; FirstNameNative != '' &amp;&amp; LastNameNative != '' &amp;&amp; Gender != '' &amp;&amp; Birthdate != '') 
 { 
-
-if(typeof(srcUp) == 'function') 
+window.open('{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}'); 
+} 
+else if( market == 'JP' &amp;&amp; (FirstName == '' || FirstNameNative == '' || LastNameNative == '' || Gender == '' || Birthdate == ''))
 { 
-if (sforce.console.isInConsole()) { 
-srcUp('/apex/CustomerMymercInterface?id={!Account.Id}&amp;isdtp=vw'); 
-} else { 
-window.open('/apex/CustomerMymercInterface?id={!Account.Id}','_blank'); 
-
-} 
-} 
-else { 
-window.open("{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}",'_blank'); 
-} 
-} 
-else 
+alert("{!$Label.SendToMyMercedesJPUserErr}"); 
+}
+else if(market != 'JP')
 { 
-alert("{!$Label.Check_DuplicatesErrorMsg}"); 
+alert("{!$Label.SendToMyMercedesErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>

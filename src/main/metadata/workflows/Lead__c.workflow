@@ -1010,6 +1010,15 @@ Purchased_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	    <fieldUpdates>
+        <fullName>CAC_Lead_status_update</fullName>
+        <field>CAC_Lead_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>CAC Lead status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Receieved_date_time</fullName>
         <field>Received_Date_Time__c</field>
@@ -1208,6 +1217,17 @@ Purchased_Date_Time__c
         </actions>
         <active>false</active>
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', MD__c = 'KR' )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>JP_Automatic Task Creation</fullName>
+        <actions>
+            <name>Lead_Customer_Intention_OB_Call_Task</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( CONTAINS($Profile.Name,'MBF'),MD__c='JP', RecordType.Name ='Sales Leads', NOT(ISNULL(Existing_Contract__c)),  ISPICKVAL(Existing_Contract__r.Status__c,'Active'),ISPICKVAL(Existing_Contract__r.Sales_Type__c, 'Retail'),NOT(ispickval(Customer_Intention__c ,'')), AND(NOT(IsPICKVAL(Finance_Product_Name__c,'Re-loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Start Up Plan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Normal Loan'))
+,NOT(IsPICKVAL(Finance_Product_Name__c,'Dual Auto Loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Welcome Plan Plus')),NOT(IsPICKVAL(Finance_Product_Name__c,'Super Welcome Plan Plus'))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -2360,6 +2380,17 @@ Modify Reason:
         <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	<rules>
+        <fullName>Update MBFLead Status to Approved</fullName>
+        <actions>
+            <name>CAC_Lead_status_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update lead status when ever MBF user creates lead and assigned dealer not equals null update cac lead status to Approved</description>
+        <formula>AND(CONTAINS( $Profile.Name , 'MBF'), MD__c='JP', NOT(ISBLANK(Assigned_Dealer__c)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Update Order Placed Date Time</fullName>
         <actions>
@@ -2492,4 +2523,15 @@ Function: update assigned date, recieved data and accepted date to now, and stat
         <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+    <tasks>
+        <fullName>Lead_Customer_Intention_OB_Call_Task</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>Please Take the OB Call from Lead</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>General</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Lead Customer Intention OB Call Task</subject>
+    </tasks>
 </Workflow>
