@@ -57801,12 +57801,20 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <availability>online</availability>
         <description>Create new vehicle record</description>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Create Vehicle</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/apex/Create_Vehicle?accId={!Account.Id}</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
+var market = '{!Account.MD__c}';
+if(market == 'JP'){
+window.open("{!URLFOR($Site.Prefix)}/apex/Create_Vehicle?accId={!Account.Id}");
+}
+else
+{
+alert("{!$Label.Check_DuplicatesErrorMsg}");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>

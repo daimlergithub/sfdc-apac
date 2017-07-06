@@ -246,7 +246,7 @@ public with sharing class VehicleExtension {
         if(returnId!=null && profileval == false){
           nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
         }else if(returnId!=null && profileval == true){
-         nextPage = new PageReference('{!URLFOR($Site.Prefix)}/'+returnId);
+         nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/MBJapan/'+returnId);
         }
         else if(returnId2!=null && profileval == false){
          nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId2);
