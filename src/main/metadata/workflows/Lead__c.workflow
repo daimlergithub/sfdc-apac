@@ -1010,6 +1010,15 @@ Purchased_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	    <fieldUpdates>
+        <fullName>CAC_Lead_status_update</fullName>
+        <field>CAC_Lead_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>CAC Lead status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Receieved_date_time</fullName>
         <field>Received_Date_Time__c</field>
@@ -2370,6 +2379,17 @@ Modify Reason:
         <active>true</active>
         <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update MBFLead Status to Approved</fullName>
+        <actions>
+            <name>CAC_Lead_status_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update lead status when ever MBF user creates lead and assigned dealer not equals null update cac lead status to Approved</description>
+        <formula>AND(CONTAINS( $Profile.Name , 'MBF'), MD__c='JP', NOT(ISBLANK(Assigned_Dealer__c)))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Order Placed Date Time</fullName>
