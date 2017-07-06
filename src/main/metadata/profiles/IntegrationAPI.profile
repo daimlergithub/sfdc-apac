@@ -5010,6 +5010,11 @@
         <field>Account.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.StouchUniqueId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Suffix__c</field>
@@ -15888,6 +15893,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Status_Category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.StouchLeadID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -43,6 +43,7 @@ public class ContactTableController
     public AreaCodeTranslation__mdt areacodeKR ;
     Public Boolean profilename{get;set;}
     public boolean editMode1 {get; set;}
+	public boolean editMode2 {get; set;}
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
     /**
     *@Description : Constructor.
@@ -77,6 +78,10 @@ public class ContactTableController
         disableButtons = true;
         if(p.Name.contains('Dealer')){      
             disableButtons = true;          
+        }
+		 if(p.Name.contains('Japan')){
+          editMode2 = false;
+        
         }
         if(disableButtons == true){
              //editMode = true;
