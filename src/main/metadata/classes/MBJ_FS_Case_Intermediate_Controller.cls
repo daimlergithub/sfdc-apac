@@ -257,14 +257,18 @@ public class MBJ_FS_Case_Intermediate_Controller{
             }
             
             else
-            {  
-                if(net.size()>0 &&net[0].UrlPathPrefix!=null){
-                    returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+            {
+                List<Account> acc=[Select Name from Account where id=:fromAccountId ];
+                system.debug('+++++++++++++'+ acc[0] );
+                if(acc.size()>0){
+                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'+&cas4_lkid='+acc[0].id+'+&nooverride=0');
                 }
                 else{
-                returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'+&nooverride=0');
                 }
-                 returnURL.setredirect(false);
+                //Account acc=[Select Name from Account where id=:accid limit 1];
+                //returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'+&cas4_lkid='+acc.id+'+&nooverride=0');
+                returnURL.setredirect(false);
                 return returnURL;
             }
         }
@@ -421,12 +425,19 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 return returnURL;
             }
             else
-            {  
-                Account acc=[Select Name from Account where id=:accid limit 1];
-                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+''+'cas4_lkid='+acc.id+'+&nooverride=0');
+            {
+                List<Account> acc=[Select Name from Account where id=:fromAccountId ];
+                if(acc.size()>0){
+                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'+&cas4_lkid='+acc[0].id+'+&nooverride=0');
+                }
+                else{
+                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'+&nooverride=0');
+                }
+                //Account acc=[Select Name from Account where id=:accid limit 1];
+                //returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'+&cas4_lkid='+acc.id+'+&nooverride=0');
                 returnURL.setredirect(false);
                 return returnURL;
-                }
+            }
                 
             }
             if(net.size()>0 &&net[0].UrlPathPrefix!=null)

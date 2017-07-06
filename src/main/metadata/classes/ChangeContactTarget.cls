@@ -22,7 +22,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             this.vehicle= (Vehicle__c)controller.getRecord();
             vehiclewrpper = new vehicledataWrpper();          
              vehicleId= ApexPages.currentPage().getParameters().get('id');
-            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,Class__c,Model__c,(SELECT id,Name,Car_Relation__c,Owner_relation__c,Contact__r.Name,End_Date__c,Contact__c FROM Vehicle_Relationships__r) FROM Vehicle__c Where id =:vehicleId LIMIT 1];
+            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,Class__c,Model__c,(SELECT id,Name,Car_Relation__c,Owner_relation__c,Contact__r.Name,End_Date__c,Contact__c,Selling_Dealer__c,Last_Service_Dealer__c,MOT_USER_NAME__c,MOT_User_Address__c,MOT_Owner_Name__c,MOT_Owner_Address__c,Customer_Type__c,Ownership__c,New_Used__c,Registration_Number__c,Registration_Date__c,Handover_Date__c FROM Vehicle_Relationships__r) FROM Vehicle__c Where id =:vehicleId LIMIT 1];
             for(Vehicle_relationship__c vr: vehicle .Vehicle_Relationships__r)
             {
                  if(vr.End_Date__c == null){
@@ -56,7 +56,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             }
             }
             if(salescontacttargetId != '' || aftersalescontacttargetId != '' || purchaseContactId != ''){
-             List<Account_Link__c> accountlink = [select id,toRole__c,fromrole__c,Retail_Sales_Consultant__c,Retail_Sales_Consultant__r.Name,Selling_Dealer__c,Service_Dealer__c,Service_Advisor__c,Selling_Dealer__r.Name,Service_Dealer__r.Name,Service_Advisor__r.Name,Recordtype.DeveloperName from Account_Link__c WHERE (toRole__c =  :salescontacttargetId OR toRole__c = :aftersalescontacttargetId OR toRole__c = :purchaseContactId  OR Vehicle__c = : ApexPages.currentPage().getParameters().get('id')) AND (RecordTypeID= :RetailPerson OR RecordTypeID= :RetailCompany OR RecordTypeId = :VehicleExternalLinkRT)];
+             List<Account_Link__c> accountlink = [select id,toRole__c,fromrole__c,Retail_Sales_Consultant__c,Retail_Sales_Consultant__r.Name,Selling_Dealer__c,Service_Dealer__c,Service_Advisor__c,Selling_Dealer__r.Name,Service_Dealer__r.Name,Service_Advisor__r.Name,Recordtype.DeveloperName from Account_Link__c WHERE (toRole__c =  :salescontacttargetId OR toRole__c = :aftersalescontacttargetId OR toRole__c = :purchaseContactId  OR Vehicle__c = : ApexPages.currentPage().getParameters().get('id'))  AND (RecordTypeID= :RetailPerson OR RecordTypeID= :RetailCompany OR RecordTypeId = :VehicleExternalLinkRT) LIMIT 1];
             //for(account_link__c acclink: vehicle .Account_Links__r)
             for(account_link__c acclink: accountlink )
             {   
@@ -103,7 +103,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr.contact__c);
              System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr);
                 if(vehiclewrpper.salescontactvr.contact__c != salescontacttargetId ){
-                    vehiclewrpper.salescontactvr.Start_Date__c = Date.today();
+                    //vehiclewrpper.salescontactvr.Start_Date__c = Date.today();
                     //vehiclewrpper.salescontactvr.id = null;
                     vrlist.add(vehiclewrpper.salescontactvr);
                     issalescontactchanged = true;
@@ -117,7 +117,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             }
             if (vehiclewrpper.aftersalescontactvr.id!=null){
             if(vehiclewrpper.aftersalescontactvr.contact__c != aftersalescontacttargetId ){
-                vehiclewrpper.aftersalescontactvr.Start_Date__c = date.today();
+                //vehiclewrpper.aftersalescontactvr.Start_Date__c = date.today();
                 //vehiclewrpper.aftersalescontactvr.id = null;
                 vrlist.add(vehiclewrpper.aftersalescontactvr);
                 isaftersalescontactchnged = true;
@@ -131,6 +131,9 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             List<vehicle_relationship__c> vrlisttoUpdate = new List<vehicle_relationship__c>(); 
             if(!vrlist.isEmpty()){
                 list<Vehicle_Relationship__c> VRlst = vrlist.deepClone(false,false,false);
+                for(Vehicle_Relationship__c vr :VRlst){
+                    vr.Start_Date__c = date.today();  
+                }
                 insert VRlst;
                 if(issalescontactchanged){
                     for(vehicle_relationship__c salesvr: oldsalesconractVRlist){
@@ -142,7 +145,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                         //salesvr.Retail_Sales_Consultant__c = SalesConsultant;
                          salesvr.End_Date__c = date.today();
                          salesvr.End_Reason__c = 'Updated EndDate';
-                         salesvr.Start_Date__c = null; 
+                         //salesvr.Start_Date__c = null; //SFDCJP-2708
                          vrlisttoUpdate.add(salesvr); 
                     }
                 }
@@ -154,7 +157,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                         //aftersalesvr.Retail_Sales_Consultant__c = afterSalesConsultant;                     
                         aftersalesvr.End_Date__c = date.today(); 
                         aftersalesvr.End_Reason__c = 'Updated EndDate';
-                        aftersalesvr.Start_Date__c = null;
+                        //aftersalesvr.Start_Date__c = null; //SFDCJP-2708
                         vrlisttoUpdate.add(aftersalesvr);
                              
                     }   

@@ -13,7 +13,7 @@ public with sharing class CustomerMymercInterfaceController {
     public list<Account_Link__c> accl{get;set;}
     public Account_Link__c AclinkPop{get;set;}
     public list<Account_Link__c> aclsize;
-    public account accont{get;set;}
+    public Static account accont{get;set;}
     public boolean result;
     public boolean displayPopup{get;set;}
     public string myMercId{get;set;}
@@ -33,9 +33,11 @@ public with sharing class CustomerMymercInterfaceController {
     public CustomerMymercInterfaceController(ApexPages.StandardController controller) {
         usr = [Select Id,name,contact.AccountId,ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
         MyMercVar = false;
-        MyMercEmailVar = true;
+        MyMercEmailVar = false;
         RegOutlet  = 'No';
         ContactSectorvar = true;
+         MyMercEmailVar = true;
+
         RecordType rec = [select id from RecordType where sObjecttype = 'Account_Link__c' AND Name = 'ContactSector' limit 1];
         ContactSector = rec.Id;
         aclsize = new list<Account_Link__c>();
@@ -50,11 +52,19 @@ public with sharing class CustomerMymercInterfaceController {
                 if(acc.System__c == 'My Mercedes'){
                     myMercId = acc.name;
                     MyMercVar = true;
+                    //MyMercEmailVar = true;
+                    if(string.IsnotBlank(acc.name)){
                     MyMercEmailVar = false;
+                    }else{
+                    MyMercEmailVar = true;
+
+                    }                                         
                     ContactSectorvar = false;
                     aclId = acc.Id;
                     if(string.IsnotBlank(acc.Portal_Email__c)){
-                        MyMercEmail = acc.Portal_Email__c;        
+                        MyMercEmail = acc.Portal_Email__c; 
+                        MyMercEmailVar = true;
+                        
                     }
                 }
             }
@@ -121,6 +131,7 @@ public with sharing class CustomerMymercInterfaceController {
         else{ 
             Account_Link__c aLink = [SELECT id,Portal_Email__c,toRole__c from Account_Link__c where ID=:aclId limit 1];
             aLink.Portal_Email__c = MyMercEmail;
+
             Database.SaveResult results = Database.Update(aLink);
             accont.Email3__c  = MyMercEmail;
             Database.SaveResult accResults = Database.Update(accont);
@@ -132,18 +143,23 @@ public with sharing class CustomerMymercInterfaceController {
  
     public PageReference mymercnew(){
     try{
+         Accid = apexpages.currentpage().getparameters().get('id');
+         accont = [select id,Data_Source__C, Allow_Data_Sharing2__c,Gender__c,Main_Dealer__c,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
+         system.debug('+++++++++++++++++++++'+accont );
+        String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
         Pattern MyPattern = Pattern.compile(emailRegex);
+        system.debug('++++++++++++'+accont.LastName_Native_1__c);
         if(!String.isBlank(accont.LastName_Native_1__c)){
         Matcher MyMatcher = MyPattern.matcher(accont.LastName_Native_1__c);
         result  = MyMatcher.matches();
-        }
+        } 
         
         if( MyMercEmail == NULL || string.isBlank(MyMercEmail)){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_input_My_Mercedes_Email_Id));
             return null;
         }
         else if(!string.isBlank(MyMercEmail)){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@') || MyMercEmail.);
-            String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
+            //String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
             Pattern MyPatternn = Pattern.compile(emailRegex);
             Matcher MyMatcher = MyPatternn.matcher(MyMercEmail);
         
@@ -156,7 +172,7 @@ public with sharing class CustomerMymercInterfaceController {
         }
         
         if(accont.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account ) {
-              if(accont.PersonBirthdate != NUll && accont.LastName_Native_1__c != NULL && accont.Gender__c!= NULL){
+              
               
                  accont.Portal_Apply_Date__c = system.today();
                  accont.Portal_Apply_Status__c = 'To be Sent';
@@ -173,24 +189,21 @@ public with sharing class CustomerMymercInterfaceController {
                  
                  update accont;
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,Label.Records_Updated));
-             }
-            else{
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender));
-                 return null; 
-            }
+             
+            
         }
        }
        catch(exception e){
                  ApexPages.addMessage(new ApexPages.message(ApexPages.severity.ERROR,e.getMessage()));
        }
        
-        /* else
-         {
+        
+           /* else {
              accont.Portal_Apply_Date__c = system.today();
              accont.Portal_Apply_Status__c = 'To be Sent';
              accont.Portal_Apply_User__c = userinfo.getUserid();
              update accont;
-         }*/
+         } */
          pagereference pr = new pagereference ('/'+Accid);
          pr.setRedirect(true);
          return pr;

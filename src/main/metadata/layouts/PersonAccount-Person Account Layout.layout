@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Create_Vehicle</customButtons>
     <customButtons>New_Sales_Lead_WS</customButtons>
     <customButtons>New_After_Sales_Lead_WS</customButtons>
     <customButtons>Merge</customButtons>
@@ -11,6 +10,7 @@
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>New_Case</customButtons>
+	<customButtons>Create_Vehicle</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -874,9 +874,9 @@
         <fields>Data_Source__c</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
-        <fields>Case_Dealer__c</fields>
+        <fields>Case_Dealer__c</fields>		
+        <fields>Case_Type__c</fields>
         <fields>Customer_Request__c</fields>
-        <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
         <sortField>CASES.CREATED_DATE</sortField>

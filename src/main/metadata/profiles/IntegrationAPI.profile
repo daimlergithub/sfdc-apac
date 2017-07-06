@@ -209,6 +209,10 @@
         <apexClass>AccountHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>VehicleEditExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>true</enabled>
@@ -5004,6 +5008,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.StouchUniqueId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15886,6 +15895,11 @@
         <field>Lead__c.Status_Category__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.StouchLeadID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Sub_BusinessUnit__c</field>
@@ -26283,6 +26297,10 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>Edit_Vehicle</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

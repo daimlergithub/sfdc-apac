@@ -6,18 +6,19 @@
                 <apex:outputField value="{!Case.Retail_Task__c}"/>
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:pageBlockSectionItem >
-                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLabel value="{!$Label.MBF_Contract_Number_Field}"/>
                     <apex:outputLink value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
                 </apex:pageBlockSectionItem>
-                <apex:outputField value="{!Case.Case_Complainant__c}"/>
+                <!--<apex:outputField value="{!Case.Case_Complainant__c}"/>-->
                 <apex:outputField value="{!Case.Lead__c}"/>
                 <apex:outputField value="{!Case.Case_Class__c}"/>
                 <apex:outputField value="{!Case.Inquiry_Comments__c  }"/>
                 <apex:outputField value="{!Case.Case_Type__c}"/>
                 <apex:outputField value="{!Case.Internal_Comments__c}"/>
+                <apex:outputField value="{!Case.Dealer_Contact__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Early Termination Actual" rendered="{!IF(Case.Case_Type__c == 'Early Termination',true,false)}">
+            <apex:pageblockSection title="{!$Label.MBF_Early_Termination_Actual_Section}" rendered="{!IF(Case.Case_Type__c == 'Early Termination',true,false)}">
                 <apex:outputField value="{!Case.Confirmation_person__c}"/>
                 <apex:outputField value="{!Case.Confirmed_with_Person_name__c}"/>
                 <apex:outputField value="{!Case.Payer_input_check__c}"/>
@@ -33,7 +34,7 @@
                 <apex:outputField value="{!Case.Enclosure_of_new_contract__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Payout Actual" rendered="{!IF(Case.Case_Type__c == 'Payout',true,false)}">
+            <apex:pageblockSection title="{!$Label.MBF_Payout_Actual_Section}" rendered="{!IF(Case.Case_Type__c == 'Payout',true,false)}">
                 <apex:outputField value="{!Case.Buyer__c}"/>
                 <apex:outputField value="{!Case.Quotation_Case_Number__c}"/>
                 <apex:outputField value="{!Case.Regarding_Payment_due_date__c}"/>
@@ -44,7 +45,7 @@
                 <apex:outputField value="{!Case.Enclosure_of_new_contract__c}"/>
             </apex:pageblockSection>
         
-            <apex:pageblockSection title="Re-lease Actual" rendered="{!IF(Case.Case_Type__c == 'Re-Lease',true,false)}">
+            <apex:pageblockSection title="{!$Label.MBF_Re_lease_Actual_Section}" rendered="{!IF(Case.Case_Type__c == 'Re-Lease',true,false)}">
                 <apex:outputField value="{!Case.Quotation_number__c}"/>
                 <apex:outputField value="{!Case.Quotation_Case_Number__c}"/>
                 <apex:outputField value="{!Case.CA_application_submitted__c}"/>
@@ -56,18 +57,20 @@
                 <apex:outputField value="{!Case.Contract_document_requested_date__c}"/>
             </apex:pageblockSection>
         
-            <apex:pageblockSection title="Return(Close end & SWP) Actual" rendered="{!IF(Case.Case_Type__c == 'Return (Close End)' || Case.Case_Type__c == 'Return (SWP)',true,false)}">
-                <apex:outputField value="{!Case.Pre_app_result_shared__c}"/>
-                <apex:outputField value="{!Case.Final_app_payment_confirmation__c}"/> 
-                <apex:outputField value="{!Case.Final_app_billing_date_of_penalty_charge__c}"/>
-                <apex:outputField value="{!Case.Final_app_due_date_of_penalty_charge__c}"/>
+            <apex:pageblockSection title="{!$Label.MBF_Return_Close_end_SWP_Actual_Section}" rendered="{!IF(Case.Case_Type__c == 'Return (Close End)' || Case.Case_Type__c == 'Return (SWP)',true,false)}">
                 <apex:outputField value="{!Case.Final_app_Planned_repossession_date__c}"/>
-                <apex:outputField value="{!Case.Pre_app_requested_date_to_JAAI__c}"/>
-                <apex:outputField value="{!Case.Final_app_date__c}"/>
                 <apex:outputField value="{!Case.Final_app_result_Invoice_amount_Penalty__c}"/>
+                <apex:outputField value="{!Case.Pre_app_requested_date_to_JAAI__c}"/>
+                <apex:outputField value="{!Case.Pre_app_result_shared__c}"/>
+                <apex:outputField value="{!Case.Final_app_date__c}"/>
+                <apex:outputField value="{!Case.Final_app_payment_confirmation__c}"/>
+                <apex:outputLabel />
+                <apex:outputField value="{!Case.Final_app_billing_date_of_penalty_charge__c}"/>
+                <apex:outputLabel />
+                <apex:outputField value="{!Case.Final_app_due_date_of_penalty_charge__c}"/>
             </apex:pageblockSection>
         
-            <apex:pageblockSection title="Retun(Open end) Actual" rendered="{!IF(Case.Case_Type__c == 'Return (Open End)',true,false)}">
+            <apex:pageblockSection title="{!$Label.MBF_Retun_Open_end_Actual_Section}" rendered="{!IF(Case.Case_Type__c == 'Return (Open End)',true,false)}">
                 <apex:outputField value="{!Case.Final_app_Planned_repossession_date__c}"/>
                 <apex:outputField value="{!Case.Invoice_amount_of_adjustment_charge__c}"/>
                 <apex:outputField value="{!Case.Due_date_of_adjustment_charge__c}"/>
@@ -75,19 +78,19 @@
                 <apex:outputField value="{!Case.Vehicle_repossession_date__c}"/>
             </apex:pageblockSection>
         
-            <apex:pageblockSection title="Re-loan Actual" rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}">
+            <apex:pageblockSection title="{!$Label.MBF_Re_loan_Actual_Section}" rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}">
                 <apex:outputField value="{!Case.Quotation_number__c}"/>
                 <apex:outputField value="{!Case.Enclosure_of_new_contract__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Authentification">
+            <apex:pageblockSection title="{!$Label.MBF_Authentication_Section}">
                 <apex:outputField value="{!Case.Full_Name__c}"/>
                 <apex:outputField value="{!Case.DOB__c}"/>
                 <apex:outputField value="{!Case.Registered_Phone_no__c}"/>
                 <apex:outputField value="{!Case.Authentification_Address__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Requestor">
+            <apex:pageblockSection title="{!$Label.MBF_Requestor_Section}">
                 <apex:outputField value="{!Case.Requestor__c}"/>
                 <apex:outputText rendered="{!IF(Case.Requestor__c == '' || Case.Requestor__c == 'Contractor' || Case.Requestor__c == 'Guarantor',true,false)}"/>
                 <apex:outputField value="{!Case.Requestor_Company_Person_Phone__c}" rendered="{!IF(Case.Requestor__c = 'Others',true,false)}"/>                
@@ -98,7 +101,7 @@
                 <apex:outputField value="{!Case.Requires_Dealer_Contact__c}" rendered="{!IF(Case.Requestor__c == 'Other Dealer',true,false)}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Receiver">
+            <apex:pageblockSection title="{!$Label.MBF_Receiver_Section}">
                 <apex:outputField value="{!Case.Receiver_Same_as_Requestor__c}"/>
                 <apex:outputText ></apex:outputText>
                 <apex:outputField value="{!Case.Receiver1_For_quotation__c}"/>
@@ -112,7 +115,7 @@
                 <apex:outputField value="{!Case.Receiver_address__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Payer">
+            <apex:pageblockSection title="{!$Label.MBF_Payer_Section}">
                 <apex:outputField value="{!Case.Payer_Same_as_Requestor__c}"/>
                 <apex:outputText ></apex:outputText>
                 <apex:outputField value="{!Case.Payer__c}"/>
@@ -127,7 +130,7 @@
                 <apex:outputField value="{!Case.Payer_address__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Dealer Suggestion">
+            <apex:pageblockSection title="{!$Label.MBF_Dealer_Suggestion}">
                 <apex:outputField value="{!Case.Already_Contacted_Dealer__c}"/>
                 <apex:outputField value="{!Case.Requires_Dealer_Contact__c}"/>
                 <apex:outputField value="{!Case.Case_Dealer__c}"/>

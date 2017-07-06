@@ -3,7 +3,7 @@
         <apex:pageBlock mode="maindetail">
         
         <apex:pageblockSection >
-                <apex:outputField value="{!Case.Case_Complainant__c}"/>
+                <!--<apex:outputField value="{!Case.Case_Complainant__c}"/>-->
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:outputField value="{!Case.Case_Class__c}"/>
                 <apex:outputField value="{!Case.Case_Type__c}"/>
@@ -16,22 +16,22 @@
                 <apex:outputField value="{!Case.Customer_Satisfaction__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Query Information">
+            <apex:pageblockSection title="{!$Label.MBF_Query_Information_Section}">
                 <apex:outputField value="{!Case.Customer_Type__c}"/>
                 <apex:outputField value="{!Case.Retail_Task__c}"/>
                 <apex:outputField value="{!Case.Related_Department__c}"/>
                 <apex:pageBlockSectionItem >
-                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLabel value="{!$Label.MBF_Contract_Number_Field}"/>
                     <apex:outputLink value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
                 </apex:pageBlockSectionItem>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Dealer Information">
+            <apex:pageblockSection title="{!$Label.MBF_Dealer_Information_Section}">
                 <apex:outputField value="{!Case.Case_Dealer__c}"/>
                 <apex:outputField value="{!Case.Case_Dealer_User__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection title="Description information" columns="1">
+            <apex:pageblockSection title="{!$Label.MBF_Description_information_Section}" columns="1">
                 <apex:outputField value="{!Case.Customer_Statement__c}"/>
                 <apex:outputField value="{!Case.MPC_Internal_Notes__c}"/>
                 <apex:outputField value="{!Case.PR_Comment_for_Dealer__c}"/>

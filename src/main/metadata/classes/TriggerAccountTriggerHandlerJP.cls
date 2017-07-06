@@ -25,33 +25,14 @@ implements TriggerHandlerIf
             system.debug('Entered before insert TRIGGER');
             AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
             AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
-            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new,Trigger.isInsert,trigger.isupdate);
         }
-        if(isAfter && isInsert )
-        {
-            system.debug('Entered aFTER TRIGGER');
-         // AccountHelperJP.handleAfterInsertEvent(Trigger.new);
-        
-        }
-        
-         if(isAfter && isUpdate )
-        {
-            system.debug('Entered aFTER update TRIGGER');
-        //  AccountHelperJP.handleAfterInsertEvent(Trigger.new);
-          if(LeadUtil.accountTrigger){
-          LeadUtil.vrTrigger = false;
-
-          AccountHelperJP.UpdateVRonAccount (trigger.new);
-                    }
-        
-        }
-
         if(isBefore && isUpdate)
         {
             system.debug('Entered before update TRIGGER');
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new,Trigger.isInsert,trigger.isupdate);
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
         }
         if(isAfter && isInsert && !System.isFuture())
@@ -60,7 +41,7 @@ implements TriggerHandlerIf
             system.debug('Entered aFTER insert TRIGGER');
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
-             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);            
+            AccountHelperJP.CreateRetailCopy(trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);            
           //  if(usr.Profile.Name.contains('Dealer') && LeadUtil.Campaigntrigger){
            
         //  }
@@ -73,7 +54,12 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-
+            AccountHelperJP.CreateRetailCopy(trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+            if(LeadUtil.accountTrigger)
+            {
+                LeadUtil.vrTrigger = false;
+                AccountHelperJP.UpdateVRonAccount (trigger.new);
+            }
         }
         
         if(isAfter && isDelete && !System.isFuture())
@@ -82,16 +68,6 @@ implements TriggerHandlerIf
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
             
-        }
-        /*
-        # Description:Calling UpdateRetailCopy to update the retail Copy when related account(Account 1) is updated.
-        # SFDCJP-669
-        # Date: 02/12/2016
-        # Author : Kiran
-        */
-        if(isAfter && isUpdate){
-            System.debug('----->Is update is called');
-          AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new,(Map<Id,Account>)Trigger.OldMap);
         }
     }
     

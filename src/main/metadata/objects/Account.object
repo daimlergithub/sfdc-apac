@@ -15001,6 +15001,18 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>StouchUniqueId__c</fullName>
+        <description>Unique id for Stouch.</description>
+        <externalId>false</externalId>
+        <label>StouchUniqueId</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Suffix__c</fullName>
         <description>Suffix - shall be displayed together with Title Fist Name &amp; Surname</description>
@@ -19325,7 +19337,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Apparel %26 Accessories%2FFashion</fullName>
+                <fullName>Apparel &amp; Accessories/Fashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48556,7 +48568,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Apparel %26 Accessories%2FFashion</fullName>
+                <fullName>Apparel &amp; Accessories/Fashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -57789,12 +57801,20 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <availability>online</availability>
         <description>Create new vehicle record</description>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Create Vehicle</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/apex/Create_Vehicle?accId={!Account.Id}</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
+var market = '{!Account.MD__c}';
+if(market == 'JP'){
+window.open("{!URLFOR($Site.Prefix)}/apex/Create_Vehicle?accId={!Account.Id}");
+}
+else
+{
+alert("{!$Label.Check_DuplicatesErrorMsg}");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>
@@ -58445,30 +58465,25 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <masterLabel>Send to MyMercedes</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var market = "{!Account.MD__c}"; 
-if(market == 'JP') 
+var FirstName = "{!Account.FirstName}"; 
+var FirstNameNative = "{!Account.FirstName_Native_1__c}"; 
+var LastNameNative = "{!Account.LastName_Native_1__c}"; 
+var Birthdate = "{!Account.PersonBirthdate}"; 
+var Gender = "{!Account.Gender__c}"; 
+if(market == 'JP' &amp;&amp; FirstName != '' &amp;&amp; FirstNameNative != '' &amp;&amp; LastNameNative != '' &amp;&amp; Gender != '' &amp;&amp; Birthdate != '') 
 { 
-
-if(typeof(srcUp) == 'function') 
+window.open('{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}'); 
+} 
+else if( market == 'JP' &amp;&amp; (FirstName == '' || FirstNameNative == '' || LastNameNative == '' || Gender == '' || Birthdate == ''))
 { 
-if (sforce.console.isInConsole()) { 
-srcUp('/apex/CustomerMymercInterface?id={!Account.Id}&amp;isdtp=vw'); 
-} else { 
-window.open('/apex/CustomerMymercInterface?id={!Account.Id}','_blank'); 
-
-} 
-} 
-else { 
-window.open("{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}",'_blank'); 
-} 
-} 
-else 
+alert("{!$Label.SendToMyMercedesJPUserErr}"); 
+}
+else if(market != 'JP')
 { 
-alert("{!$Label.Check_DuplicatesErrorMsg}"); 
+alert("{!$Label.SendToMyMercedesErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>

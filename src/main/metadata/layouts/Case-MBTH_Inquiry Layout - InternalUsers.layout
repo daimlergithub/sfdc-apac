@@ -32,7 +32,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>MBTH_Case_Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>MBTH_Case_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Case_Subtype__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -101,10 +109,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBTH_Case_Subtype__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Case_Situation__c</field>
             </layoutItems>
             <layoutItems>
@@ -142,10 +146,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Priority</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_Case_Class__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -214,26 +214,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CarBrandOne__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarModelOne__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarBrandTwo__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarModelTwo__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarBrandThree__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Repeat_Complaint_Times__c</field>
             </layoutItems>
             <layoutItems>
@@ -288,22 +268,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Remarks__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarClassOne__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarClassTwo__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarClassThree__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarModelThree__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -457,7 +421,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PR_Comment_for_Dealer__c</field>
-				</layoutItems>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

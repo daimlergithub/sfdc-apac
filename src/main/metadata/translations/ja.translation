@@ -140,7 +140,15 @@
         <label>了承済み</label>
         <name>Accepted</name>
     </customLabels>
-    <customLabels>
+	<customLabels>
+        <label>編集</label>
+        <name>Vehicle_Edit</name>
+    </customLabels>
+	<customLabels>
+        <label>保有情報</label>
+        <name>Registration_Information</name>
+    </customLabels>
+	<customLabels>
         <label>付属品価格＋販売店装備品価格</label>
         <name>Accessory_price_Dealer_Option_price</name>
     </customLabels>
@@ -935,6 +943,10 @@
     <customLabels>
         <label><!-- Case received by Phone etc --></label>
         <name>Case_received_by_Phone_etc</name>
+    </customLabels>	
+    <customLabels>
+        <label>この車両に適切なVRを追加してください</label>
+        <name>ChangeContacttarget</name>
     </customLabels>
     <customLabels>
         <label><!-- Check DuplicatesErrorMsg --></label>
@@ -1653,7 +1665,7 @@
         <name>FinanceMethod</name>
     </customLabels>
     <customLabels>
-        <label>試乗</label>
+        <label>ファイナンス見積</label>
         <name>Finance_Estimate</name>
     </customLabels>
     <customLabels>
@@ -1665,7 +1677,7 @@
         <name>Finance_Estimate_History</name>
     </customLabels>
     <customLabels>
-        <label>商品説明提案</label>
+        <label>ファイナンス提案</label>
         <name>Finance_Proposal</name>
     </customLabels>
 	<customLabels>
@@ -1869,7 +1881,7 @@
         <name>Insurance_Promotion</name>
     </customLabels>
     <customLabels>
-        <label>ファイナンス提案</label>
+        <label>自動車保険提案</label>
         <name>Insurance_Proposal</name>
     </customLabels>
     <customLabels>
@@ -4228,7 +4240,7 @@
         <name>Selected_Contacts</name>
     </customLabels>
 	<customLabels>
-        <label>送信内容の確認</label>
+        <label>送信内容の確認　＊注意：SPO送信時はアカウントの"自宅"住所が送信されます。送信前に自宅住所が空白でないかをアカウント画面でご確認ください</label>
         <name>Selected_Record</name>
     </customLabels>
     <customLabels>
@@ -4292,7 +4304,7 @@
         <name>Service_Product_Promotion</name>
     </customLabels>
     <customLabels>
-        <label>自動車保険提案</label>
+        <label>サービスプログラム提案 </label>
         <name>Service_Program_Proposal</name>
     </customLabels>
     <customLabels>
@@ -4316,7 +4328,7 @@
         <name>Share</name>
     </customLabels>
     <customLabels>
-        <label>サービスプログラム提案</label>
+        <label>簡易見積</label>
         <name>Simple_Estimation</name>
     </customLabels>
     <customLabels>
@@ -4596,6 +4608,10 @@
         <name>Ten</name>
     </customLabels>
     <customLabels>
+        <label>車両顧客関係</label>
+        <name>Test</name>
+    </customLabels>
+    <customLabels>
         <label>車両手放し情報</label>
         <name>TerminateVehicleRelationship</name>
     </customLabels>
@@ -4604,7 +4620,7 @@
         <name>Terminate_Vehicle_Relationship</name>
     </customLabels>
     <customLabels>
-        <label><!-- Test Drive --></label>
+        <label>試乗</label>
         <name>Test_Drive</name>
     </customLabels>
     <customLabels>

@@ -84,10 +84,13 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                     task.ActivityDate = camp.Response_Date__c;
                     task.Campaign_Name__c = camp.Campaign_Code__c;
                     task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                    task.whoid = campaignMemberRec.Contact_Id__c ;
+                   // task.whoid = campaignMemberRec.Contact_Id__c ;
+				   task.Contract__c = campaignMemberRec.Contract__c ;
+				   task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                     task.Account_Name__c =campaignMemberRec.Company_Name__c;
                     task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
                     task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
+					task.Campaign_Member_ID__c = campaignMemberRec.Name;
                     tskLst.add(task);
                 }
                 

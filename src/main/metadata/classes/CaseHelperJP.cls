@@ -442,10 +442,13 @@ List<Account> accUpdLst = new List<Account>();
  
 }
  
-          /*
+           /*
  Sent email to Dealer Sales/Dealer Service manager profile users if Retail_Case_Notice_Dealer_Flag__c =true in case object.
+ Modified by : Venky
+ Modified on : 7/5/2017
+ Description : Changes related to SFDCJP-2728,Every time case is edited email is sending i  have  added a condition it will send  only  when Retail_Case_Notice_Dealer_Flag__c true
  */
- public static void SendEmailToNotifyDealer(List<Case> caseList)
+ public static void SendEmailToNotifyDealer(List<Case> caseList,map<id,Case> OldcaseList)
     {
     Set<ID> dealerID=new Set<Id>();
     Set<ID> dealerName=new Set<Id>();
@@ -479,7 +482,7 @@ List<Account> accUpdLst = new List<Account>();
                              if(c.Case_Dealer__c !=null )
                              {
                              System.debug('user email details');
-                              if(c.Retail_Case_Notice_Dealer_Flag__c  ==true)
+                              if((trigger.isInsert && c.Retail_Case_Notice_Dealer_Flag__c  ==true) || (trigger.isUpdate && c.Retail_Case_Notice_Dealer_Flag__c  != OldcaseList.get(c.id).Retail_Case_Notice_Dealer_Flag__c  && c.Retail_Case_Notice_Dealer_Flag__c  ==true) )
                               {
                                Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
                             mail.setTargetObjectId(u.id);  
@@ -563,6 +566,12 @@ List<Account> accUpdLst = new List<Account>();
          Set<String> DealerGccode = new Set<String>();
           List<Account> DealeAcc=new List<Account>();  
         Id caseRecId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+        Id caseMBFInquiry = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_FinanceInquriy);
+        Id caseMBFComplaint = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_Complaint);
+        Id caseMBFContract = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_ContractClosing);
+        Id caseMBFRequest = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_CustomerRequest);
+        Id caseMBFQuotation = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_FinanceQuotation);
+        
         List<CaseShare> CaseSharingRecord = new List<CaseShare>();
         List<Caseshare> shareList = new List<Caseshare>();
         List<Case> caserecList = new List<Case>();
@@ -582,7 +591,7 @@ List<Account> accUpdLst = new List<Account>();
         {
         for(Case c : shcaseList)
         {
-            if(c.RecordTypeId == caseRecId && c.Dealer_Contact__c == 'Yes' && c.Case_Dealer__c != null)
+            if((c.RecordTypeId == caseRecId || c.RecordTypeId == caseMBFInquiry || c.RecordTypeId == caseMBFComplaint || c.RecordTypeId == caseMBFContract || c.RecordTypeId == caseMBFRequest || c.RecordTypeId == caseMBFQuotation) && c.Dealer_Contact__c == 'Yes' && c.Case_Dealer__c != null)
              {
                 shrcaseId.add(c.Id);
                 dealerId.add(c.Case_Dealer__c);

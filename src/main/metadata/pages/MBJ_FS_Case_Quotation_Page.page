@@ -17,10 +17,10 @@
                 </apex:inputField>
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:pageBlockSectionItem >
-                    <apex:outputLabel value="Contract Number"/>
+                <apex:outputLabel value="{!$Label.MBF_Contract_Number_Field}"/>
                     <apex:outputLink id="contractNoId" value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
                 </apex:pageBlockSectionItem>
-                <apex:inputField value="{!Case.Case_Complainant__c}"/>
+                <!--<apex:inputField value="{!Case.Case_Complainant__c}"/>-->
                 <apex:inputField value="{!Case.ownerId}"/>
                 <apex:inputField value="{!Case.Lead__c}"/>
                 <apex:inputField value="{!Case.Case_Class__c}"/>
@@ -29,10 +29,11 @@
                     <apex:actionSupport event="onchange" action="{!nullifyCaseQuotationPageSection}" reRender="panelFirstid,panelSecondid,panelThirdid,panelFourthid,panelFifthid,WOCA1id,WOCA2id,docReqid,panelLastid"/>
                 </apex:inputField>
                 <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
+                <apex:inputField value="{!Case.Dealer_Contact__c}"/>
             </apex:pageblockSection>
             
             <apex:outputPanel id="panelFirstid">
-                <apex:pageblockSection title="Early Termination" rendered="{!IF(Case.Case_Type__c == 'Early Termination',true,false)}"> 
+                <apex:pageblockSection title="{!$Label.MBF_Early_Termination_Section}" rendered="{!IF(Case.Case_Type__c == 'Early Termination',true,false)}"> 
                     <apex:inputField value="{!Case.Retail_Non_Retail_car__c}"/>
                     <apex:inputField value="{!Case.ET_Type_for_Close_Mileage__c}"/>
                     <apex:inputField value="{!Case.Voluntary_insurance_check__c}"/>
@@ -47,14 +48,14 @@
             </apex:outputPanel>
             
             <apex:outputPanel id="panelSecondid">
-                <apex:pageblockSection title="Payout" rendered="{!IF(Case.Case_Type__c == 'Payout',true,false)}"> 
+                <apex:pageblockSection title="{!$Label.MBF_Payout_Section}" rendered="{!IF(Case.Case_Type__c == 'Payout',true,false)}"> 
                     <apex:inputField value="{!Case.Buyer__c}"/>
                     <apex:inputField value="{!Case.Replacement__c}"/>
                 </apex:pageblockSection>
             </apex:outputPanel>
             
             <apex:outputPanel id="panelThirdid">
-                <apex:pageblockSection title="Re-Lease" rendered="{!IF(Case.Case_Type__c == 'Re-Lease',true,false)}"> 
+                <apex:pageblockSection title="{!$Label.MBF_Release_Section}" rendered="{!IF(Case.Case_Type__c == 'Re-Lease',true,false)}"> 
                     <apex:inputField value="{!Case.Mileage__c}"/>
                     <apex:inputField value="{!Case.Accident_repair_history__c}"/>
                     <apex:inputField value="{!Case.Re_lease_voluntary_insurance_check__c}"/>
@@ -64,7 +65,7 @@
             </apex:outputPanel>
             
             <apex:outputPanel id="panelFourthid">
-                <apex:pageblockSection title="Re-loan" rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}"> 
+                <apex:pageblockSection title="{!$Label.MBF_Re_Loan_Section}" rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}"> 
                     <apex:inputField value="{!Case.Down_payment__c}"/>
                     <apex:inputField value="{!Case.Bonus_payment_amount__c}"/>
                     <apex:inputField value="{!Case.Bonus_payment_month_1_month_2__c}"/>
@@ -74,24 +75,25 @@
             </apex:outputPanel>
             
             <apex:outputPanel id="panelFifthid">
-                <apex:pageblockSection title="Pre-Appraisal (Close End) or Pre-Appraisal (SWP)" rendered="{!IF(Case.Case_Type__c == 'Pre-Appraisal (Close End)' || Case.Case_Type__c == 'Pre-Appraisal (SWP)' ,true,false)}">
+                <apex:pageblockSection title="{!$Label.MBF_Pre_Appraisal_Close_End_or_Pre_Appraisal_SWP_Section}" rendered="{!IF(Case.Case_Type__c == 'Pre-Appraisal (Close End)' || Case.Case_Type__c == 'Pre-Appraisal (SWP)' ,true,false)}">
                     <apex:inputField value="{!Case.Pre_app_Location__c}"/>
-                    <apex:inputField value="{!Case.Pre_app_requested_date_to_JAAI__c}"/>
-                    <apex:inputField value="{!Case.Pre_app_result_shared__c}"/>
+                    <apex:outputLabel />
                     <apex:inputField value="{!Case.Pre_app_1st_requested_date__c }"/>
+                    <apex:inputField value="{!Case.Pre_app_requested_date_to_JAAI__c}"/>
                     <apex:inputField value="{!Case.Pre_app_2nd_requested_date__c}"/>
+                    <apex:inputField value="{!Case.Pre_app_result_shared__c}"/>
                     <font color="red"><U>Note: </U>Saturday/Sunday and National Holiday is not accepted JAAI</font>
                 </apex:pageblockSection>
             </apex:outputPanel>
             
-            <apex:pageblockSection title="Authentification">
+            <apex:pageblockSection title="{!$Label.MBF_Authentication_Section}">
                 <apex:inputField value="{!Case.Full_Name__c}"/>
                 <apex:inputField value="{!Case.DOB__c}"/>
                 <apex:inputField value="{!Case.Registered_Phone_no__c}"/>
                 <apex:inputField value="{!Case.Authentification_Address__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection id="sec2" title="Requestor">
+            <apex:pageblockSection id="sec2" title="{!$Label.MBF_Requestor_Section}">
                 <apex:inputField id="reqId" value="{!Case.Requestor__c}">
                     <apex:actionSupport event="onchange" action="{!nullifyReqCompPersonPhone}" reRender="sec2,sec3,sec4,rss1id,refqId,reCppId,rcvInDlrId,rcvSprtDlrId,rss11id,refq1Id,reCpp1Id,pyrInDlrId,pyrSprtDlrId"/>
                 </apex:inputField>
@@ -110,7 +112,7 @@
                 <apex:inputField value="{!Case.Request_date_time__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection id="sec3" title="Receiver">
+            <apex:pageblockSection id="sec3" title="{!$Label.MBF_Receiver_Section}">
                 <apex:inputcheckbox id="rss1id" value="{!Case.Receiver_Same_as_Requestor__c}" disabled="{!Case.Requestor__c == ''}">
                     <apex:actionSupport event="onchange" action="{!ReceiverSameAsRequestor}" rerender="sec3,refqId,rcvOutputText,reCppId,rcvInDlrId,rcvSprtDlrId"/>
                 </apex:inputcheckbox>
@@ -128,7 +130,7 @@
                 <apex:inputField value="{!Case.Receiver_Fax_Email_address__c}"/>
             </apex:pageblockSection>
             
-            <apex:pageblockSection id="sec4" title="Payer">
+            <apex:pageblockSection id="sec4" title="{!$Label.MBF_Payer_Section}">
                 <apex:inputcheckbox id="rss11id" value="{!Case.Payer_Same_as_Requestor__c}" disabled="{!Case.Requestor__c == ''}">
                     <apex:actionSupport event="onchange" action="{!PayerSameAsRequestor}" rerender="sec4,refq1Id,pyrOutputText,reCpp1Id,pyrInDlrId,pyrSprtDlrId"/>
                 </apex:inputcheckbox>
@@ -151,8 +153,7 @@
                 <apex:inputField value="{!Case.Document_sending_date__c}"/>
             </apex:pageBlockSection>
             
-            /*Added for Escalate to MBF and Escalate to Dealer functionality on 14June2017 */
-            <apex:pageblockSection title="Dealer Suggestion">
+            <apex:pageblockSection title="{!$Label.MBF_Dealer_Suggestion}">
                 <apex:inputField value="{!Case.Already_Contacted_Dealer__c}"/>
                 <apex:inputField value="{!Case.Requires_Dealer_Contact__c}"/>
                 <apex:inputField value="{!Case.Case_Dealer__c}"/>

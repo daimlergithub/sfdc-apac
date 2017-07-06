@@ -65,7 +65,7 @@ public class SendToJPOS{
        AddRecords=[select id,Address_Type__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,ZipCode__c from Address__c where Customer__c=:AccId ];
           if(AddRecords!=null && AddRecords.Size()>0)
                 {
-       address=[select id,Customer__c,Address_Code__c ,ZipCode__c,Province__c,Province_Native__c,Block__c,Block_Native__c,City__c,City_Native__c,District__c,District_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c from address__c where Customer__c=:AccId];     
+       address=[select id,Customer__c,Address_Type__c,Address_Code__c,ZipCode__c,Province__c,Province_Native__c,Block__c,Block_Native__c,City__c,City_Native__c,District__c,District_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c from address__c where Customer__c=:AccId];     
        }
        
        
@@ -405,11 +405,12 @@ public class SendToJPOS{
                    ShowHideError=True;
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_select_Retail_Sales_Consultant_in_Account_Link));
                    }
-                  if(AssignedDealer.DMS_UserID__c==null)
+				   // Commented as part of SFDCJP-2737
+                 /* if(AssignedDealer.DMS_UserID__c==null)
                    {
                    ShowHideError=True;
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Assigned_Dealer_should_not_be_null));
-                   } 
+                   } */
             }
             
                // If customer is Person account send account information to EP        
