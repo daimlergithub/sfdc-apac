@@ -6,8 +6,10 @@
     <narrowComponents>standard-MessagesAndAlerts</narrowComponents>
     <narrowComponents>Custom link Notification</narrowComponents>
     <narrowComponents>Mass Update Assignment</narrowComponents>
+    <narrowComponents>カスタムリンク</narrowComponents>
     <wideComponents>Announcements</wideComponents>
     <wideComponents>standard-Tasks</wideComponents>
     <wideComponents>standard-Calendar</wideComponents>
     <wideComponents>standard-ProcessWorkitems</wideComponents>
+    <wideComponents>お知らせ</wideComponents>
 </HomePageLayout>
