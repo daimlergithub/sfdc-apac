@@ -43,7 +43,7 @@ public class ContactTableController
     public AreaCodeTranslation__mdt areacodeKR ;
     Public Boolean profilename{get;set;}
     public boolean editMode1 {get; set;}
-	public boolean editMode2 {get; set;}
+    public boolean editMode2 {get; set;}
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
     /**
     *@Description : Constructor.
@@ -59,6 +59,7 @@ public class ContactTableController
     {
         editMode = false;
         editMode1 = false;
+        editMode2 = false;
         AccId = stdController.getId();
         if(!test.isRunningTest()){  
         stdController.addFields(new List<String> {'Id','Fax_Last_Modified_By__c','Work_Fax_Last_Modified_By__c','Fax_Last_Modified_Date__c','Fax2_Last_Modified_Date__c','Mobile__c','Mobile2__c','Individual_Home_Phone__c','Home_Phone_2__c','Work_Phone__c','Phone','Email__c','Email2__c','Email3__c','Fax2__c','Fax','Fax_Validity2__c','Fax_Validity__c','Email_Status__c','Email_Status_2__c','Work_Phone_Last_Modified_Date__c','Work_Phone_Last_Modified_Date2__c',
@@ -79,7 +80,7 @@ public class ContactTableController
         if(p.Name.contains('Dealer')){      
             disableButtons = true;          
         }
-		 if(p.Name.contains('Japan')){
+         if(p.Name.contains('Japan')){
           editMode2 = false;
         
         }
@@ -328,6 +329,15 @@ public class ContactTableController
     {
         editMode = true; 
         editMode1 = true;
+        
+         profile p = [select Name from profile where id =:userinfo.getprofileId()];
+         if(p.Name.contains('Japan')){
+          editMode2 = false;
+        
+        }else{
+        
+        editMode2 = true;
+        }
         if(ParAcc.MD__c == 'KR'){
             PhoneNumberFormat();
         }
@@ -642,6 +652,7 @@ public class ContactTableController
     {
         editMode = false; 
         editMode1 = false;
+        
         PageReference page = new PageReference('/apex/ContactTable?Id='+ParAcc.Id);
         page.setRedirect(true);
         return page;
