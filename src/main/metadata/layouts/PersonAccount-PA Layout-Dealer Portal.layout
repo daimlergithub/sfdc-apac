@@ -643,7 +643,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Dealer_Lead_Status__c</fields>
+        <fields>Lead_Desired_Service__c</fields>
         <fields>Assigned_Date_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
         <fields>Lead_Latest_Phase__c</fields>
