@@ -874,9 +874,9 @@
         <fields>Data_Source__c</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
-        <fields>Case_Dealer__c</fields>
+        <fields>Case_Dealer__c</fields>		
+        <fields>Case_Type__c</fields>
         <fields>Customer_Request__c</fields>
-        <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
         <sortField>CASES.CREATED_DATE</sortField>
