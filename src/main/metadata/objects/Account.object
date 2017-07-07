@@ -58460,42 +58460,44 @@ var market = "{!Account.MD__c}";
 if(market == 'JP') 
 { 
 
-if(typeof(srcUp) == 'function') 
-{ 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
-} else { 
-window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openSubtab(result) { 
+
+
+sforce.console.openSubtab(result.id,'/apex/SendToJPOS?id={!Account.Id}&isdtp=vw'); 
 
 } 
-}  
+) 
+} 
+
+else 
+{ 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+} 
 } 
 else 
 { 
 alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
-	<webLinks>
+	 <webLinks>
         <fullName>Send_to_JPOS_Dealer</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>SendtoJPOS</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Send to JPOS</masterLabel>
+        <openType>Displayinexistingwindowwithoutsidebar</openType>
+        <page>SendToJPOS</page>
+        <position>none</position>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}  
-
-var market = "{!Account.MD__c}"; 
-if(market == 'JP') 
-{ 
-
-window.open("{!URLFOR($Site.Prefix)}/apex/SendToJPOS?id={!Account.Id}",'_blank');  
-} 
-else 
-{ 
-alert("{!$Label.Check_DuplicatesErrorMsg}"); 
-}</url>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
@@ -58541,28 +58543,24 @@ else if(market != 'JP')
 { 
 alert("{!$Label.SendToMyMercedesErrorMsg}"); 
 }</url>
-    </webLinks>	
+    </webLinks>
 	<webLinks>
         <fullName>Send_to_SPO_Dealers</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
         <masterLabel>Send to SPO</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>Displayinexistingwindowwithoutsidebar</openType>
+        <page>SendAccountInfoToSPO</page>
+        <position>none</position>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}  
-
-var market = "{!Account.MD__c}"; 
-if(market == 'JP') 
-{ 
-  
-window.open("{!URLFOR($Site.Prefix)}/apex/SendAccountInfoToSPO?id={!Account.Id}",'_blank');  
-} 
-else 
-{ 
-alert("{!$Label.Check_DuplicatesErrorMsg}"); 
-}</url>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
     </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
@@ -58580,15 +58578,21 @@ var market = "{!Account.MD__c}";
 if(market == 'JP') 
 { 
 
-if(typeof(srcUp) == 'function') 
-{ 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
-} else { 
-window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openSubtab(result) { 
+
+
+sforce.console.openSubtab(result.id,'/apex/SendAccountInfoToSPO?id={!Account.Id}&isdtp=vw'); 
 
 } 
-}  
+) 
+} 
+
+else 
+{ 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+} 
 } 
 else 
 { 
