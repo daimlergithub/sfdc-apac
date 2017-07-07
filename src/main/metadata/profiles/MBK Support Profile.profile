@@ -6984,21 +6984,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Authorized_Dealer_Information__kav.Attachment__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Authorized_Dealer_Information__kav.Details__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Authorized_Dealer_Information__kav.VIP__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Batch_Job__c.Batch_Type__c</field>
         <readable>false</readable>
@@ -24879,9 +24864,6 @@
     <layoutAssignments>
         <layout>Audit_Trail__c-Audit Trail Layout</layout>
         <recordType>Audit_Trail__c.CampaignMember</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Authorized_Dealer_Information__kav-Authorized Dealer Information Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Batch_Job__c-Batch Job Layout</layout>
