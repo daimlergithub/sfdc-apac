@@ -2682,6 +2682,10 @@
         <name>Other_Phone_2</name>
     </customLabels>
     <customLabels>
+        <label>その他</label>
+        <name>Others_Data_Source</name>
+    </customLabels>	
+    <customLabels>
         <label>使用しないでください</label>
         <name>Others</name>
     </customLabels>
