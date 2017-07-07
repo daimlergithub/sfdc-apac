@@ -2,7 +2,6 @@
 <HomePageLayout xmlns="http://soap.sforce.com/2006/04/metadata">
     <narrowComponents>standard-StandardSearch</narrowComponents>
     <narrowComponents>standard-RecentItems</narrowComponents>
-    <narrowComponents>standard-UsefulLinks</narrowComponents>
     <narrowComponents>standard-MessagesAndAlerts</narrowComponents>
     <narrowComponents>Custom link Notification</narrowComponents>
     <narrowComponents>Mass Update Assignment</narrowComponents>
