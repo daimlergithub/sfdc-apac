@@ -72,8 +72,8 @@ public with sharing class AccountHelperJPTest
                                 Phone = '0801801110',
                                 Area_code__c = '0101',
                                 //MD__c = 'JP',
-                                LastName = 'galaxy1',
-                                FirstName = 'First Name',
+                                LastName = '刈乾冠寒刊勘',
+                                FirstName = '刈乾冠寒刊勘',
                                 Salutation = 'Unknown',      
                                 Province__c = 'Shanghai',
                                 ZipCode__c= '1002347',
@@ -151,7 +151,7 @@ public with sharing class AccountHelperJPTest
     {  
         createTestData(); 
         Test.Starttest();  
-            personAcc.LastName = 'galaxy123';
+            personAcc.LastName = '刈乾冠寒刊勘';
             personAcc.Gender__c = 'Female';
             //personAcc.Fax= '123456';
             personAcc.Allow_Data_Sharing2__c = 'Yes';
@@ -169,7 +169,7 @@ public with sharing class AccountHelperJPTest
         createTestData(); 
         Test.Starttest();  
         accountOldMap.put(personAcc.Id,personAcc);    
-        personAcc.LastName = 'galaxy123';   
+        personAcc.LastName = '刈乾冠寒刊勘';   
         update personAcc;  
         accountlist.add(personAcc);
         
@@ -215,8 +215,8 @@ public with sharing class AccountHelperJPTest
                                               Phone = '0801801110',
                                               Area_code__c = '0101',
                                               //MD__c = 'JP',
-                                              LastName = 'galaxy1',
-                                              FirstName = 'First Name',
+                                              LastName = '刈乾冠寒刊勘',
+                                              FirstName = '刈乾冠寒刊勘',
                                               Salutation = 'Unknown',      
                                               Province__c = 'Shanghai',
                                               ZipCode__c= '1002347',
@@ -242,8 +242,8 @@ public with sharing class AccountHelperJPTest
                                               Phone = '0801801110',
                                               Area_code__c = '0101',
                                               //MD__c = 'JP',
-                                              LastName = 'galaxy1',
-                                              FirstName = 'First Name',
+                                              LastName = '刈乾冠寒刊勘',
+                                              FirstName = '刈乾冠寒刊勘',
                                               Salutation = 'Unknown',      
                                               Province__c = 'Shanghai',
                                               ZipCode__c= '1002347',
@@ -274,7 +274,7 @@ public with sharing class AccountHelperJPTest
             oldList.add(listCampaign);
             map<id,Account> oldMap = new map<id,Account>();
             oldMap.put(listCampaign.id, listCampaign);
-            personAcc13.LastName = 'galaxy2';
+            personAcc13.LastName = '刈乾冠寒刊勘';
             personAcc13.Fax='035456232';
             personAcc13.Allow_Data_Sharing2__c='Yes';
             personAcc13.Gender__c='Female';

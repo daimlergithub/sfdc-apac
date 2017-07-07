@@ -26,11 +26,11 @@ public class TriggerCaseTriggerHandlerKRTest{
        System.runAs(testUser){
            //Create Account
            testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
-           testAccount1.MD__c = 'JP';
+           testAccount1.MD__c = 'KR';
            update testAccount1;
            
            testAccount2 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
-           testAccount2.MD__c = 'JP';
+           testAccount2.MD__c = 'KR';
            update testAccount2;
            
            system.debug('Account 1' +testAccount1);
@@ -40,13 +40,13 @@ public class TriggerCaseTriggerHandlerKRTest{
            Case testCase1 = (Case)UtilTestData.createSobject(new Case(), UtilConstant.INQUIRY);
            testCase1.Case_Class__c = 'Complaint';
            testCase1.AccountId = testAccount1.Id;
-           testCase1.MD__c = 'JP';
+           testCase1.MD__c = 'KR';
            update testCase1;
            
            Case testCase2 = (Case)UtilTestData.createSobject(new Case(), UtilConstant.INQUIRY);
            testCase2.Case_Class__c = 'Complaint';
            testCase2.AccountId = testAccount2.Id;
-           testCase2.MD__c = 'JP';
+           testCase2.MD__c = 'KR';
            update testCase2;
            TriggerCaseTriggerHandlerJP TriggerCaseTriggerJP = new TriggerCaseTriggerHandlerJP();
            TriggerCaseTriggerJP.handleTrigger(false, false, false, false, false);
