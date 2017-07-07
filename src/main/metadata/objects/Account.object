@@ -58468,10 +58468,29 @@ srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw');
 window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
 
 } 
+}  
 } 
-else { 
-window.open("{!URLFOR($Site.Prefix)}/apex/SendToJPOS?id={!Account.Id}",'_blank'); 
-} 
+else 
+{ 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Send_to_JPOS_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>SendtoJPOS</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}  
+
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+{ 
+
+window.open("{!URLFOR($Site.Prefix)}/apex/SendToJPOS?id={!Account.Id}",'_blank');  
 } 
 else 
 { 
@@ -58506,6 +58525,28 @@ else if(market != 'JP')
 { 
 alert("{!$Label.SendToMyMercedesErrorMsg}"); 
 }</url>
+    </webLinks>	
+	<webLinks>
+        <fullName>Send_to_SPO_Dealers</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send to SPO</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}  
+
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+{ 
+  
+window.open("{!URLFOR($Site.Prefix)}/apex/SendAccountInfoToSPO?id={!Account.Id}",'_blank');  
+} 
+else 
+{ 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
@@ -58531,10 +58572,7 @@ srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw');
 window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
 
 } 
-} 
-else { 
-window.open("{!URLFOR($Site.Prefix)}/apex/SendAccountInfoToSPO?id={!Account.Id}",'_blank'); 
-} 
+}  
 } 
 else 
 { 
