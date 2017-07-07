@@ -58583,7 +58583,7 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openSubtab(result) { 
 
 
-sforce.console.openSubtab(result.id,'/apex/SendAccountInfoToSPO?id={!Account.Id}&isdtp=vw'); 
+sforce.console.openSubtab(result.id,'/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
 
 } 
 ) 
