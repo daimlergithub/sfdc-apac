@@ -14564,7 +14564,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <fullName>Salutation__c</fullName>
         <externalId>false</externalId>
         <label>Salutation</label>
-        <length>10</length>
+        <length>20</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -15001,7 +15001,7 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>StouchUniqueId__c</fullName>
         <description>Unique id for Stouch.</description>
         <externalId>false</externalId>
@@ -19337,7 +19337,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
+                <fullName>Apparel %26 Accessories%2FFashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48568,7 +48568,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
+                <fullName>Apparel %26 Accessories%2FFashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -58423,7 +58423,7 @@ else {
     window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
-	    <webLinks>
+    <webLinks>
         <fullName>Send_to_JPOS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
