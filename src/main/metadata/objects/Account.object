@@ -56400,6 +56400,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>UCID__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+	<validationRules>
+        <fullName>Account_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(REGEX( Name , "[a-zA-Z0-9_+-]+"),REGEX( Name,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( Name )&gt;=1,NOT(ISBLANK( Name )),RecordType.Name!='Company')</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Account Name should be of 2 byte characters.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Account_Status</fullName>
         <active>true</active>
@@ -56889,6 +56896,13 @@ FirstName  value &gt; 20 letters.</description>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>First_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(REGEX( FirstName , "[a-zA-Z0-9_+-]+"),REGEX( FirstName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( FirstName )&gt;=1,NOT(ISBLANK( FirstName )))</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First Name should be of 2 byte characters.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
@@ -57194,6 +57208,13 @@ LastName  value &gt; 40 letters.</description>
         <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Last_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(REGEX( LastName , "[a-zA-Z0-9_+-]+"),REGEX( LastName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( LastName )&gt;=1,NOT(ISBLANK( LastName )))</errorConditionFormula>
+        <errorDisplayField>LastName</errorDisplayField>
+        <errorMessage>Last Name should be of  2 byte characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>

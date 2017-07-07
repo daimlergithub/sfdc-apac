@@ -26,12 +26,10 @@ public class CaseHelperJPTest{
        System.runAs(testUser){
            //Create Account
            testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
-           testAccount1.MD__c = 'JP';
            testAccount1.Complaint_Amount__c=100;
            update testAccount1;
            
            testAccount2 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
-           testAccount2.MD__c = 'JP';
            testAccount2.Complaint_Amount__c=50;
            update testAccount2;
            
