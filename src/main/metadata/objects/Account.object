@@ -56403,7 +56403,16 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
 	<validationRules>
         <fullName>Account_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(REGEX( Name , "[a-zA-Z0-9_+-]+"),REGEX( Name,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( Name )&gt;=1,NOT(ISBLANK( Name )),RecordType.Name!='Company')</errorConditionFormula>
+        <errorConditionFormula>AND(
+OR(
+REGEX( Name , "[a-zA-Z0-9_+-]+"),
+REGEX(Name,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
+REGEX( Name , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+LEN( Name )&gt;=1,
+NOT(ISBLANK( Name )),
+RecordType.Name!='Company')</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Account Name should be of 2 byte characters.</errorMessage>
     </validationRules>
@@ -56899,7 +56908,16 @@ FirstName  value &gt; 20 letters.</description>
 	<validationRules>
         <fullName>First_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(REGEX( FirstName , "[a-zA-Z0-9_+-]+"),REGEX( FirstName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( FirstName )&gt;=1,NOT(ISBLANK( FirstName )))</errorConditionFormula>
+        <errorConditionFormula>AND(
+OR(
+REGEX( FirstName , "[a-zA-Z0-9_+-]+"),
+REGEX( FirstName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
+REGEX( FirstName , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")
+),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+LEN( FirstName )&gt;=1,
+NOT(ISBLANK( FirstName )))</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be of 2 byte characters.</errorMessage>
     </validationRules>
@@ -57212,7 +57230,17 @@ LastName  value &gt; 40 letters.</description>
 	<validationRules>
         <fullName>Last_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(REGEX( LastName , "[a-zA-Z0-9_+-]+"),REGEX( LastName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( LastName )&gt;=1,NOT(ISBLANK( LastName )))</errorConditionFormula>
+        <errorConditionFormula>AND(
+OR(
+REGEX( LastName , "[a-zA-Z0-9_+-]+"),
+REGEX( LastName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
+REGEX( LastName , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")
+),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+LEN( LastName )&gt;=1,
+NOT(ISBLANK( LastName ))
+)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be of  2 byte characters.</errorMessage>
     </validationRules>
@@ -58460,42 +58488,37 @@ var market = "{!Account.MD__c}";
 if(market == 'JP') 
 { 
 
-if(typeof(srcUp) == 'function') 
-{ 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
-} else { 
-window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openSubtab(result) { 
+
+
+sforce.console.openSubtab(result.id,'/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
 
 } 
-}  
+) 
+} 
+
+else 
+{ 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+} 
 } 
 else 
 { 
 alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
-	<webLinks>
+	 <webLinks>
         <fullName>Send_to_JPOS_Dealer</fullName>
         <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>SendtoJPOS</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}  
-
-var market = "{!Account.MD__c}"; 
-if(market == 'JP') 
-{ 
-
-window.open("{!URLFOR($Site.Prefix)}/apex/SendToJPOS?id={!Account.Id}",'_blank');  
-} 
-else 
-{ 
-alert("{!$Label.Check_DuplicatesErrorMsg}"); 
-}</url>
+        <displayType>button</displayType> 
+		<height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Send to JPOS</masterLabel>
+        <openType>noSidebar</openType>
+        <page>SendToJPOS</page> 
+        <protected>false</protected> 
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
@@ -58541,28 +58564,17 @@ else if(market != 'JP')
 { 
 alert("{!$Label.SendToMyMercedesErrorMsg}"); 
 }</url>
-    </webLinks>	
+    </webLinks>
 	<webLinks>
         <fullName>Send_to_SPO_Dealers</fullName>
         <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <displayType>button</displayType> 
+        <height>600</height>		
+        <linkType>page</linkType>
         <masterLabel>Send to SPO</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}  
-
-var market = "{!Account.MD__c}"; 
-if(market == 'JP') 
-{ 
-  
-window.open("{!URLFOR($Site.Prefix)}/apex/SendAccountInfoToSPO?id={!Account.Id}",'_blank');  
-} 
-else 
-{ 
-alert("{!$Label.Check_DuplicatesErrorMsg}"); 
-}</url>
+        <openType>noSidebar</openType>
+        <page>SendAccountInfoToSPO</page> 
+        <protected>false</protected> 
     </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
@@ -58580,15 +58592,21 @@ var market = "{!Account.MD__c}";
 if(market == 'JP') 
 { 
 
-if(typeof(srcUp) == 'function') 
-{ 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
-} else { 
-window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openSubtab(result) { 
+
+
+sforce.console.openSubtab(result.id,'/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
 
 } 
-}  
+) 
+} 
+
+else 
+{ 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+} 
 } 
 else 
 { 

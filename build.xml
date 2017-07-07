@@ -156,7 +156,7 @@
 						<sf:exclude name="MBTH_MBDE_after_Event_Survey-2"/>
 						<sf:exclude name="Mercedes_Benz_Driving_Experience_SP-4"/>
 					</sf:typeset>
-					<!--<sf:typeset name="applications"/>-->
+					<sf:typeset name="applications"/>
 					<sf:typeset name="settings"/>
 					<sf:typeset name="permissionsets"/>
 					<sf:typeset name="weblinks"/>
