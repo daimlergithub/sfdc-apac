@@ -58494,15 +58494,13 @@ var market = "{!Account.MD__c}";
 if(market == 'JP') 
 { 
 
+if(typeof(srcUp) == 'function') 
+{ 
 if (sforce.console.isInConsole()) { 
-javascript:sforce.console.getEnclosingPrimaryTabId( 
-function openSubtab(result) { 
-
-
-sforce.console.openSubtab(result.id,'/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
-
+srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
 } 
-) 
 } 
 
 else 
@@ -58597,18 +58595,14 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
 { 
-
+if(typeof(srcUp) == 'function') 
+{ 
 if (sforce.console.isInConsole()) { 
-javascript:sforce.console.getEnclosingPrimaryTabId( 
-function openSubtab(result) { 
-
-
-sforce.console.openSubtab(result.id,'/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
-
+srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
 } 
-) 
 } 
-
 else 
 { 
 window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
