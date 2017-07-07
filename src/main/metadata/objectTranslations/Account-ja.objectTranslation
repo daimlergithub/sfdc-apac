@@ -9062,6 +9062,10 @@ Allows up to 240 characters --></help>
         <label><!-- Dealer1 --></label>
         <name>Dealer1</name>
     </recordTypes>
+	<validationRules>
+        <errorMessage><!-- Account Name should be of 2 byte characters. --></errorMessage>
+        <name>Account_Name_Fullchar</name>
+    </validationRules>
     <validationRules>
         <errorMessage>車両との関係が無い顧客については、顧客区分を「Customer」以外に設定して下さい。</errorMessage>
         <name>Account_Status</name>
@@ -9480,9 +9484,17 @@ Allows up to 240 characters --></help>
         <errorMessage><!-- Work phone number must be digits, and it must be minimum 11 digits. --></errorMessage>
         <name>Work_Phone_2_NoOfDigits_TH</name>
     </validationRules>
+	<validationRules>
+        <errorMessage>エラー:「姓」は全角文字で入力してください。</errorMessage>
+        <name>First_Name_Fullchar</name>
+    </validationRules>
     <validationRules>
         <errorMessage>勤務先電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Work_Phone_2_StartsWith0</name>
+    </validationRules>
+	<validationRules>
+        <errorMessage>エラー:「名」は全角文字で入力してください。</errorMessage>
+        <name>Last_Name_Fullchar</name>
     </validationRules>
     <webLinks>
         <label><!-- After_Sales_Leads --></label>

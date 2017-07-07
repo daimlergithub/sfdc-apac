@@ -4263,6 +4263,10 @@
         <label><!-- SendToMyMercedesErrorMsg --></label>
         <name>SendToMyMercedesErrorMsg</name>
     </customLabels>
+	<customLabels>
+        <label>「名、姓、姓（カナ）、名（カナ）、生年月日、性別」は必須項目であるため、必ず入力してください。</label>
+        <name>SendToMyMercedesJPUserErr</name>
+    </customLabels>
     <customLabels>
         <label><!-- SendToSPOErrorMSG --></label>
         <name>SendToSPOErrorMSG</name>
