@@ -1,4 +1,4 @@
-<apex:page showHeader="false" title="{!$Label.site.file_not_found}" cache="false">
+<apex:page showHeader="false" title="{!$Label.site.file_not_found}" cache="false" id="thePage">
   <apex:composition template="{!$Site.Template}">
     <apex:define name="body">
       <center>
@@ -18,8 +18,12 @@
                   <br/>
                   <br/>
                   <apex:outputText value="{!$Label.site.stay_tuned}"/>
-                  <apex:outputText escape="false" value=" {!$Label.site.get_in_touch}">
+                  <apex:outputText escape="false" value=" {!$Label.site.get_in_touch}" id="MailToNonJP">
                    <apex:param value="mailto:{!$Site.AdminEmailAddress}"/>
+                   <apex:param value="{!$Label.site.email_us}"/>
+                  </apex:outputText>
+                  <apex:outputText escape="false" value=" {!$Label.site.get_in_touch}" id="MailToJP">
+                   <apex:param value="mailto:mbj-crm-support.pool-id@daimler.com"/>
                    <apex:param value="{!$Label.site.email_us}"/>
                   </apex:outputText>
                 </apex:panelGroup>
@@ -32,4 +36,15 @@
     </apex:define>
   </apex:composition>
   <site:previewAsAdmin />
+  <script type="text/javascript">
+  var currentUserMarket = '{!TEXT($User.Market__c)}';
+  if (currentUserMarket == 'JP')
+  {
+      document.getElementById("{!$Component.thePage.SiteTemplate.MailToNonJP}").style.display="none";
+  }
+  else
+  {
+      document.getElementById("{!$Component.thePage.SiteTemplate.MailToJP}").style.display="none";
+  }
+  </script>
 </apex:page>
