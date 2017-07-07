@@ -269,7 +269,7 @@
         <name>Address_Details</name>
     </customLabels>
     <customLabels>
-        <label>住所情報</label>
+        <label>住所情報　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください。</label>
         <name>Address_Information</name>
     </customLabels>
     <customLabels>
