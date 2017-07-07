@@ -58513,14 +58513,12 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <fullName>Send_to_JPOS_Dealer</fullName>
         <availability>online</availability>
         <displayType>button</displayType> 
+		<height>600</height>
         <linkType>page</linkType>
         <masterLabel>Send to JPOS</masterLabel>
         <openType>noSidebar</openType>
-        <page>SendToJPOS</page>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
+        <page>SendToJPOS</page> 
+        <protected>false</protected> 
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
@@ -58570,15 +58568,13 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
 	<webLinks>
         <fullName>Send_to_SPO_Dealers</fullName>
         <availability>online</availability>
-        <displayType>button</displayType>  
+        <displayType>button</displayType> 
+        <height>600</height>		
         <linkType>page</linkType>
         <masterLabel>Send to SPO</masterLabel>
         <openType>noSidebar</openType>
-        <page>SendAccountInfoToSPO</page>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
+        <page>SendAccountInfoToSPO</page> 
+        <protected>false</protected> 
     </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
