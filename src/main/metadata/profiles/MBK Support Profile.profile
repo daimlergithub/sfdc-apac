@@ -20580,11 +20580,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Task__c.Related_Dealer_Outlet_name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Retail_Task__c.Related_Dealer__c</field>
         <readable>false</readable>
     </fieldPermissions>
