@@ -56406,6 +56406,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <errorConditionFormula>AND(OR(REGEX( Name , "[a-zA-Z0-9_+-]+"),REGEX( Name,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( Name )&gt;=1,NOT(ISBLANK( Name )),RecordType.Name!='Company')</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Account Name should be of 2 byte characters.</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Account_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+OR(
+REGEX( Name , "[a-zA-Z0-9_+-]+"),
+REGEX(Name,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
+REGEX( Name , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+LEN( Name )&gt;=1,
+NOT(ISBLANK( Name )),
+RecordType.Name!='Company')</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Account Name should be of 2 byte characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Account_Status</fullName>
@@ -56899,7 +56914,16 @@ FirstName  value &gt; 20 letters.</description>
 	<validationRules>
         <fullName>First_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(REGEX( FirstName , "[a-zA-Z0-9_+-]+"),REGEX( FirstName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( FirstName )&gt;=1,NOT(ISBLANK( FirstName )))</errorConditionFormula>
+        <errorConditionFormula>AND(
+OR(
+REGEX( FirstName , "[a-zA-Z0-9_+-]+"),
+REGEX( FirstName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
+REGEX( FirstName , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")
+),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+LEN( FirstName )&gt;=1,
+NOT(ISBLANK( FirstName )))</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be of 2 byte characters.</errorMessage>
     </validationRules>
@@ -57212,7 +57236,17 @@ LastName  value &gt; 40 letters.</description>
 	<validationRules>
         <fullName>Last_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(REGEX( LastName , "[a-zA-Z0-9_+-]+"),REGEX( LastName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( LastName )&gt;=1,NOT(ISBLANK( LastName )))</errorConditionFormula>
+        <errorConditionFormula>AND(
+OR(
+REGEX( LastName , "[a-zA-Z0-9_+-]+"),
+REGEX( LastName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
+REGEX( LastName , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")
+),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+LEN( LastName )&gt;=1,
+NOT(ISBLANK( LastName ))
+)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be of  2 byte characters.</errorMessage>
     </validationRules>
