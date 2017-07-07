@@ -58467,6 +58467,7 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 var market = "{!Account.MD__c}"; 
 var FirstName = "{!Account.FirstName}"; 
 var FirstNameNative = "{!Account.FirstName_Native_1__c}"; 
@@ -58480,6 +58481,21 @@ window.open('{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.I
 else if( market == 'JP' &amp;&amp; (FirstName == '' || FirstNameNative == '' || LastNameNative == '' || Gender == '' || Birthdate == ''))
 { 
 alert("{!$Label.SendToMyMercedesJPUserErr}"); 
+}
+else if(market == 'JP') 
+{ 
+
+if(typeof(srcUp) == 'function') 
+{ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/CustomerMymercInterface?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/CustomerMymercInterface?id={!Account.Id}','_blank'); 
+} 
+} 
+else { 
+window.open("{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}",'_blank'); 
+} 
 }
 else if(market != 'JP')
 { 
