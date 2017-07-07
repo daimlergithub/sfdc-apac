@@ -700,6 +700,19 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Retail_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Campaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Sales_Department__c</fullName>
         <defaultValue>false</defaultValue>

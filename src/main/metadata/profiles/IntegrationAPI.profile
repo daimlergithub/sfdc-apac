@@ -5143,6 +5143,11 @@
         <field>Address__c.Foreign_Nationals__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.To_Be_Deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.AccountId</field>
@@ -9802,6 +9807,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>DM_Request__c.Marketing_Department__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>DM_Request__c.MBK_Channel__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9908,6 +9918,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Zip_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>DM_Request__c.Retail_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10958,6 +10973,36 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Accepted_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Cross_Point_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Dealer_Comment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.MBK_Lead_DataSource__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.MBK_Lead_DataSubSource__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.MBK_Lead_Desired_Service__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.MBK_Lost_Situation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17840,6 +17885,21 @@
         <field>SurveyQuestionResponse__c.of_Time_Question_was_Responded_to__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Survey_Question_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Survey_Taken_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Survey_Taken_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SurveyTaker__c.Account__c</field>
@@ -17883,6 +17943,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>SurveyTaker__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Retail_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
