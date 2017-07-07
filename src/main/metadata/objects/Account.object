@@ -56407,7 +56407,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
 OR(
 REGEX( Name , "[a-zA-Z0-9_+-]+"),
 REGEX(Name,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
-REGEX( Name , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")),
+REGEX( Name , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+"),
+REGEX(Name,"[ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*"), 
+REGEX( Name , "[a-zA-Z0-9_+-ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*")),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',
 LEN( Name )&gt;=1,
@@ -56913,7 +56915,8 @@ OR(
 REGEX( FirstName , "[a-zA-Z0-9_+-]+"),
 REGEX( FirstName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
 REGEX( FirstName , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")
-),
+REGEX(Name,"[ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*"), 
+REGEX( Name , "[a-zA-Z0-9_+-ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*")),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',
 LEN( FirstName )&gt;=1,
@@ -57235,7 +57238,8 @@ OR(
 REGEX( LastName , "[a-zA-Z0-9_+-]+"),
 REGEX( LastName,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"),
 REGEX( LastName , "[a-zA-Z0-9_+-ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+")
-),
+REGEX(Name,"[ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*"), 
+REGEX( Name , "[a-zA-Z0-9_+-ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*")),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',
 LEN( LastName )&gt;=1,
@@ -58488,15 +58492,13 @@ var market = "{!Account.MD__c}";
 if(market == 'JP') 
 { 
 
+if(typeof(srcUp) == 'function') 
+{ 
 if (sforce.console.isInConsole()) { 
-javascript:sforce.console.getEnclosingPrimaryTabId( 
-function openSubtab(result) { 
-
-
-sforce.console.openSubtab(result.id,'/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
-
+srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
 } 
-) 
 } 
 
 else 
@@ -58591,18 +58593,14 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
 { 
-
+if(typeof(srcUp) == 'function') 
+{ 
 if (sforce.console.isInConsole()) { 
-javascript:sforce.console.getEnclosingPrimaryTabId( 
-function openSubtab(result) { 
-
-
-sforce.console.openSubtab(result.id,'/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
-
+srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
 } 
-) 
 } 
-
 else 
 { 
 window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
