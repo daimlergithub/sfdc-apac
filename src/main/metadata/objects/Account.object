@@ -58519,6 +58519,7 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <fullName>Send_to_JPOS_Dealer</fullName>
         <availability>online</availability>
         <displayType>button</displayType> 
+		<height>600</height>
         <linkType>page</linkType>
         <masterLabel>Send to JPOS</masterLabel>
         <openType>noSidebar</openType>
