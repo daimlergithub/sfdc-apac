@@ -807,7 +807,7 @@ public class AddressSearchValidationController
         if(market == Label.JP){
         if(u.ContactId !=null && selectedRecordType   =='Company')
         {
-        TouchPoint=Label.Others; 
+        TouchPoint=Label.Others_Data_Source; 
         } 
         if(u.ContactId !=null && selectedRecordType   =='Person Account')
         {

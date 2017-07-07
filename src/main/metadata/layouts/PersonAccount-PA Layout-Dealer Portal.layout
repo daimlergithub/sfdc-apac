@@ -706,8 +706,8 @@
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
         <fields>Case_Dealer__c</fields>
-        <fields>Customer_Request__c</fields>
-        <fields>PARENT.CASE_NUMBER</fields>
+		<fields>Case_Type__c</fields>
+        <fields>Customer_Request__c</fields> 
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
