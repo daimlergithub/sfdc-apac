@@ -58490,9 +58490,7 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <openType>noSidebar</openType>
         <page>SendToJPOS</page>
         <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
+        <protected>false</protected> 
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
@@ -58548,9 +58546,7 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
         <openType>noSidebar</openType>
         <page>SendAccountInfoToSPO</page>
         <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
+        <protected>false</protected> 
     </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
