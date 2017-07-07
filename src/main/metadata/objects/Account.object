@@ -56403,12 +56403,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
 	<validationRules>
         <fullName>Account_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(REGEX( Name , "[a-zA-Z0-9_+-]+"),REGEX( Name,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',LEN( Name )&gt;=1,NOT(ISBLANK( Name )),RecordType.Name!='Company')</errorConditionFormula>
-        <errorDisplayField>Name</errorDisplayField>
-        <errorMessage>Account Name should be of 2 byte characters.</errorMessage>
-    </validationRules><validationRules>
-        <fullName>Account_Name_Fullchar</fullName>
-        <active>true</active>
         <errorConditionFormula>AND(
 OR(
 REGEX( Name , "[a-zA-Z0-9_+-]+"),
