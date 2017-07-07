@@ -1763,7 +1763,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Approved</masterLabel>
-            <translation>承認済</translation>
+            <translation>承認済（展開済）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Approved (Waiting)</masterLabel>
@@ -1771,10 +1771,14 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Approving</masterLabel>
-            <translation>承認中</translation>
+            <translation>承認依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Assigned</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact Failed For 3 Days</masterLabel>
             <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
@@ -1794,8 +1798,12 @@
             <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Lost((CCC)</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Lost(CAC)</masterLabel>
-            <translation>失注</translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost(Dealer)</masterLabel>
@@ -1823,11 +1831,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased(Only Non BDC)</masterLabel>
-            <translation>購入済</translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Qualified</masterLabel>
-            <translation>未使用</translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Received</masterLabel>
@@ -2012,7 +2020,7 @@
     <fields>
         <label><!-- Collectioner Name --></label>
         <name>Collectioner_Name__c</name>
-        <relationshipLabel><!-- Leads (Collectioner Name) --></relationshipLabel>
+        <relationshipLabel><!-- リ－ド (Collectioner Name) --></relationshipLabel>
     </fields>
     <fields>
         <label>リクエスト詳細</label>
@@ -2124,7 +2132,7 @@
         <label><!-- Credit Limit Request --></label>
         <name>Credit_Limit_Request__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>クロスポイントモデル</label>
         <name>Cross_Point_Model__c</name>
     </fields>
@@ -2272,6 +2280,10 @@
         <name>Dealer_Aftersales_Manager_Email__c</name>
     </fields>
     <fields>
+        <label><!-- Dealer Assigned Date Time --></label>
+        <name>Dealer_Assigned_Date_Time__c</name>
+    </fields>
+    <fields>
         <label><!-- Dealer Assignment Date --></label>
         <name>Dealer_Assignment_Date__c</name>
     </fields>
@@ -2331,6 +2343,10 @@
             <translation><!-- Assigned --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Contact Failed For 3 Days</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Contact Failed For 3 Days(Only Non BDC)</masterLabel>
             <translation>使用しないでください</translation>
         </picklistValues>
@@ -2357,6 +2373,14 @@
         <picklistValues>
             <masterLabel>Order Placed</masterLabel>
             <translation>受注</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Placed/Service Requested</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchased</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased(Only Non BDC)</masterLabel>
@@ -2390,6 +2414,10 @@
     <fields>
         <label>敗戦理由</label>
         <name>Dealer_Lost_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Bought MB Parts elsewhere</masterLabel>
+            <translation><!-- Bought MB Parts elsewhere --></translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Bought MB elsewhere</masterLabel>
             <translation><!-- Bought MB elsewhere --></translation>
@@ -2427,12 +2455,20 @@
             <translation><!-- Hibernate Lead --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>ISP to Purchased under Service Contract</masterLabel>
+            <translation><!-- ISP to Purchased under Service Contract --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Invalid customer data</masterLabel>
             <translation><!-- Invalid customer data --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lead Merge</masterLabel>
             <translation>マージ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Location is not convenient</masterLabel>
+            <translation><!-- Location is not convenient --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No serious interest</masterLabel>
@@ -2875,7 +2911,7 @@
     <fields>
         <label><!-- Instructor --></label>
         <name>Instructor__c</name>
-        <relationshipLabel><!-- Leads (Instructor) --></relationshipLabel>
+        <relationshipLabel><!-- リ－ド (Instructor) --></relationshipLabel>
     </fields>
     <fields>
         <label>保険加入場所詳細</label>
@@ -3290,8 +3326,8 @@
             <translation><!-- 370 Sulfur with lime --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>385 France coast blue（Light colors）</masterLabel>
-            <translation><!-- 385 France coast blue（Light colors） --></translation>
+            <masterLabel>385 France coast blue (Light colors)</masterLabel>
+            <translation><!-- 385 France coast blue (Light colors) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>40 Black</masterLabel>
@@ -3310,8 +3346,8 @@
             <translation><!-- 487 Placer gold Orange --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>491 Rocky Mountain Brown（Dark）</masterLabel>
-            <translation><!-- 491 Rocky Mountain Brown（Dark） --></translation>
+            <masterLabel>491 Rocky Mountain Brown (Dark)</masterLabel>
+            <translation><!-- 491 Rocky Mountain Brown (Dark) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>492 Paint，Rutile-Brown</masterLabel>
@@ -3374,16 +3410,16 @@
             <translation><!-- 693 Beige --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>697 Rocky Mountain Brown（Light colors）</masterLabel>
-            <translation><!-- 697 Rocky Mountain Brown（Light colors） --></translation>
+            <masterLabel>697 Rocky Mountain Brown (Light colors)</masterLabel>
+            <translation><!-- 697 Rocky Mountain Brown (Light colors) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>723 Cuban silver</masterLabel>
             <translation><!-- 723 Cuban silver --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>725 Himalaya grey（Dark）</masterLabel>
-            <translation><!-- 725 Himalaya grey（Dark） --></translation>
+            <masterLabel>725 Himalaya grey (Dark)</masterLabel>
+            <translation><!-- 725 Himalaya grey (Dark) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>7360 Paint，Flint Grey，Metallic paint</masterLabel>
@@ -3402,8 +3438,8 @@
             <translation><!-- 755 Black copper grey --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>756 Himalaya grey（Color）</masterLabel>
-            <translation><!-- 756 Himalaya grey（Color） --></translation>
+            <masterLabel>756 Himalaya grey (Color)</masterLabel>
+            <translation><!-- 756 Himalaya grey (Color) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>762 Silver-tellurium</masterLabel>
@@ -3418,12 +3454,12 @@
             <translation><!-- 768 Diamond black --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>770 Himalaya grey（Light colors）</masterLabel>
-            <translation><!-- 770 Himalaya grey（Light colors） --></translation>
+            <masterLabel>770 Himalaya grey (Light colors)</masterLabel>
+            <translation><!-- 770 Himalaya grey (Light colors) --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>773 Di Yi flute gray（Light colors）</masterLabel>
-            <translation><!-- 773 Di Yi flute gray（Light colors） --></translation>
+            <masterLabel>773 Di Yi flute gray (Light colors)</masterLabel>
+            <translation><!-- 773 Di Yi flute gray (Light colors) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>7747 Paint，Pearl ash，Metallic paint</masterLabel>
@@ -3442,8 +3478,8 @@
             <translation><!-- 780 Alaska white --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>781 Di Yi flute gray（Color）</masterLabel>
-            <translation><!-- 781 Di Yi flute gray（Color） --></translation>
+            <masterLabel>781 Di Yi flute gray (Color)</masterLabel>
+            <translation><!-- 781 Di Yi flute gray (Color) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>792 Paint，Palladium silver，Metallic paint</masterLabel>
@@ -3466,16 +3502,16 @@
             <translation><!-- 805 Pebble m --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>808 Ireland Green（Dark）</masterLabel>
-            <translation><!-- 808 Ireland Green（Dark） --></translation>
+            <masterLabel>808 Ireland Green (Dark)</masterLabel>
+            <translation><!-- 808 Ireland Green (Dark) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>816 Garnet Green</masterLabel>
             <translation><!-- 816 Garnet Green --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>886 Ireland Green（Color）</masterLabel>
-            <translation><!-- 886 Ireland Green（Color） --></translation>
+            <masterLabel>886 Ireland Green (Color)</masterLabel>
+            <translation><!-- 886 Ireland Green (Color) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>904 Dark blue</masterLabel>
@@ -3494,8 +3530,8 @@
             <translation><!-- 946 Huang Yulan --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>947 France coast blue（Dark）</masterLabel>
-            <translation><!-- 947 France coast blue（Dark） --></translation>
+            <masterLabel>947 France coast blue (Dark)</masterLabel>
+            <translation><!-- 947 France coast blue (Dark) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>950 Blue cone</masterLabel>
@@ -3920,6 +3956,10 @@
         <picklistValues>
             <masterLabel>CLA 220 4MATIC</masterLabel>
             <translation><!-- CLA 220 4MATIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA 250 AMG</masterLabel>
+            <translation><!-- CLA 250 AMG --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLA 260 4MATIC</masterLabel>
@@ -5491,12 +5531,20 @@
             <translation>新車6ヵ月点検</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Body &amp; Paint</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Buy</masterLabel>
             <translation><!-- Buy --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Car Wash</masterLabel>
             <translation><!-- Car Wash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Extended Warranty</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>General Car Care</masterLabel>
@@ -5515,6 +5563,10 @@
             <translation><!-- Insurance --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Insurance (Accident)</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>MOT</masterLabel>
             <translation>車検</translation>
         </picklistValues>
@@ -5525,6 +5577,10 @@
         <picklistValues>
             <masterLabel>Paint</masterLabel>
             <translation>板金</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Part &amp; Accessories</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Participate</masterLabel>
@@ -5572,7 +5628,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>CCC</masterLabel>
-            <translation><!-- CCC --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
@@ -5604,11 +5660,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Friends recommend</masterLabel>
-            <translation><!-- Friends recommend --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IB Call</masterLabel>
-            <translation><!-- IB Call --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Letter</masterLabel>
@@ -5620,7 +5676,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Card</masterLabel>
-            <translation><!-- MB Card --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Connection</masterLabel>
@@ -5628,11 +5684,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Magazine</masterLabel>
-            <translation><!-- MB Magazine --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB website</masterLabel>
-            <translation><!-- MB website --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MCare</masterLabel>
@@ -5644,11 +5700,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Media advertisement</masterLabel>
-            <translation><!-- Media advertisement --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Call Catalogue</masterLabel>
             <translation>メルセデスコールカタログ受付</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Card</masterLabel>
+            <translation><!-- Mercedes Card --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Magainze Survey</masterLabel>
@@ -5664,7 +5724,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz</masterLabel>
-            <translation><!-- Mercedes-Benz --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
@@ -5676,11 +5736,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz driving Academy</masterLabel>
-            <translation><!-- Mercedes-Benz driving Academy --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz financial</masterLabel>
-            <translation><!-- Mercedes-Benz financial --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz phone</masterLabel>
@@ -5696,7 +5756,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>OB Call</masterLabel>
-            <translation><!-- OB Call --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
@@ -5720,11 +5780,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Searching engine</masterLabel>
-            <translation><!-- Searching engine --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Social media</masterLabel>
-            <translation><!-- Social media --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Special lease</masterLabel>
@@ -5740,7 +5800,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Web/Mobile Phone</masterLabel>
-            <translation><!-- Web/Mobile Phone --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6315,6 +6375,10 @@
             <translation>カタログ</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Estimation</masterLabel>
+            <translation><!-- Estimation --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Financial</masterLabel>
             <translation>ファイナンス</translation>
         </picklistValues>
@@ -6337,6 +6401,10 @@
         <picklistValues>
             <masterLabel>Quotation</masterLabel>
             <translation>見積</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Booking</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Information</masterLabel>
@@ -6588,11 +6656,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Check Out</masterLabel>
-            <translation><!-- Check Out --></translation>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Checkout</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Confirmation</masterLabel>
-            <translation><!-- Confirmation --></translation>
+            <translation>受注確定</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Contact</masterLabel>
@@ -6628,7 +6700,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost</masterLabel>
-            <translation><!-- Lost --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Needs Check</masterLabel>
@@ -6656,7 +6728,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Registration</masterLabel>
-            <translation><!-- Registration --></translation>
+            <translation>登録</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Program Proposal</masterLabel>
@@ -6684,7 +6756,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>WIP Linkage</masterLabel>
-            <translation><!-- WIP Linkage --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6835,6 +6907,10 @@
             <translation>MBJ/MBF社有車</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Daimler Employee</masterLabel>
+            <translation>MBJ/MBF従業員リース</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Daimler Employee Car</masterLabel>
             <translation>MBJ/MBF従業員販売</translation>
         </picklistValues>
@@ -6916,11 +6992,11 @@
         <name>Lead_Type__c</name>
         <picklistValues>
             <masterLabel>Activities</masterLabel>
-            <translation><!-- Activities --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Need Follow Up</masterLabel>
-            <translation><!-- Need Follow Up --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New Car</masterLabel>
@@ -6928,19 +7004,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>No Need Follow Up</masterLabel>
-            <translation><!-- No Need Follow Up --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product</masterLabel>
-            <translation><!-- Product --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service</masterLabel>
-            <translation><!-- Service --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TA&amp;C</masterLabel>
-            <translation><!-- TA&amp;C --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Used Car</masterLabel>
@@ -6959,8 +7035,8 @@
             <translation><!-- Closed (before sales, in-active) --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Closed -  convert to other series</masterLabel>
-            <translation><!-- Closed -  convert to other series --></translation>
+            <masterLabel>Closed - convert to other series</masterLabel>
+            <translation><!-- Closed - convert to other series --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Closed – lost sale(after sales following, in-active)</masterLabel>
@@ -7334,6 +7410,75 @@
             <masterLabel>Purhcased at othe MB stores</masterLabel>
             <translation><!-- Purhcased at othe MB stores --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MBTH Assigned Dealer Name --></label>
+        <name>MBTH_Assigned_Dealer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- MBTH_Customer_Classification --></label>
+        <name>MBTH_Customer_Classification__c</name>
+        <picklistValues>
+            <masterLabel>Fair</masterLabel>
+            <translation><!-- Fair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Good</masterLabel>
+            <translation><!-- Good --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poor</masterLabel>
+            <translation><!-- Poor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>MBTH_FnI_Consultant__c</name>
+        <relationshipLabel><!-- Leads (Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MBTH_Important_Lead --></label>
+        <name>MBTH_Important_Lead__c</name>
+    </fields>
+    <fields>
+        <label><!-- MBTH_Interested_Insurance --></label>
+        <name>MBTH_Interested_Insurance__c</name>
+        <picklistValues>
+            <masterLabel>Comprehensive Insurance</masterLabel>
+            <translation><!-- Comprehensive Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PPI</masterLabel>
+            <translation><!-- PPI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PPI Life</masterLabel>
+            <translation><!-- PPI Life --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RTI</masterLabel>
+            <translation><!-- RTI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tyre and Rims</masterLabel>
+            <translation><!-- Tyre and Rims --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MBTH_Pre_Approved_Finance_Amount --></label>
+        <name>MBTH_Pre_Approved_Finance_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Drop Time --></label>
+        <name>MBTH_Preferred_drop_by__c</name>
+    </fields>
+    <fields>
+        <label><!-- MBTH_Total_Interest_Charged_Amount --></label>
+        <name>MBTH_Total_Interest_Charged_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- MBTH_record Owner Manager Email --></label>
+        <name>MBTH_record_Owner_Manager_Email__c</name>
     </fields>
     <fields>
         <label>商談モデル</label>
@@ -7715,8 +7860,8 @@
             <translation><!-- B-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Coupé</masterLabel>
-            <translation><!-- C-Class Coupé --></translation>
+            <masterLabel>C-Class CoupÃ©</masterLabel>
+            <translation><!-- C-Class CoupÃ© --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class Estate</masterLabel>
@@ -7743,16 +7888,16 @@
             <translation><!-- CLK-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CLK-Class Coupé</masterLabel>
-            <translation><!-- CLK-Class Coupé --></translation>
+            <masterLabel>CLK-Class CoupÃ©</masterLabel>
+            <translation><!-- CLK-Class CoupÃ© --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLS Shooting Brake</masterLabel>
             <translation><!-- CLS Shooting Brake --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CLS-Class Coupé</masterLabel>
-            <translation><!-- CLS-Class Coupé --></translation>
+            <masterLabel>CLS-Class CoupÃ©</masterLabel>
+            <translation><!-- CLS-Class CoupÃ© --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Canter</masterLabel>
@@ -7819,8 +7964,8 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Coupé</masterLabel>
-            <translation><!-- E-Class Coupé --></translation>
+            <masterLabel>E-Class CoupÃ©</masterLabel>
+            <translation><!-- E-Class CoupÃ© --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Estate</masterLabel>
@@ -8131,8 +8276,20 @@
         <label>支払形態</label>
         <name>Payment_Mode__c</name>
         <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cheque</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Credit Card</masterLabel>
             <translation>クレジットカード</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Debit Card</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>EFT</masterLabel>
@@ -8152,7 +8309,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Transfer</masterLabel>
-            <translation><!-- Transfer --></translation>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Voucher</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -8265,6 +8426,14 @@
         <picklistValues>
             <masterLabel>Phone and Email</masterLabel>
             <translation>電話とEメール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>post</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>sms</masterLabel>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -8495,6 +8664,42 @@
         <label>予算</label>
         <name>Price_Range__c</name>
         <picklistValues>
+            <masterLabel>11.0-12.99 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13.0-14.99 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2.0-2.99 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3.0-4.99 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.0-6.99 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7.0-8.99 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9.0-10.99 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&lt;2.0 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt;= 15 Million THB</masterLabel>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Range 1</masterLabel>
             <translation>300万円未満</translation>
         </picklistValues>
@@ -8632,7 +8837,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Four Weeks above</masterLabel>
-            <translation><!-- Four Weeks above --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Next Inspection Timing</masterLabel>
@@ -8644,15 +8849,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>One Week</masterLabel>
-            <translation><!-- One Week --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Three Week</masterLabel>
-            <translation><!-- Three Week --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Two Week</masterLabel>
-            <translation><!-- Two Week --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>above 6 months</masterLabel>
@@ -8913,7 +9118,7 @@
     <fields>
         <label><!-- Referal/Referee Name --></label>
         <name>Referal_Referee_Name__c</name>
-        <relationshipLabel><!-- Leads (Referal/Referee Name) --></relationshipLabel>
+        <relationshipLabel><!-- リ－ド (Referal/Referee Name) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Referal/Referee Note --></label>
@@ -11843,7 +12048,7 @@
     <fields>
         <label>リード担当者</label>
         <name>Service_Advisor__c</name>
-        <relationshipLabel><!-- Leads (Assigned Service Advisor) --></relationshipLabel>
+        <relationshipLabel><!-- リ－ド (リード担当者) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Service Date --></label>
@@ -11905,6 +12110,10 @@
     <fields>
         <label><!-- Status Category --></label>
         <name>Status_Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- StouchLeadID --></label>
+        <name>StouchLeadID__c</name>
     </fields>
     <fields>
         <label><!-- Offered Service --></label>
@@ -13975,7 +14184,7 @@
     <fields>
         <label><!-- VehicleRel No. --></label>
         <name>VehicleRel_No__c</name>
-        <relationshipLabel><!-- Leads --></relationshipLabel>
+        <relationshipLabel><!-- リ－ド --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Vehicle Make - Current --></label>
@@ -15366,7 +15575,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Refinance existing vehicle</masterLabel>
-            <translation><!-- Refinance existing vehicle --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Replace existing vehicle</masterLabel>
@@ -15794,6 +16003,45 @@
         <name>X72H_Untouched__c</name>
     </fields>
     <layouts>
+        <layout>After-Sales Leads Layout Dealer KR</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Detail Information --></label>
+            <section>Detail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Process Information --></label>
+            <section>Lead Process Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>After-Sales Leads Layout for Dealer Users</layout>
         <sections>
             <label>アクティビティ日付情報</label>
@@ -15829,6 +16077,45 @@
         </sections>
         <sections>
             <label>敗戦情報</label>
+            <section>Lost Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>After-Sales Leads Layout_Dealer</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Detail Information --></label>
+            <section>Detail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Process Information --></label>
+            <section>Lead Process Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
             <section>Lost Information</section>
         </sections>
     </layouts>
@@ -15936,6 +16223,10 @@
     </layouts>
     <layouts>
         <layout>AfterSales Lead_KR</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -16068,6 +16359,433 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>MBTH_AfterSales_Lead_Layout(COC/Internal User)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBTH_Aftersales Lead_Layout(CAC)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBTH_Aftersales Lead_Layout(Dealer))</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBTH_Retail Sales Leads_Layout(COC/Internal User))</layout>
+        <sections>
+            <label><!-- Assigned Dealer Reminder --></label>
+            <section>Assigned Dealer Reminder</section>
+        </sections>
+        <sections>
+            <label><!-- Bought Vehicle Information --></label>
+            <section>Bought Vehicle Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle Information --></label>
+            <section>Interested Vehicle Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trade-In Vehicle Information --></label>
+            <section>Trade-In Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBTH_Retail sales Lead_Layout(CAC)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBTH_Retail sales Lead_Layout(Dealer)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBTH_Sales Leads Layout (CAC)</layout>
+        <sections>
+            <label><!-- Cross Point Information --></label>
+            <section>Cross Point Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Miscelleneous Section --></label>
+            <section>Miscelleneous Section</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBTH_Sales Leads Layout (Dealer)</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- CA Details --></label>
+            <section>CA Details</section>
+        </sections>
+        <sections>
+            <label><!-- Cross-point information --></label>
+            <section>Cross-point information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- DSC Request Information --></label>
+            <section>DSC Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Confirmed Information --></label>
+            <section>Order Confirmed Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBTH_sales Leads_Layout(COC/Internal User)</layout>
+        <sections>
+            <label><!-- Assigned Dealer Reminder --></label>
+            <section>Assigned Dealer Reminder</section>
+        </sections>
+        <sections>
+            <label><!-- Bought Vehicle Information --></label>
+            <section>Bought Vehicle Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle Information --></label>
+            <section>Interested Vehicle Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trade-In Vehicle Information --></label>
+            <section>Trade-In Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Sales Leads Admin</layout>
         <sections>
             <label><!-- Assigned Dealer Reminder --></label>
@@ -16179,6 +16897,10 @@
     </layouts>
     <layouts>
         <layout>Sales Leads Layout (CAC)_KR</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
         <sections>
             <label><!-- Assigned Dealer Reminder --></label>
             <section>Assigned Dealer Reminder</section>
@@ -16296,6 +17018,92 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Sales Leads Layout Dealer KR</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Process information --></label>
+            <section>Lead Process information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label><!-- Reference Information --></label>
+            <section>Reference Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Information --></label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Sales Leads Layout_Dealer</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Process information --></label>
+            <section>Lead Process information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label><!-- Reference Information --></label>
+            <section>Reference Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Information --></label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Sales Leads Soft Deleted</layout>
         <sections>
             <label>アクティビティ日付情報</label>
@@ -16400,12 +17208,24 @@
         <name>CAC_Lead_Status_Check_After_Assigned</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- If  Dealer is assigned and CAC lead status is “assigned” then assigned date &amp; time is required --></errorMessage>
+        <name>CAC_Lead_Status_Check_After_Assigned_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- If CAC Lead Status is Service Completed, Service Date is required. --></errorMessage>
         <name>CAC_Purchase_Check_Aftersales_Lead</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- If CAC lead status is Purchased, then Purchased CAC Date and Time field is required --></errorMessage>
+        <name>CAC_Purchase_Check_Aftersales_Lead_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- If CACDealer Lead Status is Purchased(Only Non BDC), Purchase Date is required. --></errorMessage>
         <name>CAC_Purchase_Check_Sales_Lead</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IF CAC Lead status is “Purchased”, then Purchase Date ,Purchased time ,Bought vehicle brand ,Bought vehicle class and Bought Vehicle model are  required --></errorMessage>
+        <name>CAC_Purchase_Check_Sales_Lead_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage>請求番号は手動で設定できません。</errorMessage>
@@ -16424,11 +17244,15 @@
         <name>Cannnot_Change_Lead_Status</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- CCC  agent  cannot change the CAC lead status to assigned --></errorMessage>
+        <name>Cannnot_Change_Lead_Status_TH</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>初回見積番号は手動で設定できません。</errorMessage>
         <name>Cannnot_Change_Quotation_No</name>
     </validationRules>
     <validationRules>
-        <errorMessage>商談タイプが法人商談の場合、契約対象会社を選択してください。</errorMessage>
+        <errorMessage>商談タイプが法人商談の場合、契約対象会社を選択して下さい。</errorMessage>
         <name>Company_Account_Required</name>
     </validationRules>
     <validationRules>
@@ -16442,6 +17266,10 @@
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Service Completed, Service Date is required. --></errorMessage>
         <name>Dealer_Purchase_Check_Aftersales_Lead</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Dealer Lead Status is Purchased . Purchase Date is required. --></errorMessage>
+        <name>Dealer_Purchase_Check_Aftersales_Lead_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required. --></errorMessage>
@@ -16466,6 +17294,10 @@
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is First Contact Customer, First Contact Customer Date is required. --></errorMessage>
         <name>First_Contact_Customer_Required_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Dealer Lead Status is First Contact Customer, First contact customer Date time is required --></errorMessage>
+        <name>First_Contact_Customer_Required_Check_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage>名（カナ）は必ず全角で入力して下さい。</errorMessage>
@@ -16520,11 +17352,11 @@
         <name>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- “Lost To” field is mandatory when the lead has been lost --></errorMessage>
+        <errorMessage><!-- â€œLost Toâ€ field is mandatory when the lead has been lost --></errorMessage>
         <name>Lost_To_Whom</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- “Lost To” field is mandatory when the CAC lead status has been set to lost(CAC) --></errorMessage>
+        <errorMessage><!-- â€œLost Toâ€ field is mandatory when the CAC lead status has been set to lost(CAC) --></errorMessage>
         <name>Lost_To_Whom_CAC</name>
     </validationRules>
     <validationRules>
@@ -16542,6 +17374,10 @@
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Order Placed, Order Placed Date is required. --></errorMessage>
         <name>Order_Placed_Required_Check_Dealer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Dealer Lead Status is Order Placed, Order Placed Date is required. --></errorMessage>
+        <name>Order_Placed_Required_Check_Dealer_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage>リードステータスが購入済、失注の場合はリードステータスを変更できません。</errorMessage>
@@ -16570,6 +17406,10 @@
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Test Drive, Test Drive Date is required. --></errorMessage>
         <name>Test_Drive_Required_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Dealer Lead Status is Test Drive, Test Drive Date is required. --></errorMessage>
+        <name>Test_Drive_Required_Check_TH</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- If Lead Desired Service includes Trade-In, Trade-In Vehicle Brand, Trade-In Vehicle Class and Trade-In MB Vehicle Model are required. --></errorMessage>
@@ -16612,6 +17452,10 @@
         <name>New_AfterSales_Lead</name>
     </webLinks>
     <webLinks>
+        <label>新規カタログリクエスト</label>
+        <name>New_DM_Request</name>
+    </webLinks>
+    <webLinks>
         <label>新規セールスリード</label>
         <name>New_Sales_Lead</name>
     </webLinks>
@@ -16620,7 +17464,7 @@
         <name>New_Task</name>
     </webLinks>
     <webLinks>
-        <label>PDF印刷</label>
+        <label>使用しないでください</label>
         <name>Print_PDF</name>
     </webLinks>
     <webLinks>
@@ -16639,4 +17483,9 @@
         <label><!-- Submit_Survey --></label>
         <name>Submit_Survey</name>
     </webLinks>
+    <workflowTasks>
+        <description><!-- Please Take the OB Call from Lead --></description>
+        <name>Lead_Customer_Intention_OB_Call_Task</name>
+        <subject><!-- Lead Customer Intention OB Call Task --></subject>
+    </workflowTasks>
 </CustomObjectTranslation>
