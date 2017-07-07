@@ -58492,7 +58492,7 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <isResizable>true</isResizable>
         <linkType>page</linkType>
         <masterLabel>Send to JPOS</masterLabel>
-        <openType>Displayinexistingwindowwithoutsidebar</openType>
+        <openType>noSidebar</openType>
         <page>SendToJPOS</page>
         <position>none</position>
         <protected>false</protected>
@@ -58555,7 +58555,7 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
         <isResizable>true</isResizable>
         <linkType>page</linkType>
         <masterLabel>Send to SPO</masterLabel>
-        <openType>Displayinexistingwindowwithoutsidebar</openType>
+        <openType>noSidebar</openType>
         <page>SendAccountInfoToSPO</page>
         <position>none</position>
         <protected>false</protected>
