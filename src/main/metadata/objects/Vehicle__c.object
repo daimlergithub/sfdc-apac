@@ -21765,15 +21765,25 @@ else {
 alert('{!$Label.Send_to_spo_translate}');
 }
 }</url>
-    </webLinks>
-    <webLinks>
+    </webLinks> 
+	 <webLinks>
         <fullName>TerminateVehicleRelationships</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Terminate Vehicle Relationships</masterLabel>
-        <openType>replace</openType>
-        <page>TerminateVehicleRelationship</page>
+        <openType>onClickJavaScript</openType> 
         <protected>false</protected>
+		<url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
+records = ReferraAccepted.getArray("records"); 
+if(records != ''){
+window.open("{!URLFOR($Site.Prefix)}/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}",target = "_self");
+}
+else
+alert("{!$Label.ChangeContacttarget}");</url>
     </webLinks>
+	
 </CustomObject>
