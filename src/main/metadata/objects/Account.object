@@ -58484,12 +58484,7 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
 	 <webLinks>
         <fullName>Send_to_JPOS_Dealer</fullName>
         <availability>online</availability>
-        <displayType>button</displayType>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
+        <displayType>button</displayType> 
         <linkType>page</linkType>
         <masterLabel>Send to JPOS</masterLabel>
         <openType>noSidebar</openType>
@@ -58547,12 +58542,7 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
 	<webLinks>
         <fullName>Send_to_SPO_Dealers</fullName>
         <availability>online</availability>
-        <displayType>button</displayType>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
+        <displayType>button</displayType>  
         <linkType>page</linkType>
         <masterLabel>Send to SPO</masterLabel>
         <openType>noSidebar</openType>
