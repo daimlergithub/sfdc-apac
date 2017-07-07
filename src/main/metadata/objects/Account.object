@@ -58573,7 +58573,8 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
 	<webLinks>
         <fullName>Send_to_SPO_Dealers</fullName>
         <availability>online</availability>
-        <displayType>button</displayType>  
+        <displayType>button</displayType> 
+        <height>600</height>		
         <linkType>page</linkType>
         <masterLabel>Send to SPO</masterLabel>
         <openType>noSidebar</openType>
