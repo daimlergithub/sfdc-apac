@@ -1,25 +1,29 @@
-<apex:page showHeader="false" title="{!$Label.site.error2}" cache="false">
+<apex:page showHeader="false" title="{!$Label.site.error2}" cache="false" id="thePage">
   <apex:composition template="{!$Site.Template}">
     <apex:define name="body">
       <center>
-        <apex:panelGrid bgcolor="white" columns="1" style="align: center;">
+        <apex:panelGrid bgcolor="white" columns="1" style="align: center;" id="topPanelGrid">
           <br/>
           <br/>
-          <apex:panelGrid width="758" cellpadding="0" cellspacing="0" bgcolor="white" columns="1" styleClass="topPanelContainer">
+          <apex:panelGrid width="758" cellpadding="0" cellspacing="0" bgcolor="white" columns="1" styleClass="topPanelContainer" id="secondPanelGrid">
             <br/>
-            <apex:outputPanel layout="block" styleClass="topPanel">
-              <apex:panelGrid width="758" cellpadding="0" cellspacing="0" bgcolor="white" columns="3">
+            <apex:outputPanel layout="block" styleClass="topPanel" id="thirdOutputPanel">
+              <apex:panelGrid width="758" cellpadding="0" cellspacing="0" bgcolor="white" columns="3" id="fourthPanelGrid">
                 <apex:image url="{!URLFOR($Resource.SiteSamples, 'img/clock.png')}"/>
                 <apex:image url="{!URLFOR($Resource.SiteSamples, 'img/warning.png')}"/>
-                <apex:panelGroup >
+                <apex:panelGroup id="fifthPanelGroup">
                   <apex:outputText styleClass="title" value="{!$Label.site.error}">
                    <apex:param value="{!$Site.ErrorMessage}"/>
                    <!-- this parameter needs to be italic in the site.error label -->
                   </apex:outputText>
                   <br/>
                   <br/>
-                  <apex:outputText escape="false" value=" {!$Label.site.get_in_touch}">
+                  <apex:outputText escape="false" value=" {!$Label.site.get_in_touch}" id="MailToNonJP">
                    <apex:param value="mailto:{!$Site.AdminEmailAddress}"/>
+                   <apex:param value="{!$Label.site.email_us}"/>
+                  </apex:outputText>
+                  <apex:outputText escape="false" value=" {!$Label.site.get_in_touch}" id="MailToJP">
+                   <apex:param value="mailto:mbj-crm-support.pool-id@daimler.com"/>
                    <apex:param value="{!$Label.site.email_us}"/>
                   </apex:outputText>
                 </apex:panelGroup>
@@ -34,4 +38,15 @@
       </center>
     </apex:define>
   </apex:composition>
+  <script type="text/javascript">
+  var currentUserMarket = '{!TEXT($User.Market__c)}';
+  if (currentUserMarket == 'JP')
+  {
+      document.getElementById("{!$Component.thePage.SiteTemplate.MailToNonJP}").style.display="none";
+  }
+  else
+  {
+      document.getElementById("{!$Component.thePage.SiteTemplate.MailToJP}").style.display="none";
+  }
+  </script>
 </apex:page>
