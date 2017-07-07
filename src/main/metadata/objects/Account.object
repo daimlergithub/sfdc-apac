@@ -58483,7 +58483,6 @@ else {
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
@@ -58529,7 +58528,6 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 var market = "{!Account.MD__c}"; 
 var FirstName = "{!Account.FirstName}"; 
 var FirstNameNative = "{!Account.FirstName_Native_1__c}"; 
@@ -58585,7 +58583,6 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
