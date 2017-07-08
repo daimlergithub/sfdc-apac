@@ -23229,26 +23229,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Troubleshooting_Guide__kav.Automobile_Component__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Troubleshooting_Guide__kav.Problem_Area__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Troubleshooting_Guide__kav.Problem_Description__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Troubleshooting_Guide__kav.Resolution_Detail__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>User.Active_Permission_Set__c</field>
         <readable>false</readable>
@@ -25633,9 +25613,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Translation_Dictionary__c-Translation Dictionary Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Troubleshooting_Guide__kav-Troubleshooting Guide Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>User-User Master Layout</layout>
