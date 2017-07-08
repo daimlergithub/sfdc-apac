@@ -22599,11 +22599,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Public__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.QC_Quantity__c</field>
         <readable>false</readable>
     </fieldPermissions>
