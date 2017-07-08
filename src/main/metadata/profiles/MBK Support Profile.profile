@@ -25303,9 +25303,6 @@
         <layout>QuestionList__c-Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Question__kav-Question Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Recall__c-Recall Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
