@@ -31,11 +31,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>Knowledge_Base_Management</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>MBF_Call_Center</application>
         <default>false</default>
         <visible>false</visible>
