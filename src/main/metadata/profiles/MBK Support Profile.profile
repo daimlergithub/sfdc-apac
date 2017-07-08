@@ -27806,10 +27806,6 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Duplicate_Merge_Info__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Getting_Started</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
