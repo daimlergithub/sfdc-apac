@@ -13564,11 +13564,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Ordered_Against_Factory__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Other_Activity__c</field>
         <readable>false</readable>
     </fieldPermissions>
