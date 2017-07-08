@@ -25113,10 +25113,6 @@
         <layout>Contact-Contact Master Layout</layout>
         <recordType>Contact.MBAuP_Contacts</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contacts__kav-Contacts Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>ContentVersion-General</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -25887,15 +25883,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Contacts__kav</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
