@@ -9254,6 +9254,10 @@ Allows up to 240 characters --></help>
         <errorMessage>名は必ず20文字以下で入力して下さい。</errorMessage>
         <name>FirstName_NoOfDigits</name>
     </validationRules>
+	<validationRules>
+        <errorMessage>エラー:「姓」は全角文字で入力してください。</errorMessage>
+        <name>First_Name_Fullchar</name>
+    </validationRules>
     <validationRules>
         <errorMessage>名（カナ）は必ず全角で入力して下さい。</errorMessage>
         <name>First_Name_Native_1_Fullchar</name>
@@ -9345,6 +9349,10 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage>姓は必ず40文字以下で入力して下さい。</errorMessage>
         <name>LastName_NoOfDigits</name>
+    </validationRules>
+	<validationRules>
+        <errorMessage>エラー:「名」は全角文字で入力してください。</errorMessage>
+        <name>Last_Name_Fullchar</name>
     </validationRules>
     <validationRules>
         <errorMessage>姓（カナ）は必ず全角で入力して下さい。</errorMessage>
@@ -9485,18 +9493,10 @@ Allows up to 240 characters --></help>
         <name>Work_Phone_2_NoOfDigits_TH</name>
     </validationRules>
 	<validationRules>
-        <errorMessage>エラー:「姓」は全角文字で入力してください。</errorMessage>
-        <name>First_Name_Fullchar</name>
-    </validationRules>
-    <validationRules>
         <errorMessage>勤務先電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Work_Phone_2_StartsWith0</name>
     </validationRules>
-	<validationRules>
-        <errorMessage>エラー:「名」は全角文字で入力してください。</errorMessage>
-        <name>Last_Name_Fullchar</name>
-    </validationRules>
-    <webLinks>
+	<webLinks>
         <label><!-- After_Sales_Leads --></label>
         <name>After_Sales_Leads</name>
     </webLinks>
