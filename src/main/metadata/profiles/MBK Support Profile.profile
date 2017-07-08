@@ -22659,11 +22659,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Task_Details__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Task_RecordType_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
