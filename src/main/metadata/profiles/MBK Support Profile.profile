@@ -22712,6 +22712,7 @@
         <field>Task.WhoId</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Template__c.Active__c</field>
         <readable>false</readable>
