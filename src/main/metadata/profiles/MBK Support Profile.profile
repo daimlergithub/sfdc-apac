@@ -25172,9 +25172,6 @@
         <layout>Information__kav-Information Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Inquiry__kav-Inquiry Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
