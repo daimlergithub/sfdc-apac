@@ -56906,7 +56906,7 @@ FirstName  value &gt; 20 letters.</description>
         <errorConditionFormula>IF(
 AND(
 NOT(ISBLANK( FirstName )),
-OR(NOT(REGEX( FirstName , "[^ -~¡-ß]*" ))),
+OR(NOT(REGEX( FirstName , "[^ -~｡-ﾟ]*" ))),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',
 RecordType.Name='Person Account'),true,false)</errorConditionFormula>
@@ -57224,7 +57224,7 @@ LastName  value &gt; 40 letters.</description>
         <errorConditionFormula>IF(
 AND(
 NOT(ISBLANK( LastName)),
-OR(NOT(REGEX( LastName , "[^ -~¡-ß]*" ))),
+OR(NOT(REGEX( LastName , "[^ -~｡-ﾟ]*" ))),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',
 RecordType.Name='Person Account'),true,false)</errorConditionFormula>
