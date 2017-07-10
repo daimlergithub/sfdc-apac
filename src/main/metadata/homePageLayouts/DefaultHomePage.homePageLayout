@@ -2,13 +2,12 @@
 <HomePageLayout xmlns="http://soap.sforce.com/2006/04/metadata">
     <narrowComponents>standard-StandardSearch</narrowComponents>
     <narrowComponents>standard-RecentItems</narrowComponents>
-    <narrowComponents>standard-MessagesAndAlerts</narrowComponents>
+	<narrowComponents>カスタムリンク</narrowComponents>
+    <narrowComponents>お知らせ</narrowComponents>
     <narrowComponents>Custom link Notification</narrowComponents>
     <narrowComponents>Mass Update Assignment</narrowComponents>
-    <narrowComponents>カスタムリンク</narrowComponents>
     <wideComponents>Announcements</wideComponents>
     <wideComponents>standard-Tasks</wideComponents>
     <wideComponents>standard-Calendar</wideComponents>
     <wideComponents>standard-ProcessWorkitems</wideComponents>
-    <wideComponents>お知らせ</wideComponents>
 </HomePageLayout>
