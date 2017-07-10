@@ -56405,8 +56405,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <errorConditionFormula>IF(
 AND(
 NOT(ISBLANK( Name )),
-OR(NOT(REGEX( Name , "[^ -~。-゜]*" )),
-REGEX( Name,"[ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*")),
+OR(NOT(REGEX( Name , "[^ -~¡-ß]*" ))),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',
 RecordType.Name='Person Account'),true,false)</errorConditionFormula>
@@ -56907,8 +56906,7 @@ FirstName  value &gt; 20 letters.</description>
         <errorConditionFormula>IF(
 AND(
 NOT(ISBLANK( FirstName )),
-OR(NOT(REGEX( FirstName , "[^ -~。-゜]*" )),
-REGEX( FirstName,"[ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*")),
+OR(NOT(REGEX( FirstName , "[^ -~¡-ß]*" ))),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',
 RecordType.Name='Person Account'),true,false)</errorConditionFormula>
@@ -57226,8 +57224,7 @@ LastName  value &gt; 40 letters.</description>
         <errorConditionFormula>IF(
 AND(
 NOT(ISBLANK( LastName)),
-OR(NOT(REGEX( LastName, "[^ -~。-゜]*" )),
-REGEX( LastName,"[ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜﾜｲｴｦﾝｳﾞｶｹ]*")),
+OR(NOT(REGEX( LastName , "[^ -~¡-ß]*" ))),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',
 RecordType.Name='Person Account'),true,false)</errorConditionFormula>
