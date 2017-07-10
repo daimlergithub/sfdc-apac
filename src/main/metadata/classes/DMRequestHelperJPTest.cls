@@ -91,7 +91,7 @@ public class DMRequestHelperJPTest {
         
          objAccount= new Account();
         objAccount.RecordtypeId=personAccRecordTypeId;
-        objAccount.LastName='Test Person 1st';
+        objAccount.LastName='刈乾冠寒刊勘';
         //objAccount.Type='Personal';
         objAccount.Status__c='Active';
         objAccount.Province__c='Province1';

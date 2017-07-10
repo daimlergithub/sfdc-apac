@@ -194,10 +194,16 @@
         <label>Campaign ID</label>
         <lookupFilter>
             <active>true</active>
+			<booleanFilter>1 OR 2</booleanFilter>
             <filterItems>
                 <field>Campaign.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>Campaign_Executiono</value>
+            </filterItems>			
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
