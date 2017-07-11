@@ -4,8 +4,8 @@
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>New_Inquiry</customButtons>
     <customButtons>New_MB_Complaint</customButtons>
-    <customButtons>Send_to_JPOS</customButtons>
-    <customButtons>Send_to_SPO</customButtons>
+    <customButtons>Send_to_JPOS_Dealer</customButtons>
+    <customButtons>Send_to_SPO_Dealers</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>Check_Duplicates</customButtons>
@@ -643,7 +643,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Dealer_Lead_Status__c</fields>
+        <fields>Lead_Desired_Service__c</fields>
         <fields>Assigned_Date_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
         <fields>Lead_Latest_Phase__c</fields>
@@ -706,8 +706,8 @@
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
         <fields>Case_Dealer__c</fields>
-        <fields>Customer_Request__c</fields>
-        <fields>PARENT.CASE_NUMBER</fields>
+		<fields>Case_Type__c</fields>
+        <fields>Customer_Request__c</fields> 
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>

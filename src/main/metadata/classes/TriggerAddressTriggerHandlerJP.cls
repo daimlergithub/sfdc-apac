@@ -59,6 +59,11 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
     {
+	  // Added  as  part of SFDCJP-2730
+	 if(isAfter && isUpdate)
+        {
+		 AddressHelperJP.afterUpdateVehicleRelationship(Trigger.new,(Map<Id,Address__c>)Trigger.OldMap);
+		}
         /*
         if(isAfter && isInsert)
 

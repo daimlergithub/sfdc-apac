@@ -75,7 +75,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Comment__c</field>
+                <field>Dealer_Comments__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

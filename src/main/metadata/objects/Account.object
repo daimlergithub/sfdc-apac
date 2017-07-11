@@ -14564,7 +14564,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <fullName>Salutation__c</fullName>
         <externalId>false</externalId>
         <label>Salutation</label>
-        <length>10</length>
+        <length>20</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -15000,6 +15000,18 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>StouchUniqueId__c</fullName>
+        <description>Unique id for Stouch.</description>
+        <externalId>false</externalId>
+        <label>StouchUniqueId</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Suffix__c</fullName>
@@ -19325,7 +19337,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
+                <fullName>Apparel %26 Accessories%2FFashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48556,7 +48568,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Apparel &amp; Accessories/Fashion</fullName>
+                <fullName>Apparel %26 Accessories%2FFashion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -56387,7 +56399,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>UCID__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>Private</sharingModel><validationRules>
+        <fullName>Account_Name_Fullchar</fullName>
+        <active>false</active>
+        <errorConditionFormula>IF(
+AND(
+NOT(ISBLANK( Name )),
+OR(NOT(REGEX( Name , "[^ -~¡-ß]*" ))),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+RecordType.Name='Person Account'),true,false)</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Account Name should be of 2 byte characters.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Account_Status</fullName>
         <active>true</active>
@@ -56876,6 +56900,18 @@ FirstName  value &gt; 20 letters.</description>
         <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(FirstName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
+    </validationRules><validationRules>
+        <fullName>First_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(
+AND(
+NOT(ISBLANK( FirstName )),
+OR(NOT(REGEX( FirstName , "[^ -~｡-ﾟ]*" ))),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+RecordType.Name='Person Account'),true,false)</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First Name should be of 2 byte characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
@@ -57182,6 +57218,18 @@ LastName  value &gt; 40 letters.</description>
         <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Last_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(
+AND(
+NOT(ISBLANK( LastName)),
+OR(NOT(REGEX( LastName , "[^ -~｡-ﾟ]*" ))),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP',
+RecordType.Name='Person Account'),true,false)</errorConditionFormula>
+        <errorDisplayField>LastName</errorDisplayField>
+        <errorMessage>Last Name should be of  2 byte characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
@@ -57789,12 +57837,20 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <availability>online</availability>
         <description>Create new vehicle record</description>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Create Vehicle</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/apex/Create_Vehicle?accId={!Account.Id}</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
+var market = '{!Account.MD__c}';
+if(market == 'JP'){
+window.open("{!URLFOR($Site.Prefix)}/apex/Create_Vehicle?accId={!Account.Id}");
+}
+else
+{
+alert("{!$Label.Check_DuplicatesErrorMsg}");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>
@@ -58403,7 +58459,7 @@ else {
     window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
-	    <webLinks>
+    <webLinks>
         <fullName>Send_to_JPOS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -58413,75 +58469,6 @@ else {
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-
-var market = "{!Account.MD__c}"; 
-if(market == 'JP') 
-{ 
-
-if(typeof(srcUp) == 'function') 
-{ 
-if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
-} else { 
-window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
-
-} 
-} 
-else { 
-window.open("{!URLFOR($Site.Prefix)}/apex/SendToJPOS?id={!Account.Id}",'_blank'); 
-} 
-} 
-else 
-{ 
-alert("{!$Label.Check_DuplicatesErrorMsg}"); 
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Send_to_MyMercedes</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Send to MyMercedes</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-
-var market = "{!Account.MD__c}"; 
-if(market == 'JP') 
-{ 
-
-if(typeof(srcUp) == 'function') 
-{ 
-if (sforce.console.isInConsole()) { 
-srcUp('/apex/CustomerMymercInterface?id={!Account.Id}&amp;isdtp=vw'); 
-} else { 
-window.open('/apex/CustomerMymercInterface?id={!Account.Id}','_blank'); 
-
-} 
-} 
-else { 
-window.open("{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}",'_blank'); 
-} 
-} 
-else 
-{ 
-alert("{!$Label.Check_DuplicatesErrorMsg}"); 
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Send_to_SPO</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Send to SPO</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
@@ -58493,11 +58480,110 @@ if (sforce.console.isInConsole()) {
 srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
 } else { 
 window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+} 
+} 
 
+else 
+{ 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+} 
+} 
+else 
+{ 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
+}</url>
+    </webLinks>
+	 <webLinks>
+        <fullName>Send_to_JPOS_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType> 
+		<height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Send to JPOS</masterLabel>
+        <openType>noSidebar</openType>
+        <page>SendToJPOS</page> 
+        <protected>false</protected> 
+    </webLinks>
+    <webLinks>
+        <fullName>Send_to_MyMercedes</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send to MyMercedes</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var market = "{!Account.MD__c}"; 
+var FirstName = "{!Account.FirstName}"; 
+var FirstNameNative = "{!Account.FirstName_Native_1__c}"; 
+var LastNameNative = "{!Account.LastName_Native_1__c}"; 
+var Birthdate = "{!Account.PersonBirthdate}"; 
+var Gender = "{!Account.Gender__c}"; 
+if(market == 'JP' &amp;&amp; FirstName != '' &amp;&amp; FirstNameNative != '' &amp;&amp; LastNameNative != '' &amp;&amp; Gender != '' &amp;&amp; Birthdate != '') 
+{ 
+window.open('{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}'); 
+} 
+else if( market == 'JP' &amp;&amp; (FirstName == '' || FirstNameNative == '' || LastNameNative == '' || Gender == '' || Birthdate == ''))
+{ 
+alert("{!$Label.SendToMyMercedesJPUserErr}"); 
+}
+else if(market == 'JP') 
+{ 
+
+if(typeof(srcUp) == 'function') 
+{ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/CustomerMymercInterface?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/CustomerMymercInterface?id={!Account.Id}','_blank'); 
 } 
 } 
 else { 
-window.open("{!URLFOR($Site.Prefix)}/apex/SendAccountInfoToSPO?id={!Account.Id}",'_blank'); 
+window.open("{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}",'_blank'); 
+} 
+}
+else if(market != 'JP')
+{ 
+alert("{!$Label.SendToMyMercedesErrorMsg}"); 
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Send_to_SPO_Dealers</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType> 
+        <height>600</height>		
+        <linkType>page</linkType>
+        <masterLabel>Send to SPO</masterLabel>
+        <openType>noSidebar</openType>
+        <page>SendAccountInfoToSPO</page> 
+        <protected>false</protected> 
+    </webLinks>
+    <webLinks>
+        <fullName>Send_to_SPO</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send to SPO</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+{ 
+if(typeof(srcUp) == 'function') 
+{ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
+} else { 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+} 
+} 
+else 
+{ 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
 } 
 } 
 else 

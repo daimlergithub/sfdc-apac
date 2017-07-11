@@ -237,9 +237,14 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
     private static Sobject initiateSobject(Sobject so, String recordTypeName) {
         if (so instanceof Account) {
 			Account acc=(Account)so;
-            if (recordTypeName == ACCOUNT_RT_PERSON_ACCOUNT) {
-                initiatePersonAccount(so);
+            if (recordTypeName == ACCOUNT_RT_PERSON_ACCOUNT ) {
+                if(acc.MD__c=='JP'){
+                    initiatePersonAccount1(so);
             }
+			else 
+			{
+			    initiatePersonAccount(so);
+            }}
             else if (recordTypeName == ACCOUNT_RT_DEALER) {
 				if(acc.MD__C=='TH'){
 					initiateDealer1(so);
@@ -380,6 +385,22 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
             getRecordTypeMapInstance().get(ACCOUNT_RT_PERSON_ACCOUNT + accountString);
         // acc.Name = testString;
         acc.LastName = 'Customer';
+        acc.Type = acc.Type == null ? '0=Company' : acc.Type;
+        acc.Phone = '01234567';
+        acc.Area_Code__c = '010';
+        acc.MD__c='KR';
+        acc.MBK_Data_Source__c= acc.MBK_Data_Source__c == null ? '0=Campaign' : acc.MBK_Data_Source__c;
+        acc.Mobile__c = '000-0000-9643';
+        acc.Status__c = acc.Status__c == null ? '0=Customer' : acc.Status__c;
+    }
+	
+	private static void initiatePersonAccount1(Sobject so) {
+        Account acc = (Account)so;
+
+        acc.RecordTypeId = 
+            getRecordTypeMapInstance().get(ACCOUNT_RT_PERSON_ACCOUNT + accountString);
+        // acc.Name = testString;
+        acc.LastName = '刈乾冠寒刊勘';
         acc.Type = acc.Type == null ? '0=Company' : acc.Type;
         acc.Phone = '01234567';
         acc.Area_Code__c = '010';

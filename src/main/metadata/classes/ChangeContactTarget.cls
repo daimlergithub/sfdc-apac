@@ -103,7 +103,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr.contact__c);
              System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr);
                 if(vehiclewrpper.salescontactvr.contact__c != salescontacttargetId ){
-                    vehiclewrpper.salescontactvr.Start_Date__c = Date.today();
+                    //vehiclewrpper.salescontactvr.Start_Date__c = Date.today();
                     //vehiclewrpper.salescontactvr.id = null;
                     vrlist.add(vehiclewrpper.salescontactvr);
                     issalescontactchanged = true;
@@ -117,7 +117,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             }
             if (vehiclewrpper.aftersalescontactvr.id!=null){
             if(vehiclewrpper.aftersalescontactvr.contact__c != aftersalescontacttargetId ){
-                vehiclewrpper.aftersalescontactvr.Start_Date__c = date.today();
+                //vehiclewrpper.aftersalescontactvr.Start_Date__c = date.today();
                 //vehiclewrpper.aftersalescontactvr.id = null;
                 vrlist.add(vehiclewrpper.aftersalescontactvr);
                 isaftersalescontactchnged = true;
@@ -131,6 +131,9 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             List<vehicle_relationship__c> vrlisttoUpdate = new List<vehicle_relationship__c>(); 
             if(!vrlist.isEmpty()){
                 list<Vehicle_Relationship__c> VRlst = vrlist.deepClone(false,false,false);
+                for(Vehicle_Relationship__c vr :VRlst){
+                    vr.Start_Date__c = date.today();  
+                }
                 insert VRlst;
                 if(issalescontactchanged){
                     for(vehicle_relationship__c salesvr: oldsalesconractVRlist){

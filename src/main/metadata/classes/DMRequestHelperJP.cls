@@ -495,12 +495,18 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
              }   
               
         //query for DM_Request__c 
+		String Market;
+              for(Account accmarket : [select id,MD__c From Account Where id =:CustomerId LIMIT 1]){
+                 
+                 Market = accmarket.MD__c;
+                 
+             }
            
-        if(Usr.Market__C=='JP')
+        if(Market=='JP')
         {
             DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_90_DAYS and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
         }
-        else If(Usr.Market__C=='KR')
+        else If(Market=='KR')
         {
             DMList=[select Id,Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c <= LAST_N_DAYS:60 and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
         }  
@@ -519,7 +525,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                          ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
                                if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null){
                              if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
-                                    If(Usr.Market__C=='KR'){
+                                    If(Market=='KR'){
                                          lstDMR.Status__c='Duplicate';
                                        }                     
                                      if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
@@ -547,7 +553,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                      ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
                       if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
                       if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
-                                If(Usr.Market__C=='KR'){
+                                If(Market=='KR'){
                                      lstDMR.Status__c='Duplicate';
                                    }                      
                                  if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){

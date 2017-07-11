@@ -11,6 +11,9 @@
 **/
 public class AccountHelperJP
 {
+    public static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+    public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+    
     static User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,Contact.Account.Dealer_Rollout_Status__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
 **  Created By: Sudhir 
@@ -820,51 +823,69 @@ public class AccountHelperJP
     /*Concatenate full Company Name into Account Name field when Company Account is created/updated.
     sivaram(2.0)SFDCJP-474
     */
-    public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
-        try{
-          System.debug('inserting>>>>>>>>>>>>>');
-           // user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
+    public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts,boolean Isinsert,boolean Isupdate)
+    {
+        try
+        {
+            System.debug('inserting>>>>>>>>>>>>>');
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
-            if(usr.Profile.Name != 'IntegrationAPI'){
-           Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
-           ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-            for(Account acc : listAccounts){
-                if(acc.Company_Name__c != NUll && acc.recordtypeid == RDType){
-                   String Company_Legal_Form;
-					// Changes related to SFDCJP-2623
-                   if (acc.Company_Legal_form__c != NULL && acc.Company_Legal_Form__c !='Others')
+            if(usr.Profile.Name != 'IntegrationAPI')
+            {
+                Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
+                
+                for(Account acc : listAccounts)
+                {
+                    if(acc.Company_Name_Native_2__c != null && acc.RecordTypeId == accCompany_RecordTypeId && Isinsert)
                     {
-                     Company_Legal_Form= acc.Company_Legal_form__c;
-                     }
-                     else if (acc.Company_Legal_Form_text__c !=NULL)
-                     {
-                       Company_Legal_Form= acc.Company_Legal_form_Text__c;
+                        acc.Company_Name_Native_1__c = acc.Company_Name_Native_2__c;
+                    }
+                    if(acc.Company_Name__c != NUll && acc.recordtypeid == accCompany_RecordTypeId)
+                    {
+                        String Company_Legal_Form;
+                        // Changes related to SFDCJP-2623
+                        if (acc.Company_Legal_form__c != NULL && acc.Company_Legal_Form__c !='Others')
+                        {
+                            Company_Legal_Form= acc.Company_Legal_form__c;
                         }
-                                    
-                                    if(acc.Legal_Form_Position__c== NULL )
-                                    {
-                                        
-                                           acc.name =  (acc.Company_Name__c!=null ?acc.Company_Name__c : '' );
-                                    }
-                                    else if(acc.Legal_Form_Position__c == 'Pre') {
-                                        if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
-                                            acc.name = (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form): '')  + (acc.Company_Name__c!= null ? acc.Company_Name__c : '');
-                                        else
-                                           acc.name = (Company_Legal_Form != null?Company_Legal_Form:'' ) + (acc.Company_Name__c != null ?acc.Company_Name__c : '' );     
-                                    }
-                                    else if(acc.Legal_Form_Position__c == 'Post'){
-                                        if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
-                                            acc.name = (acc.Company_Name__c!= null ?acc.Company_Name__c : '' ) + (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form):'');
-                                        else
-                                            acc.name = (acc.Company_Name__c != null ? acc.Company_Name__c : '') + (Company_Legal_Form != null ? Company_Legal_Form:'');    
-                                    }
-                                
+                        else if (acc.Company_Legal_Form_text__c !=NULL)
+                        {
+                            Company_Legal_Form= acc.Company_Legal_form_Text__c;
+                        }
+                        
+                        if(acc.Legal_Form_Position__c== NULL )
+                        {
+                            
+                            acc.name =  (acc.Company_Name__c!=null ?acc.Company_Name__c : '' );
+                        }
+                        else if(acc.Legal_Form_Position__c == 'Pre') 
+                        {
+                            if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
+                            {
+                                acc.name = (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form): '')  + (acc.Company_Name__c!= null ? acc.Company_Name__c : '');
+                            }
+                            else
+                            {
+                                acc.name = (Company_Legal_Form != null?Company_Legal_Form:'' ) + (acc.Company_Name__c != null ?acc.Company_Name__c : '' );     
+                           }
+                        }
+                        else if(acc.Legal_Form_Position__c == 'Post')
+                        {
+                            if(usr.LanguageLocaleKey == 'ja' && acc.Company_Legal_Form__c !='Others')
+                            {
+                                acc.name = (acc.Company_Name__c!= null ?acc.Company_Name__c : '' ) + (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form):'');
+                            }
+                            else
+                            {
+                                acc.name = (acc.Company_Name__c != null ? acc.Company_Name__c : '') + (Company_Legal_Form != null ? Company_Legal_Form:'');    
+                            }
+                        }
+                    }
                 }
             }
-            }
         }
-        catch(Exception e){
+        catch(Exception e)
+        {
             System.debug('Error'+e.getMessage());
             System.debug('Cause'+e.getCause());
             System.debug('Line Numer'+e.getLineNumber());
@@ -959,7 +980,13 @@ public class AccountHelperJP
 public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAccountmap,boolean isInsert, boolean isUpdate)
     {
         set<id> insrtaccids = new set<id>();
+        List<Account_Link__c> updateextaccLinkList = new List<Account_Link__c>();
         string corelnId;
+        if(!accLst.isEmpty() && accLst != null)
+        {
+            updateextaccLinkList = [select id from Account_Link__c where torole__c =:accLst AND 
+                                    (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId =:AccountLink_RetailCompanyRecordTypeId)];
+        }
         for(Account acc : accLst)
         {
             if(acc.MD__c == 'JP' && isInsert && userinfo.getUserType()=='PowerPartner' && usr.Contact.Account.Dealer_Rollout_Status__c == 'Done')
@@ -967,7 +994,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
                 corelnId = ApexPages.currentPage().getParameters().get('CLNID');
                 insrtaccids.add(acc.Id);
             }
-            else if(acc.MD__c == 'JP' && isUpdate)
+            else if(acc.MD__c == 'JP' && isUpdate && !updateextaccLinkList.isEmpty() && updateextaccLinkList != null)
             {
                 if(oldAccountmap.get(Acc.id).LastName !=  acc.LastName || oldAccountmap.get(Acc.id).FirstName != acc.FirstName || oldAccountmap.get(Acc.id).LastName_Native_1__c != acc.LastName_Native_1__c || oldAccountmap.get(Acc.id).FirstName_Native_1__c != acc.FirstName_Native_1__c)
                 {

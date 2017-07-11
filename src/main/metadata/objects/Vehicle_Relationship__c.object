@@ -1651,6 +1651,10 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>Updated EndDate</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>

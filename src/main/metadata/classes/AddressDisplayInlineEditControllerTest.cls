@@ -259,8 +259,8 @@ public class AddressDisplayInlineEditControllerTest
         
         objAccount= new Account();
         objAccount.RecordtypeId=PersonaccRTId;
-        objAccount.Firstname='Test Person';
-        objAccount.LastName='1st';
+        objAccount.Firstname='刈乾冠寒刊勘';
+        objAccount.LastName='刈乾冠寒刊勘';
         objAccount.salutation='Mr.';
         objAccount.Type='Personal';
         objAccount.Status__c='Active';
