@@ -20,6 +20,8 @@ public class LeadHelperJP
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     static boolean isNotificationSendtoAdivisor = false;
     static boolean isNotificationSendtosalesmanager = false;
+	private static  final profile p = [select Name from profile where id =:userinfo.getprofileId()]; //JP-1942
+	
     public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
     {
         // Variables Declaration 
@@ -339,7 +341,15 @@ public class LeadHelperJP
                      {
                         Lead__c ld=new Lead__c();
                         ld.Id = lead.id;
-                        ld.CAC_Lead_Status__c='Allocated';
+						//Changes related to JP-1942
+                    if(p.Name.contains('MBF')){           
+        
+                    ld.CAC_Lead_Status__c='Approved';
+                    }
+                    else
+                    {
+                     ld.CAC_Lead_Status__c='Allocated';
+                    }
                         ld.Assigned_Date_Time__c=System.now();
                        // leadslist.add(ld);
                         leads.put(ld.id,ld);
@@ -361,7 +371,15 @@ public class LeadHelperJP
                      {
                     Lead__c ld=new Lead__c();
                     ld.Id = lead.id;
-                    ld.CAC_Lead_Status__c='Allocated';
+					//Changes related to JP-1942
+                    if(p.Name.contains('MBF')){           
+        
+                    ld.CAC_Lead_Status__c='Approved';
+                    }
+                    else
+                    {
+                     ld.CAC_Lead_Status__c='Allocated';
+                    }
                     ld.Assigned_Date_Time__c=System.now();
                       
                         leads.put(ld.id,ld);

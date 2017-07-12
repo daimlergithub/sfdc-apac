@@ -25,14 +25,14 @@ implements TriggerHandlerIf
             system.debug('Entered before insert TRIGGER');
             AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
             AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
-            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new,Trigger.isInsert,trigger.isupdate);
         }
         if(isBefore && isUpdate)
         {
             system.debug('Entered before update TRIGGER');
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new,Trigger.isInsert,trigger.isupdate);
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
         }
         if(isAfter && isInsert && !System.isFuture())

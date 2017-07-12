@@ -194,10 +194,16 @@
         <label>Campaign ID</label>
         <lookupFilter>
             <active>true</active>
+			<booleanFilter>1 OR 2</booleanFilter>
             <filterItems>
                 <field>Campaign.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>Campaign_Executiono</value>
+            </filterItems>			
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -349,7 +355,7 @@
     <fields>
         <fullName>Contractor_Company_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Contract__r.Company_Name__c</formula>
+        <formula>Contract__r.Contractor_Company_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Company Name</label>
         <required>false</required>
@@ -360,7 +366,7 @@
     <fields>
         <fullName>Contractor_Individual_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Contract__r.Account__r.LastName&amp;' '&amp; Contract__r.Account__r.FirstName</formula>
+        <formula>Contract__r.Contractor_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Individual Name</label>
         <required>false</required>

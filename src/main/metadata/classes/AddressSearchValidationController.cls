@@ -246,16 +246,19 @@ public class AddressSearchValidationController
         //AddressObj.Province__c = provincepicklist;
         Validation = false;
         
-         if(TouchPoint == '販売店')
-         {
-           TouchPoint = 'Dealer Outlet';
-           
-         }else if(TouchPoint == '使用しないでください'){
-         
-          TouchPoint = 'Others';
-         }
-         
-          
+        
+           Schema.DescribeFieldResult fieldResult = Account.Data_Source__c.getDescribe();
+           List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+            for( Schema.PicklistEntry f : ple)
+            {
+              if(UserInfo.getLocale()=='ja_JP')
+            {
+              labelNvalue.put(f.getLabel(),f.getValue());
+            } else{
+            labelNvalue.put(f.getValue(),f.getLabel());
+            }
+           }
+           TouchPoint=labelNvalue.get(TouchPoint);
         // Save record without Address record if no value is Entered in Address section
         if((AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '--None--') && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
            AddressObj.ZipCode__c == null && AddressObj.Block__c ==  null && AddressObj.City__c == null &&  AddressObj.District__c == null &&
@@ -804,7 +807,7 @@ public class AddressSearchValidationController
         if(market == Label.JP){
         if(u.ContactId !=null && selectedRecordType   =='Company')
         {
-        TouchPoint=Label.Others; 
+        TouchPoint=Label.Others_Data_Source; 
         } 
         if(u.ContactId !=null && selectedRecordType   =='Person Account')
         {

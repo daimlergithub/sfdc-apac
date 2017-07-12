@@ -3932,6 +3932,181 @@ please contact the number below.</value>
         <shortDescription>Lookup Button</shortDescription>
         <value>Lookup</value>
     </labels>
+	<labels>
+        <fullName>MBF_Authentication_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Authentication Section</shortDescription>
+        <value>Authentification</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Change_Request_WO_CA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Change Request (WO CA)</shortDescription>
+        <value>MBF Change Request (WO CA)</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Change_Request_W_CA_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Change Request (W CA) Section</shortDescription>
+        <value>MBF Change Request (W CA)</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Contract_Number_Field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Contract Number Field</shortDescription>
+        <value>Contract Number</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Dealer_Information_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Dealer Information Section</shortDescription>
+        <value>Dealer Information</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Dealer_Suggestion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Dealer Suggestion</shortDescription>
+        <value>Dealer Suggestion</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Description_information_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Description information Section</shortDescription>
+        <value>Description information</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Documentation_Request_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Documentation Request Section</shortDescription>
+        <value>MBF Documentation Request</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Early_Termination_Actual_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Early Termination Actual Section</shortDescription>
+        <value>Early Termination Actual</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Early_Termination_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Early Termination Section</shortDescription>
+        <value>Early Termination</value>
+    </labels>
+    <labels>
+        <fullName>MBF_General_Information_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF General Information Section</shortDescription>
+        <value>General Information</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Payer_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Payer Section</shortDescription>
+        <value>Payer</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Payout_Actual_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Payout Actual Section</shortDescription>
+        <value>Payout Actual</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Payout_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Payout Section</shortDescription>
+        <value>Payout</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Pre_Appraisal_Close_End_or_Pre_Appraisal_SWP_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Pre-Appraisal (Close End) or Pre-Appraisal (SWP) Section</shortDescription>
+        <value>Pre-Appraisal (Close End) or Pre-Appraisal (SWP)</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Query_Information_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Query Information Section</shortDescription>
+        <value>Query Information</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Re_Loan_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Re-Loan Section</shortDescription>
+        <value>Re-Loan</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Re_lease_Actual_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Re-lease Actual Section</shortDescription>
+        <value>Re-lease Actual</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Re_loan_Actual_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Re-loan Actual Section</shortDescription>
+        <value>Re-loan Actual</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Receiver_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Receiver Section</shortDescription>
+        <value>Receiver</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Release_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Release Section</shortDescription>
+        <value>Re-Lease</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Requestor_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Requestor Section</shortDescription>
+        <value>Requestor</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Retun_Open_end_Actual_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Retun(Open end) Actual Section</shortDescription>
+        <value>Retun(Open end) Actual</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Retun_Open_end_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Retun(Open end) Section</shortDescription>
+        <value>Retun(Open end)</value>
+    </labels>
+    <labels>
+        <fullName>MBF_Return_Close_end_SWP_Actual_Section</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Return(Close end &amp; SWP) Actual Section</shortDescription>
+        <value>Return(Close end &amp; SWP) Actual</value>
+    </labels>
     <labels>
         <fullName>MBJ_support</fullName>
         <language>en_US</language>
@@ -4671,6 +4846,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Others</shortDescription>
+        <value>Others</value>
+    </labels>	
+    <labels>
+        <fullName>Others_Data_Source</fullName>
+        <categories>Account Creation Data Source</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Others_Data_Source</shortDescription>
         <value>Others</value>
     </labels>
     <labels>
@@ -7522,6 +7705,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>SendToMyMercedesErrorMsg</shortDescription>
         <value>This function available only for Japan user</value>
+    </labels>
+	<labels>
+        <fullName>SendToMyMercedesJPUserErr</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SendToMyMercedesJPUserErr</shortDescription>
+        <value>Please enter the value of lastname, first name, last name native, first name native, Gender, Birthdate</value>
     </labels>
     <labels>
         <fullName>SendToSPOErrorMSG</fullName>
