@@ -2010,7 +2010,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <label>Retail Sales Sanction</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>A</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>E</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>F</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4392,6 +4412,33 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Sales_Sanction__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
@@ -5250,6 +5297,33 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Sales_Sanction__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
