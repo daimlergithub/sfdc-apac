@@ -253,8 +253,12 @@
         <name>Address_Details</name>
     </customLabels>
     <customLabels>
-        <label>住所情報　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください。</label>
+        <label>住所情報</label>
         <name>Address_Information</name>
+    </customLabels>
+	 <customLabels>
+        <label>住所情報　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください。</label>
+        <name>Address_Information_SPO</name>
     </customLabels>
     <customLabels>
         <label>住所〒</label>
@@ -1440,24 +1444,23 @@
         <name>Email_LeadDealerAssign13</name>
     </customLabels>
     <customLabels>
-        <label>メルセデス・ベンツ日本ＸＸＸ（TBD）事務局</label>
+        <label>統合顧客管理システム（受付時間：毎日9時から20時　 *土日・祝日も営業)</label>
         <name>Email_LeadDealerAssign14</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースの操作、システムメンテナンスに関しての
-お問い合わせは下記の電話番号までお願いいたします。</label>
+        <label> ITサポートデスク(システムトラブル時のサポート、ユーザーID申請に関する質問)</label>
         <name>Email_LeadDealerAssign15</name>
     </customLabels>
     <customLabels>
-        <label>◆セールスフォースサポートデスク</label>
+        <label>TEL:03-5643-6071</label>
         <name>Email_LeadDealerAssign16</name>
     </customLabels>
     <customLabels>
-        <label>TEL：ＸＸＸ（TBD）（受付時間：毎日10:00～12:00、13:00～18:00）</label>
+        <label>ビジネスサポートデスク(マニュアル、FAQでは解決しない使い方、活用方法に関する質問)</label>
         <name>Email_LeadDealerAssign17</name>
     </customLabels>
     <customLabels>
-        <label>※本メールへは返信しないようにお願いいたします。</label>
+        <label>TEL:03-5623-3498</label>
         <name>Email_LeadDealerAssign18</name>
     </customLabels>
     <customLabels>

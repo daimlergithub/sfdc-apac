@@ -309,8 +309,8 @@ public with sharing class AccountMergeController{
             Object slaveFieldValue = slave.get(fieldAPI);
      
             // Populate isMasterNull and isSlaveNull
-            wrap.isMasterNull = (masterFieldValue == null);
-            wrap.isSlaveNull = (slaveFieldValue == null);
+           // wrap.isMasterNull = (masterFieldValue == null);
+            //wrap.isSlaveNull = (slaveFieldValue == null);
          
            if ((masterFieldValue != null && masterFieldValue == slaveFieldValue) ||
                     fieldAPI == 'Master_Record__c' ) {
@@ -321,6 +321,23 @@ public with sharing class AccountMergeController{
                 continue;
             }
             
+			//Changes related  to SFDCJP-2707
+			if ((masterFieldValue != null && masterFieldValue != slaveFieldValue && slaveFieldValue ==null) || fieldAPI == 'Master_Record__c' ) {
+                wrap.isSame = false;
+                wrap.isMasterChecked = true;
+                wrap.isSlaveChecked = false;
+                wraps.add(wrap);               
+                continue;
+            }
+            
+             if ((slaveFieldValue != null && slaveFieldValue != masterFieldValue&& masterFieldValue==null) || fieldAPI == 'Master_Record__c' ) {
+                wrap.isSame = false;
+                wrap.isMasterChecked = false;
+                wrap.isSlaveChecked = true;
+                wraps.add(wrap);               
+                continue;
+            }
+			
             // Populate isSame
             wrap.isSame = ( masterFieldValue == slaveFieldValue);
             

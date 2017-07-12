@@ -283,6 +283,14 @@
         <protected>false</protected>
         <shortDescription>Address Information</shortDescription>
         <value>Address Information</value>
+    </labels>	
+    <labels>
+        <fullName>Address_Information_SPO</fullName>
+        <categories>Account SPO Information</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Information</shortDescription>
+        <value>Address Information</value>
     </labels>
     <labels>
         <fullName>Address_PrintPDF</fullName>
