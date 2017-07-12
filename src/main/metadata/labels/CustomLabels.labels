@@ -21,62 +21,6 @@
         <shortDescription>A6 Invitation to an event / event at the car dealership</shortDescription>
         <value>Invitation to an event / event at the car dealership</value>
     </labels>
-	 <labels>
-        <fullName>Customer_Stage</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Customer Stage</shortDescription>
-        <value>Customer Stage</value>
-    </labels>
-	<labels>
-        <fullName>Retail_Email_OptOut</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Retail Email OptOut</shortDescription>
-        <value>Retail Email OptOut</value>
-    </labels>
-	<labels>
-        <fullName>Vehicle_Edit</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Vehicle Edit</shortDescription>
-        <value>Vehicle Edit</value>
-    </labels>
-	<labels>
-        <fullName>Registration_Information</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration Information</shortDescription>
-        <value>Registration Information</value>
-    </labels>
-	<labels>
-        <fullName>Sales_dealer</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Sales dealer</shortDescription>
-        <value>Sales dealer</value>
-    </labels>
-	<labels>
-        <fullName>Last_Service_Date</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Last Service Date</shortDescription>
-        <value>Last Service Date</value>
-    </labels>
-	<labels>
-        <fullName>Campaign_member_status</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Campaign member status</shortDescription>
-        <value>Campaign member status</value>
-    </labels>
-	<labels>
-        <fullName>Recall_Status</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Recall Status</shortDescription>
-        <value>Recall Status</value>
-    </labels>
     <labels>
         <fullName>A6_Other_contact_channels</fullName>
         <language>en_US</language>
@@ -162,7 +106,7 @@
         <shortDescription>AccountMergeFields</shortDescription>
         <value>AccountMergeFields</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>AccountName</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -190,28 +134,14 @@
         <shortDescription>Account Creation</shortDescription>
         <value>Account Creation</value>
     </labels>
-	<labels>
-        <fullName>No_Master</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>No Master</shortDescription>
-        <value>No master address record found to display for</value>
-    </labels>
-	<labels>
-        <fullName>No_Slave</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>No Slave</shortDescription>
-        <value>No slave address record found to display for</value>
-    </labels>
-	<labels>
+    <labels>
         <fullName>Account_Information</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Account Information</shortDescription>
         <value>Account Information</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Account_Link_record_with_the_same_Role_1_and_Role2_exists</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -233,14 +163,14 @@
         <shortDescription>AddressSearchValidation</shortDescription>
         <value>Account Name</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Account_Name_is_mandatory</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Account Name is mandatory</shortDescription>
         <value>Account Name is mandatory</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Account_Records</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -339,7 +269,7 @@
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Address 2</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Address_Details</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -504,28 +434,28 @@
         <shortDescription>And Criteria</shortDescription>
         <value>And Criteria</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Are_you_sure_want_to_send_information_to_Auto_Line_interface</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Are you sure want to send information to Auto Line interface?</shortDescription>
         <value>Are you sure want to send information to Auto Line interface?</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Are_you_sure_want_to_send_information_to_JPOS_interface</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Are you sure want to send information to JPOS interface?</shortDescription>
         <value>Are you sure want to send information to JPOS interface?</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Are_you_sure_want_to_send_information_to_SPO_interface</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Are you sure want to send information to SPO interface?</shortDescription>
         <value>Are you sure want to send information to SPO interface?</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Assign</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -618,7 +548,7 @@
         <shortDescription>Assigned Dealer</shortDescription>
         <value>Assigned Dealer</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Assigned_Dealer_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -639,7 +569,7 @@
         <shortDescription>Authorization</shortDescription>
         <value>you do not have the proper authorization</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Available_Contacts</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1462,6 +1392,13 @@
         <value>Media</value>
     </labels>
     <labels>
+        <fullName>Campaign_member_status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign member status</shortDescription>
+        <value>Campaign member status</value>
+    </labels>
+    <labels>
         <fullName>Campaigns_Filter</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1498,7 +1435,7 @@
         <shortDescription>Cannot Delete Central Campaign</shortDescription>
         <value>You can&apos;t delete an active campaign.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Car_Relation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1610,7 +1547,7 @@
         <shortDescription>Case Record Type</shortDescription>
         <value>Case Type</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Case_Records</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1625,7 +1562,7 @@
         <shortDescription>Case received by Phone etc</shortDescription>
         <value>Case received by Phone etc</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>ChangeContacttarget</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1661,7 +1598,7 @@
         <shortDescription>City</shortDescription>
         <value>City</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>City_native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1703,7 +1640,7 @@
         <shortDescription>Close</shortDescription>
         <value>Close</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Closee</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1767,7 +1704,7 @@
         <shortDescription>Company Account Record Type</shortDescription>
         <value>Company Account</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Company_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1824,7 +1761,7 @@
         <shortDescription>ConfidentialPDF</shortDescription>
         <value>Confidential</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Confirmation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1911,20 +1848,47 @@
         <value>Could not explain</value>
     </labels>
     <labels>
+        <fullName>CountryCode_for_HomePhone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CountryCode for HomePhone</shortDescription>
+        <value>Home Phone must be in any of the following formats :	
+1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
+    </labels>
+    <labels>
+        <fullName>CountryCode_for_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CountryCode for Mobile</shortDescription>
+        <value>Mobile Phone must be in any of the following formats : 
+1. Province code (xxx) And Phone Part 9 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
+    </labels>
+    <labels>
         <fullName>CountryTH</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CountryTH</shortDescription>
         <value>Thailand</value>
     </labels>
-	<labels>
+    <labels>
+        <fullName>Countrycode_for_WorkPhone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Countrycode for WorkPhone</shortDescription>
+        <value>Work Phone must be in any of the following formats : 
+1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
+2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
+    </labels>
+    <labels>
         <fullName>CreateRetailCopy</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CreateRetailCopy</shortDescription>
         <value>CreateRetailCopy</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Create_ContactSector</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2002,7 +1966,7 @@
         <shortDescription>Current Vehicle Model</shortDescription>
         <value>Current Vehicle Model</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Currently_Assigned_To</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2065,14 +2029,14 @@
         <shortDescription>Customer Issue</shortDescription>
         <value>Customer&apos;s issue and complaints can be solved with promoted car?</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Customer_My_Merc_Interface_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Customer My Merc Interface Customer</shortDescription>
         <value>Customer My Merc Interface Customer</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Customer_My_Mercedes_Interface_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2102,13 +2066,20 @@
         <value>Customer Profile</value>
     </labels>
     <labels>
+        <fullName>Customer_Stage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Stage</shortDescription>
+        <value>Customer Stage</value>
+    </labels>
+    <labels>
         <fullName>Customer_Statement</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Customer Statement</shortDescription>
         <value>Customer Statement</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Customer_Vehicle_Information</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2334,7 +2305,7 @@
         <shortDescription>Discount Total</shortDescription>
         <value>Discount Total</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Districe_Native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2407,7 +2378,7 @@
         <shortDescription>Elegance</shortDescription>
         <value>Elegance</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Email</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2601,6 +2572,14 @@ please contact the number below.</value>
         <value>This is a very hot customer information, so for the manager please check the lead from the URL below,assign it to the representative, and follow them as your sales operations.</value>
     </labels>
     <labels>
+        <fullName>Email_LeadDealerAssignSubject</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadDealerAssignSubject</shortDescription>
+        <value>Lead assignment to dealer outlet</value>
+    </labels>
+    <labels>
         <fullName>Email_Manager</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2628,7 +2607,7 @@ please contact the number below.</value>
         <shortDescription>Email_salesforcelogin</shortDescription>
         <value>*You need to log in to Salesforce to check the Case information.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Emails</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2879,7 +2858,7 @@ please contact the number below.</value>
         <shortDescription>Finance Proposal</shortDescription>
         <value>Finance Proposal</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>First</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2907,7 +2886,7 @@ please contact the number below.</value>
         <shortDescription>First Estimate Print</shortDescription>
         <value>First Estimate Print</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>First_Name_Native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3050,7 +3029,7 @@ please contact the number below.</value>
         <shortDescription>Greater Than</shortDescription>
         <value>Greater Than</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>HOT1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3193,7 +3172,7 @@ please contact the number below.</value>
         <shortDescription>If yes, within which period do you plan to purchase</shortDescription>
         <value>If yes, within which period do you plan to purchase</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Individual_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3750,14 +3729,14 @@ please contact the number below.</value>
         <shortDescription>please visit</shortDescription>
         <value>please visit</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Last</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Last</shortDescription>
         <value>Last</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>LastName_and_TouchPoint_fileds_are_mandatory</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3785,7 +3764,7 @@ please contact the number below.</value>
         <shortDescription>Last Modified Date</shortDescription>
         <value>Last Modified Date</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Last_Name_Native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3798,6 +3777,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Last Name should not be null</shortDescription>
         <value>Last Name should not be null</value>
+    </labels>
+    <labels>
+        <fullName>Last_Service_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Service Date</shortDescription>
+        <value>Last Service Date</value>
     </labels>
     <labels>
         <fullName>Latest_Phase_History</fullName>
@@ -3855,7 +3841,7 @@ please contact the number below.</value>
         <shortDescription>Lead Process Sheet</shortDescription>
         <value>Lead Process Sheet</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Lead_Records</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3932,7 +3918,7 @@ please contact the number below.</value>
         <shortDescription>Lookup Button</shortDescription>
         <value>Lookup</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>MBF_Authentication_Section</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4350,7 +4336,7 @@ please contact the number below.</value>
         <shortDescription>ModelRange</shortDescription>
         <value>Model Range</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>MyMercedes_Email_ID_Edit</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4371,7 +4357,7 @@ please contact the number below.</value>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>My Shop Phone</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>My_Merc_Email_Id</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4385,7 +4371,7 @@ please contact the number below.</value>
         <shortDescription>My Merc Id</shortDescription>
         <value>My Merc Id</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>My_Mercedes_Email_Id</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4571,7 +4557,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>New Value</shortDescription>
         <value>New Value</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Newly_Assigned_To</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4621,6 +4607,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>No Complaint</value>
     </labels>
     <labels>
+        <fullName>No_Master</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Master</shortDescription>
+        <value>No master address record found to display for</value>
+    </labels>
+    <labels>
         <fullName>No_Match_Found</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4633,6 +4626,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>No Result Found</shortDescription>
         <value>No Result Found</value>
+    </labels>
+    <labels>
+        <fullName>No_Slave</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Slave</shortDescription>
+        <value>No slave address record found to display for</value>
     </labels>
     <labels>
         <fullName>No_Target_records</fullName>
@@ -4649,7 +4649,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>No Thai</shortDescription>
         <value>ไม่ได้</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>No_Users_are_available_to_assign</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4670,7 +4670,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>No, don’t want to talk</shortDescription>
         <value>No, don’t want to talk</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>No_master_record_found_for_duplicate_merge</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4713,7 +4713,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Not yet decided</shortDescription>
         <value>Not yet decided</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Notification_Lead_Dealer_Assignment</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4847,7 +4847,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Others</shortDescription>
         <value>Others</value>
-    </labels>	
+    </labels>
     <labels>
         <fullName>Others_Data_Source</fullName>
         <categories>Account Creation Data Source</categories>
@@ -4863,7 +4863,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Outlet</shortDescription>
         <value>Out let</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Outlet_Registered_To_MyMercedes</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4982,7 +4982,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>PersonAccount Record Type From Account</shortDescription>
         <value>012280000000f14AAA</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>PersonBirthDate_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5061,14 +5061,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please Select A Dealer To Add As Participating Dealer</shortDescription>
         <value>Please Select A Dealer To Add As Participating Dealer</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Please_Select_Dealer</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Please Select Dealer</shortDescription>
         <value>Please Select Dealer.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Please_Select_gender</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5082,28 +5082,28 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please Wait</shortDescription>
         <value>Please Wait</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Please_check_and_modify_if_necessary_Salesresponsibleperson_for_newcontacttarget</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Please check and modify if necessary Salesresponsibleperson for newcontacttarget</shortDescription>
         <value>Please check and modify if necessay the Sales responsible person for the new contact target</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Please enter Mandatory Fields on Account - BirthDate,Last Name Native,Gender</shortDescription>
         <value>Please enter Mandatory Fields on Account - BirthDate,Last Name Native,Gender.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Please_enter_My_Merc_Email_Id_for_Selected_Account</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Please enter My Merc Email Id for Selected Account</shortDescription>
         <value>Please enter My Merc Email Id for Selected Account.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5117,7 +5117,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please enter the filter name</shortDescription>
         <value>Please enter the filter name</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Please_enter_value_for_Company_Legal_Form</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5159,7 +5159,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please select Address</shortDescription>
         <value>Please select Address</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Please_select_Dealer_Outlet</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5286,14 +5286,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Proposed Date(3):</shortDescription>
         <value>Proposed Date(3):</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Province_Native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Province Native should not be null</shortDescription>
         <value>Province Native should not be null</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Province_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5869,12 +5869,19 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Rating reason</shortDescription>
         <value>If rating is between 1-5, please specify reason</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Reason</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Reason</shortDescription>
         <value>Reason</value>
+    </labels>
+    <labels>
+        <fullName>Recall_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Recall Status</shortDescription>
+        <value>Recall Status</value>
     </labels>
     <labels>
         <fullName>Received_By</fullName>
@@ -5912,7 +5919,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>RecordTypeId</shortDescription>
         <value>RecordTypeId</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Records_Updated</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5969,6 +5976,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Registration Date / Milage</value>
     </labels>
     <labels>
+        <fullName>Registration_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Information</shortDescription>
+        <value>Registration Information</value>
+    </labels>
+    <labels>
         <fullName>Registration_Plan_Date</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5997,7 +6011,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Label used in Task View Acc button</shortDescription>
         <value>Related Account field is empty</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Related_Company_List</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6011,7 +6025,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Related Dealer View for Contract</shortDescription>
         <value>Related Dealer View for Contract</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Remove</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6156,7 +6170,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Retail Campaign Canlender Page SM Media</shortDescription>
         <value>S&amp;M Media Retail Campaign</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Retail_Copy_Only_Related_List</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6169,6 +6183,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Retail Copy View Area For Dealer User</shortDescription>
         <value>Retail Copy View Area For Dealer User</value>
+    </labels>
+    <labels>
+        <fullName>Retail_Email_OptOut</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Email OptOut</shortDescription>
+        <value>Retail Email OptOut</value>
     </labels>
     <labels>
         <fullName>Retail_copy_is_already_present</fullName>
@@ -7352,7 +7373,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>SMS Reply History Respond Content</shortDescription>
         <value>Respond Content</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>SPO_Interface_Customer_Vehicle_Info</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7536,6 +7557,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Sales TEL Type</value>
     </labels>
     <labels>
+        <fullName>Sales_dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales dealer</shortDescription>
+        <value>Sales dealer</value>
+    </labels>
+    <labels>
         <fullName>Sama</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7621,7 +7649,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>[Select All]</shortDescription>
         <value>[Select All]</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Select_Company</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7643,7 +7671,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Select User</shortDescription>
         <value>Please select the users</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Select_Your_Prefered_Email_Id_For_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7657,21 +7685,21 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Select dropdown</shortDescription>
         <value>---Select---</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Selectall</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Select All</shortDescription>
         <value>Select All</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Selected_Contacts</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Selected Contacts</shortDescription>
         <value>Selected Contacts</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Selected_Record</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7706,7 +7734,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>SendToMyMercedesErrorMsg</shortDescription>
         <value>This function available only for Japan user</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>SendToMyMercedesJPUserErr</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7720,14 +7748,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>SendToSPOErrorMSG</shortDescription>
         <value>This function available only for Japan user</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Send_Information</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Send Information</shortDescription>
         <value>Send Information</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Send_to_JPOS</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7891,13 +7919,6 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Status - Approved</shortDescription>
         <value>Approved</value>
     </labels>
-	<labels>
-        <fullName>s8_Please_operate_My_Mercedes_Registration_first</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>s8 Please operate My Mercedes Registration first</shortDescription>
-        <value>Please operate My Mercedes Registration first</value>
-    </labels>
     <labels>
         <fullName>Status_Cancel_Application</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
@@ -7921,7 +7942,6 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Stocks for interested vehicle</shortDescription>
         <value>Stocks for intereseted vehicler?</value>
     </labels>
-	
     <labels>
         <fullName>Store</fullName>
         <language>en_US</language>
@@ -7943,28 +7963,28 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Download File is created please follow the link in task  for download</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Successfully_Sent_Information_to_AutoLine</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Successfully Sent Information to AutoLine.</shortDescription>
         <value>Successfully Sent Information to AutoLine.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Sucessfully_Created_Retail_Copy</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Sucessfully Created Retail Copy</shortDescription>
         <value>Sucessfully Created Retail Copy</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Sucessfully_Sent_Information_to_JPOS</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Sucessfully Sent Information to JPOS</shortDescription>
         <value>Sucessfully Sent Information to JPOS</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Sucessfully_Sent_Information_to_SPO</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8072,7 +8092,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Suspected Duplicates</shortDescription>
         <value>Suspected Duplicates</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>T1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8134,6 +8154,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>TH_SERVICEBOOKING</shortDescription>
         <value>SERVICE BOOKING</value>
+    </labels>
+    <labels>
+        <fullName>TH_purchased_vehicle_related_information</fullName>
+        <categories>VehiclePicker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_purchased_vehicle_related_information</shortDescription>
+        <value>Please enter purchased vehicle related information as the lead the Lead status is set as Purchased</value>
     </labels>
     <labels>
         <fullName>TargetVIN</fullName>
@@ -8372,18 +8400,18 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>No Vehicle Relationship found for Termination.</value>
     </labels>
     <labels>
-        <fullName>Test_Drive</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Test Drive</shortDescription>
-        <value>Test Drive</value>
-    </labels>	
-    <labels>
         <fullName>Test</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Test</shortDescription>
         <value>Please fill out Primary Case Dealer</value>
+    </labels>
+    <labels>
+        <fullName>Test_Drive</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Drive</shortDescription>
+        <value>Test Drive</value>
     </labels>
     <labels>
         <fullName>ThankYouLink</fullName>
@@ -8414,7 +8442,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>The filter count is greater than 15</shortDescription>
         <value>The filter count is greater than 20</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>This_Lead_cannot_be_send_to_Autoline</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8598,7 +8626,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>URL</shortDescription>
         <value>URL</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>US_VIN_Number</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8641,14 +8669,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Used-car buy-back/Trade-in</shortDescription>
         <value>Used-car buy-back/Trade-in</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>User_Details</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>User Details</shortDescription>
         <value>User Details</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>User_Notification_Settings</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8812,6 +8840,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Vehicle Detail</value>
     </labels>
     <labels>
+        <fullName>Vehicle_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Edit</shortDescription>
+        <value>Vehicle Edit</value>
+    </labels>
+    <labels>
         <fullName>Vehicle_Filter</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8882,7 +8917,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Vehicle Price
 +Maker option price</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Vehicle_Records</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8932,7 +8967,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Visited</shortDescription>
         <value>Visited</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Web_service_callout_failed</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9189,7 +9224,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Zipcode not found</shortDescription>
         <value>Address search did not return any value, please re enter correct Zip code</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Zipcode_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9393,14 +9428,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>3 months</shortDescription>
         <value>3 months</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>please_enter_valid_Email</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>please enter valid Email</shortDescription>
         <value>please enter valid Email</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>please_input_My_Mercedes_Email_Id</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9565,7 +9600,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>&amp;retURL=/apex/SelectSlaveAccount?Id=</shortDescription>
         <value>&amp;retURL=/apex/SelectSlaveAccount?Id=</value>
     </labels>
-	<labels>
+    <labels>
+        <fullName>s8_Please_operate_My_Mercedes_Registration_first</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>s8 Please operate My Mercedes Registration first</shortDescription>
+        <value>Please operate My Mercedes Registration first</value>
+    </labels>
+    <labels>
         <fullName>select</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9606,40 +9648,5 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
-    </labels>
-	    <labels>
-        <fullName>TH_purchased_vehicle_related_information</fullName>
-        <categories>VehiclePicker</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>TH_purchased_vehicle_related_information</shortDescription>
-        <value>Please enter purchased vehicle related information as the lead the Lead status is set as Purchased</value>
-    </labels>
-	<labels>
-        <fullName>CountryCode_for_HomePhone</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>CountryCode for HomePhone</shortDescription>
-        <value>Home Phone must be in any of the following formats :	
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
-    </labels>
-    <labels>
-        <fullName>CountryCode_for_Mobile</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>CountryCode for Mobile</shortDescription>
-        <value>Mobile Phone must be in any of the following formats : 
-1. Province code (xxx) And Phone Part 9 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
-    </labels>
-    <labels>
-        <fullName>Countrycode_for_WorkPhone</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Countrycode for WorkPhone</shortDescription>
-        <value>Work Phone must be in any of the following formats : 
-1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
-2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
     </labels>
 </CustomLabels>
