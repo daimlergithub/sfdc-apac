@@ -290,7 +290,7 @@
         <fields>VIN__c</fields>
         <fields>Service_Dealer__c</fields>
         <fields>Service_Advisor__c</fields>
-        <fields>Sales_Person_Id__c</fields>
+        <fields>Sales_Representative__c</fields>
         <fields>Selling_Dealer__c</fields>
         <fields>NextInspectionDate__c</fields>
         <fields>NextServiceDate__c</fields>
