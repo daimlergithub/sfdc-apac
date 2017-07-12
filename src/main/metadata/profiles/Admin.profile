@@ -265,6 +265,10 @@
         <apexClass>AccountLinkSharingWrapService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>accountLinkShareBatch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountMergeController</apexClass>
         <enabled>true</enabled>
