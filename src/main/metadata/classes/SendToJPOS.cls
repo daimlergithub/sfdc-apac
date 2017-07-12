@@ -33,6 +33,7 @@ public class SendToJPOS{
     public User  CurrentUsr{set;get;}
     public User  AssignedDealer{set;get;}
     public  Boolean ShowHideError{set;get;}
+    public String GcCode;
     public String AssignedDealerUserID;
     public String MyMercedesID{set;get;}
     public String locallang{get;set;}
@@ -96,15 +97,16 @@ public class SendToJPOS{
        //If current Logged in User is Dealer user update Assigned Dealer field value.
        if(CurrentUsr.contactid!=null)
              { 
-             
-               Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
+             System.debug('Welcome to dealers');
+               Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId,Dealer_GC_Code__c FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
               
-              contactList=[Select id,AccountId from Contact where id=:usr.ContactId]; 
+              contactList=[Select id,AccountId,Account.Dealer_GC_Code__c from Contact where id=:usr.ContactId]; 
               
               If(contactList!=null)
               {
               for(Contact con:contactList)
               {
+               GcCode=+con.Account.Dealer_GC_Code__c;
               DealeAccId.add(con.AccountId);
               }
               }
@@ -130,10 +132,35 @@ public class SendToJPOS{
              
            }
            }
+           System.debug('Welcome to listAlk'+listAlk);
+           if(listAlk ==null || listAlk.isempty())
+           {
+           
+           if(usr.Dealer_GC_Code__c == GcCode && AccId!=null && Acclist.Recordtypeid==accCompany_RecordTypeId)
+           {
+            listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Dealer_CompanyCode__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where  toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId and Retail_Dealer_CompanyCode__c =:usr.Dealer_GC_Code__c Limit 1];
+            }
+            
+             if(usr.Dealer_GC_Code__c == GcCode && AccId!=null && Acclist.Recordtypeid==accPerson_RecordTypeId)
+           {
+            listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Dealer_CompanyCode__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where  toRole__c =:AccId and Recordtypeid=:alkPerson_RecordTypeId and Retail_Dealer_CompanyCode__c =:usr.Dealer_GC_Code__c Limit 1];
+            }
+             System.debug(' listAlk Welcome to listAlk'+listAlk);
+             if(listAlk !=null  && !listAlk.isempty())
+             {
+                 for(Account_Link__c Acclink:listAlk)
+               {
+               AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
+                    System.debug(' listAlk Welcome to listAlk'+AssignedDealerUserID);
+               }
+             } 
+           }
+           // System.debug(' listAlk Welcome to listAlk'+AssignedDealerUserID);
            if(AssignedDealerUserID!=null)
            {
          AssignedDealer=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = :AssignedDealerUserID and DMS_UserID__c!=null];
            }
+            System.debug(' listAlk Welcome to AssignedDealer'+AssignedDealer);
              }
        
     } // End of Constructer 
@@ -153,7 +180,7 @@ public class SendToJPOS{
           AccId=ApexPages.currentPage().getParameters().get('id'); 
           // DealerID=ApexPages.currentPage().getParameters().get('DealerID'); 
            
-           accc=[Select id from account where id=:DealerID.Main_Dealer__c];   
+           accc=[Select id,Dealer_GC_Code__c  from account where id=:DealerID.Main_Dealer__c];   
            
            if(AccId !=null)
            {
@@ -184,6 +211,30 @@ public class SendToJPOS{
            AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c; 
            }
            }
+           
+           
+           
+              
+            if(listAlk ==null || listAlk.isempty())
+           {
+            if(accc !=null)
+            {
+            for(account act:accc)
+            {
+             GcCode=+(act.Dealer_GC_Code__c);
+             }
+            listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Dealer_CompanyCode__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where  toRole__c =:AccId and (Recordtypeid=:alkCompany_RecordTypeId OR Recordtypeid=:alkPerson_RecordTypeId) and Retail_Dealer_CompanyCode__c =:GcCode Limit 1];
+             }
+             if(listAlk !=null  && !listAlk.isempty())
+             {
+                 for(Account_Link__c Acclink:listAlk)
+               {
+               AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
+                 
+               }
+             } 
+           }
+           
             
            if(AssignedDealerUserID!=null)
            {
@@ -203,7 +254,7 @@ public class SendToJPOS{
            listAlk=new List<Account_Link__c> ();
            
            AccId=ApexPages.currentPage().getParameters().get('id'); 
-           CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
+           CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,Dealer_GC_Code__c,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
            if(AccId!=null)
            {
            Acclist=[Select id,City__c,Gender__c,FirstName,LastName,FirstName_Native_1__c,LastName_Native_1__c,PersonBirthdate,Company_Name__c,Company_Name_Native_1__c,Company_Name_Native_2__c,Company_Legal_Form__c,Company_Legal_Form_text__c,Legal_Form_Position__c,Recordtypeid from Account where id=:AccId];
@@ -229,10 +280,11 @@ public class SendToJPOS{
            }
            
            //Query to get Dealer Account RecordId
-           Dealeracc=[Select id,Name from Account where id=:DealerID.Main_Dealer__c];
+           Dealeracc=[Select id,Name,Dealer_GC_Code__c from Account where id=:DealerID.Main_Dealer__c];
            for(Account AccDealer:Dealeracc)
            {
            DealeAccId.add(AccDealer.id);
+          
            } 
           
           // If Account is Person accout, Query to get Acccount_Link records with Retail person
@@ -258,6 +310,8 @@ public class SendToJPOS{
            }
            }
            
+           
+           
            // If  Retail sales consulatant is not blank ,query to get user Id.
            if(AssignedDealerUserID!=null)
            {
@@ -267,15 +321,16 @@ public class SendToJPOS{
            // If Current user is Dealer user ,get the sales consultant ID.
              if(CurrentUsr.contactid!=null)
              { 
-               Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
+               Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId,contact.Account.Dealer_GC_Code__c FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
              
-              contactList=[Select id,AccountId from Contact where id=:usr.ContactId];
+              contactList=[Select id,AccountId,Account.Dealer_GC_Code__c from Contact where id=:usr.ContactId];
                
               If(contactList!=null)
               {
               for(Contact con:contactList)
               {
               DealeAccId.add(con.AccountId);
+              // GcCode=+(con.Account.Dealer_GC_Code__c);
               }
               }
                 
@@ -291,6 +346,7 @@ public class SendToJPOS{
                AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c; 
                }
            }
+           
            
            if(AssignedDealerUserID!=null)
            {
@@ -405,7 +461,7 @@ public class SendToJPOS{
                    ShowHideError=True;
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.Please_select_Retail_Sales_Consultant_in_Account_Link));
                    }
-				   // Commented as part of SFDCJP-2737
+                   // Commented as part of SFDCJP-2737
                  /* if(AssignedDealer.DMS_UserID__c==null)
                    {
                    ShowHideError=True;
