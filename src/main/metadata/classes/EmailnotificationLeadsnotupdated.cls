@@ -11,7 +11,7 @@ Business Conditions :
 * Send notifications to sales Managers based on the lead record type.
 * This will execute daily 3 times. 
 JIRA NO             :    SFDCJP-548                                              
-Bug JIRA NO			:	 SFDCJP-2758
+Bug JIRA NO         :    SFDCJP-2758
 
 MODIFICATION DETAILS:
 
@@ -88,7 +88,7 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
     public void sendMail(Map<Id, User> leadAssignedUserMap,Map<Id, List<User>> leadAssignedDealerRecipients){        
         List<Id> userIds = new List<Id>();
         List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
-        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead assignment to dealer outlet' limit 1];
+        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead untouched for 30 days' limit 1];
         
         for(Id lid : leadAssignedUserMap.keySet()){            
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
