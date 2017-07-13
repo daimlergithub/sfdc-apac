@@ -48,10 +48,6 @@
                 <field>Reason_for_the_removal__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Removed__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>VehicleRelationship__c</field>
             </layoutItems>

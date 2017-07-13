@@ -67,8 +67,8 @@ public class CheckAccountDuplicateController_Test
         }
         personAcc= new Account();
         personAcc.RecordtypeId= strPerson;
-        personAcc.FirstName = 'Test Person';
-        personAcc.LastName='Test Person 1st';
+        personAcc.FirstName = '刈乾冠寒刊勘';
+        personAcc.LastName='刈乾冠寒刊勘';
         personAcc.LastName_Native_1__c = 'ァアィイゥウェエォオ';
         personAcc.FirstName_Native_1__c ='ァアィイゥウェエォオ';
         personAcc.Province__c='Province1';
