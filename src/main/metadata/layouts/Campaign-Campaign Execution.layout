@@ -126,6 +126,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>IsActive</field>
+            </layoutItems>		
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
