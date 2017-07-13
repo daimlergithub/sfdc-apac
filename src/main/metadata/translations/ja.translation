@@ -256,7 +256,7 @@
         <label>住所情報</label>
         <name>Address_Information</name>
     </customLabels>
-    <customLabels>
+	 <customLabels>
         <label>住所情報　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください。</label>
         <name>Address_Information_SPO</name>
     </customLabels>
@@ -1509,10 +1509,6 @@
         <name>Email_LeadDealerAssignSubject</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースに展開したリードデータにつきまして１か月以上更新が無いようですのでお知らせいたします。</label>
-        <name>Email_LeadUntouchedFirstMessage</name>
-    </customLabels>
-    <customLabels>
         <label>代表</label>
         <name>Email_Manager</name>
     </customLabels>
@@ -2234,10 +2230,6 @@
     <customLabels>
         <label>商談タイプ</label>
         <name>Lead_Type</name>
-    </customLabels>
-    <customLabels>
-        <label>更新の無いリード</label>
-        <name>Lead_Untouched_Subject</name>
     </customLabels>
     <customLabels>
         <label>リード作成/展開日</label>

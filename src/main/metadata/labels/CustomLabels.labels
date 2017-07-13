@@ -283,7 +283,7 @@
         <protected>false</protected>
         <shortDescription>Address Information</shortDescription>
         <value>Address Information</value>
-    </labels>
+    </labels>	
     <labels>
         <fullName>Address_Information_SPO</fullName>
         <categories>Account SPO Information</categories>
@@ -2588,14 +2588,6 @@ please contact the number below.</value>
         <value>Lead assignment to dealer outlet</value>
     </labels>
     <labels>
-        <fullName>Email_LeadUntouchedFirstMessage</fullName>
-        <categories>Email, Lead, Dealer</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Email LeadUntouchedFirstMessage</shortDescription>
-        <value>We inform you that the corresponding Lead has not been touched for over 30 days.</value>
-    </labels>
-    <labels>
         <fullName>Email_Manager</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3870,14 +3862,6 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Lead Type</shortDescription>
         <value>Lead Type</value>
-    </labels>
-    <labels>
-        <fullName>Lead_Untouched_Subject</fullName>
-        <categories>Email, Lead, Dealer</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Email LeadUntouchedSubject</shortDescription>
-        <value>Lead untouched for 30 days</value>
     </labels>
     <labels>
         <fullName>Lead_creation_Assign_Date</fullName>
