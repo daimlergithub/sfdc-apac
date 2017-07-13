@@ -126,6 +126,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>IsActive</field>
+            </layoutItems>		
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -242,6 +246,13 @@
         <fields>Dealer__c</fields>
         <fields>ND_Code__c</fields>
         <relatedList>Participating_Dealer__c.Campaign__c</relatedList>
+    </relatedLists>	
+    <relatedLists>
+        <fields>Lead__c</fields>		
+        <fields>NAME</fields>
+        <fields>Retail_Campaign__c</fields>
+        <fields>Contact__c</fields>
+        <relatedList>Campaign_Lead__c.Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>Task.Mass_Assign</customButtons>
