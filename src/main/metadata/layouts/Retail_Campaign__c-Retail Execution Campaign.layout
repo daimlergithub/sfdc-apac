@@ -135,7 +135,7 @@
         <fields>NAME</fields>
         <fields>Retail_Campaign__c</fields>
         <fields>Contact__c</fields>
-        <relatedList>Campaign_Lead__c.Campaign__c</relatedList>
+        <relatedList>Campaign_Lead__c.Retail_Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>Task.Mass_Assign</customButtons>
