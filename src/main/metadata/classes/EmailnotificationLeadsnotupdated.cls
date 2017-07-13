@@ -28,7 +28,7 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
         
         return Database.getQueryLocator([SELECT Id,Name,Assigned_Dealer__c,CAC_Lead_Status__c,Lead_Assignment_Notification_Done__c,
                                          Service_Advisor__c, Assigned_Dealer__r.Dealer_GC_Code__c, Assigned_Dealer__r.Name FROM Lead__c where ( LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Sales Leads') AND (Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' AND Dealer_Lead_Status__c !='Lost') AND (Lead_Latest_Phase__c != 'Vehicle Registration' AND 
-                                                                                                                                                                                                                                                                                                                       Lead_Latest_Phase__c != 'Invoiced')) OR ( RecordType.Name IN('Aftersales Leads') AND Appointment_DateTime__c !=null)  ]);          
+                                                                                                                                                                                                                                                                                                                       Lead_Latest_Phase__c != 'Invoiced') AND (CAC_Lead_Status__c = 'Allocated')) OR ( RecordType.Name IN('Aftersales Leads') AND Appointment_DateTime__c !=null)  ]);          
     }
     
     //EXECUTE METHOD
@@ -69,10 +69,12 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
             for (User u: userGccodeRecords) {
                 for (String assignedDealerName: leadAssignedDealers.get(lid).keySet()){
                     if (u.Dealer_GC_Code__c == leadAssignedDealers.get(lid).get(assignedDealerName)){
-                        List<String> outletNameList = u.Notification_Lead_No_Update__c.split(';');
-                        for (String outletName: outletNameList){
-                            if (outletName == assignedDealerName){
-                                leadAssignedDealerRecipientsList.add(u);
+                        if (u.Notification_Lead_No_Update__c != Null){
+                            List<String> outletNameList = u.Notification_Lead_No_Update__c.split(';');
+                            for (String outletName: outletNameList){
+                                if (outletName == assignedDealerName){
+                                    leadAssignedDealerRecipientsList.add(u);
+                                }
                             }
                         }
                     }
