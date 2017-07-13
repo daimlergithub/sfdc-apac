@@ -133,6 +133,7 @@
     <relatedLists>
         <fields>Lead__c</fields>		
         <fields>NAME</fields> 
+		<fields>Campaign__c</fields> 
         <fields>Contact__c</fields>
         <relatedList>Campaign_Lead__c.Retail_Campaign__c</relatedList>
     </relatedLists>
