@@ -269,6 +269,10 @@
         <apexClass>accountLinkShareBatch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>accountLinkShareBatchTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountMergeController</apexClass>
         <enabled>true</enabled>

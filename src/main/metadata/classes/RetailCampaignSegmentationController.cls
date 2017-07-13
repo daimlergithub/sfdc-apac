@@ -739,6 +739,11 @@
             getSelectedRecords();
             
             List<Campaign_Member__c> retailCampaignMembers = new List<Campaign_Member__c>();
+            List<Campaign_Member__c> prevCamMembersList = [SELECT Id,Contact_Id__c,Vehicle__c,Retail_Task__c FROM Campaign_Member__c WHERE Retail_Campaign_Id__c =: retailCampaignId];
+            Map<Id,Campaign_Member__c> conIdcamMemMap = new Map<Id,Campaign_Member__c>();
+            for(Campaign_Member__c cm : prevCamMembersList){
+                conIdcamMemMap.put(cm.Contact_Id__c,cm);    
+            }
             if(segmentationBase == 'Customer'){
                 if(SelectedAccountMap.size()>0){
                     /*List<Account_Link__c> accLinkRetaiPersonList = [SELECT Id,toRole__c,Selling_Dealer__c FROM Account_Link__c WHERE RecordType.Name = 'Retail Person' AND toRole__c IN : accIdToGetRetailPerson];
@@ -747,12 +752,14 @@
                         toRoleAndSelDelMap.put(al.toRole__c,al.Selling_Dealer__c);
                     }*/
                     for(Account curAcc : SelectedAccountMap.values()){
-                        Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-                        member.Contact_Id__c= curAcc.id; 
-                        if(toRoleAndAccLinkMap.containsKey(curAcc.Id)){
-                            member.Preferred_Dealer__c = toRoleAndAccLinkMap.get(curAcc.Id).Selling_Dealer__c;
+                        if(!conIdcamMemMap.containsKey(curAcc.id)){
+                            Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                            member.Contact_Id__c= curAcc.id; 
+                            if(toRoleAndAccLinkMap.containsKey(curAcc.Id)){
+                                member.Preferred_Dealer__c = toRoleAndAccLinkMap.get(curAcc.Id).Selling_Dealer__c;
+                            }
+                            retailCampaignMembers.add(member);   
                         }
-                        retailCampaignMembers.add(member);
                     }
                 }
             }
@@ -765,28 +772,32 @@
                     }
                     System.debug('mapfromVehicleBase'+vehIdAndSerDelMap);
                     for(Vehicle_Relationship__c curVr : SelectedVrMap.values()){
-                        Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-                        member.Contact_Id__c= curVr.Contact__c;
-                        member.Vehicle__c = curVr.Vehicle_ID__c;
-                        member.Vehicle_Relationship__c = curVr.Id;
-                        member.Preferred_Dealer__c = vehIdAndSerDelMap.get(curVr.Vehicle_ID__c);
-                        retailCampaignMembers.add(member);
+                        if(!conIdcamMemMap.containsKey(curVr.Contact__c) || (conIdcamMemMap.containsKey(curVr.Contact__c) && conIdcamMemMap.get(curVr.Contact__c).Vehicle__c != curVr.Vehicle_ID__c)){
+                            Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                            member.Contact_Id__c= curVr.Contact__c;
+                            member.Vehicle__c = curVr.Vehicle_ID__c;
+                            member.Vehicle_Relationship__c = curVr.Id;
+                            member.Preferred_Dealer__c = vehIdAndSerDelMap.get(curVr.Vehicle_ID__c);
+                            retailCampaignMembers.add(member);
+                        }
                     }
                 }
             }
             else if(segmentationBase == 'Contract'){
                 if(SelectedRetailTaskMap.size() > 0){
                     for(Retail_Task__c curRec : SelectedRetailTaskMap.values()){
-                        Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-                        member.Retail_Task__c = curRec.Id;
-                        if(curRec.Account__c != NULL)
-                            member.Contact_Id__c= curRec.Account__c;
-                        if(curRec.Related_Vehicle__c != NULL)
-                            member.Vehicle__c = curRec.Related_Vehicle__c;
-                        if(curRec.Related_Dealer__c != NULL)
-                            member.Preferred_Dealer__c = curRec.Related_Dealer__c;
-                        retailCampaignMembers.add(member);
-                    }    
+                        if(!conIdcamMemMap.containsKey(curRec.Account__c) || (conIdcamMemMap.containsKey(curRec.Account__c) && conIdcamMemMap.get(curRec.Account__c).Retail_Task__c != curRec.Id)){
+                            Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                            member.Retail_Task__c = curRec.Id;
+                            if(curRec.Account__c != NULL)
+                                member.Contact_Id__c= curRec.Account__c;
+                            if(curRec.Related_Vehicle__c != NULL)
+                                member.Vehicle__c = curRec.Related_Vehicle__c;
+                            if(curRec.Related_Dealer__c != NULL)
+                                member.Preferred_Dealer__c = curRec.Related_Dealer__c;
+                            retailCampaignMembers.add(member);
+                        }    
+                    }
                 }
             }
            
