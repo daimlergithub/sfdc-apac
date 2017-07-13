@@ -3,8 +3,9 @@
     <apiVersion>36.0</apiVersion>
     <available>true</available>
     <description>Lead assignment to dealer outlet</description>
-    <encodingKey>ISO-8859-1</encodingKey>
+    <encodingKey>UTF-8</encodingKey>
     <name>Lead assignment to dealer outlet</name>
     <style>none</style>
+    <subject>Lead assignment to dealer outlet</subject>
     <type>visualforce</type>
 </EmailTemplate>
