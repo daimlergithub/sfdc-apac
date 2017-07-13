@@ -1488,11 +1488,11 @@
         <name>Email_LeadDealerAssign2</name>
     </customLabels>
     <customLabels>
-        <label><!-- Email LeadDealerAssign20 --></label>
+        <label>いつもお世話になっております。</label>
         <name>Email_LeadDealerAssign20</name>
     </customLabels>
     <customLabels>
-        <label><!-- Email LeadDealerAssign21 --></label>
+        <label>セールスフォースに展開したリードデータに担当者が設定されないままでしたのでお知らせいたします。</label>
         <name>Email_LeadDealerAssign21</name>
     </customLabels>
     <customLabels>
@@ -5298,6 +5298,10 @@
     <customLabels>
         <label>更新の無いリード</label>
         <name>Lead_Untouched_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>担当者未設定のリード</label>
+        <name>Email_LeadUnassignedSubject</name>
     </customLabels>
     <customPageWebLinks>
         <label><!-- Custom Link Notification --></label>
