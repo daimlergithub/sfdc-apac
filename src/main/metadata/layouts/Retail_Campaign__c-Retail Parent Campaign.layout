@@ -18,7 +18,7 @@
                 <field>Campaign_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Start_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -50,13 +50,9 @@
                 <field>Total_Converted_Leads_in_Hierarchy__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Parent_Campaign__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CloneCampaign__c</field>
-            </layoutItems>
+            </layoutItems> 
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -68,7 +64,7 @@
                 <field>Campaign_Sub_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Close_Date__c</field>
             </layoutItems>
             <layoutItems>
