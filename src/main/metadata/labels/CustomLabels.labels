@@ -353,6 +353,14 @@
         <protected>false</protected>
         <shortDescription>Address Information</shortDescription>
         <value>Address Information</value>
+    </labels>	
+    <labels>
+        <fullName>Address_Information_SPO</fullName>
+        <categories>Account SPO Information</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Information</shortDescription>
+        <value>Address Information</value>
     </labels>
     <labels>
         <fullName>Address_PrintPDF</fullName>
@@ -9641,5 +9649,29 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Work Phone must be in any of the following formats : 
 1. Province code (xxx) And Phone Part 8 (xxxxxxxxx)digits only 
 2. Other Province code(xxxx) And Phone Part 10 ( xxxxxxxxxx)digits only</value>
+    </labels>
+        <labels>
+        <fullName>Email_LeadDealerAssignSubject</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadDealerAssignSubject</shortDescription>
+        <value>Lead assignment to dealer outlet</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadUntouchedFirstMessage</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadUntouchedFirstMessage</shortDescription>
+        <value>We inform you that the corresponding Lead has not been touched for over 30 days.</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Untouched_Subject</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadUntouchedSubject</shortDescription>
+        <value>Lead untouched for 30 days</value>
     </labels>
 </CustomLabels>
