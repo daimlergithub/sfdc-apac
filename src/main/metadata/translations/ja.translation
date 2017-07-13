@@ -5287,6 +5287,18 @@
         <label><!-- &amp;slaveId= --></label>
         <name>slaveId</name>
     </customLabels>
+    <customLabels>
+        <label>リードデータの展開</label>
+        <name>Email_LeadDealerAssignSubject</name>
+    </customLabels>
+    <customLabels>
+        <label>セールスフォースに展開したリードデータにつきまして１か月以上更新が無いようですのでお知らせいたします。</label>
+        <name>Email_LeadUntouchedFirstMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>更新の無いリード</label>
+        <name>Lead_Untouched_Subject</name>
+    </customLabels>
     <customPageWebLinks>
         <label><!-- Custom Link Notification --></label>
         <name>Custom_Link_Notification</name>
