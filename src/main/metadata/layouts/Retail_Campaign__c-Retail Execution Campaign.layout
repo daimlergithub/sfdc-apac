@@ -40,10 +40,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Campaign_Member_Sharing_Rule__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Auto_Segmentation__c</field>
             </layoutItems>
             <layoutItems>
