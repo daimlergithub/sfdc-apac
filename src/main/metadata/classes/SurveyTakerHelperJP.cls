@@ -99,6 +99,8 @@ public class SurveyTakerHelperJP {
         }
         list<Group>grouplist=new list<Group>([select id ,Name ,Type from Group where Name IN:vnames]);
         
+        system.debug('surveyTkrShareList>>>>' + surveyTkrShareList);
+        
         for(SurveyTaker__c surtak : surTakList)
         {
             if(surtak.view_by_all__c == false)
@@ -149,17 +151,17 @@ public class SurveyTakerHelperJP {
                 }
                 system.debug('surveyTkrShareList>>>>' + surveyTkrShareList);
             }
-            
-            if(!surveyShareList.isEmpty() && surveyShareList != null)
-            {
-                Database.insert (surveyShareList);
-            }
-            
-            if(!surveyTkrShareList.isEmpty() && surveyTkrShareList != null)
-            {
-                system.debug('surveyTkrShareList>>>>' + surveyTkrShareList);
-                insert surveyTkrShareList;
-            }
+        }
+        
+        if(!surveyShareList.isEmpty() && surveyShareList != null)
+        {
+            Database.insert (surveyShareList);
+        }
+        
+        if(!surveyTkrShareList.isEmpty() && surveyTkrShareList != null)
+        {
+            system.debug('surveyTkrShareList>>>>' + surveyTkrShareList);
+            insert surveyTkrShareList;
         }
     }
     public static void afterUpdateEvent(List<SurveyTaker__c> newList, Map<Id, SurveyTaker__c> oldMap){
