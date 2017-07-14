@@ -8022,7 +8022,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Lead__c.Retail_Campaign__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8152,6 +8152,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Contract_Phone_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone1_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone2_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
