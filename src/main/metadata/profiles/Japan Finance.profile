@@ -8026,7 +8026,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Lead__c.Retail_Campaign__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
