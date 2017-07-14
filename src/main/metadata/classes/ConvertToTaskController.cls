@@ -16,8 +16,9 @@ public with sharing class ConvertToTaskController
            if(String.isNotBlank(campaignId)) 
            {
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId, Vehicle__c,Contact_Id__c,Company_Name__c,Contract__c ,Contract_Phone_1__c,Contract_Phone_2__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
-            query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND ';
+            String query = 'SELECT Name, Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c, Vehicle__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+			
+		  query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND ';
             
             if(objectAPIName == 'Campaign')
             {
@@ -87,8 +88,8 @@ public with sharing class ConvertToTaskController
 
         System.debug('camid<<<'+campaignMember.Campaign_Id__c);
         System.debug('camid<<<'+campaignMember.Company_Name__c);
-        System.debug('camid<<<'+campaignMember.Contract_Phone_1__c);
-        System.debug('camid<<<'+campaignMember.Contract_Phone_2__c);
+        System.debug('camid<<<'+campaignMember.Contract_Phone1_1__c);
+        System.debug('camid<<<'+campaignMember.Contract_Phone2_2__c);
         System.debug('camid<<<'+campaignMember.Contact_Id__c);
         Task taskRec = new Task(RecordTypeId = OB_Call);
         contactList=[select id,PersonContactId from account where id=:campaignMember.Contact_Id__c];
@@ -100,8 +101,8 @@ public with sharing class ConvertToTaskController
         taskRec.Contract__c = campaignMember.Contract__c ;
         taskRec.Related_Vehicle__c= campaignMember.Vehicle__c;    
         taskRec.Account_Name__c =campaignMember.Company_Name__c;
-        taskRec.Phone__c = campaignMember.Contract_Phone_1__c;
-       taskRec.Phone_number__c= campaignMember.Contract_Phone_2__c;
+       taskRec.Phone__c = campaignMember.Contract_Phone1_1__c;
+      taskRec.Phone_number__c= campaignMember.Contract_Phone2_2__c;
 	   taskRec.Campaign_Member_ID__c = campaignMember.Name; 
 
   
