@@ -287,9 +287,9 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields> 
 	<fields>
-        <fullName>Contract_Phone_1__c</fullName>
+        <fullName>Contract_Phone1_1__c</fullName>
         <externalId>false</externalId>
         <label>Contract Phone 1</label>
         <length>100</length>
@@ -297,12 +297,34 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>	
-	 <fields>
-        <fullName>Contract_Phone_2__c</fullName>
+    </fields> 
+	<fields>
+        <fullName>Contract_Phone2_2__c</fullName>
         <externalId>false</externalId>
         <label>Contract Phone 2</label>
         <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields> 
+	<fields>
+        <fullName>Contract_Phone_1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.Contractor_Phone1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Phone 1</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Phone_2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.Contractor_MobilePhone1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Phone 2</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
