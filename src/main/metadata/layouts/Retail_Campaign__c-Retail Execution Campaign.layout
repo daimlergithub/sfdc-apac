@@ -83,14 +83,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Segmentation_Criteria__c</field>
-            </layoutItems>			
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>hasError__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OwnerId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
