@@ -989,7 +989,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
-                <operation>notEqual</operation>
+                <operation>equals</operation>
                 <value>IntegrationAPI</value>
             </filterItems>
             <infoMessage>Search and select address of the account.</infoMessage>
