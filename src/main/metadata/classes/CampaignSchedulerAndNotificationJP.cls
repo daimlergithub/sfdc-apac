@@ -165,8 +165,8 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
 							task.Contract__c = campaignMemberRec.Contract__c ;
 							task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
 							task.Account_Name__c =campaignMemberRec.Company_Name__c;
-							task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
-							task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
+							//task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
+							//task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
 							task.Campaign_Member_ID__c = campaignMemberRec.Name;
                             tskLst.add(task);
                             
@@ -205,8 +205,8 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
 						task.Contract__c = campaignMemberRec.Contract__c ;
 						task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
 						task.Account_Name__c =campaignMemberRec.Company_Name__c;
-						task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
-						task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
+					//	task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
+					//	task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
 						task.Campaign_Member_ID__c = campaignMemberRec.Name;
                         tskLst.add(task);
                     }
@@ -388,12 +388,11 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                                                     'Zip_Code__c',
                                                     'Campaign_ID__r.OwnerId',
 													'Company_Name__c',
-													'Contract_Phone_1__c',
-													'Contract_Phone_2__c',
                                                     'Contract__c',
                                                     'Name',
 													'Vehicle__c'
                                                 };
+												// 'Contract_Phone_1__c', 'Contract_Phone_2__c',
         
         return fieldList;
     }
