@@ -270,13 +270,14 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                                                     'Zip_Code__c',
                                                     'Campaign_ID__r.OwnerId',
                                                      'Company_Name__c',
-                                                   'Contract_Phone_1__c',
-                                                   'Contract_Phone_2__c',
                                                     'Contract__c',
+													'Contract_Phone_1__c',
+													'Contract_Phone_2__c',
                                                     'Vehicle__c',
                                                     'Name'
                                                     
                                                 };
+												
         
         return fieldList;
     }
