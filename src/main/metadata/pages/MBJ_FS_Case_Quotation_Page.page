@@ -7,7 +7,7 @@
                 <apex:commandButton action="{!cancel}" value="Cancel"/>
             </apex:pageblockButtons>
             
-            <apex:pageblockSection id="section1" title="General Information">
+            <apex:pageblockSection id="section1" title="{!$Label.MBF_General_Information_Section}">
                 <apex:inputField value="{!Case.Subject}"/>
                 <apex:inputField value="{!Case.Status}"/>
                 <apex:inputField value="{!Case.Ownerid}"/>
