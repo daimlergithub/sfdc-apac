@@ -8153,7 +8153,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Campaign_Member__c.Contract_Phone2_1__c</field>
+        <field>Campaign_Member__c.Contract_Phone2_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
