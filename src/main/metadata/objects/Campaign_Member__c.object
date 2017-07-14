@@ -307,6 +307,28 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>			
+    <fields>
+        <fullName>Contract_Phone_1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.Contractor_Phone1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Phone 1</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Phone1_2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.Contractor_MobilePhone1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Phone 2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Contract_Responsible_Person__c</fullName>
