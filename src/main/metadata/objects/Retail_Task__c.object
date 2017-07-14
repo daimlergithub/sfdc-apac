@@ -11188,12 +11188,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Related_Contact__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ContractNumber__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>VIN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>VIN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Related_Vehicle__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ApplicationDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ContractNumber__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Related_Contact__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ContractNumber__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
