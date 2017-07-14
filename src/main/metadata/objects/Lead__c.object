@@ -967,7 +967,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
-    </fields>
+    </fields>    
 	<fields>
         <fullName>Assigned_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -975,6 +975,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <label>Assigned Dealer</label>
         <lookupFilter>
             <active>true</active>
+            <booleanFilter>(1 AND 2) OR 3</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordType.Name</field>
@@ -988,7 +989,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
-                <operation>notEqual</operation>
+                <operation>equals</operation>
                 <value>IntegrationAPI</value>
             </filterItems>
             <infoMessage>Search and select address of the account.</infoMessage>
@@ -1002,7 +1003,8 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
+   </fields>
+
     <fields>
         <fullName>Assigned_Dealer_by_Rule__c</fullName>
         <externalId>false</externalId>
