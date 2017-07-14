@@ -159,6 +159,10 @@
                 <behavior>Edit</behavior>
                 <field>Complaint_Creator_Department__c</field>
             </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Registration_Number__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Subsource__c</field>
