@@ -57120,20 +57120,20 @@ MD__c = 'JP'
         <fullName>ID_Type</fullName>
         <active>true</active>
         <description>"ID Type to be created as Picklist with values as National ID, Other. If National ID is selected from the Picklist, system should do character length check. For Thailand it should be 13 characters</description>
-        <errorConditionFormula>IF(
-AND(
-ISPICKVAL( ID_Type__c, 'National ID'),
-$Profile.Name != 'IntegrationAPI',
-MD__c=='TH'),
-IF(
-AND
-(
-LEN(ID_Number__c) == 13,
-REGEX( ID_Number__c, "^[a-zA-Z0-9]*$")
-),false,true),
+        <errorConditionFormula>IF( 
+AND( 
+ISPICKVAL( ID_Type__c, 'National ID'), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c=='TH'), 
+IF( 
+AND 
+( 
+LEN(ID_Number__c) == 13, 
+REGEX( ID_Number__c, "[0-9]{13}") 
+),false,true), 
 false)</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
-        <errorMessage>If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number or alphabet.</errorMessage>
+        <errorMessage>If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_NoChar</fullName>
