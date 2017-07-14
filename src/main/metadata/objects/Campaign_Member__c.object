@@ -299,7 +299,7 @@
         <unique>false</unique>
     </fields> 
 	<fields>
-        <fullName>Contract_Phone2_1__c</fullName>
+        <fullName>Contract_Phone2_2__c</fullName>
         <externalId>false</externalId>
         <label>Contract Phone 2</label>
         <length>100</length>
