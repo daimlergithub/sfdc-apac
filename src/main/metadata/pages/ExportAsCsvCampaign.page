@@ -139,8 +139,8 @@ Lastmodifed  : 4th april,2017
             <td>{!item.Zip_Code_Finance__c}</td>
             <td>{!item.Contract__c}</td>
             <td>{!item.Contract_Number__c}</td>
-           <!-- <td>{!item.Contract_Phone_1__c}</td>
-            <td>{!item.Contract_Phone_2__c}</td> -->
+            <td>{!item.Contract_Phone_1__c}</td>
+            <td>{!item.Contract_Phone_2__c}</td> 
             <td>{!item.Contract_Status__c}</td>
             <td>{!item.Preferred_Dealer__c}</td>
             <td>{!item.DM_Template__c}</td>
