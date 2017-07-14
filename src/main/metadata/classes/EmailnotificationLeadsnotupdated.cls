@@ -27,8 +27,8 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
         
         
         return Database.getQueryLocator([SELECT Id,Name,Assigned_Dealer__c,CAC_Lead_Status__c,Lead_Assignment_Notification_Done__c,
-                                         Service_Advisor__c, Assigned_Dealer__r.Dealer_GC_Code__c, Assigned_Dealer__r.Name FROM Lead__c where ( LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Sales Leads') AND (Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' AND Dealer_Lead_Status__c !='Lost') AND (Lead_Latest_Phase__c != 'Vehicle Registration' AND 
-                                                                                                                                                                                                                                                                                                                       Lead_Latest_Phase__c != 'Invoiced') AND (CAC_Lead_Status__c = 'Allocated')) OR ( RecordType.Name IN('Aftersales Leads') AND Appointment_DateTime__c !=null)  ]);          
+                                         Service_Advisor__c, Assigned_Dealer__r.Dealer_GC_Code__c, Assigned_Dealer__r.Name FROM Lead__c where (Assigned_Dealer__c != null AND LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Sales Leads') AND (Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' AND Dealer_Lead_Status__c !='Lost') AND (Lead_Latest_Phase__c != 'Vehicle Registration' AND 
+                                                                                                                                                                                                                                                                                                                       Lead_Latest_Phase__c != 'Invoiced') AND (CAC_Lead_Status__c = 'Allocated')) OR (Assigned_Dealer__c != null AND LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Aftersales Leads') AND Appointment_DateTime__c !=null)  ]);          
     }
     
     //EXECUTE METHOD
@@ -93,32 +93,36 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
         EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead untouched for 30 days' limit 1];
         
         for(Id lid : leadAssignedUserMap.keySet()){            
-            Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-            mail.saveAsActivity = false;
-            mail.setTargetObjectId(leadAssignedUserMap.get(lid).Id);
-            mail.setTemplateId(e.Id);
-            if (leadAssignedUserMap.get(lid).Market__c == 'JP'){
-                mail.setCharset('JIS');
-            }
-            mail.setUseSignature(false);
-            mail.setWhatId(lid);
-            mail.setSaveAsActivity(false);
-            mails.add(mail); 
-        }
-        
-        for(Id lid : leadAssignedDealerRecipients.keySet()){
-            for (User u: leadAssignedDealerRecipients.get(lid)) {
+            if (leadAssignedUserMap.get(lid).Id != null){
                 Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
                 mail.saveAsActivity = false;
-                mail.setTargetObjectId(u.Id);
+                mail.setTargetObjectId(leadAssignedUserMap.get(lid).Id);
                 mail.setTemplateId(e.Id);
-                if (u.Market__c == 'JP'){
+                if (leadAssignedUserMap.get(lid).Market__c == 'JP'){
                     mail.setCharset('JIS');
                 }
                 mail.setUseSignature(false);
                 mail.setWhatId(lid);
                 mail.setSaveAsActivity(false);
-                mails.add(mail); 
+                mails.add(mail);
+            }
+        }
+        
+        for(Id lid : leadAssignedDealerRecipients.keySet()){
+            for (User u: leadAssignedDealerRecipients.get(lid)) {
+                if (u.Id != null){
+                    Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+                    mail.saveAsActivity = false;
+                    mail.setTargetObjectId(u.Id);
+                    mail.setTemplateId(e.Id);
+                    if (u.Market__c == 'JP'){
+                        mail.setCharset('JIS');
+                    }
+                    mail.setUseSignature(false);
+                    mail.setWhatId(lid);
+                    mail.setSaveAsActivity(false);
+                    mails.add(mail);
+                }
             }
         }
         
