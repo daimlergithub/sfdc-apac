@@ -266,6 +266,17 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
+    <alerts>
+        <fullName>Case_re_assigned_to_Supervisor_Team_B</fullName>
+        <description>Case re-assigned to Supervisor Team B</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Supervisor_Team_B</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SupportCaseAssignmentNotification</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Approval_Update</fullName>
         <field>Status</field>
@@ -1058,6 +1069,17 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_to_Supervisor_Team_B</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Supervisor_Team_B</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign to Supervisor Team B</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <rules>
         <fullName>Case 48%2672H Check Notification</fullName>
@@ -2133,5 +2155,33 @@
         <active>false</active>
         <formula>Owner:Queue.QueueName  &lt;&gt;  &apos;Supervisor Team B&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Inquiry Share to Regional Office</fullName>
+        <actions>
+            <name>Case_re_assigned_to_Supervisor_Team_B</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Assign_to_Supervisor_Team_B</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Share_to_Regional_Office__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Case.LastModifiedDate</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
 </Workflow>

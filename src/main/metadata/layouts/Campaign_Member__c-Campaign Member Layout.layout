@@ -60,8 +60,8 @@
                 <field>Contract__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contract_Phone_1__c</field>
+                <behavior>Edit</behavior>
+                <field>Contract_Phone1_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -262,8 +262,8 @@
                 <field>Contract_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contract_Phone_2__c</field>
+                <behavior>Edit</behavior>
+                <field>Contract_Phone2_2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
