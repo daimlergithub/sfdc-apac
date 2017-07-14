@@ -11200,13 +11200,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <lookupDialogsAdditionalFields>VIN_Link__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>StartDate__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>EndDate__c</lookupDialogsAdditionalFields>
-        <searchResultsAdditionalFields>Related_Contact__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ContractNumber__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>VIN_Link__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>StartDate__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>EndDate__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Contract_Invalid_Flag__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VIN_Link__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Related_Vehicle__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ApplicationDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContractNumber__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
