@@ -536,6 +536,13 @@ List<Account> accUpdLst = new List<Account>();
     {
    listcase.Case_Dealer_User__c =usrs.id;
     }
+    //Added by Sergio for JP-2033
+    if(listcase.Dealer_Contact__c ==null)
+    {
+   listcase.Dealer_Contact__c ='Yes';
+    }
+            
+        
     UpdateCase.add(listcase);
     }
     }
@@ -601,7 +608,8 @@ List<Account> accUpdLst = new List<Account>();
         }
          if(!shrcaseId.isEmpty() && shrcaseId != null)
             {
-                caserecList = [select id,Case_Dealer__c,Case_Dealer_User__c,Case_Dealer__r.Name,Case_Dealer_User__r.Dealer_GC_Code__c,Case_Dealer__r.Dealer_GC_Code__c from Case where ID =:shrcaseId];                
+                //Revised by Sergio to retrieve the OwnerId field of the Case record, for JP-2033
+                caserecList = [select id,OwnerId,Case_Dealer__c,Case_Dealer_User__c,Case_Dealer__r.Name,Case_Dealer_User__r.Dealer_GC_Code__c,Case_Dealer__r.Dealer_GC_Code__c from Case where ID =:shrcaseId];                
             }
             if(!caserecList.isEmpty() && caserecList != null)
             {
@@ -652,7 +660,8 @@ List<Account> accUpdLst = new List<Account>();
             
                // if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
                 
-                if(us.Contact.Accountid !=null && shrcs.Case_Dealer__c!=null)
+                //Revised by Sergio to omit the owner record insert to CaseShare, for JP-2033
+                if(us.Contact.Accountid !=null && shrcs.Case_Dealer__c!=null && us.Id != shrcs.OwnerId)
                 {
                     CaseShare shrcase = new CaseShare();
                     shrcase.CaseId = shrcs.id;
@@ -679,7 +688,8 @@ List<Account> accUpdLst = new List<Account>();
             
                // if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
                 
-                if(us.id !=null && shrcs.Case_Dealer_User__c!=null )
+                //Revised by Sergio to omit the owner record insert to CaseShare, for JP-2033
+                if(us.id !=null && shrcs.Case_Dealer_User__c!=null  && us.Id != shrcs.OwnerId)
                 {
                     CaseShare shrcase = new CaseShare();
                     shrcase.CaseId = shrcs.id;
@@ -690,7 +700,7 @@ List<Account> accUpdLst = new List<Account>();
             }
            } 
         }
-        
+
          // Insert sharing records and capture save result 
         // The false parameter allows for partial processing if multiple records are passed 
         // into the operation 
@@ -706,21 +716,25 @@ List<Account> accUpdLst = new List<Account>();
          system.debug('###### %^%^%^%^%^%^%^%^'+sr);
          }
             if(!sr.isSuccess()){
+                
                 // Get the first save result error
-                Database.Error err = sr.getErrors()[0];
+                List<Database.Error> errList = sr.getErrors();
                 
                 // Check if the error is related to a trivial access level
                 // Access levels equal or more permissive than the object's default 
                 // access level are not allowed. 
                 // These sharing records are not required and thus an insert exception is 
                 // acceptable. 
+                for (Database.Error err: errList){
+                
                 if(!(err.getStatusCode() == StatusCode.FIELD_FILTER_VALIDATION_EXCEPTION  
                                                &&  err.getMessage().contains('AccessLevel'))){
                     // Throw an error when the error is not related to trivial access level.
                     trigger.newMap.get(CaseSharingRecord[i].CaseId).
                       addError(
                        'Unable to grant sharing access due to following exception: '
-                       + err.getMessage());
+                       + err.getMessage() + err.getFields());
+                }
                 }
             }
             i++;
