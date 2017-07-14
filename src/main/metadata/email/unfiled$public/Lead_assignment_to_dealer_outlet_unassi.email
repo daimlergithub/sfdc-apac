@@ -1,4 +1,4 @@
-<messaging:emailTemplate subject="Lead assignment to dealer outlet" recipientType="User" relatedToType="Lead__c">
+<messaging:emailTemplate subject="{!$Label.Email_LeadUnassignedSubject}" recipientType="User" relatedToType="Lead__c" language="{!recipient.LanguageLocaleKey}">
 <messaging:htmlEmailBody > 
 
    <html>
@@ -15,7 +15,7 @@
      
      <p> {!$Label.Email_LeadDealerAssign9}</p>
      
-     <a href="{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/{!relatedTo.Id}">
+     <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
         Direct link URL to the Lead detail page
     </a>
      <!--<apex:outputLink value="/{!relatedTo.Id}" id="theLink"> Direct link URL to the Lead detail page</apex:outputLink>-->

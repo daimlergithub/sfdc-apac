@@ -9674,4 +9674,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Email LeadUntouchedSubject</shortDescription>
         <value>Lead untouched for 30 days</value>
     </labels>
+    <labels>
+        <fullName>Email_LeadUnassignedSubject</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadUnassignedSubject</shortDescription>
+        <value>Lead not assigned to person</value>
+    </labels>
 </CustomLabels>

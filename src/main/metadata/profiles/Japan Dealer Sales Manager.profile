@@ -18780,7 +18780,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Retail_Campaign__c.Parent_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
