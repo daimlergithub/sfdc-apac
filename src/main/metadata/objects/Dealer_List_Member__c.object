@@ -50,7 +50,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -123,10 +123,10 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+    <fields> 
         <fullName>Contract__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign_Member__r.Contract__c</formula>
+        <formula>Campaign_Member__r.Contract__r.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract</label>
         <required>false</required>
@@ -317,7 +317,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <fields>
         <fullName>VehicleRelationship__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign_Member__r.Vehicle_Relationship__c</formula>
+        <formula>Campaign_Member__r.Vehicle_Relationship__r.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>VehicleRelationship</label>
         <required>false</required>
@@ -328,7 +328,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <fields>
         <fullName>Vehicle__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign_Member__r.Vehicle__c</formula>
+        <formula>Campaign_Member__r.Vehicle__r.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Vehicle</label>
         <required>false</required>
@@ -365,8 +365,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <label>All</label>
     </listViews>
     <nameField>
+        <displayFormat>DLM-{00000000}</displayFormat>
         <label>Dealer List Member Name</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Dealer List Members</pluralLabel>
     <searchLayouts/>
