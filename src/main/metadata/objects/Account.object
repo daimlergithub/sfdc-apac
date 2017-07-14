@@ -16193,6 +16193,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </filters>
         <label>MBTH Dealer</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBTH_Dealer1</fullName>
@@ -16212,6 +16215,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </filters>
         <label>MBTH Active Dealer</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyAccounts</fullName>
