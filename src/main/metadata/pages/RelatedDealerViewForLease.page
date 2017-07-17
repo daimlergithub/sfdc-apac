@@ -191,7 +191,8 @@
               </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                  
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Re_lease_Prohibit_flag__c.Label}"/>
-                        <apex:outputText value="{!RealeaseaProhibitaflagaac}"/>  
+                   		<apex:outputField value="{!DealerLoan.Re_lease_Prohibit_flag__c}"/> 
+                        <!--<apex:outputText value="{!RealeaseaProhibitaflagaac}"/>-->  
               </apex:pageBlockSectionItem>             
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Maximum_lease_extention_Date__c.Label}"/>
