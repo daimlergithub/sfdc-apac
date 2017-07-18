@@ -699,7 +699,7 @@
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
-                <fullName>Business Manager - F & I Assistant</fullName>
+                <fullName>Business Manager - F &amp; I Assistant</fullName>
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
@@ -759,7 +759,7 @@
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
-                <fullName>Business Manager - F & I Manager</fullName>
+                <fullName>Business Manager - F &amp; I Manager</fullName>
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
