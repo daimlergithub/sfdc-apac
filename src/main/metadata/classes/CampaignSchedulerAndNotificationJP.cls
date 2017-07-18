@@ -115,9 +115,42 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                     if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)) {
                         for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)) {
                             Lead__c lead = new Lead__c();
-                            lead.CAC_Lead_Status__c = 'New'; 
+                            lead.CAC_Lead_Status__c = 'Approved'; 
                             lead.Source_Campaign__c = camp.id;
                             lead.Contact__c = campaignMemberRec.Contact_Id__c;
+                            lead.Assigned_Dealer__c =campaignMemberRec.Preferred_Dealer__c;
+                            lead.Lead_Type__c = campaignMemberRec.Lead_Type__c;
+                            lead.Lead_Sub_Type__c = campaignMemberRec.Lead_Sub_Type__c;
+                            lead.Existing_Contract__c=campaignMemberRec.Contract__c;
+                            lead.Interested_Vehicle_Model__c = campaignMemberRec.Interested_Model__c;
+                            lead.Assigned_Dealer__c=campaignMemberRec.Preferred_Dealer__c;
+                            lead.Finance_Product_Name__c=campaignMemberRec.Finance_Product__c;
+                            lead.Finance_Contract_Term__c=campaignMemberRec.Term__c;
+        lead.Finance_Monthly_Payment__c=campaignMemberRec.Monthly_Payment__c;
+        lead.Finance_Interest_Rate__c=campaignMemberRec.Interest_Rate__c;
+        lead.Finance_RV_Ballon__c=campaignMemberRec.RV_Ballon__c;
+        lead.Finance_Total_V_Price_NoTax__c=campaignMemberRec.Total_Vehicle_Price_without_tax__c;
+        lead.Finance_Total_V_Price_Tax__c=campaignMemberRec.Total_Vehicle_Price_with_tax__c;
+        lead.Purchase_Time__c=campaignMemberRec.Purchase_Timing__c;
+        lead.Lead_Desired_Service__c=campaignMemberRec.Lead_Desired_Service__c;
+        
+        lead.Lead_DataSource__c='Campaign';
+        lead.UsVIN__c=campaignMemberRec.UsVIN__c;
+        if(camp.Parent.Campaign_Type__c == 'After Sales'){
+        
+           lead.AfterSales_Vehicle__c=campaignMemberRec.Vehicle__c;
+        
+        }
+        if(camp.Parent.Campaign_Type__c == 'Sales' || camp.Parent.Campaign_Type__c == 'Finance')
+        {
+           lead.Trade_In_Vehicle__c=campaignMemberRec.Vehicle__c;
+        }
+        if(camp.Parent.Campaign_Type__c  == 'Finance')
+        {
+          lead.Cross_Point_Model__c=campaignMemberRec.Cross_Point_Model__c;
+          
+        }
+                            
                             
                             if(campaignMemberRec.Special_Flag_to_Include__c == 'true') {
                                 lead.OwnerId = camp.OwnerId;//campaignMemberRec.Contact_Id__c;
@@ -160,14 +193,14 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                             task.priority = 'Normal';
                             task.RecordTypeId = taskRecTypeId;
                             task.ActivityDate = camp.Execution_Start_Date__c;
-							task.Whatid = campaignMemberRec.Campaign_Id__c ;
-						 // task.whoid = campaignMemberRec.Contact_Id__c ;
-							task.Contract__c = campaignMemberRec.Contract__c ;
-							task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
-							task.Account_Name__c =campaignMemberRec.Company_Name__c;
-							task.Phone__c = campaignMemberRec.Contract_Phone1_1__c;
-							task.Phone_number__c= campaignMemberRec.Contract_Phone2_2__c;
-							task.Campaign_Member_ID__c = campaignMemberRec.Name;
+                            task.Whatid = campaignMemberRec.Campaign_Id__c ;
+                         // task.whoid = campaignMemberRec.Contact_Id__c ;
+                            task.Contract__c = campaignMemberRec.Contract__c ;
+                            task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
+                            task.Account_Name__c =campaignMemberRec.Company_Name__c;
+                            task.Phone__c = campaignMemberRec.Contract_Phone1_1__c;
+                            task.Phone_number__c= campaignMemberRec.Contract_Phone2_2__c;
+                            task.Campaign_Member_ID__c = campaignMemberRec.Name;
                             tskLst.add(task);
                             
                             campaignMemberRec.Status__c = 'Executed';
@@ -177,14 +210,14 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                         campLst.add(camp);
                     }
                 }
-				else if (camp.Execution_Type__c == 'eMail' || camp.Execution_Type__c == 'DM'){
-					if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)){
-						for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)){
-							campaignMemberRec.Status__c = 'Executed';
+                else if (camp.Execution_Type__c == 'eMail' || camp.Execution_Type__c == 'DM'){
+                    if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)){
+                        for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)){
+                            campaignMemberRec.Status__c = 'Executed';
                             campMemberLst.add(campaignMemberRec);
-						}
-					}
-				}
+                        }
+                    }
+                }
             }
             
             if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)) {
@@ -200,15 +233,15 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                         task.RecordTypeId = taskRecTypeId;
                         task.ActivityDate = camp.Execution_Start_Date__c;
                         task.Campaign_Name__c = camp.Campaign_Code__c;
-						task.Whatid = campaignMemberRec.Campaign_Id__c ;
-					 // task.whoid = campaignMemberRec.Contact_Id__c ;
-						task.Contract__c = campaignMemberRec.Contract__c ;
-						task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
-						task.Account_Name__c =campaignMemberRec.Company_Name__c;
-						task.Phone__c = campaignMemberRec.Contract_Phone1_1__c;
-						task.Phone_number__c= campaignMemberRec.Contract_Phone2_2__c;
-						task.Campaign_Member_ID__c = campaignMemberRec.Name;
-                        tskLst.add(task);
+                        task.Whatid = campaignMemberRec.Campaign_Id__c ;
+                     // task.whoid = campaignMemberRec.Contact_Id__c ;
+                        task.Contract__c = campaignMemberRec.Contract__c ;
+                        task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
+                        task.Account_Name__c =campaignMemberRec.Company_Name__c;
+                        task.Phone__c = campaignMemberRec.Contract_Phone1_1__c;
+                        task.Phone_number__c= campaignMemberRec.Contract_Phone2_2__c;
+                        task.Campaign_Member_ID__c = campaignMemberRec.Name;
+                        //tskLst.add(task);
                     }
                     
                     if(campaignMemberRec.Auto_creation_of_DM_requests__c) {
@@ -220,7 +253,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                         dmRequestRec.TitleOfHonor__c = 'To person';
                         dmRequestRec.Channel__c = 'Campaign';
                         dmRequestRec.Campaign__c = camp.Id;
-                        dmRequestList.add(dmRequestRec);
+                        //dmRequestList.add(dmRequestRec);
                     }
                     
                     if(campaignMemberRec.Auto_creation_of_leads__c) {
@@ -270,15 +303,19 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
             Id recTypeId = (parentCapmaignToLeadRecTypeMap.containsKey(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c) ? 
                                     leadRecTypeNameToRecTypeIdMap.get(parentCapmaignToLeadRecTypeMap.get(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c)) : null);
             Lead__c lead = new Lead__c();
-            lead.CAC_Lead_Status__c = 'New'; 
+            lead.CAC_Lead_Status__c = 'Approved'; 
             lead.Source_Campaign__c = campMemberRec.Campaign_ID__c;
             lead.Contact__c = campMemberRec.Contact_Id__c;
             lead.Assigned_Dealer__c = getDealerIdForDealerAssignment(campMemberRec, personAccIdToDealerAccIdMap, zipCodeToDealerAccIdMap);
             lead.OwnerId = campMemberRec.Campaign_ID__r.OwnerId;
+            
+        
+        
+        
             if(recTypeId != null) {
                 lead.RecordTypeId = recTypeId;
             }
-            leadLst.add(lead);
+            //leadLst.add(lead);
         }
         
              
@@ -387,14 +424,30 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                                                     'Zip_Code_Finance__c',
                                                     'Zip_Code__c',
                                                     'Campaign_ID__r.OwnerId',
-													'Company_Name__c',
+                                                    'Company_Name__c',
                                                     'Contract__c',
-													'Contract_Phone1_1__c',
-													'Contract_Phone2_2__c',
+                                                    'Contract_Phone1_1__c',
+                                                    'Contract_Phone2_2__c',
                                                     'Name',
-													'Vehicle__c'
+                                                    'Vehicle__c',
+                                                    'Lead_Type__c',
+                                                    'Lead_Sub_Type__c',
+                                                    'Interested_Model__c',
+                                                    'Finance_Product__c',
+                                                    'Term__c',
+                                                    'Monthly_Payment__c',
+                                                    'Interest_Rate__c',
+                                                    'RV_Ballon__c',
+                                                    'Total_Vehicle_Price_without_tax__c',
+                                                    'Total_Vehicle_Price_with_tax__c',
+                                                    'Purchase_Timing__c',
+                                                    'Lead_Desired_Service__c',
+                                                    'UsVIN__c',
+                                                    'Cross_Point_Model__c'
+                                                  
+                                                    
                                                 };
-												 
+                                                 
         
         return fieldList;
     }
