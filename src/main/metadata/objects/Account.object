@@ -11661,13 +11661,19 @@ Modify Reason:
 Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description>
         <externalId>false</externalId>
         <label>Main Dealer</label>
-        <lookupFilter>
+		<lookupFilter>
             <active>true</active>
+			<booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
+            </filterItems>			
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
