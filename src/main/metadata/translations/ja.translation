@@ -1459,8 +1459,7 @@
         <name>Email_LeadDealerAssign12</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースの操作について、ご不明な点がございましたら、
-セールスフォース　サポートデスクまでお問い合わせください。</label>
+        <label>セールスフォースの操作について、ご不明な点がございましたら</label>
         <name>Email_LeadDealerAssign13</name>
     </customLabels>
     <customLabels>
@@ -1468,7 +1467,7 @@
         <name>Email_LeadDealerAssign14</name>
     </customLabels>
     <customLabels>
-        <label> ITサポートデスク(システムトラブル時のサポート、ユーザーID申請に関する質問)</label>
+        <label>ITサポートデスク</label>
         <name>Email_LeadDealerAssign15</name>
     </customLabels>
     <customLabels>
@@ -1476,7 +1475,7 @@
         <name>Email_LeadDealerAssign16</name>
     </customLabels>
     <customLabels>
-        <label>ビジネスサポートデスク(マニュアル、FAQでは解決しない使い方、活用方法に関する質問)</label>
+        <label>ビジネスサポートデスク</label>
         <name>Email_LeadDealerAssign17</name>
     </customLabels>
     <customLabels>
@@ -1496,7 +1495,7 @@
         <name>Email_LeadDealerAssign21</name>
     </customLabels>
     <customLabels>
-        <label>管理者様、ご担当者様</label>
+        <label>管理者様</label>
         <name>Email_LeadDealerAssign3</name>
     </customLabels>
     <customLabels>
@@ -1508,7 +1507,7 @@
         <name>Email_LeadDealerAssign5</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースにリードデータを展開しましたのでお知らせいたします。</label>
+        <label>貴店へセールスフォースのリードデータを展開しましたのでお知らせいたします。</label>
         <name>Email_LeadDealerAssign6</name>
     </customLabels>
     <customLabels>
@@ -1520,8 +1519,7 @@
         <name>Email_LeadDealerAssign8</name>
     </customLabels>
     <customLabels>
-        <label>ホットなお客様情報ですので、管理者様は下記URLからリードをご確認いただき
-担当者割り当ての上、営業活動にご活用ください。</label>
+        <label>下記URLからリードをご確認いただき、担当者割当ての上、営業活動にご活用ください。</label>
         <name>Email_LeadDealerAssign9</name>
     </customLabels>
     <customLabels>
@@ -5302,6 +5300,38 @@
     <customLabels>
         <label>担当者未設定のリード</label>
         <name>Email_LeadUnassignedSubject</name>
+    </customLabels>
+    <customLabels>
+        <label>関心や興味を持たれているお客様のデータです。</label>
+        <name>Email_LeadDealerAssign22</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム　サポートデスクまでお問い合わせください。</label>
+        <name>Email_LeadDealerAssign23</name>
+    </customLabels>
+    <customLabels>
+        <label>メルセデス・ベンツ日本</label>
+        <name>Email_LeadDealerAssign24</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム事務局</label>
+        <name>Email_LeadDealerAssign25</name>
+    </customLabels>
+    <customLabels>
+        <label>重要:このメールはシステムより自動配信されています。本メールへは返信しないようにお願いいたします。</label>
+        <name>Email_LeadDealerAssign26</name>
+    </customLabels>
+    <customLabels>
+        <label>システムトラブル時のサポート、ユーザーID申請に関する質問</label>
+        <name>Email_LeadDealerAssign27</name>
+    </customLabels>
+    <customLabels>
+        <label>マニュアル、FAQでは解決しない使い方、活用方法に関する質問</label>
+        <name>Email_LeadDealerAssign28</name>
+    </customLabels>
+    <customLabels>
+        <label>※音声ガイダンスに従って「1」を押してください。</label>
+        <name>Email_LeadDealerAssign29</name>
     </customLabels>
     <customPageWebLinks>
         <label><!-- Custom Link Notification --></label>

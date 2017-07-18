@@ -9682,4 +9682,68 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Email LeadUnassignedSubject</shortDescription>
         <value>Lead not assigned to person</value>
     </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign22</fullName>
+        <categories>Email, Dealer, Lead</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadDealerAssign22</shortDescription>
+        <value>The data is for the customer who showed interest.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign23</fullName>
+        <categories>Email, Dealer, Lead</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign23</shortDescription>
+        <value>Please contact support desk.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign24</fullName>
+        <categories>Dealer, Email, Lead</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign24</shortDescription>
+        <value>Mercedes Benz Japan</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign25</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign25</shortDescription>
+        <value>CRM System Office</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign26</fullName>
+        <categories>Email, Dealer, Lead</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign26</shortDescription>
+        <value>Please do not reply to this e-mail.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign27</fullName>
+        <categories>Email, Dealer, Lead</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign27</shortDescription>
+        <value>Support, QA</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign28</fullName>
+        <categories>Dealer, Email, Lead</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign28</shortDescription>
+        <value>Not manual Not FAQ</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign29</fullName>
+        <categories>Dealer, Lead, Email</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign29</shortDescription>
+        <value>Please follow the voice guidance</value>
+    </labels>
 </CustomLabels>
