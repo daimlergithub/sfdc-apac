@@ -45,6 +45,8 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         List<Campaign >campLst = new List<Campaign>();
         List<Campaign_Member__c> campMemberLst = new List<Campaign_Member__c>();
         List<DM_Request__c> dmRequestList = New List<DM_Request__c>(); 
+         Map<id,Campaign_Member__c>pMap = new Map<id,Campaign_Member__c>();
+        Map<id,Account>pConMap = new Map<id,Account>();
         notificationWrapperList = new List<NotificationWrapper>();
         List<Campaign_Member__c> autoCreateLeadCheckedCampaignMemberRecList = new List<Campaign_Member__c>();
          
@@ -65,6 +67,18 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         parentCapmaignToLeadRecTypeMap.put('After Sales', 'Aftersales Leads');
         parentCapmaignToLeadRecTypeMap.put('Finance', 'Sales Leads');
         String taskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+        Set<Id> campaignIdSet = new Set<Id>();
+        Map<Id, List<Campaign_Member__c>> campaignIdToCampaignMemberListMap =  new Map<Id, List<Campaign_Member__c>>();
+         list<account>pList   = [select id,recordtypeid,personcontactid from account where id in:pMap.keyset()];
+         for(account a:pList)
+         {
+         system.debug('+++++++++++++++'+pList );
+         
+         {
+              pConMap.put(a.id,a);
+              }
+          
+          }
         
         for(Campaign camp : scope) {
             if(camp.Response_Date__c == Date.Today()) {
@@ -84,7 +98,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                     task.ActivityDate = camp.Response_Date__c;
                     task.Campaign_Name__c = camp.Campaign_Code__c;
                     task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                   // task.whoid = campaignMemberRec.Contact_Id__c ;
+                   task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
                    task.Contract__c = campaignMemberRec.Contract__c ;
                    task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                     task.Account_Name__c =campaignMemberRec.Company_Name__c;
