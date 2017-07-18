@@ -45,6 +45,8 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         List<Campaign >campLst = new List<Campaign>();
         List<Campaign_Member__c> campMemberLst = new List<Campaign_Member__c>();
         List<DM_Request__c> dmRequestList = New List<DM_Request__c>(); 
+        Map<id,Campaign_Member__c>pMap = new Map<id,Campaign_Member__c>();
+        Map<id,Account>pConMap = new Map<id,Account>();
         notificationWrapperList = new List<NotificationWrapper>();
         List<Campaign_Member__c> autoCreateLeadCheckedCampaignMemberRecList = new List<Campaign_Member__c>();
          
@@ -54,7 +56,16 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         for(EmailTemplate tempRec : templateList) {
             templateNameToTemplateIdMap.put(tempRec.Name, tempRec.Id);
         }
-         
+        for(Campaign cam : scope)
+        {
+            for(Campaign_Member__c cmp : cam.Campaign_Members1__r)
+            {   
+                if(cmp.Contact_Id__c != null && cmp.Auto_creation_of_tasks__c == true)
+                {
+                    pMap.put(cmp.Contact_Id__c,cmp);
+                }
+            }
+        }       
         Map<String, Id> leadRecTypeNameToRecTypeIdMap = new Map<String, Id>();
         leadRecTypeNameToRecTypeIdMap.put('Sales Leads', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
         leadRecTypeNameToRecTypeIdMap.put('Aftersales Leads', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId());
@@ -65,7 +76,18 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         parentCapmaignToLeadRecTypeMap.put('After Sales', 'Aftersales Leads');
         parentCapmaignToLeadRecTypeMap.put('Finance', 'Sales Leads');
         String taskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-        
+        system.debug('+++++++++++++++'+pMap);
+         list<account>pList   = [select id,recordtypeid,personcontactid from account where id in:pMap.keyset()];
+         for(account a:pList)
+         {
+         system.debug('+++++++++++++++'+pList );
+      
+         {
+              pConMap.put(a.id,a);
+              }
+          
+          }
+          system.debug('+++++++++++++++'+pConMap);
         for(Campaign camp : scope) {
             if(camp.Response_Date__c == Date.Today()) {
                 
@@ -84,13 +106,14 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                     task.ActivityDate = camp.Response_Date__c;
                     task.Campaign_Name__c = camp.Campaign_Code__c;
                     task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                   // task.whoid = campaignMemberRec.Contact_Id__c ;
-				   task.Contract__c = campaignMemberRec.Contract__c ;
-				   task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
+                     system.debug('++++++++++++'+pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid);
+                  task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
+                   task.Contract__c = campaignMemberRec.Contract__c ;
+                   task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                     task.Account_Name__c =campaignMemberRec.Company_Name__c;
-                    task.Phone__c = campaignMemberRec.Contract_Phone1_1__c;
-                    task.Phone_number__c= campaignMemberRec.Contract_Phone2_2__c;
-					task.Campaign_Member_ID__c = campaignMemberRec.Name;
+                    task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
+                    task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
+                    task.Campaign_Member_ID__c = campaignMemberRec.Name;
                     tskLst.add(task);
                 }
                 
@@ -270,14 +293,14 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                                                     'Zip_Code__c',
                                                     'Campaign_ID__r.OwnerId',
                                                      'Company_Name__c',
+                                                   'Contract_Phone_1__c',
+                                                   'Contract_Phone_2__c',
                                                     'Contract__c',
-													'Contract_Phone1_1__c',
-													'Contract_Phone2_2__c',
                                                     'Vehicle__c',
+                                                    'Campaign_ID__r.Response_Date__c',
                                                     'Name'
                                                     
                                                 };
-												
         
         return fieldList;
     }
