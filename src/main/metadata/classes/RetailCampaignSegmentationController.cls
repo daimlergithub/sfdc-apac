@@ -132,7 +132,7 @@
             dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
             vehRetCopyRecType=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
             curRetCamp = [SELECT Id,Name,Segmentation_Base__c,Parent_Campaign1__r.Campaign_Type__c FROM Retail_campaign__C WHERE ID =: retailCampaignId];
-            u = [SELECT Id,ContactId,Contact.Account.name FROM User WHERE Id =:userInfo.getUserId() ];
+            u = [SELECT Id,ContactId,Dealer_GC_Code__c,Contact.Account.name FROM User WHERE Id =:userInfo.getUserId() ];
             segmentationBase = curRetCamp.Segmentation_Base__c;
             if(curRetCamp.Parent_Campaign1__c != NULL){
                 if(curRetCamp.Parent_Campaign1__r.Campaign_Type__c == 'Sales'){
@@ -411,7 +411,7 @@
                      accList.clear();
                      if(accLinkRetaiPersonList.size()>0)
                      for(Account_Link__c accl : accLinkRetaiPersonList){
-                         if(accl.fromRole__c == u.contact.AccountId){
+                         if(accl.fromRole__r.Dealer_GC_Code__c == u.Dealer_GC_Code__c){
                              accList.add(accIdAccountMap.get(accl.toRole__c));
                          }
                          system.debug('accListForOutLet'+accList);
@@ -795,6 +795,8 @@
                                 member.Vehicle__c = curRec.Related_Vehicle__c;
                             if(curRec.Related_Dealer__c != NULL)
                                 member.Preferred_Dealer__c = curRec.Related_Dealer__c;
+							if(curRec.Id!= NULL)
+                                member.Contract__c = curRec.Id;	
                             retailCampaignMembers.add(member);
                         }    
                     }

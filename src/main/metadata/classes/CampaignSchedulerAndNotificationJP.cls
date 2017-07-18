@@ -46,9 +46,6 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         List<Campaign >campLst = new List<Campaign>();
         List<Campaign_Member__c> campMemberLst = new List<Campaign_Member__c>();
         List<DM_Request__c> dmRequestList = New List<DM_Request__c>(); 
-                Map<id,Campaign_Member__c>pMap = new Map<id,Campaign_Member__c>();
-        Map<id,Account>pConMap = new Map<id,Account>();
-
         notificationWrapperList = new List<NotificationWrapper>();
         List<Campaign_Member__c> autoCreateLeadCheckedCampaignMemberRecList = new List<Campaign_Member__c>();
          
@@ -74,16 +71,6 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         // Create map to store Child Campign Members - To Avoid Invalid Query Locator 
         Set<Id> campaignIdSet = new Set<Id>();
         Map<Id, List<Campaign_Member__c>> campaignIdToCampaignMemberListMap =  new Map<Id, List<Campaign_Member__c>>();
-         list<account>pList   = [select id,recordtypeid,personcontactid from account where id in:pMap.keyset()];
-         for(account a:pList)
-         {
-         system.debug('+++++++++++++++'+pList );
-         
-         {
-              pConMap.put(a.id,a);
-              }
-          
-          }
         for(Campaign camp : scope) {
             campaignIdSet.add(camp.Id);
         }
@@ -207,7 +194,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                             task.RecordTypeId = taskRecTypeId;
                             task.ActivityDate = camp.Execution_Start_Date__c;
                             task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                         task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
+                         // task.whoid = campaignMemberRec.Contact_Id__c ;
                             task.Contract__c = campaignMemberRec.Contract__c ;
                             task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                             task.Account_Name__c =campaignMemberRec.Company_Name__c;
@@ -247,7 +234,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                         task.ActivityDate = camp.Execution_Start_Date__c;
                         task.Campaign_Name__c = camp.Campaign_Code__c;
                         task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                      task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
+                     // task.whoid = campaignMemberRec.Contact_Id__c ;
                         task.Contract__c = campaignMemberRec.Contract__c ;
                         task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                         task.Account_Name__c =campaignMemberRec.Company_Name__c;

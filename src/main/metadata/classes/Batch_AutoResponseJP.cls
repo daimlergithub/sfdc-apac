@@ -45,8 +45,6 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         List<Campaign >campLst = new List<Campaign>();
         List<Campaign_Member__c> campMemberLst = new List<Campaign_Member__c>();
         List<DM_Request__c> dmRequestList = New List<DM_Request__c>(); 
-        Map<id,Campaign_Member__c>pMap = new Map<id,Campaign_Member__c>();
-        Map<id,Account>pConMap = new Map<id,Account>();
         notificationWrapperList = new List<NotificationWrapper>();
         List<Campaign_Member__c> autoCreateLeadCheckedCampaignMemberRecList = new List<Campaign_Member__c>();
          
@@ -56,16 +54,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         for(EmailTemplate tempRec : templateList) {
             templateNameToTemplateIdMap.put(tempRec.Name, tempRec.Id);
         }
-        for(Campaign cam : scope)
-        {
-            for(Campaign_Member__c cmp : cam.Campaign_Members1__r)
-            {   
-                if(cmp.Contact_Id__c != null && cmp.Auto_creation_of_tasks__c == true)
-                {
-                    pMap.put(cmp.Contact_Id__c,cmp);
-                }
-            }
-        }       
+         
         Map<String, Id> leadRecTypeNameToRecTypeIdMap = new Map<String, Id>();
         leadRecTypeNameToRecTypeIdMap.put('Sales Leads', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
         leadRecTypeNameToRecTypeIdMap.put('Aftersales Leads', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId());
@@ -76,18 +65,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         parentCapmaignToLeadRecTypeMap.put('After Sales', 'Aftersales Leads');
         parentCapmaignToLeadRecTypeMap.put('Finance', 'Sales Leads');
         String taskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-        system.debug('+++++++++++++++'+pMap);
-         list<account>pList   = [select id,recordtypeid,personcontactid from account where id in:pMap.keyset()];
-         for(account a:pList)
-         {
-         system.debug('+++++++++++++++'+pList );
-      
-         {
-              pConMap.put(a.id,a);
-              }
-          
-          }
-          system.debug('+++++++++++++++'+pConMap);
+        
         for(Campaign camp : scope) {
             if(camp.Response_Date__c == Date.Today()) {
                 
@@ -106,13 +84,12 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                     task.ActivityDate = camp.Response_Date__c;
                     task.Campaign_Name__c = camp.Campaign_Code__c;
                     task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                     system.debug('++++++++++++'+pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid);
-                  task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
+                   // task.whoid = campaignMemberRec.Contact_Id__c ;
                    task.Contract__c = campaignMemberRec.Contract__c ;
                    task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                     task.Account_Name__c =campaignMemberRec.Company_Name__c;
-                    task.Phone__c = campaignMemberRec.Contract_Phone_1__c;
-                    task.Phone_number__c= campaignMemberRec.Contract_Phone_2__c;
+                    task.Phone__c = campaignMemberRec.Contract_Phone1_1__c;
+                    task.Phone_number__c= campaignMemberRec.Contract_Phone2_2__c;
                     task.Campaign_Member_ID__c = campaignMemberRec.Name;
                     tskLst.add(task);
                 }
@@ -175,11 +152,42 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
             Id recTypeId = (parentCapmaignToLeadRecTypeMap.containsKey(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c) ? 
                                     leadRecTypeNameToRecTypeIdMap.get(parentCapmaignToLeadRecTypeMap.get(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c)) : null);
             Lead__c lead = new Lead__c();
-            lead.CAC_Lead_Status__c = 'New'; 
+            lead.CAC_Lead_Status__c = 'Approved'; 
             lead.Source_Campaign__c = campMemberRec.Campaign_ID__c;
             lead.Contact__c = campMemberRec.Contact_Id__c;
             lead.Assigned_Dealer__c = getDealerIdForDealerAssignment(campMemberRec, personAccIdToDealerAccIdMap, zipCodeToDealerAccIdMap);
             lead.OwnerId = campMemberRec.Campaign_ID__r.OwnerId;
+            //lead.Assigned_Dealer__c =campMemberRec.Preferred_Dealer__c;
+            lead.Lead_Type__c = campMemberRec.Lead_Type__c;
+        lead.Lead_Sub_Type__c = campMemberRec.Lead_Sub_Type__c;
+        lead.Existing_Contract__c=campMemberRec.Contract__c;
+        lead.Interested_Vehicle_Model__c = campMemberRec.Interested_Model__c;
+        lead.Assigned_Dealer__c=campMemberRec.Preferred_Dealer__c;
+        lead.Finance_Product_Name__c=campMemberRec.Finance_Product__c;
+        lead.Finance_Contract_Term__c=campMemberRec.Term__c;
+        lead.Finance_Monthly_Payment__c=campMemberRec.Monthly_Payment__c;
+        lead.Finance_Interest_Rate__c=campMemberRec.Interest_Rate__c;
+        lead.Finance_RV_Ballon__c=campMemberRec.RV_Ballon__c;
+        lead.Finance_Total_V_Price_NoTax__c=campMemberRec.Total_Vehicle_Price_without_tax__c;
+        lead.Finance_Total_V_Price_Tax__c=campMemberRec.Total_Vehicle_Price_with_tax__c;
+        lead.Purchase_Time__c=campMemberRec.Purchase_Timing__c;
+        lead.Lead_Desired_Service__c=campMemberRec.Lead_Desired_Service__c;
+        
+        lead.Lead_DataSource__c='Campaign';
+        lead.UsVIN__c=campMemberRec.UsVIN__c;
+        if(campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales') {
+            
+            lead.AfterSales_Vehicle__c=campMemberRec.Vehicle__c;
+            }
+            if(campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
+        {
+           lead.Trade_In_Vehicle__c=campMemberRec.Vehicle__c;
+        }
+        if(campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
+        {
+          lead.Cross_Point_Model__c=campMemberRec.Cross_Point_Model__c;
+          
+        }
             if(recTypeId != null) {
                 lead.RecordTypeId = recTypeId;
             }
@@ -293,14 +301,29 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                                                     'Zip_Code__c',
                                                     'Campaign_ID__r.OwnerId',
                                                      'Company_Name__c',
-                                                   'Contract_Phone_1__c',
-                                                   'Contract_Phone_2__c',
                                                     'Contract__c',
+                                                    'Contract_Phone1_1__c',
+                                                    'Contract_Phone2_2__c',
                                                     'Vehicle__c',
-                                                    'Campaign_ID__r.Response_Date__c',
-                                                    'Name'
+                                                    'Name',
+                                                     'Vehicle__c',
+                                                    'Lead_Type__c',
+                                                    'Lead_Sub_Type__c',
+                                                    'Interested_Model__c',
+                                                    'Finance_Product__c',
+                                                    'Term__c',
+                                                    'Monthly_Payment__c',
+                                                    'Interest_Rate__c',
+                                                    'RV_Ballon__c',
+                                                    'Total_Vehicle_Price_without_tax__c',
+                                                    'Total_Vehicle_Price_with_tax__c',
+                                                    'Purchase_Timing__c',
+                                                    'Lead_Desired_Service__c',
+                                                    'UsVIN__c',
+                                                    'Cross_Point_Model__c'
                                                     
                                                 };
+                                                
         
         return fieldList;
     }
