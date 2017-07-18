@@ -11193,7 +11193,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>VIN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>VIN_Link__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Related_Vehicle__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>ApplicationDate__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>ContractNumber__c</customTabListAdditionalFields>
