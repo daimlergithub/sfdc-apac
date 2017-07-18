@@ -678,6 +678,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+		<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cross_Point_Model__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Existing_Contract_End_Date__c</field>
