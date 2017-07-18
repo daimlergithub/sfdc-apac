@@ -5,20 +5,18 @@
    <style type="text/css">
    </style>
    <body>
-    <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Assigned_Dealer__r.name} {!$Label.Email_LeadDealerAssign2}</p>
-    
-     <p> {!$Label.Email_LeadDealerAssign3}</p>
+    <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Assigned_Dealer__r.name} {!$Label.Email_LeadDealerAssign2}<br></br>{!$Label.Email_LeadDealerAssign3}</p>
      
      <p> {!$Label.Email_LeadDealerAssign4}</p>
      
-     <p> {!$Label.Email_LeadDealerAssign5} <apex:outputText value="{0, date, MM/dd}"><apex:Param value="{!TODAY()}" /></apex:OutputText> {!$Label.Email_LeadDealerAssign6}</p>
+     <p> {!$Label.Email_LeadDealerAssign5} (<apex:outputText value="{0, date, MM/dd}"><apex:Param value="{!TODAY()}" /></apex:OutputText>) {!$Label.Email_LeadDealerAssign6}</p>
      
      <p> {!$Label.Email_LeadDealerAssign7} 1 {!$Label.Email_LeadDealerAssign8}</p>
      
-     <p> {!$Label.Email_LeadDealerAssign9}</p>
+     <p> {!$Label.Email_LeadDealerAssign9}<br></br>{!$Label.Email_LeadDealerAssign22}</p>
      
      <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
-        Direct link URL to the Lead detail page
+     {!$Label.Dealer_login_Url}/{!relatedTo.Id}
     </a>
      <!--<apex:outputLink value="/{!relatedTo.Id}" id="theLink"> Direct link URL to the Lead detail page</apex:outputLink>-->
      
@@ -26,22 +24,18 @@
      
       <p> {!$Label.Email_LeadDealerAssign10}</p>
       
-     
-     <p> {!$Label.Email_LeadDealerAssign11} </p>
-     
+          
      <p> {!$Label.Email_LeadDealerAssign12} </p>
      
      
-     <p> {!$Label.Email_LeadDealerAssign13} </p>
+     <p> {!$Label.Email_LeadDealerAssign13}<br></br>{!$Label.Email_LeadDealerAssign23}</p>
      
-     <p> {!$Label.Email_LeadDealerAssign14} </p>
+     <p> {!$Label.Email_LeadDealerAssign24}<br></br>{!$Label.Email_LeadDealerAssign25}</p>
      
-     ----------------------------------------------
-     <p> {!$Label.Email_LeadDealerAssign15}</p>
-     <p> {!$Label.Email_LeadDealerAssign16}</p>
-     <p> {!$Label.Email_LeadDealerAssign17}</p>
-     <p> {!$Label.Email_LeadDealerAssign18}</p>
-    -----------------------------------------------
+     <p> {!$Label.Email_LeadDealerAssign26}<br></br>**********************************************************</p>     
+     <p> {!$Label.Email_LeadDealerAssign14}<br></br>{!$Label.Email_LeadDealerAssign15}<br></br>{!$Label.Email_LeadDealerAssign27}<br></br>{!$Label.Email_LeadDealerAssign16}</p>
+     <p> {!$Label.Email_LeadDealerAssign17}<br></br>{!$Label.Email_LeadDealerAssign28}<br></br>{!$Label.Email_LeadDealerAssign18}<br></br>{!$Label.Email_LeadDealerAssign29}</p>
+     <p>**********************************************************</p>
    </body>
    </html>
      
