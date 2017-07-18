@@ -79,7 +79,40 @@ public class AccountHelperTH{
         }
     }
     
-   
+   //Added by dhanamjaya to validate the National Id before Update
+   public static void ValidateNationalid(List<account> ListAccount){
+   for(Account acc:ListAccount){
+   if(acc.ID_Type__c=='National ID'){
+   if(String.isBlank(acc.ID_Number__c)){
+         acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
+         
+       }
+      else{
+            Pattern p = Pattern.compile('[0-9]{13}');
+            Matcher m = p.matcher(acc.ID_Number__c);
+            if(!m.matches()){
+                acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
+                
+            }
+            else{
+                integer sum=0;
+                Integer Remainder;
+                for(integer i=0;i<acc.ID_Number__c.length()-1;i++){
+                    sum=sum+(integer.valueOf(acc.ID_Number__c.substring(i, i+1)))*(13-i);
+                }
+                remainder=11-(math.mod(sum,11));
+                if(remainder!=integer.valueOf(acc.ID_Number__c.substring(12,13))){
+                acc.ID_Number__c.addError('ID Number: Invalid National id');
+                
+             
+                }
+            }
+        
+        }
+ 
+   }
+   }
+   }
    
     /**
     * Implement Do Not Call(PersonDoNotCall) to automate opt-out for all channels which means that selecting this flag opts out the customer from 
