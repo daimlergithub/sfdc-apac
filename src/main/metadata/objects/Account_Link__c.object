@@ -2432,13 +2432,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Selling Dealer</label>
-        <lookupFilter>
+       <lookupFilter>
             <active>true</active>
+			<booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
+            </filterItems>			
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <infoMessage>Search and select accounts.</infoMessage>
             <isOptional>false</isOptional>

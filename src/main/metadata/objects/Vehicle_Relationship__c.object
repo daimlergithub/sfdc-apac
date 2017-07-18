@@ -2014,14 +2014,21 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
         <externalId>false</externalId>
         <inlineHelpText>Name of last service dealer</inlineHelpText>
         <label>Last Service Dealer</label>
-        <lookupFilter>
+         <lookupFilter>
             <active>true</active>
+			<booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
-            <filterItems>
-                <field>Account.RecordType.DeveloperName</field>
+             <filterItems>
+                <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
+            </filterItems>			
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
+			<infoMessage>Search and select the Dealer.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
@@ -3769,13 +3776,19 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Provided
         <externalId>false</externalId>
         <inlineHelpText>Name of the last dealer who sold the vehicle</inlineHelpText>
         <label>Selling Dealer</label>
-        <lookupFilter>
+       <lookupFilter>
             <active>true</active>
+			<booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
+            </filterItems>
+			 <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>

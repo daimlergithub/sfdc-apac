@@ -122,7 +122,7 @@ public class RelatedDealerLease
             
             system.debug('###'+Loan);
         }
-        us1 = [select id,ContactId, Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];
+        us1 = [select id,ContactId,TimeZoneSidKey,Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];
         
         if((us1.User_Type__c=='MBJ'|| us1.User_Type__c == 'MBF' && Loan!=null))
         {
