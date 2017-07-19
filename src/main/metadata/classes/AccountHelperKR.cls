@@ -564,7 +564,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                                                  toRole__r.Sales_Sanction__c,toRole__r.PersonDoNotCall,toRole__r.Visit_Opt_Out__c,toRole__r.Personal_Agreement__c,
                                                  toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.Agreement_to_commit_info_processing__c,
                                                  toRole__r.Complaint_Amount__c,toRole__r.Preferred_Contact_Method__c,toRole__r.Job__c,toRole__r.Company_Name__c,toRole__r.PersonMobilePhone,
-                                                 toRole__r.Primary_Address_Reference__c,fromRole__r.Dealer_Rollout_Status__c
+                                                 toRole__r.Primary_Address_Reference__c,fromRole__r.Dealer_Rollout_Status__c, Retail_Address_Reference__r.LastModifiedDate, Retail_Address_Reference__r.CreatedDate
                                                  from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         
         System.debug('Accountlinklist------>'+Accountlinklist  );
@@ -596,6 +596,8 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Industry__c = acclnk.toRole__r.Industry;                  
                 acclnk.Retail_Special_Care__c = acclnk.toRole__r.Special_Care__c;
                 acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
+				acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.LastModifiedDate);
+				acclnk.Retail_Address_CreatedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.CreatedDate);
                 //}
                 //if(persongroup3 == true){
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing__c;  
@@ -636,8 +638,8 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Agreement_Info_Processing__c = acclnk.toRole__r.Agreement_to_commit_info_processing__c;
                 acclnk.Retail_Vat_No__c = acclnk.toRole__r.Vat_No__c ;
                 acclnk.Retail_Postal_OptOut__c= acclnk.toRole__r.Postal_Opt_Out__c ;
-                acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
-                acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
+                //acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
+                //acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
                 system.debug('acc Id :'+acclnk.id);
                 system.debug('acc Id R:'+acclnk.RecordTypeId);
                 if(retailCompanyupdate != Null && acclnk.RecordTypeId != RetailCompany){
@@ -686,8 +688,10 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Information_Third_Party_Release__c = acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_Abroad_Agreement__c = acclnk.toRole__r.Personal_Abroad_Agreement__c;
                 acclnk.Retail_Agreement_Info_Processing__c = acclnk.toRole__r.Agreement_to_commit_info_processing__c;
-                acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
-                acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate); 
+                //acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
+                //acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate); 
+				acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.LastModifiedDate);
+				acclnk.Retail_Address_CreatedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.CreatedDate);
             
             //End if for Company record type
             acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
