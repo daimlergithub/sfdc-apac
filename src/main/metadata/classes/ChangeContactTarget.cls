@@ -69,15 +69,15 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                 for(account_link__c acclink: accountlink){
                 if (acclink.recordtypeid != VehicleExternalLinkRT)
                 {
-                    if (acclink.torole__c == vehiclewrpper.purchaservr.contact__c)
+                    if (acclink.torole__c == vehiclewrpper.purchaservr.contact__c && acclink.Retail_Sales_Consultant__c != null)
                     {
                         vehiclewrpper.purchaseracclink = acclink;   
                     }
-                    else if(acclink.torole__c == vehiclewrpper .salescontactvr .contact__c)
+                    else if(acclink.torole__c == vehiclewrpper .salescontactvr .contact__c && acclink.Retail_Sales_Consultant__c != null)
                     {
                         vehiclewrpper.salescontactacclink = acclink;
                     }
-                    else if(acclink.torole__c == vehiclewrpper.aftersalescontactvr .contact__c)
+                    else if(acclink.torole__c == vehiclewrpper.aftersalescontactvr .contact__c && acclink.Retail_Sales_Consultant__c != null)
                     {
                         vehiclewrpper.aftersalescontactacclink= acclink;
                     }
