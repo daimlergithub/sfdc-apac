@@ -1425,7 +1425,7 @@
         <name>Email2</name>
     </customLabels>
     <customLabels>
-        <label>Salesforceのリードに割り当てられているので、お客様に通知します。</label>
+        <label>、セールスフォースにてリードの担当者に設定されましたのでお知らせいたします。</label>
         <name>Email_Assignment</name>
     </customLabels>
     <customLabels>
@@ -1527,7 +1527,7 @@
         <name>Email_LeadDealerAssign9</name>
     </customLabels>
     <customLabels>
-        <label>代表</label>
+        <label>ご担当者様</label>
         <name>Email_Manager</name>
     </customLabels>
     <customLabels>
@@ -1535,7 +1535,7 @@
         <name>Email_Thankyou</name>
     </customLabels>
     <customLabels>
-        <label>これは非常に有望な顧客情報であるため、販売活動に活用してください。</label>
+        <label>下記URLより関心や興味を持たれているお客様のリードをご確認いただき、データを営業活動にご活用ください。</label>
         <name>Email_salesActivities</name>
     </customLabels>
     <customLabels>
@@ -5290,7 +5290,7 @@
         <name>slaveId</name>
     </customLabels>
     <customLabels>
-        <label>リードデータの展開</label>
+        <label>統合顧客管理システム　貴店へのリード展開のお知らせ</label>
         <name>Email_LeadDealerAssignSubject</name>
     </customLabels>
     <customLabels>
@@ -5298,7 +5298,7 @@
         <name>Email_LeadUntouchedFirstMessage</name>
     </customLabels>
     <customLabels>
-        <label>更新の無いリード</label>
+        <label>統合顧客管理システム　未対応のリードがあります</label>
         <name>Lead_Untouched_Subject</name>
     </customLabels>
     <customLabels>
@@ -5336,6 +5336,10 @@
     <customLabels>
         <label>※音声ガイダンスに従って「1」を押してください。</label>
         <name>Email_LeadDealerAssign29</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム　リード担当者割当てのお知らせ</label>
+        <name>Email_LeadPersonAssignSubject</name>
     </customLabels>
     <customPageWebLinks>
         <label><!-- Custom Link Notification --></label>
