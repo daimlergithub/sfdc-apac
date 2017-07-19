@@ -43,6 +43,13 @@
         <value>Vehicle Edit</value>
     </labels>
 	<labels>
+        <fullName>Announcements</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Announcement</shortDescription>
+        <value>Announcements</value>
+    </labels>
+	<labels>
         <fullName>Registration_Information</fullName>
         <language>en_US</language>
         <protected>false</protected>
