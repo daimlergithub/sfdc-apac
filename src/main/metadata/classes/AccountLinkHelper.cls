@@ -394,125 +394,164 @@ public class AccountLinkHelper
         
         return map_FromAccountToListIndividualAccountLinkId;
     }
-    
-    
-    public static void afterUpdateEvent(List<Account_Link__c> list_AccountLink, Map<Id, Account_Link__c> map_AccountLinkIdAndRecord){
+    public static void afterUpdateEvent(List<Account_Link__c> list_AccountLink, Map<Id, Account_Link__c> map_AccountLinkIdAndRecord)
+    {
         
         Set<Id> set_accountId = new Set<Id>();
-         
+        Set<Id> oldAccId = new set<id>();
         List<Id> list_SharingToDelete = new List<Id>();
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = getRelatedIndividualCustomerRecordTypeAccountLink(list_AccountLink);
         
-        for(Account_Link__c accountLink : list_AccountLink){
-        if(accountLink.Retail_Delete_Flag__c == false){
-            if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' &&
-                accountLink.fromRole__c != null && (accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c || 
-                accountLink.Status__c != map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c)){
+        for(Account_Link__c accountLink : list_AccountLink)
+        {
+            if(accountLink.Retail_Delete_Flag__c == false)
+            {
+                if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' &&
+                   accountLink.fromRole__c != null && (accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c || 
+                                                       accountLink.Status__c != map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c))
+                {
                     
-              set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
-              list_SharingToDelete.add(accountLink.Id);
-              
-              if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
-                  map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
-              }
-              map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
-            }
-            
-            if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && 
-                    accountLink.Status__c != 'My Shops' && map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c == 'My Shops'){
-                set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
-                list_SharingToDelete.add(accountLink.Id);
-            }
-            
-            if(accountLink.RecordTypeId != AccountLink_ContactSectorRecordTypeId && 
-                    map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_ContactSectorRecordTypeId){
-                set_accountId.add(accountLink.fromRole__c);
-                list_SharingToDelete.add(accountLink.Id);
-            }
-            
-            if((accountLink.RecordTypeId != AccountLink_CompanyCustomerRecordTypeId && map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_CompanyCustomerRecordTypeId)
-                    || (accountLink.RecordTypeId != AccountLink_Contact2ContactRecordTypeId && map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_Contact2ContactRecordTypeId)
-                    || (map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_IndividualCustomerRecordTypeId && accountLink.RecordTypeId != AccountLink_IndividualCustomerRecordTypeId)){
-                    
-                set_accountId.add(accountLink.fromRole__c);
-                list_SharingToDelete.add(accountLink.Id);
-            }
-            
-            if(accountLink.fromRole__c != null && (accountLink.RecordTypeId == AccountLink_CompanyCustomerRecordTypeId || accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
-                || accountLink.RecordTypeId == AccountLink_IndividualCustomerRecordTypeId) && accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c){
-                    
-                set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
-                list_SharingToDelete.add(accountLink.Id);
-                if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
-                  map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
-                }
-                map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
-            }
-            
-            if(accountLink.toRole__c != null && accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
-                && accountLink.toRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c){
-                    
-                set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c);
-                list_SharingToDelete.add(accountLink.Id);
-                if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
-                    map_AccountIdAndListAccountLinkId.put(accountLink.toRole__c, new List<Id>());
-                }
-                map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
-            }
-            
-             // Added for Retail Person - Account Link issue
-               if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
-                if(accountLink.fromRole__c !=null && accountLink.toRole__c != null &&accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c ) {
                     set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
                     list_SharingToDelete.add(accountLink.Id);
-                    if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)) {
+                    
+                    if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c))
+                    {
+                        map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                    }
+                    map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                }
+                
+                if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && 
+                   accountLink.Status__c != 'My Shops' && map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c == 'My Shops')
+                {
+                    set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
+                    list_SharingToDelete.add(accountLink.Id);
+                }
+                
+                if(accountLink.RecordTypeId != AccountLink_ContactSectorRecordTypeId && 
+                   map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_ContactSectorRecordTypeId)
+                {
+                    set_accountId.add(accountLink.fromRole__c);
+                    list_SharingToDelete.add(accountLink.Id);
+                }
+                
+                if((accountLink.RecordTypeId != AccountLink_CompanyCustomerRecordTypeId && map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_CompanyCustomerRecordTypeId)
+                   || (accountLink.RecordTypeId != AccountLink_Contact2ContactRecordTypeId && map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_Contact2ContactRecordTypeId)
+                   || (map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_IndividualCustomerRecordTypeId && accountLink.RecordTypeId != AccountLink_IndividualCustomerRecordTypeId))
+                {
+                    
+                    set_accountId.add(accountLink.fromRole__c);
+                    list_SharingToDelete.add(accountLink.Id);
+                }
+                
+                if(accountLink.fromRole__c != null && (accountLink.RecordTypeId == AccountLink_CompanyCustomerRecordTypeId || accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
+                                                       || accountLink.RecordTypeId == AccountLink_IndividualCustomerRecordTypeId) && accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c)
+                {
+                    
+                    set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
+                    list_SharingToDelete.add(accountLink.Id);
+                    if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c))
+                    {
                         map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
                     }
                     map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                }
+                
+                if(accountLink.toRole__c != null && accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
+                   && accountLink.toRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c)
+                {
                     
-                    // For Individual
-                    for(Id fromAccId : map_FromAccountToListIndividualAccountLinkId.keySet()) {
-                        if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(fromAccId)) {
-                            map_PersonCompanyAccountIdAndListAccountLinkId.putAll(map_FromAccountToListIndividualAccountLinkId);
-                        } else {
-                            map_PersonCompanyAccountIdAndListAccountLinkId.get(fromAccId).addAll(map_FromAccountToListIndividualAccountLinkId.get(fromAccId));
-                        }
+                    set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c);
+                    list_SharingToDelete.add(accountLink.Id);
+                    if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c))
+                    {
+                        map_AccountIdAndListAccountLinkId.put(accountLink.toRole__c, new List<Id>());
                     }
-                    for(Id fromAccId : map_FromAccountToListIndividualAccountLinkId.keySet()) {
-                        for(Id accLinkId : map_FromAccountToListIndividualAccountLinkId.get(fromAccId)) {
-                            list_SharingToDelete.add(accLinkId);
+                    map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
+                }
+                
+                // Added for Retail Person - Account Link issue
+                if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) 
+                {
+                    if(accountLink.fromRole__c !=null && accountLink.toRole__c != null &&(accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c || accountLink.torole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).torole__c))
+                    {
+                        set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
+                        list_SharingToDelete.add(accountLink.Id);
+                        oldAccId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).torole__c);
+                        
+                        if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)) 
+                        {
+                            map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
                         }
+                        map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                        
+                        // For Individual
+                        for(Id fromAccId : map_FromAccountToListIndividualAccountLinkId.keySet()) 
+                        {
+                            if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(fromAccId)) 
+                            {
+                                map_PersonCompanyAccountIdAndListAccountLinkId.putAll(map_FromAccountToListIndividualAccountLinkId);
+                            } 
+                            else 
+                            {
+                                map_PersonCompanyAccountIdAndListAccountLinkId.get(fromAccId).addAll(map_FromAccountToListIndividualAccountLinkId.get(fromAccId));
+                            }
+                        }
+                        for(Id fromAccId : map_FromAccountToListIndividualAccountLinkId.keySet()) 
+                        {
+                            for(Id accLinkId : map_FromAccountToListIndividualAccountLinkId.get(fromAccId)) 
+                            {
+                                list_SharingToDelete.add(accLinkId);
+                            }
+                        }
+                        
                     }
-                    
                 }
             }
         }
-        }
-        if(set_accountId.size() > 0){
+		system.debug('oldAccId>>>' + oldAccId);
+        system.debug('set_accountId>>>' + set_accountId);
+        if(set_accountId.size() > 0 || oldAccId.size() > 0)
+        {
             List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_accountId AND IsPortalEnabled = true]);
             List<Account> dealerAccList = [select Name from Account where Id IN: set_accountId];
             Set<String> dealerAccNameSet = new Set<String>();
-            for(Account dealerRec : dealerAccList) {
+            for(Account dealerRec : dealerAccList) 
+            {
                 dealerAccNameSet.add(dealerRec.Name);
             }
+            system.debug('dealerAccNameSet>>>' + dealerAccNameSet);
             List<Group> groupList = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];
             
             List<Account_Link__Share> list_SharingDele = new List<Account_Link__Share>([SELECT Id FROM Account_Link__Share 
-                                                                                            WHERE ParentId IN:list_SharingToDelete 
-                                                                                            AND (UserOrGroupId IN :list_User OR UserOrGroupId IN :groupList)]);
+                                                                                        WHERE ParentId IN:list_SharingToDelete 
+                                                                                        AND (UserOrGroupId IN :list_User OR UserOrGroupId IN :groupList)]);
+            List<AccountShare> oldAccShareList = new List<AccountShare>();
+            oldAccShareList = [select Id from AccountShare Where AccountId =:oldAccId AND UserOrGroupId IN :groupList];
+            
+            system.debug('groupList>>>' + groupList);
+            system.debug('oldAccShareList>>>' + oldAccShareList);
             //system.assert(false, list_SharingDele);
-            if(list_SharingDele.size() > 0){
+            if(list_SharingDele.size() > 0)
+            {
                 Database.delete(list_SharingDele, false);
+            }
+            
+            if(oldAccShareList.size() > 0)
+            {
+                Database.delete(oldAccShareList, false);
             }
         }
         
-        if(map_AccountIdAndListAccountLinkId.size() > 0){
+        if(map_AccountIdAndListAccountLinkId.size() > 0)
+        {
             createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
-        if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
+        if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0)
+        {
             createPCSharingRecord(map_PersonCompanyAccountIdAndListAccountLinkId);
         }
         
