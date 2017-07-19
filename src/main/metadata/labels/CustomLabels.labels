@@ -2275,7 +2275,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Dealer login Url</shortDescription>
-        <value>https://uat-daimlerasia.cs31.force.com/MBJapan</value>
+        <value>https://daimlerasia.force.com/MBJapan/</value>
     </labels>
     <labels>
         <fullName>Dedup_callout_failure</fullName>
@@ -9759,5 +9759,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Email_LeadDealerAssign29</shortDescription>
         <value>Please follow the voice guidance</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadPersonAssignSubject</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadPersonAssignSubject</shortDescription>
+        <value>Lead was assigned to you</value>
     </labels>
 </CustomLabels>
