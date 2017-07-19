@@ -2385,10 +2385,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>testnationalidcontroller</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>testusernotification</apexClass>
         <enabled>false</enabled>
     </classAccesses>
