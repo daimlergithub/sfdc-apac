@@ -1982,7 +1982,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <active>true</active>
         <description>No modification is made in 15 days (All Modifications)</description>
         <formula>(NOT(ISBLANK(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType><workflowTimeTriggers>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
                 <name>No_modification_is_made_in_15_days_All_Modifications</name>
