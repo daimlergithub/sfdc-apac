@@ -1963,7 +1963,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
     </rules>
     <rules>
         <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
         <formula>(NOT(ISBLANK(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1979,7 +1979,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
     </rules>
     <rules>
         <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>No modification is made in 15 days (All Modifications)</description>
         <formula>(NOT(ISBLANK(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1995,7 +1995,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
     </rules>
     <rules>
         <fullName>No modification is made in 5 days %28All Modifications%29</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
         <formula>(NOT(ISBLANK(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
