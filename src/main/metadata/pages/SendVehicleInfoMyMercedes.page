@@ -55,7 +55,7 @@
                                     </td></tr>
                                 </table>
                                 </apex:pageblockSection>
-                                <apex:commandButton value="{!$Label.Close}" action="{!closePopup}" rerender="one"/>                              
+                                <apex:commandButton value="{!$Label.CloseMym}" action="{!closePopup}" rerender="one"/>                              
                             </apex:outputPanel>
                         </apex:outputPanel>
                     </apex:repeat>
