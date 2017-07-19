@@ -34,6 +34,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         }
         
         if(isBefore && isUpdate){
+        AccountHelperTH.ValidateNationalid(Trigger.new);
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
@@ -85,12 +86,12 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
 
        
-		List<Account> accountNewList = Trigger.new;
+        List<Account> accountNewList = Trigger.new;
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'TH')
         {
-			if(isBefore && isInsert){
+            if(isBefore && isInsert){
             AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
-			}
+            }
         
         if(isBefore && isUpdate){
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
@@ -100,7 +101,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateOnEmailOptout(Trigger.new);
             AccountHelperTH.updateAgeRange(Trigger.new);
             AccountHelperTH.activeContracts(Trigger.new);
-			}
-		}
+            }
+        }
     }
 }

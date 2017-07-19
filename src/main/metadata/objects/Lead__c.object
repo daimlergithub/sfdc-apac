@@ -40403,7 +40403,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade-In</fullName>
+                <fullName>Book-in</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -91743,7 +91743,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade-In</fullName>
+                <fullName>Book-in</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
