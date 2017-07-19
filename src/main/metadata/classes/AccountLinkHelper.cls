@@ -1079,7 +1079,10 @@ public class AccountLinkHelper
                   }
         }
     }
-    if(acclist.size()>0)
+    
+ }
+ 
+ if(acclist.size()>0)
     {
         insert acclist;
        if(sutlist!=null)
@@ -1087,7 +1090,7 @@ public class AccountLinkHelper
           insert sutlist;
         }
     }
- }
+	
  }
  //}
  //LeadUtil.AccountLinkTrigger = false;
