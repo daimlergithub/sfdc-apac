@@ -9760,4 +9760,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Email_LeadDealerAssign29</shortDescription>
         <value>Please follow the voice guidance</value>
     </labels>
+    <labels>
+        <fullName>Email_LeadPersonAssignSubject</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadPersonAssignSubject</shortDescription>
+        <value>Lead was assigned to you</value>
+    </labels>
 </CustomLabels>
