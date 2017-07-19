@@ -56,6 +56,17 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         for(EmailTemplate tempRec : templateList) {
             templateNameToTemplateIdMap.put(tempRec.Name, tempRec.Id);
         }
+        for(Campaign cam : scope)
+        {
+            for(Campaign_Member__c cmp : cam.Campaign_Members1__r)
+            {   
+                if(cmp.Contact_Id__c != null && cmp.Auto_creation_of_tasks__c == true)
+                {
+                    pMap.put(cmp.Contact_Id__c,cmp);
+                }
+            }
+        }       
+
          
         Map<String, Id> leadRecTypeNameToRecTypeIdMap = new Map<String, Id>();
         leadRecTypeNameToRecTypeIdMap.put('Sales Leads', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
@@ -68,6 +79,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         parentCapmaignToLeadRecTypeMap.put('Finance', 'Sales Leads');
         String taskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
         Set<Id> campaignIdSet = new Set<Id>();
+       
         Map<Id, List<Campaign_Member__c>> campaignIdToCampaignMemberListMap =  new Map<Id, List<Campaign_Member__c>>();
          list<account>pList   = [select id,recordtypeid,personcontactid from account where id in:pMap.keyset()];
          for(account a:pList)
@@ -75,7 +87,10 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
          system.debug('+++++++++++++++'+pList );
          
          {
+         
               pConMap.put(a.id,a);
+              
+              
               }
           
           }
@@ -98,7 +113,9 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                     task.ActivityDate = camp.Response_Date__c;
                     task.Campaign_Name__c = camp.Campaign_Code__c;
                     task.Whatid = campaignMemberRec.Campaign_Id__c ;
+                    system.debug('++++++++++++'+pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid);
                    task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
+                   
                    task.Contract__c = campaignMemberRec.Contract__c ;
                    task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                     task.Account_Name__c =campaignMemberRec.Company_Name__c;
@@ -319,8 +336,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                                                     'Contract_Phone1_1__c',
                                                     'Contract_Phone2_2__c',
                                                     'Vehicle__c',
-                                                    'Name',
-                                                     'Vehicle__c',
+                                                    'Name', 
                                                     'Lead_Type__c',
                                                     'Lead_Sub_Type__c',
                                                     'Interested_Model__c',
