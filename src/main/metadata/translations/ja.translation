@@ -145,6 +145,10 @@
         <name>Vehicle_Edit</name>
     </customLabels>
 	<customLabels>
+        <label>お知らせ</label>
+        <name>Announcements</name>
+    </customLabels>
+	<customLabels>
         <label>保有情報</label>
         <name>Registration_Information</name>
     </customLabels>
