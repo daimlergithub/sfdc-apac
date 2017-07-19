@@ -337,7 +337,7 @@
             if(recallSoql.length()>recallLength){
                 System.debug('recallSoqlFinal>>>>'+recallSoql);
                 saveQuery += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
-                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 10000');
+                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 8000');
                 for(recall__c rc : recallList){
                     vehIdSet.add(rc.Vehicle_Id__c);
                     vehIdRecallRecMap.put(rc.Vehicle_Id__C,rc);
