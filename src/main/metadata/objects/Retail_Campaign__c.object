@@ -13840,68 +13840,74 @@ alert('The event has yet to be published or has been closed.');
         <masterLabel>[OPRO]Label Print(PDF)</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
-// 
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
+        <url> // ‚±‚ê‚ÍAOPROARTS Live ƒT[ƒo‚Å¶¬‚³‚ê‚½ OPROARTS Live - Force.com API ‚Ì—˜—pƒTƒ“ƒvƒ‹‚Å‚·B
+//
+// OPROARTS Live - Force.com API ‚Ìî•ñ‚ÍAhttps://www2.opro.net/jp_arts/support.html ‚©‚ç‚²——‚É‚È‚ê‚Ü‚·B
+// Visualforce ‚Ìî•ñ‚ÍAhttp://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) ‚©‚ç‚²——‚É‚È‚ê‚Ü‚·B
 
 
-// ---- BEGIN ---- 
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
+// ---- BEGIN ----
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
 {!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
 
-var tpArray = (function () { 
-var dmTemplate= sforce.connection.query("SELECT id,DM_Template__r.Type__c FROM Retail_Campaign__c WHERE ID ='{!Retail_Campaign__c.Id}' LIMIT 1"); 
-records = dmTemplate.getArray("records"); 
-var dmmaterial_type = records[0].DM_Template__r.Type__c; 
-switch(dmmaterial_type){ 
-case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
-case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
-case 'smart manual': return 'p03_DirectMailPrint';brak; 
-case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
-case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
-case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
-case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting';brak; 
-} 
-}()); 
+var tpArray = (function () {
+var dmmaterial_type = '{!Retail_Campaign__c.DM_Template__c}';
+switch(dmmaterial_type){
+case 'MB1”N“_ŒŸ‚Ì‚²ˆÄ“àic’·j': return 'p01_VehicleCheckUp_noDate_RC';brak;
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate_RC';brak;
+case '1”N/2”N“_ŒŸAŽÔŒŸ‚Ì‚²ˆÄ“àic’·j': return 'p02_VehicleInspection_withDate_RC';brak;
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate_RC';brak;
+case '1”N/2”N“_ŒŸAŽÔŒŸ‚Ì‚²ˆÄ“à(‰¡’·j': return 'p03_DirectMailPrint_RC';brak;
+case 'Direct Mail Print': return 'p03_DirectMailPrint_RC';brak;
+case '”Ä—p@–@lˆ¶–¼E’S“––¼iƒnƒKƒLj': return 'p04_CompanyAccount_RC';brak;
+case 'Company Account': return 'p04_CompanyAccount_RC';brak;
+case 'SmartŽÔ“_ŒŸ‚Ì‚¨‚µ‚ç‚¹iƒnƒKƒLj': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak;
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak;
+case 'VŽÔ‚Uƒ–ŒŽ–³—¿“_ŒŸ‚Ì‚²ˆÄ“àiƒnƒKƒLj': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak;
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak;
+case '”Ä—p@ŒÚ‹qˆ¶–¼E’S“––¼iƒnƒKƒLj': return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+default:return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+}
+}());
 
-OPROARTS.Live.fF.action({ 
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
-// このパラメータを省略することはできません。 
-tp:tpArray, 
+OPROARTS.Live.fF.action({
+// tp: ”z”õÏ‚Ýƒeƒ“ƒvƒŒ[ƒg‚Ì–¼Ì‚ðŽw’è‚µ‚Ü‚·B•¡”Žw’è‚·‚é‚±‚Æ‚à‚Å‚«‚Ü‚·B
+// ‚±‚Ìƒpƒ‰ƒ[ƒ^‚ðÈ—ª‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB
+tp:tpArray,
 
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
-fe:false, 
+// ƒtƒHƒ“ƒg‚Ì–„‚ßž‚Þ‚©‚Ç‚¤‚©‚ðŽw’è‚µ‚Ü‚·Btrue ‚à‚µ‚­‚Í false ‚ÅŽw’è‚µ‚Ü‚·B
+// fm ƒpƒ‰ƒ[ƒ^‚ª'PDF'‚Ìê‡‚É—LŒø‚Å‚·B‚Ü‚½Aƒeƒ“ƒvƒŒ[ƒg‚Å–„‚ßž‚Ý‰Â”\‚ÈƒtƒHƒ“ƒg‚ªŽg—p‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·B
+fe:false,
 
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-createsAttach:false, 
+// createsAttach: ì¬‚³‚ê‚½ƒhƒLƒ…ƒƒ“ƒg‚ðƒIƒuƒWƒFƒNƒg‚É“Y•t‚·‚é‚©‚Ç‚¤‚©‚ðŽw’è‚µ‚Ü‚·Btrue ‚à‚µ‚­‚Í false ‚ÅŽw’è‚µ‚Ü‚·B
+// “Y•t‚Å‚«‚È‚¢ƒIƒuƒWƒFƒNƒg‚Ìê‡A‚±‚Ìƒpƒ‰ƒ[ƒ^‚ð true ‚ÅŽw’è‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B
+createsAttach:false,
 
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
-// - taskSubject: 活動履歴の件名 
-// - taskComment: 活動履歴のコメント 
-// 無指定の場合は、システムの初期値が適用されます。 
-createsTask:false, 
+// createsTask: ì¬‚³‚ê‚½ƒhƒLƒ…ƒƒ“ƒg‚ðŠˆ“®—š—ð‚É“o˜^‚·‚é‚©‚Ç‚¤‚©‚ðŽw’è‚µ‚Ü‚·Btrue ‚à‚µ‚­‚Í false ‚ÅŽw’è‚µ‚Ü‚·B
+// Šˆ“®—š—ð‚É“o˜^‚Å‚«‚È‚¢ƒIƒuƒWƒFƒNƒg‚Ìê‡A‚±‚Ìƒpƒ‰ƒ[ƒ^‚ð true ‚ÅŽw’è‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B
+// ‚±‚Ìƒpƒ‰ƒ[ƒ^‚É true ‚ðŽw’è‚µ‚½ê‡AŽŸ‚Ì’Ç‰Áƒpƒ‰ƒ[ƒ^‚ðŽw’è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+// - taskSubject: Šˆ“®—š—ð‚ÌŒ–¼
+// - taskComment: Šˆ“®—š—ð‚ÌƒRƒƒ“ƒg
+// –³Žw’è‚Ìê‡‚ÍAƒVƒXƒeƒ€‚Ì‰Šú’l‚ª“K—p‚³‚ê‚Ü‚·B
+createsTask:false,
 
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
-title:'', 
+// title: ƒ_ƒEƒ“ƒ[ƒhE“Y•tEŠˆ“®—š—ð‚Ìƒtƒ@ƒCƒ‹–¼‚ðŽw’è‚µ‚Ü‚·B
+title:'',
 
-// objectId: 帳票オブジェクトのIDを指定します。 
-objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
+// objectId: ’ •[ƒIƒuƒWƒFƒNƒg‚ÌID‚ðŽw’è‚µ‚Ü‚·B
+objectId:'{!JSENCODE(Retail_Campaign__c.Id)}',
 
-// OPROARTS Live - Force.com API に必要な諸パラメータです。 
-// このパラメータを編集しないでください。 
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
-}).url("https://benz.pd.oproarts.com/liveffb/action").pdf(); 
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
+// OPROARTS Live - Force.com API ‚É•K—v‚È”ƒpƒ‰ƒ[ƒ^‚Å‚·B
+// ‚±‚Ìƒpƒ‰ƒ[ƒ^‚ð•ÒW‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
+}).url("https://benz.pd.oproarts.com/liveffbb/action").pdf();
+// ì¬‚·‚éƒhƒLƒ…ƒƒ“ƒg‚ÌŒ`Ž®‚Ìƒƒ\ƒbƒh‚ðŒÄ‚Ño‚µ‚Ü‚·B'pdf()','opr()','print()'‚ðŽw’è‚µ‚Ü‚·B
+// 'opr()','print()'‚ðŽg—p‚·‚éê‡AOPRO X Browser ‚ðƒNƒ‰ƒCƒAƒ“ƒgPC‚ÉƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚­‚¾‚³‚¢B
+// ¦ pdf(), opr() ‚Ì‚©‚í‚è‚É pdfPreview(), oprPreview() ƒƒ\ƒbƒh‚ðŽw’è‚·‚é‚ÆAƒvƒŒƒrƒ…[—p‚ÌƒhƒLƒ…ƒƒ“ƒg‚ª¶¬‚³‚ê‚Ü‚·B‚±‚Ìo—Í‚ÍƒJƒEƒ“ƒg‚³‚ê‚Ü‚¹‚ñB
+// ---- END ----
+		</url>
     </webLinks>
     <webLinks>
         <fullName>OPRO_DM_Print_OPR</fullName>
@@ -13912,68 +13918,78 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
         <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
-// 
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
+        <url>
+		// ‚±‚ê‚ÍAOPROARTS Live ƒT[ƒo‚Å¶¬‚³‚ê‚½ OPROARTS Live - Force.com API ‚Ì—˜—pƒTƒ“ƒvƒ‹‚Å‚·B
+//
+// OPROARTS Live - Force.com API ‚Ìî•ñ‚ÍAhttps://www2.opro.net/jp_arts/support.html ‚©‚ç‚²——‚É‚È‚ê‚Ü‚·B
+// Visualforce ‚Ìî•ñ‚ÍAhttp://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) ‚©‚ç‚²——‚É‚È‚ê‚Ü‚·B
 
 
-// ---- BEGIN ---- 
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
+// ---- BEGIN ----
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
 {!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
 
-var tpArray = (function () { 
-var dmTemplate= sforce.connection.query("SELECT id,DM_Template__r.Type__c FROM Retail_Campaign__c WHERE ID ='{!Retail_Campaign__c.Id}' LIMIT 1"); 
-records = dmTemplate.getArray("records"); 
-var dmmaterial_type = records[0].DM_Template__r.Type__c; 
-switch(dmmaterial_type){ 
-case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
-case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
-case 'smart manual': return 'p03_DirectMailPrint';brak; 
-case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
-case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
-case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
-case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting';brak; 
-} 
-}()); 
+var tpArray = (function () {
+var dmmaterial_type = '{!Retail_Campaign__c.DM_Template__c}';
+switch(dmmaterial_type){
+case 'MB1”N“_ŒŸ‚Ì‚²ˆÄ“àic’·j': return 'p01_VehicleCheckUp_noDate_RC';brak;
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate_RC';brak;
+case '1”N/2”N“_ŒŸAŽÔŒŸ‚Ì‚²ˆÄ“àic’·j': return 'p02_VehicleInspection_withDate_RC';brak;
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate_RC';brak;
+case '1”N/2”N“_ŒŸAŽÔŒŸ‚Ì‚²ˆÄ“à(‰¡’·j': return 'p03_DirectMailPrint_RC';brak;
+case 'Direct Mail Print': return 'p03_DirectMailPrint_RC';brak;
+case '”Ä—p@–@lˆ¶–¼E’S“––¼iƒnƒKƒLj': return 'p04_CompanyAccount_RC';brak;
+case 'Company Account': return 'p04_CompanyAccount_RC';brak;
+case 'SmartŽÔ“_ŒŸ‚Ì‚¨‚µ‚ç‚¹iƒnƒKƒLj': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak;
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak;
+case 'VŽÔ‚Uƒ–ŒŽ–³—¿“_ŒŸ‚Ì‚²ˆÄ“àiƒnƒKƒLj': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak;
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak;
+case '”Ä—p@ŒÚ‹qˆ¶–¼E’S“––¼iƒnƒKƒLj': return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+default:return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+}
+}());
 
-OPROARTS.Live.fF.action({ 
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
-// このパラメータを省略することはできません。 
-tp:tpArray, 
+OPROARTS.Live.fF.action({
+// tp: ”z”õÏ‚Ýƒeƒ“ƒvƒŒ[ƒg‚Ì–¼Ì‚ðŽw’è‚µ‚Ü‚·B•¡”Žw’è‚·‚é‚±‚Æ‚à‚Å‚«‚Ü‚·B
+// ‚±‚Ìƒpƒ‰ƒ[ƒ^‚ðÈ—ª‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB
+tp:tpArray,
 
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
-fe:false, 
+// ƒtƒHƒ“ƒg‚Ì–„‚ßž‚Þ‚©‚Ç‚¤‚©‚ðŽw’è‚µ‚Ü‚·Btrue ‚à‚µ‚­‚Í false ‚ÅŽw’è‚µ‚Ü‚·B
+// fm ƒpƒ‰ƒ[ƒ^‚ª'PDF'‚Ìê‡‚É—LŒø‚Å‚·B‚Ü‚½Aƒeƒ“ƒvƒŒ[ƒg‚Å–„‚ßž‚Ý‰Â”\‚ÈƒtƒHƒ“ƒg‚ªŽg—p‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·B
+fe:false,
 
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-createsAttach:false, 
+// createsAttach: ì¬‚³‚ê‚½ƒhƒLƒ…ƒƒ“ƒg‚ðƒIƒuƒWƒFƒNƒg‚É“Y•t‚·‚é‚©‚Ç‚¤‚©‚ðŽw’è‚µ‚Ü‚·Btrue ‚à‚µ‚­‚Í false ‚ÅŽw’è‚µ‚Ü‚·B
+// “Y•t‚Å‚«‚È‚¢ƒIƒuƒWƒFƒNƒg‚Ìê‡A‚±‚Ìƒpƒ‰ƒ[ƒ^‚ð true ‚ÅŽw’è‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B
+createsAttach:false,
 
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
-// - taskSubject: 活動履歴の件名 
-// - taskComment: 活動履歴のコメント 
-// 無指定の場合は、システムの初期値が適用されます。 
-createsTask:false, 
+// createsTask: ì¬‚³‚ê‚½ƒhƒLƒ…ƒƒ“ƒg‚ðŠˆ“®—š—ð‚É“o˜^‚·‚é‚©‚Ç‚¤‚©‚ðŽw’è‚µ‚Ü‚·Btrue ‚à‚µ‚­‚Í false ‚ÅŽw’è‚µ‚Ü‚·B
+// Šˆ“®—š—ð‚É“o˜^‚Å‚«‚È‚¢ƒIƒuƒWƒFƒNƒg‚Ìê‡A‚±‚Ìƒpƒ‰ƒ[ƒ^‚ð true ‚ÅŽw’è‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B
+// ‚±‚Ìƒpƒ‰ƒ[ƒ^‚É true ‚ðŽw’è‚µ‚½ê‡AŽŸ‚Ì’Ç‰Áƒpƒ‰ƒ[ƒ^‚ðŽw’è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+// - taskSubject: Šˆ“®—š—ð‚ÌŒ–¼
+// - taskComment: Šˆ“®—š—ð‚ÌƒRƒƒ“ƒg
+// –³Žw’è‚Ìê‡‚ÍAƒVƒXƒeƒ€‚Ì‰Šú’l‚ª“K—p‚³‚ê‚Ü‚·B
+createsTask:false,
 
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
-title:'', 
+// title: ƒ_ƒEƒ“ƒ[ƒhE“Y•tEŠˆ“®—š—ð‚Ìƒtƒ@ƒCƒ‹–¼‚ðŽw’è‚µ‚Ü‚·B
+title:'',
 
-// objectId: 帳票オブジェクトのIDを指定します。 
-objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
+//OPRƒtƒ@ƒCƒ‹‚Ì•ªŠ„’PˆÊ‚ðŽw’è‚µ‚Ü‚·B—áj10000‚Æ‹LÚ‚µ‚½ê‡‚Í10000Œ–ˆ‚É•ªŠ„‚µ‚Äˆ³kƒtƒ@ƒCƒ‹‚É‚Ü‚Æ‚ß‚ÄƒŒƒXƒ|ƒ“ƒX‚µ‚Ü‚·B
+oprLimitPages:10000,
 
-// OPROARTS Live - Force.com API に必要な諸パラメータです。 
-// このパラメータを編集しないでください。 
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
-}).url("https://benz.pd.oproarts.com/liveffb/action").opr(); 
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
+// objectId: ’ •[ƒIƒuƒWƒFƒNƒg‚ÌID‚ðŽw’è‚µ‚Ü‚·B
+objectId:'{!JSENCODE(Retail_Campaign__c.Id)}',
+
+// OPROARTS Live - Force.com API ‚É•K—v‚È”ƒpƒ‰ƒ[ƒ^‚Å‚·B
+// ‚±‚Ìƒpƒ‰ƒ[ƒ^‚ð•ÒW‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
+}).url("https://benz.pd.oproarts.com/liveffbb/action").opr();
+// ì¬‚·‚éƒhƒLƒ…ƒƒ“ƒg‚ÌŒ`Ž®‚Ìƒƒ\ƒbƒh‚ðŒÄ‚Ño‚µ‚Ü‚·B'pdf()','opr()','print()'‚ðŽw’è‚µ‚Ü‚·B
+// 'opr()','print()'‚ðŽg—p‚·‚éê‡AOPRO X Browser ‚ðƒNƒ‰ƒCƒAƒ“ƒgPC‚ÉƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚­‚¾‚³‚¢B
+// ¦ pdf(), opr() ‚Ì‚©‚í‚è‚É pdfPreview(), oprPreview() ƒƒ\ƒbƒh‚ðŽw’è‚·‚é‚ÆAƒvƒŒƒrƒ…[—p‚ÌƒhƒLƒ…ƒƒ“ƒg‚ª¶¬‚³‚ê‚Ü‚·B‚±‚Ìo—Í‚ÍƒJƒEƒ“ƒg‚³‚ê‚Ü‚¹‚ñB
+// ---- END ----
+		</url>
     </webLinks>
     <webLinks>
         <fullName>Refresh</fullName>
