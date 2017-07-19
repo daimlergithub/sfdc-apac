@@ -2434,13 +2434,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <label>Selling Dealer</label>
        <lookupFilter>
             <active>true</active>
-			<booleanFilter>1 OR 2</booleanFilter>
+			<booleanFilter>(1 AND 2) OR 3</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
-            </filterItems>			
+            </filterItems>		
+            <filterItems>
+                <field>Account.Dealer_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>	
             <filterItems>
                 <field>$Profile.Name</field>
                 <operation>equals</operation>
@@ -2468,12 +2473,34 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
+    </fields> 
+	<fields>
         <fullName>Service_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Service Dealer</label>
+		 <lookupFilter>
+            <active>true</active>
+			<booleanFilter>(1 AND 2) OR 3</booleanFilter>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>		
+            <filterItems>
+                <field>Account.Dealer_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>	
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
+            </filterItems>
+            <infoMessage>Search and select accounts.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Account Link (Service Dealer)</relationshipLabel>
         <relationshipName>Account_Link3</relationshipName>
