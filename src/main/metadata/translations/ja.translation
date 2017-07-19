@@ -996,6 +996,10 @@
         <label>成約済</label>
         <name>Close</name>
     </customLabels>
+    <customLabels>
+        <label>閉じる</label>
+        <name>CloseMym</name>
+    </customLabels>
 	<customLabels>
         <label>閉じる</label>
         <name>Closee</name>
