@@ -1205,11 +1205,11 @@
         <name>Customer_Issue</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes 入会申込（ID発行）及び関連車両情報送信</label>
+        <label>Mercedes me入会申込（ID発行）及び関連車両情報送信</label>
         <name>Customer_My_Merc_Interface_Customer</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes 申請</label>
+        <label>Mercedes me申請</label>
         <name>Customer_My_Mercedes_Interface_Customer</name>
     </customLabels>
     <customLabels>
@@ -2414,11 +2414,11 @@
         <name>ModelRange</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール変更</label>
+        <label>Mercedes me Eメール変更</label>
         <name>MyMercedes_Email_ID_Edit</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes 入会申込（新規ID発行）</label>
+        <label>Mercedes me入会申込（新規ID発行）</label>
         <name>MyMercedes_New_Registration</name>
     </customLabels>
     <customLabels>
@@ -2426,19 +2426,19 @@
         <name>MyShop_Phone</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール</label>
+        <label>Mercedes me Eメール</label>
         <name>My_Merc_Email_Id</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes ID</label>
+        <label>Mercedes me ID</label>
         <name>My_Merc_Id</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール</label>
+        <label>Mercedes me Eメール</label>
         <name>My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
-        <label><!-- My Mercedes ID --></label>
+        <label>Mercedes me ID</label>
         <name>My_Mercedes_ID</name>
     </customLabels>
     <customLabels>
@@ -4237,7 +4237,7 @@
         <name>Select_User</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedesに送信する顧客を選択してください</label>
+        <label>Mercedes meに送信する顧客を選択してください</label>
         <name>Select_Your_Prefered_Email_Id_For_Customer</name>
     </customLabels>
     <customLabels>
