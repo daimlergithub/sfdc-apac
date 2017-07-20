@@ -217,7 +217,7 @@
         <name>Account_Records</name>
     </customLabels>
     <customLabels>
-        <label><!-- Account Retail Copy Filter --></label>
+        <label>顧客属性2</label>
         <name>Account_Retail_Copy_Filter</name>
     </customLabels>
     <customLabels>
@@ -245,7 +245,7 @@
         <name>Add_Participating_Dealer</name>
     </customLabels>
     <customLabels>
-        <label><!-- Add to Campaign --></label>
+        <label>キャンペーンメンバー登録</label>
         <name>Add_to_Campaign</name>
     </customLabels>
     <customLabels>
@@ -861,7 +861,7 @@
         <name>Campaign_Type_Media</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaigns_Filter --></label>
+        <label>キャンペーン</label>
         <name>Campaigns_Filter</name>
     </customLabels>
     <customLabels>
@@ -1005,7 +1005,7 @@
         <name>Closee</name>
     </customLabels>
     <customLabels>
-        <label><!-- Cluster --></label>
+        <label>  </label>
         <name>Cluster</name>
     </customLabels>
     <customLabels>
@@ -1089,7 +1089,7 @@
         <name>Contact_Admin</name>
     </customLabels>
     <customLabels>
-        <label><!-- Contract related --></label>
+        <label>契約情報</label>
         <name>Contract_related</name>
     </customLabels>
     <customLabels>
@@ -1141,7 +1141,7 @@
         <name>Credible</name>
     </customLabels>
     <customLabels>
-        <label><!-- Criteria --></label>
+        <label>抽出条件</label>
         <name>Criteria</name>
     </customLabels>
     <customLabels>
@@ -1193,7 +1193,7 @@
         <name>CustomerType</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer Filter --></label>
+        <label>顧客属性1</label>
         <name>Customer_Filter</name>
     </customLabels>
     <customLabels>
@@ -1205,11 +1205,11 @@
         <name>Customer_Issue</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes 入会申込（ID発行）及び関連車両情報送信</label>
+        <label>Mercedes me入会申込（ID発行）及び関連車両情報送信</label>
         <name>Customer_My_Merc_Interface_Customer</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes 申請</label>
+        <label>Mercedes me申請</label>
         <name>Customer_My_Mercedes_Interface_Customer</name>
     </customLabels>
     <customLabels>
@@ -1515,7 +1515,7 @@
         <name>Email_LeadDealerAssign5</name>
     </customLabels>
     <customLabels>
-        <label>貴店へセールスフォースのリードデータを展開しましたのでお知らせいたします。</label>
+        <label>、貴店へセールスフォースにてリードデータを展開しましたのでお知らせいたします。</label>
         <name>Email_LeadDealerAssign6</name>
     </customLabels>
     <customLabels>
@@ -2230,7 +2230,7 @@
         <name>Lead_Conditions</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead_Filter --></label>
+        <label>リード</label>
         <name>Lead_Filter</name>
     </customLabels>
     <customLabels>
@@ -2414,11 +2414,11 @@
         <name>ModelRange</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール変更</label>
+        <label>Mercedes me Eメール変更</label>
         <name>MyMercedes_Email_ID_Edit</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes 入会申込（新規ID発行）</label>
+        <label>Mercedes me入会申込（新規ID発行）</label>
         <name>MyMercedes_New_Registration</name>
     </customLabels>
     <customLabels>
@@ -2426,19 +2426,19 @@
         <name>MyShop_Phone</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール</label>
+        <label>Mercedes me Eメール</label>
         <name>My_Merc_Email_Id</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes ID</label>
+        <label>Mercedes me ID</label>
         <name>My_Merc_Id</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール</label>
+        <label>Mercedes me Eメール</label>
         <name>My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
-        <label><!-- My Mercedes ID --></label>
+        <label>Mercedes me ID</label>
         <name>My_Mercedes_ID</name>
     </customLabels>
     <customLabels>
@@ -4213,7 +4213,7 @@
         <name>Search</name>
     </customLabels>
     <customLabels>
-        <label><!-- Search Customer --></label>
+        <label>検索</label>
         <name>Search_Customer</name>
     </customLabels>
     <customLabels>
@@ -4237,7 +4237,7 @@
         <name>Select_User</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedesに送信する顧客を選択してください</label>
+        <label>Mercedes meに送信する顧客を選択してください</label>
         <name>Select_Your_Prefered_Email_Id_For_Customer</name>
     </customLabels>
     <customLabels>
@@ -4869,7 +4869,7 @@
         <name>Vehicle_Detail</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Filter --></label>
+        <label>車両情報1</label>
         <name>Vehicle_Filter</name>
     </customLabels>
     <customLabels>
@@ -4913,7 +4913,7 @@
         <name>Vehicle_Records</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle_Relation_Filter --></label>
+        <label>車両情報2</label>
         <name>Vehicle_Relation_Filter</name>
     </customLabels>
     <customLabels>
@@ -4921,7 +4921,7 @@
         <name>Vehicle_Relationship_overlap</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Retail copy Filter --></label>
+        <label>車両情報3</label>
         <name>Vehicle_Retail_copy_Filter</name>
     </customLabels>
     <customLabels>
@@ -5081,7 +5081,7 @@
         <name>Zipcode_validation</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address Filter --></label>
+        <label>住所</label>
         <name>address_Filter</name>
     </customLabels>
     <customLabels>
