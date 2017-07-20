@@ -444,7 +444,7 @@ public class LeadHelperJP
                          {
                             
                              system.debug('Insert Method 1');
-                             if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
+                             if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately' && lead.Service_Advisor__c !=null)
                              {
                                 isNotificationSendtosalesmanager = true;
                                  system.debug('Insert Method 2');
