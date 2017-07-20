@@ -58,6 +58,16 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         for(EmailTemplate tempRec : templateList) {
             templateNameToTemplateIdMap.put(tempRec.Name, tempRec.Id);
         }
+                for(Campaign cam : scope)
+        {
+            for(Campaign_Member__c cmp : cam.Campaign_Members1__r)
+            {   
+                if(cmp.Contact_Id__c != null && cmp.Auto_creation_of_tasks__c == true)
+                {
+                    pMap.put(cmp.Contact_Id__c,cmp);
+                }
+            }
+        } 
          
         Map<String, Id> leadRecTypeNameToRecTypeIdMap = new Map<String, Id>();
         leadRecTypeNameToRecTypeIdMap.put('Sales Leads', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
