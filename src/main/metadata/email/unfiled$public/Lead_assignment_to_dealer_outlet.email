@@ -5,7 +5,7 @@
    <style type="text/css">
    </style>
    <body>
-    <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Assigned_Dealer__r.name} {!$Label.Email_LeadDealerAssign2}<br></br>{!$Label.Email_LeadDealerAssign3}</p>
+    <p>{!relatedTo.Assigned_Dealer__r.name} {!$Label.Email_LeadDealerAssign2}<br></br>{!$Label.Email_LeadDealerAssign3}</p>
      
      <p> {!$Label.Email_LeadDealerAssign4}</p>
      
@@ -13,7 +13,7 @@
      
      <p> {!$Label.Email_LeadDealerAssign7} 1 {!$Label.Email_LeadDealerAssign8}</p>
      
-     <p> {!$Label.Email_LeadDealerAssign9}<br></br>{!$Label.Email_LeadDealerAssign22}</p>
+     <p> {!$Label.Email_LeadDealerAssign22}<br></br>{!$Label.Email_LeadDealerAssign9}</p>
      
      <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
      {!$Label.Dealer_login_Url}/{!relatedTo.Id}
@@ -29,8 +29,6 @@
      
      
      <p> {!$Label.Email_LeadDealerAssign13}<br></br>{!$Label.Email_LeadDealerAssign23}</p>
-     
-     <p> {!$Label.Email_LeadDealerAssign24}<br></br>{!$Label.Email_LeadDealerAssign25}</p>
      
      <p> {!$Label.Email_LeadDealerAssign26}<br></br>**********************************************************</p>     
      <p> {!$Label.Email_LeadDealerAssign14}<br></br>{!$Label.Email_LeadDealerAssign15}<br></br>{!$Label.Email_LeadDealerAssign27}<br></br>{!$Label.Email_LeadDealerAssign16}</p>
