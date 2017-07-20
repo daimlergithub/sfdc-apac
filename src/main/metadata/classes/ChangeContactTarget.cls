@@ -14,6 +14,8 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
        public string aftersalescontacttargetId = '';
        public string salescontacttargetrecordId = '';
        public string aftersalescontacttargetrecordId = '';
+       public string salesretailperson = '';
+       public string aftersalesperson = '';
        public list<vehicle_relationship__c> oldsalesconractVRlist = new list<vehicle_relationship__c>();
        public list<vehicle_relationship__c> oldaftersalescontractVRlist = new list<vehicle_relationship__c>();
        public String salesOwnerRelation = '';
@@ -76,10 +78,12 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                     else if(acclink.torole__c == vehiclewrpper .salescontactvr .contact__c && acclink.Retail_Sales_Consultant__c != null)
                     {
                         vehiclewrpper.salescontactacclink = acclink;
+                        salesretailperson = acclink.Retail_Sales_Consultant__c;
                     }
                     else if(acclink.torole__c == vehiclewrpper.aftersalescontactvr .contact__c && acclink.Retail_Sales_Consultant__c != null)
                     {
                         vehiclewrpper.aftersalescontactacclink= acclink;
+                        aftersalesperson = acclink.Retail_Sales_Consultant__c;
                     }
                 }
             }
@@ -104,9 +108,10 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             
             if (vehiclewrpper.salescontactvr.id!=null)
             {
+            vehiclewrpper.salescontactacclink.toRole__c = vehiclewrpper.salescontactvr.contact__c;
             System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr.contact__c);
              System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr);
-                if(vehiclewrpper.salescontactvr.contact__c != salescontacttargetId ){
+                if(vehiclewrpper.salescontactvr.contact__c != salescontacttargetId || vehiclewrpper.salescontactacclink.Retail_Sales_Consultant__c != salesretailperson){
                     //vehiclewrpper.salescontactvr.Start_Date__c = Date.today();
                     //vehiclewrpper.salescontactvr.id = null;
                     vrlist.add(vehiclewrpper.salescontactvr);
@@ -119,12 +124,13 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                 }*/
             }
             if (vehiclewrpper.aftersalescontactvr.id!=null){
-            if(vehiclewrpper.aftersalescontactvr.contact__c != aftersalescontacttargetId ){
+            vehiclewrpper.aftersalescontactacclink.toRole__c = vehiclewrpper.aftersalescontactvr.contact__c;
+            if(vehiclewrpper.aftersalescontactvr.contact__c != aftersalescontacttargetId || vehiclewrpper.aftersalescontactacclink.Retail_Sales_Consultant__c != aftersalesperson ){
                 //vehiclewrpper.aftersalescontactvr.Start_Date__c = date.today();
                 //vehiclewrpper.aftersalescontactvr.id = null;
                 vrlist.add(vehiclewrpper.aftersalescontactvr);
                 isaftersalescontactchnged = true;
-                vehiclewrpper.aftersalescontactacclink.toRole__c = vehiclewrpper.aftersalescontactvr.contact__c;
+                
                 //newaftersalescontractvrlist = oldaftersalescontractVRlist.deepclone(true,true,true);
             }
                 system.debug('vrList<><><>' + vrList);
