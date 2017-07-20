@@ -400,10 +400,20 @@
                 }
                 system.debug('FinalAccountSoql>>>>>>>>'+accountSoql);
                 List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
+                
                 Map<Id,Account> accIdAccountMap = new Map<Id,Account>();
                 for(Account acc : accList){
                     accIdToGetRetailPerson.add(acc.Id);
                     accIdAccountMap.put(acc.Id,acc);
+                    
+                    for(Account_Link__c alin:acc.Account_Links__r)
+                    {
+                      if(alin.Selling_Dealer__c!=null)
+                      {
+                        toRoleAndAccLinkMap.put(alin.toRole__c,alin);
+                      }
+                    }
+                    
                 }
                 accLinkRetaiPersonList = [SELECT Id,toRole__c,fromRole__c,Selling_Dealer__c FROM Account_Link__c WHERE RecordType.Name = 'Retail Person' AND toRole__c IN : accIdToGetRetailPerson];
                 system.debug('accLinkRetaiPersonList'+accLinkRetaiPersonList);
@@ -465,7 +475,7 @@
         }
         
         public void setSoql(){
-            accountSoql = 'SELECT Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
+            accountSoql = 'SELECT Id, Name, PersonHomePhone, PersonMobilePhone,(select id,toRole__c,Sales_Representative__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
             vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';
             if(selectedValueService=='Outlet'){
                 vehicleRelSoql += 'Last_Service_Dealer__c =\''+ u.Contact.AccountId+'\' AND ';
@@ -795,8 +805,8 @@
                                 member.Vehicle__c = curRec.Related_Vehicle__c;
                             if(curRec.Related_Dealer__c != NULL)
                                 member.Preferred_Dealer__c = curRec.Related_Dealer__c;
-							if(curRec.Id!= NULL)
-                                member.Contract__c = curRec.Id;	
+                                if(curRec.Id!= NULL)
+                                member.Contract__c = curRec.Id;
                             retailCampaignMembers.add(member);
                         }    
                     }
