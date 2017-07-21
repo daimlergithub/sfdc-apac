@@ -110924,7 +110924,7 @@ Company_Account__r.Work_Phone__c  ,
         <searchFilterFields>Lead_Source__c</searchFilterFields>
         <searchFilterFields>Sales_Consultant__c</searchFilterFields>
         <searchFilterFields>Selling_Dealer__c</searchFilterFields>
-       <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Dealer_Lead_Status__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Lead_Latest_Phase__c</searchResultsAdditionalFields>
