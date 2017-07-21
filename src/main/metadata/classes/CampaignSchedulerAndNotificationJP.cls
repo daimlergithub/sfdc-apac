@@ -502,6 +502,8 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         }
         
         List<Messaging.SingleEmailMessage> msgList= new List<Messaging.SingleEmailMessage>();
+        if( notificationWrapperList !=null)
+        {
         for(NotificationWrapper notificationWrapperRec : notificationWrapperList) {
             Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
             msg.SetsaveAsActivity(false);
@@ -509,6 +511,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
             msg.setTargetObjectId(notificationWrapperRec.userId);  
             msg.setWhatId(notificationWrapperRec.whatId);  
             msgList.add(msg);
+        }
         }
         if(msgList.size() > 0) {
             Messaging.sendEmail(msgList);     
