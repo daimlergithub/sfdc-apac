@@ -56414,11 +56414,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Primary_Phone_Display__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>		
+        <customTabListAdditionalFields>LastName_Native_1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FirstName_Native_1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Customer_Lifecycle_Phase__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sales_Address_Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address_Display__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Primary_Email_Display__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>UCID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Primary_Phone_Display__c</customTabListAdditionalFields>  
+        <customTabListAdditionalFields>Customer_LastUpdatedDate__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
@@ -56441,11 +56445,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE5</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
-        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>		
+        <searchResultsAdditionalFields>LastName_Native_1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FirstName_Native_1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Customer_Lifecycle_Phase__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sales_Address_Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>UCID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>  
+        <searchResultsAdditionalFields>Customer_LastUpdatedDate__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
