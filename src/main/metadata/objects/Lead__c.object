@@ -111844,9 +111844,10 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=
         <masterLabel>Print PDF</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}    
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/connection.js")}  
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")}  
+
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 
 if(market== 'JP')
