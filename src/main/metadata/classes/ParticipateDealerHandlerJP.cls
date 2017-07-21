@@ -10,17 +10,16 @@ JIRA NO             :    SFDCJP-1026
 
 Modifications       :
 Modified by         : Venky
-JIRA NO             :SFDCJP-2731
-Description         : Fixed AfterInsert caused by: System.ListException: Duplicate id in list: issue                                     
+JIRA NO             :SFDCJP-2731,SFDCJP-2801
+Description         : Fixed AfterInsert caused by: System.ListException: Duplicate id in list: issue  
+                                   
 ************************************************************************************/
 
 
 public static void afterInsertEvent(List<Participating_Dealer__c> newList){
         
         Map<Id, List<Id>> mapDealerpati = new Map<Id, List<Id>>();
-        
-        
-        Map<Id,Participating_Dealer__Share> list_SharingRecord = new Map<Id,Participating_Dealer__Share>();
+       List<Participating_Dealer__Share> list_SharingRecord = new List<Participating_Dealer__Share>(); 
         
         for(Participating_Dealer__c pd : newList){
             if (pd.Dealer__c != null  ){
@@ -28,19 +27,16 @@ public static void afterInsertEvent(List<Participating_Dealer__c> newList){
                       mapDealerpati.put(pd.Dealer__c, new List<Id>());
                   }
                   mapDealerpati.get(pd.Dealer__c).add(pd.Id);
-            system.debug('++++++++++++'+'working');
+            system.debug('++++++++++++'+mapDealerpati);
         
         if(mapDealerpati.size() > 0){
-           list_SharingRecord.putAll(createDealerAccountSharing(mapDealerpati));
+        list_SharingRecord.addAll(createDealerAccountSharing(mapDealerpati)); 
         }
-        
-        
-        
+         
+        }
+        }
         if(list_SharingRecord.size() > 0){
-        Update list_SharingRecord.values();
-          //  Database.insert(list_SharingRecord, false);
-        }
-        }
+         Database.insert(list_SharingRecord, false); 
         }
         }
     
@@ -48,7 +44,7 @@ public static void afterInsertEvent(List<Participating_Dealer__c> newList){
         
         Map<Id, List<Id>> mapDealerpati = new Map<Id, List<Id>>();
         
-        Map<Id,Participating_Dealer__Share> list_SharingRecord = new Map<Id,Participating_Dealer__Share>();
+        List<Participating_Dealer__Share> list_SharingRecord = new List<Participating_Dealer__Share>(); 
         Set<Id> set_AccountId = new Set<Id>();
         List<Id> list_DmrequestId = new List<Id>();
         
@@ -75,21 +71,20 @@ public static void afterInsertEvent(List<Participating_Dealer__c> newList){
             } 
         }
         if(mapDealerpati.size() > 0){
-           list_SharingRecord.PutAll(createDealerAccountSharing(mapDealerpati));
+         list_SharingRecord.addAll(createDealerAccountSharing(mapDealerpati)); 
         }
         
         if(list_SharingRecord.size() > 0){
-        Update list_SharingRecord.Values();
-            //Database.insert(list_SharingRecord, false);
-        }
-        system.debug('++++++++++++++'+list_SharingRecord);
+          Database.insert(list_SharingRecord, false); 
+        } 
     }
      
     
-    private static Map<Id,Participating_Dealer__Share> createDealerAccountSharing(Map<Id, List<Id>> mapDealerpati){
-        Map<Id,Participating_Dealer__Share> list_SharingRecord = new Map<Id,Participating_Dealer__Share>();
-        mapDealerpati=new Map<Id, List<Id>>();
+    private static List<Participating_Dealer__Share> createDealerAccountSharing(Map<Id, List<Id>> mapDealerpati){ 
+         List<Participating_Dealer__Share> list_SharingRecord = new List<Participating_Dealer__Share>(); 
+         system.debug('++++++++++++ mapDealerpati.keySet()'+mapDealerpati.keySet());
         for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:mapDealerpati.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name='Dealer']){
+            system.debug('++++++++++++ mapDealerpati.keySet()'+usr.Contact.AccountId);
             if(mapDealerpati.containsKey(usr.Contact.AccountId)){
                 for(Id acId : mapDealerpati.get(usr.Contact.AccountId)){
                     Participating_Dealer__Share participatingDeaShare = new Participating_Dealer__Share();
@@ -97,7 +92,7 @@ public static void afterInsertEvent(List<Participating_Dealer__c> newList){
                     participatingDeaShare.UserOrGroupId = usr.Id;
                     participatingDeaShare.ParentId = acId;
                     participatingDeaShare.RowCause = Schema.Participating_Dealer__Share.RowCause.Manual;
-                    list_SharingRecord.put(participatingDeaShare.ParentId,participatingDeaShare);
+                    list_SharingRecord.add(participatingDeaShare); 
                 }
             }
         }

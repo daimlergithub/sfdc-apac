@@ -46,6 +46,10 @@ public class SendAccountInfoToSPO {
                 {
                 Addlist=[Select id,Address_Type__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,ZipCode__c from Address__c where Customer__c=:AccId and Address_Type__c='Home'];
                 }
+				  else if (AddRecords !=null )
+                {
+                Addlist=[Select id,Address_Type__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,ZipCode__c from Address__c where Customer__c=:AccId and Address_Type__c='Business'];
+                } 
     } //Constructor End.
     
     
