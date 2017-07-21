@@ -321,8 +321,8 @@ public with sharing class AccountMergeController{
                 continue;
             }
             
-			//Changes related  to SFDCJP-2707
-			if ((masterFieldValue != null && masterFieldValue != slaveFieldValue && slaveFieldValue ==null) || fieldAPI == 'Master_Record__c' ) {
+            //Changes related  to SFDCJP-2707
+            if ((masterFieldValue != null && masterFieldValue != slaveFieldValue && slaveFieldValue ==null) || fieldAPI == 'Master_Record__c' ) {
                 wrap.isSame = false;
                 wrap.isMasterChecked = true;
                 wrap.isSlaveChecked = false;
@@ -337,7 +337,7 @@ public with sharing class AccountMergeController{
                 wraps.add(wrap);               
                 continue;
             }
-			
+            
             // Populate isSame
             wrap.isSame = ( masterFieldValue == slaveFieldValue);
             
@@ -612,16 +612,20 @@ public with sharing class AccountMergeController{
      */  
       public void selectAll() {       
         if (selectAllParam == System.Label.master) {
+        if(wraps !=null)
+        {
             for (Accountwrapper wrap : wraps) {
-                if (!wrap.isMasterNull) {
+                if (string.valueOf(wrap.isMasterNull) != null && string.valueOf(wrap.isMasterNull) != '' && !wrap.isMasterNull) 
+                {
                     wrap.isMasterChecked = true;
                     wrap.isSlaveChecked = false;
                 }
             }
+            }
         }
         else if (selectAllParam == System.Label.slave) {
             for (Accountwrapper wrap : wraps) {
-                if (!wrap.isSlaveNull) {
+                if (string.valueOf(wrap.isSlaveNull) != null && string.valueOf(wrap.isSlaveNull) != '' && !wrap.isSlaveNull) {
                     wrap.isSlaveChecked = true;
                     wrap.isMasterChecked = false;
                 }

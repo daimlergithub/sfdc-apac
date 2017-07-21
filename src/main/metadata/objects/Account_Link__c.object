@@ -5710,12 +5710,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>System__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>fromRole__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Role__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>toRole__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Role2__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Portal_Email__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Retail_Email_OptOut__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Portal_Message_Opt_Out__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>fromRole__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Role__c</lookupDialogsAdditionalFields>
@@ -5723,11 +5726,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <lookupDialogsAdditionalFields>Role2__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Portal_Email__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>System__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>fromRole__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Role__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>toRole__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Role2__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Portal_Email__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Retail_Email_OptOut__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Portal_Message_Opt_Out__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>

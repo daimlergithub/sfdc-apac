@@ -18,6 +18,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
     global Map<String, Id> templateNameToTemplateIdMap;
     
     global Database.QueryLocator start(Database.BatchableContext bc) {
+        Date today = Date.Today();
         String query = 'SELECT ';
         for(String fieldName : getCampaignFields()) {
             query += fieldName + ', ';
@@ -32,6 +33,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         
         query = query.substring(0, query.length() - 2);
         query += ' FROM Campaign WHERE RecordType.DeveloperName = \'Campaign_Executiono\'';
+        query += 'AND Execution_Start_Date__c  =:today';
         
         //String query = 'Select Id, OwnerId, Owner.Name, Execution_Type__c, Child_Campaign_Status__c, Campaign_CCC_Manager__c, Execution_Start_Date__c, ParentId, Parent.Campaign_Type__c, ';
         //query += '(Select Id, OwnerId, Contact_Id__c, Special_Flag_to_Include__c, Special_flag_to_Exclude__c, Delinquency_Flag__c, MBF_Anti_Social_flag__c, Offer_Prohibit_Flag__c, Payment_Suspended_Flag__c from Campaign_Members1__r)';
@@ -40,6 +42,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
     }
     
     global void execute(Database.BatchableContext bc, List<Campaign> scope) {
+    System.debug('^&^&^&^&^&^&^&'+scope);
         List<Lead__c>leadLst = new List<Lead__c>();
         List<Task>tskLst = new List<Task>();
         List<Campaign_Lead__c> cLeadLst = new List<Campaign_Lead__c>();
@@ -90,13 +93,15 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
          system.debug('+++++++++++++++'+pList );
          
          {
-              pConMap.put(a.id,a);
+              pConMap.put(a.Id,a);
               }
           
           }
+           system.debug('+++++++++++++++'+pList );
         for(Campaign camp : scope) {
             campaignIdSet.add(camp.Id);
         }
+          system.debug('++++++++campaignIdSet+++++++'+campaignIdSet);
         String query = 'SELECT ';
         for(String fieldName : getCampaignMemberFields()) {
             query += fieldName + ', ';
@@ -110,7 +115,8 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
             }
             campaignIdToCampaignMemberListMap.get(campMemberRec.Campaign_ID__c).add(campMemberRec);
         }
-        
+        System.debug('%^%^%^%^%%^%^n campaignIdToCampaignMemberListMap.Id%' +campaignIdToCampaignMemberListMap);
+        system.debug('++++++++scope+++++++'+scope);
         for(Campaign camp : scope) {
             if(camp.Execution_Start_Date__c == Date.Today()) {
                 if((camp.Execution_Type__c == 'eMail' || camp.Execution_Type__c == 'DM') && camp.Child_Campaign_Status__c == 'Segmentation') {
@@ -123,7 +129,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                     campLst.add(camp);
                 }
                  
-                else if(camp.Execution_Type__c == 'Lead' && camp.Child_Campaign_Status__c == 'Segmentation') {
+                if(camp.Execution_Type__c == 'Lead') {
                     if(camp.Campaign_CCC_Manager__c != null) {
                         /*String templateId = templateNameToTemplateIdMap.containsKey('Campaign Lead Assignment Notification') 
                                                     ? templateNameToTemplateIdMap.get('Campaign Lead Assignment Notification')
@@ -135,6 +141,9 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                      
                     Id recTypeId = (parentCapmaignToLeadRecTypeMap.containsKey(camp.Parent.Campaign_Type__c) ? 
                                                 leadRecTypeNameToRecTypeIdMap.get(parentCapmaignToLeadRecTypeMap.get(camp.Parent.Campaign_Type__c)) : null);
+                  System.debug('%^%^%^%^%%^%^%'+campaignIdToCampaignMemberListMap);
+                  System.debug('%^%^%^%^%%^%^n camp.Id%' +camp.Id);
+                  
                     if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)) {
                         for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)) {
                             Lead__c lead = new Lead__c();
@@ -194,12 +203,13 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                             campaignMemberRec.Status__c = 'Executed';
                             campMemberLst.add(campaignMemberRec);
                         }
+                        
                         camp.Child_Campaign_Status__c = 'Execution';
                         campLst.add(camp);
                     }
                 }
                  
-                else if(camp.Execution_Type__c == 'OB Call' && camp.Child_Campaign_Status__c == 'Segmentation'){
+                else if(camp.Execution_Type__c == 'OB Call' ){
                      
                     if(camp.Campaign_CCC_Manager__c != null){
                         setNotificationTemplate(camp.Campaign_CCC_Manager__c , templateNameToTemplateIdMap.get('Task Notification'), camp.Id);
@@ -217,7 +227,11 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                             task.RecordTypeId = taskRecTypeId;
                             task.ActivityDate = camp.Execution_Start_Date__c;
                             task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                         task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
+                            
+                             if(campaignMemberRec.Contact_Id__c!=null)
+                        {
+                    task.whoid =campaignMemberRec.Contact_Id__r.personcontactid;
+                      } 
                             task.Contract__c = campaignMemberRec.Contract__c ;
                             task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                             task.Account_Name__c =campaignMemberRec.Company_Name__c;
@@ -257,7 +271,11 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                         task.ActivityDate = camp.Execution_Start_Date__c;
                         task.Campaign_Name__c = camp.Campaign_Code__c;
                         task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                      task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
+                          
+                        if(campaignMemberRec.Contact_Id__c!=null)
+                        {
+                    task.whoid =campaignMemberRec.Contact_Id__r.personcontactid;
+                      }
                         task.Contract__c = campaignMemberRec.Contract__c ;
                         task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
                         task.Account_Name__c =campaignMemberRec.Company_Name__c;
@@ -466,7 +484,8 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                                                     'Purchase_Timing__c',
                                                     'Lead_Desired_Service__c',
                                                     'UsVIN__c',
-                                                    'Cross_Point_Model__c'
+                                                    'Cross_Point_Model__c',
+                                                    'Contact_Id__r.personcontactid'
                                                   
                                                     
                                                 };
@@ -483,6 +502,8 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         }
         
         List<Messaging.SingleEmailMessage> msgList= new List<Messaging.SingleEmailMessage>();
+        if( notificationWrapperList !=null)
+        {
         for(NotificationWrapper notificationWrapperRec : notificationWrapperList) {
             Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
             msg.SetsaveAsActivity(false);
@@ -490,6 +511,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
             msg.setTargetObjectId(notificationWrapperRec.userId);  
             msg.setWhatId(notificationWrapperRec.whatId);  
             msgList.add(msg);
+        }
         }
         if(msgList.size() > 0) {
             Messaging.sendEmail(msgList);     
