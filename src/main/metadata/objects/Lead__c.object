@@ -110904,10 +110904,13 @@ Company_Account__r.Work_Phone__c  ,
     <searchLayouts>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Assigned_Dealer__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CAC_Lead_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Dealer_Lead_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead_Latest_Phase__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Assigned_Dealer__c</customTabListAdditionalFields>		
+        <customTabListAdditionalFields>Service_Advisor__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AfterSales_VIN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expected_Registration_Date__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Lead_Desired_Service__c</lookupDialogsAdditionalFields>
@@ -110921,15 +110924,15 @@ Company_Account__r.Work_Phone__c  ,
         <searchFilterFields>Lead_Source__c</searchFilterFields>
         <searchFilterFields>Sales_Consultant__c</searchFilterFields>
         <searchFilterFields>Selling_Dealer__c</searchFilterFields>
-        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+       <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Lead_Desired_Service__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Drop_off_Time__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Assigned_Dealer__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CAC_Lead_Status__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Dealer_Lead_Status__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Source_Campaign__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Lead_DataSource__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead_Latest_Phase__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Assigned_Dealer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Service_Advisor__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AfterSales_VIN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_Registration_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
