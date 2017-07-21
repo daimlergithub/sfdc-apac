@@ -6751,14 +6751,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Vehicle_Model__c</customTabListAdditionalFields>
+         <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UsVIN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>New_Used__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Car_Relation__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Finance_Method__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Vehicle_Model__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>New_Used__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>End_Date__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Selling_Dealer__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Last_Service_Dealer__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Registration_Number__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Vehicle_ID__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Vehicle_Model__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UsVIN__c</lookupDialogsAdditionalFields>
@@ -6769,12 +6769,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <lookupDialogsAdditionalFields>Selling_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Last_Service_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Vehicle_ID__c</lookupDialogsAdditionalFields>
+       <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UsVIN__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Car_Relation__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Vehicle_Model__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>New_Used__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Registration_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Selling_Dealer__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Owner_Dealer__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Vehicle_Range__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Vehicle_ID__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
