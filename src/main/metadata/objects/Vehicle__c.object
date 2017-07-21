@@ -21553,12 +21553,12 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>UsVIN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>EuroVIN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Brand__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Class__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Model__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Model_Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Range__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Car_Model__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FirstRegistrationDate__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Colour__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RegistrationNo__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>EuroVIN__c</lookupDialogsAdditionalFields>
@@ -21573,12 +21573,12 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <searchFilterFields>BodyType__c</searchFilterFields>
         <searchFilterFields>Colour__c</searchFilterFields>
         <searchFilterFields>CommissionNumber__c</searchFilterFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>UsVIN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>EuroVIN__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Brand__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Class__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Model__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Model_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Range__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Car_Model__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FirstRegistrationDate__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Colour__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
