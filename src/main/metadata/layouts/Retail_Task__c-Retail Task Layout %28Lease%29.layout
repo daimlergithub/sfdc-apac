@@ -18,10 +18,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Account__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Duration__c</field>
             </layoutItems>
             <layoutItems>
@@ -39,10 +35,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>New_Used__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Related_Dealer__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

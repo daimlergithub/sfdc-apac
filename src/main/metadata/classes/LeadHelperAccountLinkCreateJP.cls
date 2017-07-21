@@ -34,7 +34,7 @@ public class LeadHelperAccountLinkCreateJP
                         {
                             System.debug('Is Insert OR Update called -----:::::');
                             contactId.add(le.id);
-                            if(leadOldMap.get(le.id).Assigned_Dealer__c !=le.Assigned_Dealer__c || leadOldMap.get(le.id).Contact__c !=le.Contact__c)
+                            if( isInsert || (isUpdate && leadOldMap.get(le.id).Assigned_Dealer__c !=le.Assigned_Dealer__c || leadOldMap.get(le.id).Contact__c !=le.Contact__c))
                             {
                                 System.debug('^&^&^&^&&^ l');
                                 contactId.add(le.id); 
@@ -299,7 +299,7 @@ public Static boolean isCreated =false;
                 acc.Retail_Related_Company__c  = AccountLink[0].id;
                 AccounliunkRetailUpdate.add(acc);
                 System.debug('######$$$'+AccounliunkRetailUpdate);
-				isCreated =false;
+                isCreated =false;
             }
         }
         system.debug('LeadLst>>>>' + LeadLst);
