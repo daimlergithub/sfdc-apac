@@ -7879,19 +7879,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>eMail</fullName>
                 <default>false</default>
@@ -10501,19 +10489,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>eMail</fullName>
                 <default>false</default>

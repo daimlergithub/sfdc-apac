@@ -1,82 +1,71 @@
-/**
-** A handler class for Vehicle Data Sharing model.
-** 1. Shares the vehicle data with user groups by using the CRM codes.
-**
-** Created By: CC
-** Date:  
-**/
-
-public with sharing class VehicleDataSharingHandler extends SharingDataHandlerBase{
-    
-    private Id recordTypeRetail = 
-        UtilRecordType.getRecordTypeIdByName('Vehicle_Relationship__c', 'Vehicle Relationship Retail');
-    
-    public VehicleDataSharingHandler() {
-        super('Vehicle__c', 'Read');
+global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,database.stateful
+{
+    public static List<string> dealerGCCodeList = new list<string>();
+    public static List<string> dealerNDCodeList = new List<string>();
+    public static Map<string,string> groupGcCodeMap = new Map<string,string>();
+    public static List<Vehicle_Relationship__Share> updateVRShareList = new List<Vehicle_Relationship__Share>();
+    public static List<Vehicle__Share> updateVehShareList = new List<Vehicle__Share>();
+    public static list<Vehicle_Relationship__c> vehRelList = new list<Vehicle_Relationship__c>();
+    global database.QueryLocator start(database.BatchableContext bc)
+    { 
+        string query = 'Select Id, Vehicle_ID__c, Contact__c,Owner_Dealer__r.Dealer_GC_Code__c from Vehicle_Relationship__c where Owner_Dealer__r.Dealer_GC_Code__c in '+ '(\'GC0011422\',\'GC0011430\',\'GC0037972\') and MD__C =' +'\'KR\' and Recordtype.Name = ' +'\'Vehicle Relationship Retail\'';
+        return database.getQueryLocator(query);
     }
-
-    /**
-    *@Description :This mehtod fetches the vehicles and shares it to the user group by using the CRM Codes.
-    *@Author :Shrinivas Desai.
-    *@Date : 27/10/2015
-    *@param:List of sObjects.
-    *@return:This mehtod does not return any value.
-    *@see:executeProcessByCRMCode
-    */
-    public override void executeProcessByCRMCode(List<sObject> scope) {
-        system.debug('I am runing' +scope);
-        CMap dmsAndDealer = super.filterDealer(scope);
-        system.debug('dmsAndDealerKeyset...1' +dmsAndDealer.KeySet());
-        dmsAndDealer.cleanLessThanTwoList();
-        system.debug('dmsAndDealerKeyset...2' +dmsAndDealer.KeySet());
-        if(dmsAndDealer.KeySet().size() < 1){return;}
+    global void execute(database.BatchableContext bc,List<Vehicle_Relationship__c> scope)
+    {
+        dealerGCCodeList.add('GC0011422');
+        dealerGCCodeList.add('GC0011430');
+        dealerGCCodeList.add('GC0037972');
+        Set<string> ndCodeList = New Set<String>();
+        List<Account> accntList = [select Id, Dealer_ND_Code__c, Dealer_GC_Code__c, Dealer_Type__c from Account where Recordtype.Name = 'Dealer' and Dealer_GC_Code__c =:dealerGCCodeList and MD__c = 'KR'];
+        for(Account acc : accntList){
         
-        Set<String> dealerIds = dmsAndDealer.values2();
-        SYSTEM.debug('dmsAndDealer====:'+dmsAndDealer);
-
-        //get user
-        CMap userAndDealer = new CMap();
-        for(user u : [Select u.Id, u.AccountId From User u 
-                      WHERE AccountId in :dealerIds
-                      and isActive = true]) {
-            
-            userAndDealer.add(u.AccountId, u.Id);
+           ndCodeList.add(acc.Dealer_ND_Code__c);
         }
-
-        //get vehicle
-        CMap vehicleAndDealer = new CMap();
-        for(Vehicle_Relationship__c vrc: [Select v.Vehicle_ID__c, v.Owner_Dealer__c 
-                                          From Vehicle_Relationship__c v
-                                          WHERE recordTypeId = :recordTypeRetail
-                                          and Owner_Dealer__c in :dealerIds]){
-            vehicleAndDealer.add(vrc.Owner_Dealer__c, vrc.Vehicle_ID__c);
-        }
-        System.debug('vehicleAndDealer@@@'+vehicleAndDealer);
-        //make them use crm code
-        for(String crmCode : dmsAndDealer.KeySet()){
-            for(String accountid : dmsAndDealer.get(crmCode)){
-                System.debug('parentIds@@@'+crmCode+'@@@@'+vehicleAndDealer.get(accountid));
-                if(vehicleAndDealer.get(accountid) != null){
-                  parentIds.addAll(crmCode, vehicleAndDealer.get(accountid));
-                }
-                if(userAndDealer.get(accountid) != null){
-                   userOrGroupIds.addAll(crmCode, userAndDealer.get(accountid));
+        
+        
+        List<group> grpList = [select Id, Name, Type from Group where Name in :ndCodeList];
+        if(!accntList.isEmpty() && accntList != null && !grpList.isEmpty() && grpList != null)
+        {
+            for(group gr : grpList)
+            {
+                for(Account acc : accntList)
+                {
+                    if(acc.Dealer_Type__c == 'outlet' && gr.Name == acc.Dealer_ND_Code__c)
+                    {
+                        groupGcCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
+                    }
                 }
             }
         }
-        system.debug('vehicle-->'+parentIds+'--user--'+userOrGroupIds);
-        List<sObject> shareRecs ;
-        if(parentIds != null && userOrGroupIds != null ){
-          shareRecs = makeInserRecords(parentIds, userOrGroupIds);
+        if(!scope.isEmpty() && scope != null)
+        {
+            for(Vehicle_Relationship__c vehRel : scope)
+            {
+                Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
+                vehicleRelationShare.AccessLevel = 'Edit';
+                vehicleRelationShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
+                vehicleRelationShare.ParentId = vehRel.Id;
+                updateVRShareList.add(vehicleRelationShare);   
+    
+                Vehicle__Share vehicleShare = new Vehicle__Share();
+                vehicleShare.AccessLevel = 'Edit';
+                vehicleShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
+                vehicleShare.ParentId = vehRel.Vehicle_ID__c;
+                updateVehShareList.add(vehicleShare);
+            }
         }
-
-        try {
-            List<Database.SaveResult> result = Database.insert(shareRecs,false);  
-            system.debug('Success Amount: [' + result.size() +'] |  Is :' + result);            
-        } catch (DmlException e) {
-            system.debug('DML Exception: ' + e.getDmlMessage(0));
+        if(!updateVRShareList.isEmpty() && updateVRShareList != null)
+        {
+            insert updateVRShareList;
         }
-  
+        if(!updateVehShareList.isEmpty() && updateVehShareList != null)
+        {
+            insert updateVehShareList;
+        }
     }
-
+    global void finish(database.BatchableContext bc)
+    {
+                    
+    }
 }
