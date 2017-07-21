@@ -89,6 +89,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Auto_creation_of_DM_requests__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Add_Sales_Staff__c</field>
             </layoutItems>
             <layoutItems>
@@ -284,6 +288,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Recipient_changes__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Auto_creation_of_leads__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Auto_creation_of_tasks__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
