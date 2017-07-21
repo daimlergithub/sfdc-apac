@@ -32,6 +32,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         
         query += ' FROM Campaign WHERE Response_Date__c =:today ';
         
+        
         //String query = 'Select Id, OwnerId, Owner.Name, Execution_Type__c, Child_Campaign_Status__c, Campaign_CCC_Manager__c, Response_Date__c, ParentId, Parent.Campaign_Type__c, ';
         //query += '(Select Id, OwnerId, Contact_Id__c, Special_Flag_to_Include__c, Special_flag_to_Exclude__c, Delinquency_Flag__c, MBF_Anti_Social_flag__c, Offer_Prohibit_Flag__c, Payment_Suspended_Flag__c from Campaign_Members1__r)';
         //query += 'from Campaign Where Response_Date__c =: today AND RecordType.DeveloperName = \'Campaign_Executiono\'';
@@ -112,9 +113,12 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                     task.RecordTypeId = taskRecTypeId;
                     task.ActivityDate = camp.Response_Date__c;
                     task.Campaign_Name__c = camp.Campaign_Code__c;
-                    task.Whatid = campaignMemberRec.Campaign_Id__c ;
-                    system.debug('++++++++++++'+pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid);
-                   task.whoid = pConMap.get(campaignMemberRec.Contact_Id__c).personcontactid;
+                    task.Whatid = campaignMemberRec.Campaign_Id__c ; 
+                    
+                       if(campaignMemberRec.Contact_Id__c!=null)
+                        {
+                    task.whoid =campaignMemberRec.Contact_Id__r.personcontactid;
+                      } 
                    
                    task.Contract__c = campaignMemberRec.Contract__c ;
                    task.Related_Vehicle__c= campaignMemberRec.Vehicle__c;
@@ -350,7 +354,8 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                                                     'Purchase_Timing__c',
                                                     'Lead_Desired_Service__c',
                                                     'UsVIN__c',
-                                                    'Cross_Point_Model__c'
+                                                    'Cross_Point_Model__c',
+                                                    'Contact_Id__r.personcontactid'
                                                     
                                                 };
                                                 
