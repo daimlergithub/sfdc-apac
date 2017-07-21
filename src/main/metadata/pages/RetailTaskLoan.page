@@ -2,7 +2,22 @@
     <apex:form >
         <apex:pageBlock title="Related Dealer view for Loan">
             <apex:pageBlockSection columns="2">
-            
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Account__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Account__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Account__c.Label}"/>
+                        <apex:outputText value="{!contraname}"/>  
+              </apex:pageBlockSectionItem>    
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Related_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
+                        <apex:outputText value="{!relateddelaername}"/>  
+              </apex:pageBlockSectionItem>                     
             <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Credit_Loan_Company_Name__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Credit_Loan_Company_Name__c}" />      
@@ -57,7 +72,7 @@
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payment_End_Date__c.Label}"/>
-                        <apex:outputText value="{!PaymentEndDate}" />
+                        <apex:outputText value="{!PaymentEndDate}"/>
               </apex:pageBlockSectionItem>
               
               

@@ -129,7 +129,7 @@ public class AccountLinkHelper
       
       
     public static void afterInsertEvent(List<Account_Link__c> list_AccountLink){
-		// if(leadUtil.SharingReuleissue == true){ // commented as part of SFDCJP-2542
+        // if(leadUtil.SharingReuleissue == true){ // commented as part of SFDCJP-2542
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> SharingVrsFromAlk = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountIdAndListToAccountId = new Map<Id, List<Id>>();
@@ -319,8 +319,8 @@ public class AccountLinkHelper
         if(CompanyPersonVehicleLinkALK.size() > 0){
             SharePersonCompanyVehicleALK(CompanyPersonVehicleLinkALK,set_ToAccountId);
         }
-		//}
-		//LeadUtil.SharingReuleissue = false;
+        //}
+        //LeadUtil.SharingReuleissue = false;
     }
     
     public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -511,7 +511,7 @@ public class AccountLinkHelper
                 }
             }
         }
-		system.debug('oldAccId>>>' + oldAccId);
+        system.debug('oldAccId>>>' + oldAccId);
         system.debug('set_accountId>>>' + set_accountId);
         if(set_accountId.size() > 0 || oldAccId.size() > 0)
         {
@@ -833,7 +833,7 @@ public class AccountLinkHelper
         }
         if(!AccountIds.isEmpty() && AccountIds != null && !FromAccountIds.isEmpty() && FromAccountIds != null)
         {
-            ExistC2CList = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND (recordtypeid =: AccountLink_contact2conatctRecordTypeId OR recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
+            ExistC2CList = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND Retail_Delete_Flag__c = false AND (recordtypeid =: AccountLink_contact2conatctRecordTypeId OR recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
         }
         if(!AccountIds.isEmpty() && !FromAccountIds.isEmpty() && FromAccountIds != null)
         {
@@ -867,7 +867,7 @@ public class AccountLinkHelper
             createUpdateRetailCopy.updateRetailCopyFromAccount(AccountIds, accLst,dealerGCCode);
         }
     }
-	public static void updateRetailCopyafterUpdate(List<Account_Link__c> acclnkList ,map<id,Account_Link__c> oldacclnkMap)
+    public static void updateRetailCopyafterUpdate(List<Account_Link__c> acclnkList ,map<id,Account_Link__c> oldacclnkMap)
     {
         set<id> customerIds = new set<id>();
         set<id> dealerIds = new set<id>();
@@ -1129,7 +1129,7 @@ public class AccountLinkHelper
           insert sutlist;
         }
     }
-	
+    
  }
  //}
  //LeadUtil.AccountLinkTrigger = false;
@@ -1446,8 +1446,8 @@ public class AccountLinkHelper
             }
         }
     }
-	//Added venky changes related to SFDCJP-2617
-	public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
+    //Added venky changes related to SFDCJP-2617
+    public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
     {
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Set<Id> RetailPersonID=new Set<Id>();

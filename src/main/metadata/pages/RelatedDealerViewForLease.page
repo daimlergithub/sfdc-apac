@@ -3,6 +3,24 @@
   <apex:pageBlock title="Related Dealer view for Lease">
          
          <apex:pageBlockSection columns="2">
+		 
+		  <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Account__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Account__c}"/>  
+              </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Account__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Account__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Related_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Related_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+		 
          <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Lease_Category__c.Label}"/>
                         <apex:outputField value="{!rettsk.Lease_Category__c}"/>  
