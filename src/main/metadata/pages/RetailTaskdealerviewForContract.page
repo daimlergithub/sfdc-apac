@@ -3,6 +3,15 @@
         <apex:pageBlock title="{!$Label.Related_Dealer_View_for_Contract}">
             <apex:pageBlockSection columns="2">
             
+             <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Account__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Account__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Related_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+            
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Name__c.Label}"/>
                         <apex:outputField value="{!displayRetail.Contractor_Name__c}"/>  
