@@ -8,7 +8,7 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
        Id dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
          ID C2CRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();    //Account_Link__c
                                             
-     
+     ID retailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();  
     
      
      Account account1 = new Account(Dealer_Default_Flag__c=true,
@@ -20,7 +20,16 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
                                     LastName = 'Beijing XING Limited',                                    
                                     RecordTypeId=accPerson_RecordTypeId);
 
-     Account account2 = new Account(Dealer_Default_Flag__c=true,
+     Account account4 = new Account(Dealer_Default_Flag__c=true,
+                                   Dealer_DMS_SR_Code__c='Test_SR_Code2',
+                                    //Status__c='Other',
+                                    City__c='Beijing',
+                                    Phone = '080801011',
+                                    Area_Code__c = '010',            
+                                    Name = 'Test',                                  
+                                    RecordTypeId=accPerson_RecordTypeId);
+                                    
+                                    Account account2 = new Account(Dealer_Default_Flag__c=true,
                                    Dealer_DMS_SR_Code__c='Test_SR_Code2',
                                     //Status__c='Other',
                                     City__c='Beijing',
@@ -56,6 +65,9 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
          
          Account_Link__c accln3 = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =C2CRecordTypeId,fromRole__c = account2.id,toRole__c=dealer.id);
     insert accln3;
+    
+    Account_Link__c accln4 = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =retailPerson,fromRole__c = account2.id,toRole__c=account4.id);
+    insert accln4;
                                                 
    Vehicle_Relationship__c VR = new Vehicle_Relationship__c(Recall__c = FALSE, Car_Relation__c = 'Purchaser',
                                                 Owner_Relation__c='Same',Vehicle_ID__c = vehicles.id,
@@ -88,6 +100,8 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
   ChangeContactTarget ext = new ChangeContactTarget(new ApexPages.StandardController(vehicles));
   
     //ChangeContactTarget cct = new ChangeContactTarget();
+    ext.salesretailperson = accln4.id;
+    ext.aftersalesperson = accln4.id;
          ext.updateit();
     //pageReference pager = page.ChangeContactTarget;
     //    Test.setCurrentPage(pager);
