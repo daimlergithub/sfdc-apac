@@ -3,14 +3,14 @@
   <apex:pageBlock title="Related Dealer view for Lease">
          
          <apex:pageBlockSection columns="2">
-		 
-		  <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+         
+          <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Account__c.Label}"/>
                         <apex:outputField value="{!rettsk.Account__c}"/>  
               </apex:pageBlockSectionItem>
           <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Account__c.Label}"/>
-                        <apex:outputField value="{!rettsk.Account__c}"/>  
+                        <apex:outputText value="{!Accountlkp}"/>  
               </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
@@ -18,9 +18,9 @@
               </apex:pageBlockSectionItem>
           <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
-                        <apex:outputField value="{!rettsk.Related_Dealer__c}"/>  
+                        <apex:outputText value="{!Related_Dealer}"/>  
               </apex:pageBlockSectionItem>
-		 
+         
          <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Lease_Category__c.Label}"/>
                         <apex:outputField value="{!rettsk.Lease_Category__c}"/>  
@@ -209,7 +209,7 @@
               </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                  
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Re_lease_Prohibit_flag__c.Label}"/>
-                   		<apex:outputField value="{!DealerLoan.Re_lease_Prohibit_flag__c}"/> 
+                        <apex:outputField value="{!DealerLoan.Re_lease_Prohibit_flag__c}"/> 
                         <!--<apex:outputText value="{!RealeaseaProhibitaflagaac}"/>-->  
               </apex:pageBlockSectionItem>             
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
