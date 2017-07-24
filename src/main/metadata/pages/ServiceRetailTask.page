@@ -56,13 +56,13 @@
                         </apex:outputText>
                     </apex:column>
                     
-					<!--
+                    
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Invoice_Number__c.Label}">                
                         <apex:outputText value="{!ser.Service_Invoice_Number__c}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
                     
-                    -->
+
                     
                     
                     <!--
