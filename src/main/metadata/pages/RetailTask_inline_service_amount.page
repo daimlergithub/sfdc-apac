@@ -8,6 +8,11 @@
             <apex:pageBlock title="Service Amount View" id="pageBlock" rendered="{!ShowAmount}">
                 <apex:pageMessages id="pgmsg"/> 
                     <apex:pageBlockSection columns="2">
+                    
+                     <apex:pageBlockSectionItem >
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
+                        <apex:outputField value="{!retailtask.Related_Dealer__c}"/>  
+                      </apex:pageBlockSectionItem>
                       <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Description__c.Label}"/>
                         <apex:outputField value="{!retailtask.Description__c}"/>  
