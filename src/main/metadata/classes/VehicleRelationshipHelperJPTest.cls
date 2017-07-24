@@ -1281,6 +1281,309 @@ public with sharing class VehicleRelationshipHelperJPTest{
             
            insert address1;
        
+       accObj1.Primary_Address_Reference__c=address.id;
+       update accObj1;
+           List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
+           Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(vehicle_address_picklist__c='Home Address',vehicle_address__c=address.id,Vehicle_Phone_picklist__c='Home phone',vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='MyMercedes Email',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
+           listcampaigns.add(vehicleRelationshipObj1);
+           insert listcampaigns;
+           Vehicle_Relationship__c listCampaign =[select vehicle_address_picklist__c,Car_Relation__c,Owner_Relation__c,vehicle_address__c,Registration_Number__c,Vehicle_Phone_picklist__c,Vehicle_ID__c,Selling_Dealer__c,Purchase_Date__c,Contact__c,Validity__c,Start_Date__c,End_Reason__c from Vehicle_Relationship__c where id IN:listcampaigns ];
+           list<Vehicle_Relationship__c> oldList = new  list<Vehicle_Relationship__c>();
+           oldList.add(listCampaign);
+           map<id,Vehicle_Relationship__c> oldMap = new map<id,Vehicle_Relationship__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           vehicleRelationshipObj1.Car_Relation__c='Purchaser';
+           vehicleRelationshipObj1.vehicle_address__c=address1.id;
+           update vehicleRelationshipObj1;
+          
+              
+               VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+               
+               
+               
+               vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
+               vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
+               vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
+               update vehicleRelationshipObj1;
+               
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+               system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
+           
+       }
+       
+        public static testMethod void updateOnVehicleRelationTest3(){
+           creatTestData();
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+             Account_Link__c al=new Account_Link__c(Name='new al',
+            toRole__c=accobj1.id,
+            System__C='My Mercedes',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
+             );
+             insert al;
+             
+           Address__c address=new Address__c();
+           address.Address_Type__c='Business';
+           address.Province__c='test1';
+           address.City__c='bangalore';
+            address.District__c='test2';
+            address.HouseNumber__c='104';
+            address.Country__c='Japan';
+            address.ZipCode__c='1002347';
+            address.Block__c='test3';
+            address.Address_Line_1__c='testaddress1';
+            address.Address_Line_2__c='testaddress2';
+            address.Customer__c=accobj1.id;
+            address.TitleOfHonor__c = 'To Person'; 
+         
+            
+           insert address;
+          
+           Address__c address1=new Address__c();
+           address1.Address_Type__c='Other Address 3';
+           address1.Province__c='test1';
+           address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+         
+            
+           insert address1;
+       
+       accObj1.Primary_Address_Reference__c=address.id;
+       update accObj1;
+           List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
+           Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(vehicle_address_picklist__c='Work address',vehicle_address__c=address.id,Vehicle_Phone_picklist__c='Home phone',vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='MyMercedes Email',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
+           listcampaigns.add(vehicleRelationshipObj1);
+           insert listcampaigns;
+           Vehicle_Relationship__c listCampaign =[select vehicle_address_picklist__c,Car_Relation__c,Owner_Relation__c,vehicle_address__c,Registration_Number__c,Vehicle_Phone_picklist__c,Vehicle_ID__c,Selling_Dealer__c,Purchase_Date__c,Contact__c,Validity__c,Start_Date__c,End_Reason__c from Vehicle_Relationship__c where id IN:listcampaigns ];
+           list<Vehicle_Relationship__c> oldList = new  list<Vehicle_Relationship__c>();
+           oldList.add(listCampaign);
+           map<id,Vehicle_Relationship__c> oldMap = new map<id,Vehicle_Relationship__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           vehicleRelationshipObj1.Car_Relation__c='Purchaser';
+           vehicleRelationshipObj1.vehicle_address__c=address1.id;
+           update vehicleRelationshipObj1;
+          
+              
+               VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+               
+               
+               
+               vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
+               vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
+               vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
+               update vehicleRelationshipObj1;
+               
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+               system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
+           
+       }
+       
+        public static testMethod void updateOnVehicleRelationTest4(){
+           creatTestData();
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+             Account_Link__c al=new Account_Link__c(Name='new al',
+            toRole__c=accobj1.id,
+            System__C='My Mercedes',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
+             );
+             insert al;
+             
+           Address__c address=new Address__c();
+           address.Address_Type__c='Other Address 1';
+           address.Province__c='test1';
+           address.City__c='bangalore';
+            address.District__c='test2';
+            address.HouseNumber__c='104';
+            address.Country__c='Japan';
+            address.ZipCode__c='1002347';
+            address.Block__c='test3';
+            address.Address_Line_1__c='testaddress1';
+            address.Address_Line_2__c='testaddress2';
+            address.Customer__c=accobj1.id;
+            address.TitleOfHonor__c = 'To Person'; 
+         
+            
+           insert address;
+          
+           Address__c address1=new Address__c();
+           address1.Address_Type__c='Other Address 3';
+           address1.Province__c='test1';
+           address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+         
+            
+           insert address1;
+       
+       accObj1.Primary_Address_Reference__c=address.id;
+       update accObj1;
+           List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
+           Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(vehicle_address_picklist__c='Other Address 1',vehicle_address__c=address.id,Vehicle_Phone_picklist__c='Home phone',vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='MyMercedes Email',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
+           listcampaigns.add(vehicleRelationshipObj1);
+           insert listcampaigns;
+           Vehicle_Relationship__c listCampaign =[select vehicle_address_picklist__c,Car_Relation__c,Owner_Relation__c,vehicle_address__c,Registration_Number__c,Vehicle_Phone_picklist__c,Vehicle_ID__c,Selling_Dealer__c,Purchase_Date__c,Contact__c,Validity__c,Start_Date__c,End_Reason__c from Vehicle_Relationship__c where id IN:listcampaigns ];
+           list<Vehicle_Relationship__c> oldList = new  list<Vehicle_Relationship__c>();
+           oldList.add(listCampaign);
+           map<id,Vehicle_Relationship__c> oldMap = new map<id,Vehicle_Relationship__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           vehicleRelationshipObj1.Car_Relation__c='Purchaser';
+           vehicleRelationshipObj1.vehicle_address__c=address1.id;
+           update vehicleRelationshipObj1;
+          
+              
+               VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+               
+               
+               
+               vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
+               vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
+               vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
+               update vehicleRelationshipObj1;
+               
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+               system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
+           
+       }
+       
+       
+       public static testMethod void updateOnVehicleRelationTest5(){
+           creatTestData();
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+             Account_Link__c al=new Account_Link__c(Name='new al',
+            toRole__c=accobj1.id,
+            System__C='My Mercedes',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
+             );
+             insert al;
+             
+           Address__c address=new Address__c();
+           address.Address_Type__c='Other Address 2';
+           address.Province__c='test1';
+           address.City__c='bangalore';
+            address.District__c='test2';
+            address.HouseNumber__c='104';
+            address.Country__c='Japan';
+            address.ZipCode__c='1002347';
+            address.Block__c='test3';
+            address.Address_Line_1__c='testaddress1';
+            address.Address_Line_2__c='testaddress2';
+            address.Customer__c=accobj1.id;
+            address.TitleOfHonor__c = 'To Person'; 
+         
+            
+           insert address;
+          
+           Address__c address1=new Address__c();
+           address1.Address_Type__c='Other Address 3';
+           address1.Province__c='test1';
+           address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+         
+            
+           insert address1;
+       
+       accObj1.Primary_Address_Reference__c=address.id;
+       update accObj1;
+           List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
+           Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(vehicle_address_picklist__c='Other Address 2',vehicle_address__c=address.id,Vehicle_Phone_picklist__c='Home phone',vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='MyMercedes Email',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
+           listcampaigns.add(vehicleRelationshipObj1);
+           insert listcampaigns;
+           Vehicle_Relationship__c listCampaign =[select vehicle_address_picklist__c,Car_Relation__c,Owner_Relation__c,vehicle_address__c,Registration_Number__c,Vehicle_Phone_picklist__c,Vehicle_ID__c,Selling_Dealer__c,Purchase_Date__c,Contact__c,Validity__c,Start_Date__c,End_Reason__c from Vehicle_Relationship__c where id IN:listcampaigns ];
+           list<Vehicle_Relationship__c> oldList = new  list<Vehicle_Relationship__c>();
+           oldList.add(listCampaign);
+           map<id,Vehicle_Relationship__c> oldMap = new map<id,Vehicle_Relationship__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           vehicleRelationshipObj1.Car_Relation__c='Purchaser';
+           vehicleRelationshipObj1.vehicle_address__c=address1.id;
+           update vehicleRelationshipObj1;
+          
+              
+               VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+               
+               
+               
+               vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
+               vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
+               vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
+               update vehicleRelationshipObj1;
+               
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+               system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
+           
+       }
+       
+       public static testMethod void updateOnVehicleRelationTest6(){
+           creatTestData();
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+             Account_Link__c al=new Account_Link__c(Name='new al',
+            toRole__c=accobj1.id,
+            System__C='My Mercedes',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
+             );
+             insert al;
+             
+           Address__c address=new Address__c();
+           address.Address_Type__c='Other Address 3';
+           address.Province__c='test1';
+           address.City__c='bangalore';
+            address.District__c='test2';
+            address.HouseNumber__c='104';
+            address.Country__c='Japan';
+            address.ZipCode__c='1002347';
+            address.Block__c='test3';
+            address.Address_Line_1__c='testaddress1';
+            address.Address_Line_2__c='testaddress2';
+            address.Customer__c=accobj1.id;
+            address.TitleOfHonor__c = 'To Person'; 
+         
+            
+           insert address;
+          
+           Address__c address1=new Address__c();
+           address1.Address_Type__c='Other Address 3';
+           address1.Province__c='test1';
+           address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+         
+            
+           insert address1;
+       
+       accObj1.Primary_Address_Reference__c=address.id;
+       update accObj1;
            List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
            Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(vehicle_address_picklist__c='Other Address 3',vehicle_address__c=address.id,Vehicle_Phone_picklist__c='Home phone',vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='MyMercedes Email',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
            listcampaigns.add(vehicleRelationshipObj1);
@@ -1309,6 +1612,5 @@ public with sharing class VehicleRelationshipHelperJPTest{
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
-       
        
 }

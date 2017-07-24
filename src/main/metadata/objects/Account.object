@@ -57890,8 +57890,7 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <openType>replace</openType>
         <page>createRetailCopyKRButton</page>
         <protected>false</protected>
-    </webLinks>
-    <webLinks>
+    </webLinks><webLinks>
         <fullName>Create_Vehicle</fullName>
         <availability>online</availability>
         <description>Create new vehicle record</description>
@@ -57902,9 +57901,18 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 var market = '{!Account.MD__c}';
 if(market == 'JP'){
-window.open("{!URLFOR($Site.Prefix)}/apex/Create_Vehicle?accId={!Account.Id}");
+	if(typeof(srcUp) == 'function'){
+		if (sforce.console.isInConsole()) {
+			srcUp('/apex/Create_Vehicle?accId={!Account.Id}');
+		}else{
+			window.open('/apex/Create_Vehicle?accId={!Account.Id}');
+		}
+	} else {
+		window.open("{!URLFOR($Site.Prefix)}/apex/Create_Vehicle?accId={!Account.Id}");
+	}
 }
 else
 {
@@ -58528,6 +58536,7 @@ else {
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
@@ -58617,6 +58626,7 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 

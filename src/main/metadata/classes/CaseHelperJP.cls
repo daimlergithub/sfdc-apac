@@ -745,7 +745,7 @@ List<Account> accUpdLst = new List<Account>();
     
 
     
-      public static void countchildcase(List<Case> cases,List<case> oldcases)
+    /*  public static void countchildcase(List<Case> cases,List<case> oldcases)
       {
          
          
@@ -860,7 +860,7 @@ List<Account> accUpdLst = new List<Account>();
               update relatedacclnk;
           } 
              
-      }
+      }*/
     
     
     public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action)
