@@ -282,6 +282,52 @@ system.assertEquals('Magazine','Magazine');
         
      }
      
+    public   static testmethod void updateCaseDealerTest()
+    {
+        
+      Trigger__c TriggerCase=new Trigger__c(Name='CaseTrigger',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='CaseTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+             insert TriggerCase;  
+        Test.startTest();
+         
+  List<Case> listcampaigns=new List<Case>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+     Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme233',MBK_Data_Source__c='Email',Mobile__c='00000009846');
+     insert dealer1;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+        
+        insert testCase1;
+        testCase1.Case_Dealer__c= dealer1.Id;
+        update testCase1;
+       Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+
+
+        insert testCase2;
+        listcampaigns.add(testCase2);
+        Case listCampaign =[select Case_Class__c ,RecordTypeId ,Status,Priority,Case_Dealer__c from Case where id IN:listcampaigns ];
+         list<Case> oldList = new  list<Case>();
+         oldList.add(listCampaign);
+        map<id,Case> oldMap = new map<id,Case>();
+         oldMap.put(listCampaign.id, listCampaign);
+         TriggerCaseTriggerHandlerKR.isFutureUpdate =false;
+        testCase2.Status='New';
+        update testCase2;
+        string isInsert;
+        casehelperjp ch=new casehelperjp();
+        ch.updateCaseDealer(oldList,true,true,oldMap);
+        Test.stopTest();
+        
+        
+    }
      @isTest static void calculateComplaintAmountTest()
      {
              
