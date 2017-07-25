@@ -90,7 +90,7 @@ private class ReservationMessageTemplateTest {
         
         // Create a portal user and validate No of Dealer Portal Licenses
         usr = new User(
-          Username = System.now().millisecond() + 'test12345@test.com',
+          Username = System.now().millisecond() + 'rakeshgoud12345@test.com',
           ProfileId = DealerDelegatedAdmin.Id,
           Alias = 'test123',
           Email = 'test12345@test.com',
