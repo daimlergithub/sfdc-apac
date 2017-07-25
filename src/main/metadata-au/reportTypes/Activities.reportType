@@ -465,32 +465,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Activity_InboundCallNumber__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Activity_InboundExtNumber__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Activity_Info__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Activity_LeadsData__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Activity_OutboundCallSource__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Activity_OutboundSubCallSource__c</field>
             <table>Lead.Activities</table>
         </columns>
         <columns>
@@ -510,17 +485,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Adhoc_eDM_Template_ID__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Assignment_Status__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BlacklistSensitiveWord__c</field>
             <table>Lead.Activities</table>
         </columns>
         <columns>
@@ -655,11 +620,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>More_Than_2_OB_Times__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Notification_Email_Flag__c</field>
             <table>Lead.Activities</table>
         </columns>
@@ -735,27 +695,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Recording_ID__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Related_Task_Id__c</field>
             <table>Lead.Activities</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Resource_Required__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Result__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SMSBatchNumber__c</field>
             <table>Lead.Activities</table>
         </columns>
         <columns>
@@ -816,11 +761,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>UniqueCampaignMobile__c</field>
-            <table>Lead.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>UniqueCode__c</field>
             <table>Lead.Activities</table>
         </columns>
         <columns>
