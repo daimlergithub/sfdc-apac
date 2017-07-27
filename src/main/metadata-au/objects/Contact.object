@@ -694,6 +694,90 @@
                 <fullName>TSM Cars - After-Sales</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Corporate  Sales Manager -Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Business Manager - F &amp; I Assistant</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Fixed Operations Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Parts Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Service Advisor</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Marketing Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Dealership Accountant</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Service Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Parts Interpreter</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Stock Controller-  POV and Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Sales Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>New Car Sales Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Service Receptionist</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>General Sales Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Business Manager - F &amp; I Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Sales Manager Cars POV</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Vans Sales Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Dealer Principal</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Marketing Manager</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
