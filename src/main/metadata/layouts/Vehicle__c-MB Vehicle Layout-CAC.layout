@@ -290,7 +290,7 @@
         <fields>VIN__c</fields>
         <fields>Service_Dealer__c</fields>
         <fields>Service_Advisor__c</fields>
-        <fields>Sales_Person_Id__c</fields>
+        <fields>Sales_Representative__c</fields>
         <fields>Selling_Dealer__c</fields>
         <fields>NextInspectionDate__c</fields>
         <fields>NextServiceDate__c</fields>
@@ -326,10 +326,6 @@
         <fields>Service_Number__c</fields>
         <fields>Service_Code__c</fields>
         <fields>Service_Date__c</fields>
-        <fields>Related_Contact__c</fields>
-        <fields>Related_Contact2__c</fields>
-        <fields>Related_Contact3__c</fields>
-        <fields>Related_Contact4__c</fields>
         <fields>Service_Invoice_Number__c</fields>
         <fields>Related_Lead__c</fields>
         <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
@@ -342,7 +338,6 @@
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
         <fields>Status__c</fields>
-        <fields>Related_Dealer__c</fields>
         <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>

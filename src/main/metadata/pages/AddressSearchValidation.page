@@ -103,7 +103,7 @@
                     <apex:inputField value="{!objAccount.Company_Name_Native_2__c}" />               
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />
                     <apex:inputField value="{!objAccount.Legal_Form_Position__c}" />
-					<apex:inputField value="{!objAccount.Company_Legal_Form_text__c}" />
+                    <apex:inputField value="{!objAccount.Company_Legal_Form_text__c}" />
                     <apex:pageBlockSectionItem >
                     </apex:pageBlockSectionItem>
                     <apex:inputField value="{!objAccount.Individual_Home_Phone__c}" />
@@ -324,7 +324,13 @@
                     </apex:pageBlockSectionItem> 
                    
                   <apex:inputField value="{!objAccount.Email__c}" />                    
-                  <apex:inputField value="{!objAccount.PersonBirthdate}"/>                     
+                  <apex:inputField value="{!objAccount.PersonBirthdate}"/> 
+                    
+                 <!-- added by dhanamjaya-->
+                 <apex:inputField value="{!objAccount.Status__c}" style="width:160px"/> 
+                 <apex:inputField value="{!objAccount.ID_Type__c}" style="width:160px"/>
+                 <apex:inputField value="{!objAccount.ID_Number__c}" style="width:160px"/>
+                 <!-- //dhanamjaya-->
                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>     
                    
                  
@@ -369,7 +375,11 @@
                     </apex:pageBlockSectionItem>                  
                                   
                    <apex:inputField value="{!objAccount.Email__c}" />                             
-                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>    
+                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/> 
+                    <!-- dhanamjaya added code -->
+                    <apex:inputField value="{!objAccount.Status__c}" /> 
+                    <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" /> 
+                    <!-- dhanamjaya added code end -->
                        
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Fax.Label}" />

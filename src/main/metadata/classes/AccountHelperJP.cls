@@ -346,6 +346,28 @@ public class AccountHelperJP
             {
                 UtilAddressTranslation.gettranslatedvalues(market);
             }
+			
+			// Changes related to  SFDCJP-2789
+			if(listNewAccounts!=null)
+			{
+			   for(Account acc:listNewAccounts)
+            { 
+             
+            if(!test.isrunningtest() && usr.Profile.Name == 'IntegrationAPI' &&  acc.MD__c !=null)
+            {
+               if(acc.MD__c =='JP')
+               {
+                UtilAddressTranslation.gettranslatedvalues('JP');
+                }
+                 if(acc.MD__c =='KR')
+               {
+                UtilAddressTranslation.gettranslatedvalues('KR');
+                }
+             
+            }
+            }
+			}
+			
             For(Account a:listNewAccounts)
             {      
                 if((a.MD__c == 'JP'|| a.MD__c == 'KR') && (a.Primary_Address_Reference__c != oldMap.get(a.id).Primary_Address_Reference__c))

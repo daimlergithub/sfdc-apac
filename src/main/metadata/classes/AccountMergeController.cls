@@ -309,14 +309,31 @@ public with sharing class AccountMergeController{
             Object slaveFieldValue = slave.get(fieldAPI);
      
             // Populate isMasterNull and isSlaveNull
-            wrap.isMasterNull = (masterFieldValue == null);
-            wrap.isSlaveNull = (slaveFieldValue == null);
+           // wrap.isMasterNull = (masterFieldValue == null);
+            //wrap.isSlaveNull = (slaveFieldValue == null);
          
            if ((masterFieldValue != null && masterFieldValue == slaveFieldValue) ||
                     fieldAPI == 'Master_Record__c' ) {
                 wrap.isSame = true;
                 wrap.isMasterChecked = true;
                 wrap.isSlaveChecked = false;
+                wraps.add(wrap);               
+                continue;
+            }
+            
+            //Changes related  to SFDCJP-2707
+            if ((masterFieldValue != null && masterFieldValue != slaveFieldValue && slaveFieldValue ==null) || fieldAPI == 'Master_Record__c' ) {
+                wrap.isSame = false;
+                wrap.isMasterChecked = true;
+                wrap.isSlaveChecked = false;
+                wraps.add(wrap);               
+                continue;
+            }
+            
+             if ((slaveFieldValue != null && slaveFieldValue != masterFieldValue&& masterFieldValue==null) || fieldAPI == 'Master_Record__c' ) {
+                wrap.isSame = false;
+                wrap.isMasterChecked = false;
+                wrap.isSlaveChecked = true;
                 wraps.add(wrap);               
                 continue;
             }
@@ -595,16 +612,20 @@ public with sharing class AccountMergeController{
      */  
       public void selectAll() {       
         if (selectAllParam == System.Label.master) {
+        if(wraps !=null)
+        {
             for (Accountwrapper wrap : wraps) {
-                if (!wrap.isMasterNull) {
+                if (string.valueOf(wrap.isMasterNull) != null && string.valueOf(wrap.isMasterNull) != '' && !wrap.isMasterNull) 
+                {
                     wrap.isMasterChecked = true;
                     wrap.isSlaveChecked = false;
                 }
             }
+            }
         }
         else if (selectAllParam == System.Label.slave) {
             for (Accountwrapper wrap : wraps) {
-                if (!wrap.isSlaveNull) {
+                if (string.valueOf(wrap.isSlaveNull) != null && string.valueOf(wrap.isSlaveNull) != '' && !wrap.isSlaveNull) {
                     wrap.isSlaveChecked = true;
                     wrap.isMasterChecked = false;
                 }

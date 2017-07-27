@@ -98,7 +98,7 @@ implements TriggerHandlerIf
            /* serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject); */
-            AccountHelperJP.UpdateVRonAccount (trigger.new);
+          //  AccountHelperJP.UpdateVRonAccount (trigger.new); //  Commented as part of SFDCJP-2802
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {

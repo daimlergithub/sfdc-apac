@@ -132,7 +132,7 @@
             dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
             vehRetCopyRecType=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
             curRetCamp = [SELECT Id,Name,Segmentation_Base__c,Parent_Campaign1__r.Campaign_Type__c FROM Retail_campaign__C WHERE ID =: retailCampaignId];
-            u = [SELECT Id,ContactId,Contact.Account.name FROM User WHERE Id =:userInfo.getUserId() ];
+            u = [SELECT Id,ContactId,Dealer_GC_Code__c,Contact.Account.name FROM User WHERE Id =:userInfo.getUserId() ];
             segmentationBase = curRetCamp.Segmentation_Base__c;
             if(curRetCamp.Parent_Campaign1__c != NULL){
                 if(curRetCamp.Parent_Campaign1__r.Campaign_Type__c == 'Sales'){
@@ -337,7 +337,7 @@
             if(recallSoql.length()>recallLength){
                 System.debug('recallSoqlFinal>>>>'+recallSoql);
                 saveQuery += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
-                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 10000');
+                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 8000');
                 for(recall__c rc : recallList){
                     vehIdSet.add(rc.Vehicle_Id__c);
                     vehIdRecallRecMap.put(rc.Vehicle_Id__C,rc);
@@ -400,10 +400,20 @@
                 }
                 system.debug('FinalAccountSoql>>>>>>>>'+accountSoql);
                 List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
+                
                 Map<Id,Account> accIdAccountMap = new Map<Id,Account>();
                 for(Account acc : accList){
                     accIdToGetRetailPerson.add(acc.Id);
                     accIdAccountMap.put(acc.Id,acc);
+                    
+                    for(Account_Link__c alin:acc.Account_Links__r)
+                    {
+                      if(alin.Selling_Dealer__c!=null)
+                      {
+                        toRoleAndAccLinkMap.put(alin.toRole__c,alin);
+                      }
+                    }
+                    
                 }
                 accLinkRetaiPersonList = [SELECT Id,toRole__c,fromRole__c,Selling_Dealer__c FROM Account_Link__c WHERE RecordType.Name = 'Retail Person' AND toRole__c IN : accIdToGetRetailPerson];
                 system.debug('accLinkRetaiPersonList'+accLinkRetaiPersonList);
@@ -411,7 +421,7 @@
                      accList.clear();
                      if(accLinkRetaiPersonList.size()>0)
                      for(Account_Link__c accl : accLinkRetaiPersonList){
-                         if(accl.fromRole__c == u.contact.AccountId){
+                         if(accl.fromRole__r.Dealer_GC_Code__c == u.Dealer_GC_Code__c){
                              accList.add(accIdAccountMap.get(accl.toRole__c));
                          }
                          system.debug('accListForOutLet'+accList);
@@ -465,7 +475,7 @@
         }
         
         public void setSoql(){
-            accountSoql = 'SELECT Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
+            accountSoql = 'SELECT Id, Name, PersonHomePhone, PersonMobilePhone,(select id,toRole__c,Sales_Representative__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
             vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';
             if(selectedValueService=='Outlet'){
                 vehicleRelSoql += 'Last_Service_Dealer__c =\''+ u.Contact.AccountId+'\' AND ';
@@ -739,6 +749,11 @@
             getSelectedRecords();
             
             List<Campaign_Member__c> retailCampaignMembers = new List<Campaign_Member__c>();
+            List<Campaign_Member__c> prevCamMembersList = [SELECT Id,Contact_Id__c,Vehicle__c,Retail_Task__c FROM Campaign_Member__c WHERE Retail_Campaign_Id__c =: retailCampaignId];
+            Map<Id,Campaign_Member__c> conIdcamMemMap = new Map<Id,Campaign_Member__c>();
+            for(Campaign_Member__c cm : prevCamMembersList){
+                conIdcamMemMap.put(cm.Contact_Id__c,cm);    
+            }
             if(segmentationBase == 'Customer'){
                 if(SelectedAccountMap.size()>0){
                     /*List<Account_Link__c> accLinkRetaiPersonList = [SELECT Id,toRole__c,Selling_Dealer__c FROM Account_Link__c WHERE RecordType.Name = 'Retail Person' AND toRole__c IN : accIdToGetRetailPerson];
@@ -747,12 +762,14 @@
                         toRoleAndSelDelMap.put(al.toRole__c,al.Selling_Dealer__c);
                     }*/
                     for(Account curAcc : SelectedAccountMap.values()){
-                        Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-                        member.Contact_Id__c= curAcc.id; 
-                        if(toRoleAndAccLinkMap.containsKey(curAcc.Id)){
-                            member.Preferred_Dealer__c = toRoleAndAccLinkMap.get(curAcc.Id).Selling_Dealer__c;
+                        if(!conIdcamMemMap.containsKey(curAcc.id)){
+                            Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                            member.Contact_Id__c= curAcc.id; 
+                            if(toRoleAndAccLinkMap.containsKey(curAcc.Id)){
+                                member.Preferred_Dealer__c = toRoleAndAccLinkMap.get(curAcc.Id).Selling_Dealer__c;
+                            }
+                            retailCampaignMembers.add(member);   
                         }
-                        retailCampaignMembers.add(member);
                     }
                 }
             }
@@ -765,28 +782,34 @@
                     }
                     System.debug('mapfromVehicleBase'+vehIdAndSerDelMap);
                     for(Vehicle_Relationship__c curVr : SelectedVrMap.values()){
-                        Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-                        member.Contact_Id__c= curVr.Contact__c;
-                        member.Vehicle__c = curVr.Vehicle_ID__c;
-                        member.Vehicle_Relationship__c = curVr.Id;
-                        member.Preferred_Dealer__c = vehIdAndSerDelMap.get(curVr.Vehicle_ID__c);
-                        retailCampaignMembers.add(member);
+                        if(!conIdcamMemMap.containsKey(curVr.Contact__c) || (conIdcamMemMap.containsKey(curVr.Contact__c) && conIdcamMemMap.get(curVr.Contact__c).Vehicle__c != curVr.Vehicle_ID__c)){
+                            Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                            member.Contact_Id__c= curVr.Contact__c;
+                            member.Vehicle__c = curVr.Vehicle_ID__c;
+                            member.Vehicle_Relationship__c = curVr.Id;
+                            member.Preferred_Dealer__c = vehIdAndSerDelMap.get(curVr.Vehicle_ID__c);
+                            retailCampaignMembers.add(member);
+                        }
                     }
                 }
             }
             else if(segmentationBase == 'Contract'){
                 if(SelectedRetailTaskMap.size() > 0){
                     for(Retail_Task__c curRec : SelectedRetailTaskMap.values()){
-                        Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-                        member.Retail_Task__c = curRec.Id;
-                        if(curRec.Account__c != NULL)
-                            member.Contact_Id__c= curRec.Account__c;
-                        if(curRec.Related_Vehicle__c != NULL)
-                            member.Vehicle__c = curRec.Related_Vehicle__c;
-                        if(curRec.Related_Dealer__c != NULL)
-                            member.Preferred_Dealer__c = curRec.Related_Dealer__c;
-                        retailCampaignMembers.add(member);
-                    }    
+                        if(!conIdcamMemMap.containsKey(curRec.Account__c) || (conIdcamMemMap.containsKey(curRec.Account__c) && conIdcamMemMap.get(curRec.Account__c).Retail_Task__c != curRec.Id)){
+                            Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                            member.Retail_Task__c = curRec.Id;
+                            if(curRec.Account__c != NULL)
+                                member.Contact_Id__c= curRec.Account__c;
+                            if(curRec.Related_Vehicle__c != NULL)
+                                member.Vehicle__c = curRec.Related_Vehicle__c;
+                            if(curRec.Related_Dealer__c != NULL)
+                                member.Preferred_Dealer__c = curRec.Related_Dealer__c;
+                                if(curRec.Id!= NULL)
+                                member.Contract__c = curRec.Id;
+                            retailCampaignMembers.add(member);
+                        }    
+                    }
                 }
             }
            

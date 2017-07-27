@@ -1,4 +1,4 @@
-public with sharing class PrintPDFcontroller 
+public without sharing class PrintPDFcontroller 
 {
     public List<Address__c> addresList = new List<Address__c>();
     public List<Address__c> companyAccaddList = new List<Address__c>();
@@ -65,12 +65,12 @@ public with sharing class PrintPDFcontroller
     {        
         usr = [select id,Market__c from user where id =:userinfo.getUserId()];
         this.cas=(Lead__c)controller.getRecord();  
-        cas=[select id,Name,contact__c,Company_Account__c,Lead_Type__c,Lead_DataSource__c,Vehicle_Need__c,Is_Assigned__c,Dealer_Lead_Status__c,Lost_Dealer_Date__c,Lead_Possibility__c,Lead_Possibility_text__c,Lost_Situation__c,Purchase_Amount__c,Price_Range_From__c,Price_Range_To__c,Dealer_Audit__c,Dealer_Audit_Result__c,Contact_Failed_For_3_Days_Date__c,Re_visit__c,Team__c,Next_Contact__c,CAC_Lead_Status__c,Lead_Sub_Type__c,Source_Campaign__c,Vehicle_Need_Text__c,CAC_Lost_Reason__c,Dealer_Lost_Reason__c,Lost_Comment__c,Lost_To__c,Lost_CAC_Date_Time__c,Lead_Priority__c,Reserve_Flag__c,Relation_With_The_Leads__c,Qualified_Date_Time__c,Need_Assign_To_Dealer__c,Is_Active__c,Is_Qualify__c,Network_Registration_Date__c,Batch_No__c,Quotation_Date__c,Next_Contact_Customer_Date__c,Case__c  from Lead__c Where id=:ApexPages.currentPage().getParameters().get(System.Label.Id)]; 
+        cas=[select id,Name,contact__c,Company_Account__c,Company_Account__r.Primary_Address_Display__c,Lead_Type__c,Lead_DataSource__c,Vehicle_Need__c,Is_Assigned__c,Dealer_Lead_Status__c,Lost_Dealer_Date__c,Lead_Possibility__c,Lead_Possibility_text__c,Lost_Situation__c,Purchase_Amount__c,Price_Range_From__c,Price_Range_To__c,Dealer_Audit__c,Dealer_Audit_Result__c,Contact_Failed_For_3_Days_Date__c,Re_visit__c,Team__c,Next_Contact__c,CAC_Lead_Status__c,Lead_Sub_Type__c,Source_Campaign__c,Vehicle_Need_Text__c,CAC_Lost_Reason__c,Dealer_Lost_Reason__c,Lost_Comment__c,Lost_To__c,Lost_CAC_Date_Time__c,Lead_Priority__c,Reserve_Flag__c,Relation_With_The_Leads__c,Qualified_Date_Time__c,Need_Assign_To_Dealer__c,Is_Active__c,Is_Qualify__c,Network_Registration_Date__c,Batch_No__c,Quotation_Date__c,Next_Contact_Customer_Date__c,Case__c  from Lead__c Where id=:ApexPages.currentPage().getParameters().get(System.Label.Id)]; 
         system.debug('cas account>>>>' + cas.Contact__c);
         if(cas.Contact__c != null)
         {
-        	addresList = [select id,Customer__c,Address_Type__c,Company_Name__c from Address__c where Customer__c =:cas.Contact__c];
-        	vRList = [select id,Vehicle_ID__c,End_Date__c,Car_Relation__c,Validity__c,Vehicle_ID__r.FirstRegistrationDate__c,
+            addresList = [select id,Customer__c,Address_Type__c,Company_Name__c from Address__c where Customer__c =:cas.Contact__c];
+            vRList = [select id,Vehicle_ID__c,End_Date__c,Car_Relation__c,Validity__c,Vehicle_ID__r.FirstRegistrationDate__c,
                       Vehicle_ID__r.Range__c,Vehicle_ID__r.Model__c,Vehicle_ID__r.CurrentMileage__c,Registration_Date__c,Vehicle_ID__r.NextInspectionDate__c,
                       MOT_USER_NAME__c,Finance_Method__c
                       from Vehicle_Relationship__c where contact__c =:cas.Contact__c AND Car_Relation__c = 'Purchaser' AND Validity__c = 'Yes' ORDER BY CreatedDate DESC limit 3];
@@ -83,7 +83,7 @@ public with sharing class PrintPDFcontroller
         {
             for(Task tsk : HistoryList)
             {
-               	if(tsk.Intention_Status__c != null && tsk.Intention_Status__c != '')
+                if(tsk.Intention_Status__c != null && tsk.Intention_Status__c != '')
                 {
                     pickListValueSet.add(tsk.Intention_Status__c);
                 }
@@ -132,9 +132,11 @@ public with sharing class PrintPDFcontroller
         system.debug('activityhistoryList>>>>' + activityhistoryList);
         if(cas.Company_Account__c != null)
         {
-            companyAccaddList = [select id,Customer__c,Address_Type__c ,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =:cas.Company_Account__c];        	
+            companyAccaddList = [select id,Customer__c,Address_Type__c ,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =:cas.Company_Account__c];           
         }
         system.debug('addressList>>' + addresList);
+         system.debug('companyAccaddList >>' + companyAccaddList );
+        // system.debug('companyAccaddList >>' + companyAccaddList.ZipCode__c);
         if(!addresList.isEmpty() && addresList !=null)
         {
             for(Address__c add : addresList)
@@ -151,32 +153,40 @@ public with sharing class PrintPDFcontroller
             {
                 if(comAdd.Address_Type__c == 'Home')
                 {
+                
+                     if(comAdd.ZipCode__c != null && comAdd.ZipCode__c!= '')
+                    {
+                        homeaddress = comAdd.ZipCode__c;
+                    }
                     if(comAdd.Province__c != null && comAdd.Province__c != '')
                     {
-                        homeaddress = comAdd.Province__c;
+                      //  homeaddress = homeaddress + comAdd.Province__c;
                     }
+                    
                     if(comAdd.City__c != null && comAdd.City__c != '')
                     {
-                        homeaddress = homeaddress+ comAdd.City__c;
+                      //  homeaddress = homeaddress+ comAdd.City__c;
                     }
                     if(comAdd.District__c != null && comAdd.District__c != '')
                     {
-                        homeaddress = homeaddress+ comAdd.District__c;
+                      //  homeaddress = homeaddress+ comAdd.District__c;
                     }
                     if(comAdd.Block__c != null && comAdd.Block__c != '')
                     {
-                        homeaddress = homeaddress+ comAdd.Block__c;
+                      //  homeaddress = homeaddress+ comAdd.Block__c;
                     }
                     if(comAdd.Address_Line_1__c != null && comAdd.Address_Line_1__c != '')
                     {
-                        homeaddress = homeaddress+ comAdd.Address_Line_1__c;
+                      //  homeaddress = homeaddress+ comAdd.Address_Line_1__c;
                     }
                     if(comAdd.Address_Line_2__c != null && comAdd.Address_Line_2__c != '')
                     {
-                        homeaddress = homeaddress+ comAdd.Address_Line_2__c;
+                     //   homeaddress = homeaddress+ comAdd.Address_Line_2__c;
                     }
+                    
                 }
             }
+             system.debug('homeaddress >>>' + homeaddress );
         }
         system.debug('companyname>>>' + companyname);
     }    

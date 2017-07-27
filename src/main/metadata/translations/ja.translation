@@ -145,6 +145,10 @@
         <name>Vehicle_Edit</name>
     </customLabels>
 	<customLabels>
+        <label>お知らせ</label>
+        <name>Announcements</name>
+    </customLabels>
+	<customLabels>
         <label>保有情報</label>
         <name>Registration_Information</name>
     </customLabels>
@@ -213,7 +217,7 @@
         <name>Account_Records</name>
     </customLabels>
     <customLabels>
-        <label><!-- Account Retail Copy Filter --></label>
+        <label>顧客属性2</label>
         <name>Account_Retail_Copy_Filter</name>
     </customLabels>
     <customLabels>
@@ -241,7 +245,7 @@
         <name>Add_Participating_Dealer</name>
     </customLabels>
     <customLabels>
-        <label><!-- Add to Campaign --></label>
+        <label>キャンペーンメンバー登録</label>
         <name>Add_to_Campaign</name>
     </customLabels>
     <customLabels>
@@ -269,8 +273,12 @@
         <name>Address_Details</name>
     </customLabels>
     <customLabels>
-        <label>住所情報　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください。</label>
+        <label>住所情報</label>
         <name>Address_Information</name>
+    </customLabels>
+	 <customLabels>
+        <label>住所情報　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください。</label>
+        <name>Address_Information_SPO</name>
     </customLabels>
     <customLabels>
         <label>住所〒</label>
@@ -853,7 +861,7 @@
         <name>Campaign_Type_Media</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaigns_Filter --></label>
+        <label>キャンペーン</label>
         <name>Campaigns_Filter</name>
     </customLabels>
     <customLabels>
@@ -988,12 +996,16 @@
         <label>成約済</label>
         <name>Close</name>
     </customLabels>
+    <customLabels>
+        <label>閉じる</label>
+        <name>CloseMym</name>
+    </customLabels>
 	<customLabels>
         <label>閉じる</label>
         <name>Closee</name>
     </customLabels>
     <customLabels>
-        <label><!-- Cluster --></label>
+        <label>  </label>
         <name>Cluster</name>
     </customLabels>
     <customLabels>
@@ -1077,7 +1089,7 @@
         <name>Contact_Admin</name>
     </customLabels>
     <customLabels>
-        <label><!-- Contract related --></label>
+        <label>契約情報</label>
         <name>Contract_related</name>
     </customLabels>
     <customLabels>
@@ -1129,7 +1141,7 @@
         <name>Credible</name>
     </customLabels>
     <customLabels>
-        <label><!-- Criteria --></label>
+        <label>抽出条件</label>
         <name>Criteria</name>
     </customLabels>
     <customLabels>
@@ -1181,7 +1193,7 @@
         <name>CustomerType</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer Filter --></label>
+        <label>顧客属性1</label>
         <name>Customer_Filter</name>
     </customLabels>
     <customLabels>
@@ -1193,11 +1205,11 @@
         <name>Customer_Issue</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes 入会申込（ID発行）及び関連車両情報送信</label>
+        <label>Mercedes me入会申込（ID発行）及び関連車両情報送信</label>
         <name>Customer_My_Merc_Interface_Customer</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes 申請</label>
+        <label>Mercedes me申請</label>
         <name>Customer_My_Mercedes_Interface_Customer</name>
     </customLabels>
     <customLabels>
@@ -1417,7 +1429,7 @@
         <name>Email2</name>
     </customLabels>
     <customLabels>
-        <label>Salesforceのリードに割り当てられているので、お客様に通知します。</label>
+        <label>、セールスフォースにてリードの担当者に設定されましたのでお知らせいたします。</label>
         <name>Email_Assignment</name>
     </customLabels>
     <customLabels>
@@ -1455,29 +1467,27 @@
         <name>Email_LeadDealerAssign12</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースの操作について、ご不明な点がございましたら、
-セールスフォース　サポートデスクまでお問い合わせください。</label>
+        <label>セールスフォースの操作について、ご不明な点がございましたら</label>
         <name>Email_LeadDealerAssign13</name>
     </customLabels>
     <customLabels>
-        <label>メルセデス・ベンツ日本ＸＸＸ（TBD）事務局</label>
+        <label>統合顧客管理システム（受付時間：毎日9時から20時　 *土日・祝日も営業)</label>
         <name>Email_LeadDealerAssign14</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースの操作、システムメンテナンスに関しての
-お問い合わせは下記の電話番号までお願いいたします。</label>
+        <label>ITサポートデスク</label>
         <name>Email_LeadDealerAssign15</name>
     </customLabels>
     <customLabels>
-        <label>◆セールスフォースサポートデスク</label>
+        <label>TEL:03-5643-6071</label>
         <name>Email_LeadDealerAssign16</name>
     </customLabels>
     <customLabels>
-        <label>TEL：ＸＸＸ（TBD）（受付時間：毎日10:00～12:00、13:00～18:00）</label>
+        <label>ビジネスサポートデスク</label>
         <name>Email_LeadDealerAssign17</name>
     </customLabels>
     <customLabels>
-        <label>※本メールへは返信しないようにお願いいたします。</label>
+        <label>TEL:03-5623-3498</label>
         <name>Email_LeadDealerAssign18</name>
     </customLabels>
     <customLabels>
@@ -1485,15 +1495,15 @@
         <name>Email_LeadDealerAssign2</name>
     </customLabels>
     <customLabels>
-        <label><!-- Email LeadDealerAssign20 --></label>
+        <label>いつもお世話になっております。</label>
         <name>Email_LeadDealerAssign20</name>
     </customLabels>
     <customLabels>
-        <label><!-- Email LeadDealerAssign21 --></label>
+        <label>セールスフォースに展開したリードデータに担当者が設定されないままでしたのでお知らせいたします。</label>
         <name>Email_LeadDealerAssign21</name>
     </customLabels>
     <customLabels>
-        <label>管理者様、ご担当者様</label>
+        <label>管理者様</label>
         <name>Email_LeadDealerAssign3</name>
     </customLabels>
     <customLabels>
@@ -1505,7 +1515,7 @@
         <name>Email_LeadDealerAssign5</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースにリードデータを展開しましたのでお知らせいたします。</label>
+        <label>、貴店へセールスフォースにてリードデータを展開しましたのでお知らせいたします。</label>
         <name>Email_LeadDealerAssign6</name>
     </customLabels>
     <customLabels>
@@ -1517,12 +1527,11 @@
         <name>Email_LeadDealerAssign8</name>
     </customLabels>
     <customLabels>
-        <label>ホットなお客様情報ですので、管理者様は下記URLからリードをご確認いただき
-担当者割り当ての上、営業活動にご活用ください。</label>
+        <label>下記URLからリードをご確認いただき、担当者割当ての上、営業活動にご活用ください。</label>
         <name>Email_LeadDealerAssign9</name>
     </customLabels>
     <customLabels>
-        <label>代表</label>
+        <label>ご担当者様</label>
         <name>Email_Manager</name>
     </customLabels>
     <customLabels>
@@ -1530,7 +1539,7 @@
         <name>Email_Thankyou</name>
     </customLabels>
     <customLabels>
-        <label>これは非常に有望な顧客情報であるため、販売活動に活用してください。</label>
+        <label>下記URLより関心や興味を持たれているお客様のリードをご確認いただき、データを営業活動にご活用ください。</label>
         <name>Email_salesActivities</name>
     </customLabels>
     <customLabels>
@@ -2221,7 +2230,7 @@
         <name>Lead_Conditions</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead_Filter --></label>
+        <label>リード</label>
         <name>Lead_Filter</name>
     </customLabels>
     <customLabels>
@@ -2405,11 +2414,11 @@
         <name>ModelRange</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール変更</label>
+        <label>Mercedes me Eメール変更</label>
         <name>MyMercedes_Email_ID_Edit</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes 入会申込（新規ID発行）</label>
+        <label>Mercedes me入会申込（新規ID発行）</label>
         <name>MyMercedes_New_Registration</name>
     </customLabels>
     <customLabels>
@@ -2417,19 +2426,19 @@
         <name>MyShop_Phone</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール</label>
+        <label>Mercedes me Eメール</label>
         <name>My_Merc_Email_Id</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes ID</label>
+        <label>Mercedes me ID</label>
         <name>My_Merc_Id</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedes Eメール</label>
+        <label>Mercedes me Eメール</label>
         <name>My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
-        <label><!-- My Mercedes ID --></label>
+        <label>Mercedes me ID</label>
         <name>My_Mercedes_ID</name>
     </customLabels>
     <customLabels>
@@ -2666,7 +2675,7 @@
         <name>Ordered</name>
     </customLabels>
     <customLabels>
-        <label>MyMercedesメールアドレス</label>
+        <label>Mercedes meメールアドレス</label>
         <name>Other_Email</name>
     </customLabels>
     <customLabels>
@@ -4204,7 +4213,7 @@
         <name>Search</name>
     </customLabels>
     <customLabels>
-        <label><!-- Search Customer --></label>
+        <label>検索</label>
         <name>Search_Customer</name>
     </customLabels>
     <customLabels>
@@ -4228,7 +4237,7 @@
         <name>Select_User</name>
     </customLabels>
 	<customLabels>
-        <label>My Mercedesに送信する顧客を選択してください</label>
+        <label>Mercedes meに送信する顧客を選択してください</label>
         <name>Select_Your_Prefered_Email_Id_For_Customer</name>
     </customLabels>
     <customLabels>
@@ -4860,7 +4869,7 @@
         <name>Vehicle_Detail</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Filter --></label>
+        <label>車両情報1</label>
         <name>Vehicle_Filter</name>
     </customLabels>
     <customLabels>
@@ -4904,7 +4913,7 @@
         <name>Vehicle_Records</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle_Relation_Filter --></label>
+        <label>車両情報2</label>
         <name>Vehicle_Relation_Filter</name>
     </customLabels>
     <customLabels>
@@ -4912,7 +4921,7 @@
         <name>Vehicle_Relationship_overlap</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Retail copy Filter --></label>
+        <label>車両情報3</label>
         <name>Vehicle_Retail_copy_Filter</name>
     </customLabels>
     <customLabels>
@@ -5072,7 +5081,7 @@
         <name>Zipcode_validation</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address Filter --></label>
+        <label>住所</label>
         <name>address_Filter</name>
     </customLabels>
     <customLabels>
@@ -5283,6 +5292,58 @@
     <customLabels>
         <label><!-- &amp;slaveId= --></label>
         <name>slaveId</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム　貴店へのリード展開のお知らせ</label>
+        <name>Email_LeadDealerAssignSubject</name>
+    </customLabels>
+    <customLabels>
+        <label>セールスフォースに展開したリードデータにつきまして１か月以上更新が無いようですのでお知らせいたします。</label>
+        <name>Email_LeadUntouchedFirstMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム　未対応のリードがあります</label>
+        <name>Lead_Untouched_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>担当者未設定のリード</label>
+        <name>Email_LeadUnassignedSubject</name>
+    </customLabels>
+    <customLabels>
+        <label>関心や興味を持たれているお客様のデータです。</label>
+        <name>Email_LeadDealerAssign22</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム　サポートデスクまでお問い合わせください。</label>
+        <name>Email_LeadDealerAssign23</name>
+    </customLabels>
+    <customLabels>
+        <label>メルセデス・ベンツ日本</label>
+        <name>Email_LeadDealerAssign24</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム事務局</label>
+        <name>Email_LeadDealerAssign25</name>
+    </customLabels>
+    <customLabels>
+        <label>重要:このメールはシステムより自動配信されています。本メールへは返信しないようにお願いいたします。</label>
+        <name>Email_LeadDealerAssign26</name>
+    </customLabels>
+    <customLabels>
+        <label>システムトラブル時のサポート、ユーザーID申請に関する質問</label>
+        <name>Email_LeadDealerAssign27</name>
+    </customLabels>
+    <customLabels>
+        <label>マニュアル、FAQでは解決しない使い方、活用方法に関する質問</label>
+        <name>Email_LeadDealerAssign28</name>
+    </customLabels>
+    <customLabels>
+        <label>※音声ガイダンスに従って「1」を押してください。</label>
+        <name>Email_LeadDealerAssign29</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム　リード担当者割当てのお知らせ</label>
+        <name>Email_LeadPersonAssignSubject</name>
     </customLabels>
     <customPageWebLinks>
         <label><!-- Custom Link Notification --></label>

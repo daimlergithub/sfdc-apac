@@ -201,7 +201,7 @@ background-color: blue;
                 <td colspan="2" width="40%" cellpadding = "100" style ="font-family:Arial Unicode MS">{!$Label.Customer_Name}&nbsp;
                     <apex:outputField value="{!Lead__c.Contact__r.Name}"/>
                  <b width="25%" style ="font-family:Arial Unicode MS">
-                        <apex:outputLabel value="{!$Label.Age}" style="margin-left:5px;"/></b>&nbsp;
+                        <apex:outputLabel value="{!$Label.Age}" style="margin-left:5px;" rendered="{!If($User.ContactId == null,true,false)}"  /></b>&nbsp;
                     <apex:outputField value="{!Lead__c.Contact__r.Age__c}" style="margin-left:5px;"/>
                 </td>
                 <td rowspan="2" width="15%" style ="font-family:Arial Unicode MS">{!$Label.Company}</td>
@@ -215,13 +215,16 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Company}" style="margin-right:45px;"/>
                     <apex:outputText value="{!companyname}"/>
                 </td>
-                <td colspan="2" style ="font-family:Arial Unicode MS">
-                    <apex:outputLabel value="{!$Label.Sales_TEL}" style="float:right;margin-left:90px;">
+                <td colspan="2" style ="font-family:Arial Unicode MS">                
+                    
+                     <apex:outputLabel value="{!$Label.Address_PrintPDF}">  &nbsp;
+                       <apex:outputField value="{!Lead__c.Company_Account__r.Primary_Address_Reference__r.ZipCode__c}"></apex:outputField><br/>
+                         <apex:outputField value="{!Lead__c.Company_Account__r.Primary_Address_Display__c}" /><br/>                     
+                    </apex:outputLabel> 
+                    <apex:outputLabel value="{!$Label.Sales_TEL}" style="float:right;margin-left:90px;"> &nbsp;
                         <apex:outputField value="{!Lead__c.Company_Account__r.Primary_Phone_Display__c}"/>
                     </apex:outputLabel>
-                    <apex:outputLabel value="{!$Label.Address_PrintPDF}"><br/>
-                        <apex:outputText value="{!homeaddress}"/>
-                    </apex:outputLabel>
+                   
                 </td>
             </tr> 
             <tr>
@@ -991,3 +994,4 @@ background-color: blue;
         </table>
     </body>
 </apex:page>
+              

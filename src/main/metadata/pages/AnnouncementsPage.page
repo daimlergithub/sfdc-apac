@@ -6,7 +6,7 @@
 -->
 <apex:page Controller="AnnouncementController" showHeader="false" sidebar="false" >
   <apex:form >
-      <apex:pageBlock rendered="{!isVisibleforDealers}" title="Announcements">
+      <apex:pageBlock rendered="{!isVisibleforDealers}" title="{!$Label.Announcements}">
           <apex:pageBlockTable value="{!dealerchatterfeed}" var="chfeed" >
                   <!--<apex:column value="{!chfeed.parent.Name}"/> 
                  <apex:column value="{!chfeed.InsertedBy.Name}"/><br/>-->

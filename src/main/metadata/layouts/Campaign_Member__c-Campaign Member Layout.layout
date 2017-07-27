@@ -60,8 +60,8 @@
                 <field>Contract__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contract_Phone_1__c</field>
+                <behavior>Edit</behavior>
+                <field>Contract_Phone1_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -266,8 +266,8 @@
                 <field>Contract_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contract_Phone_2__c</field>
+                <behavior>Edit</behavior>
+                <field>Contract_Phone2_2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -288,7 +288,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Recipient_changes__c</field>
-            </layoutItems>
+            </layoutItems>			
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Auto_creation_of_leads__c</field>
@@ -455,7 +455,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000OGtK</masterLabel>
+        <masterLabel>00h28000006jLNp</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

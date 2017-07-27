@@ -4281,7 +4281,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -4370,6 +4370,10 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inbound</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -11657,13 +11661,19 @@ Modify Reason:
 Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description>
         <externalId>false</externalId>
         <label>Main Dealer</label>
-        <lookupFilter>
+		<lookupFilter>
             <active>true</active>
+			<booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
+            </filterItems>			
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -16189,6 +16199,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </filters>
         <label>MBTH Dealer</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBTH_Dealer1</fullName>
@@ -16208,6 +16221,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </filters>
         <label>MBTH Active Dealer</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyAccounts</fullName>
@@ -17141,6 +17157,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Inbound</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
@@ -17213,7 +17233,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21882,7 +21902,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Insurance Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework %28IFA%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21898,11 +21926,31 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>MPC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ministry of Transport</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>National Framework %28NFA%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Police</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Royal Family</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23182,7 +23230,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29171,7 +29219,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35004,7 +35052,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41073,7 +41121,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46781,7 +46829,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52021,7 +52069,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -56366,11 +56414,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Primary_Phone_Display__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>		
+        <customTabListAdditionalFields>LastName_Native_1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FirstName_Native_1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Customer_Lifecycle_Phase__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sales_Address_Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address_Display__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Primary_Email_Display__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>UCID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Primary_Phone_Display__c</customTabListAdditionalFields>  
+        <customTabListAdditionalFields>Customer_LastUpdatedDate__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
@@ -56393,13 +56445,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE5</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
-        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>		
+        <searchResultsAdditionalFields>LastName_Native_1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FirstName_Native_1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Customer_Lifecycle_Phase__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sales_Address_Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>UCID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>  
+        <searchResultsAdditionalFields>Customer_LastUpdatedDate__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel><validationRules>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
         <fullName>Account_Name_Fullchar</fullName>
         <active>false</active>
         <errorConditionFormula>IF(
@@ -56900,7 +56957,8 @@ FirstName  value &gt; 20 letters.</description>
         <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(FirstName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
-    </validationRules><validationRules>
+    </validationRules>
+    <validationRules>
         <fullName>First_Name_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>IF(
@@ -57076,20 +57134,20 @@ MD__c = 'JP'
         <fullName>ID_Type</fullName>
         <active>true</active>
         <description>"ID Type to be created as Picklist with values as National ID, Other. If National ID is selected from the Picklist, system should do character length check. For Thailand it should be 13 characters</description>
-        <errorConditionFormula>IF(
-AND(
-ISPICKVAL( ID_Type__c, 'National ID'),
-$Profile.Name != 'IntegrationAPI',
-MD__c=='TH'),
-IF(
-AND
-(
-LEN(ID_Number__c) == 13,
-REGEX( ID_Number__c, "^[a-zA-Z0-9]*$")
-),false,true),
+        <errorConditionFormula>IF( 
+AND( 
+ISPICKVAL( ID_Type__c, 'National ID'), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c=='TH'), 
+IF( 
+AND 
+( 
+LEN(ID_Number__c) == 13, 
+REGEX( ID_Number__c, "[0-9]{13}") 
+),false,true), 
 false)</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
-        <errorMessage>If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number or alphabet.</errorMessage>
+        <errorMessage>If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_NoChar</fullName>
@@ -57218,7 +57276,8 @@ LastName  value &gt; 40 letters.</description>
         <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
-    </validationRules><validationRules>
+    </validationRules>
+    <validationRules>
         <fullName>Last_Name_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>IF(
@@ -57831,8 +57890,7 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <openType>replace</openType>
         <page>createRetailCopyKRButton</page>
         <protected>false</protected>
-    </webLinks>
-    <webLinks>
+    </webLinks><webLinks>
         <fullName>Create_Vehicle</fullName>
         <availability>online</availability>
         <description>Create new vehicle record</description>
@@ -57843,9 +57901,18 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 var market = '{!Account.MD__c}';
 if(market == 'JP'){
-window.open("{!URLFOR($Site.Prefix)}/apex/Create_Vehicle?accId={!Account.Id}");
+	if(typeof(srcUp) == 'function'){
+		if (sforce.console.isInConsole()) {
+			srcUp('/apex/Create_Vehicle?accId={!Account.Id}');
+		}else{
+			window.open('/apex/Create_Vehicle?accId={!Account.Id}');
+		}
+	} else {
+		window.open("{!URLFOR($Site.Prefix)}/apex/Create_Vehicle?accId={!Account.Id}");
+	}
 }
 else
 {
@@ -58469,6 +58536,7 @@ else {
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
@@ -58493,16 +58561,16 @@ else
 alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
-	 <webLinks>
+    <webLinks>
         <fullName>Send_to_JPOS_Dealer</fullName>
         <availability>online</availability>
-        <displayType>button</displayType> 
-		<height>600</height>
+        <displayType>button</displayType>
+        <height>600</height>
         <linkType>page</linkType>
         <masterLabel>Send to JPOS</masterLabel>
         <openType>noSidebar</openType>
-        <page>SendToJPOS</page> 
-        <protected>false</protected> 
+        <page>SendToJPOS</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
@@ -58548,17 +58616,6 @@ else if(market != 'JP')
 alert("{!$Label.SendToMyMercedesErrorMsg}"); 
 }</url>
     </webLinks>
-	<webLinks>
-        <fullName>Send_to_SPO_Dealers</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType> 
-        <height>600</height>		
-        <linkType>page</linkType>
-        <masterLabel>Send to SPO</masterLabel>
-        <openType>noSidebar</openType>
-        <page>SendAccountInfoToSPO</page> 
-        <protected>false</protected> 
-    </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
         <availability>online</availability>
@@ -58569,6 +58626,7 @@ alert("{!$Label.SendToMyMercedesErrorMsg}");
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 var market = "{!Account.MD__c}"; 
 if(market == 'JP') 
@@ -58590,6 +58648,17 @@ else
 { 
 alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_to_SPO_Dealers</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Send to SPO</masterLabel>
+        <openType>noSidebar</openType>
+        <page>SendAccountInfoToSPO</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>Test</fullName>

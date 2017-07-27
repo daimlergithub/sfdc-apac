@@ -170,6 +170,14 @@ public static testMethod void testAccountMergeControllerCompany() {
         ApexPages.currentPage().getParameters().put('id',objMastercom.id);
         ApexPages.currentPage().getParameters().put('selectedSlaveAccount',objSlavecom.id);
         ApexPages.currentPage().getParameters().put('selectedMasterAccount',objMastercom.id);
+        
+         Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c(
+            Master_Account__c = objMastercom.Id,
+            Duplicate_Account__c = objSlavecom.Id,  
+            Status__c=System.Label.Rejected);
+        
+           
+            insert duplicateLog;  
        
         //Instantiate and construct the controller class.     
         AccountMergeController objAccountController = new AccountMergeController(); 
@@ -181,6 +189,7 @@ public static testMethod void testAccountMergeControllerCompany() {
             }
             objAccountController.processSelected();
             objAccountController.rejectDup();
+            objAccountController.displayAddress();
            
             objAccountController.selectAllParam = System.Label.master;
             objAccountController.selectAll();
@@ -193,4 +202,5 @@ public static testMethod void testAccountMergeControllerCompany() {
              
     } 
 }
+
 }

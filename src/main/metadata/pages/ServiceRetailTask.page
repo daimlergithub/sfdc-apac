@@ -56,15 +56,13 @@
                         </apex:outputText>
                     </apex:column>
                     
+                    
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Invoice_Number__c.Label}">                
                         <apex:outputText value="{!ser.Service_Invoice_Number__c}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
                     
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}">                
-                      <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Dealer__r.id}','_blank');">{!ser.Related_Dealer__r.Name} </apex:outputlink>
-                    </apex:column>
-                    
+
                     
                     
                     <!--

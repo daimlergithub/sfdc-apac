@@ -121,7 +121,7 @@ else
             
            </apex:pageblockSection>
            
-           <apex:pageblockSection title="{!$Label.Address_Information}" columns="2">
+           <apex:pageblockSection title="{!$Label.Address_Information_SPO}" columns="2">
            
                              <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>

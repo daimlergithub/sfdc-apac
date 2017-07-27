@@ -49,11 +49,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>IsActive</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CloneCampaign__c</field>
-            </layoutItems>
+            </layoutItems> 
 			            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MainParentCampaign__c</field>
