@@ -444,7 +444,7 @@ public class LeadHelperJP
                          {
                             
                              system.debug('Insert Method 1');
-                             if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
+                             if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately' && lead.Service_Advisor__c !=null)
                              {
                                 isNotificationSendtosalesmanager = true;
                                  system.debug('Insert Method 2');
@@ -503,7 +503,7 @@ public class LeadHelperJP
                  }
                  if(!serviceAdvisorList.isEmpty() && serviceAdvisorList != null)
                  {
-                     userRecords.addAll(serviceAdvisorList);
+                   //  userRecords.addAll(serviceAdvisorList);
                  }
                  system.debug('+++userRecords +++++'+userRecords );
                  if(!userRecords.isEmpty() && userRecords != null)
@@ -547,8 +547,11 @@ public class LeadHelperJP
                  LeadUtil.LeadTrigger = false;
                  if(mails.size()>0)
                  {
-                     system.debug('++++++++++'+mails);                     
+                     system.debug('++++++++++'+mails); 
+					 try	
+					{		
                      Messaging.sendEmail(mails);
+					 }Catch(Exception exe){}
                  }
                  
                  if(LeadUpdate.size()>0)

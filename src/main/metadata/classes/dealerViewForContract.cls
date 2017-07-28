@@ -13,6 +13,8 @@ public String MotuserPhone{get;set;}
 public String MotownerName{get;set;}
 public String MotuserownerNameNative{get;set;}
 public String MotOwnerAddress{get;set;}
+public String Accountlkp{get;set;}
+public String Related_Dealer{get;set;}
 
 public dealerViewForContract(ApexPages.StandardController controller) {
      retail=new Retail_Task__c ();
@@ -21,14 +23,14 @@ public dealerViewForContract(ApexPages.StandardController controller) {
      us1 = [select id,ContactID,Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];
      if(alkID!=null)
      {
-        retail = [select id,Latest_Sales_Person__c,Guarantor1_ZipCode__c,recordtype.Name,Contractor_Name__c,Related_Dealer__c,Related_Dealer__r.Dealer_GC_Code__c,Contractor_Name_Native__c,Vehicle_Registration_No__c,Contractor_ZipCode1__c,Contractor_Address1__c,MOT_User_Name__c,MOT_User_Name_Native__c,MOT_User_Postal__c,MOT_User_Address__c,MOT_User_Phone__c,MOT_Owner_Name__c,MOT_Owner_Name_Native__c,MOT_Owner_Address__c from Retail_Task__c WHERE ID = :alkID];
+        retail = [select id,Account__c,Account__r.Name,Related_Dealer__r.Name,Latest_Sales_Person__c,Guarantor1_ZipCode__c,recordtype.Name,Contractor_Name__c,Related_Dealer__c,Related_Dealer__r.Dealer_GC_Code__c,Contractor_Name_Native__c,Vehicle_Registration_No__c,Contractor_ZipCode1__c,Contractor_Address1__c,MOT_User_Name__c,MOT_User_Name_Native__c,MOT_User_Postal__c,MOT_User_Address__c,MOT_User_Phone__c,MOT_Owner_Name__c,MOT_Owner_Name_Native__c,MOT_Owner_Address__c from Retail_Task__c WHERE ID = :alkID];
       
        }
         
    
     if((us1.ContactId ==null) && ((us1.User_Type__c == 'MBF')||(us1.User_Type__c == 'MBJ'))  && retail!=null)
         { 
-           displayRetail= [select Latest_Sales_Person__c,Related_Dealer__c,Guarantor1_ZipCode__c,Contractor_Name__c,Contractor_Name_Native__c,Vehicle_Registration_No__c,Contractor_ZipCode1__c,Contractor_Address1__c,MOT_User_Name__c,MOT_User_Name_Native__c,MOT_User_Postal__c,MOT_User_Address__c,MOT_User_Phone__c,MOT_Owner_Name__c,MOT_Owner_Name_Native__c,MOT_Owner_Address__c from Retail_Task__c where id=:alkId and recordtype.Name='Contract'];
+           displayRetail= [select Latest_Sales_Person__c,Account__c,Related_Dealer__c,Guarantor1_ZipCode__c,Contractor_Name__c,Contractor_Name_Native__c,Vehicle_Registration_No__c,Contractor_ZipCode1__c,Contractor_Address1__c,MOT_User_Name__c,MOT_User_Name_Native__c,MOT_User_Postal__c,MOT_User_Address__c,MOT_User_Phone__c,MOT_Owner_Name__c,MOT_Owner_Name_Native__c,MOT_Owner_Address__c from Retail_Task__c where id=:alkId and recordtype.Name='Contract'];
            
         }  
         system.debug('$%$%$%%$ us1.ContactId '+us1.ContactId );
@@ -42,7 +44,7 @@ public dealerViewForContract(ApexPages.StandardController controller) {
         { 
         if(alkID!=null)
      {
-        retail = [select id,Latest_Sales_Person__c,Guarantor1_ZipCode__c,recordtype.Name,Contractor_Name__c,Related_Dealer__c,Related_Dealer__r.Dealer_GC_Code__c,Contractor_Name_Native__c,Vehicle_Registration_No__c,Contractor_ZipCode1__c,Contractor_Address1__c,MOT_User_Name__c,MOT_User_Name_Native__c,MOT_User_Postal__c,MOT_User_Address__c,MOT_User_Phone__c,MOT_Owner_Name__c,MOT_Owner_Name_Native__c,MOT_Owner_Address__c from Retail_Task__c WHERE ID = :alkID];
+        retail = [select id,Latest_Sales_Person__c,Account__r.Name,Related_Dealer__r.Name,Guarantor1_ZipCode__c,recordtype.Name,Contractor_Name__c,Related_Dealer__c,Related_Dealer__r.Dealer_GC_Code__c,Contractor_Name_Native__c,Vehicle_Registration_No__c,Contractor_ZipCode1__c,Contractor_Address1__c,MOT_User_Name__c,MOT_User_Name_Native__c,MOT_User_Postal__c,MOT_User_Address__c,MOT_User_Phone__c,MOT_Owner_Name__c,MOT_Owner_Name_Native__c,MOT_Owner_Address__c from Retail_Task__c WHERE ID = :alkID];
       if(retail !=null && retail.recordtype.Name=='Contract' && us1.ContactId !=null)
        {
        MotuserName=retail.MOT_User_Name__c;
@@ -62,6 +64,9 @@ public dealerViewForContract(ApexPages.StandardController controller) {
        MotuserownerNameNative=retail.MOT_Owner_Name_Native__c;
        
        MotOwnerAddress=retail.MOT_Owner_Address__c ;
+       Accountlkp=retail.Account__r.Name;
+       Related_Dealer=retail.Related_Dealer__r.Name;
+       
        }
        }
         system.debug('Testing');

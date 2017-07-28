@@ -8349,8 +8349,8 @@
             <translation>年式照会窓口</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>My Mercedes</masterLabel>
-            <translation><!-- My Mercedes --></translation>
+            <masterLabel>Mercedes me</masterLabel>
+            <translation>Mercedes me</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>OB</masterLabel>

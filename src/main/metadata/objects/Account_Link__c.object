@@ -2010,7 +2010,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <label>Retail Sales Sanction</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>A</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>E</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>F</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2412,13 +2432,24 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Selling Dealer</label>
-        <lookupFilter>
+       <lookupFilter>
             <active>true</active>
+			<booleanFilter>(1 AND 2) OR 3</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
+            </filterItems>		
+            <filterItems>
+                <field>Account.Dealer_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>	
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <infoMessage>Search and select accounts.</infoMessage>
             <isOptional>false</isOptional>
@@ -2442,12 +2473,34 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
+    </fields> 
+	<fields>
         <fullName>Service_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Service Dealer</label>
+		 <lookupFilter>
+            <active>true</active>
+			<booleanFilter>(1 AND 2) OR 3</booleanFilter>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>		
+            <filterItems>
+                <field>Account.Dealer_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>	
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
+            </filterItems>
+            <infoMessage>Search and select accounts.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Account Link (Service Dealer)</relationshipLabel>
         <relationshipName>Account_Link3</relationshipName>
@@ -4392,6 +4445,33 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Sales_Sanction__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
@@ -5254,6 +5334,33 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Retail_Sales_Sanction__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
                 <fullName>A</fullName>
@@ -5603,12 +5710,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>System__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>fromRole__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Role__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>toRole__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Role2__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Portal_Email__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Retail_Email_OptOut__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Portal_Message_Opt_Out__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>fromRole__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Role__c</lookupDialogsAdditionalFields>
@@ -5616,11 +5726,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <lookupDialogsAdditionalFields>Role2__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Portal_Email__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>System__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>fromRole__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Role__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>toRole__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Role2__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Portal_Email__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Retail_Email_OptOut__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Portal_Message_Opt_Out__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
@@ -5643,6 +5756,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
 $Profile.Name != 'IntegrationAPI' &amp;&amp;
 RecordType.DeveloperName = 'Contact2Contact'</errorConditionFormula>
         <errorMessage>Cannot Link to the same person</errorMessage>
+    </validationRules>
+	 <validationRules>
+        <fullName>Dealer_User_Cant_Change_toRole_Fromrole</fullName>
+        <active>true</active>
+		<description>Dealer users cant change the from role and torole</description>
+        <errorConditionFormula>AND(!ISNEW(),OR($Profile.Name ='Japan Dealer Company Manager',$Profile.Name ='Japan Dealer Sales Manager',$Profile.Name ='Japan Dealer Sales Representative',$Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),MD__c='JP',OR(RecordType.DeveloperName='Retail_Person',RecordType.DeveloperName='Retail_Company'),OR(ISCHANGED(fromRole__c),ISCHANGED(toRole__c)))
+		</errorConditionFormula> 
+        <errorMessage>Dealer User Cant Change the from Role and To role</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Company_Name_Native_Kana</fullName>
@@ -5771,3 +5892,4 @@ alert(alrt);
 }</url>
     </webLinks>
 </CustomObject>
+

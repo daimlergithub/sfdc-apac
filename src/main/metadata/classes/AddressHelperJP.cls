@@ -367,6 +367,7 @@ public with sharing class AddressHelperJP {
         String nullValue ='';  
         List<Vehicle_Relationship__c> listVr=new List<Vehicle_Relationship__c>();
         List<Vehicle_Relationship__c> UpdateVr=new List<Vehicle_Relationship__c>();
+        Map<Id,Vehicle_Relationship__c> UpdateVrs=new Map<Id,Vehicle_Relationship__c>(); 
         List<Account> listAccount=new List<Account>();
         String province;
         Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
@@ -399,7 +400,8 @@ public with sharing class AddressHelperJP {
                       if(   add.Address_Type__c == '')
                       {
                             vr.vehicle_address_picklist__c = '';
-                          UpdateVr.add(vr);
+                          
+                          UpdateVrs.put(vr.id,Vr);
                       }
                       if(add.Address_Type__c == 'Home')
                         { 
@@ -411,7 +413,8 @@ public with sharing class AddressHelperJP {
                             
                             vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
                             vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                            UpdateVr.add(vr);
+                             
+                             UpdateVrs.put(vr.id,Vr);
                             
                         }
                        else if(add.Address_Type__c == 'Business')
@@ -424,7 +427,8 @@ public with sharing class AddressHelperJP {
                             
                             vr.Vehicle_Address_Display__c  = province  +add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
                            vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                           UpdateVr.add(vr);
+                           
+                            UpdateVrs.put(vr.id,Vr);
                         }
                       
                       if(add.Address_Type__c == 'Other Address 1')
@@ -437,7 +441,8 @@ public with sharing class AddressHelperJP {
                             
                           vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
                           vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                          UpdateVr.add(vr);
+                          
+                           UpdateVrs.put(vr.id,Vr);
                         
                         }
                         if(add.Address_Type__c == 'Other Address 2')
@@ -450,7 +455,8 @@ public with sharing class AddressHelperJP {
                             
                            vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                           
                            vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                        UpdateVr.add(vr);
+                         
+                         UpdateVrs.put(vr.id,Vr);
                         }
                         if(add.Address_Type__c == 'Other Address 3'){
                             if(addtrmap1.containsKey(add.Province__c))
@@ -461,15 +467,17 @@ public with sharing class AddressHelperJP {
                             
                           vr.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
                           vr.Vehicle_Address_Display__c  =vr.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                          UpdateVr.add(vr);
+                           
+                           UpdateVrs.put(vr.id,Vr);
                         }
                       
                   }
               }
           }
-            if(UpdateVr !=null)
-            {                
-             Database.update(UpdateVr, false);
+            if(UpdateVrs !=null)
+            {      
+            update UpdateVrs.Values();          
+            // Database.update(UpdateVr, false);
             }
         }
         

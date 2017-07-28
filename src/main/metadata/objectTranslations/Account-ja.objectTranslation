@@ -1518,8 +1518,8 @@
             <translation>年式照会窓口</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>My Mercedes</masterLabel>
-            <translation>My Mercedes</translation>
+            <masterLabel>Mercedes me</masterLabel>
+            <translation>Mercedes me</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NEW</masterLabel>
@@ -9645,7 +9645,7 @@ Allows up to 240 characters --></help>
         <name>Testing</name>
     </webLinks>
     <webLinks>
-        <label>アカウント/車両関係を見る</label>
+        <label>閉じる</label>
         <name>View_Hierarchy</name>
     </webLinks>
     <webLinks>

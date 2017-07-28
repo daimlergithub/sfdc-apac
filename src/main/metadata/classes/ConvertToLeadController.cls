@@ -124,7 +124,7 @@ public with sharing class ConvertToLeadController {
     
         Lead__c leadRec = new Lead__c();
         system.debug('CM!11'+campaignMember.Campaign_ID__r.parent.Campaign_Type__c);
-        leadRec.CAC_Lead_Status__c = 'New';
+        leadRec.CAC_Lead_Status__c = 'Approved';
         if(objectAPIName == 'Campaign') {
             leadRec.Source_Campaign__c = campaignId;
             leadRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId;

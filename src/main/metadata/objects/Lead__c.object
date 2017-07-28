@@ -967,19 +967,30 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
-    </fields>
-    <fields>
+    </fields>    
+	<fields>
         <fullName>Assigned_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Assigned Dealer</label>
         <lookupFilter>
             <active>true</active>
+            <booleanFilter>(1 AND 2) OR 3</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordType.Name</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.Dealer_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <infoMessage>Search and select address of the account.</infoMessage>
             <isOptional>false</isOptional>
@@ -992,7 +1003,8 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
+   </fields>
+
     <fields>
         <fullName>Assigned_Dealer_by_Rule__c</fullName>
         <externalId>false</externalId>
@@ -8970,7 +8982,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -27460,7 +27472,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40391,7 +40403,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade-In</fullName>
+                <fullName>Book-in</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -78529,7 +78541,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91113,7 +91125,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes Me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91731,7 +91743,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade-In</fullName>
+                <fullName>Book-in</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -102845,7 +102857,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -110892,10 +110904,13 @@ Company_Account__r.Work_Phone__c  ,
     <searchLayouts>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Assigned_Dealer__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CAC_Lead_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Dealer_Lead_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead_Latest_Phase__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Assigned_Dealer__c</customTabListAdditionalFields>		
+        <customTabListAdditionalFields>Service_Advisor__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AfterSales_VIN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expected_Registration_Date__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Lead_Desired_Service__c</lookupDialogsAdditionalFields>
@@ -110911,13 +110926,13 @@ Company_Account__r.Work_Phone__c  ,
         <searchFilterFields>Selling_Dealer__c</searchFilterFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Lead_Desired_Service__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Drop_off_Time__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Assigned_Dealer__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CAC_Lead_Status__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Dealer_Lead_Status__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Source_Campaign__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Lead_DataSource__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead_Latest_Phase__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Assigned_Dealer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Service_Advisor__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AfterSales_VIN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_Registration_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
@@ -111829,9 +111844,10 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=
         <masterLabel>Print PDF</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}    
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/connection.js")}  
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")}  
+
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 
 if(market== 'JP')
