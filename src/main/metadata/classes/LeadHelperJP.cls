@@ -1,6 +1,6 @@
 /**
 ** Utility for Lead trigger for Japan 
-** Updation of Ã¢â‚¬Å“Customer_Lifecycle_Phase__cÃ¢â‚¬Â on Account related to lead based on CAC Lead Status
+** Updation of ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCustomer_Lifecycle_Phase__cÃƒÂ¢Ã¢â€šÂ¬Ã‚Â on Account related to lead based on CAC Lead Status
 ** Initialise Customer_Lifecycle_Phase__c on Account based on CAC Lead Status of all the leads associated with Account based on CAC Lead Status.
 ** Create AccountLink with combination of From role and to role with contact and Assigned Dealer for newly inserted leads based on CAC Lead Status.
 ** Created By: Narasimha 
@@ -12,7 +12,7 @@
 public class LeadHelperJP 
 {
     
-/**  Updation of Ã¢â‚¬Å“Customer_Lifecycle_Phase__cÃ¢â‚¬Â on Account related to lead based on CAC Lead Status
+/**  Updation of ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œCustomer_Lifecycle_Phase__cÃƒÂ¢Ã¢â€šÂ¬Ã‚Â on Account related to lead based on CAC Lead Status
 **  Created By: Narasimha  
 **  Date: 2016-1-19
 **/
@@ -503,7 +503,7 @@ public class LeadHelperJP
                  }
                  if(!serviceAdvisorList.isEmpty() && serviceAdvisorList != null)
                  {
-                     userRecords.addAll(serviceAdvisorList);
+                   //  userRecords.addAll(serviceAdvisorList);
                  }
                  system.debug('+++userRecords +++++'+userRecords );
                  if(!userRecords.isEmpty() && userRecords != null)
@@ -547,8 +547,11 @@ public class LeadHelperJP
                  LeadUtil.LeadTrigger = false;
                  if(mails.size()>0)
                  {
-                     system.debug('++++++++++'+mails);                     
+                     system.debug('++++++++++'+mails); 
+					 try	
+					{		
                      Messaging.sendEmail(mails);
+					 }Catch(Exception exe){}
                  }
                  
                  if(LeadUpdate.size()>0)
