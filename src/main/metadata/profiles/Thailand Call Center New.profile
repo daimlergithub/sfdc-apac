@@ -186,6 +186,21 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSalesConsole</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningService</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -2067,6 +2082,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>VehicleAndVRShareBatchClass</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleAndVRShareBatchClassTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2076,6 +2099,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleEditExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleEditExtensionTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -7939,6 +7966,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>CampaignMember.et4ae5__Activity__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CampaignMember.formula_num__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8220,6 +8252,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Contract_Phone2_2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone_2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12044,6 +12086,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contact.et4ae5__HasOptedOutOfMobile__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.et4ae5__Mobile_Country_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ContentVersion.Ad_Num__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13941,6 +13993,16 @@
         <editable>true</editable>
         <field>Lead.Website</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.et4ae5__HasOptedOutOfMobile__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.et4ae5__Mobile_Country_Code__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -23268,6 +23330,46 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>User.et4ae5__Default_ET_Page__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.et4ae5__Default_MID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.et4ae5__ExactTargetForAppExchangeAdmin__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.et4ae5__ExactTargetForAppExchangeUser__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.et4ae5__ExactTargetUsername__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.et4ae5__ExactTarget_OAuth_Token__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.et4ae5__ValidExactTargetAdmin__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.et4ae5__ValidExactTargetUser__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>VIN_Mapping__c.BodyType__c</field>
         <readable>true</readable>
@@ -27187,13 +27289,14 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle__c.MB</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle__c.Self_Registered</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -27298,6 +27401,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-Lead</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Macro</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -27397,6 +27504,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>EnableCommunityAppLauncher</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ExportReport</name>
     </userPermissions>
     <userPermissions>
@@ -27434,10 +27545,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
