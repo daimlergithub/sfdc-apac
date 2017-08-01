@@ -186,6 +186,21 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSalesConsole</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningService</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -2067,6 +2082,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>VehicleAndVRShareBatchClass</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleAndVRShareBatchClassTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2076,6 +2099,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleEditExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleEditExtensionTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -8220,6 +8247,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Contract_Phone2_2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone_2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -27187,13 +27224,14 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle__c.MB</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle__c.Self_Registered</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -27298,6 +27336,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-Lead</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Macro</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -27397,6 +27439,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>EnableCommunityAppLauncher</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ExportReport</name>
     </userPermissions>
     <userPermissions>
@@ -27434,10 +27480,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

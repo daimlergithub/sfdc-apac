@@ -97,13 +97,13 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_Call_Center</application>
-        <default>true</default>
-        <visible>true</visible>
+        <default>false</default>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_Call_Center_New</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_Catalogue_Operation</application>
@@ -112,7 +112,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_Data_Management</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -182,6 +182,21 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__DataAssessment</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSalesConsole</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningService</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
@@ -2067,6 +2082,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>VehicleAndVRShareBatchClass</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleAndVRShareBatchClassTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2076,6 +2099,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleEditExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleEditExtensionTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2372,6 +2399,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>superSortTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>testnationalidcontroller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -8210,6 +8241,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Contract_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone1_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone2_2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -25803,6 +25844,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>RegionMasterInfo__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Retail_Campaign_Member__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -27183,13 +27233,14 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle__c.MB</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle__c.Self_Registered</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -27291,6 +27342,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Idea</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Lead</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
