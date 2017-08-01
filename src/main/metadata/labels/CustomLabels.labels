@@ -21,6 +21,13 @@
         <shortDescription>A6 Invitation to an event / event at the car dealership</shortDescription>
         <value>Invitation to an event / event at the car dealership</value>
     </labels>
+    <labels>
+        <fullName>Address_for_Address_data</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address for Address data</shortDescription>
+        <value>Address for Address data</value>
+    </labels>
 	 <labels>
         <fullName>Customer_Stage</fullName>
         <language>en_US</language>
