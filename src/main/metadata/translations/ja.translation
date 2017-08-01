@@ -241,6 +241,10 @@
         <name>Add_Button</name>
     </customLabels>
     <customLabels>
+        <label>住所</label>
+        <name>Address_for_Address_data</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Add Participating Dealer --></label>
         <name>Add_Participating_Dealer</name>
     </customLabels>
