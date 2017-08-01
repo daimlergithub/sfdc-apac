@@ -240,6 +240,7 @@
         <label>追加</label>
         <name>Add_Button</name>
     </customLabels>
+    <customLabels>
         <label>住所</label>
         <name>Address_for_Address_data</name>
     </customLabels>
