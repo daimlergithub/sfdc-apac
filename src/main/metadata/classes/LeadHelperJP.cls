@@ -406,36 +406,47 @@ public class LeadHelperJP
     */
 //Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
 
-     
-     public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate)
+      public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate)
              {
                  Set<String> EmailAddress = new Set<String>();
                  String advisorid;
                  List<User> serviceAdvisorList = new List<User>();
                  List<String> userIds = new List<String>();  
-                 List<Lead__c> LeadUpdate = new List<Lead__c>();             
+                 List<Lead__c> LeadUpdate = new List<Lead__c>();     
+                 List<Lead__C> Leadlist =new List<Lead__C>();        
                  //Contact con = [Select id from Contact where email!= null AND AccountId != null AND Federation_ID__c != null limit 1];
                  EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];  
                  List<Messaging.SingleEmailMessage > mails  = new  List<Messaging.SingleEmailMessage >();
                  List<Messaging.SingleEmailMessage > UFRbulkEmails = new  List<Messaging.SingleEmailMessage >();
                  Set<Id> LeadId = new Set<Id>();
+                if(listNewLeads !=null)
+                {
                  for(Lead__C lead : listNewLeads)
                  {
                      LeadId.add(lead.Id); 
-                     system.debug('+++++++++++++'+LeadId); 
+                     
                  }
-                 
+                 }
+                 system.debug('+++++++++++++'+LeadId); 
                  set<Id> DealerAccid=new set<id>();
                  List<User> userRecords=new List<user>();
-                 List<Lead__C> Leadlist = [Select id,MD__c,Assigned_Dealer__r.id,ownerid,contact__c,Service_Advisor__r.Email,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
+                 system.debug('+++++++++++ LeadId ++'+LeadId );
+                 if(LeadId !=null)
+                 {
+                  Leadlist = [Select id,MD__c,Assigned_Dealer__r.id,ownerid,contact__c,Service_Advisor__r.Email,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
+                 }
                  system.debug('+++++++++++++'+Leadlist);
+                 if(Leadlist !=null)
+                 {
                  for(Lead__c ledealer: Leadlist)
                  {
                      DealerAccid.add(ledealer.Assigned_Dealer__r.id);
                  }
+                 }
                  
                  system.debug('+++DealerUser++++'+DealerAccid);
-                 
+                 if(Leadlist!=null)
+                 {
                  for(Lead__c lead : Leadlist)
                  {
                      if(lead.MD__c == 'JP'  )
@@ -444,93 +455,81 @@ public class LeadHelperJP
                          {
                             
                              system.debug('Insert Method 1');
-                             if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately' && lead.Service_Advisor__c !=null)
+                             if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
                              {
                                 isNotificationSendtosalesmanager = true;
-                                 system.debug('Insert Method 2');
-                                 if(lead.RecordTypeId == salesRecordTypeId)
-                                 {                                                            
-                                     EmailAddress.add(lead.Service_Advisor__r.Email); 
-                                     system.debug('EmailAddress>>>>>>'+EmailAddress);                     
-                                 }
-                                 if(lead.RecordTypeId == afterSalesRecordTypeId )
-                                 { 
-                                     //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);
-                                     EmailAddress.add(lead.Service_Advisor__r.Email);   
-                                     system.debug('EmailAddress>>>>>>'+EmailAddress);                            
-                                 }                        
+                                                     
                                }  
                             } 
                              if(lead.Assigned_Dealer__c != NULL && lead.Service_Advisor__c != null &&lead.Person_Assign_Notificaton_Done__c == false) 
                              {
                                  isNotificationSendtoAdivisor = true;
                                  if(lead.RecordTypeId == salesRecordTypeId)
-                                 {                                                            
+                                 {    
+                                     if(lead.Service_Advisor__c  !=null)
+                                     {                                                        
                                      EmailAddress.add(lead.Service_Advisor__r.Email); 
                                      system.debug('EmailAddress>>>>>>'+EmailAddress);
-                                     advisorid = lead.Service_Advisor__c;									 
+                                     advisorid = lead.Service_Advisor__c;       
+                                     }            
                                  }
                                  if(lead.RecordTypeId == afterSalesRecordTypeId )
                                  { 
                                      //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);
+                                     if(lead.Service_Advisor__c  !=null)
+                                     {
                                      EmailAddress.add(lead.Service_Advisor__r.Email);   
                                      system.debug('EmailAddress>>>>>>'+EmailAddress); 
-									 advisorid = lead.Service_Advisor__c;
+                                     advisorid = lead.Service_Advisor__c;
+                                     }
                                  }       
                              }
                          
-                         // if((isinsert || isupdate && lead.Assigned_Dealer__c != LeadOldMap.get(lead.id).Assigned_Dealer__c) && lead.MD__c== 'JP' && lead.Assigned_Dealer__c != null && lead.CAC_Lead_Status__c == 'Approved' && lead.Service_Advisor__c != null && !lead.Person_Assign_Notificaton_Done__c){
-                         //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
-                         // lead.Person_Assign_Notificaton_Done__c = true; 
-                         // lead.Lead_Assignment_Notification_Done__c = true;
-                         //userIds.add(led.Service_Advisor__c);
-                         //}
+                          
                          
                      } 
                  }
-                 EmailTemplate salesAdvisorNotification =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to Service Advisor' limit 1];  
-                 system.debug('+++++++++++++'+EmailAddress);
-                 if(EmailAddress !=null)
+                 }
+                  if(EmailAddress !=null && advisorid!=null)
                  {
                      serviceAdvisorList = [select id,email from User where email =:EmailAddress and id=:advisorid];
                  }
-                 system.debug('serviceAdvisorList>>>>' + serviceAdvisorList);
+                  EmailTemplate salesAdvisorNotification =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to Service Advisor' limit 1];  
+                
+                  system.debug('serviceAdvisorList>>>>' + serviceAdvisorList);
                  if(!DealerAccid.isEmpty() && DealerAccid !=null && isNotificationSendtosalesmanager == true)
                  {
                     userRecords = [Select id,profile.name,Name,email,contactid,contact.AccountId from User where IsActive = True and contact.Accountid=:DealerAccid and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
-                 }else if(isNotificationSendtoAdivisor == true){
-                        userRecords = [Select id,profile.name,Name,email,contactid,contact.AccountId from User where IsActive = True and contact.Accountid=:DealerAccid and profile.Name='Japan Dealer Sales Representative'];
-                 }
-                 if(!serviceAdvisorList.isEmpty() && serviceAdvisorList != null)
-                 {
-                   //  userRecords.addAll(serviceAdvisorList);
-                 }
-                 system.debug('+++userRecords +++++'+userRecords );
-                 if(!userRecords.isEmpty() && userRecords != null)
-                 {                     
-                     If(LeadUtil.LeadTrigger)
+                 }  
+                 
+                 system.debug('+++userRecords +++++'+userRecords);
+                   
+                
+                 If(LeadUtil.LeadTrigger)
                      { 
-                         for(Lead__c led : Leadlist)
+                     if(Leadlist !=null)
+                     {
+                     for(Lead__c led : Leadlist)
                          {
-                             system.debug('++++++++++'+Leadlist);
-                         //  if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )))
-                          if(isInsert || (isUpdate && ((led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )||(led.Service_Advisor__c != null && leadOldMap.get(led.id).Service_Advisor__c == null))))  
+                         
+                         if(isInsert || (isUpdate && ((led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )||(led.Service_Advisor__c != null && leadOldMap.get(led.id).Service_Advisor__c == null))))  
                            
-						   {                                 
-                                 if(isNotificationSendtosalesmanager == true){
+                           {           
+                           
+                            if(isNotificationSendtosalesmanager == true){
                                     led.Lead_Assignment_Notification_Done__c = True;
                                 }
-                                 if(isNotificationSendtoAdivisor == true){
+                                
+                                if(isNotificationSendtoAdivisor == true){
                                      led.Person_Assign_Notificaton_Done__c = True;
                                  } 
-                                 for(User u : userRecords)
+                                 
+                                  for(User u : userRecords)
                                  {
+                                 
                                      Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
-                                     mail.setWhatId(led.id);
-                                     if(isNotificationSendtoAdivisor == True)
-                                         mail.setTemplateID(salesAdvisorNotification.Id);
-                                     else
-                                         mail.setTemplateID(e.Id);
+                                     mail.setWhatId(led.id); 
+                                         mail.setTemplateID(e.Id); 
                                      //mail.setTargetObjectId(con.id);
                                      mail.setTargetObjectId(u.id);                            
                                      mail.setBccSender(false);
@@ -538,52 +537,52 @@ public class LeadHelperJP
                                      mail.setUseSignature(false);              
                                      mail.setSaveAsActivity(false);     
                                      mails.add(mail);
-                                 }                                 
+                                 }    
+                                 
+                                 if(serviceAdvisorList !=null)
+                                 {
+                                  for(User us : serviceAdvisorList)
+                                 {
+                                     Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
+                                     mail.setWhatId(led.id); 
+                                         mail.setTemplateID(salesAdvisorNotification.Id); 
+                                     //mail.setTargetObjectId(con.id);
+                                     mail.setTargetObjectId(us.id);                            
+                                     mail.setBccSender(false);
+                                     mail.setWhatId(led.Id);
+                                     mail.setUseSignature(false);              
+                                     mail.setSaveAsActivity(false);     
+                                     mails.add(mail);
+                                 }    
+                                 }                             
                                  LeadUpdate.add(led);
-                            }
-                         }                         
-                     }                                          
-                 }
+                           }
+                         }
+                         }
+                     } 
+                 
                  LeadUtil.LeadTrigger = false;
                  if(mails.size()>0)
                  {
                      system.debug('++++++++++'+mails); 
-					 try	
-					{		
+                   try  
+                  {    
                      Messaging.sendEmail(mails);
-					 }Catch(Exception exe){}
+                     system.debug('++++++++++'+mails); 
+                       }Catch(Exception exe){}
                  }
                  
                  if(LeadUpdate.size()>0)
                  {
                      system.debug('++++++++++'+LeadUpdate); 
-                     update LeadUpdate;                      
+                      try  
+                         {
+                     update LeadUpdate; 
+                     }Catch(Exception excep){}                     
                  }      
-                 /* for(Messaging.SingleEmailMessage email : mails)
-                    *{
-                        Messaging.SingleEmailMessage emailToSend = new Messaging.SingleEmailMessage();
-                        emailToSend.setToAddresses(email.getToAddresses()); 
-                        emailToSend.setPlainTextBody(email.getPlainTextBody());
-                        emailToSend.setHTMLBody(email.getHTMLBody());
-                        emailToSend.setSubject(email.getSubject());               
-                        UFRbulkEmails.add(emailToSend);                
-                    } 
-                if(UFRbulkEmails.size()>0)
-                {
-                    try
-                    {
-                    Messaging.sendEmail(UFRbulkEmails);
-                    if(LeadUpdate.size()> 0)
-                    {
-                    update LeadUpdate;
-                    }
-                }
-                    catch(Exception emailexe)
-                    {
-                        system.debug('UFR Mail Sending Invalid------>'+emailexe.getMessage());
-                    } 
-                } */
+                 
         }   
+        
         
          public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)
     {
