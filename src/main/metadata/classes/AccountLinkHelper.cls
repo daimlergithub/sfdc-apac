@@ -808,7 +808,8 @@ public class AccountLinkHelper
         
         for(Account_Link__c aclnk : accLst)
         {
-            if(aclnk.toRole__c!= null && aclnk.MD__c == label.MarketJp && aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
+            if(aclnk.toRole__c!= null && aclnk.MD__c == label.MarketJp && (aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId 
+                                                                           || aclnk.RecordTypeId == AccountLink_contact2conatctRecordTypeId))
             { 
                 AccountIds.add(aclnk.toRole__c);
             }
@@ -854,7 +855,7 @@ public class AccountLinkHelper
             }
             if(isInsert && ExistC2CList.size()>0 && ExistC2CList != null && (acclink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || acclink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId))
             {
-                acclink.addError('Retail Copy is already Exist for the Customer');
+                acclink.addError(Label.Retail_copy_is_already_present);
             }
         }
         system.debug('accLinkIds>>>' + accLinkIds);
