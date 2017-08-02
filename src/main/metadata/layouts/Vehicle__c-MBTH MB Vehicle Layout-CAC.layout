@@ -271,9 +271,9 @@
         <fields>Contact__c</fields>
         <fields>Car_Relation__c</fields>
         <fields>Owner_Relation__c</fields>
-        <fields>New_Used__c</fields>
         <fields>Start_Date__c</fields>
         <fields>End_Date__c</fields>
+        <fields>Owner_Dealer__c</fields>
         <fields>Selling_Dealer__c</fields>
         <fields>Last_Service_Dealer__c</fields>
         <fields>LAST_UPDATE</fields>
