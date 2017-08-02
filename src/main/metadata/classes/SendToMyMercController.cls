@@ -179,7 +179,7 @@ public with sharing class SendToMyMercController {
                     eachAccount.Portal_Apply_User__c = userinfo.getUserId();
                     accFinal.put(eachAccount.Id,eachAccount);      
                 }
-                for(Vehicle_RelationShip__c eachVr : [select Portal_Apply_Status__c,Portal_Apply_User__c,Contact__c,Portal_Apply_Date__c from Vehicle_Relationship__c where Contact__c =: accIdReasonMap.keySet() AND Vehicle_Id__c =:vehpageid AND RecordtypeId =: vehRelType]){
+                for(Vehicle_RelationShip__c eachVr : [select Portal_Apply_Status__c,Portal_Apply_User__c,Contact__c,Portal_Apply_Date__c from Vehicle_Relationship__c where Contact__c =: accIdReasonMap.keySet() AND Vehicle_Id__c =:vehpageid AND RecordtypeId =: vehRelType AND End_Date__c = null]){
                     eachVr.Portal_Apply_Date__c = system.Today();
                     eachVr.Portal_Apply_Status__c = 'Reject';
                     eachVr.Portal_Apply_User__c = userinfo.getUserid();
