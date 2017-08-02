@@ -567,8 +567,8 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>ContractNumber__c</fields>
-        <fields>Product_Name__c</fields>
         <fields>Type__c</fields>
+        <fields>Product_Name__c</fields>
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
