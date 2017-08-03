@@ -21698,11 +21698,21 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
 records = ReferraAccepted.getArray("records"); 
 if(records != ''){
-window.open("{!URLFOR($Site.Prefix)}/apex/ChangeContactTarget?Id={!Vehicle__c.Id}",target = "_self");
+	if(typeof(srcUp) == 'function'){
+		if (sforce.console.isInConsole()) {
+			srcUp('/apex/ChangeContactTarget?Id={!Vehicle__c.Id}');			
+		}else
+		{
+			window.open('/apex/ChangeContactTarget?id={!Vehicle__c.Id}','_self');
+		}
+	} else{
+		window.open("{!URLFOR($Site.Prefix)}/apex/ChangeContactTarget?Id={!Vehicle__c.Id}",target = "_self");
+	}
 }
 else
 alert("{!$Label.ChangeContacttarget}");</url>
@@ -21772,15 +21782,26 @@ alert('{!$Label.Send_to_spo_translate}');
         <displayType>button</displayType>
         <linkType>javascript</linkType>
         <masterLabel>Terminate Vehicle Relationships</masterLabel>
-        <openType>onClickJavaScript</openType> 
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-		<url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
-records = ReferraAccepted.getArray("records"); 
+records = ReferraAccepted.getArray("records");
 if(records != ''){
-window.open("{!URLFOR($Site.Prefix)}/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}",target = "_self");
+	if(typeof(srcUp) == 'function'){
+		if (sforce.console.isInConsole()) {
+			srcUp('/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}');			
+		} else
+		{
+			window.open('/apex/TerminateVehicleRelationship?id={!Vehicle__c.Id}','_self');
+		} 
+	}
+	else{
+			window.open("{!URLFOR($Site.Prefix)}/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}",target = "_self");
+		}
 }
 else
 alert("{!$Label.ChangeContacttarget}");</url>

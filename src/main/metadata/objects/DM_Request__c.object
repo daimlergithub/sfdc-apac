@@ -1826,7 +1826,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approving".</description>
-        <errorConditionFormula>AND(ISPICKVAL(Status__c,'Approving'),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Status__c,'Approving'),OR(MD__c = 'JP'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approving".</errorMessage>
     </validationRules>

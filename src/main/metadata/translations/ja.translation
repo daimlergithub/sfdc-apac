@@ -241,6 +241,10 @@
         <name>Add_Button</name>
     </customLabels>
     <customLabels>
+        <label>住所</label>
+        <name>Address_for_Address_data</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Add Participating Dealer --></label>
         <name>Add_Participating_Dealer</name>
     </customLabels>
@@ -1499,7 +1503,7 @@
         <name>Email_LeadDealerAssign20</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースに展開したリードデータに担当者が設定されないままでしたのでお知らせいたします。</label>
+        <label>セールスフォースより貴店へ展開したリードデータに担当者が設定されないままでしたので、お知らせいたします。</label>
         <name>Email_LeadDealerAssign21</name>
     </customLabels>
     <customLabels>
@@ -5306,7 +5310,7 @@
         <name>Lead_Untouched_Subject</name>
     </customLabels>
     <customLabels>
-        <label>担当者未設定のリード</label>
+        <label>統合顧客管理システム　リードに担当者が設定されていません</label>
         <name>Email_LeadUnassignedSubject</name>
     </customLabels>
     <customLabels>
@@ -5344,6 +5348,10 @@
     <customLabels>
         <label>統合顧客管理システム　リード担当者割当てのお知らせ</label>
         <name>Email_LeadPersonAssignSubject</name>
+    </customLabels>
+    <customLabels>
+        <label>管理者様、ご担当者様</label>
+        <name>Email_LeadDealerAssign30</name>
     </customLabels>
     <customPageWebLinks>
         <label><!-- Custom Link Notification --></label>

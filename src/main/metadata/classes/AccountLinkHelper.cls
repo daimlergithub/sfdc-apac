@@ -48,77 +48,88 @@ public class AccountLinkHelper
         * Desc: trigger handler code for after update operation which insert record in ep export notification object
         * Updated: Dec 20, 2016
         */
-    public static void ExportNotification (List<Account_Link__c> sample,Map<id,Account_Link__c> oldals)  {
-    
-   
-    List<EP_Export_Notification__c> epList = New list<EP_Export_Notification__c>();
-   
-        for(Account_Link__c als : sample){
-        Id recId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-        Id recrId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-        if ( als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recId || als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recrId  ){
-         
-         
-         if(als.Retail_Gender__c!= oldals.get(als.Id).Retail_Gender__c || als.Retail_UCID__c!= oldals.get(als.Id).Retail_UCID__c || 
-
-            als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
-            als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
-            als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
-            als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
-            als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
-            als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
-            als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
-            als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
-            als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
-            als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
-            als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
-            als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
-            als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
-            als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
-            als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
-            als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
-            als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
-            als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
-            als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
-            als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
-            als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
-            als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
-            als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
-            als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
-            als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
-            als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
-            als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
-            als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
-            als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
-            als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
-            als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c|| 
-            als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c|| 
-            als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
-            als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
-            als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
-            als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
-            als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
-            als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
-            als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
-         
-            EP_Export_Notification__c epe = New EP_Export_Notification__c();
-            epe.Status__c = 'New';
-            epe.Usecase__c = 'AL.CustomerUpdate';
-            epe.MD__c = als.MD__c;
-            epe.Type__c = 'Account_Link__c';
-            epe.SFDC_object_id__c = als.id;
+    public static void ExportNotification (List<Account_Link__c> accountLinkList,Map<id,Account_Link__c> oldals) 
+    {
+        List<Account_Link__c> acclinkList = new List<Account_Link__c>();
+        set<id> acclknkIds = new set<id>();
+        List<EP_Export_Notification__c> epList = New list<EP_Export_Notification__c>();
+        List<EP_Export_Notification__c> existingEpList = new List<EP_Export_Notification__c>();
             
-            
-            
-         
-           epList.add(epe);
-         
-         }
-       }   
-    
-     }
-     if(epList.size()>0){
-         insert epList;
+        for(Account_Link__c als : accountLinkList)
+        {
+            if ( als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailPersonRecordTypeId || als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailCompanyRecordTypeId 
+                && (als.Retail_Gender__c!= oldals.get(als.Id).Retail_Gender__c || als.Retail_UCID__c!= oldals.get(als.Id).Retail_UCID__c || 
+                    als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
+                    als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
+                    als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
+                    als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
+                    als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
+                    als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
+                    als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
+                    als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
+                    als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
+                    als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
+                    als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
+                    als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
+                    als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
+                    als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
+                    als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
+                    als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
+                    als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
+                    als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
+                    als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
+                    als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
+                    als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
+                    als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
+                    als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
+                    als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
+                    als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
+                    als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
+                    als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
+                    als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
+                    als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
+                    als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
+                    als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c|| 
+                    als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c|| 
+                    als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
+                    als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
+                    als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
+                    als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
+                    als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
+                    als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
+                    als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c))
+            {
+                acclknkIds.add(als.Id);
+            }
+        }
+        system.debug('acclknkIds>>><>' + acclknkIds);
+        if(!acclknkIds.isEmpty() && acclknkIds != null)
+        {
+            acclinkList = [select id,MD__c from Account_Link__c where id =:acclknkIds AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
+        	existingEpList = [select id,Status__c,SFDC_object_id__c from EP_Export_Notification__c where SFDC_object_id__c =:acclknkIds AND Status__c = 'New'];
+        }
+        system.debug('acclinkList>>><>' + acclknkIds);
+        system.debug('existingEpList>>><>' + existingEpList);
+        if(!acclinkList.isEmpty() && acclinkList != null)
+        {
+            for(Account_Link__c acnkl : acclinkList)
+            {
+                if(existingEpList.isEmpty() && existingEpList != null)
+                {
+                    EP_Export_Notification__c epe = New EP_Export_Notification__c();
+                    epe.Status__c = 'New';
+                    epe.Usecase__c = 'AL.CustomerUpdate';
+                    epe.MD__c = acnkl.MD__c;
+                    epe.Type__c = 'Account_Link__c';
+                    epe.SFDC_object_id__c = acnkl.id;
+                    epList.add(epe);
+                }
+            }
+        }
+        system.debug('epList><><><>' + epList);
+        if(epList.size()>0)
+        {
+            insert epList;
         }
     }
       /*
@@ -808,7 +819,8 @@ public class AccountLinkHelper
         
         for(Account_Link__c aclnk : accLst)
         {
-            if(aclnk.toRole__c!= null && aclnk.MD__c == label.MarketJp && aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
+            if(aclnk.toRole__c!= null && aclnk.MD__c == label.MarketJp && (aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId 
+                                                                           || aclnk.RecordTypeId == AccountLink_contact2conatctRecordTypeId))
             { 
                 AccountIds.add(aclnk.toRole__c);
             }
@@ -854,7 +866,7 @@ public class AccountLinkHelper
             }
             if(isInsert && ExistC2CList.size()>0 && ExistC2CList != null && (acclink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || acclink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId))
             {
-                acclink.addError('Retail Copy is already Exist for the Customer');
+                acclink.addError(Label.Retail_copy_is_already_present);
             }
         }
         system.debug('accLinkIds>>>' + accLinkIds);

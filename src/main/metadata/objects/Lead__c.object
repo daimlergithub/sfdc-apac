@@ -967,8 +967,8 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
-    </fields>    
-	<fields>
+    </fields>
+    <fields>
         <fullName>Assigned_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1003,8 +1003,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-   </fields>
-
+    </fields>
     <fields>
         <fullName>Assigned_Dealer_by_Rule__c</fullName>
         <externalId>false</externalId>
@@ -8982,7 +8981,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes me</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -18055,7 +18054,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>StouchLeadID__c</fullName>
         <description>Lead id for Stouch.</description>
         <externalId>false</externalId>
@@ -27456,6 +27455,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
             </values>
@@ -27469,10 +27472,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40383,6 +40382,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
+                <fullName>Book-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
@@ -40400,10 +40403,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Book-in</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -78513,6 +78512,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
@@ -78538,10 +78541,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88596,7 +88595,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>Loan Return SWP</fullName>
                 <default>false</default>
-            </values> 
+            </values>
             <values>
                 <fullName>Pay Off Loan</fullName>
                 <default>false</default>
@@ -88670,6 +88669,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -88695,6 +88698,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88876,7 +88883,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>Loan Return SWP</fullName>
                 <default>false</default>
-            </values> 
+            </values>
             <values>
                 <fullName>Pay Off Loan</fullName>
                 <default>false</default>
@@ -91097,6 +91104,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
@@ -91122,10 +91133,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes Me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91723,6 +91730,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
+                <fullName>Book-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
@@ -91740,10 +91751,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Book-in</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -102841,6 +102848,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
             </values>
@@ -102854,10 +102865,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -110906,7 +110913,7 @@ Company_Account__r.Work_Phone__c  ,
         <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Dealer_Lead_Status__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Lead_Latest_Phase__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Assigned_Dealer__c</customTabListAdditionalFields>		
+        <customTabListAdditionalFields>Assigned_Dealer__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Service_Advisor__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>AfterSales_VIN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
@@ -111844,9 +111851,9 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=
         <masterLabel>Print PDF</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix & "/support/console/30.0/integration.js")}    
-{!REQUIRESCRIPT($Site.Prefix & "/soap/ajax/33.0/connection.js")}  
-{!REQUIRESCRIPT($Site.Prefix & "/soap/ajax/33.0/apex.js")}  
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}    
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/connection.js")}  
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")}  
 
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 

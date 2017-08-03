@@ -971,6 +971,36 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Call_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>RSA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Leads</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales leads</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Called__c</fullName>
         <description>The Called field contains the called part of the call (also known as “DNIS”).</description>
         <externalId>false</externalId>
@@ -979,6 +1009,24 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Caller_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Caller Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Center</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Caller__c</fullName>

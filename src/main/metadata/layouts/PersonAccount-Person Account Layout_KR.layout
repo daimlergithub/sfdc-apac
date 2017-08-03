@@ -788,6 +788,7 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
+	    <excludeButtons>LogCall</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.TYPE</fields>
         <fields>Activity_Status__c</fields>
