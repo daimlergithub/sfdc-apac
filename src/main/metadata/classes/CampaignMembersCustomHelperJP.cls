@@ -132,7 +132,7 @@ public with sharing class CampaignMembersCustomHelperJP {
                 Account accnt = new Account();
                 accnt.LastName = cMem.name;
                 accnt.RecordTypeId = perAccRecType.Id;
-                newAccounts.add(accnt);    
+                //newAccounts.add(accnt);    
             }
         }
         accList = [SELECT Id,Name,FirstName,LastName,Email__C FROM Account WHERE FirstName IN: firstName AND lastName IN: lastName AND Email__c IN: email AND RecordTypeId =: perAccRecType.Id];
