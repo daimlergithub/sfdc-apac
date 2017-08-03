@@ -11,7 +11,7 @@ public class TriggerLeadTriggerHandlerJP
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];   
         System.debug('Handletrigger----->');
         
-        if(isAfter && isUpdate)
+         if(isAfter && isUpdate || isAfter && isInsert)
         {
             if(LeadUtil.handleAfterInsert)
             {
