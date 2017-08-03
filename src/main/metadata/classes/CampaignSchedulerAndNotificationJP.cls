@@ -49,6 +49,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         List<Campaign >campLst = new List<Campaign>();
         List<Campaign_Member__c> campMemberLst = new List<Campaign_Member__c>();
         List<DM_Request__c> dmRequestList = New List<DM_Request__c>(); 
+         List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
                 Map<id,Campaign_Member__c>pMap = new Map<id,Campaign_Member__c>();
         Map<id,Account>pConMap = new Map<id,Account>();
 
@@ -319,6 +320,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
             } else {
                 zipCodeSet.add(campMemberRec.Zip_Code__c);
             }
+             camIdCamMemMap.add(campMemberRec);
         }
         personAccIdSet.remove(null);
         zipCodeSet.remove(null);
@@ -366,6 +368,13 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
           
         if(leadLst.size() >0){  
             insert leadLst;
+             for(lead__c leadlsta:leadLst){
+            
+             system.debug('++++++Intersted model+++++++'+camIdCamMemMap.get(0).Interested_Model__c);
+             VehiclePickerController.converttoleadMethod(leadlsta.id,camIdCamMemMap.get(0).Interested_Model__c);
+             camIdCamMemMap.remove(0);
+             
+             }
         }
           
         if(campLst.size() >0){
