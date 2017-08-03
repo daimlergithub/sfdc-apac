@@ -13,7 +13,7 @@ public class AccountHelperJP
 {
     public static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-    public static Id VehicleRelRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
+   // public static Id VehicleRelRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
     
     static User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,Contact.Account.Dealer_Rollout_Status__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
@@ -917,7 +917,8 @@ public class AccountHelperJP
 	/*Changes as part of SFDCJP-2802*/
     public static void UpdateVRonAccount(list<Account> accMainList,map<id,Account> accountOldMap)
     {
-        Set<Id> sid = New Set<Id>();
+        Id VehicleRelRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
+		Set<Id> sid = New Set<Id>();
         List<Account> accList=new List<Account>();
         list<Account> updateacclist = new list<Account>(); 
         List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
