@@ -1006,16 +1006,6 @@ public class AccountLinkHelper
         Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>(); 
         
         
-        for(SurveyTaker__c st: stlist){
-            if(!newstmap.containsKey(st.account__c))
-            {
-                
-                newstmap.put(st.account__c, new List<SurveyTaker__c>());
-            } 
-            newstmap.get(st.account__c).add(st);
-            
-        }
-        
         System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
         
         
@@ -1033,41 +1023,19 @@ public class AccountLinkHelper
         // Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
         
         
-        for(Account_Link__c al:allist)
+        
+        for(Account acc :acolist)
         {
-            
-            if((al.recordtypeId==rc)||(al.recordtypeId==rp))
+            system.debug('acc.Name'+acc.Name);
+            if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
             {
-                
-                System.debug('Entered 2nd After Loop for Acc Link >>>>>'+aclnklist.size());
-                
-                if(al.fromRole__c!=null)
-                {
-                    if(al.fromRole__r.RecordTypeid==da && (al.ToRole__r.RecordTypeid==rpa)||(al.ToRole__r.RecordTypeid==rca))
-                    {
-                        System.debug('Entered After Loop for Acc Link ******'+aclnklist.size());
-                        allist1.add(al);
-                        aclistnames.add(al.fromRole__r.name);
-                        AccountIdsSet.add(al.fromRole__c);
-                        ToAccountIdsSet.add(al.toRole__c);
-                    }
-                }
-            } 
-            
-        }
-        for(Account_Link__c ankl : allist)
-        {
-            for(Account acc :acolist)
-            {
-                if(acc.Dealer_GC_Code__c == ankl.Retail_Dealer_CompanyCode__c)
-                {
-                    system.debug('acc.Name'+acc.Name);
-                    AccountNAme.add(acc.Name);
-                    dealeraccntMap.put(acc.Dealer_GC_Code__c, AccountNAme);
-                }
+                dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
             }
+            dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
+            AccountNAme.add(acc.Name);
         }
-        list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
+        system.debug('dealeraccntMap><><><' + dealeraccntMap);
+        list<group>glist=[select id ,Name ,Type from Group where Name IN:AccountNAme];
         if( aclistnames!=null&& allist1!=null)
         {
             System.debug('Entered After Loop for Acc Link $$$$$'+glist.size());
@@ -1078,7 +1046,7 @@ public class AccountLinkHelper
                 
             }
             
-            for(Account_Link__c alnk: allist1) 
+            for(Account_Link__c alnk: allist) 
             {
                 if(AccountNAme.size()>0)
                 {
