@@ -617,7 +617,7 @@
                 <field>Suspend_Payment__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Offer_Prohibit__c</field>
             </layoutItems>
         </layoutColumns>

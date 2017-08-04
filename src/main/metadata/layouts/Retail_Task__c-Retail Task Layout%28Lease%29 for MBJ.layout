@@ -689,7 +689,7 @@
                 <field>Suspend_Payment__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Offer_Prohibit__c</field>
             </layoutItems>
         </layoutColumns>
@@ -703,7 +703,7 @@
                 <field>MBF_Anti_Social_Force_Flag__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Re_lease_Prohibit_flag__c</field>
             </layoutItems>
         </layoutColumns>
