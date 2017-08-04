@@ -16525,6 +16525,10 @@
             <section>System Information</section>
         </sections>
         <sections>
+            <label>사례 접수 경로</label>
+            <section>Web Information</section>
+        </sections>
+        <sections>
             <label>딜러 정보</label>
             <section>Fields</section>
         </sections>
