@@ -3,7 +3,7 @@
         <apex:pageBlock id="pb1id" title="Case Edit" mode="edit">
         
             <apex:pageblockButtons >
-                <apex:commandButton action="{!save}" value="{!$Label.MBF_Save_Button}"/>
+               <apex:commandButton action="{!save}" value="{!$Label.MBF_Save_Button}"/>
                 <apex:commandButton action="{!cancel}" value="{!$Label.MBF_Cancel_Button}"/>
             </apex:pageblockButtons>
             
