@@ -320,6 +320,36 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Dealer IB Call KR</layout>
+        <sections>
+            <label>통화 세부정보</label>
+            <section>Call Detail</section>
+        </sections>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>필드</label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer OB Call KR</layout>
+        <sections>
+            <label>통화 세부정보</label>
+            <section>Call Detail</section>
+        </sections>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>필드</label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>General Task Layout</layout>
         <sections>
             <label>사용자 지정 링크</label>
@@ -329,22 +359,22 @@
     <layouts>
         <layout>IB Call</layout>
         <sections>
-            <label>필드</label>
+            <label>통화 세부정보</label>
             <section>Call Detail</section>
         </sections>
         <sections>
-            <label>통화 세부정보</label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>사용자 지정 링크</label>
+            <label>필드</label>
             <section>Fields</section>
         </sections>
     </layouts>
     <layouts>
         <layout>OB Call</layout>
         <sections>
-            <label>필드</label>
+            <label>통화 세부정보</label>
             <section>Call Detail</section>
         </sections>
         <sections>
@@ -352,7 +382,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>사용자 지정 링크</label>
+            <label>필드</label>
             <section>Fields</section>
         </sections>
     </layouts>
