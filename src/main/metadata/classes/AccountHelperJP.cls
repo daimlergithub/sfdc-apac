@@ -929,7 +929,7 @@ public class AccountHelperJP
 				{
                 for(Account abc: accMainList)                
                 {
-                if(abc.Customer_LastUpdatedDate__c!= accountOldMap.get(abc.Id).Customer_LastUpdatedDate__c && abc.Customer_LastUpdatedDate__c !=null)
+               //f(abc.Customer_LastUpdatedDate__c!= accountOldMap.get(abc.Id).Customer_LastUpdatedDate__c && abc.Customer_LastUpdatedDate__c !=null)
                      sid.add(abc.Id);   
                 }
 				}
