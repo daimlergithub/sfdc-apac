@@ -96,7 +96,7 @@ window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";
 
 
 
-                <apex:column headerValue="Select">
+                <apex:column headerValue="{!selectAll}">
                 <input type="radio" value="{!ad.id}"  id="radio" Name="SelectedCustomer">
                                   <apex:actionSupport event="onclick" action="{!getSelectedAddress}" rerender="Selected_PBS">
                                        <apex:param name="idselected" value="{!ad.id}" assignTo="{!AddrecordId}"/>
@@ -175,8 +175,8 @@ window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";
 
 </apex:pageBlockTable>
 <apex:pageBlockButtons location="bottom">
- <apex:commandButton value="Create Retail Copy" action="{!CreateRetailCopy}"  oncomplete="afterSave()" status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
-<apex:commandButton value="cancel" action="{!cancel}"/>
+ <apex:commandButton value="{!$Label.AutolineCreate_Retail_Copy}" action="{!CreateRetailCopy}"  oncomplete="afterSave()" status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
+<apex:commandButton value="{!$Label.Cancel}" action="{!cancel}"/>
         </apex:pageBlockButtons>
 
 </apex:pageBlock>

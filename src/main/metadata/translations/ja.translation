@@ -313,6 +313,10 @@
         <name>Address_validation</name>
     </customLabels>
     <customLabels>
+        <label>住所</label>
+        <name>AddressforAddressdata</name>
+    </customLabels>
+    <customLabels>
         <label>担当者</label>
         <name>Advisor</name>
     </customLabels>
@@ -439,6 +443,10 @@
     <customLabels>
         <label>権限がありません。</label>
         <name>Authorization</name>
+    </customLabels>
+	<customLabels>
+        <label>Autoline用住所選択</label>
+        <name>AutolineCreate_Retail_Copy</name>
     </customLabels>
 	<customLabels>
         <label>選択可能拠点</label>
@@ -1085,7 +1093,7 @@
         <name>Confirmed</name>
     </customLabels>
     <customLabels>
-        <label><!-- Confirmed Match --></label>
+        <label>名寄せ候補確認</label>
         <name>Confirmed_Match</name>
     </customLabels>
     <customLabels>

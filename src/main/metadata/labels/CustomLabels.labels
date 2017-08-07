@@ -351,6 +351,13 @@
         <value>Address is not Validated ,Please click on Validate by entering proper Zipcode</value>
     </labels>
     <labels>
+        <fullName>AddressforAddressdata</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressforAddressdata</shortDescription>
+        <value>Address for Address data</value>
+    </labels>
+    <labels>
         <fullName>Advisor</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -590,6 +597,13 @@
         <protected>false</protected>
         <shortDescription>Authorization</shortDescription>
         <value>you do not have the proper authorization</value>
+    </labels>
+    <labels>
+        <fullName>AutolineCreate_Retail_Copy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AutolineCreate Retail Copy</shortDescription>
+        <value>Create Retail Copy</value>
     </labels>
     <labels>
         <fullName>Available_Contacts</fullName>

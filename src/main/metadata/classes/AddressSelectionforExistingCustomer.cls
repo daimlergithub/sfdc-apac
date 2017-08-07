@@ -36,6 +36,7 @@ public without sharing class AddressSelectionforExistingCustomer {
     public List<Account_Link__c> InsertAlk; 
     public Account DealerID { get; set; }
     public User  CurrentUsr{set;get;}
+    public String selectAll {set;get;}
     public List<Account> Dealeracc{set;get;}
     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
@@ -50,8 +51,13 @@ public without sharing class AddressSelectionforExistingCustomer {
      InsertAlk=new List<Account_Link__c> ();
      account=new Account();
        ShowHideError=false;
-     CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
+     CurrentUsr=[SELECT Market__c,DMS_UserID__c,LanguageLocaleKey,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
    //  account = (Account)controller.getRecord();
+   if(CurrentUsr.LanguageLocaleKey == 'en_US'){
+       selectAll = label.select;    
+   }
+   else 
+       selectAll = '';
      if(AccId!=null)
      {
       ListAddress= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City__c,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c,LastModifiedDate  FROM  Address__c where  Customer__c =:AccId];
