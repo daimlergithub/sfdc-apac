@@ -681,7 +681,7 @@
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
                     </apex:Column>
-                     <apex:Column headerValue="Address for Address data">                    
+                     <apex:Column headerValue="{!$Label.Address_for_Address_data}">               
                         <apex:outputtext value="{!AddressDetails}"/>
                     </apex:Column>                     
                 </apex:PageBlockTable>
