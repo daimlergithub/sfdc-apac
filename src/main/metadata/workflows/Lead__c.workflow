@@ -2025,7 +2025,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         </actions>
         <active>true</active>
         <formula>AND(ISNEW(),  CONTAINS($Profile.Name , 'Partner Community'),  MD__c = 'JP' )</formula>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Reassigned lead to Non-BDC</fullName>
@@ -2194,7 +2194,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         </actions>
         <active>true</active>
         <formula>AND(ISCHANGED( Service_Advisor__c ),NOT(ISNULL(Service_Advisor__c)),  MD__c = 'JP')</formula>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Update Contact Failed For 3 Days Date Time</fullName>

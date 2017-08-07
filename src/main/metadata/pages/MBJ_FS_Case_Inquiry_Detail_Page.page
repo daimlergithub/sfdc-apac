@@ -18,6 +18,7 @@
                 <apex:outputField value="{!Case.Inquiry_Comments__c}"/>
                 <apex:outputField value="{!Case.Internal_Comments__c}"/>
                 <apex:outputField value="{!Case.Dealer_Contact__c}"/>
+				<apex:outputField value="{!Case.TL_Reviewed__c}"/>
             </apex:pageblockSection>
             
             <apex:pageblockSection title="{!$Label.MBF_Authentication_Section}">
@@ -37,8 +38,6 @@
                 <apex:outputField value="{!Case.Customer_Address_Type__c}"/>
                 <apex:outputField value="{!Case.Customer_Address__c}"/>
                 <apex:outputField value="{!Case.Requestor_Fax_E_mail_address__c}"/>
-                <apex:outputField value="{!Case.Contact_Number__c}"/>
-                <apex:outputField value="{!Case.Requires_Dealer_Contact__c}"/>
             </apex:pageblockSection>
             
             <apex:pageblockSection title="{!$Label.MBF_Receiver_Section}">

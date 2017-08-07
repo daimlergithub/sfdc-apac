@@ -21,6 +21,8 @@ public class LeadHelperJP
     static boolean isNotificationSendtoAdivisor = false;
     static boolean isNotificationSendtosalesmanager = false;
 	private static  final profile p = [select Name from profile where id =:userinfo.getprofileId()]; //JP-1942
+	private static  final User assigneduser=[select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+    
 	
     public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
     {
@@ -406,7 +408,8 @@ public class LeadHelperJP
     */
 //Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
 
-      public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate)
+     
+public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate)
              {
                  Set<String> EmailAddress = new Set<String>();
                  String advisorid;
@@ -433,7 +436,7 @@ public class LeadHelperJP
                  system.debug('+++++++++++ LeadId ++'+LeadId );
                  if(LeadId !=null)
                  {
-                  Leadlist = [Select id,MD__c,Assigned_Dealer__r.id,ownerid,contact__c,Service_Advisor__r.Email,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
+                  Leadlist = [Select id,MD__c,Assigned_Dealer__r.id,Service_Advisor__r.id,ownerid,contact__c,Service_Advisor__r.Email,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
                  }
                  system.debug('+++++++++++++'+Leadlist);
                  if(Leadlist !=null)
@@ -455,13 +458,13 @@ public class LeadHelperJP
                          {
                             
                              system.debug('Insert Method 1');
-                             if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
+                             if(lead.Assigned_Dealer__c != NULL && lead.Lead_DataSource__c!='Dealer Outlet' && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
                              {
                                 isNotificationSendtosalesmanager = true;
                                                      
                                }  
                             } 
-                             if(lead.Assigned_Dealer__c != NULL && lead.Service_Advisor__c != null &&lead.Person_Assign_Notificaton_Done__c == false) 
+                             if(lead.Assigned_Dealer__c != NULL && lead.Service_Advisor__c != null &&lead.Person_Assign_Notificaton_Done__c == false &&  lead.Service_Advisor__r.id !=assigneduser.id) 
                              {
                                  isNotificationSendtoAdivisor = true;
                                  if(lead.RecordTypeId == salesRecordTypeId)
@@ -583,6 +586,7 @@ public class LeadHelperJP
                  
         }   
         
+      	 
         
          public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)
     {
