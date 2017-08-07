@@ -4058,6 +4058,13 @@ please contact the number below.</value>
         <shortDescription>MBF Authentication Section</shortDescription>
         <value>Authentification</value>
     </labels>
+	<labels>
+        <fullName>MBF_Cancel_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Cancel Button</shortDescription>
+        <value>Cancel</value>
+    </labels>
     <labels>
         <fullName>MBF_Change_Request_WO_CA</fullName>
         <language>en_US</language>
@@ -4225,6 +4232,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>MBF Return(Close end &amp; SWP) Actual Section</shortDescription>
         <value>Return(Close end &amp; SWP) Actual</value>
+    </labels>
+	<labels>
+        <fullName>MBF_Save_Buttonn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBF Save Button</shortDescription>
+        <value>Save</value>
     </labels>
     <labels>
         <fullName>MBJ_support</fullName>
