@@ -11,7 +11,17 @@ public class TriggerLeadTriggerHandlerJP
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];   
         System.debug('Handletrigger----->');
         
-         if(isAfter && isUpdate || isAfter && isInsert)
+         if(isAfter &&  isInsert)
+        {
+            if(LeadUtil.handleAfterInsert)
+            {
+                System.debug('welcome');
+                LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
+            }
+         // LeadUtil.handleAfterInsert = false;
+        }
+        
+         if(isAfter && isUpdate )
         {
             if(LeadUtil.handleAfterInsert)
             {
@@ -75,17 +85,33 @@ public class TriggerLeadTriggerHandlerJP
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         // Implementation to addedd as required in market
-          if(isAfter && (isUpdate || isInsert)){
-        System.debug('welcome');
-          LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);}
-		  
-		  if(isAfter && isInsert && LeadUtil.isCreated){      
+          if(isAfter &&  isInsert)
+        {
+            if(LeadUtil.handleAfterInsert)
+            {
+                System.debug('welcome');
+                LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
+            }
+         // LeadUtil.handleAfterInsert = false;
+        }
+        
+         if(isAfter && isUpdate )
+        {
+            if(LeadUtil.handleAfterInsert)
+            {
+                System.debug('welcome');
+                LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
+            }
+          LeadUtil.handleAfterInsert = false;
+        }
+          
+          if(isAfter && isInsert && LeadUtil.isCreated){      
              
             LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadUtil.isCreated = false;
         }
-		
-		 if(isAfter && isUpdate && LeadUtil.LeadTrigger ){
+        
+         if(isAfter && isUpdate && LeadUtil.LeadTrigger ){
              LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);          
            LeadUtil.LeadTrigger = false;
             

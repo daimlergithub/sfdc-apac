@@ -364,6 +364,7 @@ public with sharing class VehicleRelationshipHelperJP
         string regexForNullValue ='null';
         string nullValue ='';
         set<id> sid = new set<id>();
+        set<id> Contactsid = new set<id>();
         set<id> addressids = new set<id>();
         Map<Id,Address__c> addr;
         // List<Address__c> addr = new List<Address__c> ();   
@@ -382,16 +383,17 @@ public with sharing class VehicleRelationshipHelperJP
                 if(ve.contact__c != null  && (!setIgnoredAccounts.contains(ve.Contact__c)) && (isInsert || (isUpdate && ve.contact__c != vRoldmap.get(ve.Id).contact__c))) //&& ve.contact__c != vRoldmap.get(ve.Id).contact__c
                 {
                     sid.add(ve.Contact__c);
+                    Contactsid.add(ve.Id);
                 }  
             }
             
         }
         system.debug('@@#@##@#@#@ SId'+sid);
-        if(!sid.isempty() && sid != null )
+        if(!sid.isempty() && sid != null  && Contactsid !=null)
         {
             vrList = [select id,contact__r.Sales_Address_Type__c,contact__r.Primary_Address_Reference__c,contact__r.Primary_Address_Display__c,contact__r.Primary_Email_Display__c,contact__r.Primary_Fax_Display__c,contact__r.Primary_Phone_Display__c,
                       contact__r.Individual_Home_Phone__c,contact__r.Work_Phone__c,contact__r.Home_Phone_2__c,contact__r.FAX,contact__r.Fax2__c,contact__r.Email__c,
-                      contact__r.Email2__c,contact__r.Email3__c,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid];
+                      contact__r.Email2__c,contact__r.Email3__c,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c,Contact__r.Id from Vehicle_Relationship__c where id =:Contactsid and Contact__c=:sid];
         }
         system.debug('@@#@##@#@#@ vrList'+vrList);
         for(Vehicle_Relationship__c vRs : vrList)
