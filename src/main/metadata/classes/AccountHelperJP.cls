@@ -13,6 +13,7 @@ public class AccountHelperJP
 {
     public static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+   // public static Id VehicleRelRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
     
     static User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,Contact.Account.Dealer_Rollout_Status__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
@@ -34,7 +35,7 @@ public class AccountHelperJP
     public static boolean persongroup11 = false;
     public static boolean companygroup1 = false;
     public static boolean companygroup2=false;
-	public static id acid;
+    public static id acid;
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
@@ -127,8 +128,8 @@ public class AccountHelperJP
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
-				//Added changes related to SFDCJP-2555
-				if(Acc.Primary_Address_Reference__c != Null)
+                //Added changes related to SFDCJP-2555
+                if(Acc.Primary_Address_Reference__c != Null)
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
@@ -273,7 +274,7 @@ public class AccountHelperJP
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
-				// Added changes related to SFDCJP-2555
+                // Added changes related to SFDCJP-2555
                 if(Acc.Primary_Address_Reference__c != Null)
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
@@ -346,11 +347,11 @@ public class AccountHelperJP
             {
                 UtilAddressTranslation.gettranslatedvalues(market);
             }
-			
-			// Changes related to  SFDCJP-2789
-			if(listNewAccounts!=null)
-			{
-			   for(Account acc:listNewAccounts)
+            
+            // Changes related to  SFDCJP-2789
+            if(listNewAccounts!=null)
+            {
+               for(Account acc:listNewAccounts)
             { 
              
             if(!test.isrunningtest() && usr.Profile.Name == 'IntegrationAPI' &&  acc.MD__c !=null)
@@ -366,8 +367,8 @@ public class AccountHelperJP
              
             }
             }
-			}
-			
+            }
+            
             For(Account a:listNewAccounts)
             {      
                 if((a.MD__c == 'JP'|| a.MD__c == 'KR') && (a.Primary_Address_Reference__c != oldMap.get(a.id).Primary_Address_Reference__c))
@@ -674,16 +675,16 @@ public class AccountHelperJP
                     for(Account acc : accountlist)
                     {
                         Account account = accountmap.get(acc.Id);
-						//Added as per Jira ticket SFDCJP-2502
-						if(account.id !=null)
+                        //Added as per Jira ticket SFDCJP-2502
+                        if(account.id !=null)
                         {
                         acid=account.id;
                         }
-						
+                        
                         Account_Link__c acclink = new Account_Link__c();
                         acclink.Primary__c = true;
-						//Added as per Jira ticket SFDCJP-2502
-						if(acid !=null)
+                        //Added as per Jira ticket SFDCJP-2502
+                        if(acid !=null)
                         {
                         acclink.Origin__c = acid;
                         }
@@ -913,39 +914,48 @@ public class AccountHelperJP
             System.debug('Line Numer'+e.getLineNumber());
         }
     }
-    public static void UpdateVRonAccount(list<Account> accMainList)
+	/*Changes as part of SFDCJP-2802*/
+    public static void UpdateVRonAccount(list<Account> accMainList,map<id,Account> accountOldMap)
     {
-        Set<Id> sid = New Set<Id>();
-        
+        Id VehicleRelRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
+		Set<Id> sid = New Set<Id>();
+        List<Account> accList=new List<Account>();
         list<Account> updateacclist = new list<Account>(); 
         List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
                 
              if(LeadUtil.Acctrigger )
             {    
-                for(Account abc: accMainList)
-                
+				if(accMainList !=null)
+				{
+                for(Account abc: accMainList)                
                 {
+               //f(abc.Customer_LastUpdatedDate__c!= accountOldMap.get(abc.Id).Customer_LastUpdatedDate__c && abc.Customer_LastUpdatedDate__c !=null)
                      sid.add(abc.Id);   
                 }
+				}
                 
             }    
                 
                 
-
-       List<Account> accList =  [select id,Individual_Home_Phone__c,Primary_Address_Display__c,Primary_Address_Reference__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,End_Date__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r  where End_Date__c =null) From Account where id =:sid ];
+       if(sid !=null)
+       {
+       accList =  [select id,Individual_Home_Phone__c,Primary_Address_Display__c,Primary_Address_Reference__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,End_Date__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r  where End_Date__c =null and RecordtypeId=:VehicleRelRecordTypeId AND (vehicle_address_picklist__c != null OR vehicle_fax_picklist__c != null OR Vehicle_Phone_picklist__c != null OR Vehicle_mail_picklist__c != null)) From Account where id =:sid];
+       }
        
         system.debug('++++++++++++++'+accList);
+        if(accList !=null)
+        {
        for(Account acc : accList){
        
        for(Vehicle_Relationship__c Velti : acc.Vehicle_Relationships2__r){
        
                    system.debug('+++++++++++++'+ acc.Vehicle_Relationships2__r);
                    
-                   if (Velti.Vehicle_address_picklist__c == '--None--')
+                  /* if (Velti.Vehicle_address_picklist__c == '--None--')
                     {
                             Velti.Vehicle_mail__c = acc.Primary_Address_Display__c;
                              
-                    } 
+                    } */
                    
                    if (Velti.Vehicle_Phone_picklist__c == 'Home Phone')
                     {
@@ -994,6 +1004,7 @@ public class AccountHelperJP
                                   
        
            Updateli.add(Velti ); 
+       }
        }
        }
      Update Updateli ;

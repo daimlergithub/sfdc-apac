@@ -58,7 +58,7 @@ implements TriggerHandlerIf
             if(LeadUtil.accountTrigger)
             {
                 LeadUtil.vrTrigger = false;
-                AccountHelperJP.UpdateVRonAccount (trigger.new);
+                AccountHelperJP.UpdateVRonAccount(trigger.new,(Map<Id,Account>)Trigger.OldMap);
             }
         }
         
@@ -109,7 +109,7 @@ implements TriggerHandlerIf
             if(LeadUtil.accountTrigger){
               LeadUtil.vrTrigger = false;
 
-              AccountHelperJP.UpdateVRonAccount (trigger.new);
+              AccountHelperJP.UpdateVRonAccount(trigger.new,(Map<Id,Account>)Trigger.OldMap);
             }
 
         }

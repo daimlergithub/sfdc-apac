@@ -2109,14 +2109,14 @@ If the user is Saving  same address which matches the fields returned by toleran
         //adde by dhanamjaya as per SFDCTH-300
         if(market == System.Label.TH & objAccount.ID_Type__c=='National ID'){
             if(objAccount.ID_Type__c=='National ID'&String.isBlank(objAccount.ID_Number__c)){
-                objAccount.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
+                objAccount.ID_Number__c.addError('If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
                 return null;
         }
         else{
             Pattern p = Pattern.compile('[0-9]{13}');
             Matcher m = p.matcher(objAccount.ID_Number__c);
             if(!m.matches()){
-                objAccount.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
+                objAccount.ID_Number__c.addError('If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
                 return null;
             }
             else{
@@ -2127,7 +2127,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 remainder=11-(math.mod(sum,11));
                 if(remainder!=integer.valueOf(objAccount.ID_Number__c.substring(12,13))){
-                objAccount.ID_Number__c.addError('ID Number: Invalid National id');
+                objAccount.ID_Number__c.addError('Invalid National id');
                 return null;
              
                 }

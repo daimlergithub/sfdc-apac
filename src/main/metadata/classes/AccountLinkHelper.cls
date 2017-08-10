@@ -48,77 +48,88 @@ public class AccountLinkHelper
         * Desc: trigger handler code for after update operation which insert record in ep export notification object
         * Updated: Dec 20, 2016
         */
-    public static void ExportNotification (List<Account_Link__c> sample,Map<id,Account_Link__c> oldals)  {
-    
-   
-    List<EP_Export_Notification__c> epList = New list<EP_Export_Notification__c>();
-   
-        for(Account_Link__c als : sample){
-        Id recId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-        Id recrId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-        if ( als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recId || als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recrId  ){
-         
-         
-         if(als.Retail_Gender__c!= oldals.get(als.Id).Retail_Gender__c || als.Retail_UCID__c!= oldals.get(als.Id).Retail_UCID__c || 
-
-            als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
-            als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
-            als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
-            als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
-            als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
-            als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
-            als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
-            als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
-            als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
-            als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
-            als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
-            als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
-            als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
-            als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
-            als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
-            als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
-            als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
-            als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
-            als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
-            als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
-            als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
-            als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
-            als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
-            als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
-            als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
-            als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
-            als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
-            als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
-            als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
-            als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
-            als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c|| 
-            als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c|| 
-            als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
-            als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
-            als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
-            als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
-            als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
-            als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
-            als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
-         
-            EP_Export_Notification__c epe = New EP_Export_Notification__c();
-            epe.Status__c = 'New';
-            epe.Usecase__c = 'AL.CustomerUpdate';
-            epe.MD__c = als.MD__c;
-            epe.Type__c = 'Account_Link__c';
-            epe.SFDC_object_id__c = als.id;
+    public static void ExportNotification (List<Account_Link__c> accountLinkList,Map<id,Account_Link__c> oldals) 
+    {
+        List<Account_Link__c> acclinkList = new List<Account_Link__c>();
+        set<id> acclknkIds = new set<id>();
+        List<EP_Export_Notification__c> epList = New list<EP_Export_Notification__c>();
+        List<EP_Export_Notification__c> existingEpList = new List<EP_Export_Notification__c>();
             
-            
-            
-         
-           epList.add(epe);
-         
-         }
-       }   
-    
-     }
-     if(epList.size()>0){
-         insert epList;
+        for(Account_Link__c als : accountLinkList)
+        {
+            if ( als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailPersonRecordTypeId || als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailCompanyRecordTypeId 
+                && (als.Retail_Gender__c!= oldals.get(als.Id).Retail_Gender__c || als.Retail_UCID__c!= oldals.get(als.Id).Retail_UCID__c || 
+                    als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
+                    als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
+                    als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
+                    als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
+                    als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
+                    als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
+                    als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
+                    als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
+                    als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
+                    als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
+                    als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
+                    als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
+                    als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
+                    als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
+                    als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
+                    als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
+                    als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
+                    als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
+                    als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
+                    als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
+                    als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
+                    als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
+                    als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
+                    als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
+                    als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
+                    als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
+                    als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
+                    als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
+                    als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
+                    als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
+                    als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c|| 
+                    als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c|| 
+                    als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
+                    als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
+                    als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
+                    als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
+                    als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
+                    als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
+                    als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c))
+            {
+                acclknkIds.add(als.Id);
+            }
+        }
+        system.debug('acclknkIds>>><>' + acclknkIds);
+        if(!acclknkIds.isEmpty() && acclknkIds != null)
+        {
+            acclinkList = [select id,MD__c from Account_Link__c where id =:acclknkIds AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
+        	existingEpList = [select id,Status__c,SFDC_object_id__c from EP_Export_Notification__c where SFDC_object_id__c =:acclknkIds AND Status__c = 'New'];
+        }
+        system.debug('acclinkList>>><>' + acclknkIds);
+        system.debug('existingEpList>>><>' + existingEpList);
+        if(!acclinkList.isEmpty() && acclinkList != null)
+        {
+            for(Account_Link__c acnkl : acclinkList)
+            {
+                if(existingEpList.isEmpty() && existingEpList != null)
+                {
+                    EP_Export_Notification__c epe = New EP_Export_Notification__c();
+                    epe.Status__c = 'New';
+                    epe.Usecase__c = 'AL.CustomerUpdate';
+                    epe.MD__c = acnkl.MD__c;
+                    epe.Type__c = 'Account_Link__c';
+                    epe.SFDC_object_id__c = acnkl.id;
+                    epList.add(epe);
+                }
+            }
+        }
+        system.debug('epList><><><>' + epList);
+        if(epList.size()>0)
+        {
+            insert epList;
         }
     }
       /*
@@ -808,7 +819,8 @@ public class AccountLinkHelper
         
         for(Account_Link__c aclnk : accLst)
         {
-            if(aclnk.toRole__c!= null && aclnk.MD__c == label.MarketJp && aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
+            if(aclnk.toRole__c!= null && aclnk.MD__c == label.MarketJp && (aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId 
+                                                                           || aclnk.RecordTypeId == AccountLink_contact2conatctRecordTypeId))
             { 
                 AccountIds.add(aclnk.toRole__c);
             }
@@ -854,7 +866,7 @@ public class AccountLinkHelper
             }
             if(isInsert && ExistC2CList.size()>0 && ExistC2CList != null && (acclink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || acclink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId))
             {
-                acclink.addError('Retail Copy is already Exist for the Customer');
+                acclink.addError(Label.Retail_copy_is_already_present);
             }
         }
         system.debug('accLinkIds>>>' + accLinkIds);
@@ -962,175 +974,104 @@ public class AccountLinkHelper
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
       */
- public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
- {
-  //if(LeadUtil.AccountLinkTrigger){
- 
- 
-  Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
-    Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
-    Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
-    Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
-    Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
-    
-    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist and (Recordtypeid=:rc or RecordtypeId=:rp)];
-    set<id>toroleidlist=new set<id>();
-    set<id>fromroleidlist=new set<id>();
-    set<String> GCCode = new set<String>();
-    list<String> AccountNAme = new List<String>();
-    for(Account_Link__c atl:allist)
+    public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
     {
-        System.debug('Entered For Loop for Acc Link >>>>>');
-        toroleidlist.add(atl.toRole__r.id);
-        fromroleidlist.add(atl.fromRole__c);
-        GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
-    }
-    list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
-    list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
-    System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
-     Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>(); 
-     
-     
-   for(SurveyTaker__c st: stlist){
-        if(!newstmap.containsKey(st.account__c))
-                {
-                    
-                    newstmap.put(st.account__c, new List<SurveyTaker__c>());
-                } 
-                newstmap.get(st.account__c).add(st);
-   
-   }
-    
-    System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
-    
-    
-    list<Account_Link__c>allist1 = new list<Account_Link__c>();
-    list<Account> aclist;
-    list<string> aclistnames = new list<string>();
-    list<Accountshare> acclist=new list<Accountshare>(); 
-    list<SurveyTaker__share> sutlist=new list<SurveyTaker__share>();
-  
-    Set<id> StAccountIdsSet = new Set<id>();
-    Set<id> AccountIdsSet = new Set<id>();
-    Set<id> ToAccountIdsSet = new Set<id>();  
-    map<string,id> assgroupMap = new map<string,id>();  
-    //Map<Id,Account_Link__c>  newAccountMap = new Map<Id,Account_Link__c>([select id,name,recordtypeId,fromRole__c ,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist]);
-   // Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
-   
-   
-    for(Account_Link__c al:allist)
-    {
-    
-        if((al.recordtypeId==rc)||(al.recordtypeId==rp))
+        //if(LeadUtil.AccountLinkTrigger){
+        
+        map<string,list<String>> dealeraccntMap = new Map<string,list<String>>();
+        Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
+        Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
+        Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
+        Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
+        Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
+        
+        list<Account_Link__c>allist=[select id,Retail_Dealer_CompanyCode__c ,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist and (Recordtypeid=:rc or RecordtypeId=:rp)];
+        set<id>toroleidlist=new set<id>();
+        set<id>fromroleidlist=new set<id>();
+        set<String> GCCode = new set<String>();
+        list<String> AccountNAme = new List<String>();
+        for(Account_Link__c atl:allist)
         {
-            
-            System.debug('Entered 2nd After Loop for Acc Link >>>>>'+aclnklist.size());
-            
-            if(al.fromRole__c!=null)
+            if(atl.toRole__c != null && atl.fromRole__c != null && atl.fromRole__r.Dealer_GC_Code__c != null)
             {
-                if(al.fromRole__r.RecordTypeid==da && (al.ToRole__r.RecordTypeid==rpa)||(al.ToRole__r.RecordTypeid==rca))
+                System.debug('Entered For Loop for Acc Link >>>>>');
+                toroleidlist.add(atl.toRole__c);
+                fromroleidlist.add(atl.fromRole__c);
+                GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
+            }
+        }
+        list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
+        list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
+        System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
+        Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>(); 
+        
+        
+        System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
+        
+        
+        list<Account_Link__c>allist1 = new list<Account_Link__c>();
+        list<Account> aclist;
+        list<string> aclistnames = new list<string>();
+        list<Accountshare> acclist=new list<Accountshare>(); 
+        list<SurveyTaker__share> sutlist=new list<SurveyTaker__share>();
+        
+        Set<id> StAccountIdsSet = new Set<id>();
+        Set<id> AccountIdsSet = new Set<id>();
+        Set<id> ToAccountIdsSet = new Set<id>();  
+        map<string,id> assgroupMap = new map<string,id>();  
+        //Map<Id,Account_Link__c>  newAccountMap = new Map<Id,Account_Link__c>([select id,name,recordtypeId,fromRole__c ,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist]);
+        // Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
+        
+        
+        
+        for(Account acc :acolist)
+        {
+            system.debug('acc.Name'+acc.Name);
+            if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
+            {
+                dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
+            }
+            dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
+            AccountNAme.add(acc.Name);
+        }
+        system.debug('dealeraccntMap><><><' + dealeraccntMap);
+        list<group>glist=[select id ,Name ,Type from Group where Name IN:AccountNAme];
+        if( aclistnames!=null&& allist1!=null)
+        {
+            System.debug('Entered After Loop for Acc Link $$$$$'+glist.size());
+            for(Group assg:glist)
+            {
+                
+                assgroupMap.put(assg.Name, assg.id);
+                
+            }
+            
+            for(Account_Link__c alnk: allist) 
+            {
+                if(AccountNAme.size()>0)
                 {
-                    System.debug('Entered After Loop for Acc Link ******'+aclnklist.size());
-                    allist1.add(al);
-                    aclistnames.add(al.fromRole__r.name);
-                    AccountIdsSet.add(al.fromRole__c);
-                    ToAccountIdsSet.add(al.toRole__c);
+                    for(integer i=0 ; i < dealeraccntMap.get(alnk.Retail_Dealer_CompanyCode__c).size();i++)
+                    {
+                        if(assgroupMap.get(dealeraccntMap.get(alnk.Retail_Dealer_CompanyCode__c)[i]) != null)
+                        {
+                            system.debug('Inserting1' + assgroupMap.get(dealeraccntMap.get(alnk.Retail_Dealer_CompanyCode__c)[i]));
+                            Accountshare a=new Accountshare();
+                            a.Accountid=alnk.toRole__c;
+                            a.UserOrGroupId = assgroupMap.get(dealeraccntMap.get(alnk.Retail_Dealer_CompanyCode__c)[i]);
+                            a.AccountAccessLevel='edit';
+                            a.RowCause = Schema.Accountshare.RowCause.Manual;
+                            a.OpportunityAccessLevel ='edit';
+                            acclist.add(a);
+                        }
+                    }
                 }
             }
-        } 
-        
-    }
-     for(Account acc :acolist){
-           system.debug('acc.Name'+acc.Name);
-           AccountNAme.add(acc.Name);   
-       }
-    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
-    if( aclistnames!=null&& allist1!=null)
-    {
-        System.debug('Entered After Loop for Acc Link $$$$$'+glist.size());
-        for(Group assg:glist)
-        {
-               
-            assgroupMap.put(assg.Name, assg.id);
-
+            
         }
-    
-        for(Account_Link__c alnk: allist1) 
+        if(acclist.size()>0)
         {
-            if(AccountIdsSet.contains(alnk.fromRole__c))
-            {
-                 
-                System.debug('Entered After Loop for Acc Link ########'+allist1.size());
-                if(assgroupMap.containskey(alnk.fromRole__r.name))
-                {
-                  if(AccountNAme.size()>0)
-                    {
-                    for(id m:assgroupMap.values())
-                    {
-                     system.debug('Inserting1');
-                     Accountshare a=new Accountshare();
-                     a.Accountid=alnk.toRole__c;
-                     a.UserOrGroupId = m;
-                     a.AccountAccessLevel='edit';
-                     a.RowCause = Schema.Accountshare.RowCause.Manual;
-                     a.OpportunityAccessLevel ='edit';
-                     acclist.add(a);
-                    if(newstmap.containskey(alnk.toRole__c))
-                  {
-                      for(SurveyTaker__c sa:newstmap.get(alnk.toRole__c))
-                      {
-                          //checking match with current accountid with accountid in survey taker record
-                          system.debug('Inserting2');
-                                 SurveyTaker__share surt=new SurveyTaker__share();
-                                 surt.ParentId=sa.id;
-                                 surt.UserOrGroupId=m;
-                                 surt.AccessLevel='edit';
-                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
-                                 sutlist.add(surt);
-                           
-                      }    
-                  }
-                  }
-                  }
-                  else {
-                      Accountshare a=new Accountshare();
-                     a.Accountid=alnk.toRole__c;
-                     a.UserOrGroupId = assgroupMap.get(alnk.fromRole__r.name);
-                     a.AccountAccessLevel='edit';
-                     a.RowCause = Schema.Accountshare.RowCause.Manual;
-                     a.OpportunityAccessLevel ='edit';
-                     acclist.add(a);
-                    if(newstmap.containskey(alnk.toRole__c))
-                  {
-                      for(SurveyTaker__c sa:newstmap.get(alnk.toRole__c))
-                      {
-                          //checking match with current accountid with accountid in survey taker record
-                          system.debug('Inserting2');
-                                 SurveyTaker__share surt=new SurveyTaker__share();
-                                 surt.ParentId=sa.id;
-                                 surt.UserOrGroupId=assgroupMap.get(alnk.fromRole__r.name);
-                                 surt.AccessLevel='edit';
-                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
-                                 sutlist.add(surt);
-                           
-                      }    
-                  }
-                  }
+            insert acclist;
         }
-    }
-    
- }
- 
- if(acclist.size()>0)
-    {
-        insert acclist;
-       if(sutlist!=null)
-        {
-          insert sutlist;
-        }
-    }
-    
- }
  //}
  //LeadUtil.AccountLinkTrigger = false;
  }
