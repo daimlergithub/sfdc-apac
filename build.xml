@@ -104,6 +104,7 @@
 						<sf:include name="RetailCampaignTimeline_JS"/>											
 						<sf:include name="False_Checkbox"/>
 						<sf:include name="True_Checkbox"/>
+						<sf:include name="angular-sanitize"/>
 					</sf:typeset>
 					<sf:typeset name="remoteSiteSettings"/>
 					<sf:typeset name="roles"/>
