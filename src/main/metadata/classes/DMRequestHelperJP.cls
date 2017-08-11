@@ -590,7 +590,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                         system.debug('b-----------'+b);
                         if(b<0)
                         {
-                          dmr1.Expected_DM_Material1__c.addError(system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock);
+                          dmr1.Expected_DM_Material1__c.addError('system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock');
                         }
                         expdm1 = false;
                      }
@@ -602,7 +602,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                         system.debug('b-----------'+b);
                         if(b<0)
                         {
-                          dmr1.Expected_DM_Material2__c.addError(system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock);
+                          dmr1.Expected_DM_Material2__c.addError('system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock');
                         }
                         expdm2 = false;
                      }
@@ -614,7 +614,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                         system.debug('b-----------'+b);
                         if(b<0)
                         {
-                          dmr1.Expected_DM_Material3__c.addError(system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock);
+                          dmr1.Expected_DM_Material3__c.addError('system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock');
                         }
                         expdm3 = false;
                      }
