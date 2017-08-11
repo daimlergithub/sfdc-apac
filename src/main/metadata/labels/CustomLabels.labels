@@ -14,6 +14,48 @@
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
     </labels>
+	<labels>
+        <fullName>select_criteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>select_criteria</shortDescription>
+        <value>select filter criteria</value>
+    </labels>
+	<labels>
+        <fullName>enter_criteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>enter_criteria</shortDescription>
+        <value>enter filter text</value>
+    </labels>
+	<labels>
+        <fullName>searchbutton_title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchbutton_title</shortDescription>
+        <value>Please select the filter criteria before entering search text</value>
+    </labels>
+	<labels>
+        <fullName>Registration_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration_Number</shortDescription>
+        <value>	Registration Number</value>
+    </labels>
+	<labels>
+        <fullName>User_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User_Msg</shortDescription>
+        <value>Please select the filter criteria before searching</value>
+    </labels>
+	<labels>
+        <fullName>User_Msg1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User_Msg1</shortDescription>
+        <value>Please enter the search text</value>
+    </labels>
     <labels>
         <fullName>A6_Invitation_to_an_event_event_at_the_car_dealership</fullName>
         <language>en_US</language>
