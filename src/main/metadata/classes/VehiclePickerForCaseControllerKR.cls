@@ -16,7 +16,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
         {
             if (usr == null)
             {
-                usr = [select id,Market__c from User where id=:userinfo.getuserId()];
+                usr = [select id,UserRole.name,Market__c from User where id=:userinfo.getuserId()];
             }
             return usr;
         }
@@ -72,7 +72,11 @@ global without sharing class VehiclePickerForCaseControllerKR {
                 System.debug('Case Owner vehicles...:' +caseOwnerVehicles);
                 System.debug('Each Case Vehicle type...' +case_Vehicles.Interested_Vehicle__c); 
             }
-            
+            system.debug('rolename'+usr.UserRole.name);
+                 if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager') && usr.Market__c=='KR'){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'You have permission to Create any Vehcile but you dont have permission to edit the Vehicle'));
+
+                  }
             if (case_Vehicles != null) {
                 tempList = map_vehicleIds.get(case_Vehicles.Interested_Vehicle__c);
                 if (tempList == null){
@@ -356,7 +360,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
     *@see: searchVehicles
     */
     @RemoteAction
-    global static List<Vehicle__c> searchVehicles(String lookupSearchDetails){
+    global static List<vehicleWrapper> searchVehicles(String lookupSearchDetails){
         UtilConstant utilConst = new UtilConstant();
         Map<String, String> searchAttributes = (Map<String, String>)JSON.deserialize(lookupSearchDetails, Map<String, String>.class);
         String vin_number = searchAttributes.get(utilConst.VIN);
@@ -369,7 +373,8 @@ global without sharing class VehiclePickerForCaseControllerKR {
         List<Vehicle__c> selfRegisteredVehicles;
         Set<Id> defaultVehicleIds = new Set<Id>();
         Set<Id> allVehicleIds = new Set<Id>();
-        
+        map<Id, string> vehicleToVRRegDateMap = new map<Id, string>();
+        List<vehicleWrapper> vehilclewrapLst = new List<vehicleWrapper>();
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
             vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
             system.debug('Vehicle for If' +vehicle);
@@ -377,7 +382,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
         else{
             Case caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
             system.debug('Case Contact...' +caseAcc);
-            caseVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.AccountId ORDER BY CreatedDate ASC];
+            caseVehicleRelationships = [SELECT Vehicle_ID__c, Registration_Number__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.AccountId ORDER BY CreatedDate DESC];
             system.debug('Case Vehicle Relationships...' +caseVehicleRelationships);
             
             if (!caseVehicleRelationships.isEmpty()){
@@ -385,6 +390,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
                 system.debug('Default Vehicle Ids...' +defaultVehicleIds);           
                 for (Vehicle_Relationship__c vr : caseVehicleRelationships){
                     allVehicleIds.add(vr.Vehicle_ID__c);
+                    vehicleToVRRegDateMap.put(vr.Vehicle_ID__c, vr.Registration_Number__c);
                 }
             }
             //Search for Self Registered:
@@ -393,25 +399,96 @@ global without sharing class VehiclePickerForCaseControllerKR {
             selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:caseAcc.AccountId AND RecordTypeId =:selfRegisteredRec_TypeId AND MD__c = :usr.Market__c ORDER BY CreatedDate ASC];
             system.debug('Self Registered Vehicles :' +selfRegisteredVehicles);
             
+            
             if (!selfRegisteredVehicles.isEmpty()){
                 defaultVehicleIds.add(selfRegisteredVehicles[0].Id);
                 for (Vehicle__c v : selfRegisteredVehicles){    
                     allVehicleIds.add(v.Id);
                 }
-                system.debug('Default Vehicle Ids...' +defaultVehicleIds);
+                
             }
             if (vin_number.equalsIgnoreCase('')){
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds AND MD__c = :usr.Market__c];
-                system.debug('Default Vehicle Records...' +vehicle);
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c ORDER BY CreatedDate DESC LIMIT 3];
+                
             }
             else{
                 vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
-            }                 
-            system.debug('Vehicle for else' +vehicle); 
+            }
+
+            for(Vehicle__c veh: vehicle){
+                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, vehicleToVRRegDateMap.get(veh.id)));
+            }
+            
         }
             
-        System.debug('@Vehicle :' +vehicle);
-        return vehicle;
+        
+        return vehilclewrapLst;
+    }
+    
+    global class vehicleWrapper{
+        public string vehIdW{get;set;}
+        public string brandW{get;set;}
+        public string classW{get;set;}
+        public string modelW{get;set;}
+        public string RegnumW{get;set;}
+        
+        public vehicleWrapper(string vId, string brn, string cls, string mod, string regNum){
+            vehIdW = vId;
+            brandW = brn;
+            classW = cls;
+            modelW = mod;
+            if(regNum != null){
+                RegnumW = regNum;
+            }else{
+                RegnumW = '';   
+            }
+        }   
+        
+    }
+    
+    @RemoteAction
+    global static List<vehicleWrapper> searchforCurrentVehicles(String lookupSearchCurrentVehiles){
+        UtilConstant utilConst = new UtilConstant();
+        Map<String, String> searchAttributes = (Map<String, String>)JSON.deserialize(lookupSearchCurrentVehiles, Map<String, String>.class);
+        String filterText = searchAttributes.get('fText');
+        String searchText = searchAttributes.get('sText');
+        String vehicle_type = searchAttributes.get(utilConst.VEHICLE_TYPE);
+        system.debug('Parametes PSM '+ filterText + searchText + vehicle_type);
+        List<Vehicle_Relationship__c> vRelshipLst = new List<Vehicle_Relationship__c>();
+        List<Vehicle__c> vehLst = new List<Vehicle__c>();
+        Set<Id> allVehicleIds = new Set<Id>();
+        List<Vehicle__c> selfRegisteredVehicles;
+        map<Id, string> vehicleToVRRegDateMap = new map<Id, string>();
+        List<Vehicle__c> vehicle;
+        List<vehicleWrapper> vehilclewrapLst = new List<vehicleWrapper>();
+        Case caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
+        Id selfRegisteredRec_TypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
+        if(filterText == 'Registration Number'){
+            system.debug('filterText psm '+' '+ filterText +' '+ searchText +' '+ caseAcc.AccountId);
+            vRelshipLst = [SELECT Vehicle_ID__c, Registration_Number__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.AccountId and Registration_Number__c =: searchText ORDER BY CreatedDate DESC];
+        }else{
+            vRelshipLst = [SELECT Vehicle_ID__c, Registration_Number__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.AccountId ORDER BY CreatedDate DESC];
+        }
+            for(Vehicle_Relationship__c ver: vRelshipLst){
+                vehicleToVRRegDateMap.put(ver.Vehicle_ID__c, ver.Registration_Number__c);
+            }
+            /*
+            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:caseAcc.AccountId AND RecordTypeId =:selfRegisteredRec_TypeId AND MD__c = :usr.Market__c ORDER BY CreatedDate DESC];
+            for (Vehicle__c v : selfRegisteredVehicles){    
+                    allVehicleIds.add(v.Id);
+            }
+            */
+        if(filterText == 'Brand'){
+            system.debug('PSM CHECK QUERY FILTER '+ searchText + allVehicleIds + usr.Market__c);
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Brand__c =: searchText];
+        }else{
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c];
+        }   
+        for(Vehicle__c veh: vehicle){
+                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, vehicleToVRRegDateMap.get(veh.id)));
+        }   
+        system.debug('PSM RETURN VALUE '+ vehilclewrapLst);
+            return vehilclewrapLst;
     }
     
     /**
@@ -469,8 +546,14 @@ global without sharing class VehiclePickerForCaseControllerKR {
                 update cse;
             }else if (vehicleAttributes.get('Operation').equalsIgnoreCase('Edit')){
                 System.debug('Edit...');
-                Case cse = [Select Id, Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
-                if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
+                Case cse = [Select Id,MD__c,Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+                system.debug('rolename'+usr.UserRole.name);
+                 if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager') && cse.MD__c == 'KR'){
+                  
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'You have permission to Create any Vehcile but you dont have permission to edit the Vehicle'));
+
+                  }else{
+                 if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                     caseVehicle.Id =  cse.Interested_Vehicle__c;
                     caseVehicle.Car_Model__c = carModel[0].Id;
                     update caseVehicle;
@@ -509,7 +592,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
                     cse.Purchased_Vehicle__c = caseVehicle.Id;
                     update cse;
                 }
-                
+              }  
             }            
         }
         if(vehicleAttributes.get('Lookup') == 'true'){
