@@ -58,14 +58,14 @@
     <criteriaBasedRules>
         <fullName>MBK_Survey_Sharing_Rule</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
-        <accessLevel>Read</accessLevel>
+        <accessLevel>Edit</accessLevel>
         <name>MBK Survey Sharing Rule</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

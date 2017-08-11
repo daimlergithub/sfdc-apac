@@ -56652,7 +56652,7 @@ RecordType.DeveloperName = 'ThirdParty'
     </validationRules>
     <validationRules>
         <fullName>Company_Name_Native_1_Fullchar</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Company_Name_Native_1__c),
