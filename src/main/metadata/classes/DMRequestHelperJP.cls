@@ -466,7 +466,176 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         
     }
     
+      /**             
+        * @Description: Update sent item in DM Material when it is attached to DM request
+        * @author     : Saranya Gotrala
+        * @Date       : 26/07/2017
+        * @param      : list of new DMRequests, old map.
+        * @return     : void
+        * @see:       : DMRequestHelperJP
+        */   
     
+      public static void updateDMMaterialSentTotal(List<DM_Request__c> newList, List<DM_Request__c> oldList,boolean isUpdate,boolean isBefore,boolean isInsert,boolean isAfter){
+       System.debug('---------enter--------'+newList); 
+        System.debug('---------enter--------'+oldList); 
+        List<id> sid = New List<Id>();
+        boolean expdm1;
+        boolean expdm2;
+        boolean expdm3;
+        map<Id, DM_Request__c> oldMap = new map<Id, DM_Request__c>();
+        if(oldList!=null && oldList.size()>0){
+            for(DM_Request__c dmr : oldList){
+                oldMap.put(dmr.Id,dmr);
+            }
+        }
+         Id profileId=userinfo.getProfileId();
+               String licensename=[Select Id,Name,UserLicense.Name from Profile where Id=:profileId].UserLicense.Name;
+               system.debug('ProfileName::'+licensename);
+        System.debug('---------newList.size()---------'+newList.size());
+        if(licensename.equals('Salesforce'))
+        {
+         if(newList!=null && newList.size()>0){
+           
+               map<Id, Integer> updateMap = new map<Id,Integer>();
+               map<Id, Integer> updateMap1 = new map<Id,Integer>();
+               map<Id, Integer> stockmap = new map<Id,Integer>();
+              
+            for(DM_Request__c dmr : newList){
+
+                if(dmr.Status__c == 'Sent' && (!oldMap.containsKey(dmr.Id) || oldMap.get(dmr.Id).Status__c!=dmr.Status__c && dmr.md__c=='KR' )){
+                    
+                    if(dmr.Expected_DM_Material1__c!=null){
+                     expdm1=true;
+                        if(!updateMap.containsKey(dmr.Expected_DM_Material1__c)){
+                        system.debug('i am here1');
+                       
+                            updateMap.put(dmr.Expected_DM_Material1__c,0);
+                            updateMap1.put(dmr.Expected_DM_Material1__c,Integer.ValueOf(dmr.Expected_DM_Material1__r.Stock__c));
+                        }
+                        
+                         system.debug('i am here1.2');
+                        Integer i = updateMap.get(dmr.Expected_DM_Material1__c) + 1;
+                        updateMap.put(dmr.Expected_DM_Material1__c,i);
+                    }
+                    
+                    if(dmr.Expected_DM_Material2__c!=null){
+                        expdm2=true;
+                        if(!updateMap.containsKey(dmr.Expected_DM_Material2__c)){
+                            updateMap.put(dmr.Expected_DM_Material2__c,0);
+                        }
+                        Integer i = updateMap.get(dmr.Expected_DM_Material2__c) + 1;
+                        updateMap.put(dmr.Expected_DM_Material2__c,i);
+                    }
+                    
+                    if(dmr.Expected_DM_Material3__c!=null){
+                        expdm3=true;
+                        if(!updateMap.containsKey(dmr.Expected_DM_Material3__c)){
+                            updateMap.put(dmr.Expected_DM_Material3__c,0);
+                        }
+                        Integer i = updateMap.get(dmr.Expected_DM_Material3__c) + 1;
+                        updateMap.put(dmr.Expected_DM_Material3__c,i);
+                    }
+                    
+                    
+                               
+                }//end if
+                                
+            }//end for
+            
+            System.debug('---------updateMap.size()--------'+updateMap.size());
+             System.debug('---------updateMap.size()--------'+updateMap.values());
+             System.debug('---------updateMap.size()--------'+updateMap);
+            System.debug('---------updateMap.size()--------'+updateMap.keySet());
+            if(updateMap.size()>0){
+            Integer senttotalbefore;
+              Integer senttotal;
+              Integer stock;
+              
+                List<DM_Material__c> updateList = [Select Id, SentTotal__c,Stock__c From DM_Material__c Where Id in :updateMap.keySet()];
+                 system.debug('updateList----'+updateList);
+                 system.debug('updateList----'+updateList.size());
+                for(DM_Material__c dmm : updateList){
+                    if(dmm.SentTotal__c==null){
+                        dmm.SentTotal__c = 0;
+                        senttotal=Integer.valueOf(dmm.SentTotal__c);
+                        senttotalbefore=Integer.valueOf(dmm.SentTotal__c);
+                        stock=Integer.valueOf(dmm.Stock__c);
+                    }
+                    senttotalbefore=Integer.valueOf(dmm.SentTotal__c);
+                    dmm.SentTotal__c += updateMap.get(dmm.Id);
+                    senttotal=Integer.valueOf(dmm.SentTotal__c);
+                    stock=Integer.valueOf(dmm.Stock__c);
+                    updateMap1.put(dmm.id,senttotal-senttotalbefore);
+                    stockmap.put(dmm.id,stock);
+                    system.debug('dmm.SentTotal__c'+dmm.SentTotal__c);
+                    system.debug('dmm.SentTotal__c'+senttotalbefore);
+                    system.debug('dmm.SentTotal__c'+senttotal);
+                    system.debug('dmm.SentTotal__c'+stock);
+                }
+                 system.debug('updateList----'+updateList);
+                 system.debug('expdm1'+expdm1);
+                 system.debug('expdm2'+expdm2);
+                 system.debug('expdm3'+expdm3);
+                 if((isBefore && isInsert) || (isBefore && isUpdate))
+                 {
+                   for(DM_Request__c dmr1 : newList)
+                   {
+                     for(DM_Material__c dmm1 : updateList)
+                     {
+                     if(dmr1.Expected_DM_Material1__c!=null && dmr1.Expected_DM_Material1__c == dmm1.id && expdm1==true)
+                     {
+                        integer a=senttotal-senttotalbefore;
+                        system.debug('a------------'+a);
+                        integer b=stock-a;
+                        system.debug('b-----------'+b);
+                        if(b<0)
+                        {
+                          dmr1.Expected_DM_Material1__c.addError('system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock');
+                        }
+                        expdm1 = false;
+                     }
+                     if(dmr1.Expected_DM_Material2__c!=null && dmr1.Expected_DM_Material2__c == dmm1.id && expdm2==true)
+                     {
+                        integer a=senttotal-senttotalbefore;
+                         system.debug('a------------'+a);
+                        integer b=stock-a;
+                        system.debug('b-----------'+b);
+                        if(b<0)
+                        {
+                          dmr1.Expected_DM_Material2__c.addError('system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock');
+                        }
+                        expdm2 = false;
+                     }
+                     if(dmr1.Expected_DM_Material3__c!=null && dmr1.Expected_DM_Material3__c == dmm1.id && expdm3==true)
+                     {
+                        integer a=senttotal-senttotalbefore;
+                         system.debug('a------------'+a);
+                        integer b=stock-a;
+                        system.debug('b-----------'+b);
+                        if(b<0)
+                        {
+                          dmr1.Expected_DM_Material3__c.addError('system.label.A_selected_DM_Material_does_not_have_a_sufficient_stock');
+                        }
+                        expdm3 = false;
+                     }
+                     }
+                   }
+                 }
+                 
+                if((isAfter && isInsert) || (isAfter && isUpdate)){
+                if(updateList.size()>0){
+
+                    update updateList;                      
+      
+                }
+                }
+            
+            }
+           
+           
+           }
+           }
+      }
   
        /**             
         * @Description: Update status after 3 months
