@@ -25887,7 +25887,7 @@
         <object>Article__kav</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-	 <objectPermissions>
+	<objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
@@ -25896,7 +25896,6 @@
         <object>FAQ__kav</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <objectPermissions>
 	<objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
