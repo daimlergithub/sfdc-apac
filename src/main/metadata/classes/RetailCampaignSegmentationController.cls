@@ -87,6 +87,7 @@
         public Set<String> accStatus = new Set<String>{'Customer', 'Prospect'};
         public Set<String> LeadDealerStatus = new Set<String>{'Not Started','On-going','Order Placed','Purchased(Only Non BDC)','Lost'};
         public Set<String> retTaskType = new Set<String>{'Standard Warranty','Used Car Warranty','Loan','Lease','Service Program'};
+        public Set<String> retProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus)	','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
         
         public String jsonFilter { get; set; }
         public Map<String, Object> filterMap;
@@ -183,19 +184,19 @@
             }
             set;
         }
-		            /*    public List<SelectOption> RetailProductName{
+		               public List<SelectOption> RetailProductName{
             get{
                 RetailProductName= new List<SelectOption>();
                 RetailProductName.add(new SelectOption('', '--None--'));
                 Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Product_Name__c;
                 for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retTaskType.contains(entry.getValue()))
+                    if(retProductName.contains(entry.getValue()))
                     RetailProductName.add(new SelectOption(entry.getValue(), entry.getLabel()));
                 }
                 return RetailProductName;
             }
             set;
-        }  */
+        }  
        
        
         public List<SelectOption> SpecialMarkonAccount{
