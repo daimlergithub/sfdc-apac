@@ -1,6 +1,3 @@
-//**This is vehilce picker class for inline vf page **//
-
-
 global without sharing class VehiclePickerForCaseControllerKR {
     public String currentRecordId {get;set;}
     public Case case_Vehicles {get; set;}
