@@ -183,6 +183,20 @@
             }
             set;
         }
+		                public List<SelectOption> RetailProductName{
+            get{
+                RetailProductName= new List<SelectOption>();
+                RetailProductName.add(new SelectOption('', '--None--'));
+                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Product_Name__c;
+                for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                    if(retTaskType.contains(entry.getValue()))
+                    RetailProductName.add(new SelectOption(entry.getValue(), entry.getLabel()));
+                }
+                return RetailProductName;
+            }
+            set;
+        }
+       
        
         public List<SelectOption> SpecialMarkonAccount{
             get{
