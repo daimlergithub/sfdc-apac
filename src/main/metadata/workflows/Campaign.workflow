@@ -625,3 +625,5 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
+
+
