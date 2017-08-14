@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Send_Email_Notification_to_DM_Request_Owner</fullName>
+        <description>Send Email Notification to DM Request Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/DM_Request_owner_is_updated</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Change_Cat_Print_Check_1</fullName>
         <field>Status__c</field>
@@ -174,6 +184,16 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <rules>
+        <fullName>DM Request Send Email Notification to Owner is Changed</fullName>
+        <actions>
+            <name>Send_Email_Notification_to_DM_Request_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>MD__c = &apos;KR&apos; &amp;&amp;  ISCHANGED( OwnerId )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>UpdateDMRequestExternalId</fullName>
         <actions>

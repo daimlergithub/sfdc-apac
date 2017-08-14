@@ -284,7 +284,7 @@
     <criteriaBasedRules>
         <fullName>Share_Campaign_With_Roles_and_Subordinates</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
