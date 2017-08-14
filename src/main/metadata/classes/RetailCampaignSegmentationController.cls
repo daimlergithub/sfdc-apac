@@ -183,7 +183,7 @@
             }
             set;
         }
-		                public List<SelectOption> RetailProductName{
+		            /*    public List<SelectOption> RetailProductName{
             get{
                 RetailProductName= new List<SelectOption>();
                 RetailProductName.add(new SelectOption('', '--None--'));
@@ -195,7 +195,7 @@
                 return RetailProductName;
             }
             set;
-        }
+        }  */
        
        
         public List<SelectOption> SpecialMarkonAccount{
