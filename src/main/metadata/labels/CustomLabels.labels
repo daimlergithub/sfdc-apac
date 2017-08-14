@@ -647,6 +647,13 @@
         <shortDescription>AutolineCreate Retail Copy</shortDescription>
         <value>Create Retail Copy</value>
     </labels>
+	<labels>
+        <fullName>A_selected_DM_Material_does_not_have_a_sufficient_stock</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A selected DM Material does not have a sufficient stock</shortDescription>
+        <value>A selected DM Material does not have a sufficient stock</value>
+    </labels>
     <labels>
         <fullName>Available_Contacts</fullName>
         <language>en_US</language>
