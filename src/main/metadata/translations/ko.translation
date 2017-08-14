@@ -168,7 +168,11 @@
         <label>계정 만들기</label>
         <name>Account_Creation</name>
     </customLabels>
-    <customLabels>
+	<customLabels>
+        <label>선택된 DM 자료의 재고가 충분하지 않음</label>
+        <name>A_selected_DM_Material_does_not_have_a_sufficient_stock</name>
+    </customLabels>
+   <customLabels>
         <label>계정 병합</label>
         <name>Account_Merge</name>
     </customLabels>
