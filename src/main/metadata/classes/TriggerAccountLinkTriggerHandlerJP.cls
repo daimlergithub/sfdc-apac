@@ -47,6 +47,7 @@ public class TriggerAccountLinkTriggerHandlerJP
                 AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
                 AccountLinkHelper.ExportNotification(Trigger.new, oldmap);
                 AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+				AccountLinkHelper.updateAccountlinks(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
                 
                 //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
             }
