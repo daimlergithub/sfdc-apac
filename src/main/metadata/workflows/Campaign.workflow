@@ -28,7 +28,7 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/Lead_owner_is_updated</template>
+        <template>MBK_Email_Templates/Campaign_owner_is_updated</template>
     </alerts>
     <fieldUpdates>
         <fullName>Activate_Campaign</fullName>
