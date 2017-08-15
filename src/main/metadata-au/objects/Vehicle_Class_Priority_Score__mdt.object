@@ -323,6 +323,14 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Mercedes-AMG GT C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT R</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Mercedes-Maybach S-Class</fullName>
                 <default>false</default>
             </picklistValues>
