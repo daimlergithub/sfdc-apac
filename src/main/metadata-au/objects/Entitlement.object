@@ -158,4 +158,4 @@
         <searchResultsAdditionalFields>ENTITLEMENT.STATUSINDICATOR</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-</CustomObject>
+</CustomObject>  

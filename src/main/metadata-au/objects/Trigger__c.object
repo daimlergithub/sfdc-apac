@@ -99,4 +99,4 @@ If the trigger is disabled, it is not processed, execution terminates.</descript
         <type>Checkbox</type>
     </fields>
     <label>Trigger</label>
-</CustomObject>
+</CustomObject>  

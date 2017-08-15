@@ -41,4 +41,4 @@
         <searchResultsAdditionalFields>REPLY.CREATED_DATE</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-</CustomObject>
+</CustomObject>  

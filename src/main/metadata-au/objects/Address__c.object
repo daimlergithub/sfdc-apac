@@ -1016,6 +1016,7 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Customer__c</errorDisplayField>
         <errorMessage>Only IntegrationAPI Profile user have permission to re-parent address records.</errorMessage>
     </validationRules>
+	
     <webLinks>
         <fullName>New_Company_Address</fullName>
         <availability>online</availability>
@@ -1054,4 +1055,4 @@ $Profile.Name != 'IntegrationAPI'
         <requireRowSelection>false</requireRowSelection>
         <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  
