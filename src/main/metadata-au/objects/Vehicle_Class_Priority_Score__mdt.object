@@ -227,6 +227,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>GLA Activity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>GLA - Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -264,6 +268,14 @@
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Professional Cab Chassis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Professional Wagon</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
