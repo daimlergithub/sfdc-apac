@@ -9749,4 +9749,4 @@ navigateToUrl('/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Ret
 alert('Application status error.'); 
 }</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

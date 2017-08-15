@@ -190,4 +190,4 @@
         <errorConditionFormula>(RecordType.Name == 'Generate OB Task' || RecordType.Name == 'Register Campaign') &amp;&amp; SendClosureSMS__c &amp;&amp; Template__c != null &amp;&amp; ISBLANK(Template__r.Closure_SMS__c)</errorConditionFormula>
         <errorMessage>Your must enter a Closure SMS value for your template if the Send Closure SMS is checked.</errorMessage>
     </validationRules>
-</CustomObject>
+</CustomObject>  

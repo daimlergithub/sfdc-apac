@@ -126,4 +126,4 @@
         <requireRowSelection>true</requireRowSelection>
         <url>/apex/ComplaintDescriptionViewAll?caseId={!Case.Id}</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

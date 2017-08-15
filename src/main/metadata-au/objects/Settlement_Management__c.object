@@ -213,4 +213,4 @@
         <errorConditionFormula>ISPICKVAL( Settlement_Type__c , 'Others') &amp;&amp;  ISBLANK( Other_Settlement_Type__c )</errorConditionFormula>
         <errorMessage>Please fill in Other Settlement Type.</errorMessage>
     </validationRules>
-</CustomObject>
+</CustomObject>  

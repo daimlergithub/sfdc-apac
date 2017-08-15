@@ -38,4 +38,4 @@
         <type>MasterDetail</type>
     </fields>
     <sharingModel>ControlledByParent</sharingModel>
-</CustomObject>
+</CustomObject>  

@@ -119,4 +119,4 @@
         <errorDisplayField>Offering__c</errorDisplayField>
         <errorMessage>The offering should belong to the same campaign as the package.</errorMessage>
     </validationRules>
-</CustomObject>
+</CustomObject>  
