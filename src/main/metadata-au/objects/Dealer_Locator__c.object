@@ -1021,4 +1021,4 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
 		else {		window.parent.navigateToUrl("/a06/e?OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID={!Account.Name}&amp;OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;{!IF(ISBLANK(Address__c.ZipCode__c ), '', 'OBJECT_DEALER_LOCATOR_WEBLINK_POST_CODE_ID')}={!Address__c.ZipCode__c }");
 		}</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

@@ -1893,4 +1893,4 @@ Modify Reason:
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Must input conversion: Brand-Series-Type.</errorMessage>
     </validationRules>
-</CustomObject>
+</CustomObject>  

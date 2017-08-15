@@ -20323,4 +20323,4 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <showsStatus>false</showsStatus>
         <url>/REPORT_WEBLINK_CONTRACT_WITH_VEHICLE_REPORT_ID?pv0={!Vehicle__c.Id}</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

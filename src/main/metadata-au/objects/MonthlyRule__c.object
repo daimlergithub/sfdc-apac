@@ -45,4 +45,4 @@
         <unique>false</unique>
     </fields>
     <label>MonthlyRule</label>
-</CustomObject>
+</CustomObject>  

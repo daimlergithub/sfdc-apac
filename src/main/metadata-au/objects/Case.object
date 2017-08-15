@@ -102331,4 +102331,4 @@ else {
 window.open("/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

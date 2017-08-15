@@ -138,4 +138,4 @@ When update/delete on package will influence on the related dealer offering reco
     <pluralLabel>Dealer Offerings</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-</CustomObject>
+</CustomObject>  

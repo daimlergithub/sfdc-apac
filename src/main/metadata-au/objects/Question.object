@@ -74,4 +74,4 @@
         <searchResultsAdditionalFields>QUESTION.NUM_REPLIES</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-</CustomObject>
+</CustomObject>  

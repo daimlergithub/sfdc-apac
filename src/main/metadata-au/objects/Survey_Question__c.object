@@ -212,4 +212,4 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <errorConditionFormula>AND(OR(ISPICKVAL( Type__c , 'Multi-Select--Vertical'),ISPICKVAL( Type__c , 'Free Text')), Need_Free_TextBox__c)</errorConditionFormula>
         <errorMessage>Only Single selection can show the free text box</errorMessage>
     </validationRules>
-</CustomObject>
+</CustomObject>  

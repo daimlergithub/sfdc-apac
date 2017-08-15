@@ -251,4 +251,4 @@ var selectedRecords = {!GETRECORDIDS( $ObjectType.Retail_Campaign_Member__c)};
 sforce.connection.deleteIds(selectedRecords);
 navigateToUrl(window.location.href);</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

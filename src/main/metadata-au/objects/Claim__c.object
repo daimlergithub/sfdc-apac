@@ -169,4 +169,4 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-</CustomObject>
+</CustomObject>  
