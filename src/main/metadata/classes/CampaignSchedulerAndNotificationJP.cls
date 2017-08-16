@@ -1,5 +1,5 @@
 /***********************************************************************************
-Created By          :    Siva Krishna k   
+Created By          :    Abhishek
 Created Date        :    02.02.2017
 Company             :    NTT Data,Inc.
 Usage               :    Campaign Scheduler and Notification Class
@@ -369,11 +369,13 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         if(leadLst.size() >0){  
             insert leadLst;
              for(lead__c leadlsta:leadLst){
-            
+            if(camIdCamMemMap.size()>0){
+            if(camIdCamMemMap.get(0).Interested_Model__c != null){
              system.debug('++++++Intersted model+++++++'+camIdCamMemMap.get(0).Interested_Model__c);
              VehiclePickerController.converttoleadMethod(leadlsta.id,camIdCamMemMap.get(0).Interested_Model__c);
              camIdCamMemMap.remove(0);
-             
+             }
+             }
              }
         }
           
