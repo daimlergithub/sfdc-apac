@@ -982,11 +982,10 @@
                             <td>{!$ObjectType.Retail_Task__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
-                                     <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
+                                    <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
+                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>                                  
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
-                                      <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option> 
-                                  
+                                      <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option>                                
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -1000,9 +999,12 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" Type="text"/>
-                                <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> 
+                              <!--  <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> -->
                                 <apex:selectList styleClass="Type__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailTaskType}"></apex:selectOptions>
+                                </apex:selectList>
+					          <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
                                 </apex:selectList>
                                 <!--<apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>-->
                                 <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 

@@ -7,7 +7,6 @@
     <customButtons>Send_to_JPOS_Dealer</customButtons>
     <customButtons>Send_to_SPO_Dealers</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>Merge</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Case_Dealer</customButtons>
 	<customButtons>Create_Vehicle</customButtons>
@@ -128,11 +127,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Last_Campaign_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Sales_Sanction_Comment__c</field>
@@ -344,15 +339,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Fax_Display__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Fax_Validity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Status__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Personal_Abroad_Agreement__c</field>

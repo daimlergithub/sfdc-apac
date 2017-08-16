@@ -60,9 +60,10 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         
     {
 	  // Added  as  part of SFDCJP-2730
-	 if(isAfter && isUpdate)
-        {
-		 AddressHelperJP.afterUpdateVehicleRelationship(Trigger.new,(Map<Id,Address__c>)Trigger.OldMap);
+		if(isAfter && isUpdate)
+		{
+			AddressHelperJP.afterUpdateVehicleRelationship(Trigger.new,(Map<Id,Address__c>)Trigger.OldMap);
+			AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
 		}
         /*
         if(isAfter && isInsert)

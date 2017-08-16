@@ -5767,7 +5767,7 @@ RecordType.DeveloperName = 'Contact2Contact'</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Retail_Company_Name_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Retail_Company_Name_Native1__c),
