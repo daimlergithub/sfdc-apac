@@ -83,10 +83,10 @@
                 <behavior>Edit</behavior>
                 <field>Ready_for_List_Maintenance__c</field>
             </layoutItems>
-			<layoutItems>
-			<behavior>Edit</behavior>
-			<field>Final_List_Approved__c</field>
-			</layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Final_List_Approved__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Execution_Type__c</field>
@@ -126,7 +126,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>IsActive</field>
-            </layoutItems>		
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Campaign_Code__c</field>
@@ -225,9 +225,6 @@
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Upload_Campaign_Member_Response</customButtons>
-        <customButtons>Convert_to_Lead</customButtons>
-        <customButtons>Convert_To_DM_Request</customButtons>
-        <customButtons>Convert_To_Task</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Contact_Id__c</fields>
@@ -246,9 +243,9 @@
         <fields>Dealer__c</fields>
         <fields>ND_Code__c</fields>
         <relatedList>Participating_Dealer__c.Campaign__c</relatedList>
-    </relatedLists>	
+    </relatedLists>
     <relatedLists>
-        <fields>Lead__c</fields>		
+        <fields>Lead__c</fields>
         <fields>NAME</fields>
         <fields>Retail_Campaign__c</fields>
         <fields>Contact__c</fields>
@@ -293,7 +290,7 @@
         <fields>Case__c</fields>
         <fields>Lead__c</fields>
         <relatedList>SurveyTaker__c.Campaign__c</relatedList>
-    </relatedLists>	
+    </relatedLists>
     <relatedLists>
         <relatedList>RelatedAttachmentList</relatedList>
     </relatedLists>
