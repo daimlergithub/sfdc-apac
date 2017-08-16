@@ -55,7 +55,7 @@ public  class TerminateVehicleRelationshipExtension
     */    
     public List<Vehicle_Relationship__c> getlstVehicleRelation() { 
         us = [select id,ContactID,Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];     
-          listvehicleRelation=[select Contact__c,Start_Date__c,Car_Relation__c,Owner_Relation__c,End_Date__c from Vehicle_Relationship__c where End_Date__c=NULL AND Vehicle_ID__c=:vehicleID];
+          listvehicleRelation=[select Contact__c,Start_Date__c,Car_Relation__c,Owner_Relation__c,End_Date__c, RecordType.DeveloperName from Vehicle_Relationship__c where End_Date__c=NULL AND Vehicle_ID__c=:vehicleID AND RecordType.DeveloperName = 'Vehicle_Relationship'];
          
           return listvehicleRelation;
     }

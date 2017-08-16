@@ -734,8 +734,44 @@
         <name>Assignment_Status__c</name>
     </fields>
     <fields>
+        <label>콜 카테고리</label>
+        <name>Call_Category__c</name>
+        <picklistValues>
+            <masterLabel>Aftersales leads</masterLabel>
+            <translation>애프터세일즈 리드</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complaint</masterLabel>
+            <translation>불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inquiry</masterLabel>
+            <translation>문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA</masterLabel>
+            <translation>24시 긴급출동 서비스</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Leads</masterLabel>
+            <translation>세일즈 리드</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Called --></label>
         <name>Called__c</name>
+    </fields>
+    <fields>
+        <label>전화 주체</label>
+        <name>Caller_Type__c</name>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation>고객</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Center</masterLabel>
+            <translation>서비스센터</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Caller --></label>

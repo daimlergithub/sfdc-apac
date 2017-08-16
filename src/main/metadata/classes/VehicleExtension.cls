@@ -4,7 +4,7 @@
     Date   : 11/18/2015
 */
 
-public with sharing class VehicleExtension {
+global with sharing class VehicleExtension {
     
     public String recordType {set;get;} 
     public boolean check{set;get;}
@@ -279,7 +279,7 @@ public with sharing class VehicleExtension {
     **/  
     
     @RemoteAction
-    public static List<Map<String, Set<String>>> getCarModelValues(String status_type){   
+    global static List<Map<String, Set<String>>> getCarModelValues(String status_type){   
              
         String type;
         List<Car_Model__c> carModels;

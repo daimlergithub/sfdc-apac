@@ -11,6 +11,8 @@ public String recordTypeId2 { get; set; }
     public set<ID> accID {get; set;}
     public List<Account> newacc {get; set;}
     public Id aeeId {get; set;}
+	//Changes realted to SFDCJP-2848
+    public static Id vehicleRelationship_VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
    //public string SelectedType {get; set;}
     
     public cSendVehicleInformationtoSPOJP(ApexPages.StandardController controller) {
@@ -22,7 +24,7 @@ public String recordTypeId2 { get; set; }
     }
 
         public string SelectedType {
-		//Changes related to SFDCJP-2649
+        //Changes related to SFDCJP-2649
             get{if(SelectedType == null) SelectedType = '1'; return SelectedType;}
             set;}
 
@@ -42,7 +44,7 @@ public String recordTypeId2 { get; set; }
                      
                     vehRec = [SELECT Id,Name,OwnerId,Vehicle_ID__c, Contact__c,Contact__r.Id, Contact__r.Name,Car_Relation__c ,End_Date__c 
                                     FROM Vehicle_Relationship__c
-                                     WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' AND End_Date__c = null ];
+                                     WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' AND End_Date__c = null and RecordtypeId=:vehicleRelationship_VRRecordTypeId];
                                      
                                      
                      for( Vehicle_Relationship__c acc : vehRec ){
@@ -76,7 +78,7 @@ public String recordTypeId2 { get; set; }
                     {
                       vehRec = [SELECT Id,Name,OwnerId,Vehicle_ID__c, Contact__c,Contact__r.Id, Contact__r.Name
                                     FROM Vehicle_Relationship__c
-                                     WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' ];
+                                     WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' and End_Date__c = null and RecordtypeId=:vehicleRelationship_VRRecordTypeId];
                                      
                                      
                      for( Vehicle_Relationship__c acc : vehRec ){

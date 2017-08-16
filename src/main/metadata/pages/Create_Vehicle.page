@@ -434,7 +434,8 @@
                     </apex:pageBlockSection>
                 </span>
                 <span ng-switch-when="Self Registered">
-                   <apex:pageBlockSection title="{!$Label.Vehicle_Information}" > 
+                    <apex:outputLabel value="{!$Label.TH_Not_authorized_to_create_Self_Registered_Vehicle_record}" rendered="{!Not(nonThaiUserLoggedIn)}" style="font-weight: bold; color: red; font-size: 14px"/>
+                   <apex:pageBlockSection title="{!$Label.Vehicle_Information}" rendered="{!nonThaiUserLoggedIn}"> 
                      <apex:inputField value="{!vehicle.EuroVIN__c}"/>
                      <apex:pageBlockSectionItem >
                                          <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Class__c.Label}" />                  
@@ -478,8 +479,6 @@
                                     </apex:pageBlockSectionItem>
                                    
                                    <apex:inputField value="{!vehicle.Model_Description__c}"/>
-                                   
-                                   
                                    <apex:inputField value="{!vehicle.ModelYear__c}"/>&nbsp;
                                    <apex:inputField value="{!vehicle.Colour__c}"/>
                                    <apex:inputField value="{!vehicle.Product_Model__c}"/>
@@ -487,7 +486,7 @@
                    </apex:pageBlockSection>
                 </span>
                  <span ng-switch-when="Self Registered">
-                    <apex:pageBlockSection title="Registration Information" > 
+                    <apex:pageBlockSection title="Registration Information" rendered="{!nonThaiUserLoggedIn}"> 
                         <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
                          <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
                         <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>

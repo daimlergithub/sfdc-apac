@@ -254,8 +254,10 @@ public class AddressDisplayInlineEditControllerTest
         userList.add(sysAdminUser2);
         insert userList;
 
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
+       // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        //insert updatecustomsettings;
+         Trigger__c TriggerAccount=new Trigger__c(Name='TriggerAccount',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+             insert TriggerAccount;
         
         objAccount= new Account();
         objAccount.RecordtypeId=PersonaccRTId;

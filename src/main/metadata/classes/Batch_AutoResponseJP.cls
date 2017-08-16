@@ -30,7 +30,9 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         query = query.substring(0, query.length() - 2);
         query += ' FROM Campaign_Members1__r) ';
         
-        query += ' FROM Campaign WHERE Response_Date__c =:today ';
+        query += ' FROM Campaign WHERE RecordType.DeveloperName = \'Campaign_Executiono\'';
+        query += 'AND Response_Date__c   =:today';
+       
         
         
         //String query = 'Select Id, OwnerId, Owner.Name, Execution_Type__c, Child_Campaign_Status__c, Campaign_CCC_Manager__c, Response_Date__c, ParentId, Parent.Campaign_Type__c, ';
@@ -49,6 +51,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
          Map<id,Campaign_Member__c>pMap = new Map<id,Campaign_Member__c>();
         Map<id,Account>pConMap = new Map<id,Account>();
         notificationWrapperList = new List<NotificationWrapper>();
+        List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
         List<Campaign_Member__c> autoCreateLeadCheckedCampaignMemberRecList = new List<Campaign_Member__c>();
          
         // Create Tempate Map to avoid SOQL Limits
@@ -162,6 +165,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
             } else {
                 zipCodeSet.add(campMemberRec.Zip_Code__c);
             }
+            camIdCamMemMap.add(campMemberRec);
         }
         personAccIdSet.remove(null);
         zipCodeSet.remove(null);
@@ -190,7 +194,8 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
             lead.CAC_Lead_Status__c = 'Approved'; 
             lead.Source_Campaign__c = campMemberRec.Campaign_ID__c;
             lead.Contact__c = campMemberRec.Contact_Id__c;
-            lead.Assigned_Dealer__c = getDealerIdForDealerAssignment(campMemberRec, personAccIdToDealerAccIdMap, zipCodeToDealerAccIdMap);
+           lead.Assigned_Dealer__c = getDealerIdForDealerAssignment(campMemberRec, personAccIdToDealerAccIdMap, zipCodeToDealerAccIdMap);
+           
             lead.OwnerId = campMemberRec.Campaign_ID__r.OwnerId;
             //lead.Assigned_Dealer__c =campMemberRec.Preferred_Dealer__c;
             lead.Lead_Type__c = campMemberRec.Lead_Type__c;
@@ -210,13 +215,15 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         
         lead.Lead_DataSource__c='Campaign';
         lead.UsVIN__c=campMemberRec.UsVIN__c;
+        system.debug('++++++++++++++++'+lead.Assigned_Dealer__c);
         if(campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'After Sales') {
             
             lead.AfterSales_Vehicle__c=campMemberRec.Vehicle__c;
             }
-            if(campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
+         if(campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
         {
            lead.Trade_In_Vehicle__c=campMemberRec.Vehicle__c;
+           system.debug('Trade_In_Vehicle__c--------'+lead.Trade_In_Vehicle__c);
         }
         if(campMemberRec.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
         {
@@ -236,6 +243,17 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
           
         if(leadLst.size() >0){  
             insert leadLst;
+             for(lead__c leadlsta:leadLst){
+            
+             system.debug('++++++Intersted model+++++++'+camIdCamMemMap.get(0).Interested_Model__c);
+             VehiclePickerController.converttoleadMethod(leadlsta.id,camIdCamMemMap.get(0).Interested_Model__c);
+             camIdCamMemMap.remove(0);
+             
+             }
+             
+        
+            
+        
         }
           
         if(campLst.size() >0){
