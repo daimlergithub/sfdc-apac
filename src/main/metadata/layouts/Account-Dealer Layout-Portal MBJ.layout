@@ -15,7 +15,6 @@
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
-    <excludeButtons>Merge</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>SendEmail</excludeButtons>
     <excludeButtons>Share</excludeButtons>
