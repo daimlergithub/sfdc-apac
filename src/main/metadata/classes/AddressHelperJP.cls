@@ -119,7 +119,7 @@ public with sharing class AddressHelperJP {
                 accnt.Primary_Address_Display__c = accnt.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                 accountList.add(accnt);
             }
-            else if(market == 'JP' )
+            else if(addr.MD__c == 'JP' )
                 {
                     system.debug('Enteredddd>>>>');
                     for(Account acc : accList)
