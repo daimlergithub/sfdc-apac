@@ -20,6 +20,16 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Campaign_Notification_on_Segmentation</template>
     </alerts>
+    <alerts>
+        <fullName>Send_Email_Notification_to_Campaign_Owner</fullName>
+        <description>Send Email Notification to Campaign Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Campaign_owner_is_updated</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Activate_Campaign</fullName>
         <field>IsActive</field>
@@ -331,6 +341,16 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
+        <fullName>Campaign Send Email Notification to Owner is Changed</fullName>
+        <actions>
+            <name>Send_Email_Notification_to_Campaign_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>MD__c = 'KR' &amp;&amp; ISCHANGED( OwnerId )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Execution start date Notification to WS Users</fullName>
         <active>true</active>
         <criteriaItems>
@@ -605,3 +625,5 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
+
+
