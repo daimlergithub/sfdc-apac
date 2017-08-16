@@ -7,7 +7,6 @@
     <customButtons>Send_to_JPOS_Dealer</customButtons>
     <customButtons>Send_to_SPO_Dealers</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>Merge</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Case_Dealer</customButtons>
 	<customButtons>Create_Vehicle</customButtons>
@@ -21,6 +20,7 @@
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
+    <excludeButtons>Merge</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>SendEmail</excludeButtons>
     <excludeButtons>Share</excludeButtons>
