@@ -2706,7 +2706,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5121,7 +5121,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Updated_By_EP_Transactions__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

@@ -571,10 +571,10 @@
                             </td>
                              <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                   <option value="Equals">{!$Label.Equals}</option>
+                                   <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                   <option value="Less Than">{!$Label.Less_Than}</option>
+                                   <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
@@ -641,10 +641,10 @@
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                    <option value="Equals">{!$Label.Equals}</option>
+                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                    <option value="Less Than">{!$Label.Less_Than}</option>
+                                    <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
@@ -714,10 +714,10 @@
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                  <option value="Equals">{!$Label.Equals}</option>
+                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                    <option value="Less Than">{!$Label.Less_Than}</option>
+                                    <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
@@ -773,10 +773,10 @@
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                    <option value="Equals">{!$Label.Equals}</option>
+                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                    <option value="Less Than">{!$Label.Less_Than}</option>
+                                    <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
@@ -826,10 +826,10 @@
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                    <option value="Equals">{!$Label.Equals}</option>
+                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                    <option value="Less Than">{!$Label.Less_Than}</option>
+                                    <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
@@ -882,10 +882,10 @@
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                   <option value="Equals">{!$Label.Equals}</option>
+                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                    <option value="Less Than">{!$Label.Less_Than}</option>
+                                    <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
@@ -944,10 +944,10 @@
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                   <option value="Equals">{!$Label.Equals}</option>
+                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                    <option value="Less Than">{!$Label.Less_Than}</option>
+                                    <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
@@ -990,10 +990,10 @@
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                   <option value="Equals">{!$Label.Equals}</option>
+                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                    <option value="Less Than">{!$Label.Less_Than}</option>
+                                    <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
@@ -1045,10 +1045,10 @@
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
-                                    <option value="Equals">Equals</option>
-                                    <option value="Greater Than">Greater Than</option>
-                                    <option value="Less Than">Less Than</option>
-                                    <option value="Exclude">Exclude</option>
+                                    <option value="Equals">{!$Label.Equals}</option>
+                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
+                                    <option value="Less Than">{!$Label.Less_Than}</option>
+                                    <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
