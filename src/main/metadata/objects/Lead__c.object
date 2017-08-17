@@ -12042,12 +12042,14 @@ Modify Reason:
     <fields>
         <fullName>Questionnair__c</fullName>
         <externalId>false</externalId>
-        <label>Questionnair memo</label>
+        <label>Questionnaire memo</label>
+        <length>4000</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Quotation_Amount__c</fullName>
