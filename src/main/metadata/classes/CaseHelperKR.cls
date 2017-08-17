@@ -115,7 +115,7 @@ public class CaseHelperKR
                 cs.Campaign__c !=oldValcase.get(cs.id).Campaign__c || cs.Submit_to_public_solutions__c !=oldValcase.get(cs.id).Submit_to_public_solutions__c || cs.Knowledge_Complete_Flag__c !=oldValcase.get(cs.id).Knowledge_Complete_Flag__c || cs.Customer_Care_Owner__c !=oldValcase.get(cs.id).Customer_Care_Owner__c || cs.Approver__c !=oldValcase.get(cs.id).Approver__c || cs.Ref_No_Central__c !=oldValcase.get(cs.id).Ref_No_Central__c || 
                 cs.Customer_Statement__c !=oldValcase.get(cs.id).Customer_Statement__c || cs.MPC_Internal_Notes__c !=oldValcase.get(cs.id).MPC_Internal_Notes__c || cs.Description !=oldValcase.get(cs.id).Description || cs.PR_Comment_for_Dealer__c !=oldValcase.get(cs.id).PR_Comment_for_Dealer__c || cs.RecordTypeId !=oldValcase.get(cs.id).RecordTypeId || cs.Origin !=oldValcase.get(cs.id).Origin || cs.Data_Source__c !=oldValcase.get(cs.id).Data_Source__c)
                 {
-                  cs.addError('Insufficient access to few fields.You can edit only following fields: Owner,Vehicle,Status,Overdue,Overdue Reason,Priority,Resolved date,Primary case dealer');
+                  cs.addError(system.label.Insufficient_access_to_update +'Owner,Vehicle,Status,Overdue,Overdue Reason,Priority,Resolved date,Primary case dealer');
                 }
                 if(cs.AccountId !=oldValcase.get(cs.id).AccountId)
                 {
@@ -435,7 +435,7 @@ public class CaseHelperKR
                 cs.Customer_Satisfaction__c !=oldValcase.get(cs.id).Customer_Satisfaction__c || cs.Case_Dealer_User__c !=oldValcase.get(cs.id).Case_Dealer_User__c || cs.Feedback_Required__c !=oldValcase.get(cs.id).Feedback_Required__c || cs.TL_Reviewed__c !=oldValcase.get(cs.id).TL_Reviewed__c || cs.Campaign__c !=oldValcase.get(cs.id).Campaign__c || cs.Submit_to_public_solutions__c !=oldValcase.get(cs.id).Submit_to_public_solutions__c || cs.Knowledge_Complete_Flag__c !=oldValcase.get(cs.id).Knowledge_Complete_Flag__c ||
                 cs.Customer_Statement__c !=oldValcase.get(cs.id).Customer_Statement__c)
                 {
-                    cs.addError(system.label.Insufficient_access_to_update_few_fields_You_can_edit_only_following_fields 'Owner,MBK Case Class,MBK Case Type,MBK Case SubType,Status,Priority,Resolved date,Overdue,Overdue Reason');
+                    cs.addError(system.label.Insufficient_access_to_update +'Owner,MBK Case Class,MBK Case Type,MBK Case SubType,Status,Priority,Resolved date,Overdue,Overdue Reason');
                 }
                 if(cs.ContactId !=oldValcase.get(cs.id).ContactId)
                 {
