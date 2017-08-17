@@ -114,7 +114,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Competitor,MB</value>
+            <value>Competitor,MB,Vehicle Product</value>
         </criteriaItems>
         <accessLevel>Read</accessLevel>
         <name>TH_Vehicle_Readable_to_Thailand_Call_Centre</name>

@@ -41,7 +41,20 @@
         <accessLevel>Read</accessLevel>
         <name>JP Survey Readable to MBJ Dealers</name>
     </criteriaBasedRules>
-	<criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBK_Survey_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>MBK Survey Sharing Rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>SurveyQuestionCreation</fullName>
         <sharedTo>
             <group>SurveyQueCreationGrp</group>
@@ -56,16 +69,16 @@
         <name>SurveyQuestionCreation</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>MBK_Survey_Sharing_Rule</fullName>
+        <fullName>TH_Survey_sharing_to_Other_TH_Users</fullName>
         <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
             <operation>equals</operation>
-            <value>KR</value>
+            <value>TH</value>
         </criteriaItems>
-        <accessLevel>Edit</accessLevel>
-        <name>MBK Survey Sharing Rule</name>
+        <accessLevel>Read</accessLevel>
+        <name>TH_Survey sharing to Other TH Users</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

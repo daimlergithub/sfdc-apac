@@ -33,6 +33,7 @@ public class TriggerAccountLinkTriggerHandlerKR
         if(isBefore && isUpdate)
         {
             system.debug('Entered b efore update TRIGGER');
+			AccountLinkHelperKR.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
             AccountLinkHelperKR.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
             
         }    
