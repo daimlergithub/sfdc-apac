@@ -158,7 +158,7 @@
     </customLabels>
 	 <customLabels>
         <label>필드를 수정할 권한이 부족합니다. 하기 필드만 수정 가능합니다:</label>
-        <name>Insufficient_access_to_update_few_fields_You_can_edit_only_following_fields</name>
+        <name>Insufficient_access_to_update</name>
     </customLabels>
 	 <customLabels>
         <label>필드를 수정할 권한이 부족합니다</label>
