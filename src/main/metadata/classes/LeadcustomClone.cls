@@ -14,7 +14,7 @@ global class LeadcustomClone
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     webservice static id cloneLead(Id LeadId) // you can pass parameters
     {        
-       Lead__c acc = [SELECT ID, Name ,Contact__c ,RecordtypeId ,Wholesale_Comment__c,Retail_Contact__c,Dealer_DMS_Comments__c,Visited_Showroom_Date__c,Next_Contact_Customer_Date__c,Next_Contact_Contents__c,Dealer_Comment__c,Contact_Date__c,Questionnair__c,Dealer_Comments__c,Collectioner_Notes__c,Opportunity_Name__c,Payment_Mode__c,Portal_Request_ID__c,Accepted_Date_Time__c,Assigned_Date_Time__c,Drop_off_Time__c,Company_Account__c,Customer_Type__c,Service_Advisor__c,Assigned_Dealer__c,Case__c,Expected_Close_Date__c,Lead_Possibility_text__c,Related_Leads__c,Source_Campaign__c,Lead_DataSource__c FROM Lead__c WHERE Id = : LeadId];              
+       Lead__c acc = [SELECT ID, Name ,Contact__c ,Case__c,RecordtypeId ,Wholesale_Comment__c,Assigned_Dealer__c,Retail_Contact__c,Dealer_DMS_Comments__c,Visited_Showroom_Date__c,Next_Contact_Customer_Date__c,Next_Contact_Contents__c,Dealer_Comment__c,Contact_Date__c,Questionnair__c,Dealer_Comments__c,Collectioner_Notes__c,Opportunity_Name__c,Payment_Mode__c,Portal_Request_ID__c,Accepted_Date_Time__c,Assigned_Date_Time__c,Drop_off_Time__c,Company_Account__c,Customer_Type__c,Expected_Close_Date__c,Lead_Possibility_text__c,Related_Leads__c,Source_Campaign__c,Lead_DataSource__c FROM Lead__c WHERE Id = : LeadId];              
            Lead__c accCopy = acc.clone(false, false, false, false);
                if(acc.RecordtypeId == salesRecordTypeId){
                 accCopy.RecordtypeId = afterSalesRecordTypeId ;
@@ -30,7 +30,7 @@ global class LeadcustomClone
                accCopy.Expected_Close_Date__c =Acc.Expected_Close_Date__c;
                accCopy.Case__c =Acc.Case__c;
                accCopy.Assigned_Dealer__c =Acc.Assigned_Dealer__c;
-               accCopy.Service_Advisor__c  =Acc.Service_Advisor__c;        
+             //  accCopy.Service_Advisor__c  =Acc.Service_Advisor__c;        
                accCopy.Customer_Type__c =Acc.Customer_Type__c;
                accCopy.Company_Account__c =Acc.Company_Account__c;
                accCopy.Drop_off_Time__c =Acc.Drop_off_Time__c;
