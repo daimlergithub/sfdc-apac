@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>DM_materail_Sharing_to_All_Th_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>DM materail Sharing to All Th Users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_DM_Material_Readable_to_MBJ_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinates>Central</roleAndSubordinates>
