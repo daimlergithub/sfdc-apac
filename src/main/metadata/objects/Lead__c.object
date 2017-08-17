@@ -110946,6 +110946,10 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>Dealer_Campaign_Share__c</fullName>
         <label>Dealer Campaign Share</label>
     </sharingReasons>
+    <sharingReasons>
+        <fullName>Assigned_Dealer__c</fullName>
+        <label>Assigned Dealer</label>
+    </sharingReasons>
     <validationRules>
         <fullName>CAC_Lead_Status_Check_After_Assigned</fullName>
         <active>true</active>
