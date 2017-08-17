@@ -13520,11 +13520,13 @@ Modify Reason:
         <fullName>Questionnair__c</fullName>
         <externalId>false</externalId>
         <label>Questionnaire memo</label>
+        <length>4000</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Quotation_Amount__c</fullName>
@@ -110945,6 +110947,10 @@ Company_Account__r.Work_Phone__c  ,
     <sharingReasons>
         <fullName>Dealer_Campaign_Share__c</fullName>
         <label>Dealer Campaign Share</label>
+    </sharingReasons>
+    <sharingReasons>
+        <fullName>Assigned_Dealer__c</fullName>
+        <label>Assigned Dealer</label>
     </sharingReasons>
     <validationRules>
         <fullName>CAC_Lead_Status_Check_After_Assigned</fullName>
