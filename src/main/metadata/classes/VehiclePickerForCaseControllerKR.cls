@@ -74,7 +74,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
             }
             system.debug('rolename'+usr.UserRole.name);
                  if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager') && usr.Market__c=='KR'){
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'You have permission to Create any Vehcile but you dont have permission to edit the Vehicle'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
 
                   }
             if (case_Vehicles != null) {
