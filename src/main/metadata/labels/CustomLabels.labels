@@ -662,10 +662,10 @@
         <value>You don't have permission to update this record</value>
     </labels>
 	<labels>
-        <fullName>Insufficient_access_to_update_few_fields_You_can_edit_only_following_fields</fullName>
+        <fullName>Insufficient_access_to_update</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Insufficient access to update few fields. You can edit only following fields for case edit</shortDescription>
+        <shortDescription>Insufficient access to update</shortDescription>
         <value>Insufficient access to update few fields. You can edit only following fields:</value>
     </labels>
 	<labels>
