@@ -29,7 +29,10 @@ public class TriggerLeadTriggerHandlerJP
         {
             System.debug('welcome');
             LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            if(!system.isFuture())
+            {
+                LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            }
             LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             if(LeadUtil.isCreated)
             {
@@ -42,8 +45,10 @@ public class TriggerLeadTriggerHandlerJP
         {
             System.debug('welcome');
             LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);if(!system.isFuture())
+            {
+                LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            }
             LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             if(LeadUtil.LeadTrigger)
             {
