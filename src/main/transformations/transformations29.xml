@@ -195,6 +195,16 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_DM_REQUEST_LEAD_LKID</token>
     </changetext>
+		    <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ASSIGNED_SERVICE_ADVISOR_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ASSIGNED_SERVICE_ADVISOR_ID</token>
+	</changetext>
 	<changetext>
 		<filename>dashboards/MBK_Dashboards/Created_Complaint_Cases.dashboard</filename>
 		<xpath>runningUser/text()</xpath>
