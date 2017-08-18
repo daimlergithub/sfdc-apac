@@ -8,14 +8,14 @@ public class TriggerLeadTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
+        //user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
         
-        if(isBefore && isInsert && usr.Profile.Name != 'IntegrationAPI')
+        if(isBefore && isInsert)
         {           
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate); 
               LeadHelperJP.createContactToContactAccounlink(trigger.new);               
         }
-        if(isBefore && isUpdate && usr.Profile.Name != 'IntegrationAPI')
+        if(isBefore && isUpdate)
         {
             LeadHelperJP.updateCustomerStage(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);

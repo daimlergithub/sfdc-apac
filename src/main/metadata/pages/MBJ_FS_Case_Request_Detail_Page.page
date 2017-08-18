@@ -12,15 +12,17 @@
                 <!--<apex:outputField value="{!Case.Case_Complainant__c}"/>-->
                 <apex:outputField value="{!Case.Case_Class__c}"/>
                 <apex:outputField value="{!Case.Lead__c}"/>
+                <apex:outputField value="{!Case.Parentid}"/>
+                <apex:outputField value="{!Case.TL_Reviewed__c}"/>
+                <apex:outputLabel ></apex:outputLabel>
                 <apex:outputField value="{!Case.Internal_Comments__c}"/>
-                <apex:outputField value="{!Case.Case_Type__c}"/>
                 <apex:outputField value="{!Case.Inquiry_Comments__c}"/>
+                <apex:outputField value="{!Case.Case_Type__c}"/>
                 <apex:outputField value="{!Case.Dealer_Contact__c}"/>
             </apex:pageblockSection>
             
             <apex:pageblockSection title="{!$Label.MBF_Change_Request_WO_CA}" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
-                <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
-                <apex:outputText ></apex:outputText>
+                <!--<apex:outputField value="{!Case.Narrative_of_Type__c}"/>-->
                 <apex:outputField value="{!Case.Name__c}"/>
                 <apex:outputField value="{!Case.Company_Name__c}"/>
                 <apex:outputField value="{!Case.Registered_Address__c}"/>
@@ -37,8 +39,7 @@
             </apex:pageblockSection>
             
             <apex:pageblockSection title="{!$Label.MBF_Documentation_Request_Section}" rendered="{!IF(Case.Case_Type__c == 'MBF Documentation Request',true,false)}">
-                <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
-                <apex:outputText ></apex:outputText>
+                <!--<apex:outputField value="{!Case.Narrative_of_Type__c}"/>-->
                 <apex:outputField value="{!Case.Certificate_of_Outstanding_Balance__c}"/>
                 <apex:outputField value="{!Case.Account_Closing_Month__c}"/>
                 <apex:outputField value="{!Case.Required_Period__c}"/>
@@ -47,7 +48,7 @@
             </apex:pageblockSection>
           
             <apex:pageblockSection title="{!$Label.MBF_Change_Request_W_CA_Section}" columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (W CA)',true,false)}">
-                <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
+                <!--<apex:outputField value="{!Case.Narrative_of_Type__c}"/>-->
                 <apex:outputField value="{!Case.Reason__c}"/> 
             </apex:pageblockSection>
             
@@ -82,12 +83,11 @@
                 <apex:outputField value="{!Case.Receiver_address__c}"/>
                 <apex:outputField value="{!Case.Receiver_Fax_Email_address__c}"/>
                 <apex:outputField value="{!Case.Document_sending_date__c}"/>
-                <apex:outputField value="{!Case.TL_Reviewed__c}"/>
             </apex:pageblockSection>
             
             <apex:pageblockSection title="{!$Label.MBF_Dealer_Suggestion}">
                 <apex:outputField value="{!Case.Already_Contacted_Dealer__c}"/>
-                <apex:outputField value="{!Case.Requires_Dealer_Contact__c}"/>
+                <apex:outputLabel ></apex:outputLabel>
                 <apex:outputField value="{!Case.Case_Dealer__c}"/>
                 <apex:outputfield value="{!Case.Case_Dealer_User__c}"/>
                 <apex:outputField value="{!Case.Share_to_Regional_Office__c}"/>
