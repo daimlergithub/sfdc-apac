@@ -119,307 +119,307 @@ public class CaseHelperKR
                 }
                 if(cs.AccountId !=oldValcase.get(cs.id).AccountId)
                 {
-                    cs.AccountId.addError('Insufficient access to this field');
+                    cs.AccountId.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Other_Type_Comments__c !=oldValcase.get(cs.id).Other_Type_Comments__c)
                 {
-                    cs.Other_Type_Comments__c.addError('Insufficient access to this field');
+                    cs.Other_Type_Comments__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Subject !=oldValcase.get(cs.id).Subject)
                 {
-                    cs.Subject.addError('Insufficient access to this field');
+                    cs.Subject.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_Class__c !=oldValcase.get(cs.id).Case_Class__c)
                 {
-                    cs.Case_Class__c.addError('Insufficient access to this field');
+                    cs.Case_Class__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_Type__c !=oldValcase.get(cs.id).Case_Type__c)
                 {
-                    cs.Case_Type__c.addError('Insufficient access to this field');
+                    cs.Case_Type__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_SubType__c !=oldValcase.get(cs.id).Case_SubType__c)
                 {
-                    cs.Case_SubType__c.addError('Insufficient access to this field');
+                    cs.Case_SubType__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_SubSubType__c !=oldValcase.get(cs.id).Case_SubSubType__c)
                 {
-                    cs.Case_SubSubType__c.addError('Insufficient access to this field');
+                    cs.Case_SubSubType__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_Situation__c !=oldValcase.get(cs.id).Case_Situation__c)
                 {
-                    cs.Case_Situation__c.addError('Insufficient access to this field');
+                    cs.Case_Situation__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_Department__c !=oldValcase.get(cs.id).Case_Department__c)
                 {
-                    cs.Case_Department__c.addError('Insufficient access to this field');
+                    cs.Case_Department__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Customer_Request__c !=oldValcase.get(cs.id).Customer_Request__c)
                 {
-                    cs.Customer_Request__c.addError('Insufficient access to this field');
+                    cs.Customer_Request__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Response_Type__c !=oldValcase.get(cs.id).Response_Type__c)
                 {
-                    cs.Response_Type__c.addError('Insufficient access to this field');
+                    cs.Response_Type__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Contactid !=oldValcase.get(cs.id).Contactid)
                 {
-                    cs.Contactid.addError('Insufficient access to this field');
+                    cs.Contactid.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Requires_Dealer_Contact__c !=oldValcase.get(cs.id).Requires_Dealer_Contact__c)
                 {
-                    cs.Requires_Dealer_Contact__c.addError('Insufficient access to this field');
+                    cs.Requires_Dealer_Contact__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Info_Source__c !=oldValcase.get(cs.id).Info_Source__c)
                 {
-                    cs.Info_Source__c.addError('Insufficient access to this field');
+                    cs.Info_Source__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Perferred_Contact_Email__c !=oldValcase.get(cs.id).Perferred_Contact_Email__c)
                 {
-                    cs.Perferred_Contact_Email__c.addError('Insufficient access to this field');
+                    cs.Perferred_Contact_Email__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Info_Subsource__c !=oldValcase.get(cs.id).Info_Subsource__c)
                 {
-                    cs.Info_Subsource__c.addError('Insufficient access to this field');
+                    cs.Info_Subsource__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Handling_Level__c !=oldValcase.get(cs.id).Handling_Level__c)
                 {
-                    cs.Handling_Level__c.addError('Insufficient access to this field');
+                    cs.Handling_Level__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Cause__c !=oldValcase.get(cs.id). Cause__c)
                 {
-                    cs.Cause__c.addError('Insufficient access to this field');
+                    cs.Cause__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_Status__c !=oldValcase.get(cs.id).Case_Status__c)
                 {
-                    cs.Case_Status__c.addError('Insufficient access to this field');
+                    cs.Case_Status__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.DeadLine__c !=oldValcase.get(cs.id).DeadLine__c)
                 {
-                    cs.DeadLine__c.addError('Insufficient access to this field');
+                    cs.DeadLine__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Data_Subsource__c !=oldValcase.get(cs.id).Data_Subsource__c)
                 {
-                    cs.Data_Subsource__c.addError('Insufficient access to this field');
+                    cs.Data_Subsource__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Approval_Submit_Date__c !=oldValcase.get(cs.id).Approval_Submit_Date__c)
                 {
-                    cs.Approval_Submit_Date__c.addError('Insufficient access to this field');
+                    cs.Approval_Submit_Date__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Escalate_Date_to_CO__c !=oldValcase.get(cs.id).Escalate_Date_to_CO__c)
                 {
-                    cs.Escalate_Date_to_CO__c.addError('Insufficient access to this field');
+                    cs.Escalate_Date_to_CO__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Progress_Status__c !=oldValcase.get(cs.id).Progress_Status__c)
                 {
-                    cs.Progress_Status__c.addError('Insufficient access to this field');
+                    cs.Progress_Status__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.MBK_Case_Class__c !=oldValcase.get(cs.id).MBK_Case_Class__c)
                 {
-                    cs.MBK_Case_Class__c.addError('Insufficient access to this field');
+                    cs.MBK_Case_Class__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.MBK_Case_Sub_Type__c !=oldValcase.get(cs.id).MBK_Case_Sub_Type__c)
                 {
-                    cs.MBK_Case_Sub_Type__c.addError('Insufficient access to this field');
+                    cs.MBK_Case_Sub_Type__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.MBK_Case_Type__c !=oldValcase.get(cs.id).MBK_Case_Type__c)
                 {
-                    cs.MBK_Case_Type__c.addError('Insufficient access to this field');
+                    cs.MBK_Case_Type__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Customer_Type__c !=oldValcase.get(cs.id).Customer_Type__c)
                 {
-                    cs.Customer_Type__c.addError('Insufficient access to this field');
+                    cs.Customer_Type__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Car_Type__c !=oldValcase.get(cs.id).Car_Type__c)
                 {
-                    cs.Car_Type__c.addError('Insufficient access to this field');
+                    cs.Car_Type__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Dealer_Contact__c !=oldValcase.get(cs.id).Dealer_Contact__c)
                 {
-                    cs.Dealer_Contact__c.addError('Insufficient access to this field');
+                    cs.Dealer_Contact__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Customer_Satisfaction__c !=oldValcase.get(cs.id).Customer_Satisfaction__c)
                 {
-                    cs.Customer_Satisfaction__c.addError('Insufficient access to this field');
+                    cs.Customer_Satisfaction__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Call_Duration__c !=oldValcase.get(cs.id).Call_Duration__c)
                 {
-                    cs.Call_Duration__c.addError('Insufficient access to this field');
+                    cs.Call_Duration__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.SendEmailToGateKeeper__c !=oldValcase.get(cs.id).SendEmailToGateKeeper__c)
                 {
-                    cs.SendEmailToGateKeeper__c.addError('Insufficient access to this field');
+                    cs.SendEmailToGateKeeper__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Vehicle_Brand__c !=oldValcase.get(cs.id).Vehicle_Brand__c)
                 {
-                    cs.Vehicle_Brand__c.addError('Insufficient access to this field');
+                    cs.Vehicle_Brand__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.US_VIN__c !=oldValcase.get(cs.id).US_VIN__c)
                 {
-                    cs.US_VIN__c.addError('Insufficient access to this field');
+                    cs.US_VIN__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Car_Model__c !=oldValcase.get(cs.id).Car_Model__c)
                 {
-                    cs.Car_Model__c.addError('Insufficient access to this field');
+                    cs.Car_Model__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.EU_VIN__c !=oldValcase.get(cs.id).EU_VIN__c)
                 {
-                    cs.EU_VIN__c.addError('Insufficient access to this field');
+                    cs.EU_VIN__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Vehicle_Model__c !=oldValcase.get(cs.id).Vehicle_Model__c)
                 {
-                    cs.Vehicle_Model__c.addError('Insufficient access to this field');
+                    cs.Vehicle_Model__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Vehicle_Class__c !=oldValcase.get(cs.id).Vehicle_Class__c)
                 {
-                    cs.Vehicle_Class__c.addError('Insufficient access to this field');
+                    cs.Vehicle_Class__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.CarBrandOne__c !=oldValcase.get(cs.id).CarBrandOne__c)
                 {
-                    cs.CarBrandOne__c.addError('Insufficient access to this field');
+                    cs.CarBrandOne__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Car_Remarks__c !=oldValcase.get(cs.id).Car_Remarks__c)
                 {
-                    cs.Car_Remarks__c.addError('Insufficient access to this field');
+                    cs.Car_Remarks__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.CarModelOne__c !=oldValcase.get(cs.id).CarModelOne__c)
                 {
-                    cs.CarModelOne__c.addError('Insufficient access to this field');
+                    cs.CarModelOne__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.CarModelTwo__c !=oldValcase.get(cs.id).CarModelTwo__c)
                 {
-                    cs.CarModelTwo__c.addError('Insufficient access to this field');
+                    cs.CarModelTwo__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.CarModelThree__c !=oldValcase.get(cs.id).CarModelThree__c)
                 {
-                    cs.CarModelThree__c.addError('Insufficient access to this field');
+                    cs.CarModelThree__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.CarClassOne__c !=oldValcase.get(cs.id).CarClassOne__c)
                 {
-                    cs.CarClassOne__c.addError('Insufficient access to this field');
+                    cs.CarClassOne__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.CarClassTwo__c !=oldValcase.get(cs.id).CarClassTwo__c)
                 {
-                    cs.CarClassTwo__c.addError('Insufficient access to this field');
+                    cs.CarClassTwo__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.CarClassThree__c !=oldValcase.get(cs.id).CarClassThree__c)
                 {
-                    cs.CarClassThree__c.addError('Insufficient access to this field');
+                    cs.CarClassThree__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Repeat_Complaint_Times__c !=oldValcase.get(cs.id).Repeat_Complaint_Times__c)
                 {
-                    cs.Repeat_Complaint_Times__c.addError('Insufficient access to this field');
+                    cs.Repeat_Complaint_Times__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Parentid !=oldValcase.get(cs.id).Parentid)
                 {
-                    cs.Parentid.addError('Insufficient access to this field');
+                    cs.Parentid.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Previous_Owner__c !=oldValcase.get(cs.id).Previous_Owner__c)
                 {
-                    cs.Previous_Owner__c.addError('Insufficient access to this field');
+                    cs.Previous_Owner__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Risk_classification__c !=oldValcase.get(cs.id).Risk_classification__c)
                 {
-                    cs.Risk_classification__c.addError('Insufficient access to this field');
+                    cs.Risk_classification__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Critical_Complaint__c !=oldValcase.get(cs.id).Critical_Complaint__c)
                 {
-                    cs.Critical_Complaint__c.addError('Insufficient access to this field');
+                    cs.Critical_Complaint__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Related_Department__c !=oldValcase.get(cs.id).Related_Department__c)
                 {
-                    cs.Related_Department__c.addError('Insufficient access to this field');
+                    cs.Related_Department__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Number_of_Customer_Visits__c !=oldValcase.get(cs.id).Number_of_Customer_Visits__c)
                 {
-                    cs.Number_of_Customer_Visits__c.addError('Insufficient access to this field');
+                    cs.Number_of_Customer_Visits__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Improvement_Department__c !=oldValcase.get(cs.id).Improvement_Department__c)
                 {
-                    cs.Improvement_Department__c.addError('Insufficient access to this field');
+                    cs.Improvement_Department__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Recall_ID__c !=oldValcase.get(cs.id).Recall_ID__c)
                 {
-                    cs.Recall_ID__c.addError('Insufficient access to this field');
+                    cs.Recall_ID__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_Dealer_User__c !=oldValcase.get(cs.id).Case_Dealer_User__c)
                 {
-                    cs.Case_Dealer_User__c.addError('Insufficient access to this field');
+                    cs.Case_Dealer_User__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Feedback_to_CAC_New__c !=oldValcase.get(cs.id).Feedback_to_CAC_New__c)
                 {
-                    cs.Feedback_to_CAC_New__c.addError('Insufficient access to this field');
+                    cs.Feedback_to_CAC_New__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Feedback_Read__c !=oldValcase.get(cs.id).Feedback_Read__c)
                 {
-                    cs.Feedback_Read__c.addError('Insufficient access to this field');
+                    cs.Feedback_Read__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Dealer_Feedback__c !=oldValcase.get(cs.id).Dealer_Feedback__c)
                 {
-                    cs.Dealer_Feedback__c.addError('Insufficient access to this field');
+                    cs.Dealer_Feedback__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Feedback_Required__c !=oldValcase.get(cs.id).Feedback_Required__c)
                 {
-                    cs.Feedback_Required__c.addError('Insufficient access to this field');
+                    cs.Feedback_Required__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Feedback_Date__c !=oldValcase.get(cs.id).Feedback_Date__c)
                 {
-                    cs.Feedback_Date__c.addError('Insufficient access to this field');
+                    cs.Feedback_Date__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.TL_Reviewed__c !=oldValcase.get(cs.id).TL_Reviewed__c)
                 {
-                    cs.TL_Reviewed__c.addError('Insufficient access to this field');
+                    cs.TL_Reviewed__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Campaign__c !=oldValcase.get(cs.id).Campaign__c)
                 {
-                    cs.Campaign__c.addError('Insufficient access to this field');
+                    cs.Campaign__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Submit_to_public_solutions__c !=oldValcase.get(cs.id).Submit_to_public_solutions__c)
                 {
-                    cs.Submit_to_public_solutions__c.addError('Insufficient access to this field');
+                    cs.Submit_to_public_solutions__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Knowledge_Complete_Flag__c !=oldValcase.get(cs.id).Knowledge_Complete_Flag__c)
                 {
-                    cs.Knowledge_Complete_Flag__c.addError('Insufficient access to this field');
+                    cs.Knowledge_Complete_Flag__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Customer_Care_Owner__c !=oldValcase.get(cs.id).Customer_Care_Owner__c)
                 {
-                    cs.Customer_Care_Owner__c.addError('Insufficient access to this field');
+                    cs.Customer_Care_Owner__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Approver__c !=oldValcase.get(cs.id).Approver__c)
                 {
-                    cs.Approver__c.addError('Insufficient access to this field');
+                    cs.Approver__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Ref_No_Central__c !=oldValcase.get(cs.id).Ref_No_Central__c)
                 {
-                    cs.Ref_No_Central__c.addError('Insufficient access to this field');
+                    cs.Ref_No_Central__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Customer_Statement__c !=oldValcase.get(cs.id).Customer_Statement__c)
                 {
-                    cs.Customer_Statement__c.addError('Insufficient access to this field');
+                    cs.Customer_Statement__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.MPC_Internal_Notes__c !=oldValcase.get(cs.id).MPC_Internal_Notes__c)
                 {
-                    cs.MPC_Internal_Notes__c.addError('Insufficient access to this field');
+                    cs.MPC_Internal_Notes__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Description !=oldValcase.get(cs.id).Description)
                 {
-                    cs.Description.addError('Insufficient access to this field');
+                    cs.Description.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.PR_Comment_for_Dealer__c !=oldValcase.get(cs.id).PR_Comment_for_Dealer__c)
                 {
-                    cs.PR_Comment_for_Dealer__c.addError('Insufficient access to this field');
+                    cs.PR_Comment_for_Dealer__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.RecordTypeId !=oldValcase.get(cs.id).RecordTypeId)
                 {
-                    cs.RecordTypeId.addError('Insufficient access to this field');
+                    cs.RecordTypeId.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Origin !=oldValcase.get(cs.id).Origin)
                 {
-                    cs.Origin.addError('Insufficient access to this field');
+                    cs.Origin.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Data_Source__c !=oldValcase.get(cs.id).Data_Source__c)
                 {
-                    cs.Data_Source__c.addError('Insufficient access to this field');
+                    cs.Data_Source__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
               }
                if((rolename == 'Call Center Supervisor' || rolename == 'Manager') && cs.Ownerid != userids && cs.MD__c=='KR' && (cs.RecordTypeId == caseMBRecordTypeId || cs.RecordTypeId == caseInqRecordTypeId))
