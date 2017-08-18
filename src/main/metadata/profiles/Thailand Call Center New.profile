@@ -9725,9 +9725,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.DescriptionOne__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -26763,6 +26763,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Case.Inquiry</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -27219,7 +27220,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle__c.MB</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

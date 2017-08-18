@@ -397,6 +397,8 @@ public with sharing class AddressHelperJP {
               {
                   for(Vehicle_Relationship__c vr:listVr)
                   {
+				   if(vr.vehicle_address__c == add.id)
+				  {
                       if(   add.Address_Type__c == '')
                       {
                             vr.vehicle_address_picklist__c = '';
@@ -470,7 +472,7 @@ public with sharing class AddressHelperJP {
                            
                            UpdateVrs.put(vr.id,Vr);
                         }
-                      
+                      }
                   }
               }
           }
