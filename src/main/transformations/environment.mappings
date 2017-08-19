@@ -32,8 +32,6 @@ dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7,srira
 dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
 dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev1
 
-
-
 #kernel PROD org
 kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com
 kernel_prod_2=raghuprasad.halakere.ntt@kernel.daimler-apac.com
@@ -70,12 +68,10 @@ dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
 dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
-dev_sb_asiaDevTh4=pavankumar_d01@infosys.com.asiadevth4,dhanamjaya.d@infosys.com.asiadevth4
 
 # Asia Korea Dev Sandboxes
 dev_sb_asia_dev11=
 dev_sb_asia_MBKKMgmt=shirish.kulkarni@mbj.daimler-apac.com.mbkmgmt
-
 
 # Asia MBKphase2 sandbox
 dev_sb_asia_mbkph2sb=psm@nttdata.com.mbkph2sb,sudhir.a@nttdata.com.mbkph2sb
@@ -89,7 +85,6 @@ dev_sb_Init_Load=deployment.user@mbj.daimler-apac.com.initload
 #Stage Org K7.0
 dev_sb_asia_Stage7=deployment.user@mbj.daimler-apac.com.staging
 
-
 # ASIA TH development
 CIThailand=pavankumar_01@infosys.com.cithailand
 dev_sb_asia_uatth=karthik_chakrapani@infosys.com.uatth
@@ -99,3 +94,4 @@ dev_sb_asiadevth2=mohammedtouseef.a@infosys.com.aisadevth2
 dev_sb_AsiaDevTH3=prabhata_rath@infosys.com.asiadevth3
 dev_sb_asia_uatasia=karthik.chakrapani@daimler.com.uatasia
 dev_asiadevTh1=pavankumar_01@infosys.com.asiadevth1
+dev_sb_asiaDevTh4=dhanamjaya.d@infosys.com.asiadevth4,prabhata_rath@infosys.com.asiadevth4
