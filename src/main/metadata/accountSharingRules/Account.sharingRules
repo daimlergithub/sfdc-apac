@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
-        <fullName>Account_Sharing_Rule_TH</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBTH_Call_Center</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <accountAccessLevel>Edit</accountAccessLevel>
-        <booleanFilter>1</booleanFilter>
-        <caseAccessLevel>None</caseAccessLevel>
-        <contactAccessLevel>Edit</contactAccessLevel>
-        <name>Account Sharing Rule TH</name>
-        <opportunityAccessLevel>None</opportunityAccessLevel>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
         <fullName>Dealer_Account_Edit_Only_for_CRM</fullName>
         <sharedTo>
             <role>MBJ_CRM_Department_Approver</role>
@@ -536,19 +519,20 @@
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>TH_Account_Sharing_ReadAccess</fullName>
+        <fullName>TH_Account_Sharing</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MPC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
-        <accountAccessLevel>Read</accountAccessLevel>
+        <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>None</caseAccessLevel>
-        <contactAccessLevel>Read</contactAccessLevel>
-        <name>TH_Account Sharing_ReadAccess</name>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Sharing all the cases to the all users of Thailand</description>
+        <name>TH Account Sharing</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
