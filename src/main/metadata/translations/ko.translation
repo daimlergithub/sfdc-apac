@@ -1568,6 +1568,10 @@
         <label><!-- Garage information and specifications have you heard --></label>
         <name>Garage_information_and_specifications_have_you_heard</name>
     </customLabels>
+	<customLabels>
+        <label>이 레코드를 삭제할 수 없습니다</label>
+        <name>You_cannot_delete_this_record</name>
+    </customLabels>
     <customLabels>
         <label><!-- Gender --></label>
         <name>Gender</name>
