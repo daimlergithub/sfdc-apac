@@ -1,0 +1,66 @@
+<apex:page standardController="SurveyTaker__c" extensions="SubmitSuveryTaken" id="page1" >
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    <apex:includeScript value="/soap/ajax/28.0/apex.js"/>
+    <script type="text/javascript">
+        
+  function getsurvey()
+  {
+    var surveyid=document.getElementById('page1:form:pb1:pds1:lookupsurvey_lkid').value;
+    myFun(surveyid);
+  }
+  function getvr()
+  {
+   var vrid=document.getElementById('page1:form:pb1:pds1:lookupvehc_lkid').value;
+   myFun1(vrid);
+  }
+    </script>
+  
+  <apex:form id="form">
+  <apex:pageMessages />
+  <apex:actionFunction name="myFun" action="{!getsurvrid}" rerender="pb1">
+  <apex:param name="a" value="" assignTo="{!surveyids}"/>
+</apex:actionFunction>
+<apex:actionFunction name="myFun1" action="{!getsurvrid}" rerender="pb1">
+  <apex:param name="a" value="" assignTo="{!VRids}"/>
+</apex:actionFunction>
+  
+    <div class="bPageTitle"><div class="ptBody"><div class="content"><img src="/img/s.gif" alt="Survey" class="pageTitleIcon" title="Survey"/><h1 class="pageType">Please Take Survey<span class="titleSeparatingColon">:</span></h1><h2 class="pageDescription">Survey</h2><div class="blank">&nbsp;</div></div><div class="links"><a href="javascript:openPopupFocusEscapePounds(%27https://help.salesforce.com/apex/htdoor?loc=help&amp;target=co_edit.htm&amp;section=CustomObjects&amp;language=en_US&amp;release=208.17&amp;instance=CS57%27, %27Help%27, 1024, 768, %27width=1024,height=768,resizable=yes,toolbar=yes,status=yes,scrollbars=yes,menubar=yes,directories=no,location=yes,dependant=no%27, false, false);" title="Help for this Page (New Window)"><span class="helpLink">Help for this Page</span><img src="/img/s.gif" alt="" class="helpIcon"/></a></div></div><div class="ptBreadcrumb"></div></div>
+    <apex:pageBlock id="pb1" rendered="{!showsurveysel}">
+      <apex:pageBlockSection id="pds1">
+        <apex:inputField value="{!SurveyTaker__c.Survey__c}" id="lookupsurvey" required="true" onchange="getsurvey()" />
+        <apex:inputField value="{!SurveyTaker__c.SurveyTakenByVehicle__c}" id="lookupvehc" onchange="getvr()"/>
+        <apex:inputField value="{!SurveyTaker__c.Survey_Taken_Date__c}" id="datef"/>
+      </apex:pageBlockSection>
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Next" action="{!getsurveys}" reRender="form" />
+       <apex:commandButton value="Cancel" action="{!Cancelreturn}" immediate="true"/>
+       </apex:pageBlockButtons>
+    </apex:pageBlock>
+   
+     <apex:pageBlock id="pb2" title="Submit Survey" rendered="{!showquestion}">
+       <apex:pageBlockTable value="{!survey1}" var="res">
+                 <apex:column title="Questions" headerValue="Questions">
+                  <apex:repeat value="{!objectFields}" var="field" >
+                 <b>  <apex:outputField value="{!res[field]}" rendered="{!CONTAINS(field,'question')}" style="font-size:50px;" /></b><br/><br/>
+                 </apex:repeat>
+                 </apex:column>
+                 <apex:column title="Response" headerValue="Response">
+                 <apex:repeat value="{!objectFields}" var="field" >
+                 <apex:inputText value="{!res[field]}" rendered="{!CONTAINS(field,'response') && res[field] == ''}" /><br/>
+                  <b><apex:outputField value="{!res[field]}" rendered="{!CONTAINS(field,'response') && res[field] != ''}" /></b><br/>
+                 </apex:repeat>
+                 </apex:column>
+                 
+                 
+            
+      </apex:pageBlockTable>      
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Previous" action="{!Previous}" reRender="form"/>
+        <apex:commandButton value="Save" action="{!saveandbre}"/>
+        <apex:commandButton value="Cancel" action="{!Cancelreturn}" immediate="true"/>
+       </apex:pageBlockButtons>
+    </apex:pageBlock>
+   
+  </apex:form>
+  
+</apex:page>

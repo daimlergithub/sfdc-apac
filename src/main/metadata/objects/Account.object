@@ -58590,6 +58590,34 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <page>SendAccountInfoToSPO</page>
         <protected>false</protected>
     </webLinks>
+	<webLinks>
+        <fullName>Submit_Survey</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Submit Survey</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+var market = '{!Account.MD__c}';
+if(market == 'KR'){
+	if(typeof(srcUp) == 'function'){
+		if (sforce.console.isInConsole()) {
+			srcUp('/apex/Submit_Survey?accId={!Account.Id}');
+		}else{
+			window.open('/apex/Submit_Survey?accId={!Account.Id}');
+		}
+	} else {
+		window.open("{!URLFOR($Site.Prefix)}/apex/Submit_Survey?accId={!Account.Id}");
+	}
+}
+else
+{
+alert("{!$Label.Check_DuplicatesErrorMsg}");
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Test</fullName>
         <availability>online</availability>
