@@ -53,6 +53,8 @@
                 <apex:inputField id="reqSprtDlr" value="{!Case.Requestor_Supporting_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Supporting dealer',true,false)}">
                     <apex:actionSupport event="onchange" action="{!ReceiverSameAsRequestor}" reRender="rcvSprtDlrId"/>
                 </apex:inputField>
+                <apex:inputField value="{!Case.Communicated_with_Previous_dealer__c}"/>
+                <apex:outputLabel ></apex:outputLabel>
                 <apex:inputField value="{!Case.Requester_Preferred_comm_Channel__c}"/>
                 <apex:inputField value="{!Case.Customer_Address_Type__c}"/>
                 <apex:inputField value="{!Case.Customer_Address__c}" style="width:300px; height:100px"/>
@@ -79,6 +81,7 @@
             
             <apex:pageblockSection title="{!$Label.MBF_Dealer_Suggestion}">
                 <apex:inputField value="{!Case.Already_Contacted_Dealer__c}"/>
+                <apex:outputLabel ></apex:outputLabel>
                 <apex:inputField value="{!Case.Case_Dealer__c}"/>
                 <apex:inputField value="{!Case.Case_Dealer_User__c}"/>
                 <apex:inputField value="{!Case.Share_to_Regional_Office__c}"/>

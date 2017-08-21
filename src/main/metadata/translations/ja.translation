@@ -1575,7 +1575,7 @@
         <name>Enter_VIN_number</name>
     </customLabels>
     <customLabels>
-        <label><!-- Equals --></label>
+        <label>等しい</label>
         <name>Equals</name>
     </customLabels>
     <customLabels>
@@ -1619,7 +1619,7 @@
         <name>Exception_message</name>
     </customLabels>
     <customLabels>
-        <label><!-- Exclude --></label>
+        <label>以外</label>
         <name>Exclude</name>
     </customLabels>
     <customLabels>
@@ -1794,7 +1794,7 @@
         <name>Grand_Total</name>
     </customLabels>
     <customLabels>
-        <label><!-- Greater Than --></label>
+        <label>以上</label>
         <name>Greater_Than</name>
     </customLabels>
 	<customLabels>
@@ -2274,7 +2274,7 @@
         <name>Leagl_Owner</name>
     </customLabels>
     <customLabels>
-        <label><!-- Less Than --></label>
+        <label>以下</label>
         <name>Less_Than</name>
     </customLabels>
     <customLabels>
