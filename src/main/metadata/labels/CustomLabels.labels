@@ -14,6 +14,13 @@
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
     </labels>
+	 <labels>
+        <fullName>Vin_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vin_Number</shortDescription>
+        <value>VIN Number</value>
+    </labels>
 	<labels>
         <fullName>select_criteria</fullName>
         <language>en_US</language>
