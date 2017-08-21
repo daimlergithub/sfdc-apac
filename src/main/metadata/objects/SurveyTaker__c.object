@@ -440,4 +440,32 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <fullName>Survey_Taken_Share__c</fullName>
         <label>Survey Taken Share</label>
     </sharingReasons>
+	<webLinks>
+        <fullName>Submit_Survey</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Submit Survey</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+var market = '{!Account.MD__c}';
+if(market == 'KR'){
+	if(typeof(srcUp) == 'function'){
+		if (sforce.console.isInConsole()) {
+			srcUp('/apex/SubmitSurveyKR?accId={!Account.Id}');
+		}else{
+			window.open('/apex/SubmitSurveyKR?accId={!Account.Id}');
+		}
+	} else {
+		window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?accId={!Account.Id}");
+	}
+}
+else
+{
+alert("{!$Label.Check_DuplicatesErrorMsg}");
+}</url>
+    </webLinks>
 </CustomObject>
