@@ -16,7 +16,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
         {
             if (usr == null)
             {
-                usr = [select id,UserRole.name,Market__c from User where id=:userinfo.getuserId()];
+                usr = [select id,UserRole.name,Profile.Name,Market__c from User where id=:userinfo.getuserId()];
             }
             return usr;
         }
@@ -73,7 +73,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
                 System.debug('Each Case Vehicle type...' +case_Vehicles.Interested_Vehicle__c); 
             }
             system.debug('rolename'+usr.UserRole.name);
-                 if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager') && usr.Market__c=='KR'){
+                 if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && usr.Market__c=='KR'){
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
 
                   }
@@ -548,7 +548,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
                 System.debug('Edit...');
                 Case cse = [Select Id,MD__c,Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
                 system.debug('rolename'+usr.UserRole.name);
-                 if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager') && cse.MD__c == 'KR'){
+                 if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && cse.MD__c == 'KR'){
                   
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
 
