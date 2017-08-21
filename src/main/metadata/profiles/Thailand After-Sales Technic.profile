@@ -186,16 +186,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -25472,15 +25462,15 @@
         <recordType>Task.General_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-IB Call</layout>
+        <layout>Task-MBTH IB Call</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-MBTH IB Call</layout>
         <recordType>Task.IB_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-MBTH OB Call</layout>
         <recordType>Task.OB_Call</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
@@ -27146,7 +27136,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Task.OB_Call</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -27425,14 +27414,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ImportCustomObjects</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>LightningConsoleAllowedForUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>LightningExperienceUser</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
