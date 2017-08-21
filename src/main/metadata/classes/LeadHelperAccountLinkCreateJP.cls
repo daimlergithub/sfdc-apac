@@ -70,7 +70,7 @@ public class LeadHelperAccountLinkCreateJP
      //leadutil.leadAccountDetails = false;  
     }
     
-    @future
+    
     public static void createAccountLinkRecord(set<String> contactId){
         //LeadUtil.leadAccountlnktrigger = false;
         set<String> actlnkids= new set<String>();
