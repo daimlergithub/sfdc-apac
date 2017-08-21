@@ -27,7 +27,7 @@
     <div class="bPageTitle"><div class="ptBody"><div class="content"><img src="/img/s.gif" alt="Survey" class="pageTitleIcon" title="Survey"/><h1 class="pageType">Please Take Survey<span class="titleSeparatingColon">:</span></h1><h2 class="pageDescription">Survey</h2><div class="blank">&nbsp;</div></div><div class="links"><a href="javascript:openPopupFocusEscapePounds(%27https://help.salesforce.com/apex/htdoor?loc=help&amp;target=co_edit.htm&amp;section=CustomObjects&amp;language=en_US&amp;release=208.17&amp;instance=CS57%27, %27Help%27, 1024, 768, %27width=1024,height=768,resizable=yes,toolbar=yes,status=yes,scrollbars=yes,menubar=yes,directories=no,location=yes,dependant=no%27, false, false);" title="Help for this Page (New Window)"><span class="helpLink">Help for this Page</span><img src="/img/s.gif" alt="" class="helpIcon"/></a></div></div><div class="ptBreadcrumb"></div></div>
     <apex:pageBlock id="pb1" rendered="{!showsurveysel}">
       <apex:pageBlockSection id="pds1">
-        <apex:inputField value="{!SurveyTaker__c.Survey__c}" id="lookupsurvey" required="true" onchange="getsurvey()" />
+        <apex:inputField value="{!SurveyTaker__c.Survey__c}" id="lookupsurvey"  onchange="getsurvey()" />
         <apex:inputField value="{!SurveyTaker__c.SurveyTakenByVehicle__c}" id="lookupvehc" onchange="getvr()"/>
         <apex:inputField value="{!SurveyTaker__c.Survey_Taken_Date__c}" id="datef"/>
       </apex:pageBlockSection>
