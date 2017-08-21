@@ -11058,7 +11058,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>문의 및 불만 분류</label>
+        <label>문의 및 불만 대분류</label>
         <name>MBK_Case_Type__c</name>
         <picklistValues>
             <masterLabel>AD Sale</masterLabel>
