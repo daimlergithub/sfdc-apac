@@ -46,7 +46,7 @@
                  </apex:column>
                  <apex:column title="Response" headerValue="Response">
                  <apex:repeat value="{!objectFields}" var="field" >
-                 <apex:inputText value="{!res[field]}" rendered="{!CONTAINS(field,'response') && res[field] == ''}" /><br/>
+                 <apex:inputTextarea value="{!res[field]}" rendered="{!CONTAINS(field,'response') && res[field] == ''}" /><br/>
                   <b><apex:outputField value="{!res[field]}" rendered="{!CONTAINS(field,'response') && res[field] != ''}" /></b><br/>
                  </apex:repeat>
                  </apex:column>
