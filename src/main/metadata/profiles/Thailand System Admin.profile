@@ -186,16 +186,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -25472,7 +25462,7 @@
         <recordType>Task.General_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-IB Call</layout>
+        <layout>Task-MBTH IB Call</layout>
         <recordType>Task.IB_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -27075,7 +27065,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Retail_Task__c.Contract</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -27156,7 +27145,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Task.OB_Call</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
