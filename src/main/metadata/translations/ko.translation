@@ -100,6 +100,10 @@
         <label><!-- A6 Contact as part of visiting a car dealership --></label>
         <name>A6_Contact_as_part_of_visiting_a_car_dealership</name>
     </customLabels>
+	<customLabels>
+        <label>CaseComment를 삭제할 수 없습니다</label>
+        <name>You_cannot_Delete_CaseComment</name>
+    </customLabels>
     <customLabels>
         <label><!-- A6  Email --></label>
         <name>A6_Email</name>

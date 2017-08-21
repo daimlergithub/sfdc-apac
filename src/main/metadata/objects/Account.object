@@ -625,16 +625,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>CreatedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CreatedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Customer_LastUpdatedDate__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1420,26 +1410,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>CreatedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CreatedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Customer_LastUpdatedDate__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1934,26 +1904,6 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <displayedFields>
-            <field>CreatedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CreatedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
         <label>AccountMergeReadonlyCompany</label>
     </fieldSets>
     <fieldSets>
@@ -2166,26 +2116,6 @@
         </displayedFields>
         <displayedFields>
             <field>Email_Last_Modified_Date3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CreatedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CreatedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedDate</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -58659,6 +58589,34 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <openType>noSidebar</openType>
         <page>SendAccountInfoToSPO</page>
         <protected>false</protected>
+    </webLinks>
+	<webLinks>
+        <fullName>Submit_Survey</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Submit Survey</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+var market = '{!Account.MD__c}';
+if(market == 'KR'){
+	if(typeof(srcUp) == 'function'){
+		if (sforce.console.isInConsole()) {
+			srcUp('/apex/Submit_Survey?accId={!Account.Id}');
+		}else{
+			window.open('/apex/Submit_Survey?accId={!Account.Id}');
+		}
+	} else {
+		window.open("{!URLFOR($Site.Prefix)}/apex/Submit_Survey?accId={!Account.Id}");
+	}
+}
+else
+{
+alert("{!$Label.Check_DuplicatesErrorMsg}");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Test</fullName>

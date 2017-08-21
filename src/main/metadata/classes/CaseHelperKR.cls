@@ -94,13 +94,15 @@ public class CaseHelperKR
       Id caseInqRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
       Id userids=userinfo.getUserId();
        Id roleId=userinfo.getUserRoleId();
+       Id profileId=userinfo.getProfileId();
        String rolename=[Select Id,Name from UserRole where Id=:roleId].Name;
+       String profilename=[Select Id,Name from UserRole where Id=:profileId].Name;
        system.debug('RoleName::'+rolename);
        if(trigger.isBefore && trigger.isUpdate)
        {
          for(case cs: LstnewCase)
             { 
-              if(rolename == 'Call Center Operator' && cs.Ownerid != userids && cs.MD__c=='KR' && (cs.RecordTypeId == caseMBRecordTypeId || cs.RecordTypeId == caseInqRecordTypeId))
+              if((rolename == 'Call Center Operator' || profilename == 'MBK CCC Retail Operator') && cs.Ownerid != userids && cs.MD__c=='KR' && (cs.RecordTypeId == caseMBRecordTypeId || cs.RecordTypeId == caseInqRecordTypeId))
               {
                 if(cs.AccountId !=oldValcase.get(cs.id).AccountId || cs.Other_Type_Comments__c !=oldValcase.get(cs.id).Other_Type_Comments__c || cs.Subject !=oldValcase.get(cs.id).Subject || cs.Case_Class__c !=oldValcase.get(cs.id).Case_Class__c || cs.Case_Type__c !=oldValcase.get(cs.id).Case_Type__c || cs.Case_SubType__c !=oldValcase.get(cs.id).Case_SubType__c || cs.Case_SubSubType__c !=oldValcase.get(cs.id).Case_SubSubType__c || 
                 cs.Case_Situation__c !=oldValcase.get(cs.id).Case_Situation__c || cs.Case_Department__c !=oldValcase.get(cs.id).Case_Department__c || cs.Customer_Request__c !=oldValcase.get(cs.id).Customer_Request__c || cs.Response_Type__c !=oldValcase.get(cs.id).Response_Type__c || cs.Contact !=oldValcase.get(cs.id).Contact || cs.Requires_Dealer_Contact__c !=oldValcase.get(cs.id).Requires_Dealer_Contact__c || 
@@ -422,7 +424,7 @@ public class CaseHelperKR
                     cs.Data_Source__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
               }
-               if((rolename == 'Call Center Supervisor' || rolename == 'Manager') && cs.Ownerid != userids && cs.MD__c=='KR' && (cs.RecordTypeId == caseMBRecordTypeId || cs.RecordTypeId == caseInqRecordTypeId))
+               if((rolename == 'Call Center Supervisor' || rolename == 'Manager' || profilename == 'MBK CCC Retail - Manager') && cs.Ownerid != userids && cs.MD__c=='KR' && (cs.RecordTypeId == caseMBRecordTypeId || cs.RecordTypeId == caseInqRecordTypeId))
               {
                 if(cs.ContactId !=oldValcase.get(cs.id).ContactId || cs.AccountId !=oldValcase.get(cs.id).AccountId || cs.Case_Class__c !=oldValcase.get(cs.id).Case_Class__c || cs.Case_Type__c !=oldValcase.get(cs.id).Case_Type__c || cs.Case_SubType__c !=oldValcase.get(cs.id).Case_SubType__c || cs.Perferred_Contact_Email__c !=oldValcase.get(cs.id).Perferred_Contact_Email__c || cs.Product_Quality_Category__c !=oldValcase.get(cs.id).Product_Quality_Category__c ||
                 cs.Priority !=oldValcase.get(cs.id).Priority || cs.Share_to_Regional_Office__c !=oldValcase.get(cs.id).Share_to_Regional_Office__c || cs.Handling_Level__c !=oldValcase.get(cs.id).Handling_Level__c || cs.Data_Source__c !=oldValcase.get(cs.id).Data_Source__c || cs.Data_Subsource__c !=oldValcase.get(cs.id).Data_Subsource__c || cs.Complaint_Creator_Department__c !=oldValcase.get(cs.id).Complaint_Creator_Department__c || cs.Subject !=oldValcase.get(cs.id).Subject ||

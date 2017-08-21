@@ -35,19 +35,14 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
         
         Map<Id,Lead__c> updateLeadMap = new Map<id,Lead__c>();
         Map<Lead__c, List<User>> leadAssignedDealerUserMap = new Map<Lead__c, List<User>>();
-        Map<Lead__c, Map<String, String>> leadAssignedDealers = new Map<Lead__c, Map<String, String>>();
         Map<Lead__c, List<User>> leadAssignedDealerRecipients = new Map<Lead__c, List<User>>();
-        Map<User, Map<String, List<Lead__c>>> leadAssignedMailRecipientMap = new Map<User, Map<String, List<Lead__c>>>();
+        Map<User, Map<String, Set<Lead__c>>> leadAssignedMailRecipientMap = new Map<User, Map<String, Set<Lead__c>>>();
         Set<String> assignedDealerNDCodes = new Set<String>();
         Set<String> assignedDealerGCCodes = new Set<String>();
         
         for(Lead__c led : Scope){
             assignedDealerGCCodes.add(led.Assigned_Dealer__r.Dealer_GC_Code__c);
             assignedDealerNDCodes.add(led.Assigned_Dealer__r.Dealer_ND_Code__c);
-            
-            Map<String, String> GcNdMap = new Map<String, String>();
-            GcNdMap.put(led.Assigned_Dealer__r.Name, led.Assigned_Dealer__r.Dealer_GC_Code__c);
-            leadAssignedDealers.put(led, GcNdMap);
 			led.Lead_Assignment_Notification_Done__c = true;
             updateLeadMap.put(led.id,led);
         }
@@ -63,27 +58,23 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
             leadAssignedDealerUserMap.put(led, userList);
         }
         
-        List<User> userGccodeRecords = [Select id,Name,email,Market__c,Dealer_GC_Code__c,Notification_Lead_Not_Assigned__c from User where IsActive = True and Profile.Name = 'Japan Dealer Company Manager' and Dealer_GC_Code__c IN : assignedDealerGCCodes];
+        List<User> userGccodeRecords = [Select id,Name,email,Market__c,Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User where IsActive = True and Dealer_GC_Code__c IN : assignedDealerGCCodes];
         
-        for (Lead__c lid: leadAssignedDealers.keySet()) {
+        for (Lead__c led: Scope) {
             List<User> leadAssignedDealerRecipientsList = new List<User>();
             for (User u: userGccodeRecords) {
-                if (leadAssignedDealers.get(lid) != null){
-                    for (String assignedDealerName: leadAssignedDealers.get(lid).keySet()){
-                        if (u.Dealer_GC_Code__c == leadAssignedDealers.get(lid).get(assignedDealerName)){
-                            if (u.Notification_Lead_Not_Assigned__c != Null){
-                                List<String> outletNameList = u.Notification_Lead_Not_Assigned__c.split(';');
-                                for (String outletName: outletNameList){
-                                    if (outletName == assignedDealerName){
-                                        leadAssignedDealerRecipientsList.add(u);
-                                    }
-                                }
+                if (u.Dealer_GC_Code__c == led.Assigned_Dealer__r.Dealer_GC_Code__c){
+                    if (u.Notification_Lead_Dealer_Assignment__c != Null){
+                        List<String> outletNameList = u.Notification_Lead_Dealer_Assignment__c.split(';');
+                        for (String outletName: outletNameList){
+                            if (outletName == led.Assigned_Dealer__r.Name){
+                                leadAssignedDealerRecipientsList.add(u);
                             }
                         }
                     }
                 }
             }
-            leadAssignedDealerRecipients.put(lid, leadAssignedDealerRecipientsList);
+            leadAssignedDealerRecipients.put(led, leadAssignedDealerRecipientsList);
         }
         
         for (Lead__c led: leadAssignedDealerUserMap.keySet()){
@@ -92,15 +83,15 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
                     if(leadAssignedMailRecipientMap.get(u).containsKey(led.Assigned_Dealer__r.Name)){
                         leadAssignedMailRecipientMap.get(u).get(led.Assigned_Dealer__r.Name).add(led);
                     } else{
-                        List<Lead__c> leadList = new List<Lead__c>();
-                    	leadList.add(led);
-                        leadAssignedMailRecipientMap.get(u).put(led.Assigned_Dealer__r.Name, leadList);
+                        Set<Lead__c> leadSet = new Set<Lead__c>();
+                    	leadSet.add(led);
+                        leadAssignedMailRecipientMap.get(u).put(led.Assigned_Dealer__r.Name, leadSet);
                     }
                 } else {
-                    List<Lead__c> leadList = new List<Lead__c>();
-                    leadList.add(led);
-                    Map<String, List<Lead__c>> leadMap = new Map<String, List<Lead__c>>();
-                    leadMap.put(led.Assigned_Dealer__r.Name, leadList);
+                    Set<Lead__c> leadSet = new Set<Lead__c>();
+                    leadSet.add(led);
+                    Map<String, Set<Lead__c>> leadMap = new Map<String, Set<Lead__c>>();
+                    leadMap.put(led.Assigned_Dealer__r.Name, leadSet);
                     leadAssignedMailRecipientMap.put(u, leadMap);
                 }
             }
@@ -112,15 +103,15 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
                     if(leadAssignedMailRecipientMap.get(u).containsKey(led.Assigned_Dealer__r.Name)){
                         leadAssignedMailRecipientMap.get(u).get(led.Assigned_Dealer__r.Name).add(led);
                     } else{
-                        List<Lead__c> leadList = new List<Lead__c>();
-                    	leadList.add(led);
-                        leadAssignedMailRecipientMap.get(u).put(led.Assigned_Dealer__r.Name, leadList);
+                        Set<Lead__c> leadSet = new Set<Lead__c>();
+                    	leadSet.add(led);
+                        leadAssignedMailRecipientMap.get(u).put(led.Assigned_Dealer__r.Name, leadSet);
                     }
                 } else {
-                    List<Lead__c> leadList = new List<Lead__c>();
-                    leadList.add(led);
-                    Map<String, List<Lead__c>> leadMap = new Map<String, List<Lead__c>>();
-                    leadMap.put(led.Assigned_Dealer__r.Name, leadList);
+                    Set<Lead__c> leadSet = new Set<Lead__c>();
+                    leadSet.add(led);
+                    Map<String, Set<Lead__c>> leadMap = new Map<String, Set<Lead__c>>();
+                    leadMap.put(led.Assigned_Dealer__r.Name, leadSet);
                     leadAssignedMailRecipientMap.put(u, leadMap);
                 }
             }
@@ -133,7 +124,7 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
         
     } 
     //SENDING EMAILS TO SALES MANAGERS  
-    public void sendMail(Map<User, Map<String, List<Lead__c>>> leadAssignedMailRecipientMap){        
+    public void sendMail(Map<User, Map<String, Set<Lead__c>>> leadAssignedMailRecipientMap){        
         
         List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
         EmailTemplate e = [select id,name,DeveloperName, HtmlValue, Subject from EmailTemplate WHERE DeveloperName = 'Lead_assignment_to_outlet_batch_version' limit 1];
@@ -149,12 +140,12 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
                         String emailHtmlBody = e.HtmlValue;
                         emailHtmlBody = emailHtmlBody.replace('{DealerOutletName}', outletName);
                         
-                        List<Lead__c> leadList = leadAssignedMailRecipientMap.get(u).get(outletName);
-                        emailHtmlBody = emailHtmlBody.replace('{NumberOfLeads}', String.valueOf(leadList.size()));
+                        Set<Lead__c> leadSet = leadAssignedMailRecipientMap.get(u).get(outletName);
+                        emailHtmlBody = emailHtmlBody.replace('{NumberOfLeads}', String.valueOf(leadSet.size()));
                         
                         String leadURLList = '';
                         
-                        for (Lead__c led: leadList){
+                        for (Lead__c led: leadSet){
                             leadURLList = leadURLList + '<a href="' + Label.Dealer_login_Url + '/' + led.Id + '">' + Label.Dealer_login_Url + '/' + led.Id + '</a><br>';
                         }
                         
