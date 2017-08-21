@@ -32,9 +32,9 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
         system.debug('Lead Scope :'+Scope);
         
         Map<Id,Lead__c> updateLeadMap = new Map<id,Lead__c>();
-        Map<Id, List<User>> leadAssignedDealerUserMap = new Map<Id, List<User>>();
+        Map<Id, Set<User>> leadAssignedDealerUserMap = new Map<Id, Set<User>>();
         Map<Id, Map<String, String>> leadAssignedDealers = new Map<Id, Map<String, String>>();
-        Map<Id, List<User>> leadAssignedDealerRecipients = new Map<Id, List<User>>();
+        Map<Id, Set<User>> leadAssignedDealerRecipients = new Map<Id, Set<User>>();
         Set<String> assignedDealerNDCodes = new Set<String>();
         Set<String> assignedDealerGCCodes = new Set<String>();
         
@@ -51,19 +51,19 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
         List<User> userNdcodeRecords = [Select id,Name,email,Market__c,Dealer_GC_Code__c,Dealer_ND_Code__c from User where IsActive = True and Profile.Name IN ('Japan Dealer Sales Manager','Japan Dealer Sales Representative','Japan Dealer Service Advisor','Japan Dealer Service Manager') and Dealer_ND_Code__c IN :assignedDealerNDCodes];
         
         for (Lead__c led : Scope){
-            List<User> userList = new List<User>();
+            Set<User> userSet = new Set<User>();
             for (User u: userNdcodeRecords){
                 if (led.Assigned_Dealer__r.Dealer_ND_Code__c == u.Dealer_ND_Code__c){
-                    userList.add(u);
+                    userSet.add(u);
                 }
             }
-            leadAssignedDealerUserMap.put(led.Id, userList);
+            leadAssignedDealerUserMap.put(led.Id, userSet);
         }
         
-        List<User> userGccodeRecords = [Select id,Name,email,Market__c,Dealer_GC_Code__c,Notification_Lead_Not_Assigned__c from User where IsActive = True and Profile.Name = 'Japan Dealer Company Manager' and Dealer_GC_Code__c IN : assignedDealerGCCodes];
+        List<User> userGccodeRecords = [Select id,Name,email,Market__c,Dealer_GC_Code__c,Notification_Lead_Not_Assigned__c from User where IsActive = True and Dealer_GC_Code__c IN : assignedDealerGCCodes];
         
         for (Id lid: leadAssignedDealers.keySet()) {
-            List<User> leadAssignedDealerRecipientsList = new List<User>();
+            Set<User> leadAssignedDealerRecipientsSet = new Set<User>();
             for (User u: userGccodeRecords) {
                 for (String assignedDealerName: leadAssignedDealers.get(lid).keySet()){
                     if (u.Dealer_GC_Code__c == leadAssignedDealers.get(lid).get(assignedDealerName)){
@@ -71,23 +71,32 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
                             List<String> outletNameList = u.Notification_Lead_Not_Assigned__c.split(';');
                             for (String outletName: outletNameList){
                                 if (outletName == assignedDealerName){
-                                    leadAssignedDealerRecipientsList.add(u);
+                                    leadAssignedDealerRecipientsSet.add(u);
                                 }
                             }
                         }
                     }
                 }
             }
-            leadAssignedDealerRecipients.put(lid, leadAssignedDealerRecipientsList);
+            leadAssignedDealerRecipients.put(lid, leadAssignedDealerRecipientsSet);
         }
         
-        sendMail(leadAssignedDealerUserMap,leadAssignedDealerRecipients );
+        for (Id lid: leadAssignedDealerUserMap.keySet()){
+            if (leadAssignedDealerRecipients.containsKey(lid)){
+                leadAssignedDealerUserMap.get(lid).addAll(leadAssignedDealerRecipients.get(lid));
+                leadAssignedDealerRecipients.remove(lid);
+            }
+        }
+        
+        leadAssignedDealerUserMap.putAll(leadAssignedDealerRecipients);
+        
+        sendMail(leadAssignedDealerUserMap );
         if(updateLeadMap.size() > 0){
             update updateLeadMap.values();
         }
     } 
     //SENDING EMAILS TO SALES MANAGERS  
-    public void sendMail(Map<Id, List<User>> leadAssignedDealerUserMap,Map<Id, List<User>> leadAssignedDealerRecipients){        
+    public void sendMail(Map<Id, Set<User>> leadAssignedDealerUserMap){        
         
         List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
         EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead assignment to dealer outlet for unassigned' limit 1];
@@ -109,25 +118,7 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
                 }
             }
         }
-        
-        for(Id lid : leadAssignedDealerRecipients.keySet()){
-            for (User u: leadAssignedDealerRecipients.get(lid)) {
-                if (u.Id != null){
-                    Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-                    mail.saveAsActivity = false;
-                    mail.setTargetObjectId(u.Id);
-                    mail.setTemplateId(e.Id);
-                    if (u.Market__c == 'JP'){
-                        mail.setCharset('JIS');
-                    }
-                    mail.setUseSignature(false);
-                    mail.setWhatId(lid);
-                    mail.setSaveAsActivity(false);
-                    mails.add(mail); 
-                }
-            }
-        }
-        
+                
         Messaging.sendEmail(mails);
         
     }
