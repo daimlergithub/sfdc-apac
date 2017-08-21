@@ -712,7 +712,7 @@ public class CaseHelperKR
                 { 
                   if((rolename == 'Call Center Operator' || profilename == 'MBK CCC Retail - Manager' || rolename == 'Manager' ||rolename == 'Call Center Supervisor' || profilename == 'MBK CCC Retail Operator') && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == LeadsalesRecordTypeId || ld.RecordTypeId == LeadAftersalesRecordTypeId))
                       {
-					    ld.addError(system.label.You_cannot_delete_this_record);
+					    cs.addError(system.label.You_cannot_delete_this_record);
 					  }
 					  }
 		   }
