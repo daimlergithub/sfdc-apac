@@ -710,7 +710,7 @@ public class CaseHelperKR
 		   {
 		    for(case cs: LstnewCase)
                 { 
-                  if((rolename == 'Call Center Operator' || profilename == 'MBK CCC Retail - Manager' || rolename == 'Manager' ||rolename == 'Call Center Supervisor' || profilename == 'MBK CCC Retail Operator') && cs.Ownerid != userids && cs.MD__c=='KR' && (cs.RecordTypeId == caseMBRecordTypeId || cs.RecordTypeId == caseInqRecordTypeId)))
+                  if((rolename == 'Call Center Operator' || profilename == 'MBK CCC Retail - Manager' || rolename == 'Manager' ||rolename == 'Call Center Supervisor' || profilename == 'MBK CCC Retail Operator') && cs.Ownerid != userids && cs.MD__c=='KR' && (cs.RecordTypeId == caseMBRecordTypeId || cs.RecordTypeId == caseInqRecordTypeId))
                       {
 					    cs.addError(system.label.You_cannot_delete_this_record);
 					  }
