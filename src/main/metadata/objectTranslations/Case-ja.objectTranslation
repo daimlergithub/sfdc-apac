@@ -6367,6 +6367,10 @@
             <translation>アクセサリ（チャイルドシート/ホイール/フロアマット/ETC）</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Account Admin</masterLabel>
+            <translation>Account Admin(アカウント管理者)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Activities</masterLabel>
             <translation>活動（調査/アンケート）その他</translation>
         </picklistValues>
@@ -6435,6 +6439,10 @@
             <translation>認定中古車保証</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Concierge Service</masterLabel>
+            <translation>コンシェルジュサービス</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Contract campaign</masterLabel>
             <translation>成約キャンペーン</translation>
         </picklistValues>
@@ -6475,12 +6483,24 @@
             <translation>電気システム（エアコン）(Gr83)</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Emergency</masterLabel>
+            <translation>Emergency(緊急)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Engine</masterLabel>
             <translation>エンジン（Gr01～Gr14/Gr18～Gr22/Gr49）</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Entertainment</masterLabel>
+            <translation>Entertainment(娯楽)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Event</masterLabel>
             <translation>活動（イベント）その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hotel</masterLabel>
+            <translation>Hotel(ホテル)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ID/PW check</masterLabel>
@@ -6493,6 +6513,10 @@
         <picklistValues>
             <masterLabel>Insurance</masterLabel>
             <translation>保険会社/調査会社/その他民間協力分　その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leisure</masterLabel>
+            <translation>Leisure(レジャー)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loyalty</masterLabel>
@@ -6531,6 +6555,14 @@
             <translation>メンテナンスプラス</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Map Update</masterLabel>
+            <translation>Map Update(地図アップデート)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation>Medical(医療)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes Care</masterLabel>
             <translation>メルセデス･ケア</translation>
         </picklistValues>
@@ -6539,8 +6571,16 @@
             <translation><!-- Mercedes Trophy Japan --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes-Benz</masterLabel>
+            <translation>Mercedes-Benz(メルセデス・ベンツ正規販売店)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Message to dealer</masterLabel>
             <translation>販売店へ伝言依頼</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile App VHP</masterLabel>
+            <translation>Mobile App VHP(モバイルアプリ VHP)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Monitor campaign</masterLabel>
@@ -6575,12 +6615,20 @@
             <translation>None</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>Other(その他)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Other MBF related</masterLabel>
             <translation><!-- Other MBF related --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Out of MBJ scope request</masterLabel>
             <translation>MBJの責任範囲を超える要求</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parking</masterLabel>
+            <translation>Parking(駐車場)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parts</masterLabel>
@@ -6643,6 +6691,26 @@
             <translation>作業費返金依頼</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Remote Configurations</masterLabel>
+            <translation>Remote Configurations(リモート設定)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remote Parking Pilot</masterLabel>
+            <translation>Remote Parking Pilot(リモートパーキングアシスト)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remote Services</masterLabel>
+            <translation>Remote Services(リモートサービス)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remote Vehicle Status</masterLabel>
+            <translation>Remote Vehicle Status(リモート車両状況確認)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Restaurant</masterLabel>
+            <translation>Restaurant(レストラン)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Retro fit campaign</masterLabel>
             <translation>レトロフィットキャンペーン</translation>
         </picklistValues>
@@ -6655,6 +6723,10 @@
             <translation>サービスネットワーク/サービス工場問合せ</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Shopping</masterLabel>
+            <translation>Shopping(買い物)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Slot pedal</masterLabel>
             <translation>スロットル/ペダル(Gr29/Gr30)</translation>
         </picklistValues>
@@ -6663,8 +6735,20 @@
             <translation>仕様・装備・性能その他</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Sports</masterLabel>
+            <translation>Sports(スポーツ)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Services</masterLabel>
+            <translation>Standard Services(スタンダードサービス)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Steering</masterLabel>
             <translation>舵取装置(Gr46)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Systems Errors</masterLabel>
+            <translation>Systems Errors(システムエラー)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Take car</masterLabel>
@@ -6687,8 +6771,24 @@
             <translation>ツーリングサポートプラス</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Tracking Services</masterLabel>
+            <translation>Tracking Services(トラッキングサービス)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Traffic</masterLabel>
+            <translation>Traffic(交通)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Transmission</masterLabel>
             <translation>トランスミッション（Gr22～Gr28）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel</masterLabel>
+            <translation>Travel(旅行)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Admin</masterLabel>
+            <translation>Vehicle Admin(車両管理)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warrenth and others</masterLabel>
@@ -6699,8 +6799,20 @@
             <translation>保証プラス</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Weather</masterLabel>
+            <translation>Weather(天気)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Website</masterLabel>
             <translation>ウェブサイト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>b-call</masterLabel>
+            <translation>b-call(24時間故障通報サービス)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>e-call</masterLabel>
+            <translation>e-call(24時間緊急通報サービス)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>limitted model</masterLabel>
@@ -7419,6 +7531,34 @@
             <translation><!-- Welcome plan --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>[Concierge Service]Info(Search Info)</masterLabel>
+            <translation>[コンシェルジュサービス]Info (検索情報)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Concierge Service]POI(Positioning Info)</masterLabel>
+            <translation>[コンシェルジュサービス]POI(位置情報)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[Concierge Service]Reservation/Booking</masterLabel>
+            <translation>[コンシェルジュサービス]Reservation/Booking(予約)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[MMC]Others</masterLabel>
+            <translation>[MMC]その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[MMC]Quality</masterLabel>
+            <translation>[MMC]品質・故障耐久性</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[MMC]Specification(Purchase/Information)</masterLabel>
+            <translation>[MMC]仕様・装備・性能（購入検討/情報収集）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>[MMC]Specification(User/Usage)</masterLabel>
+            <translation>[MMC]仕様・装備・性能（実車あり/使用方法）</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>personal</masterLabel>
             <translation>[その他]個人宛</translation>
         </picklistValues>
@@ -7501,6 +7641,10 @@
         <picklistValues>
             <masterLabel>Complain &amp; feedback</masterLabel>
             <translation><!-- Complain &amp; feedback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concierge Service</masterLabel>
+            <translation>コンシェルジュサービス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Consultant Central truck</masterLabel>
@@ -7617,6 +7761,10 @@
         <picklistValues>
             <masterLabel>Maybach</masterLabel>
             <translation><!-- Maybach --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes me connect</masterLabel>
+            <translation>Mercedes me connect</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Network development department</masterLabel>
@@ -8253,12 +8401,24 @@
             <translation>24時間ツーリングサポート</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>24hours Touring Support(b-call)</masterLabel>
+            <translation>24時間ツーリングサポート(b-call)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>3rd party data</masterLabel>
             <translation><!-- 3rd party data --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
             <translation>キャンペーン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concierge Service(Mercedes me App)</masterLabel>
+            <translation>コンシェルジュサービス(Mercedes meアプリ)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concierge Service(i-call)</masterLabel>
+            <translation>コンシェルジュサービス(i-call)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DSC</masterLabel>
@@ -8297,6 +8457,18 @@
             <translation><!-- IB --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Inquiry form(Mercedes me App)</masterLabel>
+            <translation>問合せフォーム(Mercedes meアプリ)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inquiry form(Mercedes me portal)</masterLabel>
+            <translation>問合せフォーム(Mercedes me portal)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inqury(i-call)</masterLabel>
+            <translation>問合せ(i-call)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
         </picklistValues>
@@ -8333,6 +8505,10 @@
             <translation>メルセデス・コール</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes me connect Consultation</masterLabel>
+            <translation>Mercedes me connect相談関連窓口</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
             <translation>メルセデス・ベンツ オーナーホットライン</translation>
         </picklistValues>
@@ -8350,7 +8526,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>My Mercedes</masterLabel>
-            <translation>My Mercedes</translation>
+            <translation>Mercedes me</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>OB</masterLabel>
@@ -12403,6 +12579,10 @@
             <translation>事業開発課</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>CAC</masterLabel>
+            <translation>CAC</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>CEM</masterLabel>
             <translation>カスタマー・エクスペリエンス部</translation>
         </picklistValues>
@@ -12449,6 +12629,10 @@
         <picklistValues>
             <masterLabel>CTL/RC</masterLabel>
             <translation>コスト管理&amp;ICS課</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAG</masterLabel>
+            <translation>DAG</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DCA</masterLabel>
