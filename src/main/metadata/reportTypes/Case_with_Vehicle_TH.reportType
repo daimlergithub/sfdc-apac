@@ -3140,11 +3140,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Preferred_Contact_time__c</field>
-            <table>Vehicle__c.Cases__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Creator_Role__c</field>
             <table>Vehicle__c.Cases__r</table>
         </columns>
