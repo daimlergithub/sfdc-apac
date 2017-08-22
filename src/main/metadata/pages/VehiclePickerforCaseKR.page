@@ -393,7 +393,6 @@
          
          /*this is the new search functionality for searching current vehicle1 and current vehicle 2*/
           $scope.searchcurrentVehiclesForLookup = function(vehicle_type, vin, filter){
-                alert('Filter '+ vehicle_type +' '+ vin +' '+filter);
                 if(filter == undefined || filter == ''){
                     alert('{!$Label.User_Msg}');
                 }else if(vin == undefined || vin == ''){
