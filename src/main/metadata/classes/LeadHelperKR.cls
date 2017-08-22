@@ -44,7 +44,7 @@ public class LeadHelperKR
         }
         if(!leadlist.isEmpty() && leadlist != null)
         {
-        	for(Lead__c leds : leadlist)
+            for(Lead__c leds : leadlist)
             {
                 if(leds.Assigned_Dealer__r.ParentId != null && leds.Assigned_Dealer__r.Dealer_Type__c == 'Outlet')
                 {
@@ -110,7 +110,7 @@ public class LeadHelperKR
         }
         if(!DealerNDCode.isEmpty() && DealerNDCode != null)
         {
-        	grplist = [select id ,Name ,Type from Group where Name IN: DealerNDCode];
+            grplist = [select id ,Name ,Type from Group where Name IN: DealerNDCode];
         }
         for(Group assg:grplist)
         {               
@@ -131,10 +131,9 @@ public class LeadHelperKR
         }              
         Database.SaveResult[] lsr = Database.insert(leadshare,false); 
     }
-	  public static void roleRestrictionForCCC(List<Lead__c> Lstnewlead,Map<Id,Lead__c> oldVallead,Boolean isUpdate,Boolean isDelete)
+      public static void roleRestrictionForCCC(List<Lead__c> Lstnewlead,Map<Id,Lead__c> oldVallead,Boolean isUpdate,Boolean isDelete)
     {
-        Id LeadsalesRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Sales_Leads').getRecordTypeId();
-        Id LeadAftersalesRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Aftersales_Leads').getRecordTypeId();
+        
         Id userids=userinfo.getUserId();
         Id roleId=userinfo.getUserRoleId();
         Id profileId=userinfo.getProfileId();
@@ -144,7 +143,7 @@ public class LeadHelperKR
            {
              for(Lead__c ld : Lstnewlead)
                 { 
-                  if((rolename == 'Call Center Operator' || profilename == 'MBK CCC Retail - Manager') && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == LeadsalesRecordTypeId || ld.RecordTypeId == LeadAftersalesRecordTypeId))
+                  if(profilename == 'MBK CCC Retail - Manager' && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == salesRecordTypeId || ld.RecordTypeId == afterSalesRecordTypeId))
                       {
                         if(ld.Customer_Type__c!=oldVallead.get(ld.id).Customer_Type__c || ld.Contact__c!=oldVallead.get(ld.id).Contact__c || ld.Fax__c!=oldVallead.get(ld.id).Fax__c || ld.Company_Account__c!=oldVallead.get(ld.id).Company_Account__c || ld.Phone__c!=oldVallead.get(ld.id).Phone__c || ld.Lead_Type__c!=oldVallead.get(ld.id).Lead_Type__c || ld.Source_Campaign__c!=oldVallead.get(ld.id).Source_Campaign__c || ld.Vehicle_Need__c!=oldVallead.get(ld.id).Vehicle_Need__c || ld.Vehicle_Need_Text__c!=oldVallead.get(ld.id).Vehicle_Need_Text__c || ld.Dealer_Comments__c!=oldVallead.get(ld.id).Dealer_Comments__c || ld.Case__c!=oldVallead.get(ld.id).Case__c || ld.VehicleRel_No__c!=oldVallead.get(ld.id).VehicleRel_No__c || ld.RecordTypeId!=oldVallead.get(ld.id).RecordTypeId ||
                            ld.CAC_Lead_Status__c!=oldVallead.get(ld.id).CAC_Lead_Status__c || ld.Lead_Latest_Phase__c!=oldVallead.get(ld.id).Lead_Latest_Phase__c || ld.Next_Contact_Customer_Date__c!=oldVallead.get(ld.id).Next_Contact_Customer_Date__c || ld.Lead_Priority__c!=oldVallead.get(ld.id).Lead_Priority__c || ld.Lead_Sub_Type__c!=oldVallead.get(ld.id).Lead_Sub_Type__c || ld.MBK_Lead_DataSource__c!=oldVallead.get(ld.id).MBK_Lead_DataSource__c || ld.Re_visit__c!=oldVallead.get(ld.id).Re_visit__c || ld.Team__c!=oldVallead.get(ld.id).Team__c || ld.Next_Contact__c!=oldVallead.get(ld.id).Next_Contact__c || ld.Visited_Showroom_Date__c!=oldVallead.get(ld.id).Visited_Showroom_Date__c || ld.Order_Placed_Date__c!=oldVallead.get(ld.id).Order_Placed_Date__c || ld.Qualified_Date_Time__c!=oldVallead.get(ld.id).Qualified_Date_Time__c ||
@@ -486,7 +485,7 @@ public class LeadHelperKR
                                 }
                                 
                       }
-                  if((rolename == 'Call Center Supervisor' || profilename == 'MBK CCC Retail Operator' || rolename == 'Manager') && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == LeadsalesRecordTypeId || ld.RecordTypeId == LeadAftersalesRecordTypeId))
+                  if(profilename == 'MBK CCC Retail Operator' && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == salesRecordTypeId || ld.RecordTypeId == afterSalesRecordTypeId))
                       {
                         if(ld.Customer_Type__c!=oldVallead.get(ld.id).Customer_Type__c || ld.Contact__c!=oldVallead.get(ld.id).Contact__c || ld.Fax__c!=oldVallead.get(ld.id).Fax__c || ld.Company_Account__c!=oldVallead.get(ld.id).Company_Account__c || ld.Phone__c!=oldVallead.get(ld.id).Phone__c || ld.Source_Campaign__c!=oldVallead.get(ld.id).Source_Campaign__c || ld.Vehicle_Need__c!=oldVallead.get(ld.id).Vehicle_Need__c || ld.Vehicle_Need_Text__c!=oldVallead.get(ld.id).Vehicle_Need_Text__c || ld.Dealer_Comments__c!=oldVallead.get(ld.id).Dealer_Comments__c || ld.Case__c!=oldVallead.get(ld.id).Case__c || ld.VehicleRel_No__c!=oldVallead.get(ld.id).VehicleRel_No__c || ld.RecordTypeId!=oldVallead.get(ld.id).RecordTypeId ||
                            ld.CAC_Lead_Status__c!=oldVallead.get(ld.id).CAC_Lead_Status__c || ld.Lead_Latest_Phase__c!=oldVallead.get(ld.id).Lead_Latest_Phase__c || ld.Next_Contact_Customer_Date__c!=oldVallead.get(ld.id).Next_Contact_Customer_Date__c || ld.Lead_Priority__c!=oldVallead.get(ld.id).Lead_Priority__c || ld.MBK_Lead_DataSource__c!=oldVallead.get(ld.id).MBK_Lead_DataSource__c || ld.Re_visit__c!=oldVallead.get(ld.id).Re_visit__c || ld.Team__c!=oldVallead.get(ld.id).Team__c || ld.Next_Contact__c!=oldVallead.get(ld.id).Next_Contact__c || ld.Visited_Showroom_Date__c!=oldVallead.get(ld.id).Visited_Showroom_Date__c || ld.Order_Placed_Date__c!=oldVallead.get(ld.id).Order_Placed_Date__c || ld.Qualified_Date_Time__c!=oldVallead.get(ld.id).Qualified_Date_Time__c ||
@@ -829,15 +828,15 @@ public class LeadHelperKR
                       }
                 }
            }
-		   if(trigger.isBefore && trigger.isDelete)
-		   {
-		    for(Lead__c ld : Lstnewlead)
+           if(trigger.isBefore && trigger.isDelete)
+           {
+            for(Lead__c ld : Lstnewlead)
                 { 
-                  if((rolename == 'Call Center Operator' || profilename == 'MBK CCC Retail - Manager' || rolename == 'Manager' ||rolename == 'Call Center Supervisor' || profilename == 'MBK CCC Retail Operator') && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == LeadsalesRecordTypeId || ld.RecordTypeId == LeadAftersalesRecordTypeId))
+                  if((profilename == 'MBK CCC Retail - Manager' || profilename == 'MBK CCC Retail Operator') && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == salesRecordTypeId || ld.RecordTypeId == afterSalesRecordTypeId))
                       {
-					    ld.addError(system.label.You_cannot_delete_this_record);
-					  }
-					  }
-		   }
+                        ld.addError(system.label.You_cannot_delete_this_record);
+                      }
+                      }
+           }
     }
 }
