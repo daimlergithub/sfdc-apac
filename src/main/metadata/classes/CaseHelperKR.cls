@@ -96,7 +96,7 @@ public class CaseHelperKR
        Id roleId=userinfo.getUserRoleId();
        Id profileId=userinfo.getProfileId();
        String rolename=[Select Id,Name from UserRole where Id=:roleId].Name;
-       String profilename=[Select Id,Name from UserRole where Id=:profileId].Name;
+       String profilename=[Select Id,Name from Profile where Id=:profileId].Name;
        system.debug('RoleName::'+rolename);
        if(trigger.isBefore && trigger.isUpdate)
        {
@@ -111,10 +111,10 @@ public class CaseHelperKR
                 cs.MBK_Case_Sub_Type__c !=oldValcase.get(cs.id).MBK_Case_Sub_Type__c || cs.MBK_Case_Type__c !=oldValcase.get(cs.id).MBK_Case_Type__c || cs.Customer_Type__c !=oldValcase.get(cs.id).Customer_Type__c || cs.Car_Type__c !=oldValcase.get(cs.id).Car_Type__c || cs.Dealer_Contact__c !=oldValcase.get(cs.id).Dealer_Contact__c || cs.Customer_Satisfaction__c !=oldValcase.get(cs.id).Customer_Satisfaction__c || 
                 cs.Call_Duration__c !=oldValcase.get(cs.id).Call_Duration__c || cs.SendEmailToGateKeeper__c !=oldValcase.get(cs.id).SendEmailToGateKeeper__c || cs.Vehicle_Brand__c !=oldValcase.get(cs.id).Vehicle_Brand__c || cs.US_VIN__c !=oldValcase.get(cs.id).US_VIN__c || cs.Car_Model__c !=oldValcase.get(cs.id).Car_Model__c || cs.EU_VIN__c !=oldValcase.get(cs.id).EU_VIN__c || cs.Vehicle_Model__c !=oldValcase.get(cs.id).Vehicle_Model__c || 
                 cs.Vehicle_Class__c !=oldValcase.get(cs.id).Vehicle_Class__c || cs.CarBrandOne__c !=oldValcase.get(cs.id).CarBrandOne__c || cs.Car_Remarks__c !=oldValcase.get(cs.id).Car_Remarks__c || cs.CarModelOne__c !=oldValcase.get(cs.id).CarModelOne__c || cs.CarModelTwo__c !=oldValcase.get(cs.id).CarModelTwo__c || cs.CarModelThree__c !=oldValcase.get(cs.id).CarModelThree__c || cs.CarBrandTwo__c !=oldValcase.get(cs.id).CarBrandTwo__c || 
-                cs.CarBrandThree__c !=oldValcase.get(cs.id).CarBrandThree__c || cs.CarClassOne__c !=oldValcase.get(cs.id).CarClassOne__c || cs.CarClassTwo__c !=oldValcase.get(cs.id).CarClassTwo__c || cs.CarClassThree__c !=oldValcase.get(cs.id).CarClassThree__c || cs.Repeat_Complaint_Times__c !=oldValcase.get(cs.id).Repeat_Complaint_Times__c || cs.Parentid !=oldValcase.get(cs.id).Parentid || cs.Previous_Owner__c !=oldValcase.get(cs.id).Previous_Owner__c || 
+                cs.CarBrandThree__c !=oldValcase.get(cs.id).CarBrandThree__c || cs.CarClassOne__c !=oldValcase.get(cs.id).CarClassOne__c || cs.CarClassTwo__c !=oldValcase.get(cs.id).CarClassTwo__c || cs.CarClassThree__c !=oldValcase.get(cs.id).CarClassThree__c || cs.Repeat_Complaint_Times__c !=oldValcase.get(cs.id).Repeat_Complaint_Times__c || cs.Parentid !=oldValcase.get(cs.id).Parentid || 
                 cs.Risk_classification__c !=oldValcase.get(cs.id).Risk_classification__c || cs.Critical_Complaint__c !=oldValcase.get(cs.id).Critical_Complaint__c || cs.Related_Department__c !=oldValcase.get(cs.id).Related_Department__c || cs.Number_of_Customer_Visits__c !=oldValcase.get(cs.id).Number_of_Customer_Visits__c || cs.Improvement_Department__c !=oldValcase.get(cs.id).Improvement_Department__c || cs.Recall_ID__c !=oldValcase.get(cs.id).Recall_ID__c || 
                 cs.Case_Dealer_User__c !=oldValcase.get(cs.id).Case_Dealer_User__c || cs.Feedback_to_CAC_New__c !=oldValcase.get(cs.id).Feedback_to_CAC_New__c || cs.Feedback_Read__c !=oldValcase.get(cs.id).Feedback_Read__c || cs.Dealer_Feedback__c !=oldValcase.get(cs.id).Dealer_Feedback__c || cs.Feedback_Required__c !=oldValcase.get(cs.id).Feedback_Required__c || cs.Feedback_Date__c !=oldValcase.get(cs.id).Feedback_Date__c || cs.TL_Reviewed__c !=oldValcase.get(cs.id).TL_Reviewed__c || 
-                cs.Campaign__c !=oldValcase.get(cs.id).Campaign__c || cs.Submit_to_public_solutions__c !=oldValcase.get(cs.id).Submit_to_public_solutions__c || cs.Knowledge_Complete_Flag__c !=oldValcase.get(cs.id).Knowledge_Complete_Flag__c || cs.Customer_Care_Owner__c !=oldValcase.get(cs.id).Customer_Care_Owner__c || cs.Approver__c !=oldValcase.get(cs.id).Approver__c || cs.Ref_No_Central__c !=oldValcase.get(cs.id).Ref_No_Central__c || 
+                cs.Lead__c !=oldValcase.get(cs.id).Lead__c || cs.Campaign__c !=oldValcase.get(cs.id).Campaign__c || cs.Submit_to_public_solutions__c !=oldValcase.get(cs.id).Submit_to_public_solutions__c || cs.Knowledge_Complete_Flag__c !=oldValcase.get(cs.id).Knowledge_Complete_Flag__c || cs.Customer_Care_Owner__c !=oldValcase.get(cs.id).Customer_Care_Owner__c || cs.Approver__c !=oldValcase.get(cs.id).Approver__c || cs.Ref_No_Central__c !=oldValcase.get(cs.id).Ref_No_Central__c || 
                 cs.Customer_Statement__c !=oldValcase.get(cs.id).Customer_Statement__c || cs.MPC_Internal_Notes__c !=oldValcase.get(cs.id).MPC_Internal_Notes__c || cs.Description !=oldValcase.get(cs.id).Description || cs.PR_Comment_for_Dealer__c !=oldValcase.get(cs.id).PR_Comment_for_Dealer__c || cs.RecordTypeId !=oldValcase.get(cs.id).RecordTypeId || cs.Origin !=oldValcase.get(cs.id).Origin || cs.Data_Source__c !=oldValcase.get(cs.id).Data_Source__c)
                 {
                   cs.addError(system.label.Insufficient_access_to_update +'Owner,Vehicle,Status,Overdue,Overdue Reason,Priority,Resolved date,Primary case dealer');
@@ -134,6 +134,10 @@ public class CaseHelperKR
                 if(cs.Case_Class__c !=oldValcase.get(cs.id).Case_Class__c)
                 {
                     cs.Case_Class__c.addError(system.label.Insufficient_access_to_update_this_field);
+                }
+				if(cs.Lead__c !=oldValcase.get(cs.id).Lead__c)
+                {
+                    cs.Lead__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Case_Type__c !=oldValcase.get(cs.id).Case_Type__c)
                 {
@@ -315,10 +319,6 @@ public class CaseHelperKR
                 {
                     cs.Parentid.addError(system.label.Insufficient_access_to_update_this_field);
                 }
-                if(cs.Previous_Owner__c !=oldValcase.get(cs.id).Previous_Owner__c)
-                {
-                    cs.Previous_Owner__c.addError(system.label.Insufficient_access_to_update_this_field);
-                }
                 if(cs.Risk_classification__c !=oldValcase.get(cs.id).Risk_classification__c)
                 {
                     cs.Risk_classification__c.addError(system.label.Insufficient_access_to_update_this_field);
@@ -432,7 +432,7 @@ public class CaseHelperKR
                 cs.VIN_Code__c!=oldValcase.get(cs.id).VIN_Code__c || cs.Vehicle_Model__c!=oldValcase.get(cs.id).Vehicle_Model__c || cs.Vehicle_Source__c!=oldValcase.get(cs.id).Vehicle_Source__c || cs.Details_for_customer_owned_MB_vehicle__c!=oldValcase.get(cs.id).Details_for_customer_owned_MB_vehicle__c || cs.US_VIN__c!=oldValcase.get(cs.id).US_VIN__c || cs.EU_VIN__c!=oldValcase.get(cs.id).EU_VIN__c || cs.Case_Dealer__c!=oldValcase.get(cs.id).Case_Dealer__c ||
                 cs.Dealer_Contact__c!=oldValcase.get(cs.id).Dealer_Contact__c || cs.Feedback_Read__c!=oldValcase.get(cs.id).Feedback_Read__c || cs.Support_Dealer_1__c!=oldValcase.get(cs.id).Support_Dealer_1__c || cs.Support_Dealer_2__c!=oldValcase.get(cs.id).Support_Dealer_2__c || cs.Support_Dealer_3__c!=oldValcase.get(cs.id).Support_Dealer_3__c || cs.Dealer_Feedback__c!=oldValcase.get(cs.id).Dealer_Feedback__c || cs.Parentid!=oldValcase.get(cs.id).Parentid || 
                 cs.Case_RepeatCause__c!=oldValcase.get(cs.id).Case_RepeatCause__c || cs.SSI__c!=oldValcase.get(cs.id).SSI__c || cs.Results_Response__c!=oldValcase.get(cs.id).Results_Response__c || cs.Result__c!=oldValcase.get(cs.id).Result__c || cs.Final__c!=oldValcase.get(cs.id).Final__c || cs.On_Site_Manager_Confirmed__c!=oldValcase.get(cs.id).On_Site_Manager_Confirmed__c || cs.SuppliedEmail!=oldValcase.get(cs.id).SuppliedEmail || cs.Origin !=oldValcase.get(cs.id).Origin ||
-                cs.RecordTypeId!=oldValcase.get(cs.id).RecordTypeId || cs.Customer_Request__c !=oldValcase.get(cs.id).Customer_Request__c || cs.Other_Type_Comments__c !=oldValcase.get(cs.id).Other_Type_Comments__c || cs.Response_Type__c !=oldValcase.get(cs.id).Response_Type__c || cs.Requires_Dealer_Contact__c !=oldValcase.get(cs.id).Requires_Dealer_Contact__c || cs.DeadLine__c !=oldValcase.get(cs.id).DeadLine__c || cs.Escalate_Date_to_CO__c !=oldValcase.get(cs.id).Escalate_Date_to_CO__c ||
+                cs.Lead__c !=oldValcase.get(cs.id).Lead__c || cs.RecordTypeId!=oldValcase.get(cs.id).RecordTypeId || cs.Customer_Request__c !=oldValcase.get(cs.id).Customer_Request__c || cs.Other_Type_Comments__c !=oldValcase.get(cs.id).Other_Type_Comments__c || cs.Response_Type__c !=oldValcase.get(cs.id).Response_Type__c || cs.Requires_Dealer_Contact__c !=oldValcase.get(cs.id).Requires_Dealer_Contact__c || cs.DeadLine__c !=oldValcase.get(cs.id).DeadLine__c || cs.Escalate_Date_to_CO__c !=oldValcase.get(cs.id).Escalate_Date_to_CO__c ||
                 cs.Progress_Status__c !=oldValcase.get(cs.id).Progress_Status__c || cs.Cause__c !=oldValcase.get(cs.id). Cause__c || cs.Car_Remarks__c !=oldValcase.get(cs.id).Car_Remarks__c || cs.Customer_Type__c !=oldValcase.get(cs.id).Customer_Type__c || cs.Call_Duration__c !=oldValcase.get(cs.id).Call_Duration__c || cs.Repeat_Complaint_Times__c !=oldValcase.get(cs.id).Repeat_Complaint_Times__c || cs.Recall_ID__c !=oldValcase.get(cs.id).Recall_ID__c || cs.Car_Type__c !=oldValcase.get(cs.id).Car_Type__c ||
                 cs.Customer_Satisfaction__c !=oldValcase.get(cs.id).Customer_Satisfaction__c || cs.Case_Dealer_User__c !=oldValcase.get(cs.id).Case_Dealer_User__c || cs.Feedback_Required__c !=oldValcase.get(cs.id).Feedback_Required__c || cs.TL_Reviewed__c !=oldValcase.get(cs.id).TL_Reviewed__c || cs.Campaign__c !=oldValcase.get(cs.id).Campaign__c || cs.Submit_to_public_solutions__c !=oldValcase.get(cs.id).Submit_to_public_solutions__c || cs.Knowledge_Complete_Flag__c !=oldValcase.get(cs.id).Knowledge_Complete_Flag__c ||
                 cs.Customer_Statement__c !=oldValcase.get(cs.id).Customer_Statement__c)
@@ -462,6 +462,10 @@ public class CaseHelperKR
                 if(cs.Perferred_Contact_Email__c !=oldValcase.get(cs.id).Perferred_Contact_Email__c)
                 {
                     cs.Perferred_Contact_Email__c.addError(system.label.Insufficient_access_to_update_this_field);
+                }
+				if(cs.Lead__c !=oldValcase.get(cs.id).Lead__c)
+                {
+                    cs.Lead__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
                 if(cs.Product_Quality_Category__c !=oldValcase.get(cs.id).Product_Quality_Category__c)
                 {
@@ -706,16 +710,16 @@ public class CaseHelperKR
               }
             }
        }
-	   if(trigger.isBefore && trigger.isDelete)
-		   {
-		    for(case cs: LstnewCase)
+       if(trigger.isBefore && trigger.isDelete)
+           {
+            for(case cs: LstnewCase)
                 { 
                   if((rolename == 'Call Center Operator' || profilename == 'MBK CCC Retail - Manager' || rolename == 'Manager' ||rolename == 'Call Center Supervisor' || profilename == 'MBK CCC Retail Operator') && cs.Ownerid != userids && cs.MD__c=='KR' && (cs.RecordTypeId == caseMBRecordTypeId || cs.RecordTypeId == caseInqRecordTypeId))
                       {
-					    cs.addError(system.label.You_cannot_delete_this_record);
-					  }
-					  }
-		   }
+                        cs.addError(system.label.You_cannot_delete_this_record);
+                      }
+                      }
+           }
     }
     public static void updateCaseDeadLine(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
           List<Id> caseIds = new List<Id>();

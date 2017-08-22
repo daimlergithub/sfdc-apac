@@ -441,31 +441,33 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <label>Survey Taken Share</label>
     </sharingReasons>
 	<webLinks>
-        <fullName>Submit_Survey</fullName>
+        <fullName>SubmitSurvey</fullName>
         <availability>online</availability>
-        <displayType>button</displayType>
+        <displayType>massActionButton</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>Submit Survey</masterLabel>
+        <masterLabel>SubmitSurvey</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
-var market = '{!Account.MD__c}';
-if(market == 'KR'){
-	if(typeof(srcUp) == 'function'){
-		if (sforce.console.isInConsole()) {
-			srcUp('/apex/SubmitSurveyKR?accId={!Account.Id}');
-		}else{
-			window.open('/apex/SubmitSurveyKR?accId={!Account.Id}');
-		}
-	} else {
-		window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?accId={!Account.Id}");
-	}
-}
-else
-{
-alert("{!$Label.Check_DuplicatesErrorMsg}");
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+var market = &apos;{!Account.MD__c}&apos;; 
+if(market == &apos;KR&apos;){ 
+
+if(typeof(srcUp) == &apos;function&apos;){ 
+if (sforce.console.isInConsole()) { 
+srcUp(&apos;/apex/Submit_Survey?accId={!Account.Id}&apos;); 
+}else{ 
+window.open(&apos;/apex/Submit_Survey?accId={!Account.Id}&apos;); 
+} 
+} else { 
+window.open(&quot;{!URLFOR($Site.Prefix)}/apex/Submit_Survey?accId={!Account.Id}&quot;); 
+} 
+} 
+else 
+{ 
+alert(&quot;{!$Label.Check_DuplicatesErrorMsg}&quot;); 
 }</url>
     </webLinks>
 </CustomObject>
