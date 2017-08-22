@@ -210,6 +210,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
     </fields>
     <fields>
         <fullName>Survey_Taken_Date__c</fullName>
+		<defaultValue>NOW()</defaultValue>
         <externalId>false</externalId>
         <label>Survey Taken Date</label>
         <required>false</required>
@@ -457,12 +458,12 @@ if(market == &apos;KR&apos;){
 
 if(typeof(srcUp) == &apos;function&apos;){ 
 if (sforce.console.isInConsole()) { 
-srcUp(&apos;/apex/Submit_Survey?accId={!Account.Id}&apos;); 
+srcUp(&apos;/apex/SubmitSurveyKR?accId={!Account.Id}&apos;); 
 }else{ 
-window.open(&apos;/apex/Submit_Survey?accId={!Account.Id}&apos;); 
+window.open(&apos;/apex/SubmitSurveyKR?accId={!Account.Id}&apos;); 
 } 
 } else { 
-window.open(&quot;{!URLFOR($Site.Prefix)}/apex/Submit_Survey?accId={!Account.Id}&quot;); 
+window.open(&quot;{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?accId={!Account.Id}&quot;); 
 } 
 } 
 else 
