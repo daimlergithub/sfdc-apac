@@ -4,7 +4,7 @@ trigger CaseCommentTrigger on CaseComment (before update,before delete)
     Id roleId=userinfo.getUserRoleId();
     Id profileId=userinfo.getProfileId();
        
-    String profilename=[Select Id,Name from UserRole where Id=:profileId].Name;
+    String profilename=[Select Id,Name from Profile where Id=:profileId].Name;
     String Market=[Select Market__c from User Where Id=:userids].Market__c;
     String rolename=[Select Id,Name from UserRole where Id=:roleId].Name;
         if((rolename == 'Call Center Operator' || rolename == 'Call Center Supervisor' || rolename == 'Manager' || profilename == 'MBK CCC Retail Operator' || profilename == 'MBK CCC Retail - Manager')  && Market=='KR')
