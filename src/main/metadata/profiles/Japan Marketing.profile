@@ -24109,7 +24109,12 @@
         <field>Vehicle__c.Competitor_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	    <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.Cost_Centre__c</field>
         <readable>false</readable>
@@ -24165,7 +24170,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Vehicle__c.FirstRegistrationDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
