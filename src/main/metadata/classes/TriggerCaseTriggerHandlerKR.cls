@@ -19,9 +19,9 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             //caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
             caseHelperJP.updateCaseDealer(Trigger.New,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
             //caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
-            caseHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Case>)trigger.oldMap,isUpdate);
+            
         }
-        
+        caseHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Case>)trigger.oldMap,isUpdate,isDelete);
         if(trigger.isAfter)
         {
             if (trigger.isInsert)

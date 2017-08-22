@@ -14,12 +14,26 @@
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
     </labels>
+	 <labels>
+        <fullName>Vin_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vin_Number</shortDescription>
+        <value>VIN Number</value>
+    </labels>
 	<labels>
         <fullName>select_criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>select_criteria</shortDescription>
         <value>select filter criteria</value>
+    </labels>
+	<labels>
+        <fullName>You_cannot_delete_this_record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You cannot delete this record</shortDescription>
+        <value>You cannot delete this record</value>
     </labels>
 	<labels>
         <fullName>enter_criteria</fullName>
