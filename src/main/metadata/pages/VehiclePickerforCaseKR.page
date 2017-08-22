@@ -60,11 +60,11 @@
        $scope.models = []; 
        $scope.Colours = [];
        
+      
        //This is the filter code for current-vehicle1 and current-vehicle2
-       $scope.userBased_filters = ["VIN Number", "Brand", "Registration Number"];
+       $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Brand": "{!$Label.Brand}", "Registration Number": "{!$Label.RegistrationNo}"};
        
-       //This is the filter code for current-vehicle1 and current-vehicle2
-       $scope.userBased_filters1 = ["VIN Number", "Brand", "Registration Number"];
+       
        
        /*INTERESTED VEHICLE : Vehicle Intitialization details*/
        if($scope.caseVehicles.InterestedVehicle != undefined){
@@ -393,11 +393,13 @@
          
          /*this is the new search functionality for searching current vehicle1 and current vehicle 2*/
           $scope.searchcurrentVehiclesForLookup = function(vehicle_type, vin, filter){
+                alert('Filter '+ vehicle_type +' '+ vin +' '+filter);
                 if(filter == undefined || filter == ''){
                     alert('{!$Label.User_Msg}');
                 }else if(vin == undefined || vin == ''){
                     alert('{!$Label.User_Msg1}');
                 }else{
+                    
                     if(filter == 'Brand' || filter == 'Registration Number'){
                         $searchText = vin;
                         $filterText = filter;
@@ -1003,10 +1005,10 @@
         </div>
         <!----------- CURRENT VEHICLE1 LOOKUP SECTION -------->
         <div ng-if="LookupCurrentVehicle1" style="background-color:#efefef;width:500px">
-            <b>1. {!$Label.select_criteria}</b>&nbsp;&nbsp;&nbsp;&nbsp;<select style="width:150px" id="filterItems" ng-model="selectedFilter"><option ng-repeat="ufil in userBased_filters" ng-bind-html="ufil" value="{{ufil}}"></option></select><br/><br/><b>2. {!$Label.enter_criteria}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" ng-model="vin_no" name="Search"></input><input type="button" ng-click="searchcurrentVehiclesForLookup('CurrentVehicle2',vin_no, selectedFilter)" class="btn" value="{!$label.Search}" title="{!$Label.searchbutton_title}"></input><br/><br/>
+            <b>1. {!$Label.select_criteria} :</b><select style="width:150px" ng-options="k as v for (k, v) in userBased_filters " ng-model="selectedFilter"></select><br/><br/><b>2. {!$Label.enter_criteria} :</b><input type="text" ng-model="vin_no" name="Search"></input><input type="button" ng-click="searchcurrentVehiclesForLookup('CurrentVehicle2',vin_no, selectedFilter)" class="btn" value="{!$label.Search}" title="{!$Label.searchbutton_title}"></input><br/><br/>
             <table class="lookup" ng-table="lookuptable">
                 <tr class="lookup" style="font-weight: bold;">
-                     <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th><th class="lookup">{!$Label.Registration_Number}</th>                       
+                     <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th><th class="lookup">{!$Label.RegistrationNo}</th>                       
                 </tr>
                 <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.vehIdW)"></input></td><td class="lookup">{{vehicle.brandW}}</td><td class="lookup">{{vehicle.classW}}</td><td class="lookup">{{vehicle.modelW}}</td><td class="lookup">{{vehicle.RegnumW}}</td></tr>             
             </table> 
@@ -1056,10 +1058,10 @@
         </div>
         <!----------- CURRENT VEHICLE2 LOOKUP SECTION -------->
         <div ng-if="LookupCurrentVehicle2" style="background-color:#efefef;width:500px">
-            <b>1. {!$Label.select_criteria}</b>&nbsp;&nbsp;&nbsp;&nbsp;<select style="width:150px" id="filterItems" ng-model="selectedFilter"><option ng-repeat="ufil in userBased_filters" ng-bind-html="ufil" value="{{ufil}}"></option></select><br/><br/><b>2. {!$Label.enter_criteria}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" ng-model="vin_no" name="Search"></input><input type="button" ng-click="searchcurrentVehiclesForLookup('CurrentVehicle2',vin_no, selectedFilter)" class="btn" value="{!$label.Search}" title="{!$Label.searchbutton_title}"></input><br/><br/>
+            <b>1. {!$Label.select_criteria} :</b><select style="width:150px" ng-options="k as v for (k, v) in userBased_filters " ng-model="selectedFilter"></select><br/><br/><b>2. {!$Label.enter_criteria} :</b><input type="text" ng-model="vin_no" name="Search"></input><input type="button" ng-click="searchcurrentVehiclesForLookup('CurrentVehicle2',vin_no, selectedFilter)" class="btn" value="{!$label.Search}" title="{!$Label.searchbutton_title}"></input><br/><br/>
             <table class="lookup" ng-table="lookuptable">
                 <tr class="lookup" style="font-weight: bold;">
-                     <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th><th class="lookup">{!$Label.Registration_Number}</th>                         
+                     <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th><th class="lookup">{!$Label.RegistrationNo}</th>                         
                 </tr>
                 <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.vehIdW)"></input></td><td class="lookup">{{vehicle.brandW}}</td><td class="lookup">{{vehicle.classW}}</td><td class="lookup">{{vehicle.modelW}}</td><td class="lookup">{{vehicle.RegnumW}}</td></tr>             
             </table> 

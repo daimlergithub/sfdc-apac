@@ -28,7 +28,7 @@ global without sharing class LeadVehiclePickerKRController {
         {
             if (usr == null)
             {
-                usr = [select id,Market__c from User where id=:userinfo.getuserId()];
+                usr = [select id,UserRole.name,Profile.Name,Market__c from User where id=:userinfo.getuserId()];
             }
             return usr;
         }
@@ -113,6 +113,10 @@ global without sharing class LeadVehiclePickerKRController {
                 System.debug('Lead Owner vehicles...:' +leadOwnerVehicles);
                 System.debug('Each Lead Vehicle type...' +lead_Vehicles.Interested_Vehicle__c); 
             }
+			if((usr.UserRole.name == 'Call Center Supervisor' || usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && usr.Market__c=='KR'){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
+
+                  }
             
             if (lead_Vehicles != null) {
                 tempList = map_vehicleIds.get(lead_Vehicles.Interested_Vehicle__c);
@@ -618,7 +622,10 @@ global without sharing class LeadVehiclePickerKRController {
                 update lead;
             }else if (vehicleAttributes.get('Operation').equalsIgnoreCase('Edit')){
                 System.debug('Edit...');
-                
+                 if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && usr.Market__c == 'KR')
+                {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
+                }else{
                 if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                     leadVehicle.Id =  lead.Interested_Vehicle__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;
@@ -660,7 +667,8 @@ global without sharing class LeadVehiclePickerKRController {
                 }
                 update lead;
         update leadVehicle;
-            }            
+            } 
+          }			
         }
         if(vehicleAttributes.get('Lookup') == 'true'){
            System.debug('Vehicle Type is Interested Vehicle...' +vehicleAttributes);

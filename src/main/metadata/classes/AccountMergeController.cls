@@ -249,7 +249,7 @@ public with sharing class AccountMergeController{
             else if
             (slave.RecordType.developerName == 'Company' && master.RecordType.developerName == 'Company')                       
             {
-             slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account','Company_Soft_Deleted'); 
+             slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_Company_ACCOUNT_SOFT_DELETED); 
              slave.OwnerId = usr.Id;       
              slave.Master_Account_Id__c = master.Id; 
              master.DUPNumber__c='';

@@ -667,6 +667,11 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+	<relatedLists>
+        <fields>Comment__c</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>LeadComment__c.Lead_Comment__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <customButtons>New_Campaign_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
