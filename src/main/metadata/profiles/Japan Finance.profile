@@ -24179,7 +24179,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Vehicle__c.FirstRegistrationDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
