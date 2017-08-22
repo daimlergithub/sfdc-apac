@@ -832,7 +832,7 @@ public class LeadHelperKR
            {
             for(Lead__c ld : Lstnewlead)
                 { 
-                  if((rolename == 'Call Center Operator' || profilename == 'MBK CCC Retail - Manager' || rolename == 'Manager' ||rolename == 'Call Center Supervisor' || profilename == 'MBK CCC Retail Operator') && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == salesRecordTypeId || ld.RecordTypeId == afterSalesRecordTypeId))
+                  if((profilename == 'MBK CCC Retail - Manager' || profilename == 'MBK CCC Retail Operator') && ld.Ownerid != userids && ld.MD__c=='KR' && (ld.RecordTypeId == salesRecordTypeId || ld.RecordTypeId == afterSalesRecordTypeId))
                       {
                         ld.addError(system.label.You_cannot_delete_this_record);
                       }
