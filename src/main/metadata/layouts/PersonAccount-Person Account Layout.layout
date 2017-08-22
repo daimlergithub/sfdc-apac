@@ -928,7 +928,7 @@
         <customButtons>New_AfterSales_Lead</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Lead_Desired_Service__c</fields>
+        <fields>Dealer_Lead_Status__c</fields>
         <fields>Drop_off_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
         <fields>CAC_Lead_Status__c</fields>
