@@ -70,6 +70,7 @@ Global with sharing class UtilConstant {
     public final static String nullValue='Null';
     // Soft deleted Account Record Type Name
     public final static String RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED ='Person Account Soft Deleted'; 
+     public final static String RECORDTYPE_Company_ACCOUNT_SOFT_DELETED ='Company Soft Deleted'; 
      public final static String RECORDTYPE_SALES_LEAD_SOFT_DELETED='Sales Leads Soft Deleted';
     public final static String RECORDTYPE_AFTERSALES_LEAD_SOFT_DELETED='After-Sales Leads Soft Deleted';
     // Soft deleted Account Owner Profile Name
