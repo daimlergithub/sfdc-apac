@@ -1405,8 +1405,32 @@
         <name>End_Time_Greater_Start_Time</name>
     </customLabels>
     <customLabels>
+        <label>검색 필터 선택</label>
+        <name>select_criteria</name>
+    </customLabels>
+    <customLabels>
+        <label>검색 조건 입력</label>
+        <name>enter_criteria</name>
+    </customLabels>
+    <customLabels>
         <label>VIN 번호를 입력하세요</label>
         <name>Enter_VIN_number</name>
+    </customLabels>
+    <customLabels>
+        <label>검색 필터를 선택해 주시기 바랍니다</label>
+        <name>User_Msg</name>
+    </customLabels>
+	 <customLabels>
+        <label>검색 조건을 입력해 주시기 바랍니다</label>
+        <name>User_Msg1</name>
+    </customLabels>
+    <customLabels>
+        <label>검색 조건 입력 전 필터를 선택해 주시기 바랍니다</label>
+        <name>searchbutton_title</name>
+    </customLabels>
+    <customLabels>
+        <label>전화 번호</label>
+        <name>Vin_Number</name>
     </customLabels>
     <customLabels>
         <label><!-- Equals --></label>
