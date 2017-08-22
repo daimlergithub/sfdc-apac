@@ -59,6 +59,7 @@ public class SubmitSuveryTaken {
           update survey1;
           try{
           st = [Select id,Survey__c,SurveyTakenByVehicle__c,Account__c from SurveyTaker__c where Survey__c=:surveyids and Account__c=:accountidd];
+		  update st;
           }
           catch(Exception e)
           {
