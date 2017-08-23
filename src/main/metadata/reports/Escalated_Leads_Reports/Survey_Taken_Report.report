@@ -10,7 +10,7 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>FK_$Survey__c.Survey_Question_1__c</field>
+        <field>FK_$Survey__c.Survey_Question_1__c</field> 
     </columns>
     <columns>
         <field>FK_$Survey__c.Survey_Response_1__c</field>
