@@ -135,7 +135,7 @@ public class CaseHelperKR
                 {
                     cs.Case_Class__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
-				if(cs.Lead__c !=oldValcase.get(cs.id).Lead__c)
+                if(cs.Lead__c !=oldValcase.get(cs.id).Lead__c)
                 {
                     cs.Lead__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
@@ -463,7 +463,7 @@ public class CaseHelperKR
                 {
                     cs.Perferred_Contact_Email__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
-				if(cs.Lead__c !=oldValcase.get(cs.id).Lead__c)
+                if(cs.Lead__c !=oldValcase.get(cs.id).Lead__c)
                 {
                     cs.Lead__c.addError(system.label.Insufficient_access_to_update_this_field);
                 }
