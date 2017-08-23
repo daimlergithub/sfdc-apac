@@ -485,4 +485,67 @@ public with sharing class AddressHelperJP {
         
     }
     
+	
+	  /*    
+  Added By      : venky
+  Created date  : 08/16/2017
+ Descrption     : This method will execute for Integration User and MBJ User.
+                 Whenever Address is deleted , Clear corrosponding Vehicle relation  ship record vehicle_address_picklist__c,Vehicle_Address_Display__c fields values.    
+  Jira          : SFDCJP-2804
+    Event       : After Deleter
+   */  
+    
+     public static void ClearVRValues(List<Address__c> addList){
+     
+     Set<Id> CustomerId=new Set<Id>();
+     Set<Id> AddressId=new Set<Id>();
+     List<Vehicle_Relationship__c> listVr=new List<Vehicle_Relationship__c>();
+      List<Vehicle_Relationship__c> UpdateVr=new List<Vehicle_Relationship__c>();
+      List<Address__c> ListAdd=new List<Address__c>();
+      Map < Id,  Address__c> mapAdd = new Map < Id, Address__c>();
+      System.debug('a787878787&&^&^&^&'+addList);
+     if(trigger.isDelete)
+     {
+     if( addList !=null)
+     {
+     for(Address__c adr:addList)
+     {
+     AddressId.add(adr.id);
+     mapAdd.put(adr.ID, adr);
+     } 
+      
+     }    
+     
+      if(AddressId !=null)
+     {     
+      ListAdd=[Select id,(select id,vehicle_address_picklist__c,Contact__c,vehicle_address__c,Vehicle_Address_Display__c from Vehicle_Relationship__r),Address_type__c from Address__c where id=:AddressId];
+     } 
+   
+     
+     System.debug('&*&*&*&*&*&*&*& ListAdd'+ListAdd);
+      System.debug('a787 AddressId&&^&^&^&'+AddressId);
+     
+      
+       System.debug('a787 listVr&&^&^&^&'+listVr);
+      if(ListAdd !=null)
+      {
+      for(Address__c addre:ListAdd)
+      {
+      for(Vehicle_Relationship__c vrs:addre.Vehicle_Relationship__r)
+      {
+      vrs.vehicle_address_picklist__c='';
+      vrs.Vehicle_Address_Display__c ='';  
+      UpdateVr.add(vrs);
+      
+      }
+      }
+      } 
+      
+        System.debug('a787 UpdateVr&&^&^&^&'+UpdateVr);
+      if(UpdateVr !=null)
+      {
+      Update UpdateVr;
+      }
+      }
+     }
 }
