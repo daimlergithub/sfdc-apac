@@ -57,6 +57,10 @@
                 <behavior>Edit</behavior>
                 <field>FirstRegistrationDate__c</field>
             </layoutItems>
+				            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>contact__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
