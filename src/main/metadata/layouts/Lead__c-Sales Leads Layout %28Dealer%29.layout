@@ -542,6 +542,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Questionnair__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Referal_Referee_Note__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
