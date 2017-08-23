@@ -682,8 +682,7 @@
         <fields>CREATED_DATE</fields>
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <customButtons>NewCase</customButtons> 
+    <relatedLists>  
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
