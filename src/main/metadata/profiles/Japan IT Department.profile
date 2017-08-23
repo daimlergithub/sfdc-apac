@@ -3521,7 +3521,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dup_Reason__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4076,6 +4076,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Legal_Form_Position__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Lead_No_Update_Notification_Disable__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15709,9 +15714,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Referal_Referee_Note__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -24156,6 +24161,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Competitor_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

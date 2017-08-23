@@ -82,7 +82,7 @@ public class MassAssignRecallTasksControllerExtension {
     public PageReference applyFilters(){
         // MOD START CHAOS Ticket147654 2014/4/14
         String sql = 'Select Count() From Task Where ' + getFilters() + ' limit 40000';
-
+         system.debug('++++++++++++++++++++++++++++'+sql);
         // MOD END CHAOS Ticket147654 2014/4/14
         th.Tasks_Found__c = Database.countQuery(sql);
         th.CSR__c = '';
@@ -126,7 +126,7 @@ public class MassAssignRecallTasksControllerExtension {
         String sql = 'Createddate >= LAST_N_MONTHS:6 And Status = \'Open\' ';
         
         //ADD START Shuang Li US-SMART_SSI-007
-        sql += ' And RecordType.DeveloperName In (\'smart_SSI_Task\', \'SSI_Task\', \'OB_Task\', \'Welcome_Call\')';
+        sql += ' And RecordType.DeveloperName In (\'smart_SSI_Task\', \'SSI_Task\',\'OB_Call\', \'OB_Task\', \'Welcome_Call\')';
         //ADD END Shuang Li US-SMART_SSI-007
         
         if(th.Subject__c!=null && th.Subject__c.length()>0){
@@ -175,6 +175,7 @@ public class MassAssignRecallTasksControllerExtension {
         }
         
         // ADD START CHAOS CR-000136 2013/12/5
+        system.debug('++++++++taskOwnerIds ++++++++++++'+taskOwnerIds );
         if(taskOwnerIds != null && taskOwnerIds.length()>0){
             List<String> ownerIds = taskOwnerIds.split(';');
             for(Integer i = 0; i<ownerIds.size();i++){
@@ -346,7 +347,7 @@ public class MassAssignRecallTasksControllerExtension {
         }
         queryProfiles = queryProfiles.subString(0, queryProfiles.length()-1);
         
-        sql += ' And Owner.ProfileId In (' + queryProfiles + ')';
+        //sql += ' And Owner.ProfileId In (' + queryProfiles + ')';
         return sql;
     }
 

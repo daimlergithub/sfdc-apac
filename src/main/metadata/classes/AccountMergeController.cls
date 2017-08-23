@@ -3,7 +3,7 @@
     Purpose:    Merget the Master Account Record and Suspect Duplicate Account
     User Story: US-DD-002
     Used By:    SelectSlaveAccount.page and AccountMerge Page
-    Modified By: Mohammed Touseef Ahmed
+    Modified By: Mohammed Touseef Ahmed 
     ---------------------------------------------------------------
     History:    
     1. Mouse Created on 2013-3-05
@@ -137,6 +137,16 @@ public with sharing class AccountMergeController{
                 hasMasterAccount++;
             }
          }
+          
+          // Changes related to SFDCJP-2851 Added by Venky(23/8/2017)
+             if(hasMasterAccount>=2 && hasSlaveAccount==1){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave and one Master Record'));   
+                return Null;           
+            } 
+            if(hasSlaveAccount>=2 && hasMasterAccount==1){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave and one Master Record'));   
+                return Null;           
+            } 
            if(hasMasterAccount==0){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_Master_Record));   
                 return Null;           
@@ -180,6 +190,7 @@ public with sharing class AccountMergeController{
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_Master_Record));   
                 return Null;           
             } 
+           
             if(hasSlaveAccount>=2 || hasSlaveAccount==0){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave Record'));   
                 return Null; 

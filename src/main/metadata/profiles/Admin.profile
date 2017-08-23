@@ -4086,6 +4086,11 @@
         <field>Account.Legal_Form_Position__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Lead_No_Update_Notification_Disable__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Loyalty_Card_No__c</field>
@@ -24259,6 +24264,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Competitor_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
