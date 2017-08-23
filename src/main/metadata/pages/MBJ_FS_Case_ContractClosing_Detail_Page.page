@@ -99,7 +99,7 @@
                 <apex:outputField value="{!Case.Requestor_Company_Person_Phone__c}" rendered="{!IF(Case.Requestor__c = 'Others',true,false)}"/>                
                 <apex:outputField value="{!Case.Requester_Initial_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Initial Dealer' || Case.Requestor__c == 'Other Dealer',true,false)}"/>                
                 <apex:outputField value="{!Case.Requestor_Supporting_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Supporting dealer',true,false)}"/>
-                <apex:inputField value="{!Case.Communicated_with_Previous_dealer__c}"/>
+                <apex:outputField value="{!Case.Communicated_with_Previous_dealer__c}"/>
                 <apex:outputField value="{!Case.Evidence_Check__c}"/>
                 <apex:outputField value="{!Case.Request_date_time__c}"/>
                 <apex:outputField value="{!Case.Requires_Dealer_Contact__c}" rendered="{!IF(Case.Requestor__c == 'Other Dealer',true,false)}"/>

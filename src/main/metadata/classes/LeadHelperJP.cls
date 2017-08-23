@@ -249,14 +249,16 @@ public class LeadHelperJP
         {
             if(les.RecordTypeId ==salesRecordTypeId || les.RecordTypeId ==afterSalesRecordTypeId)
             {
-                system.debug('Lead Status New<><><>' + les.CAC_Lead_Status__c);
-                system.debug('Lead Status Old<><><>' + leadsOldMap.get(les.id).CAC_Lead_Status__c);
-                system.debug('Lead Advisor New<><><>' + les.Service_Advisor__c);
-                system.debug('Lead Advisor Old<><><>' + leadsOldMap.get(les.id).Service_Advisor__c);
-                if(les.Assigned_Dealer__c != null && (les.CAC_Lead_Status__c != leadsOldMap.get(les.id).CAC_Lead_Status__c ||
+                
+                if(les.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && les.Assigned_Dealer__c != null && (les.CAC_Lead_Status__c != leadsOldMap.get(les.id).CAC_Lead_Status__c ||
                                                      les.Service_Advisor__c != leadsOldMap.get(les.id).Service_Advisor__c))
                 {
                     leadsId.add(les.Id);
+                }
+                else if(userinfo.getUserType() == 'PowerPartner' && (les.CAC_Lead_Status__c != leadsOldMap.get(les.id).CAC_Lead_Status__c ||
+                                                     les.Service_Advisor__c != leadsOldMap.get(les.id).Service_Advisor__c))
+                {
+                    leadsId.add(les.id);
                 }
             }
         }
