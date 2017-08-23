@@ -10713,6 +10713,15 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Lead_No_Update_Notification_Disable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Lead No Update Notification Disable</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Loyalty_Card_No__c</fullName>
         <externalId>false</externalId>
