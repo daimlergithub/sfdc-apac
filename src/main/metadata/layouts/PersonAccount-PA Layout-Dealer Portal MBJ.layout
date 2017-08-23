@@ -683,9 +683,7 @@
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>NewCase</customButtons>
-        <excludeButtons>New_Inquiry</excludeButtons>
-        <excludeButtons>New_MB_Complaint</excludeButtons>
+        <customButtons>NewCase</customButtons> 
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
