@@ -623,6 +623,10 @@
                 <behavior>Edit</behavior>
                 <field>SalesLead_Notification_Timing__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_No_Update_Notification_Disable__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

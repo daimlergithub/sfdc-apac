@@ -37,10 +37,15 @@
                 <behavior>Edit</behavior>
                 <field>Colour__c</field>
             </layoutItems>
+				            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>contact__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Readonly</behavior>
+                <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
