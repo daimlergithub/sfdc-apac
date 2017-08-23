@@ -736,7 +736,7 @@
     <fieldUpdates>
         <fullName>Status_Update</fullName>
         <field>Status</field>
-        <literalValue>Requires Manager Review</literalValue>
+        <literalValue>Waiting for final approval</literalValue>
         <name>Status Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
