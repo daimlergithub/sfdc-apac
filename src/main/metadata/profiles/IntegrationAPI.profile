@@ -23811,7 +23811,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -24143,11 +24143,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Competitor_Model__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-		    <fieldPermissions>
-        <editable>true</editable>
-        <field>Vehicle__c.contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

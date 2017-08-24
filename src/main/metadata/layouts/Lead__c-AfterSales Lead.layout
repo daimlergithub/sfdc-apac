@@ -311,7 +311,7 @@
             </layoutItems>
 			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>Referal_Referee_Note__c</field>
+                <field>Lead_Items__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
