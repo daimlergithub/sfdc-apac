@@ -24788,11 +24788,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Vehicle__c.contact__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Vehicle__c.last_update_changed_by__c</field>
         <readable>true</readable>
     </fieldPermissions>
