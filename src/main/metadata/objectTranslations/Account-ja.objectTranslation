@@ -4993,6 +4993,10 @@ Allows up to 240 characters --></help>
             <translation>メルセデスAMG GT</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>AMG GT R</masterLabel>
+            <translation>メルセデスAMG GT ロードスター</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>B-Class</masterLabel>
             <translation>新型Bクラス</translation>
         </picklistValues>

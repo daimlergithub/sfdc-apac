@@ -22,92 +22,49 @@ public class LeadHelperAccountLinkCreateJPTest {
   public static Id AddressRecordTypeId = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId(); 
   
   static void createTestData() {
-    accobj = new Account();
-    accobj.RecordTypeId = DealerRecordTypeId;
-    accobj.Name = 'testaccount';
-    accobj.Phone = '00000009642';
-    accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '00000009642';
-    accobj.ZipCode__c= '1002347';
-    insert accobj;
-    system.debug('$$$$$$$$$$$$'+accobj);
-    system.debug('$$$$$$$$$$$$'+accobj.id);
-    
-    accobj1 = new Account();
-    accobj1.RecordTypeId = personAccRecordTypeId ;
-    accobj1.LastName = 'testaccountone';
-    accobj1.Phone = '00000009842';
-    accobj1.MBK_Data_Source__c='Campaign';
-    accobj1.Mobile__c = '00000009842';
-    accobj1.ZipCode__c= '3332347';
-    insert accobj1;
-    system.debug('$$$$$$$$$$$$'+accobj1);
-    system.debug('$$$$$$$$$$$$'+accobj1.id);
-    
-    Address__c add = new Address__c(Customer__c = accobj1.id,Address_Type__c = 'Home',City__c =  'test',Province__c = 'Tokyo');
-    insert add;
-    accobj1.Primary_Address_Reference__c =add.id;
-    update accobj1;
-    
-    contobj = new Contact();
-    contobj.LastName = 'contacttest';
-    contobj.Phone = '1212313';
-    contobj.Title = 'contact title';
-    contobj.Name_English__c = 'A';
-    contobj.Accountid = accobj.Id;
-    insert contobj;
-    system.debug('$$$$$$$$$$$$'+contobj);
-    system.debug('$$$$$$$$$$$$'+contobj.id);
-    //contobjlist.add(contobj);
-    
-    contobjlist = new List<Contact>();
-    
-    contobj1 = new Contact();
-    contobj1.LastName = 'contacttestone';
-    contobj1.Phone = '1222222';
-    contobj1.Title = 'titleone';
-    contobj1.Name_English__c = 'B';
-    contobj1.Accountid = accobj.Id;
-    contobjlist.add(contobj1);
-    
-    contobj2 = new Contact();
-    contobj2.LastName = 'contacttesttwo';
-    contobj2.Phone = '1233333';
-    contobj2.Title = 'titletwo';
-    contobj2.Name_English__c = 'c';
-    contobj2.Accountid = accobj.Id;
-    contobjlist.add(contobj2);
-    
-    insert contobjlist;
-    system.debug('$$$$$$$$$contobjlist'+contobjlist);
-    
-    /*le = new Lead__c();
-    le.RecordTypeId = salesleadRecordTypeId;
-    le.CAC_Lead_Status__c = 'Qualified';
-    le.Lead_Type__c = 'Newwww Car';
-    le.MD__c = 'KR';
-    le.Assigned_Dealer__c = accobj.Id;
-    insert le;
-    system.debug('$$$$$$$le'+le.id);
-    system.debug('$$$$$$$le'+le);*/
-    
-    leadobj = new Lead__c();
-    leadobj.RecordTypeId = salesleadRecordTypeId;
-    leadobj.CAC_Lead_Status__c = 'Qualified';
-    leadobj.Lead_Type__c = 'New Car';
-    leadobj.MD__c = 'KR';
-    leadobj.Assigned_Dealer__c = accobj.Id;
-    leadobj.Contact__c = accobj1.id;
-    //insert leadobj;
-    system.debug('$$$$$$$$$$$$'+leadobj);
-    leadlist = new LIst<Lead__c>();
-    leadlist.add(leadobj);
-    insert leadlist;
-    system.debug('$$$$$$$$$$$$'+leadlist);
-    
-    //if(leadobj.RecordTypeId=='Person Account') {
-    
-    acclink = new Account_Link__c(); 
+      
+      Trigger__c TriggerLed=new Trigger__c(Name='TriggerLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerJP',update__c=true,insert__c=true,delete__c=true,after__c=true,before__c=true,enabled__c=true,Market__c='JP');
+      insert TriggerLed;
+      
+      accobj = new Account();
+      accobj.RecordTypeId = DealerRecordTypeId;
+      accobj.Name = '翁長';
+      accobj.Phone = '00000009642';
+      accobj.MBK_Data_Source__c='Email';
+      accobj.Mobile__c = '00000009642';
+      accobj.ZipCode__c= '1002347';
+      insert accobj;
+      system.debug('$$$$$$$$$$$$'+accobj);
+      system.debug('$$$$$$$$$$$$'+accobj.id);
+      
+      accobj1 = new Account();
+      accobj1.RecordTypeId = personAccRecordTypeId ;
+      accobj1.LastName = '雄';
+      accobj1.Phone = '00000009842';
+      accobj1.MBK_Data_Source__c='Campaign';
+      accobj1.Mobile__c = '00000009842';
+      accobj1.ZipCode__c= '3332347';
+      insert accobj1;
+      system.debug('$$$$$$$$$$$$'+accobj1);
+      system.debug('$$$$$$$$$$$$'+accobj1.id);
+      
+      leadobj = new Lead__c();
+      leadobj.RecordTypeId = salesleadRecordTypeId;
+      leadobj.CAC_Lead_Status__c = 'Qualified';
+      leadobj.Lead_Type__c = 'New Car';
+      leadobj.MD__c = 'KR';
+      leadobj.Assigned_Dealer__c = accobj.Id;
+      leadobj.Contact__c = accobj1.id;
+      //insert leadobj;
+      system.debug('$$$$$$$$$$$$'+leadobj);
+      leadlist = new LIst<Lead__c>();
+      leadlist.add(leadobj);
+      insert leadlist;
+      system.debug('$$$$$$$$$$$$'+leadlist);
+      
+      //if(leadobj.RecordTypeId=='Person Account') {
+      
+      acclink = new Account_Link__c(); 
     acclink.RecordTypeId = retailpersonRecordTypeId;
     acclink.Name = 'testaccounlink';
     acclink.fromRole__c = accobj.Id;
@@ -129,29 +86,18 @@ public class LeadHelperAccountLinkCreateJPTest {
   }
  
       
-  public static testmethod void createAccountLinkRecordTest() {
-    createTestData();
-      set<string> contactId = new set<string>();
-    contactId.add(contobj.id);
-    
-    le = new Lead__c();
-    le.RecordTypeId = salesleadRecordTypeId;
-    le.CAC_Lead_Status__c = 'Approved';
-    le.Lead_Type__c = 'Newwww Car';
-    le.MD__c = 'JP';
-    le.Assigned_Dealer__c = accobj.Id;
-    insert le;
-    map<id,Lead__c> leadOldMap = new map<id,Lead__c>();
-    leadOldMap.put(le.id,le);
-    system.debug('$$$$$$$le'+le.id);
-    system.debug('$$$$$$$le'+le);
-    system.debug('$$$$$$$leadlist'+leadlist);
-    system.debug('$$$$$$$leadOldMap'+leadOldMap);
-
-    test.starttest();  
-      LeadHelperAccountLinkCreateJP.leadAccountDetails(leadlist,leadOldMap,true,true);
-      LeadHelperAccountLinkCreateJP.updatingleadcontactDetails(leadlist,true,true);
-    test.stoptest();
-    system.assertEquals(leadobj.Lead_Type__c,'New Car'); 
-  }   
+    public static testmethod void createAccountLinkRecordTest() 
+    {
+        createTestData();
+        le = new Lead__c();
+        le.RecordTypeId = salesleadRecordTypeId;
+        le.CAC_Lead_Status__c = 'Approved';
+        le.Lead_Type__c = 'Newwww Car';
+        le.MD__c = 'JP';
+        le.Assigned_Dealer__c = accobj.Id;
+        
+        test.starttest();
+        	insert le;
+        test.stoptest();
+    }   
 }
