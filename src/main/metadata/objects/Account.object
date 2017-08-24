@@ -10194,6 +10194,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>AMG GT R</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>B-Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -19918,6 +19922,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMG GT R</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49013,6 +49021,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMG GT R</fullName>
                 <default>false</default>
             </values>
             <values>
