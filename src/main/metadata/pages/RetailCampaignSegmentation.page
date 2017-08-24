@@ -762,7 +762,7 @@
                             <td>{!$ObjectType.Vehicle__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                   <option value="Class__c">{!$ObjectType.Vehicle__c.Fields.Class__c.Label}</option>                                                                     
+                                   <option value="Car_Model__r.Model_Name__c">{!$ObjectType.Car_Model__c.Fields.Model_Name__c.Label}</option>                                                                     
                                    <option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>   
                                    <option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>                                                                     
                                    <option value="Modification_Package__c">{!$ObjectType.Vehicle__c.Fields.Modification_Package__c.Label}</option>
@@ -1003,7 +1003,7 @@
                                 <apex:selectList styleClass="Type__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailTaskType}"></apex:selectOptions>
                                 </apex:selectList>
-					          <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
+                              <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
                                 </apex:selectList>
                                 <!--<apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>-->
@@ -1152,8 +1152,8 @@
                             <apex:column headerValue="{!$ObjectType.Vehicle_Relationship__c.Fields.Contact__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.Contact__c}"/>
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Class__c.Label}" rendered="{!segmentationBase='Vehicle'}">
-                                <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Class__c}"/> 
+                            <apex:column headerValue="{!$ObjectType.Car_Model__c.Fields.Model_Name__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Car_Model__r.Model_Name__c}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Model_Description__c}"/> 

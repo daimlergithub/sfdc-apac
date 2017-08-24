@@ -11,9 +11,9 @@
                 <!--<apex:outputField value="{!Case.Case_Complainant__c}"/>-->
                 <apex:outputField value="{!Case.Lead__c}"/>
                 <apex:outputField value="{!Case.RecordTypeid}"/>
-                <apex:inputField value="{!Case.Parentid}"/>
+                <apex:outputField value="{!Case.Parentid}"/>
                 <apex:outputField value="{!Case.Case_Class__c}"/>
-                <apex:inputField value="{!Case.TL_Reviewed__c}"/>
+                <apex:outputField value="{!Case.TL_Reviewed__c}"/>
                 <apex:outputField value="{!Case.Case_Type__c}"/>
                 <apex:outputField value="{!Case.Inquiry_Comments__c  }"/>
                 <apex:outputField value="{!Case.Internal_Comments__c}"/>
@@ -57,7 +57,7 @@
                 <apex:outputField value="{!Case.CA_result_shared__c}"/>
                 <apex:outputField value="{!Case.Date_Received__c}"/>
                 <apex:outputField value="{!Case.Contract_document_requested_date__c}"/>
-                    <apex:inputField value="{!Case.Enclosure_of_new_contract__c}"/>
+                <apex:outputField value="{!Case.Enclosure_of_new_contract__c}"/>
             </apex:pageblockSection>
         
             <apex:pageblockSection title="{!$Label.MBF_Return_Close_end_SWP_Actual_Section}" rendered="{!IF(Case.Case_Type__c == 'Return (Close End)' || Case.Case_Type__c == 'Return (SWP)',true,false)}">
@@ -82,7 +82,7 @@
             </apex:pageblockSection>
         
             <apex:pageblockSection title="{!$Label.MBF_Re_loan_Actual_Section}" rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}">
-                <apex:inputField value="{!Case.Contract_document_requested_date__c}"/>
+                <apex:outputField value="{!Case.Contract_document_requested_date__c}"/>
                 <apex:outputField value="{!Case.Enclosure_of_new_contract__c}"/>
             </apex:pageblockSection>
             
@@ -99,7 +99,7 @@
                 <apex:outputField value="{!Case.Requestor_Company_Person_Phone__c}" rendered="{!IF(Case.Requestor__c = 'Others',true,false)}"/>                
                 <apex:outputField value="{!Case.Requester_Initial_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Initial Dealer' || Case.Requestor__c == 'Other Dealer',true,false)}"/>                
                 <apex:outputField value="{!Case.Requestor_Supporting_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Supporting dealer',true,false)}"/>
-                <apex:inputField value="{!Case.Communicated_with_Previous_dealer__c}"/>
+                <apex:outputField value="{!Case.Communicated_with_Previous_dealer__c}"/>
                 <apex:outputField value="{!Case.Evidence_Check__c}"/>
                 <apex:outputField value="{!Case.Request_date_time__c}"/>
                 <apex:outputField value="{!Case.Requires_Dealer_Contact__c}" rendered="{!IF(Case.Requestor__c == 'Other Dealer',true,false)}"/>

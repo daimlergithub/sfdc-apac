@@ -143,6 +143,8 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
                         Set<Lead__c> leadSet = leadAssignedMailRecipientMap.get(u).get(outletName);
                         emailHtmlBody = emailHtmlBody.replace('{NumberOfLeads}', String.valueOf(leadSet.size()));
                         
+                        emailHtmlBody = emailHtmlBody.replace('{TodayDate}', Date.today().month() + '/' + Date.today().day() );
+                        
                         String leadURLList = '';
                         
                         for (Lead__c led: leadSet){

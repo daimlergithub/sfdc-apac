@@ -3,7 +3,7 @@
     Purpose:    Merget the Master Account Record and Suspect Duplicate Account
     User Story: US-DD-002
     Used By:    SelectSlaveAccount.page and AccountMerge Page
-    Modified By: Mohammed Touseef Ahmed
+    Modified By: Mohammed Touseef Ahmed 
     ---------------------------------------------------------------
     History:    
     1. Mouse Created on 2013-3-05
@@ -58,11 +58,11 @@ public with sharing class AccountMergeController{
            hasSuspectAccounts=false;
            if(AccountwrapperList == null) {
                AccountwrapperList = new List<Accountwrapper>();             
-               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,RecordType.DeveloperName,(Select Name from Account_Links1__r),PersonMobilePhone,
+               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,RecordType.DeveloperName,(Select Name from Account_Links1__r),Mobile__c,Work_Phone__c,Email__c,Individual_Home_Phone__c,PersonMobilePhone,
                        PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
                if(Acct.DUPNumber__c!=Null){
                 AccountwrapperList.add(new Accountwrapper(Acct));  
-                for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
+                for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
                       DUPNumber__c,Id,(Select Name from Account_Links1__r) FROM Account
                       WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
                     // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
@@ -137,6 +137,16 @@ public with sharing class AccountMergeController{
                 hasMasterAccount++;
             }
          }
+          
+          // Changes related to SFDCJP-2851 Added by Venky(23/8/2017)
+             if(hasMasterAccount>=2 && hasSlaveAccount==1){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave and one Master Record'));   
+                return Null;           
+            } 
+            if(hasSlaveAccount>=2 && hasMasterAccount==1){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave and one Master Record'));   
+                return Null;           
+            } 
            if(hasMasterAccount==0){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_Master_Record));   
                 return Null;           
@@ -180,6 +190,7 @@ public with sharing class AccountMergeController{
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_Master_Record));   
                 return Null;           
             } 
+           
             if(hasSlaveAccount>=2 || hasSlaveAccount==0){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave Record'));   
                 return Null; 
@@ -423,7 +434,7 @@ public with sharing class AccountMergeController{
             
             
             return Database.query(soql + 
-                ' IsPersonAccount,phone,Id,PersonEmail,recordType.developerName,RecordTypeId,(select id,Address_Type__c from Addresses__r) FROM Account WHERE Id =\''+accId+'\'');
+                ' IsPersonAccount,Id,PersonEmail,recordType.developerName,RecordTypeId,(select id,Address_Type__c from Addresses__r) FROM Account WHERE Id =\''+accId+'\'');
         }
       /** 
      * @Description : Get the SOQL Expr by fieldList

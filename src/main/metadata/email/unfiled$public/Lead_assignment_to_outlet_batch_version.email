@@ -9,7 +9,7 @@
      
      <p> {!$Label.Email_LeadDealerAssign4}</p>
      
-     <p> {!$Label.Email_LeadDealerAssign5} (<apex:outputText value="{0, date, MM/dd}"><apex:Param value="{!TODAY()}" /></apex:OutputText>) {!$Label.Email_LeadDealerAssign6}</p>
+     <p> {!$Label.Email_LeadDealerAssign5} ({TodayDate}) {!$Label.Email_LeadDealerAssign6}</p>
      
      <p> {!$Label.Email_LeadDealerAssign7} {NumberOfLeads} {!$Label.Email_LeadDealerAssign8}</p>
      
