@@ -434,7 +434,7 @@ public with sharing class AccountMergeController{
             
             
             return Database.query(soql + 
-                ' IsPersonAccount,phone,Id,PersonEmail,recordType.developerName,RecordTypeId,(select id,Address_Type__c from Addresses__r) FROM Account WHERE Id =\''+accId+'\'');
+                ' IsPersonAccount,Id,PersonEmail,recordType.developerName,RecordTypeId,(select id,Address_Type__c from Addresses__r) FROM Account WHERE Id =\''+accId+'\'');
         }
       /** 
      * @Description : Get the SOQL Expr by fieldList
