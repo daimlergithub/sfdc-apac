@@ -28,7 +28,11 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
             
             AddressHelperJP.updateAccountonDeletion(Trigger.Old);
         }
-        
+        if ((Trigger.isbefore && Trigger.isDelete)){
+             AddressHelperJP.ClearVRValues(Trigger.Old);
+            
+             
+        }
         
         if(isAfter && isInsert)
         {
@@ -60,10 +64,15 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         
     {
 	  // Added  as  part of SFDCJP-2730
-	 if(isAfter && isUpdate)
-        {
-		 AddressHelperJP.afterUpdateVehicleRelationship(Trigger.new,(Map<Id,Address__c>)Trigger.OldMap);
+		if(isAfter && isUpdate)
+		{
+			AddressHelperJP.afterUpdateVehicleRelationship(Trigger.new,(Map<Id,Address__c>)Trigger.OldMap);
+			AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
 		}
+		 if(Trigger.isbefore && isDelete)
+        {
+         AddressHelperJP.ClearVRValues(Trigger.Old);
+        }
         /*
         if(isAfter && isInsert)
 

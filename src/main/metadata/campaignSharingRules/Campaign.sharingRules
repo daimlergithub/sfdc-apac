@@ -284,7 +284,7 @@
     <criteriaBasedRules>
         <fullName>Share_Campaign_With_Roles_and_Subordinates</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
@@ -474,6 +474,19 @@
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Share with CAC Data Service Mgr</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Thailand_Campaign_Sharing_records_to_other_TH_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>Thailand Campaign Sharing records to other TH Users</name>
     </criteriaBasedRules>
     <ownerRules>
         <fullName>Share_Campaign_to_AS_Region</fullName>

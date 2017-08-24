@@ -100,6 +100,10 @@
         <label><!-- A6 Contact as part of visiting a car dealership --></label>
         <name>A6_Contact_as_part_of_visiting_a_car_dealership</name>
     </customLabels>
+	<customLabels>
+        <label>CaseComment를 삭제할 수 없습니다</label>
+        <name>You_cannot_Delete_CaseComment</name>
+    </customLabels>
     <customLabels>
         <label><!-- A6  Email --></label>
         <name>A6_Email</name>
@@ -152,6 +156,18 @@
         <label>계정 연결</label>
         <name>AccountLink</name>
     </customLabels>
+	 <customLabels>
+        <label>사례/리드를 수정할 권한이 부족합니다</label>
+        <name>You_don_t_have_permission_to_update_this_record</name>
+    </customLabels>
+	 <customLabels>
+        <label>필드를 수정할 권한이 부족합니다. 하기 필드만 수정 가능합니다:</label>
+        <name>Insufficient_access_to_update</name>
+    </customLabels>
+	 <customLabels>
+        <label>필드를 수정할 권한이 부족합니다</label>
+        <name>Insufficient_access_to_update_this_field</name>
+    </customLabels>
     <customLabels>
         <label>계정 병합 필드</label>
         <name>AccountMergeFields</name>
@@ -168,7 +184,11 @@
         <label>계정 만들기</label>
         <name>Account_Creation</name>
     </customLabels>
-    <customLabels>
+	<customLabels>
+        <label>선택된 DM 자료의 재고가 충분하지 않음</label>
+        <name>A_selected_DM_Material_does_not_have_a_sufficient_stock</name>
+    </customLabels>
+   <customLabels>
         <label>계정 병합</label>
         <name>Account_Merge</name>
     </customLabels>
@@ -1385,8 +1405,32 @@
         <name>End_Time_Greater_Start_Time</name>
     </customLabels>
     <customLabels>
+        <label>검색 필터 선택</label>
+        <name>select_criteria</name>
+    </customLabels>
+    <customLabels>
+        <label>검색 조건 입력</label>
+        <name>enter_criteria</name>
+    </customLabels>
+    <customLabels>
         <label>VIN 번호를 입력하세요</label>
         <name>Enter_VIN_number</name>
+    </customLabels>
+    <customLabels>
+        <label>검색 필터를 선택해 주시기 바랍니다</label>
+        <name>User_Msg</name>
+    </customLabels>
+	 <customLabels>
+        <label>검색 조건을 입력해 주시기 바랍니다</label>
+        <name>User_Msg1</name>
+    </customLabels>
+    <customLabels>
+        <label>검색 조건 입력 전 필터를 선택해 주시기 바랍니다</label>
+        <name>searchbutton_title</name>
+    </customLabels>
+    <customLabels>
+        <label>전화 번호</label>
+        <name>Vin_Number</name>
     </customLabels>
     <customLabels>
         <label><!-- Equals --></label>
@@ -1547,6 +1591,10 @@
     <customLabels>
         <label><!-- Garage information and specifications have you heard --></label>
         <name>Garage_information_and_specifications_have_you_heard</name>
+    </customLabels>
+	<customLabels>
+        <label>이 레코드를 삭제할 수 없습니다</label>
+        <name>You_cannot_delete_this_record</name>
     </customLabels>
     <customLabels>
         <label><!-- Gender --></label>

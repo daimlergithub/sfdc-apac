@@ -3,7 +3,7 @@
     <caseAccessLevel>None</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>CallCenter Manager</name>
+    <name>General Manager</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>MBTH_Call_Center</parentRole>
+    <parentRole>MBTH_Vice_President</parentRole>
 </Role>

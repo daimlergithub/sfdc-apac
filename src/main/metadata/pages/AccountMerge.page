@@ -31,6 +31,10 @@
     <script>
     jquery = jQuery.noConflict();
     jquery(document).ready(function() {
+        jquery('input[name*="CreatedDate"]').hide();
+        jquery('input[name*="LastModifiedDate"]').hide();
+        jquery('input[name*="LastModifiedById"]').hide();
+        jquery('input[name*="CreatedById"]').hide();
         jquery(':radio').change(function() {
             var name = jquery(this).attr('name');
             jquery('input[name=' + name + ']').each(function() {
@@ -119,7 +123,7 @@
                                         </apex:outputpanel>
                                         
                                         <apex:outputpanel rendered="{!NOT(wrap.isSlaveChecked)}">
-                                            <input type="radio" name="{!wrap.fieldAPI}" value="slave"/>
+                                            <input type="radio" name="{!wrap.fieldAPI}"   value="slave"/>
                                             <apex:inputHidden value="{!wrap.isSlaveChecked}" />
                                         </apex:outputpanel>
                                         
@@ -194,4 +198,3 @@
            
     </apex:form>
 </apex:page>
-                                        
