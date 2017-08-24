@@ -12,6 +12,7 @@
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:outputField value="{!Case.Case_Class__c}"/>
                 <apex:outputField value="{!Case.Case_Type__c}"/>
+				<apex:outputField value="{!Case.Case_SubType__c}"/>
                 <apex:outputField value="{!Case.Case_SubSubType__c}"/>
                 <apex:outputField value="{!Case.Case_Situation__c}"/>
                 <apex:outputField value="{!Case.Case_Department__c}"/>
