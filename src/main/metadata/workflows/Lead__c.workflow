@@ -2158,7 +2158,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <formula>AND(ISCHANGED( Service_Advisor__c ),NOT(ISNULL(Service_Advisor__c)),MD__c = 'JP', NOT(ISPICKVAL(Dealer_Lead_Status__c, "Order Placed")),
      NOT(ISPICKVAL(Dealer_Lead_Status__c, "Purchased")),NOT(ISPICKVAL(Dealer_Lead_Status__c, "Purchased(Only Non BDC)")),
      NOT(ISPICKVAL(Dealer_Lead_Status__c, "Lost")))</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Contact Failed For 3 Days Date Time</fullName>
