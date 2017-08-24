@@ -898,20 +898,11 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	    <fields>
+    <fields>
         <fullName>AfterSales_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Aftersales Vehicle</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>$Source.Contact__c</field>
-                <operation>equals</operation>
-                <valueField>Vehicle__c.contact__c</valueField>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Aftersales Vehicle)</relationshipLabel>
         <relationshipName>Leads3</relationshipName>

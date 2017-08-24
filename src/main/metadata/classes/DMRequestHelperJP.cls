@@ -152,7 +152,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         
         
         for(DM_Request__c vc : newList){
-            if(vc.Customer_Name__c != null  &&vc.Customer_Name__c != oldMap.get(vc.Id).Customer_Name__c && vc.View_By_All__c == true || vc.View_By_All__c == true ){
+            if(vc.Customer_Name__c != null  &&vc.Customer_Name__c != oldMap.get(vc.Id).Customer_Name__c && vc.View_By_All__c == true || vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == true ){
                     if(!mapCheckingType.containsKey(vc.Customer_Name__c)){
                           mapCheckingType.put(vc.Customer_Name__c, new List<Id>());
                       }
@@ -169,7 +169,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                       
                
                 
-        }else if(vc.Assigned_Dealer__c != null && vc.Assigned_Dealer__c != oldMap.get(vc.Id).Assigned_Dealer__c || vc.View_By_All__c == false ){
+        }else if(vc.Assigned_Dealer__c != null && vc.Assigned_Dealer__c != oldMap.get(vc.Id).Assigned_Dealer__c || vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false ){
                 if(!mapDmrequest.containsKey(vc.Assigned_Dealer__c)){
                       mapDmrequest.put(vc.Assigned_Dealer__c, new List<Id>());
                   }
@@ -635,7 +635,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
            
            }
            }
-      }
+      }     
   
        /**             
         * @Description: Update status after 3 months
@@ -664,7 +664,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
              }   
               
         //query for DM_Request__c 
-		String Market;
+        String Market;
               for(Account accmarket : [select id,MD__c From Account Where id =:CustomerId LIMIT 1]){
                  
                  Market = accmarket.MD__c;
@@ -692,8 +692,11 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                        if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
                          &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
                          ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
-                               if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null){
+                               
+                               if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null ){
+                                
                              if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
+                             
                                     If(Market=='KR'){
                                          lstDMR.Status__c='Duplicate';
                                        }                     
