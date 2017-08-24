@@ -33,7 +33,6 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
         
         Map<Id,Lead__c> updateLeadMap = new Map<id,Lead__c>();
         Map<Id, Set<User>> leadAssignedDealerUserMap = new Map<Id, Set<User>>();
-        Map<Id, Map<String, String>> leadAssignedDealers = new Map<Id, Map<String, String>>();
         Map<Id, Set<User>> leadAssignedDealerRecipients = new Map<Id, Set<User>>();
         Set<String> assignedDealerNDCodes = new Set<String>();
         Set<String> assignedDealerGCCodes = new Set<String>();
@@ -42,9 +41,6 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
             assignedDealerGCCodes.add(led.Assigned_Dealer__r.Dealer_GC_Code__c);
             assignedDealerNDCodes.add(led.Assigned_Dealer__r.Dealer_ND_Code__c);
             
-            Map<String, String> GcNdMap = new Map<String, String>();
-            GcNdMap.put(led.Assigned_Dealer__r.Name, led.Assigned_Dealer__r.Dealer_GC_Code__c);
-            leadAssignedDealers.put(led.Id, GcNdMap);
             led.Last_Nonassign_Notification_Date__c = system.today();
             updateLeadMap.put(led.id,led);
         }
@@ -62,23 +58,21 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
         
         List<User> userGccodeRecords = [Select id,Name,email,Market__c,Dealer_GC_Code__c,Notification_Lead_Not_Assigned__c from User where IsActive = True and Dealer_GC_Code__c IN : assignedDealerGCCodes];
         
-        for (Id lid: leadAssignedDealers.keySet()) {
+        for (Lead__c led: scope) {
             Set<User> leadAssignedDealerRecipientsSet = new Set<User>();
             for (User u: userGccodeRecords) {
-                for (String assignedDealerName: leadAssignedDealers.get(lid).keySet()){
-                    if (u.Dealer_GC_Code__c == leadAssignedDealers.get(lid).get(assignedDealerName)){
+                    if (u.Dealer_GC_Code__c == led.Assigned_Dealer__r.Dealer_GC_Code__c){
                         if (u.Notification_Lead_Not_Assigned__c != Null){
                             List<String> outletNameList = u.Notification_Lead_Not_Assigned__c.split(';');
                             for (String outletName: outletNameList){
-                                if (outletName == assignedDealerName){
+                                if (outletName == led.Assigned_Dealer__r.Name){
                                     leadAssignedDealerRecipientsSet.add(u);
                                 }
                             }
                         }
                     }
-                }
             }
-            leadAssignedDealerRecipients.put(lid, leadAssignedDealerRecipientsSet);
+            leadAssignedDealerRecipients.put(led.Id, leadAssignedDealerRecipientsSet);
         }
         
         for (Id lid: leadAssignedDealerUserMap.keySet()){
@@ -128,6 +122,6 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
     }
     
     global void execute(SchedulableContext ctx) {
-        Database.executeBatch(new EmailnotificationLeadsnotassigned());
+        Database.executeBatch(new EmailnotificationLeadsnotassigned(), 100);
     }
 }
