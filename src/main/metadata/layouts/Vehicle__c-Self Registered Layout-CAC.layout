@@ -5,6 +5,7 @@
     <excludeButtons>Submit</excludeButtons>	
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>Edit</excludeButtons>
+	<excludeButtons>Clone</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
