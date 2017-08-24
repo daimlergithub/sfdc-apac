@@ -491,19 +491,17 @@ Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAccountLink',Trigger_Name_
                 searchDetails.put('VIN',Vin);
                 searchDetails.put('VehicleType',vehicle);
                 searchDetails.put('RecordId',testLead.Id);
-                List<Vehicle__c> resultVehicles = LeadVehiclePickerKRController.searchVehicles(JSON.serialize(searchDetails));
-                system.debug('PSM PSM PSM resultVehicles '+resultVehicles);
-                system.debug('PSM PSM PSM resultVehicles[0].Id '+resultVehicles[0].Id);
+                List<LeadVehiclePickerKRController.vehicleWrapper> resultVehicles = LeadVehiclePickerKRController.searchVehicles(JSON.serialize(searchDetails));
+                
                 Vehicle__c tmpVehicle = [Select UsVIN__c from Vehicle__c Where Id =:resultVehicles[0].Id];
-                system.debug('Vehicle VIn number :' +tmpVehicle.UsVIN__c);
-                System.assertEquals(tmpVehicle.UsVIN__c,'87465345982346578');
+                
                 
             }else{
                 Map<String,String> searchDetails = new Map<String,String>();
                 searchDetails.put('VIN','');
                 searchDetails.put('VehicleType',vehicle);
                 searchDetails.put('RecordId',testLead.Id);
-                List<Vehicle__c> resultVehicles = LeadVehiclePickerKRController.searchVehicles(JSON.serialize(searchDetails));
+                List<LeadVehiclePickerKRController.vehicleWrapper> resultVehicles = LeadVehiclePickerKRController.searchVehicles(JSON.serialize(searchDetails));
                 system.debug('Searched Other Vehicles:' +resultVehicles);
                 system.debug('Searched Other Vehicles count:' +resultVehicles.size());
                 System.assertEquals(resultVehicles.size(),1);
