@@ -8,6 +8,8 @@
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Case_Dealer</customButtons>
 	<customButtons>Create_Vehicle</customButtons>
+	<excludeButtons>New_Inquiry</excludeButtons>
+    <excludeButtons>New_MB_Complaint</excludeButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
