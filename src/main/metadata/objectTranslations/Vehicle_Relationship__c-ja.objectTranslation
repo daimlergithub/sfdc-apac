@@ -3550,6 +3550,10 @@
         <label><!-- Retail Vehicle Relationship Share --></label>
         <name>Retail_Vehicle_Relationship_Share</name>
     </sharingReasons>
+	<validationRules>
+        <errorMessage>手放日は削除できません。</errorMessage>
+        <name>End_Date_Cannot_be_deleted</name>
+    </validationRules>
     <validationRules>
         <errorMessage>手放日を設定する場合、手放し理由を入力して下さい。</errorMessage>
         <name>End_Reason_Required</name>

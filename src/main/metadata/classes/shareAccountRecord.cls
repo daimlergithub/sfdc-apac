@@ -1,6 +1,7 @@
 public class shareAccountRecord
 {
     public static Id dealerRecordTypeId = Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
+    @future
     public static void shareAccountRecordNow(List<Id> caseIds)
     {
         List<User> gateKeeperList = new List<User>();
@@ -74,7 +75,7 @@ public class shareAccountRecord
         system.debug('DelarNDCode>>>>>' + DealerNDCode);
         system.debug('dealerAccNameCustomerAccid PSM '+ dealerAccNameCustomerAccid);
         List<Account> caseDealerAccountLst = new List<Account>([select id, Name, Dealer_GC_Code__c,Dealer_ND_Code__c from Account where RecordTypeId =:dealerRecordTypeId]);
-        List<Account> accPartnerLst = new List<Account>([select id, Name from Account where id in: caseCustAccId.values()]);
+        //List<Account> accPartnerLst = new List<Account>([select id, Name from Account where id in: caseCustAccId.values()]);
         if(!caseDealerAccountLst.isEmpty() && caseDealerAccountLst != null)
         {
             for(case cse: lstCase)

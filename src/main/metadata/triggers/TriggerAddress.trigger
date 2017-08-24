@@ -5,7 +5,7 @@
     Modified By : Mohammed Touseef Ahmed
     Modified Date: 03-12-2017
 */
-trigger TriggerAddress on Address__c (before insert, before update, after insert, after update) {
+trigger TriggerAddress on Address__c (before insert, before update,before delete, after insert, after update,after delete) {
     
     TriggerUtil.handleTrigger('TriggerAddress');
     TriggerUtil.handleTrigger('TriggerAddressTH');
