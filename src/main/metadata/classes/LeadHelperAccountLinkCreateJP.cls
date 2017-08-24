@@ -103,7 +103,7 @@ public class LeadHelperAccountLinkCreateJP
         System.debug('@#$%%%%%% AcclinkContactId'+AcclinkContactId);
         System.debug('@#$%%%%%% CompanyId'+CompanyId);
         System.debug('@#$%%%%%% leadLst'+leadLst);
-        List<Account_Link__c> dealercount = [select id from Account_Link__c WHERE fromRole__c IN : dealerId AND (toRole__c IN : AcclinkContactId OR toRole__c IN : CompanyId) AND (RecordTypeId = :alkCompanyRecordTypeId OR RecordTypeId = :alkpersonRecordTypeId)];
+        List<Account_Link__c> dealercount = [select id from Account_Link__c WHERE fromRole__c IN : dealerId AND (toRole__c IN : AcclinkContactId OR toRole__c IN : CompanyId) AND (RecordTypeId = :alkCompanyRecordTypeId OR RecordTypeId = :alkpersonRecordTypeId) AND (Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false)];
         system.debug('########'+dealercount); 
         for(Lead__c led : leadlst){            
             if(led.Assigned_Dealer__c != null && (dealercount.isEmpty() || dealercount==null || dealercount.size() == 0 )){
