@@ -513,8 +513,8 @@ public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,
                  system.debug('+++userRecords +++++'+userRecords);
                    
                 
-                 If(LeadUtil.LeadTrigger)
-                     { 
+                 //If(LeadUtil.LeadTrigger)
+                     //{ 
                      if(Leadlist !=null)
                      {
                      for(Lead__c led : Leadlist)
@@ -567,9 +567,9 @@ public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,
                            }
                          }
                          }
-                     } 
+                     //} 
                  
-                 LeadUtil.LeadTrigger = false;
+                 //LeadUtil.LeadTrigger = false;
                  if(mails.size()>0)
                  {
                      system.debug('++++++++++'+mails); 
