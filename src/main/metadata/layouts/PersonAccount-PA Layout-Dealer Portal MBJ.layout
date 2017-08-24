@@ -7,9 +7,7 @@
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Case_Dealer</customButtons>
-	<customButtons>Create_Vehicle</customButtons>
-	<excludeButtons>New_Inquiry</excludeButtons>
-    <excludeButtons>New_MB_Complaint</excludeButtons>
+	<customButtons>Create_Vehicle</customButtons> 
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
