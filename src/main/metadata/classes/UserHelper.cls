@@ -33,6 +33,7 @@ public with sharing class UserHelper {
     public Static id CACSSISVId;
     public Static id CACSSITLId;
     public Static id CACSSITRAINERId;
+    public Static Boolean usrtrigger = true;
     
     
     /**    
@@ -951,14 +952,32 @@ public with sharing class UserHelper {
     public Static void UserShareforDealers(List<User> usrList, map<id,User> UserOldMap, boolean isInsert, boolean isUpdate)
     {       
         // inserting new records
-        Set<String> DealerGccode = new Set<String>();
+       
+        if (Trigger.isInsert) 
+        {
+           
+            for(User u : usrList)
+            {
+                
+               userInsertshare( u.id);
+            }
+            
+            
+        } 
+       
+       }
+       
+       
+    @future
+    public static void userInsertshare(id str)
+    {
+      List<user> UsrList = [select id,Name,Contact.AccountId,Profile.name From user Where id =: str];
+      Set<String> DealerGccode = new Set<String>();
         List<Account> DealeAcc=new List<Account>();  
         map<string,id> assgroupMap = new map<string,id>();
         list<string>assignlist=new list<string>();
         list<String> AccountNAme = new List<String>();
-        if (Trigger.isInsert || Trigger.isUpdate) 
-        {
-            List<User> userList = new List<User>();
+         List<User> userList = new List<User>();
             Set<Id> userAcc = new Set<Id>();
             Set<Id> usrConId = new Set<Id>();
             List<UserShare> shares = new List<UserShare>();
@@ -969,7 +988,9 @@ public with sharing class UserHelper {
                     System.debug('u.ContactId>>>>>'+u.ContactId);
                     usrConId.add(u.ContactId);
                 }
+                
             }
+            
             if(!usrConId.isEmpty() && usrConId!= null)
             {
                 userList = [select id,contactId,contact.accountId,Contact.Account.Dealer_GC_Code__c,Contact.Account.name from user where contactId IN:usrConId];
@@ -1009,99 +1030,46 @@ public with sharing class UserHelper {
             
             string inVar='Dealer';
             string tempInput = '%' + inVar + '%';
-            Map<Id,User> userMap = new  Map<Id,User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : userAcc AND Profile.name like  : tempInput ]);        
-            if(userMap.size() > 0){
+            //Map<Id,User> userMap = new  Map<Id,User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : userAcc AND Profile.name like  : tempInput ]);        
+            //if(userMap.size() > 0){
                 
-                System.debug('userMap.Values()>>>>>>'+userMap.Values());
+                
                 for (User u : userList)
                 {
-                    for(User ur : userMap.Values())
-                    {
+                    
                         for(id m:assgroupMap.values())
                         {
                             UserShare userShr = new UserShare();
                             userShr.UserId = u.id;
                             userShr.UserOrGroupId = m;
-                            if(ur.Profile.name == 'Japan Dealer Company Manager' || ur.Profile.name == 'Japan Dealer Sales Manager' || ur.Profile.name == 'Japan Dealer Service Manager'){
+                            
                                 
                                 userShr.UserAccessLevel = 'Read';
-                            }
-                            else if(ur.Profile.name == 'Japan Dealer Sales Representative' || ur.Profile.name == 'Japan Dealer Service Advisor' ){
-                                userShr.UserAccessLevel = 'Read';
-                            }
+                            
+                            
+                            
                             shares.add(userShr);
                         }
-                    }
+                   
                 }   
-            }
+           // }
             // do the DML to create shares
             if (!shares.isEmpty() && shares != null)
             {
-                String JSONStr = JSON.serialize(shares);
-               //System.debug('Serialized list of invoices into JSON format: ' + JSONStr);
-                usershare(JSONStr);
+                Insert shares;
+                
             }
-        }                   
-        else 
-        {    
-            List<UserShare> sharesToCreate = new List<UserShare>();
-            List<ID> shareIdsToDelete = new List<ID>();
-            List<ID> shareIdsToCreate = new List<ID>(); 
-            set<Id> usersToDelete = new set<Id>();
-            for (User Led : usrList) {
-                User oldlead = UserOldMap.get(Led.id);                  
-                if (Led.Contact.AccountId != Null && Led.Contact.AccountId != oldlead.Contact.AccountId) {
-                    System.debug('Led.Contact.AccountId>>>>>>>>>'+Led.Contact.AccountId);
-                    shareIdsToDelete.add(oldlead.Contact.AccountId);  
-                    shareIdsToCreate.add(Led.Contact.AccountId);  
-                }
-            }
-            string inVar='Dealer';
-            string tempInput = '%' + inVar + '%';
-            Map<Id,User> userMapUpdate = new  Map<Id,User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : shareIdsToCreate AND Profile.name like  : tempInput]);  
-            List<User> TobeDeleted = new List<User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : shareIdsToDelete AND Profile.name like  : tempInput]);
-            for(User ur : TobeDeleted){
-                usersToDelete.add(ur.Id);
-            }
-            if(userMapUpdate.size() > 0){
-                for (User u : usrList){
-                    for(User ur : userMapUpdate.Values()){
-                        UserShare userShr = new UserShare();
-                        userShr.UserId = u.id;
-                        userShr.UserOrGroupId = ur.id;
-                        if(ur.Profile.name == 'Japan Dealer Company Manager' || ur.Profile.name == 'Japan Dealer Sales Manager' || ur.Profile.name == 'Japan Dealer Service Manager'){
-                            userShr.UserAccessLevel = 'Read';
-                        }
-                        else if(ur.Profile.name == 'Japan Dealer Sales Representative' || ur.Profile.name == 'Japan Dealer Service Advisor' ){
-                            userShr.UserAccessLevel = 'Read';
-                        }
-                        sharesToCreate.add(userShr);
-                    }
-                }   
-            }
-            if(!sharesToCreate.isEmpty() && sharesToCreate != null)
-            {
-                System.debug('upd>>>>');
-                String JSONString = JSON.serialize(sharesToCreate);
-                System.debug('Serialized list of invoices into JSON format: ' + JSONString);
-                usershare(JSONString);
-            }
-            /*do the DML to delete shares
-            if (!TobeDeleted.isEmpty())
-                delete [select id from UserShare where UserOrGroupId IN :usersToDelete];
-            // do the DML to create shares
-            if (!sharesToCreate.isEmpty())
-                insert sharesToCreate;*/
-        }
     }
-    @future
+    
+      
+   /* @future
     public static void usershare(string str)
     {
         List<UserShare> usershareList = new List<UserShare>();
         usershareList = (List<UserShare>)JSON.deserialize(str, List<UserShare>.class);
         insert usershareList;
     }
-
+   */
     
     public static void grpCreationandUsergrpAlign(List<User> usrInList){
         List<Id> usrIds = new List<Id>();
