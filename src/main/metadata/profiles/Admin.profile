@@ -3654,6 +3654,11 @@
         <field>Account.Minimum_per_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Lead_No_Update_Notification_Disable__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Mobile2__c</field>
