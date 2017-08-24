@@ -109,7 +109,7 @@ public class LeadDealerAssignmentProcess{
   */
     public  Pagereference AssignLeadtoDealer()
     {
-        update  new Lead__c(id=leadid, Service_Advisor__c=userid1 );    
+        update  new Lead__c(id=leadid, Service_Advisor__c=userid1,Person_Assign_Notificaton_Done__c =false  );    
         return null;        
     }
     
