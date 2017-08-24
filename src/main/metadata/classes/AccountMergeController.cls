@@ -58,11 +58,11 @@ public with sharing class AccountMergeController{
            hasSuspectAccounts=false;
            if(AccountwrapperList == null) {
                AccountwrapperList = new List<Accountwrapper>();             
-               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,RecordType.DeveloperName,(Select Name from Account_Links1__r),PersonMobilePhone,
+               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,RecordType.DeveloperName,(Select Name from Account_Links1__r),Mobile__c,Work_Phone__c,Email__c,Individual_Home_Phone__c,PersonMobilePhone,
                        PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
                if(Acct.DUPNumber__c!=Null){
                 AccountwrapperList.add(new Accountwrapper(Acct));  
-                for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
+                for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
                       DUPNumber__c,Id,(Select Name from Account_Links1__r) FROM Account
                       WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
                     // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList

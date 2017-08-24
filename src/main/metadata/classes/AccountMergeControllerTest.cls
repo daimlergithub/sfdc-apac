@@ -22,9 +22,9 @@ public class AccountMergeControllerTest {
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
         
-        objMaster= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = true,lastname = 'MasterAcc',DUPNumber__c='110',
+        objMaster= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = true,lastname = '雄志',DUPNumber__c='110',
                                Last_Successful_Call_Office_Phone__c = System.today() - 10,MBK_Data_Source__c='Email',Mobile__c = '00000009642',DMS_Address__c = 'dmsaddress1');       
-        objSlave= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = false,lastname = 'SlaveAcc',DUPNumber__c='110',
+        objSlave= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = false,lastname = '雄志',DUPNumber__c='110',
                               Last_Successful_Call_Office_Phone__c = System.today(),MBK_Data_Source__c='Email',Mobile__c = '00000009642',DMS_Address__c = 'dmsaddress2');
         System.runAs(new User(Id = UserInfo.getUserId())){
             user = (User)UtilTestData.createUser('Central', UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED);
