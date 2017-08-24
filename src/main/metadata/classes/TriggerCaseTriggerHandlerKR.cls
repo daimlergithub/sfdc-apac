@@ -1,4 +1,4 @@
-public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
+public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
 {
     public static boolean isFutureUpdate = false;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
