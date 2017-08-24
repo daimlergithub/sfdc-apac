@@ -2,7 +2,7 @@
 <CallCenter xmlns="http://soap.sforce.com/2006/04/metadata">
     <adapterUrl>https://sadck0000006.adc.corpintra.net/SalesForceWebApp/</adapterUrl>
     <customSettings>{&quot;reqSoftphoneHeight&quot;:&quot;100&quot;,&quot;reqUseApi&quot;:&quot;true&quot;,&quot;reqSoftphoneWidth&quot;:&quot;500&quot;}</customSettings>
-    <displayName>Unify Call Center Adapter</displayName>
+    <displayName>MBTH Call Center</displayName>
     <displayNameLabel>Display Name</displayNameLabel>
     <internalNameLabel>InternalNameAAA</internalNameLabel>
     <sections>
