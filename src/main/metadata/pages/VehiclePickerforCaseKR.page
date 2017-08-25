@@ -63,7 +63,7 @@
       
        //This is the filter code for current-vehicle1 and current-vehicle2
        //$scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Brand": "{!$Label.Brand}", "Registration Number": "{!$Label.RegistrationNo}"};
-	   $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Registration Number": "{!$Label.RegistrationNo}"};
+       $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Registration Number": "{!$Label.RegistrationNo}"};
        
        
        
@@ -138,7 +138,8 @@
        /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
        if($scope.caseVehicles.CurrentVehicle1 != undefined){
            $scope.vehicleCurrent1DetailText = "Edit";
-           $scope.CurrentVehicle1Details = $scope.caseVehicles.CurrentVehicle1.Brand +' ' +$scope.caseVehicles.CurrentVehicle1.Class + ' ' + $scope.caseVehicles.CurrentVehicle1.Model;
+          
+           $scope.CurrentVehicle1Details = (($scope.caseVehicles.CurrentVehicle1.Brand == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle1.Class == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle1.Model == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Model);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -171,7 +172,7 @@
        /*CURRENT VEHICLE2 : Vehicle Intitialization details*/
        if($scope.caseVehicles.CurrentVehicle2 != undefined){
            $scope.vehicleCurrent2DetailText = "Edit";
-           $scope.CurrentVehicle2Details = $scope.caseVehicles.CurrentVehicle2.Brand +' ' +$scope.caseVehicles.CurrentVehicle2.Class + ' ' + $scope.caseVehicles.CurrentVehicle2.Model;
+           $scope.CurrentVehicle2Details = (($scope.caseVehicles.CurrentVehicle2.Brand == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle2.Class == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle2.Model == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Model);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
