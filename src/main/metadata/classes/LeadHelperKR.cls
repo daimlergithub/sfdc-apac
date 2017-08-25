@@ -137,7 +137,7 @@ public class LeadHelperKR
         Id userids=userinfo.getUserId();
         Id roleId=userinfo.getUserRoleId();
         Id profileId=userinfo.getProfileId();
-        String rolename=[Select Id,Name from UserRole where Id=:roleId].Name;
+        //String rolename=[Select Id,Name from UserRole where Id=:roleId].Name;
         String profilename=[Select Id,Name from Profile where Id=:profileId].Name;
          if(trigger.isBefore && trigger.isUpdate)
            {

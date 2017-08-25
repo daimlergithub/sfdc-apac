@@ -62,7 +62,7 @@ public class CSRLookupController {
         List<User> csrUsers = [
             Select Name, UserRole.Name 
             From User 
-            Where ProfileId in :profileIds And IsActive = true ];
+            Where (User_Type__c ='MBJ' OR User_Type__c ='MBF') And IsActive = true ];
 System.debug('SKM=>Profile in csrUsers '+csrUsers );
 
         // ADD START CR-000136 CHAOS 2013/12/5
