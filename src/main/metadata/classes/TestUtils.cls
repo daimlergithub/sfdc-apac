@@ -22,7 +22,7 @@ public class TestUtils {
     // After Sales Manager User Creation
     public static User createAfterSalesManager(){       
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        UserRole role= [Select Id,name From UserRole Where name ='AfterSalesManager'];
+        UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH_Manager'];
         User user1 = new User(LastName='User',UserRoleId = role.id,country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersales@test.com');
         insert user1;
         return user1;

@@ -62,7 +62,8 @@
        
       
        //This is the filter code for current-vehicle1 and current-vehicle2
-       $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Brand": "{!$Label.Brand}", "Registration Number": "{!$Label.RegistrationNo}"};
+       //$scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Brand": "{!$Label.Brand}", "Registration Number": "{!$Label.RegistrationNo}"};
+	   $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Registration Number": "{!$Label.RegistrationNo}"};
        
        
        
