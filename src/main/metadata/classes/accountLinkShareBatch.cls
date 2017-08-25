@@ -8,17 +8,18 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
     public static List<AccountShare> updateAccShareList = new List<AccountShare>();
   global database.QueryLocator start(database.BatchableContext bc)
     { 
-        string query = 'Select id,fromRole__c,toRole__c,fromRole__r.Dealer_GC_Code__c,fromRole__r.Dealer_ND_Code__c,fromRole__r.Dealer_Type__c from Account_Link__c where fromRole__r.Dealer_GC_Code__c in '+ '(\'GC0011422\',\'GC0011430\',\'GC0037972\') '+ 'and fromRole__c != null and fromRole__r.Dealer_Type__c = '+'\'Outlet\' and toRole__c != null and MD__C =' +'\'KR\''+ 'and (Recordtype.Name =' +'\'Retail Person\'' + 'or Recordtype.Name = ' +'\'Retail Company\')';
+        string query = 'Select id,fromRole__c,toRole__c,fromRole__r.Dealer_GC_Code__c,fromRole__r.Dealer_ND_Code__c,fromRole__r.Dealer_Type__c from Account_Link__c where fromRole__r.Dealer_GC_Code__c in '+ '(\'GC0037971\',\'GC0011433\',\'GC0037972\',\'GC0011434\') '+ 'and fromRole__c != null and toRole__c != null and MD__C =' +'\'KR\''+ 'and (Recordtype.Name =' +'\'Retail Person\'' + 'or Recordtype.Name = ' +'\'Retail Company\')';
         return database.getQueryLocator(query);
     }
     global void execute(database.BatchableContext bc,List<Account_Link__c> scope)
     {
-        dealerGCCodeList.add('GC0011422');
-        dealerGCCodeList.add('GC0011430');
+        dealerGCCodeList.add('GC0037971');
         dealerGCCodeList.add('GC0037972');
+        dealerGCCodeList.add('GC0011433');
+        dealerGCCodeList.add('GC0011434');
         Set<string> ndCodeList = New Set<String>();
         
-        List<Account> accntList = [select Id, Dealer_ND_Code__c, Dealer_GC_Code__c, Dealer_Type__c from Account where Dealer_Type__c='Outlet'and Recordtype.Name = 'Dealer' and Dealer_GC_Code__c =:dealerGCCodeList and MD__c = 'KR'];
+        List<Account> accntList = [select Id, Dealer_ND_Code__c, Dealer_GC_Code__c, Dealer_Type__c from Account where Recordtype.Name = 'Dealer' and Dealer_GC_Code__c =:dealerGCCodeList and MD__c = 'KR'];
         for(Account acc : accntList){
         
            ndCodeList.add(acc.Dealer_ND_Code__c);
@@ -32,7 +33,7 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
             {
                 for(Account acc : accntList)
                 {
-                    if(acc.Dealer_Type__c == 'outlet' && gr.Name == acc.Dealer_ND_Code__c)
+                    if(gr.Name == acc.Dealer_ND_Code__c)
                     {
                         groupGcCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
                     }
