@@ -50,11 +50,11 @@ public class TriggerLeadTriggerHandlerJP
                 LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             }
             LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            if(LeadUtil.LeadTrigger)
-            {
+            //if(LeadUtil.LeadTrigger)
+            //{
                 LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            }
-            LeadUtil.LeadTrigger = false;
+            //}
+           // LeadUtil.LeadTrigger = false;
             
         }
         

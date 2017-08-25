@@ -1429,7 +1429,7 @@
         <name>searchbutton_title</name>
     </customLabels>
     <customLabels>
-        <label>VIN 번호를</label>
+        <label>미국 VIN</label>
         <name>Vin_Number</name>
     </customLabels>
     <customLabels>
