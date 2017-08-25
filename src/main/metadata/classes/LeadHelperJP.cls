@@ -305,6 +305,7 @@ public class LeadHelperJP
      public static void handleAfterInsertOrUpdate(list<lead__c> leadlist1,Map<Id,Lead__C> leadOldMap)
     {
     // if(LeadUtil.handleAfterInsert){
+     map<string,list<String>> dealeraccntMap = new Map<string,list<String>>();
      Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      list<lead__c> leadlist = new list<lead__c>();
      list<account> dealerAccountList =new list<account>();
@@ -337,7 +338,7 @@ public class LeadHelperJP
         {
             for(account a:dealerAccountList)
             {
-                if(a.Dealer_Rollout_Status__c != null)
+                if(a.Dealer_Rollout_Status__c == 'Done')
                 {
                     accountMap.put(a.name,a);
                     
@@ -372,30 +373,42 @@ public class LeadHelperJP
             
         }
         list<account>acl=new list<account>([select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId]);
-        for(Account acc : acl){
+        
+        for(Account acc :acl)
+        {
             system.debug('acc.Name'+acc.Name);
-            AccountNAme.add(acc.Name);   
+            if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
+            {
+                dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
+            }
+            dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
+            AccountNAme.add(acc.Name);
         }
-        list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN:asslist OR Name IN: AccountNAme]);
+        system.debug('dealeraccntMap><><><' + dealeraccntMap);
+        list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN: AccountNAme]);
         for(Group assg:grplist)
         {
             
             assgroupMap.put(assg.Name, assg.id);
-            system.debug('assg.Name'+assg.Name);
+            
             
         }
-        
+        system.debug('assgroupMap><><><>'+assgroupMap);
         for(Lead__c lead:leadlist)  
         {
-            for(id m:assgroupMap.values())
-            {   
-                Lead__share l=new Lead__share();
-                l.ParentId=lead.id;
-                l.UserOrGroupId = m;
-                system.debug('mid'+m);
-                l.rowcause = Schema.Lead__Share.rowcause.Assigned_Dealer__c ;  
-                l.AccessLevel='edit';
-                leadshare.add(l);
+            for(integer i=0 ; i < dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c).size();i++)
+            {
+                
+                if(assgroupMap.get(dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c)[i]) != null)
+                {
+                    Lead__share l=new Lead__share();
+                    l.ParentId=lead.id;
+                    l.UserOrGroupId = assgroupMap.get(dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c)[i]);
+                    
+                    l.rowcause = Schema.Lead__Share.rowcause.Assigned_Dealer__c ;  
+                    l.AccessLevel='edit';
+                    leadshare.add(l);
+                }
             }
         }
         if(!leadshare.isEmpty() && leadshare != null)
