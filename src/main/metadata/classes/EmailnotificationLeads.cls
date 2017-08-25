@@ -24,7 +24,7 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id,Name,CAC_Lead_Status__c,Last_Nonassign_Notification_Date__c, Assigned_Dealer__r.Dealer_GC_Code__c, 
                                          Assigned_Dealer__r.Dealer_ND_Code__c, Assigned_Dealer__r.Name 
-                                         FROM Lead__c where Lead_Assignment_Notification_Done__c =: false
+                                         FROM Lead__c where MD__c = 'JP' and Lead_Assignment_Notification_Done__c =: false
                     					 and Assigned_Dealer__c !=: NULL and CAC_Lead_Status__c = 'Allocated' and 
                                          ((RecordType.Name IN('Sales Leads') and Assigned_Dealer__r.SalesLead_Notification_Timing__c = '3 times a day') 
                                          OR (RecordType.Name IN('Aftersales Leads') and Assigned_Dealer__r.ASLead_Notification_Timing__c = '3 times a day'))]);            

@@ -38,9 +38,9 @@ public class TriggerLeadTriggerHandlerKR
 				saleConIds.add(Leds.Sales_Consultant__c);
             }            
              LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
-			 
+			LeadHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Lead__c>)trigger.oldMap,isUpdate,isDelete); 
         } 
-          LeadHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Lead__c>)trigger.oldMap,isUpdate,isDelete);		
+          		
         if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated)
         {
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
