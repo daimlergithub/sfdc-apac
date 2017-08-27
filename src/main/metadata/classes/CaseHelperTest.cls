@@ -217,10 +217,14 @@ public With Sharing class CaseHelperTest {
         newAccount.MBK_Data_Source__c='Email';
         newAccount.PersonMobilePhone = '09088767547';       
         insert newAccount;
-         Case c3 = new Case( AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = acc.Id);
-            insert c3; 
+        Case c3 = new Case( AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = acc.Id);
+        insert c3; 
         Case testCase = new Case(Others__c = 'other@163.com',RecordTypeId = MBRecordtypeid ,AccountId= newAccount.Id ,Notice_AS__c = false,CheckFlag_48H__c = false ,CheckFlag_72H__c = false, ParentId = c3.Id);
         insert testCase;
+		CaseComment cc = new CaseComment(ParentId = testCase.Id,CommentBody = 'test');
+        insert cc;
+        cc.commentBody='tests';
+        update cc;
         testCase.Case_Dealer__c = acc.Id;
         testCase.Car_Owner__c = newAccount.Id;
         testCase.Handling_Level__c = 'Dealer';//'Central Office';
