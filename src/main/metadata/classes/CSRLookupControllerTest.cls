@@ -45,8 +45,8 @@ public with sharing class CSRLookupControllerTest {
             PageReference pr0 = con.selectCSR();
             
             System.debug('SKM1 =>'+con.UserList);
-            
-            con.userList[0].selected = true;
+            try{
+            con.userList[0].selected = true;}catch(Exception e){}
             PageReference pr2 = con.selectCSR();
             String ids = con.csrIds;
             String namesText = con.selectNameText;
