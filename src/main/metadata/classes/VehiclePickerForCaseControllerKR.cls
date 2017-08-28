@@ -72,11 +72,11 @@ global without sharing class VehiclePickerForCaseControllerKR {
                 System.debug('Case Owner vehicles...:' +caseOwnerVehicles);
                 System.debug('Each Case Vehicle type...' +case_Vehicles.Interested_Vehicle__c); 
             }
-            system.debug('rolename'+usr.UserRole.name);
+           /* system.debug('rolename'+usr.UserRole.name);
                  if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && usr.Market__c=='KR'){
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
 
-                  }
+                  }*/
             if (case_Vehicles != null) {
                 tempList = map_vehicleIds.get(case_Vehicles.Interested_Vehicle__c);
                 if (tempList == null){
@@ -548,11 +548,11 @@ global without sharing class VehiclePickerForCaseControllerKR {
                 System.debug('Edit...');
                 Case cse = [Select Id,MD__c,Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
                 system.debug('rolename'+usr.UserRole.name);
-                 if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && cse.MD__c == 'KR'){
+                 /*if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && cse.MD__c == 'KR'){
                   
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
 
-                  }else{
+                  }else{}*/
                  if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                     caseVehicle.Id =  cse.Interested_Vehicle__c;
                     caseVehicle.Car_Model__c = carModel[0].Id;
@@ -592,7 +592,7 @@ global without sharing class VehiclePickerForCaseControllerKR {
                     cse.Purchased_Vehicle__c = caseVehicle.Id;
                     update cse;
                 }
-              }  
+                
             }            
         }
         if(vehicleAttributes.get('Lookup') == 'true'){

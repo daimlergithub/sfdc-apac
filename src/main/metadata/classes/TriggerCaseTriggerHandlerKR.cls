@@ -21,7 +21,7 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
             //caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
             
         }
-        caseHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Case>)trigger.oldMap,isUpdate,isDelete);
+        //caseHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Case>)trigger.oldMap,isUpdate,isDelete);
         if(trigger.isAfter)
         {
             if (trigger.isInsert)
