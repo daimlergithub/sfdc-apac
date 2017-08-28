@@ -131,7 +131,7 @@ public class LeadHelperKR
         }              
         Database.SaveResult[] lsr = Database.insert(leadshare,false); 
     }
-      public static void roleRestrictionForCCC(List<Lead__c> Lstnewlead,Map<Id,Lead__c> oldVallead,Boolean isUpdate,Boolean isDelete)
+     /* public static void roleRestrictionForCCC(List<Lead__c> Lstnewlead,Map<Id,Lead__c> oldVallead,Boolean isUpdate,Boolean isDelete)
     {
         
         Id userids=userinfo.getUserId();
@@ -830,5 +830,5 @@ public class LeadHelperKR
                       }
                       }
            }
-    }
+    }*/
 }

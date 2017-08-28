@@ -87,8 +87,8 @@ public class CaseHelperKR
             } 
         }
         Database.SaveResult[] lsr = Database.insert(CaseSharingRecord,false);       
-    }  */
-    public static void roleRestrictionForCCC(List<Case> LstnewCase,Map<Id,Case> oldValcase,Boolean isUpdate,Boolean isDelete)
+    } */
+   /* public static void roleRestrictionForCCC(List<Case> LstnewCase,Map<Id,Case> oldValcase,Boolean isUpdate,Boolean isDelete)
     {
       Id caseMBRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
       Id caseInqRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
@@ -709,7 +709,7 @@ public class CaseHelperKR
                       }
                       }
            }
-    }
+    }*/
     public static void updateCaseDeadLine(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
           List<Id> caseIds = new List<Id>();
           Id caseMBRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();

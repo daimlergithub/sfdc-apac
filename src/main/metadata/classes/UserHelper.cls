@@ -1076,7 +1076,7 @@ public with sharing class UserHelper {
         for(user usr: usrInList){
             usrIds.add(usr.id);
         }
-        List<user> usrLst = new List<user>([select id, name, contact.Accountid, contact.Account.Dealer_ND_Code__c from user where IsPortalEnabled  = true and Market__c = 'KR' and isActive = true and contact.Account.Dealer_ND_Code__c != null and contact.Account.RecordType.Name = 'Dealer' and id in:usrIds]);
+        List<user> usrLst = new List<user>([select id, name, contact.Accountid, contact.Account.Dealer_ND_Code__c from user where (IsPortalEnabled  = true and Market__c = 'KR' and isActive = true and contact.Account.Dealer_ND_Code__c != null and contact.Account.RecordType.Name = 'Dealer') or (id in:usrIds)]);
 
         Map<Id, set<Id>> accUsrmap = new map<id, set<Id>>();
         Map<string, set<user>> accDealerNdCodeUsrmap = new map<string, set<user>>();
