@@ -22,7 +22,29 @@ public class TriggerCaseTriggerHandlerKRTest{
         Trigger__c newtrg1 = new Trigger__c(Name= 'CaseTrigger',Trigger_Name__c = 'CaseTrigger',Trigger_Handler__c = 'TriggerCaseTriggerHandlerKR',Market__c ='JP',
                                enabled__c = True,after__c= True,before__c= True,delete__c= True,update__c= True,insert__c= True);
         insert newtrg1;
-       User testUser = TestUserCreate.createuserrecord('JP');
+        
+       Id roleId=[Select Id,Name from UserRole where name='Daimler APAC'].id;
+       Id profileId=[Select Id,Name from Profile where name='Korea Call center'].id;
+       
+       
+        
+       user testUser = new User(
+            Username = System.now().millisecond() + 'testDaimlerUser212121@Daimler-test.com',
+            FirstName = 'firstname',
+            ProfileId = profileId,            
+            Alias = 'test123',
+            Email = 'test12345@test.com',
+            EmailEncodingKey = 'UTF-8',
+            UserRoleId=roleId,
+            LastName = 'McTesty',
+            CommunityNickname = System.now().millisecond() + 'test12345',
+            TimeZoneSidKey = 'America/Los_Angeles',
+            LocaleSidKey = 'en_US',
+            LanguageLocaleKey = 'en_US'
+            
+        );
+        
+        insert testUser;
        System.runAs(testUser){
            //Create Account
            testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
@@ -74,7 +96,9 @@ public class TriggerCaseTriggerHandlerKRTest{
     
     public static testMethod void testComplaintAmountCaseInsert(){
         createCustomSetting();
-        init();
+        testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+           testAccount1.MD__c = 'KR';
+           update testAccount1;
         
         Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account Before Insert:' +acc);
@@ -89,7 +113,11 @@ public class TriggerCaseTriggerHandlerKRTest{
     
     public static testMethod void testComplaintAmountCaseDelete(){
         createCustomSetting();
-        init();
+        
+        testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+           testAccount1.MD__c = 'KR';
+           update testAccount1;
+        
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, MD__c = 'JP');
         insert testCase1;
         
@@ -105,7 +133,15 @@ public class TriggerCaseTriggerHandlerKRTest{
     
     public static testMethod void testComplaintAmountCaseUpdate(){
         createCustomSetting();
-        init();
+        
+        testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+           testAccount1.MD__c = 'KR';
+           update testAccount1;
+           
+            testAccount2 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+           testAccount2.MD__c = 'KR';
+           update testAccount2;
+        
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount2.Id, MD__c = 'JP');
         insert testCase1;
         
@@ -123,9 +159,13 @@ public class TriggerCaseTriggerHandlerKRTest{
     
     public static testMethod void testComputeDeadline(){
         createCustomSetting();
-        init();
+        
+        testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+           testAccount1.MD__c = 'KR';
+           update testAccount1;
+        
         createCaseToComputeDeadline();
-        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, Priority = 'A', MD__c = 'JP');
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, Priority = 'A', MD__c = 'KR');
         insert testCase1;
                
         Case cs = [Select DeadLine__c from Case Where Id =: testCase1.Id];
