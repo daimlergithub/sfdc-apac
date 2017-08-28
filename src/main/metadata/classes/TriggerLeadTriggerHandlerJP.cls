@@ -29,32 +29,27 @@ public class TriggerLeadTriggerHandlerJP
         {
             System.debug('welcome');
             LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            if(!system.isFuture())
+            if(!system.isFuture() && LeadUtil.createAccountLinkRecord)
             {
                 LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             }
             LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            if(LeadUtil.isCreated)
-            {
+            
                 LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            }
-            LeadUtil.isCreated = false;
         }
         
         if(isAfter && isUpdate )
         {
             System.debug('welcome');
             LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);if(!system.isFuture())
+            LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
+            if(!system.isFuture() && LeadUtil.createAccountLinkRecord)
             {
                 LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             }
             LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            if(LeadUtil.LeadTrigger)
-            {
+            
                 LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            }
-            LeadUtil.LeadTrigger = false;
             
         }
         
@@ -93,6 +88,7 @@ public class TriggerLeadTriggerHandlerJP
         // Implementation to addedd as required in market
           if(isAfter &&  isInsert)
         {
+            LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
             if(LeadUtil.handleAfterInsert)
             {
                 System.debug('welcome');
@@ -103,6 +99,7 @@ public class TriggerLeadTriggerHandlerJP
         
          if(isAfter && isUpdate )
         {
+        LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
             if(LeadUtil.handleAfterInsert)
             {
                 System.debug('welcome');

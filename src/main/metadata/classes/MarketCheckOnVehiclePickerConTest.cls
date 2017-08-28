@@ -36,7 +36,7 @@ public class MarketCheckOnVehiclePickerConTest{
     mvp.marketChecker2=true;
     mvp.marketChecker=false;
 
-    profile = [select id, name from profile where name = 'Thailand Call Center'];
+    profile = [select id, name from profile where name = 'Thailand Call Center New'];
        
         // tried the below code to use the util to input the data, but this method is marked private
         // usr = UtilTestData.createUser(role.id, profile.id);
