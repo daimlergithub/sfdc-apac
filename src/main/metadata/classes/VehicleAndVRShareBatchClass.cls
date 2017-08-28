@@ -2,6 +2,7 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
 {
     public static List<string> dealerGCCodeList = new list<string>();
     public static List<string> dealerNDCodeList = new List<string>();
+    public static Map<string,string> groupNdCodeMap = new Map<string,string>();
     public static Map<string,string> groupGcCodeMap = new Map<string,string>();
     public static List<Vehicle_Relationship__Share> updateVRShareList = new List<Vehicle_Relationship__Share>();
     public static List<Vehicle__Share> updateVehShareList = new List<Vehicle__Share>();
@@ -33,9 +34,14 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
             {
                 for(Account acc : accntList)
                 {
-                    if(gr.Name == acc.Dealer_ND_Code__c)
+                    if(acc.Dealer_Type__c == 'Company' && gr.Name == acc.Dealer_ND_Code__c)
                     {
-                        groupGcCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
+                        groupGcCodeMap.put(acc.Dealer_GC_Code__c,gr.Id);
+                    }
+                    
+                    if(acc.Dealer_Type__c == 'outlet' && gr.Name == acc.Dealer_ND_Code__c)
+                    {
+                        groupNdCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
                     }
                 }
             }
@@ -44,22 +50,37 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
         {
             for(Vehicle_Relationship__c vehRel : scope)
             {
-                if((groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c))!=null && groupGcCodeMap != null)
+                if((groupNdCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c))!=null && groupNdCodeMap != null)
             {
                 Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                 vehicleRelationShare.AccessLevel = 'Edit';
-                vehicleRelationShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
+                vehicleRelationShare.UserOrGroupId = groupNdCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
                 vehicleRelationShare.ParentId = vehRel.Id;
                 updateVRShareList.add(vehicleRelationShare);   
     
                 Vehicle__Share vehicleShare = new Vehicle__Share();
                 vehicleShare.AccessLevel = 'Edit';
-                vehicleShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
+                vehicleShare.UserOrGroupId = groupNdCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
                 vehicleShare.ParentId = vehRel.Vehicle_ID__c;
                 updateVehShareList.add(vehicleShare);
             }
+            if((groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c))!=null && groupGcCodeMap != null)
+            {
+                
+                Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
+                vehicleRelationShare.AccessLevel = 'Edit';
+                vehicleRelationShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c);
+                vehicleRelationShare.ParentId = vehRel.Id;
+                updateVRShareList.add(vehicleRelationShare);   
+    
+                Vehicle__Share vehicleShare = new Vehicle__Share();
+                vehicleShare.AccessLevel = 'Edit';
+                vehicleShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c);
+                vehicleShare.ParentId = vehRel.Vehicle_ID__c;
+                updateVehShareList.add(vehicleShare);
             }
         }
+        
         if(!updateVRShareList.isEmpty() && updateVRShareList != null)
         {
             insert updateVRShareList;
@@ -68,6 +89,7 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
         {
             insert updateVehShareList;
         }
+    }
     }
     global void finish(database.BatchableContext bc)
     {
