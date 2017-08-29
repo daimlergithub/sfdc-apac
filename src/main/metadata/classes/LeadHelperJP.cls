@@ -251,8 +251,8 @@ public class LeadHelperJP
             {
                 
                 if(les.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && les.Assigned_Dealer__c != null 
-                   && (isInsert || (isUpdate && les.CAC_Lead_Status__c != leadsOldMap.get(les.id).CAC_Lead_Status__c ||
-                                    les.Service_Advisor__c != leadsOldMap.get(les.id).Service_Advisor__c) ))
+                   && (isUpdate && les.CAC_Lead_Status__c != leadsOldMap.get(les.id).CAC_Lead_Status__c ||
+                                    isUpdate && les.Service_Advisor__c != leadsOldMap.get(les.id).Service_Advisor__c) )
                 {
                     leadsId.add(les.Id);
                 }
@@ -278,16 +278,16 @@ public class LeadHelperJP
                 {   
                     lds.CAC_Lead_Status__c='Approved';
                 }
-                else if(lds.CAC_Lead_Status__c != leadsOldMap.get(lds.id).CAC_Lead_Status__c && lds.Assigned_Dealer__r.Dealer_Rollout_Status__c == 'Done' && Userinfo.getUserType() == 'PowerPartner')
+                else if(isUpdate && lds.CAC_Lead_Status__c != leadsOldMap.get(lds.id).CAC_Lead_Status__c && lds.Assigned_Dealer__r.Dealer_Rollout_Status__c == 'Done' && Userinfo.getUserType() == 'PowerPartner')
                 {   
                     system.debug('Entereed><><><>');
                     lds.CAC_Lead_Status__c = 'Allocated';
                 }
-                else if(lds.CAC_Lead_Status__c != leadsOldMap.get(lds.id).CAC_Lead_Status__c && lds.CAC_Lead_Status__c == 'Approved' && Userinfo.getUserType() != 'PowerPartner')
+                else if(isUpdate && lds.CAC_Lead_Status__c != leadsOldMap.get(lds.id).CAC_Lead_Status__c && lds.CAC_Lead_Status__c == 'Approved' && Userinfo.getUserType() != 'PowerPartner')
                 {
                     lds.CAC_Lead_Status__c = 'Allocated';
                 }
-                if(lds.Service_Advisor__c != leadsOldMap.get(lds.id).Service_Advisor__c)
+                if(isUpdate && lds.Service_Advisor__c != leadsOldMap.get(lds.id).Service_Advisor__c)
                 {
                     lds.OwnerId = lds.Service_Advisor__c;
                 }
