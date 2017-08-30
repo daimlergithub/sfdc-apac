@@ -88,24 +88,27 @@ public class TriggerLeadTriggerHandlerJP
         // Implementation to addedd as required in market
           if(isAfter &&  isInsert)
         {
+           
             //LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
             if(LeadUtil.handleAfterInsert)
             {
                 System.debug('welcome');
                 LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             }
+             LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
          // LeadUtil.handleAfterInsert = false;
         }
         
          if(isAfter && isUpdate )
         {
-        LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
+      
             if(LeadUtil.handleAfterInsert)
             {
                 System.debug('welcome');
                 LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             }
           LeadUtil.handleAfterInsert = false;
+            LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
         }
           
           if(isAfter && isInsert && LeadUtil.isCreated){      
