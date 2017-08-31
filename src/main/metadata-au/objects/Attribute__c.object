@@ -200,4 +200,4 @@
         <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
-</CustomObject>
+</CustomObject>  

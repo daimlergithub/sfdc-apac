@@ -1001,4 +1001,4 @@ Modify Reason:
 )</errorConditionFormula>
         <errorMessage>Insufficient Stock</errorMessage>
     </validationRules>
-</CustomObject>
+</CustomObject>  

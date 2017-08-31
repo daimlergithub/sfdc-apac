@@ -5662,4 +5662,4 @@ location.href = lookingURL;
         <requireRowSelection>true</requireRowSelection>
         <url>/OBJECT_QC_WEBLINK_OBJECT_KEYPREFIX/e?OBJECT_QC_WEBLINK_SSI__FIELD_ID={!SSI__c.Name}&amp;OBJECT_QC_WEBLINK_SSI__FIELD_ID_lkid={!SSI__c.Id}&amp;retURL={!SSI__c.Id}&amp;RecordType=OBJECT_QC_WEBLINK_SSI_QC_RECORD_TYPE_ID&amp;ent=OBJECT_QC_WEBLINK_OBJECT_ID</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

@@ -187,4 +187,4 @@
         <customTabListAdditionalFields>Value__c</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
-</CustomObject>
+</CustomObject>  

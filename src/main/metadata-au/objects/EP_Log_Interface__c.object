@@ -396,4 +396,4 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <pluralLabel>EP Log Interface</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-</CustomObject>
+</CustomObject>  

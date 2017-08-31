@@ -19212,6 +19212,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>GLA Activity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>G-Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -19256,6 +19260,14 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>G-Professional Cab Chassis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Professional Wagon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Heavy</fullName>
                 <default>false</default>
             </picklistValues>
@@ -19265,6 +19277,18 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT R</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT S</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -58354,6 +58378,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLA Activity</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GL-Class</fullName>
                 <default>false</default>
             </values>
@@ -58394,6 +58422,14 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>G-Professional Cab Chassis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Professional Wagon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Heavy</fullName>
                 <default>false</default>
             </values>
@@ -58403,6 +58439,18 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT S</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -102283,4 +102331,4 @@ else {
 window.open("/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

@@ -585,4 +585,4 @@
         <errorConditionFormula>IF(  ISPICKVAL( Status__c , 'Closed')   &amp;&amp; ISBLANK(  TEXT(ClosedReason__c)  )  , true, false)</errorConditionFormula>
         <errorMessage>Cancelled Reason is required</errorMessage>
     </validationRules>
-</CustomObject>
+</CustomObject>  

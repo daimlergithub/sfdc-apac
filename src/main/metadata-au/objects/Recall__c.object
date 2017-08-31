@@ -217,4 +217,4 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     <pluralLabel>Recalls</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-</CustomObject>
+</CustomObject>  

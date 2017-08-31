@@ -194,4 +194,4 @@ window.open("/apex/SubmitSurvey?surveyID={!Survey__c.Id}&amp;type=preview","neww
 alert("{!$Label.Btn_Preview_No_Questions}");
 }</url>
     </webLinks>
-</CustomObject>
+</CustomObject>  

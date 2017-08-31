@@ -161,4 +161,4 @@
         <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-</CustomObject>
+</CustomObject>  

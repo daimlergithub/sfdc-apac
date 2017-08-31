@@ -271,4 +271,4 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     <pluralLabel>Surveys Taken</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-</CustomObject>
+</CustomObject>  
