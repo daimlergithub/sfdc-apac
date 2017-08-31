@@ -13520,11 +13520,13 @@ Modify Reason:
         <fullName>Questionnair__c</fullName>
         <externalId>false</externalId>
         <label>Questionnaire memo</label>
+        <length>4000</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Quotation_Amount__c</fullName>
@@ -14262,20 +14264,11 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <fields>
+	    <fields>
         <fullName>Referal_Referee_Name__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Referal/Referee Name</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Contact.Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Person Account</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Contact</referenceTo>
         <relationshipName>Leads_Referal_Referee</relationshipName>
         <required>false</required>
@@ -110945,6 +110938,10 @@ Company_Account__r.Work_Phone__c  ,
     <sharingReasons>
         <fullName>Dealer_Campaign_Share__c</fullName>
         <label>Dealer Campaign Share</label>
+    </sharingReasons>
+    <sharingReasons>
+        <fullName>Assigned_Dealer__c</fullName>
+        <label>Assigned Dealer</label>
     </sharingReasons>
     <validationRules>
         <fullName>CAC_Lead_Status_Check_After_Assigned</fullName>

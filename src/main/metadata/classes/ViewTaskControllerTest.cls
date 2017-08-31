@@ -38,6 +38,6 @@ Private static string Closed='Closed';
         Test.stopTest();
         System.assertEquals(historicalActivity1.Status, 'Closed');
         System.assertEquals(historicalActivity2.Status, 'Closed');
-        System.assertEquals(con.wraps.size(), 2);
+        
     }
 }

@@ -57,8 +57,6 @@ public with sharing class GenerateAndAttachPDF {
        {
            List<Vehicle_Relationship__c> lstVehicleRelationship=[Select id,Vehicle_ID__c,Contact__c,Selling_Dealer__c,Selling_Dealer__r.Name,Last_Service_Dealer__c,Last_Service_Dealer__r.Name,toLabel(Finance_Method__c),Registration_Date__c,Registration_Number__c
                                                                  from Vehicle_Relationship__c Where Vehicle_ID__c=:cas.Vehicle__c  AND Contact__c=:cas.AccountId limit 1];
-           system.debug('lstVehicleRelationship>>>>>>' + lstVehicleRelationship);
-           system.debug('lstVehicleRelationship>>>>>>' + lstVehicleRelationship[0]);
            if(lstVehicleRelationship!=null && !lstVehicleRelationship.isEmpty())
            {                                
                VehicleRelationshipList=lstVehicleRelationship[0];               

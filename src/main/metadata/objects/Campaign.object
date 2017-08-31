@@ -50,6 +50,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
     <fields>
         <fullName>ATL_BTL__c</fullName>
         <description>ATL/BTL of the campaign</description>
@@ -3912,6 +3913,48 @@
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MBK_All_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>All Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_My_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>My Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MB_Best_Practice</fullName>
         <columns>CAMPAIGN.NAME</columns>
         <columns>Campaign_Code__c</columns>
@@ -4007,48 +4050,6 @@
         <language>en_US</language>
         <sharedTo>
             <role>Central</role>
-        </sharedTo>
-    </listViews>
-	<listViews>
-        <fullName>MBK_My_Campaigns</fullName>
-        <columns>CAMPAIGN.NAME</columns>
-        <columns>CAMPAIGN.START_DATE</columns>
-        <columns>CAMPAIGN.END_DATE</columns>
-        <columns>CAMPAIGN.BUDGETED_COST</columns>
-        <columns>CAMPAIGN.ACTUAL_COST</columns>
-        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
-        <columns>CAMPAIGN.STATUS</columns>
-        <filterScope>Mine</filterScope>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </filters>
-        <label>My Campaigns</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-	<listViews>
-        <fullName>MBK_All_Campaigns</fullName>
-        <columns>CAMPAIGN.NAME</columns>
-        <columns>CAMPAIGN.START_DATE</columns>
-        <columns>CAMPAIGN.END_DATE</columns>
-        <columns>CAMPAIGN.BUDGETED_COST</columns>
-        <columns>CAMPAIGN.ACTUAL_COST</columns>
-        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
-        <columns>CAMPAIGN.STATUS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </filters>
-        <label>All Campaigns</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
@@ -7122,6 +7123,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Department__c</picklist>
+            <values>
+                <fullName>Aftersales%2C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales %26 Marketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Driven_Type__c</picklist>
             <values>
                 <fullName>Joint</fullName>
@@ -7204,7 +7228,7 @@
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -21035,12 +21059,22 @@ window.open("/apex/Consolidation_List?Id={!Campaign.Id}");
         <fullName>Create_Child_Campaign</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Create Child Campaign</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/29.0/apex.js")} 
+
+if('{!User.ContactId}' !='')
+{
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+}
+else
+{
+window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Child_Campaign_For_Execution</fullName>
@@ -21084,12 +21118,22 @@ alert('something has gone wrong please contact your Administrator');
         <fullName>Create_Simple_Execution</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Create Simple Execution</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/29.0/apex.js")} 
+
+if('{!User.ContactId}' !='')
+{
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+}
+else
+{
+window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Custom_Clone</fullName>

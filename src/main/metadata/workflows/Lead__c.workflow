@@ -21,33 +21,11 @@
         <template>unfiled$public/Campaign_Lead_Assignment_Notification</template>
     </alerts>
     <alerts>
-        <fullName>Email_Notification_to_CCC_Manager_if_lead_untouched_1_hours</fullName>
-        <description>Email Notification to CCC Manager if lead untouched 1 hours</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>CallCenter_Manager</recipient>
-            <type>role</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_Notification_to_CCC_Manager_if_lead_untouched_1_hours</template>
-    </alerts>
-    <alerts>
-        <fullName>Email_Notification_to_wholesale</fullName>
-        <description>Email Notification to wholesale</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>After_Sales_Manager</recipient>
-            <type>role</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_Notification_to_wholesale</template>
-    </alerts>
-    <alerts>
         <fullName>Email_Notification_to_wholesale_Salesmanager</fullName>
         <description>Email Notification to wholesale_Salesmanager</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Sales_Marketing_Manager</recipient>
+            <recipient>MBTH_Manager</recipient>
             <type>role</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -131,7 +109,7 @@
         <description>MBTH_Email Notification to wholesale</description>
         <protected>false</protected>
         <recipients>
-            <recipient>After_Sales_Manager</recipient>
+            <recipient>MBTH_Manager</recipient>
             <type>role</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -195,7 +173,7 @@
             <type>creator</type>
         </recipients>
         <recipients>
-            <recipient>MBLT_Manager</recipient>
+            <recipient>MBTH_Manager</recipient>
             <type>role</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -333,6 +311,15 @@
         <field>CAC_Lead_Status__c</field>
         <literalValue>New</literalValue>
         <name>CAC Lead Status to New</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CAC_Lead_status_update</fullName>
+        <field>CAC_Lead_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>CAC Lead status Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -1010,15 +997,6 @@ Purchased_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	    <fieldUpdates>
-        <fullName>CAC_Lead_status_update</fullName>
-        <field>CAC_Lead_Status__c</field>
-        <literalValue>Approved</literalValue>
-        <name>CAC Lead status Update</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Receieved_date_time</fullName>
         <field>Received_Date_Time__c</field>
@@ -1226,8 +1204,7 @@ Purchased_Date_Time__c
             <type>Task</type>
         </actions>
         <active>true</active>
-        <formula>AND( CONTAINS($Profile.Name,'MBF'),MD__c='JP', RecordType.Name ='Sales Leads', NOT(ISNULL(Existing_Contract__c)),  ISPICKVAL(Existing_Contract__r.Status__c,'Active'),ISPICKVAL(Existing_Contract__r.Sales_Type__c, 'Retail'),NOT(ispickval(Customer_Intention__c ,'')), AND(NOT(IsPICKVAL(Finance_Product_Name__c,'Re-loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Start Up Plan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Normal Loan'))
-,NOT(IsPICKVAL(Finance_Product_Name__c,'Dual Auto Loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Welcome Plan Plus')),NOT(IsPICKVAL(Finance_Product_Name__c,'Super Welcome Plan Plus'))))</formula>
+        <formula>AND( CONTAINS($Profile.Name,'MBF'),MD__c='JP', RecordType.Name ='Sales Leads', NOT(ISNULL(Existing_Contract__c)),  ISPICKVAL(Existing_Contract__r.Status__c,'Active'),ISPICKVAL(Existing_Contract__r.Sales_Type__c, 'Retail'),NOT(ispickval(Customer_Intention__c ,'')), AND(NOT(IsPICKVAL(Finance_Product_Name__c,'Re-loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Start Up Plan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Normal Loan')) ,NOT(IsPICKVAL(Finance_Product_Name__c,'Dual Auto Loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Welcome Plan Plus')),NOT(IsPICKVAL(Finance_Product_Name__c,'Super Welcome Plan Plus'))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1362,21 +1339,6 @@ Purchased_Date_Time__c
         </criteriaItems>
         <description>When the “Dealer Lead status" is "Purchased" then the "CAC Lead Status" need to be updated as purchased.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>MBTH_Email Notification to CCC Manager if lead untouched 1 hours</fullName>
-        <active>false</active>
-        <formula>AND(OR(CreatedBy.Profile.Name = 'Thailand Call Center',CreatedBy.Profile.Name = 'System Administrator'),MD__c='TH',RecordType.Name='Sales Leads',  ISBLANK(First_Contact_Customer_Date__c),Assigned_Dealer__c &lt;&gt;null)</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Email_Notification_to_CCC_Manager_if_lead_untouched_1_hours</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Lead__c.Dealer_Assigned_Date_Time__c</offsetFromField>
-            <timeLength>1</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>MBTH_Email notification when interested vehicle have changed</fullName>
@@ -1999,7 +1961,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
         <formula>(NOT(ISBLANK(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-		<workflowTimeTriggers>
+        <workflowTimeTriggers>
             <actions>
                 <name>No_modification_is_made_in_5_days_All_Modifications</name>
                 <type>Alert</type>
@@ -2007,7 +1969,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
             <timeLength>5</timeLength>
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>        
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Populate Assigned Date Time Dealer</fullName>
@@ -2193,8 +2155,10 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISCHANGED( Service_Advisor__c ),NOT(ISNULL(Service_Advisor__c)),  MD__c = 'JP')</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <formula>AND(ISCHANGED( Service_Advisor__c ),NOT(ISNULL(Service_Advisor__c)),MD__c = 'JP', NOT(ISPICKVAL(Dealer_Lead_Status__c, "Order Placed")),
+     NOT(ISPICKVAL(Dealer_Lead_Status__c, "Purchased")),NOT(ISPICKVAL(Dealer_Lead_Status__c, "Purchased(Only Non BDC)")),
+     NOT(ISPICKVAL(Dealer_Lead_Status__c, "Lost")))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Contact Failed For 3 Days Date Time</fullName>
@@ -2385,7 +2349,7 @@ Modify Reason:
         <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>Update MBFLead Status to Approved</fullName>
         <actions>
             <name>CAC_Lead_status_update</name>

@@ -59,6 +59,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>DescriptionOne__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Approval_Submit_Date__c</field>
             </layoutItems>
             <layoutItems>

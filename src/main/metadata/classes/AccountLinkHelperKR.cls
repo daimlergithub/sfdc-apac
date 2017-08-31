@@ -688,10 +688,10 @@ public class AccountLinkHelperKR
     
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         // Changing Sharing from User to Public Group
-        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        //List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()]; //commented for 101 exception
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
-        for(Account dealerRec : dealerAccList) {
+        for(Account dealerRec : [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()]) {
             dealerAccNameSet.add(dealerRec.Name);
             accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
         }

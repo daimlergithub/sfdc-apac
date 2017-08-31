@@ -6769,6 +6769,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <lookupDialogsAdditionalFields>Selling_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Last_Service_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Vehicle_ID__c</lookupDialogsAdditionalFields>
+		<lookupFilterFields>Contact__c</lookupFilterFields>
        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>UsVIN__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Car_Relation__c</searchResultsAdditionalFields>
@@ -6784,6 +6785,13 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
+	<validationRules>
+        <fullName>End_Date_Cannot_be_deleted</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(!ISNEW(), ISCHANGED( End_Date__c ), ISNULL( End_Date__c ), MD__c = 'JP' , $Profile.Name != 'IntegrationAPI', $Profile.Name != 'Japan IT Department', $Profile.Name != 'Japan Data Management')</errorConditionFormula>
+        <errorDisplayField>End_Date__c</errorDisplayField>
+        <errorMessage>End Date Cannot be deleted</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>End_Reason_Required</fullName>
         <active>true</active>

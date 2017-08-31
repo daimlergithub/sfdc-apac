@@ -14,6 +14,8 @@ public class TriggerDMRequestTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+       DMRequestHelperJP.updateDMMaterialSentTotal(trigger.new,trigger.old,isUpdate,isBefore,isInsert,isAfter);
+ 
         if(Trigger.isBefore && Trigger.isInsert)
         {
             DMRequestHelperJP.InsertDMRequest(trigger.new,isInsert);         

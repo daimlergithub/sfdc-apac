@@ -28,7 +28,7 @@ global without sharing class LeadVehiclePickerKRController {
         {
             if (usr == null)
             {
-                usr = [select id,Market__c from User where id=:userinfo.getuserId()];
+                usr = [select id,UserRole.name,Profile.Name,Market__c from User where id=:userinfo.getuserId()];
             }
             return usr;
         }
@@ -113,6 +113,10 @@ global without sharing class LeadVehiclePickerKRController {
                 System.debug('Lead Owner vehicles...:' +leadOwnerVehicles);
                 System.debug('Each Lead Vehicle type...' +lead_Vehicles.Interested_Vehicle__c); 
             }
+			/*if((usr.UserRole.name == 'Call Center Supervisor' || usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && usr.Market__c=='KR'){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
+
+                  }*/
             
             if (lead_Vehicles != null) {
                 tempList = map_vehicleIds.get(lead_Vehicles.Interested_Vehicle__c);
@@ -350,7 +354,7 @@ global without sharing class LeadVehiclePickerKRController {
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
         System.debug('Vehicle Type...' +vehicleAttributes.get('VehicleType'));
 
-		Lead__c lead = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:vehicleAttributes.get('CurrentRecordId')];
+    Lead__c lead = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:vehicleAttributes.get('CurrentRecordId')];
         Vehicle__c vehicleId;
         Id vehicleRec_Id;
         String lead_Vehicle_Type = vehicleAttributes.get('VehicleType');
@@ -414,7 +418,7 @@ global without sharing class LeadVehiclePickerKRController {
     *@see: searchVehicles
     */
     @RemoteAction
-    global static List<Vehicle__c> searchVehicles(String lookupSearchDetails){
+    global static List<vehicleWrapper> searchVehicles(String lookupSearchDetails){
         UtilConstant utilConst = new UtilConstant();
         Map<String, String> searchAttributes = (Map<String, String>)JSON.deserialize(lookupSearchDetails, Map<String, String>.class);
         String vin_number = searchAttributes.get(utilConst.VIN);
@@ -428,7 +432,8 @@ global without sharing class LeadVehiclePickerKRController {
         Set<Id> defaultVehicleIds = new Set<Id>();
         Set<Id> allVehicleIds = new Set<Id>();
         Lead__c leadAcc;
-        
+        map<Id, string> vehicleToVRRegDateMap = new map<Id, string>();
+        List<vehicleWrapper> vehilclewrapLst = new List<vehicleWrapper>();
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
             if(!Test.isRunningTest()){
                 vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
@@ -444,7 +449,7 @@ global without sharing class LeadVehiclePickerKRController {
             }else{
                 leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId')];
             }
-            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC];
+            leadVehicleRelationships = [SELECT Vehicle_ID__c, Registration_Number__c  FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate DESC];
             system.debug('Lead Vehicle Relationships...' +leadVehicleRelationships);
             
             if (!leadVehicleRelationships.isEmpty()){
@@ -452,6 +457,7 @@ global without sharing class LeadVehiclePickerKRController {
                 system.debug('Default Vehicle Ids...' +defaultVehicleIds);           
                 for (Vehicle_Relationship__c vr : leadVehicleRelationships){
                     allVehicleIds.add(vr.Vehicle_ID__c);
+                    vehicleToVRRegDateMap.put(vr.Vehicle_ID__c, vr.Registration_Number__c);
                 }
             }
             //Search for Self Registered:
@@ -473,7 +479,7 @@ global without sharing class LeadVehiclePickerKRController {
             }
             if (vin_number.equalsIgnoreCase('')){
                 if(!Test.isRunningTest()){
-                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds AND MD__c = :usr.Market__c];
+                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c LIMIT 3];
                     system.debug('Default Vehicle Records...' +vehicle);
                 }else{
                     vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds];
@@ -490,8 +496,73 @@ global without sharing class LeadVehiclePickerKRController {
             system.debug('Vehicle for else' +vehicle); 
         }
             
-        System.debug('@Vehicle :' +vehicle);
-        return vehicle;
+         for(Vehicle__c veh: vehicle){
+                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, vehicleToVRRegDateMap.get(veh.id)));
+            }
+        return vehilclewrapLst;
+    }
+    
+    
+    
+    global class vehicleWrapper{
+        public string vehIdW{get;set;}
+        public string brandW{get;set;}
+        public string classW{get;set;}
+        public string modelW{get;set;}
+        public string RegnumW{get;set;}
+        
+        public vehicleWrapper(string vId, string brn, string cls, string mod, string regNum){
+            vehIdW = vId;
+            brandW = brn;
+            classW = cls;
+            modelW = mod;
+            if(regNum != null){
+                RegnumW = regNum;
+            }else{
+                RegnumW = '';   
+            }
+        }   
+        
+    }
+    
+     @RemoteAction
+    global static List<vehicleWrapper> searchforCurrentVehicles(String lookupSearchCurrentVehiles){
+        UtilConstant utilConst = new UtilConstant();
+        Map<String, String> searchAttributes = (Map<String, String>)JSON.deserialize(lookupSearchCurrentVehiles, Map<String, String>.class);
+        String filterText = searchAttributes.get('fText');
+        String searchText = searchAttributes.get('sText');
+        String vehicle_type = searchAttributes.get(utilConst.VEHICLE_TYPE);
+        system.debug('Parametes PSM '+ filterText + searchText + vehicle_type);
+        List<Vehicle_Relationship__c> vRelshipLst = new List<Vehicle_Relationship__c>();
+        List<Vehicle__c> vehLst = new List<Vehicle__c>();
+        Set<Id> allVehicleIds = new Set<Id>();
+        List<Vehicle__c> selfRegisteredVehicles;
+        map<Id, string> vehicleToVRRegDateMap = new map<Id, string>();
+        List<Vehicle__c> vehicle;
+        List<vehicleWrapper> vehilclewrapLst = new List<vehicleWrapper>();
+        Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
+        Id selfRegisteredRec_TypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
+        if(filterText == 'Registration Number'){
+            
+            vRelshipLst = [SELECT Vehicle_ID__c, Registration_Number__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c and Registration_Number__c =: searchText ORDER BY CreatedDate DESC];
+        }else{
+            vRelshipLst = [SELECT Vehicle_ID__c, Registration_Number__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate DESC];
+        }
+            for(Vehicle_Relationship__c ver: vRelshipLst){
+                vehicleToVRRegDateMap.put(ver.Vehicle_ID__c, ver.Registration_Number__c);
+            }
+            
+        if(filterText == 'Brand'){
+            system.debug('PSM CHECK QUERY FILTER '+ searchText + allVehicleIds + usr.Market__c);
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Brand__c =: searchText];
+        }else{
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c];
+        }   
+        for(Vehicle__c veh: vehicle){
+                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, vehicleToVRRegDateMap.get(veh.id)));
+        }   
+        system.debug('PSM RETURN VALUE '+ vehilclewrapLst);
+            return vehilclewrapLst;
     }
     
     /**
@@ -507,11 +578,11 @@ global without sharing class LeadVehiclePickerKRController {
         UtilConstant utilConst = new UtilConstant(); 
         Vehicle__c leadVehicle = new Vehicle__c();
         List<Car_Model__c> carModel;    
-		     
+         
         System.debug('I am in my remote method...' +vehicleDetails);
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
-		carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
-		Lead__c lead = [Select Id, Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
+    carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
+    Lead__c lead = [Select Id, Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
         if(vehicleAttributes.get('Lookup') == 'false'){ 
             System.debug('The Vehicle Attributes...' +vehicleAttributes);
             System.debug('Operation Value' +vehicleAttributes.get('Operation'));
@@ -551,7 +622,10 @@ global without sharing class LeadVehiclePickerKRController {
                 update lead;
             }else if (vehicleAttributes.get('Operation').equalsIgnoreCase('Edit')){
                 System.debug('Edit...');
-                
+                /* if((usr.UserRole.name == 'Call Center Supervisor' ||usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && usr.Market__c == 'KR')
+                {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
+                }else{}*/
                 if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                     leadVehicle.Id =  lead.Interested_Vehicle__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;
@@ -592,8 +666,9 @@ global without sharing class LeadVehiclePickerKRController {
                     //update lead;
                 }
                 update lead;
-				update leadVehicle;
-            }            
+        update leadVehicle;
+             
+          }			
         }
         if(vehicleAttributes.get('Lookup') == 'true'){
            System.debug('Vehicle Type is Interested Vehicle...' +vehicleAttributes);

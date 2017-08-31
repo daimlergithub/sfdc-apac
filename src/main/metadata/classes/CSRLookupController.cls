@@ -42,20 +42,27 @@ public class CSRLookupController {
             csrProfiles = new String[]{
                  'CAC IB CSR', 'CAC IB TL', 'CAC IB SV', 'CAC IB QC', 'CAC IB Trainer',
                  'CAC OB CSR', 'CAC OB TL', 'CAC OB SV', 'CAC OB QC', 'CAC OB Trainer',
-                 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'
+                 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer','Japan Dealer Company Manager','Japan Dealer Sales Manager',
+                 'Japan Dealer Sales Representative','Japan Dealer Service Advisor','Japan Dealer Service Manager'
             };
         }
+        String[] csrMainProfile;
+        csrMainProfile = New String[]{
+        'Japan Dealer Company Manager','Japan Dealer Sales Manager',
+                 'Japan Dealer Sales Representative','Japan Dealer Service Advisor','Japan Dealer Service Manager'
+        };
+        
         System.debug('SKM=>Profile in csrProfiles '+csrProfiles);
         List<Profile> profileIds = [
             Select Id 
             From Profile 
-            Where Name In :csrProfiles];
+            Where Name In :csrMainProfile ];
             
         System.debug('SKM=>Profile in profileIds '+profileIds );    
         List<User> csrUsers = [
             Select Name, UserRole.Name 
             From User 
-            Where ProfileId in :profileIds And IsActive = true];
+            Where (User_Type__c ='MBJ' OR User_Type__c ='MBF') And IsActive = true ];
 System.debug('SKM=>Profile in csrUsers '+csrUsers );
 
         // ADD START CR-000136 CHAOS 2013/12/5

@@ -70,9 +70,10 @@ public class LeadHelperAccountLinkCreateJP
      //leadutil.leadAccountDetails = false;  
     }
     
+    
     public static void createAccountLinkRecord(set<String> contactId){
-   //LeadUtil.leadAccountlnktrigger = false;
-     set<String> actlnkids= new set<String>();
+        //LeadUtil.leadAccountlnktrigger = false;
+        set<String> actlnkids= new set<String>();
         set<String> dealerId = new set<String>();
         set<String> AcclinkContactId = new set<String>();
         set<String> CompanyId = new set<String>();
@@ -89,101 +90,101 @@ public class LeadHelperAccountLinkCreateJP
                                  Contact__r.UCID__c, Contact__r.RecordtypeId, Contact__r.Name, Contact__r.Company_Name_Native_1__c,Contact__r.Foundation_Date__c,
                                  Contact__r.Website,Contact__r.Vat_No__c                                                 
                                  from Lead__c WHERE id IN : contactId];
-         List<Account_Link__c> accLst = new List<Account_Link__c>(); 
-         
-          for(Lead__c dealerLead : leadLst){
+        List<Account_Link__c> accLst = new List<Account_Link__c>(); 
+        
+        for(Lead__c dealerLead : leadLst){
             if(dealerLead.Assigned_Dealer__c != null)
                 dealerId.add(dealerLead.Assigned_Dealer__c);
             if(dealerLead.Contact__c != null)
                 AcclinkContactId.add(dealerLead.Contact__c);
             
-         }
-         
-         System.debug('@#$%%%%%% AcclinkContactId'+AcclinkContactId);
-          System.debug('@#$%%%%%% CompanyId'+CompanyId);
-          System.debug('@#$%%%%%% leadLst'+leadLst);
-           List<Account_Link__c> dealercount = [select id from Account_Link__c WHERE fromRole__c IN : dealerId AND (toRole__c IN : AcclinkContactId OR toRole__c IN : CompanyId) AND (RecordTypeId = :alkCompanyRecordTypeId OR RecordTypeId = :alkpersonRecordTypeId)];
-         system.debug('########'+dealercount); 
-         for(Lead__c led : leadlst){            
+        }
+        
+        System.debug('@#$%%%%%% AcclinkContactId'+AcclinkContactId);
+        System.debug('@#$%%%%%% CompanyId'+CompanyId);
+        System.debug('@#$%%%%%% leadLst'+leadLst);
+        List<Account_Link__c> dealercount = [select id from Account_Link__c WHERE fromRole__c IN : dealerId AND (toRole__c IN : AcclinkContactId OR toRole__c IN : CompanyId) AND (RecordTypeId = :alkCompanyRecordTypeId OR RecordTypeId = :alkpersonRecordTypeId) AND (Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false)];
+        system.debug('########'+dealercount); 
+        for(Lead__c led : leadlst){            
             if(led.Assigned_Dealer__c != null && (dealercount.isEmpty() || dealercount==null || dealercount.size() == 0 )){
-                 Account_Link__c acclnk = new Account_Link__c(RecordTypeId = alkContactSectorRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
-                 //accLst.add(acclnk);
-                 if(led.Contact__r.RecordTypeId == PersonRecordTypeId){
-                 acclnk = new Account_Link__c(  RecordTypeId = alkpersonRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
-                  }else if(led.Contact__r.RecordTypeId == AccountCompanyId){
-                      acclnk = new Account_Link__c(  RecordTypeId = alkCompanyRecordTypeId, Name = led.Contact__r.UCID__c, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c); 
-                     
-                  }
-                  //acclnk.Retail_Fax__c = led.Contact__r.Fax;
-                  //acclnk.Retail_Industry__c = led.contact__r.Industry;
-                  if(led.MD__c == Label.MarketKR){
-                      acclnk.Retail_Country__c = 'Korea';   
-                  }
-                  else if(led.MD__c == Label.MarketJP){
-                      acclnk.Retail_Country__c = 'Japan';
-                  }
-                  if(led.Contact__r.Primary_Address_Reference__c != null){
-                  acclnk.Retail_Address_Reference__c = led.Contact__r.Primary_Address_Reference__c;
-                     
-                   }    
-                   accLst.add(acclnk);
+                Account_Link__c acclnk = new Account_Link__c(RecordTypeId = alkContactSectorRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
+                //accLst.add(acclnk);
+                if(led.Contact__r.RecordTypeId == PersonRecordTypeId){
+                    acclnk = new Account_Link__c(  RecordTypeId = alkpersonRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
+                }else if(led.Contact__r.RecordTypeId == AccountCompanyId){
+                    acclnk = new Account_Link__c(  RecordTypeId = alkCompanyRecordTypeId, Name = led.Contact__r.UCID__c, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c); 
+                    
+                }
+                //acclnk.Retail_Fax__c = led.Contact__r.Fax;
+                //acclnk.Retail_Industry__c = led.contact__r.Industry;
+                if(led.MD__c == Label.MarketKR){
+                    acclnk.Retail_Country__c = 'Korea';   
+                }
+                else if(led.MD__c == Label.MarketJP){
+                    acclnk.Retail_Country__c = 'Japan';
+                }
+                if(led.Contact__r.Primary_Address_Reference__c != null){
+                    acclnk.Retail_Address_Reference__c = led.Contact__r.Primary_Address_Reference__c;
+                    
+                }    
+                accLst.add(acclnk);
             }
-         }  
-         system.debug('$%%$%$%$$$%'+accLst);
-         if(!accLst.isEmpty()){
+        }  
+        system.debug('$%%$%$%$$$%'+accLst);
+        if(!accLst.isEmpty()){
             //insert accLst;
             
             Database.SaveResult[] srList = Database.insert(accLst,false);
             
             
             
-           for(Database.SaveResult sr : srList){
-           if (sr.isSuccess()){
-           {
-           actlnkids.add(sr.getid());
-           }
-                  
-         }
-    }
-     
-         Account_link__c   acclink=new  Account_link__c();
-    if(! actlnkids.isEmpty() ){
-    system.debug('%%^%^%^%contactId^%'+actlnkids);
-    system.debug('%%^%^%contactId^%^%'+contactId);
-      if(contactId !=null && actlnkids!=null )
-      {
-    // acclink = [select id,Name, RecordType.DeveloperName from Account_Link__c WHERE id IN: actlnkids  AND (RecordTypeId=:alkCompanyRecordTypeId  OR RecordTypeId =:alkpersonRecordTypeId ) limit 1];
-    //if(acclink !=null)
-    //{
-    for(Account_link__c al:accLst)
-    {
-    for(Lead__c ld : leadLst){
-          ld.Retail_Contact__c = al.id;
-          leadupdate.put(ld.id,ld);          
-      }
-      }
-      //}
-             //  LeadHelperAccountLinkCreateJP.updatingleadAccountDetails(contactId, actlnkids);
-               }
-           }       
-    }
-    
-    Set<string>  leadrecId=new set<string>();
-   Set<string>   accountlnkid=new set<string>();
-    for(Lead__c leds: leadlst){            
+            for(Database.SaveResult sr : srList){
+                if (sr.isSuccess()){
+                    {
+                        actlnkids.add(sr.getid());
+                    }
+                    
+                }
+            }
+            
+            Account_link__c   acclink=new  Account_link__c();
+            if(! actlnkids.isEmpty() ){
+                system.debug('%%^%^%^%contactId^%'+actlnkids);
+                system.debug('%%^%^%contactId^%^%'+contactId);
+                if(contactId !=null && actlnkids!=null )
+                {
+                    // acclink = [select id,Name, RecordType.DeveloperName from Account_Link__c WHERE id IN: actlnkids  AND (RecordTypeId=:alkCompanyRecordTypeId  OR RecordTypeId =:alkpersonRecordTypeId ) limit 1];
+                    //if(acclink !=null)
+                    //{
+                    for(Account_link__c al:accLst)
+                    {
+                        for(Lead__c ld : leadLst){
+                            ld.Retail_Contact__c = al.id;
+                            leadupdate.put(ld.id,ld);          
+                        }
+                    }
+                    //}
+                    //  LeadHelperAccountLinkCreateJP.updatingleadAccountDetails(contactId, actlnkids);
+                }
+            }       
+        }
+        
+        Set<string>  leadrecId=new set<string>();
+        Set<string>   accountlnkid=new set<string>();
+        for(Lead__c leds: leadlst){            
             if(leds.Assigned_Dealer__c != null && dealercount.size() == 1){
-            for(Account_Link__c alk:dealercount)
-            {
-            accountlnkid.add(alk.id);
-            leadrecId.add(leds.id);
-            if(accountlnkid !=null && leadrecId!=null )
-            {
-            leds.Retail_Contact__c = alk.id;
-          leadupdate.put(leds.id,leds);
+                for(Account_Link__c alk:dealercount)
+                {
+                    accountlnkid.add(alk.id);
+                    leadrecId.add(leds.id);
+                    if(accountlnkid !=null && leadrecId!=null )
+                    {
+                        leds.Retail_Contact__c = alk.id;
+                        leadupdate.put(leds.id,leds);
+                    }
+                }
             }
-            }
-    }
-    }
+        }
           system.debug('#$%^  LeadUtil.createAccountLinkRecord'+ LeadUtil.createAccountLinkRecord);
    
          if(LeadUtil.createAccountLinkRecord)
@@ -208,7 +209,7 @@ public class LeadHelperAccountLinkCreateJP
      *Sivaram
      *Japan 2.0
      */
-    public static void updatingleadAccountDetails(set<String> leadrecId, set<string> accountlnkid){
+  /*  public static void updatingleadAccountDetails(set<String> leadrecId, set<string> accountlnkid){
     
      if(LeadUtil.updatingleadAccountDetails)
      {
@@ -223,7 +224,7 @@ public class LeadHelperAccountLinkCreateJP
       {
       system.debug('alkCompanyRecordTypeId'+alkCompanyRecordTypeId);
        system.debug('alkpersonRecordTypeId'+alkpersonRecordTypeId);
-      acclink = [select id,Name, RecordType.DeveloperName from Account_Link__c WHERE id IN: accountlnkid AND (RecordTypeId=:alkCompanyRecordTypeId  OR RecordTypeId =:alkpersonRecordTypeId ) limit 1];
+      acclink = [select id,Name, RecordType.DeveloperName from Account_Link__c WHERE id IN: accountlnkid  AND(RecordTypeId=:alkCompanyRecordTypeId  OR RecordTypeId =:alkpersonRecordTypeId ) limit 1];
       
       }
       if(leadlistrecords!=null)
@@ -263,7 +264,7 @@ public class LeadHelperAccountLinkCreateJP
   //}
   
  // list<Lead__c> leadlistrecords = [select id, Name from Lead__c WHERE ID IN : contactId]; 
- }
+ }*/
 public Static boolean isCreated =false;
   public Static void populateRetailCompany(List<Lead__c> LeadLst, Map<Id,Lead__c> oldLeadmap, boolean isInsert, boolean isUpdate){
         System.debug('########Dealers');
