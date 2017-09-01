@@ -608,6 +608,10 @@
                 <behavior>Edit</behavior>
                 <field>Questionnair__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Items__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

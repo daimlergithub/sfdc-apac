@@ -8,7 +8,7 @@
     <apex:includeScript value="{!$Resource.jQueryCSV}" />
     <apex:includeScript value="{!$Resource.JSforce}" />
     <apex:includeScript value="/support/console/25.0/integration.js"/>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-sanitize.min.js"></script>
+    <apex:includeScript value="{!$Resource.angularSanitize}"/>
     <html>
     <head>
     <style type="text/css">
@@ -23,7 +23,7 @@
     </head>
     <body>
        <script type="text/javascript">
-        var jq = $.noConflict();
+       var jq = $.noConflict();
        var app = angular.module('VehiclePickerApp', ['ui.bootstrap', 'ngSanitize']);      
        app.controller('LeadVehiclePickerKRController', ['$scope', '$filter','$sce','$sanitize',function($scope, $filter, $sce, $sanitize) {
        var orderBy = $filter('orderBy');
@@ -49,7 +49,8 @@
        $scope.selectedModel = ""; 
        $scope.selectedColour = "";
        $scope.vehicleMilage = ""; 
-       
+       $scope.selectedFilter = "";
+        
        //COMPETITOR
        $scope.c_vehicleMilage = ""; 
        $scope.vehicleList = [];
@@ -58,6 +59,10 @@
        $scope.relatedClasses = [];
        $scope.models = []; 
        $scope.Colours = [];
+       
+       //This is the filter code for current-vehicle1 and current-vehicle2
+       //$scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Brand": "{!$Label.Brand}", "Registration Number": "{!$Label.RegistrationNo}"};
+       $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}","Registration Number": "{!$Label.RegistrationNo}"};
        
        /*INTERESTED VEHICLE : Vehicle Intitialization details*/
        if($scope.leadVehicles.InterestedVehicle != undefined){
@@ -129,7 +134,7 @@
        /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle1 != undefined){
            $scope.vehicleCurrent1DetailText = "Edit";
-           $scope.CurrentVehicle1Details = $scope.leadVehicles.CurrentVehicle1.Brand +' ' +$scope.leadVehicles.CurrentVehicle1.Class + ' ' + $scope.leadVehicles.CurrentVehicle1.Model;
+           $scope.CurrentVehicle1Details = (($scope.caseVehicles.CurrentVehicle1.Brand == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle1.Class == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle1.Model == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Model);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -162,7 +167,7 @@
        /*CURRENT VEHICLE2 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle2 != undefined){
            $scope.vehicleCurrent2DetailText = "Edit";
-           $scope.CurrentVehicle2Details = $scope.leadVehicles.CurrentVehicle2.Brand +' ' +$scope.leadVehicles.CurrentVehicle2.Class + ' ' + $scope.leadVehicles.CurrentVehicle2.Model;
+            $scope.CurrentVehicle2Details = (($scope.caseVehicles.CurrentVehicle2.Brand == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle2.Class == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle2.Model == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Model);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -348,6 +353,10 @@
             $scope.selectedColour = $scope.colorModel[selectedModel];
          }
          
+        $scope.getSelectedFilter = function (filter_value){
+            $scope.selectedFilter = filter_value;
+        }
+         
                      
          $scope.refreshLookupData = function(details){
             if ($scope.vehicleList.length > 0)
@@ -374,9 +383,35 @@
                    function(result, event) {
                         $scope.refreshLookupData(result);
                         $scope.$apply();
-                        $route.reload();
+                        //$route.reload();
              });
          }
+         
+          /*this is the new search functionality for searching current vehicle1 and current vehicle 2*/
+          $scope.searchcurrentVehiclesForLookup = function(vehicle_type, vin, filter){
+                if(filter == undefined || filter == ''){
+                    alert('{!$Label.User_Msg}');
+                }else if(vin == undefined || vin == ''){
+                    alert('{!$Label.User_Msg1}');
+                }else{
+                    if(filter == 'Brand' || filter == 'Registration Number'){
+                        $searchText = vin;
+                        $filterText = filter;
+                        $scope.searchCurrentVehicleDetails = [{sText:$searchText, VehicleType:vehicle_type, fText:$filterText, RecordId:'{!currentRecordId}'}];
+                        Visualforce.remoting.Manager.invokeAction(
+                         '{!$RemoteAction.LeadVehiclePickerKRController.searchforCurrentVehicles}',JSON.stringify($scope.searchCurrentVehicleDetails[0]),
+                           function(result, event) {
+                                 console.log(result);
+                                 $scope.refreshLookupData(result);
+                                 $scope.$apply();
+                            }
+                        );
+                     }else{
+                        $scope.searchVehiclesForLookup(vehicle_type, vin)
+                     }
+                }
+            
+          }
          
          /*This method displays the details of the vehicles.*/
          $scope.showDetail = function (vehicle_type, selectedBrand, selectedClass){ 
@@ -969,12 +1004,12 @@
         </div>
         <!----------- CURRENT VEHICLE1 LOOKUP SECTION -------->
         <div ng-if="LookupCurrentVehicle1" style="background-color:#efefef;width:500px">
-            {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('CurrentVehicle2',vin_no)" class="btn" value="{!$label.Search}"></input>
+           <b>1. {!$Label.select_criteria} :</b><select ng-options="k as v for (k, v) in userBased_filters " ng-model="selectedFilter"></select><br/><br/><b>2. {!$Label.enter_criteria} :</b><input type="text" ng-model="vin_no" name="Search"></input><input type="button" ng-click="searchcurrentVehiclesForLookup('CurrentVehicle2',vin_no, selectedFilter)" class="btn" value="{!$label.Search}" title="{!$Label.searchbutton_title}"></input><br/><br/>
             <table class="lookup" ng-table="lookuptable">
                 <tr class="lookup" style="font-weight: bold;">
-                     <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th>                       
+                     <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th><th class="lookup">{!$Label.RegistrationNo}</th>                       
                 </tr>
-                <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.Id)"></input></td><td class="lookup">{{vehicle.Brand__c}}</td><td class="lookup">{{vehicle.Class__c}}</td><td class="lookup">{{vehicle.Model__c}}</td></tr>             
+                <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.vehIdW)"></input></td><td class="lookup">{{vehicle.brandW}}</td><td class="lookup">{{vehicle.classW}}</td><td class="lookup">{{vehicle.modelW}}</td><td class="lookup">{{vehicle.RegnumW}}</td></tr>             
             </table> 
             <input type="button" ng-click="cancelItem('CurrentVehicle1')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
             <input type="button" ng-click="saveItem('CurrentVehicle1')" class="btn" value="{!$label.Save_Button}"/>
@@ -1023,12 +1058,12 @@
         </div>
         <!----------- CURRENT VEHICLE2 LOOKUP SECTION -------->
         <div ng-if="LookupCurrentVehicle2" style="background-color:#efefef;width:500px">
-            {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('CurrentVehicle2',vin_no)" class="btn" value="{!$label.Search}"></input>
+            <b>1. {!$Label.select_criteria} :</b><select ng-options="k as v for (k, v) in userBased_filters " ng-model="selectedFilter"></select><br/><br/><b>2. {!$Label.enter_criteria} :</b><input type="text" ng-model="vin_no" name="Search"></input><input type="button" ng-click="searchcurrentVehiclesForLookup('CurrentVehicle2',vin_no, selectedFilter)" class="btn" value="{!$label.Search}" title="{!$Label.searchbutton_title}"></input><br/><br/>
             <table class="lookup" ng-table="lookuptable">
                 <tr class="lookup" style="font-weight: bold;">
-                     <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th>                       
+                     <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th><th class="lookup">{!$Label.RegistrationNo}</th>                        
                 </tr>
-                <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.Id)"></input></td><td class="lookup">{{vehicle.Brand__c}}</td><td class="lookup">{{vehicle.Class__c}}</td><td class="lookup">{{vehicle.Model__c}}</td></tr>             
+                <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.vehIdW)"></input></td><td class="lookup">{{vehicle.brandW}}</td><td class="lookup">{{vehicle.classW}}</td><td class="lookup">{{vehicle.modelW}}</td><td class="lookup">{{vehicle.RegnumW}}</td></tr>             
             </table> 
             <input type="button" ng-click="cancelItem('CurrentVehicle2')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
             <input type="button" ng-click="saveItem('CurrentVehicle2')" class="btn" value="{!$label.Save_Button}"/>

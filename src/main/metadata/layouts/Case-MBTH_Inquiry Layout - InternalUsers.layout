@@ -20,6 +20,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>DescriptionOne__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
@@ -159,7 +163,7 @@
                 <behavior>Edit</behavior>
                 <field>Complaint_Creator_Department__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Registration_Number__c</field>
             </layoutItems>

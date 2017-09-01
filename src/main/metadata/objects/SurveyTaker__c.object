@@ -171,7 +171,8 @@
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -209,6 +210,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     </fields>
     <fields>
         <fullName>Survey_Taken_Date__c</fullName>
+		<defaultValue>NOW()</defaultValue>
         <externalId>false</externalId>
         <label>Survey Taken Date</label>
         <required>false</required>
@@ -439,4 +441,34 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Survey_Taken_Share__c</fullName>
         <label>Survey Taken Share</label>
     </sharingReasons>
+	<webLinks>
+        <fullName>SubmitSurvey</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>SubmitSurvey</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+var market = &apos;{!Account.MD__c}&apos;; 
+if(market == &apos;KR&apos;){ 
+
+if(typeof(srcUp) == &apos;function&apos;){ 
+if (sforce.console.isInConsole()) { 
+srcUp(&apos;/apex/SubmitSurveyKR?accId={!Account.Id}&apos;); 
+}else{ 
+window.open(&apos;/apex/SubmitSurveyKR?accId={!Account.Id}&apos;); 
+} 
+} else { 
+window.open(&quot;{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?accId={!Account.Id}&quot;); 
+} 
+} 
+else 
+{ 
+alert(&quot;{!$Label.Check_DuplicatesErrorMsg}&quot;); 
+}</url>
+    </webLinks>
 </CustomObject>

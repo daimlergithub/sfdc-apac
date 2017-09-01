@@ -74,7 +74,7 @@ system.debug('&******************'+cpList);
                     Campaign.Parent.Task_De_dup_Range__c,
                     Campaign.Parent.ParentId,
                     Campaign.Previous_Campaign_Execution__c,
-                    Campaign.Template__c, Status
+                    Campaign.Template__c, Status, Campaign.OwnerId
             from CampaignMember
             where CampaignId in :cpIdList and Task_Generated__c = false]);
     } 
@@ -147,87 +147,129 @@ system.debug('&******************'+cpList);
                 cpm.Campaign.Execution_Type__c;
         }
 
-        if(cpm.Campaign.Execution_Type__c == strOBCall) {        
+        if(cpm.Campaign.Execution_Type__c == strOBCall) 
+        {        
             //for(GroupMember u : obuserList) {
-                taskList.add(new Task(
-                    Subject= strOBCall, 
-                    RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId(),
-                    Status = strOpenStatus,
-                    DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c), 
-                    WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
-                    WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-                    Campaign_Member_ID__c = String.valueOf(cpm.Id), 
-                    Campaign_Name__c = cpm.Campaign.Name, 
-                    Activity_Status__c = 'not started',
-                    ActivityDate = date.today(),
-                    UniqueCampaignGenerateTask__c = uniqueTaskField,
-                    OwnerId= usr.Id));
+                Task tsk = new Task();
+                tsk.Subject= strOBCall; 
+                tsk.RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId();
+                tsk.Status = strOpenStatus;
+                tsk.DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c); 
+                tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
+                tsk.WhatId = (cpm.ContactId == null ? null : cpm.CampaignId);
+                tsk.Campaign_Member_ID__c = String.valueOf(cpm.Id); 
+                tsk.Campaign_Name__c = cpm.Campaign.Name; 
+                tsk.Activity_Status__c = 'not started';
+                tsk.ActivityDate = date.today();
+                tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
+                if(userinfo.getUserType()=='PowerPartner')
+                {
+                	tsk.OwnerId = cpm.Campaign.OwnerId;
+                }
+                else
+                {
+                	tsk.OwnerId = usr.Id;
+                }
+                taskList.add(tsk);
+                system.debug(tsk.OwnerId + '   *$*$*$*$* Task Creation   ' + tsk);
             
             //} Flow_URL__c = cpm.Campaign.Flow_URL__c, removed as part of SFDCJP-1765
-        } else if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
-            taskList.add(new Task(
-                Subject= strSMS, 
-                RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId(),
-                OwnerId = usr.Id,
-                Activity_Status__c = strVeriStatus,
-                Phone__c = cpm.Contact.MobilePhone,
-                WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
-                WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-                ActivityDate = date.today(),
-                UniqueCampaignMobile__c = cpm.CampaignId + '-' + cpm.Contact.MobilePhone,
-                SMS_Content__c = cpm.Campaign.Content_Preview__c,
-                SMSTemplateID__c = cpm.Campaign.Template__c,
-                UniqueCampaignGenerateTask__c = uniqueTaskField)
-            );
+        } 
+        else if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
+            Task tsk = new Task();
+            tsk.Subject= strSMS; 
+            tsk.RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId();
+            if(userinfo.getUserType()=='PowerPartner')
+            {
+            	tsk.OwnerId = cpm.Campaign.OwnerId;
+            }
+            else
+            {
+            	tsk.OwnerId = usr.Id;
+            }
+            tsk.Activity_Status__c = strVeriStatus;
+            tsk.Phone__c = cpm.Contact.MobilePhone;
+            tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
+            tsk.WhatId = (cpm.ContactId == null ? null : cpm.CampaignId);
+            tsk.ActivityDate = date.today();
+            tsk.UniqueCampaignMobile__c = cpm.CampaignId + '-' + cpm.Contact.MobilePhone;
+            tsk.SMS_Content__c = cpm.Campaign.Content_Preview__c;
+            tsk.SMSTemplateID__c = cpm.Campaign.Template__c;
+            tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
+            taskList.add(tsk);
         } 
         else if (cpm.Campaign.Execution_Type__c == mms && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
-            taskList.add(new Task(
-                Subject= mms, 
-                RecordTypeId = taskRecordTypeMap.get(mms).getRecordTypeId(),
-                OwnerId = usr.Id,
-                Activity_Status__c = strVeriStatus,
-                Phone__c = cpm.Contact.MobilePhone,
-                WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
-                WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-                ActivityDate = date.today(),
-                UniqueCampaignMobile__c = cpm.CampaignId + '-' + cpm.Contact.MobilePhone,
-                SMSTemplateID__c = cpm.Campaign.Template__c,
-                eDM_Template__c = cpm.Campaign.Template__r.Template_ID__c,
-                UniqueCampaignGenerateTask__c = uniqueTaskField)
-            );
+            Task tsk = new Task();
+            tsk.Subject= mms; 
+            tsk.RecordTypeId = taskRecordTypeMap.get(mms).getRecordTypeId();
+            if(userinfo.getUserType()=='PowerPartner')
+            {
+            	tsk.OwnerId = cpm.Campaign.OwnerId;
+            }
+            else
+            {
+            	tsk.OwnerId = usr.Id;
+            }
+            tsk.Activity_Status__c = strVeriStatus;
+            tsk.Phone__c = cpm.Contact.MobilePhone;
+            tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
+            tsk.WhatId = (cpm.ContactId == null ? null : cpm.CampaignId);
+            tsk.ActivityDate = date.today();
+            tsk.UniqueCampaignMobile__c = cpm.CampaignId + '-' + cpm.Contact.MobilePhone;
+            tsk.SMSTemplateID__c = cpm.Campaign.Template__c;
+            tsk.eDM_Template__c = cpm.Campaign.Template__r.Template_ID__c;
+            tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
+            taskList.add(tsk);
         }
-        else if (cpm.Campaign.Execution_Type__c == streDM) {
-            taskList.add(new Task(
-                Subject= streDM, 
-                RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId(),
-                OwnerId = usr.Id,
-                Status = strCloseStatus,
-                Campaign_eDM_Template_Subject__c = cpm.Campaign.Template__r.Subject__c,
-                Campaign_eDM_Template_ID__c = cpm.Campaign.Template__r.Template_ID__c,                                 
-                WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
-                WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-                Campaign_Member_ID__c = String.valueOf(cpm.Id), 
-                Campaign_Name__c = cpm.Campaign.Name,
-                UniqueCampaignEmail__c = cpm.CampaignId + '-' + cpm.Contact.Email,
-                Email_Address__c = cpm.Contact.Email,
-                Activity_Status__c = strSentActivityStatus,
-                ActivityDate = date.today(),
-                eDM_Template__c = cpm.Campaign.Template_Name__c,
-                UniqueCampaignGenerateTask__c = uniqueTaskField)
-            );
-        } else if (cpm.Campaign.Execution_Type__c == strDM) {
-            taskList.add(new Task(
-                Subject = strDM, 
-                RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId(),
-                OwnerId = usr.Id,
-                Status = strOpenStatus,
-                WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
-                WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-                Campaign_Member_ID__c = String.valueOf(cpm.Id), 
-                Campaign_Name__c = cpm.Campaign.Name,
-                ActivityDate = date.today(),
-                UniqueCampaignGenerateTask__c = uniqueTaskField)
-            );
+        else if (cpm.Campaign.Execution_Type__c == streDM) 
+        {
+            Task tsk = new Task();
+            tsk.Subject= streDM; 
+            tsk.RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId();
+            if(userinfo.getUserType()=='PowerPartner')
+            {
+            	tsk.OwnerId = cpm.Campaign.OwnerId;
+            }
+            else
+            {
+            	tsk.OwnerId = usr.Id;
+            }
+            tsk.Status = strCloseStatus;
+            tsk.Campaign_eDM_Template_Subject__c = cpm.Campaign.Template__r.Subject__c;
+            tsk.Campaign_eDM_Template_ID__c = cpm.Campaign.Template__r.Template_ID__c;                                 
+            tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
+            tsk.WhatId = (cpm.ContactId == null ? null : cpm.CampaignId);
+            tsk.Campaign_Member_ID__c = String.valueOf(cpm.Id); 
+            tsk.Campaign_Name__c = cpm.Campaign.Name;
+            tsk.UniqueCampaignEmail__c = cpm.CampaignId + '-' + cpm.Contact.Email;
+            tsk.Email_Address__c = cpm.Contact.Email;
+            tsk.Activity_Status__c = strSentActivityStatus;
+            tsk.ActivityDate = date.today();
+            tsk.eDM_Template__c = cpm.Campaign.Template_Name__c;
+            tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
+            taskList.add(tsk);
+        } 
+        else if (cpm.Campaign.Execution_Type__c == strDM) 
+        {
+            Task tsk = new Task();
+            tsk.Subject = strDM; 
+            tsk.RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId();
+            if(userinfo.getUserType()=='PowerPartner')
+            {
+            	tsk.OwnerId = cpm.Campaign.OwnerId;
+            }
+            else
+            {
+            	tsk.OwnerId = usr.Id;
+            }
+            tsk.Status = strOpenStatus;
+            tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
+            tsk.WhatId = (cpm.ContactId == null ? null : cpm.CampaignId);
+            tsk.Campaign_Member_ID__c = String.valueOf(cpm.Id); 
+            tsk.Campaign_Name__c = cpm.Campaign.Name;
+            tsk.ActivityDate = date.today();
+            tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
+            
             if(cpm.Contact.AccountId <> null && cpm.ContactId <> null)
                      dmRequestList.add(new DM_Request__c(
                      Campaign__c = cpm.CampaignId, 

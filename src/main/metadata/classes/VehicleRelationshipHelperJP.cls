@@ -468,14 +468,15 @@ public with sharing class VehicleRelationshipHelperJP
                     for( Address__c add : addr.values())
                     {
                         system.debug('+++++++++++++ add '+add );
-                        if( vels.vehicle_address_picklist__c == Null  || vels.vehicle_address_picklist__c == '')
+						//  Comment as part of changes related to SFDCJP-2804
+                      /*  if( vels.vehicle_address_picklist__c == Null  || vels.vehicle_address_picklist__c == '')
                         {
                             
                             //  vels.vehicle_address__c = acc.Sales_Address_Type__c;
-                            vels.Vehicle_Address_Display__c  = Vels.Contact__r.Primary_Address_Display__c;
+                          //  vels.Vehicle_Address_Display__c  = Vels.Contact__r.Primary_Address_Display__c;
                             system.debug('+++++++++++++'+Vels.Contact__r.Primary_Address_Display__c);
                             system.debug('+++++++++++++ vels'+ vels);
-                        }
+                        }*/
                         
                         //if( vels.vehicle_address_picklist__c == add.Address_Type__c){
                         if( vels.vehicle_address_picklist__c == 'Home Address' && add.Address_Type__c == 'Home')

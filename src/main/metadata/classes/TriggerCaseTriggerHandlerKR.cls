@@ -1,4 +1,4 @@
-public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
+public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
 {
     public static boolean isFutureUpdate = false;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
@@ -21,7 +21,7 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             //caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
             
         }
-        
+        //caseHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Case>)trigger.oldMap,isUpdate,isDelete);
         if(trigger.isAfter)
         {
             if (trigger.isInsert)
