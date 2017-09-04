@@ -1,6 +1,6 @@
 /**
 * Utility for Trigger on Account for TH(Thailand)
-* Author: Mohammed Touseef Ahmed
+* Author: Mohammed Touseef Ahmed - TH
 * Created Date : 2017-01-23
 *
 */
