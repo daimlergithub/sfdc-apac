@@ -88,7 +88,8 @@
         public Set<String> LeadDealerStatus = new Set<String>{'Not Started','On-going','Order Placed','Purchased(Only Non BDC)','Lost'};
         public Set<String> retTaskType = new Set<String>{'Standard Warranty','Used Car Warranty','Loan','Lease','Service Program'};
         public Set<String> retProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus) ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
-        
+        public Set<String> retFinanceProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus)  ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
+
         public String jsonFilter { get; set; }
         public Map<String, Object> filterMap;
         public Map<String, Object> contentMap;
@@ -197,7 +198,19 @@
             }
             set;
         }  
-       
+                            public List<SelectOption> RetailFinanceProductName{
+            get{
+                RetailFinanceProductName= new List<SelectOption>();
+                RetailFinanceProductName.add(new SelectOption('', '--None--'));
+                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Finance_Product_Name__c;
+                for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                    if(retTaskType.contains(entry.getValue()))
+                    RetailFinanceProductName.add(new SelectOption(entry.getValue(), entry.getLabel()));
+                }
+                return RetailFinanceProductName;
+            }
+            set;
+        }
        
         public List<SelectOption> SpecialMarkonAccount{
             get{
