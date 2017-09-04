@@ -213,8 +213,6 @@
                             </apex:selectList>
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
-                                                                          
-                            
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem> 
                    
@@ -698,7 +696,7 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
                         <apex:outputField value="{!cr.Mobile__c}"/>
                     </apex:Column>
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}"> 
                         <apex:outputField value="{!cr.Email__c}"/>
                     </apex:Column>
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
