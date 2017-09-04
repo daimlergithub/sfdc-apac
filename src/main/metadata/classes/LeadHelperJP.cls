@@ -240,6 +240,7 @@ public class LeadHelperJP
 **  Date: 2017-8-16
 **/  
     
+    
     public static void afterInsertUpdateEvent(List<Lead__c> leadsList,map<id,Lead__c> leadsOldMap,boolean isInsert,boolean isUpdate)
     {
         set<id> leadsId = new set<id>();
@@ -255,6 +256,11 @@ public class LeadHelperJP
                     if(les.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && les.Assigned_Dealer__c != null 
                        && (isInsert || (isUpdate && les.CAC_Lead_Status__c != leadsOldMap.get(les.id).CAC_Lead_Status__c ||
                                         les.Service_Advisor__c != leadsOldMap.get(les.id).Service_Advisor__c)))
+                    {
+                        leadsId.add(les.Id);
+                    }
+                    else if(les.CAC_Lead_Status__c == 'Allocated' && userinfo.getUserType() != 'PowerPartner' && les.Assigned_Dealer__c != null 
+                            && isUpdate && les.Service_Advisor__c != leadsOldMap.get(les.id).Service_Advisor__c)
                     {
                         leadsId.add(les.Id);
                     }
@@ -281,12 +287,12 @@ public class LeadHelperJP
                 {   
                     lds.CAC_Lead_Status__c='Approved';
                 }
-                else if(isUpdate && lds.CAC_Lead_Status__c != leadsOldMap.get(lds.id).CAC_Lead_Status__c && lds.Assigned_Dealer__r.Dealer_Rollout_Status__c == 'Done' && Userinfo.getUserType() == 'PowerPartner')
+                else if(isUpdate && lds.CAC_Lead_Status__c == 'Approved' && lds.CAC_Lead_Status__c != leadsOldMap.get(lds.id).CAC_Lead_Status__c && lds.Assigned_Dealer__r.Dealer_Rollout_Status__c == 'Done' && Userinfo.getUserType() == 'PowerPartner')
                 {   
                     system.debug('Entereed><><><>');
                     lds.CAC_Lead_Status__c = 'Allocated';
                 }
-                else if(lds.Assigned_Dealer__r.Dealer_Rollout_Status__c == 'Done' && (isInsert || (isUpdate && lds.CAC_Lead_Status__c != leadsOldMap.get(lds.id).CAC_Lead_Status__c && lds.CAC_Lead_Status__c == 'Approved' && Userinfo.getUserType() != 'PowerPartner')))
+                else if(lds.CAC_Lead_Status__c == 'Approved' && lds.Assigned_Dealer__r.Dealer_Rollout_Status__c == 'Done' && (isInsert || (isUpdate && lds.CAC_Lead_Status__c != leadsOldMap.get(lds.id).CAC_Lead_Status__c && lds.CAC_Lead_Status__c == 'Approved' && Userinfo.getUserType() != 'PowerPartner')))
                 {
                     lds.CAC_Lead_Status__c = 'Allocated';
                 }
@@ -313,39 +319,44 @@ public class LeadHelperJP
      public static void handleAfterInsertOrUpdate(list<lead__c> leadlist1,Map<Id,Lead__C> leadOldMap)
     {
     // if(LeadUtil.handleAfterInsert){
-     map<string,list<String>> dealeraccntMap = new Map<string,list<String>>();
-     Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-     list<lead__c> leadlist = new list<lead__c>();
-     list<account> dealerAccountList =new list<account>();
+        map<string,list<String>> dealeraccntMap = new Map<string,list<String>>();
+        Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        list<lead__c> leadlist = new list<lead__c>();
+        list<account> dealerAccountList =new list<account>();
         Map<String,account>accountMap=new Map<String,account>();
-       // Map<id,account>aMap=new Map<id,account>();
-     set<id>dealerAccountIds = new set<id>();
-     set<String> GCCode = new set<String>();
-     set<id> leadIds = new set<id>();
-     if(leadlist1 !=null)
-     {
-     for(Lead__c lead:leadlist1)
-     {
-         if((lead.RecordTypeId ==salesRecordTypeId )||(lead.RecordTypeId ==afterSalesRecordTypeId))
-         {
-             if(lead.CAC_Lead_Status__c=='approved' && ( Trigger.isinsert || (Trigger.Isupdate && (lead.CAC_Lead_Status__c!=leadOldMap.get(lead.id).CAC_Lead_Status__c || lead.OwnerId != leadOldMap.get(lead.id).OwnerId)))&& lead .Assigned_Dealer__c!=null)
-             { 
-                 leadIds.add(lead.id);
-             }
-         }
-     }
-     }
+        // Map<id,account>aMap=new Map<id,account>();
+        set<id>dealerAccountIds = new set<id>();
+        set<String> GCCode = new set<String>();
+        set<id> leadIds = new set<id>();
+        
+        if(leadlist1 !=null)
+        {
+            for(Lead__c lead:leadlist1)
+            {
+                if((lead.RecordTypeId ==salesRecordTypeId )||(lead.RecordTypeId ==afterSalesRecordTypeId))
+                {
+                    if(lead.CAC_Lead_Status__c=='approved' && ( Trigger.isinsert || (Trigger.Isupdate && (lead.CAC_Lead_Status__c!=leadOldMap.get(lead.id).CAC_Lead_Status__c)))&& lead .Assigned_Dealer__c!=null)
+                    { 
+                        leadIds.add(lead.id);
+                    }
+                    else if(lead.CAC_Lead_Status__c == 'Allocated' && trigger.isUpdate && lead.OwnerId != leadOldMap.get(lead.id).OwnerId)
+                    {
+                        leadIds.add(lead.id);
+                    }
+                }
+            }
+        }
         system.debug('leadIds><><><>' + leadIds);
         if(leadIds !=null)
         {
-        leadlist = [Select id,recordtypeId,Assigned_Dealer__r.name,CAC_Lead_Status__c,Assigned_Dealer__r.Dealer_GC_Code__c,Assigned_Dealer__c from Lead__c where Id IN:leadIds];
+            leadlist = [Select id,recordtypeId,Assigned_Dealer__r.name,CAC_Lead_Status__c,Assigned_Dealer__r.Dealer_GC_Code__c,Assigned_Dealer__c from Lead__c where Id IN:leadIds];
         }
         if(leadlist !=null)
         {
-        for(lead__c le:leadlist)
-        {
-            if(le.Assigned_Dealer__c != null){dealerAccountIds.add(le.Assigned_Dealer__c);}
-        }
+            for(lead__c le:leadlist)
+            {
+                if(le.Assigned_Dealer__c != null){dealerAccountIds.add(le.Assigned_Dealer__c);}
+            }
         }
         if(dealerAccountIds.size()>0)
         {
@@ -373,7 +384,7 @@ public class LeadHelperJP
         
         list<string>asslist=new list<string>();
         list<String> AccountNAme = new List<String>();
-         list<account> acl=new list<account>();
+        list<account> acl=new list<account>();
         Set<id> leadIdsSet = new Set<id>();
         if(leadlist!=null)
         {
@@ -391,59 +402,59 @@ public class LeadHelperJP
         }
         if(GCCode !=null)
         {
-       acl=[select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
+            acl=[select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
         }
         
         if(acl!=null)
         {
-        for(Account acc :acl)
-        {
-            system.debug('acc.Name'+acc.Name);
-            if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
+            for(Account acc :acl)
             {
-                dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
+                system.debug('acc.Name'+acc.Name);
+                if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
+                {
+                    dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
+                }
+                dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
+                AccountNAme.add(acc.Name);
             }
-            dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
-            AccountNAme.add(acc.Name);
-        }
         }
         system.debug('dealeraccntMap><><><' + dealeraccntMap);
-         list<Group> grplist=new list<Group>();
-         if(AccountNAme !=null)
-         {
-        grplist=[select id ,Name ,Type from Group where Name IN: AccountNAme];
-         }
-         
-         if(grplist!=null)
-         {
-        for(Group assg:grplist)
+        list<Group> grplist=new list<Group>();
+        if(AccountNAme !=null)
         {
-            
-            assgroupMap.put(assg.Name, assg.id);
-            
-            
+            grplist=[select id ,Name ,Type from Group where Name IN: AccountNAme];
         }
+        
+        if(grplist!=null)
+        {
+            for(Group assg:grplist)
+            {
+                
+                assgroupMap.put(assg.Name, assg.id);
+                
+                
+            }
         }
         system.debug('assgroupMap><><><>'+assgroupMap);
         if(leadlist !=null)
         {
-        for(Lead__c lead:leadlist)  
-        {
-            for(integer i=0 ; i < dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c).size();i++)
+            for(Lead__c lead:leadlist)  
             {
-                
-                if(assgroupMap.get(dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c)[i]) != null)
+                for(integer i=0 ; i < dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c).size();i++)
                 {
-                    Lead__share l=new Lead__share();
-                    l.ParentId=lead.id;
-                    l.UserOrGroupId = assgroupMap.get(dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c)[i]);
                     
-                    l.rowcause = Schema.Lead__Share.rowcause.Assigned_Dealer__c ;  
-                    l.AccessLevel='edit';
-                    leadshare.add(l);
+                    if(assgroupMap.get(dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c)[i]) != null)
+                    {
+                        Lead__share l=new Lead__share();
+                        l.ParentId=lead.id;
+                        l.UserOrGroupId = assgroupMap.get(dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c)[i]);
+                        
+                        l.rowcause = Schema.Lead__Share.rowcause.Assigned_Dealer__c ;  
+                        l.AccessLevel='edit';
+                        leadshare.add(l);
+                    }
                 }
             }
-        }
         }
         if(!leadshare.isEmpty() && leadshare != null)
         {
@@ -508,10 +519,10 @@ public class LeadHelperJP
             }
         }
         system.debug('DealerAccid ><><><>' + DealerAccid);
-        if(!DealerGcCode.isEmpty() && DealerGcCode != null)
+        if(!DealerAccid.isEmpty() && DealerAccid != null)
         {
             dealerUserList = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c from User
-                             where contact.Account.Dealer_GC_Code__c =:DealerGcCode and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
+                             where contact.AccountId =: DealerAccid  and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
         }
         system.debug('dealerUserList ><><><>' + dealerUserList);
         
@@ -528,8 +539,7 @@ public class LeadHelperJP
                     for(User us : dealerUserList)
                     {   
                         System.debug('$$$$$$$$&^&^&^'+dealerUserList);
-                        if(emaLeds.Assigned_Dealer__r.Dealer_GC_Code__c == us.contact.Account.Dealer_GC_Code__c 
-                           && emaLeds.Lead_Assignment_Notification_Done__c == false && emaLeds.Lead_DataSource__c != 'Dealer Outlet')
+                        if(emaLeds.Lead_Assignment_Notification_Done__c == false && emaLeds.Lead_DataSource__c != 'Dealer Outlet')
                         {
                             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
                             mail.setWhatId(emaLeds.id); 
