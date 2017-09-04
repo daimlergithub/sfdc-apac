@@ -983,7 +983,8 @@
                             <td>
                                 <select onchange="showCriteria(this);"> 
                                     <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
-                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>                                  
+                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>  
+									<option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option> 									
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
                                       <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option>                                
                                 </select>
@@ -1006,6 +1007,7 @@
                               <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
                                 </apex:selectList>
+								<apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c"/> 
                                 <!--<apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>-->
                                 <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
                                 <apex:selectList styleClass="Status__c" size="1" multiselect="false">
