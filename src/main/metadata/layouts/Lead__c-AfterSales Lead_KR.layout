@@ -417,11 +417,6 @@
         <style>CustomLinks</style>
     </layoutSections>
 	<relatedLists>
-        <fields>Comment__c</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <relatedList>LeadComment__c.Lead_Comment__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
