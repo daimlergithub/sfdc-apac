@@ -223,7 +223,9 @@ public with sharing class AccountMergeController{
             return null;     
         }             
              
-        PageReference pr = new PageReference(system.Label.apex_SelectSlaveAccount+selectedMasterAccount.Id);
+       // PageReference pr = new PageReference(system.Label.apex_SelectSlaveAccount+selectedMasterAccount.Id);
+         PageReference pr = new PageReference('/'+selectedMasterAccount.Id);
+      
         pr.setRedirect(true);
         return pr;
     }
