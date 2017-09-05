@@ -111264,7 +111264,7 @@ NOT
     </validationRules>
     <validationRules>
         <fullName>Lead_Latest_Phase_Manual_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c ),
     OR(
         ISPICKVAL(Lead_Latest_Phase__c , 'Quotation'),
@@ -111282,7 +111282,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>Lead_Latest_Phase_Manual_Check_AS</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
 	OR(
 	ISPICKVAL(Lead_Latest_Phase__c , 'WIP Linkage'),
