@@ -7104,6 +7104,11 @@
         <field>Campaign.Child_Campaign_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Class1__c</field>
+        <readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Class__c</field>
@@ -7897,7 +7902,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Lead__c.Campaign__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
