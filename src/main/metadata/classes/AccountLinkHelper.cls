@@ -936,6 +936,7 @@ public class AccountLinkHelper
                    acclnk.Retail_Comments__c != oldacclnkMap.get(acclnk.Id).Retail_Comments__c ||
                    acclnk.Retail_OptOutContact_Reason__c != oldacclnkMap.get(acclnk.Id).Retail_OptOutContact_Reason__c ||
                    acclnk.Retail_Related_Company__c != oldacclnkMap.get(acclnk.Id).Retail_Related_Company__c)
+
                 {
                     customerIds.add(acclnk.toRole__c);
                     dealerIds.add(acclnk.fromRole__c);
@@ -1387,6 +1388,7 @@ public class AccountLinkHelper
             }
         }
     }
+
 	 /*   created by:Dinesh
     [CISM:0038992405]
      Desc:Retail_Copy_Accountlink_Retail_Address_Reference.
@@ -1438,8 +1440,10 @@ public class AccountLinkHelper
                 update accountList1; 
             }
   }
+
     //Added venky changes related to SFDCJP-2617
     public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
+
     {
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Set<Id> RetailPersonID=new Set<Id>();
@@ -1489,7 +1493,7 @@ public class AccountLinkHelper
             for(Account_Link__c accountLink : lstC2c)
             {
                 if(accountLink.Retail_Delete_Flag__c == false)
-                {   
+                { 
                     dealerAccNameSet.add(accountLink.fromRole__r.Name);
                     GcCode.add(accountLink.fromRole__r.Dealer_GC_Code__c);
                 }
@@ -1517,7 +1521,6 @@ public class AccountLinkHelper
             dealerAccList = [select Name from Account where Dealer_GC_Code__c=:GcCode and RecordtypeId=:DealerAccid];
             system.debug('dealerAccList>>>> ' + dealerAccList );
         }
-        
         if(dealerAccList !=null)
         {
             for(Account dealerRec : dealerAccList) 
@@ -1566,6 +1569,5 @@ public class AccountLinkHelper
         {
             Database.insert(Sharealk, false);
         }
-     
     }
 }

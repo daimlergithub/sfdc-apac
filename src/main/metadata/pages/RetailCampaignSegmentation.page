@@ -983,7 +983,8 @@
                             <td>
                                 <select onchange="showCriteria(this);"> 
                                     <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
-                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>                                  
+                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>  
+                                    <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                     
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
                                       <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option>                                
                                 </select>
@@ -1004,6 +1005,10 @@
                                     <apex:selectOptions value="{!RetailTaskType}"></apex:selectOptions>
                                 </apex:selectList>
                               <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
+                                </apex:selectList>
+                             <!--   <apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c"/> -->
+                              <apex:selectList styleClass="Finance_Product_Name__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
                                 </apex:selectList>
                                 <!--<apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>-->
@@ -1194,6 +1199,9 @@
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Product_Name__c}"/> 
+                            </apex:column>
+                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                                <apex:outputField value="{!wrapAcc.retail.Finance_Product_Name__c}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Type__c}"/> 
