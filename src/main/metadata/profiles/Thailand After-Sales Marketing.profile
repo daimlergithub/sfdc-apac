@@ -25386,10 +25386,6 @@
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout TH</layout>
-        <recordType>PersonAccount.PersonAccount</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>PreOrder__c-Pre Order Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
