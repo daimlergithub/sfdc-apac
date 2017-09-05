@@ -39,7 +39,7 @@
         <name>AES_SFConnector__UUI__c</name>
     </fields>
     <fields>
-        <label><!-- Account Name --></label>
+        <label>会社名</label>
         <name>Account_Name__c</name>
     </fields>
     <fields>
@@ -756,7 +756,7 @@
         <name>Caller__c</name>
     </fields>
     <fields>
-        <label><!-- Campaign Member ID --></label>
+        <label>対象者ID</label>
         <name>Campaign_Member_ID__c</name>
     </fields>
     <fields>
@@ -1000,11 +1000,11 @@
         <name>PersonOtherPhone__c</name>
     </fields>
     <fields>
-        <label><!-- Phone --></label>
+        <label>契約者電話1</label>
         <name>Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Phone number --></label>
+        <label>契約者電話2</label>
         <name>Phone_number__c</name>
     </fields>
     <fields>
