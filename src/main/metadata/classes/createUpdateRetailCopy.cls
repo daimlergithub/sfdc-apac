@@ -440,7 +440,15 @@ public class createUpdateRetailCopy
                     }
                     if(acc.Foundation_Date__c != null)
                     {
-                        exstacclnk.Retail_Foundation_Month__c = String.ValueOf(acc.Foundation_Date__c.month())+String.valueOf(acc.Foundation_Date__c.year());
+                        Integer FoundationDate = acc.Foundation_Date__c.month();
+                        if(FoundationDate <= 9)
+                        {
+                            exstacclnk.Retail_Foundation_Month__c = '0'+String.valueOf(acc.Foundation_Date__c.month())+ String.valueOf(acc.Foundation_Date__c.Year());      
+                        }
+                        else 
+                        {                    
+                            exstacclnk.Retail_Foundation_Month__c = String.valueOf(acc.Foundation_Date__c.month())+ String.valueOf(acc.Foundation_Date__c.Year());
+                        }
                     }
                     
                     exstacclnk.Retail_Fax__c = acc.Fax;
@@ -527,8 +535,16 @@ public class createUpdateRetailCopy
                     acclnk.Retail_UCID__c = acc.UCID__c;
                 }
                 if(acc.Foundation_Date__c != null)
-                {
-                    acclnk.Retail_Foundation_Month__c = String.ValueOf(acc.Foundation_Date__c.month())+String.valueOf(acc.Foundation_Date__c.year());
+                {   
+                    Integer FoundationDate = acc.Foundation_Date__c.month();
+                    if(FoundationDate <= 9)
+                    {
+                        acclnk.Retail_Foundation_Month__c = '0'+String.valueOf(acc.Foundation_Date__c.month())+ String.valueOf(acc.Foundation_Date__c.Year());      
+                    }
+                    else 
+                    {                    
+                        acclnk.Retail_Foundation_Month__c = String.valueOf(acc.Foundation_Date__c.month())+ String.valueOf(acc.Foundation_Date__c.Year());
+                    }
                 }
                 
                 acclnk.Retail_Fax__c = acc.Fax;
