@@ -63,7 +63,7 @@
                     <apex:column value="{!accWrap.acc[column]}" />
                   </apex:repeat> 
                <apex:column headerValue="{!$Label.My_Mercedes_ID}">
-                <apex:repeat value="{!accWrap.acc.Account_Links1__r}"  var="acclinks">                       
+                <apex:repeat value="{!accWrap.acc.Account_Links__r}"  var="acclinks">                       
                           <li> <apex:outputtext style="color:blue;" value="{!acclinks.Name}"/> </li>
                     </apex:repeat>                 
                  </apex:column>
