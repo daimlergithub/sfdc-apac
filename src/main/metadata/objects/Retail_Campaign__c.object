@@ -1139,6 +1139,194 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Class1__c</fullName>
+        <externalId>false</externalId>
+        <label>Class</label>
+        <picklist>
+            <picklistValues>
+                <fullName>A-Class HATCHBACK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B-Class MPV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class COUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class HATCHBACK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class SEDAN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CL COUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA 4 DOOR COUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA ESTATE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLK CABRIO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLK COUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLS 4 DOOR COUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLS ESTATE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class CABRIO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class ESTATE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class SEDAN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Class SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GL SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLA SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLK SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maybach SEDAN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M-Class SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT SPORTCOUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R-Class MPV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class CABRIO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class COUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class SEDAN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SL ROADSTER</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLC ROADSTER</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLK ROADSTER</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLR ROADSTER</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLR SPORTCOUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLS ROADSTER</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLS SPORTCOUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VANEO MPV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V-Class MPV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VITO MPV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class ESTATE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class COUPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class CABRIO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC SUC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLS SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE SUC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Class__c</fullName>
         <externalId>false</externalId>
@@ -2545,17 +2733,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Range__c</fullName>
-        <externalId>false</externalId>
-        <label>Range</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Record_Type_Name__c</fullName>
@@ -10186,6 +10363,185 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Class1__c</picklist>
+            <values>
+                <fullName>A-Class HATCHBACK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B-Class MPV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class CABRIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class ESTATE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class HATCHBACK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class SEDAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA 4 DOOR COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA ESTATE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLK CABRIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLK COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS 4 DOOR COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS ESTATE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class CABRIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class ESTATE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class SEDAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Class SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC SUC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE SUC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLK SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M-Class SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach SEDAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT SPORTCOUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R-Class MPV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class CABRIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class SEDAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL ROADSTER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC ROADSTER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLK ROADSTER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLR ROADSTER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLR SPORTCOUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLS ROADSTER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLS SPORTCOUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V-Class MPV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VANEO MPV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VITO MPV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
