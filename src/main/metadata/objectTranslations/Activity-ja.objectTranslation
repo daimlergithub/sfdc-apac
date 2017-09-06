@@ -39,7 +39,7 @@
         <name>AES_SFConnector__UUI__c</name>
     </fields>
     <fields>
-        <label><!-- Account Name --></label>
+        <label>会社名</label>
         <name>Account_Name__c</name>
     </fields>
     <fields>
@@ -508,7 +508,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Failed</masterLabel>
-            <translation><!-- Failed --></translation>
+            <translation>コンタクト成功（リード不成立）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fax</masterLabel>
@@ -556,7 +556,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Need Verification</masterLabel>
-            <translation><!-- Need Verification --></translation>
+            <translation>コンタクト成功</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No Purchase</masterLabel>
@@ -592,7 +592,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Pending</masterLabel>
-            <translation><!-- Pending --></translation>
+            <translation>保留</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Phone Shut Down</masterLabel>
@@ -648,7 +648,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Success</masterLabel>
-            <translation><!-- Success --></translation>
+            <translation>コンタクト成功（リード成立）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Successful</masterLabel>
@@ -688,7 +688,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>busy</masterLabel>
-            <translation><!-- busy --></translation>
+            <translation>未コンタクト通話中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>call transfer</masterLabel>
@@ -708,7 +708,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>invalid call</masterLabel>
-            <translation><!-- invalid call --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>invalid data</masterLabel>
@@ -716,15 +716,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>need call back</masterLabel>
-            <translation><!-- need call back --></translation>
+            <translation>コンタクト再架電</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>no answer</masterLabel>
-            <translation><!-- no answer --></translation>
+            <translation>未コンタクト出ない</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>no such person</masterLabel>
-            <translation><!-- no such person --></translation>
+            <translation>未コンタクト番号/相手間違い</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>not started</masterLabel>
@@ -732,7 +732,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>reject</masterLabel>
-            <translation><!-- reject --></translation>
+            <translation>コンタクト‐電話拒否</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>reservation</masterLabel>
@@ -740,7 +740,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>wrong number</masterLabel>
-            <translation><!-- wrong number --></translation>
+            <translation>未コンタクト該当なし</translation>
         </picklistValues>
     </fields> 
     <fields>
@@ -756,7 +756,7 @@
         <name>Caller__c</name>
     </fields>
     <fields>
-        <label><!-- Campaign Member ID --></label>
+        <label>対象者ID</label>
         <name>Campaign_Member_ID__c</name>
     </fields>
     <fields>
@@ -1000,11 +1000,11 @@
         <name>PersonOtherPhone__c</name>
     </fields>
     <fields>
-        <label><!-- Phone --></label>
+        <label>契約者電話1</label>
         <name>Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Phone number --></label>
+        <label>契約者電話2</label>
         <name>Phone_number__c</name>
     </fields>
     <fields>

@@ -2276,15 +2276,15 @@
         <name>CAS_Marketing_Active</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Status cannot be changed when it is &apos;Completed&apos; --></errorMessage>
+        <errorMessage>実行ステータスは前のステータスに変更できません</errorMessage>
         <name>CamExecution_Staus_Change_form_Completed</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Status cannot be changed from &apos;Exection&apos; to &apos;Planning or Segmentation&apos; --></errorMessage>
+        <errorMessage>実行ステータスは前のステータスに変更できません</errorMessage>
         <name>CamExecution_Staus_Change_form_Execution</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Status cannot be changed from &apos;Response Collection&apos; to &apos;Planning or Segmentation or Exection&apos; --></errorMessage>
+        <errorMessage>実行ステータスは前のステータスに変更できません</errorMessage>
         <name>CamExecution_Staus_Change_form_Response</name>
     </validationRules>
     <validationRules>
@@ -2292,11 +2292,11 @@
         <name>Campaign_Not_Yet_Started_Active</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Campaign Status cannot be changed from Segmentation to Planning --></errorMessage>
+        <errorMessage>実行ステータスは前のステータスに変更できません</errorMessage>
         <name>Campaign_Segmentation_Status_Checking</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Campaign status Completed you cant change End Date --></errorMessage>
+        <errorMessage>キャンペーンステータスが「終了」の場合、「終了日」を変更できません</errorMessage>
         <name>Campaign_Status_Campleted</name>
     </validationRules>
     <validationRules>
@@ -2332,7 +2332,7 @@
         <name>Only_Started_Campaign_can_be_activated</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Parent Campaign Status ongoing you can not change start date --></errorMessage>
+        <errorMessage>キャンペーンステータスが「実施中」の場合、「開始日」を変更できません</errorMessage>
         <name>Parent_Campaign_Status_Ongoing</name>
     </validationRules>
     <validationRules>
@@ -2340,7 +2340,7 @@
         <name>Parent_Campign_Not_Same</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You cannot changed the status --></errorMessage>
+        <errorMessage>Planning&Design Campaignのステータスが「終了」の場合、Execution Campaignの実行ステータスを変更できません</errorMessage>
         <name>Parent_Complete_Status_Change</name>
     </validationRules>
     <validationRules>

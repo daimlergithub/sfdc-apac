@@ -111264,7 +111264,7 @@ NOT
     </validationRules>
     <validationRules>
         <fullName>Lead_Latest_Phase_Manual_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c ),
     OR(
         ISPICKVAL(Lead_Latest_Phase__c , 'Quotation'),
@@ -111282,7 +111282,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>Lead_Latest_Phase_Manual_Check_AS</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
 	OR(
 	ISPICKVAL(Lead_Latest_Phase__c , 'WIP Linkage'),
@@ -111541,7 +111541,7 @@ ISNULL(Visited_Showroom_Date__c)
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 
 if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Manager' || prName == 'Japan Dealer Company Manager' || prName == 'System Administrator'||prName == 'Campaign Japan Dealer Company Manager'){ 
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes","scrollbars=yes"); 
 } 
 else{ 
 alert("{!$Label.Authorization}"); 
