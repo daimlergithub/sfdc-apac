@@ -112,4 +112,4 @@
         <errorConditionFormula>Start_Date__c  &gt;  End_Date__c</errorConditionFormula>
         <errorMessage>Start Date must be less than or equal to End Date</errorMessage>
     </validationRules>
-</CustomObject>
+</CustomObject>  

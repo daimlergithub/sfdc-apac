@@ -90,4 +90,4 @@
         <searchResultsAdditionalFields>ASSET.NAME</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-</CustomObject>
+</CustomObject>  

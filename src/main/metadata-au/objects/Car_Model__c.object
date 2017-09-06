@@ -2315,4 +2315,4 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
-</CustomObject>
+</CustomObject>  

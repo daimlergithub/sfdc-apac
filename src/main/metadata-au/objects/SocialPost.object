@@ -298,4 +298,4 @@
         <searchResultsAdditionalFields>ReviewedStatus</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
-</CustomObject>
+</CustomObject>  

@@ -1003,4 +1003,4 @@
         <searchResultsAdditionalFields>CORE.USER_ROLE.NAME</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
-</CustomObject>
+</CustomObject>  
