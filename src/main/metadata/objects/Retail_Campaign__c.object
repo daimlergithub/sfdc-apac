@@ -2734,6 +2734,403 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Range</label>
+        <picklist>
+            <controllingField>Class1__c</controllingField>
+            <picklistValues>
+                <fullName>W168</fullName>
+                <default>false</default>
+                <controllingFieldValues>A-Class HATCHBACK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V168</fullName>
+                <default>false</default>
+                <controllingFieldValues>A-Class HATCHBACK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W169</fullName>
+                <default>false</default>
+                <controllingFieldValues>A-Class HATCHBACK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W176</fullName>
+                <default>false</default>
+                <controllingFieldValues>A-Class HATCHBACK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>T245</fullName>
+                <default>false</default>
+                <controllingFieldValues>B-Class MPV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W246</fullName>
+                <default>false</default>
+                <controllingFieldValues>B-Class MPV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C204</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C205</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CL203</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class HATCHBACK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W202</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W204</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W205</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C215</fullName>
+                <default>false</default>
+                <controllingFieldValues>CL COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C216</fullName>
+                <default>false</default>
+                <controllingFieldValues>CL COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C117</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLA 4 DOOR COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X117</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLA ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A208</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLK CABRIO</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A209</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLK CABRIO</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C208</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLK COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C209</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLK COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C218</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLS 4 DOOR COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C219</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLS 4 DOOR COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X218</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLS ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A207</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class CABRIO</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S210</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S211</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S212</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S213</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W210</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W211</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W212</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W213</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>461</fullName>
+                <default>false</default>
+                <controllingFieldValues>G-Class SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BR463</fullName>
+                <default>false</default>
+                <controllingFieldValues>G-Class SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X164</fullName>
+                <default>false</default>
+                <controllingFieldValues>GL SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X166</fullName>
+                <default>false</default>
+                <controllingFieldValues>GL SUV</controllingFieldValues>
+                <controllingFieldValues>GLS SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X156</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLA SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X253</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLC SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W166</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLE SUV</controllingFieldValues>
+                <controllingFieldValues>M-Class SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X204</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLK SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W/V240</fullName>
+                <default>false</default>
+                <controllingFieldValues>Maybach SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W163</fullName>
+                <default>false</default>
+                <controllingFieldValues>M-Class SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W164</fullName>
+                <default>false</default>
+                <controllingFieldValues>M-Class SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C190</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-AMG GT SPORTCOUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W/V251</fullName>
+                <default>false</default>
+                <controllingFieldValues>R-Class MPV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A217</fullName>
+                <default>false</default>
+                <controllingFieldValues>S-Class CABRIO</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C217</fullName>
+                <default>false</default>
+                <controllingFieldValues>S-Class COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W/V220</fullName>
+                <default>false</default>
+                <controllingFieldValues>S-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W/V221</fullName>
+                <default>false</default>
+                <controllingFieldValues>S-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W/V222</fullName>
+                <default>false</default>
+                <controllingFieldValues>S-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X222</fullName>
+                <default>false</default>
+                <controllingFieldValues>S-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R129</fullName>
+                <default>false</default>
+                <controllingFieldValues>SL ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R230</fullName>
+                <default>false</default>
+                <controllingFieldValues>SL ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R231</fullName>
+                <default>false</default>
+                <controllingFieldValues>SL ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R172</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLC ROADSTER</controllingFieldValues>
+                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R170</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R171</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R199</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLR ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Z199</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLR ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C199</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLR SPORTCOUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R197</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLS ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C197</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLS SPORTCOUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VANEO</fullName>
+                <default>false</default>
+                <controllingFieldValues>VANEO MPV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BR447</fullName>
+                <default>false</default>
+                <controllingFieldValues>V-Class MPV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BR639</fullName>
+                <default>false</default>
+                <controllingFieldValues>V-Class MPV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V-CLASS</fullName>
+                <default>false</default>
+                <controllingFieldValues>V-Class MPV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VITO</fullName>
+                <default>false</default>
+                <controllingFieldValues>VITO MPV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S202</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S203</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S204</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S205</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C207</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C238</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-Class COUPE</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A205</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class CABRIO</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C253</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLC SUC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C292</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLE SUC</controllingFieldValues>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
     <fields>
         <fullName>Record_Type_Name__c</fullName>
         <externalId>false</externalId>
@@ -10962,6 +11359,313 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>461</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A205</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A207</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A208</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A209</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A217</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BR447</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BR463</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BR639</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C117</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C190</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C197</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C199</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C204</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C205</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C207</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C208</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C209</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C215</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C216</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C217</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C218</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C219</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C238</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C253</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C292</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL203</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R129</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R170</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R171</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R172</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R197</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R199</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R230</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R231</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S202</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S203</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S204</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S205</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S210</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S211</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S212</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S213</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>T245</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V168</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VANEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VITO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W%2FV220</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W%2FV221</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W%2FV222</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W%2FV240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W%2FV251</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W163</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W164</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W166</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W168</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W169</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W176</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W202</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W204</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W205</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W210</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W211</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W212</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W213</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W246</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X117</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X156</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X164</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X166</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X204</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X218</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X222</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X253</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Z199</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
