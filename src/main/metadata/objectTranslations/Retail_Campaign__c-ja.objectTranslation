@@ -1814,8 +1814,28 @@
         <name>Unlock_Application_Feedback</name>
     </validationRules>
     <validationRules>
+        <errorMessage>必須フィールドに値を入力してください。</errorMessage>
+        <name>Auto_Segmentation_Criteria</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>実行ステータスは前のステータスに変更できません</errorMessage>
         <name>Retail_Cam_Status_From_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>実行ステータスは前のステータスに変更できません</errorMessage>
+        <name>Retail_Cam_Status_From_Execution</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>実行ステータスは前のステータスに変更できません</errorMessage>
+        <name>Retail_Cam_Status_From_Response</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>キャンペーンステータスが「終了」の場合、「終了日」を変更できません</errorMessage>
+        <name>Retail_Campaign_Status_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>キャンペーンステータスが「実施中」の場合、「開始日」を変更できません</errorMessage>
+        <name>Status_is_Ongoing_cant_change_Start_Date</name>
     </validationRules>
 	<webLinks>
         <label>リテール子キャンペーン作成</label>
