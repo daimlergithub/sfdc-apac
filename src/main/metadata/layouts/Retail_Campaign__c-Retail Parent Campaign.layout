@@ -35,10 +35,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Range__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Expected_Revenue__c</field>
             </layoutItems>
             <layoutItems>
@@ -53,8 +49,8 @@
                 <behavior>Readonly</behavior>
                 <field>Parent_Campaign__c</field>
             </layoutItems>
-			<layoutItems>
-               <behavior>Edit</behavior>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>CloneCampaign__c</field>
             </layoutItems>
         </layoutColumns>
@@ -82,6 +78,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Class1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Range__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -131,7 +135,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000Jthi</masterLabel>
+        <masterLabel>00h28000006jLP5</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
