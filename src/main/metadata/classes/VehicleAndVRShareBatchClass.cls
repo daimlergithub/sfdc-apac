@@ -9,7 +9,7 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
     public static list<Vehicle_Relationship__c> vehRelList = new list<Vehicle_Relationship__c>();
     global database.QueryLocator start(database.BatchableContext bc)
     { 
-        string query = 'Select Id, Vehicle_ID__c, Contact__c,Owner_Dealer__r.Dealer_GC_Code__c,Owner_Dealer__r.Dealer_ND_Code__c,Owner_Dealer__r.Dealer_Type__c from Vehicle_Relationship__c where Owner_Dealer__r.Dealer_GC_Code__c in '+'(\'GC0037971\',\'GC0011433\',\'GC0037972\',\'GC0011434\')'+' and MD__C =' +'\'KR\' and Recordtype.Name = ' +'\'Vehicle Relationship Retail\'';
+        string query = 'Select Id, Vehicle_ID__c, Contact__c,Owner_Dealer__r.Dealer_GC_Code__c,Owner_Dealer__r.Dealer_ND_Code__c,Owner_Dealer__r.Dealer_Type__c from Vehicle_Relationship__c where Owner_Dealer__r.Dealer_GC_Code__c in '+'(\'GC0011422\',\'GC0011430\',\'GC0037972\',\'GC0037971\',\'GC0011433\',\'GC0011434\')'+' and MD__C =' +'\'KR\' and Recordtype.Name = ' +'\'Vehicle Relationship Retail\'';
         return database.getQueryLocator(query);
         //'(\'GC0011422\',\'GC0011430\',\'GC0037972\',\'GC0037972\')
     }
@@ -19,6 +19,8 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
         dealerGCCodeList.add('GC0011430');
         dealerGCCodeList.add('GC0037972');
         dealerGCCodeList.add('GC0037971');
+        dealerGCCodeList.add('GC0011433');
+        dealerGCCodeList.add('GC0011434');
         Set<string> ndCodeList = New Set<String>();
         List<Account> accntList = [select Id, Dealer_ND_Code__c, Dealer_GC_Code__c, Dealer_Type__c from Account where Recordtype.Name = 'Dealer' and Dealer_GC_Code__c =:dealerGCCodeList and MD__c = 'KR'];
         for(Account acc : accntList){

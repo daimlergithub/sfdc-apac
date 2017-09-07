@@ -1226,6 +1226,10 @@
                 <fullName>G-Class SUV</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>GL SUV</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>GLA SUV</fullName>
                 <default>false</default>
@@ -1234,12 +1238,20 @@
                 <fullName>GLC SUV</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>GLK SUV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach SEDAN</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>M-Class SUV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1264,6 +1276,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>SL ROADSTER</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>SLC ROADSTER</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1312,6 +1328,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>GLC SUC</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>GLS SUV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2733,6 +2753,12 @@
                 <default>false</default>
                 <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>R172</fullName>
+                <default>false</default>
+                <controllingFieldValues>SLC ROADSTER</controllingFieldValues>
+                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>R197</fullName>
                 <default>false</default>
@@ -2756,7 +2782,6 @@
             <picklistValues>
                 <fullName>S202</fullName>
                 <default>false</default>
-                <controllingFieldValues>C-Class CABRIO</controllingFieldValues>
                 <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -2844,6 +2869,22 @@
                 <default>false</default>
                 <controllingFieldValues>R-Class MPV</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>W163</fullName>
+                <default>false</default>
+                <controllingFieldValues>M-Class SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W164</fullName>
+                <default>false</default>
+                <controllingFieldValues>M-Class SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W166</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLE SUV</controllingFieldValues>
+                <controllingFieldValues>M-Class SUV</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>W168</fullName>
                 <default>false</default>
@@ -2861,6 +2902,11 @@
             </picklistValues>
             <picklistValues>
                 <fullName>W202</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>W204</fullName>
                 <default>false</default>
                 <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
             </picklistValues>
@@ -2903,6 +2949,17 @@
                 <fullName>X156</fullName>
                 <default>false</default>
                 <controllingFieldValues>GLA SUV</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>X164</fullName>
+                <default>false</default>
+                <controllingFieldValues>GL SUV</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X166</fullName>
+                <default>false</default>
+                <controllingFieldValues>GL SUV</controllingFieldValues>
+                <controllingFieldValues>GLS SUV</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>X204</fullName>
@@ -16782,6 +16839,10 @@
                 <fullName>G-Class SUV</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>GL SUV</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>GLA SUV</fullName>
                 <default>false</default>
@@ -16798,8 +16859,20 @@
                 <fullName>GLE SUC</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>GLK SUV</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>GLS SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M-Class SUV</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16828,6 +16901,10 @@
             </values>
             <values>
                 <fullName>SL ROADSTER</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>SLC ROADSTER</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17364,6 +17441,10 @@
                 <fullName>R171</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>R172</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>R197</fullName>
                 <default>false</default>
@@ -17452,6 +17533,18 @@
                 <fullName>W%2FV251</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>W163</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W164</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W166</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>W168</fullName>
                 <default>false</default>
@@ -17466,6 +17559,10 @@
             </values>
             <values>
                 <fullName>W202</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>W204</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17498,6 +17595,14 @@
             </values>
             <values>
                 <fullName>X156</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>X164</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X166</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -10,9 +10,16 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
     {
         CaseHelperTH caseHelperTHd = new CaseHelperTH();
         
-        if(trigger.isinsert && trigger.isbefore)
+        if(trigger.isinsert && trigger.isbefore){
             caseHelperTHd.countRepeatComplaintCase(trigger.new,true);
+            caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
             
+           }
+           else if(trigger.isupdate &&trigger.isbefore){
+           caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
+           
+           }
+          
          if (trigger.isAfter){
             if (trigger.isDelete){
                caseHelperTHd .calculateComplaintAmount(trigger.old);

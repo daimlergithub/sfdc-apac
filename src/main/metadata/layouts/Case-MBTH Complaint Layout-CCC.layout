@@ -110,10 +110,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBTH_Turnaround_time__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>MBTH_Waiver_Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -127,6 +123,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBTH_Legal_Involved__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MBTH_Turnaround_Time__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -205,6 +205,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Complaint_Creator_Department__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>EuroVIN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
