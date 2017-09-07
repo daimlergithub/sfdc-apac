@@ -1813,6 +1813,10 @@
         <errorMessage><!-- You can&apos;t update Feedback information with current feedback status or apply status. --></errorMessage>
         <name>Unlock_Application_Feedback</name>
     </validationRules>
+    <validationRules>
+        <errorMessage>実行ステータスは前のステータスに変更できません</errorMessage>
+        <name>Retail_Cam_Status_From_Completed</name>
+    </validationRules>
 	<webLinks>
         <label>リテール子キャンペーン作成</label>
         <name>Create_Child_Retail_Campaign</name>
