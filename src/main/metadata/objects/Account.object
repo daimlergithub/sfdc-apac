@@ -425,7 +425,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>phone</field>
+            <field>Phone</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1074,11 +1074,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Phone</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields> 
+        </displayedFields>
         <displayedFields>
             <field>Work_Phone_Status_2__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -10728,6 +10728,15 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Lead_No_Update_Notification_Disable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Lead No Update Notification Disable</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Legal_Form_Position__c</fullName>
         <externalId>false</externalId>
         <label>Legal Form Position</label>
@@ -10746,15 +10755,6 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Lead_No_Update_Notification_Disable__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Lead No Update Notification Disable</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Loyalty_Card_No__c</fullName>
@@ -11704,15 +11704,15 @@ Modify Reason:
 Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description>
         <externalId>false</externalId>
         <label>Main Dealer</label>
-		<lookupFilter>
+        <lookupFilter>
             <active>true</active>
-			<booleanFilter>1 OR 2</booleanFilter>
+            <booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
-            </filterItems>			
+            </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
                 <operation>equals</operation>
@@ -19256,6 +19256,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Photography</fullName>
                 <default>false</default>
             </values>
@@ -19281,6 +19285,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Sailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shopping</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -56466,13 +56474,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ACCOUNT.RECORDTYPE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>		
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastName_Native_1__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>FirstName_Native_1__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Customer_Lifecycle_Phase__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Sales_Address_Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address_Display__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Primary_Phone_Display__c</customTabListAdditionalFields>  
+        <customTabListAdditionalFields>Primary_Phone_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Customer_LastUpdatedDate__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
@@ -56496,14 +56504,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE5</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
-		<searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>		
+        <searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastName_Native_1__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>FirstName_Native_1__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Customer_Lifecycle_Phase__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Sales_Address_Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>  
+        <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Customer_LastUpdatedDate__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
@@ -57040,7 +57048,7 @@ MD__c = 'JP')</errorConditionFormula>
 NOT( ISBLANK(Foundation_Date__c)),
 Foundation_Date__c &gt; TODAY(),
 $Profile.Name != 'IntegrationAPI',
-OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH'))</errorConditionFormula>
         <errorDisplayField>Foundation_Date__c</errorDisplayField>
         <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
     </validationRules>
@@ -57941,7 +57949,8 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <openType>replace</openType>
         <page>createRetailCopyKRButton</page>
         <protected>false</protected>
-    </webLinks><webLinks>
+    </webLinks>
+    <webLinks>
         <fullName>Create_Vehicle</fullName>
         <availability>online</availability>
         <description>Create new vehicle record</description>
