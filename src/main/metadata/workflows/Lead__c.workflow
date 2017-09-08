@@ -2206,7 +2206,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISNEW()), MD__c = 'JP',    OR(AND(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),  RecordType.Name = 'Sales Leads')    ,AND(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'), RecordType.Name = 'Aftersales Leads') ) )</formula>
+        <formula>AND(NOT(ISNEW()), MD__c = 'JP',    OR(AND(OR(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),ISPICKVAL( Lead_Latest_Phase__c,'Vehicle Registration' )),  RecordType.Name = 'Sales Leads')    ,AND(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'), RecordType.Name = 'Aftersales Leads') ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
