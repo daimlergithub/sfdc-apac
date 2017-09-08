@@ -367,10 +367,6 @@
                 <behavior>Edit</behavior>
                 <field>Assigned_Dealer_by_Rule__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>X72H_Untouched__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
