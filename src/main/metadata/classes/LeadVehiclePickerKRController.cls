@@ -113,7 +113,7 @@ global without sharing class LeadVehiclePickerKRController {
                 System.debug('Lead Owner vehicles...:' +leadOwnerVehicles);
                 System.debug('Each Lead Vehicle type...' +lead_Vehicles.Interested_Vehicle__c); 
             }
-			/*if((usr.UserRole.name == 'Call Center Supervisor' || usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && usr.Market__c=='KR'){
+            /*if((usr.UserRole.name == 'Call Center Supervisor' || usr.UserRole.name == 'Manager' || usr.Profile.Name == 'MBK CCC Retail - Manager') && usr.Market__c=='KR'){
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,system.label.You_don_t_have_permission_to_update_this_record));
 
                   }*/
@@ -552,9 +552,9 @@ global without sharing class LeadVehiclePickerKRController {
                 vehicleToVRRegDateMap.put(ver.Vehicle_ID__c, ver.Registration_Number__c);
             }
             
-        if(filterText == 'Brand'){
+        if(filterText == 'Class'){
             system.debug('PSM CHECK QUERY FILTER '+ searchText + allVehicleIds + usr.Market__c);
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Brand__c =: searchText];
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Class__c =: searchText];
         }else{
             vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c];
         }   
@@ -668,7 +668,7 @@ global without sharing class LeadVehiclePickerKRController {
                 update lead;
         update leadVehicle;
              
-          }			
+          }         
         }
         if(vehicleAttributes.get('Lookup') == 'true'){
            System.debug('Vehicle Type is Interested Vehicle...' +vehicleAttributes);
