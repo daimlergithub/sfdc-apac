@@ -844,6 +844,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>MBF契約</label>
+        <name>Contract__c</name>
+    </fields>
+    <fields>
+        <label>MBF契約番号</label>
+        <name>Contract_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Created By EP Transaction --></label>
         <name>Created_By_EP_Transaction__c</name>
     </fields>
@@ -1114,6 +1122,11 @@
         <label><!-- *Related Task Id --></label>
         <name>Related_Task_Id__c</name>
     </fields> 
+    <fields>
+        <label>車両</label>
+        <name>Related_Vehicle__c</name>
+        <relationshipLabel><!-- Activities --></relationshipLabel>
+    </fields>
     <fields>
         <label><!-- Result --></label>
         <name>Result__c</name>
