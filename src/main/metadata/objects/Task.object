@@ -6014,11 +6014,11 @@
         <picklistValues>
             <picklist>Activity_Status__c</picklist>
             <values>
-                <fullName>Language Issue</fullName>
+                <fullName>no answer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Successful</fullName>
+                <fullName>need call back</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6026,11 +6026,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid data</fullName>
+                <fullName>reject</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>wrong number</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6038,15 +6038,23 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>reject</fullName>
+                <fullName>invalid call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reservation</fullName>
+                <fullName>Need Verification</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wrong number</fullName>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
