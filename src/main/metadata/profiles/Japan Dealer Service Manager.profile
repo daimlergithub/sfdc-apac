@@ -3947,7 +3947,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Individual_Home_Phone_Status__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
