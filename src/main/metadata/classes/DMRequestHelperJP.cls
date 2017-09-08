@@ -693,34 +693,38 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                          &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
                          ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
                                
-                               if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null ){
-                                
-                             if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
-                             
-                                    If(Market=='KR'){
-                                         lstDMR.Status__c='Duplicate';
-                                       }                     
-                                     if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                         lstDMR.Status1__c='Duplicate';
+                             if(!mapDMRequest.isEmpty() && mapDMRequest.get(lstDMR.Customer_Name__c) != null )
+                             {
+                                 
+                                 if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null ){
+                                     
+                                     if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
                                          
+                                         If(Market=='KR'){
+                                             lstDMR.Status__c='Duplicate';
+                                         }                     
+                                         if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+                                             lstDMR.Status1__c='Duplicate';
+                                             
+                                         }
+                                         if((lstDMR.Expected_DM_Material2__c!=null)&&((lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+                                             
+                                             lstDMR.Status2__c='Duplicate';
+                                             
+                                         }
+                                         if((lstDMR.Expected_DM_Material3__c!=null)&&((lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+                                             
+                                             lstDMR.Status3__c='Duplicate';
+                                         }
                                      }
-                                      if((lstDMR.Expected_DM_Material2__c!=null)&&((lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                        
-                                         lstDMR.Status2__c='Duplicate';
-                                         
-                                     }
-                                     if((lstDMR.Expected_DM_Material3__c!=null)&&((lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                         
-                                         lstDMR.Status3__c='Duplicate';
-                                     }
-                             }
-                        }               
-                   }
-                       
-               }
-                if(isInsert)
-                {
-                     if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
+                                 }  
+                             }             
+                         }
+                        
+                    }
+                    if(isInsert)
+                    {
+                        if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
                      &&((lstDMR.Expected_DM_Material1__c!=NULL)||(lstDMR.Expected_DM_Material2__c!=NULL)||(lstDMR.Expected_DM_Material3__c!=NULL)
                      ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
                       if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
