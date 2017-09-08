@@ -111098,7 +111098,7 @@ ISNULL(Contact_Failed_For_3_Days_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Dealer_Lead_Status_Manual_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>OR(
 AND( OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Lead_Latest_Phase__c)),
 ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Registration')),RecordType.DeveloperName = 'Sales_Leads',MD__c ='JP',
@@ -111423,7 +111423,7 @@ $Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Purchase_Leads_NoChange_Lost</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
 				OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),
 				ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
