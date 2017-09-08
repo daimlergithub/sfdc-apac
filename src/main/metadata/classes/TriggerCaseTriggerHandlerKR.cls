@@ -1,6 +1,8 @@
 public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
 {
     public static boolean isFutureUpdate = false;
+	public static boolean recurssionCheckbefore = false;
+    public static boolean recurssionCheckafter = false;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         CaseHelperJP caseHelperJP = new CaseHelperJP();
@@ -17,7 +19,9 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
             System.debug('#########################################-->trigger.isBefore && trigger.isUpdate');
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
             //caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
-            caseHelperJP.updateCaseDealer(Trigger.New,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
+             if(recurssionCheckbefore != true){    
+                caseHelperJP.updateCaseDealer(Trigger.New,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
+             }
             //caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
             
         }
@@ -27,7 +31,9 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
             if (trigger.isInsert)
             {
                 CaseHelper.caseafterInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
-                caseHelperJP.calculateComplaintAmount(trigger.new);
+                if(recurssionCheckafter != true){
+                    caseHelperJP.calculateComplaintAmount(trigger.new);
+                }
                 caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
                 caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
             }
