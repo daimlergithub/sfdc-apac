@@ -29,7 +29,7 @@ public class TriggerAccountLinkTriggerHandlerJP
             {
                 system.debug('Entered aFTER TRIGGER');
                 Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-                AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
+                AccountLinkHelper.afterInsertDeleteEvent(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate); 
                 AccountLinkHelper.afterInsertEvent(Trigger.new);
                 AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
                 //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
@@ -59,22 +59,23 @@ public class TriggerAccountLinkTriggerHandlerJP
         List<Account_Link__c> accList = Trigger.new; 
         if(!isDelete && !accList.isEmpty() && accList.size() > 0 && accList[0].MD__c == 'JP')
         {
-        
-        if(Trigger.isAfter && Trigger.isUpdate){
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
-            AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
+            if(Trigger.isAfter && Trigger.isInsert)
+            {
+                Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+                AccountLinkHelper.afterInsertEvent(Trigger.new);
+                AccountLinkHelper.afterInsertDeleteEvent(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
+            }
+            if(Trigger.isAfter && Trigger.isUpdate)
+            {
+                Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+                AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
+                AccountLinkHelper.ExportNotification(Trigger.new, oldmap);
+                AccountLinkHelper.afterInsertDeleteEvent(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
+            }
+            if(Trigger.isAfter && Trigger.isDelete)
+            {
+                AccountLinkHelper.afterDeleteEvent(Trigger.old); 
+            }
         }
-         if(Trigger.isAfter && Trigger.isInsert)
-          {
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            AccountLinkHelper.afterInsertEvent(Trigger.new);
-            AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
-          }
-        if(Trigger.isAfter && Trigger.isDelete)
-        {
-            AccountLinkHelper.afterDeleteEvent(Trigger.old); 
-        }
-   }
     }
 }
