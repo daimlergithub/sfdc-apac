@@ -478,9 +478,9 @@ global without sharing class VehiclePickerForCaseControllerKR {
                     allVehicleIds.add(v.Id);
             }
             */
-        if(filterText == 'Brand'){
+        if(filterText == 'Class'){
             system.debug('PSM CHECK QUERY FILTER '+ searchText + allVehicleIds + usr.Market__c);
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Brand__c =: searchText];
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Class__c =: searchText];
         }else{
             vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c];
         }   
