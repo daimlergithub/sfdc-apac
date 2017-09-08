@@ -277,6 +277,7 @@ public with sharing class AccountMergeController{
          Master_Account__c = master.Id,
          Duplicate_Account__c = slave.Id ,
          Duplicate_Reason_Code__c = slave.Dup_Reason__c,
+		  DUPNumber__c = selectedMasterAccount.DUPNumber__c,
          Status__c=system.label.Confirmed);
         // Set SavePoint, if slave DML failed, master DML should be rollback .
         SavePoint sp = Database.setSavepoint();        
