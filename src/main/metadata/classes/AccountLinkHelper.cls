@@ -106,7 +106,7 @@ public class AccountLinkHelper
         if(!acclknkIds.isEmpty() && acclknkIds != null)
         {
             acclinkList = [select id,MD__c from Account_Link__c where id =:acclknkIds AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
-        	existingEpList = [select id,Status__c,SFDC_object_id__c from EP_Export_Notification__c where SFDC_object_id__c =:acclknkIds AND Status__c = 'New'];
+            existingEpList = [select id,Status__c,SFDC_object_id__c from EP_Export_Notification__c where SFDC_object_id__c =:acclknkIds AND Status__c = 'New'];
         }
         system.debug('acclinkList>>><>' + acclknkIds);
         system.debug('existingEpList>>><>' + existingEpList);
@@ -783,11 +783,13 @@ public class AccountLinkHelper
         List<Vehicle_Relationship__c> list_VehicleRelationRecord = new List<Vehicle_Relationship__c>([SELECT Id, Contact__c 
                                                                                                         FROM Vehicle_Relationship__c 
                                                                                                         WHERE Contact__c IN: map_FromAccountIdAndListToAccountId.keySet()]);
+       
         if(list_VehicleRelationRecord.size() > 0){
-            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            List<Group>groupList=[select Id, Name, Type from Group where Name IN: dealerAccNameSet];
+            for(Group groupRec : groupList){
                 for(Vehicle_Relationship__c vehicleR : list_VehicleRelationRecord){
                     if(map_FromAccountIdAndListToAccountId.containsKey(vehicleR.Contact__c)){
-                        for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){                           
+                      //  for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){                           
                                  
                                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                                     vehicleRelationShare.AccessLevel = 'Edit';
@@ -796,10 +798,10 @@ public class AccountLinkHelper
                                     vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
                                     list_SharingRecord.add(vehicleRelationShare);                                
                              
-                        }
+                       // }
                     }
                 }
-             }
+            }
             
             if(list_SharingRecord.size() > 0){
                 Database.insert(list_SharingRecord, false);
@@ -829,6 +831,8 @@ public class AccountLinkHelper
                 FromAccountIds.add(aclnk.fromRole__c);
             }
         }
+        system.debug('AccountIds<><><' + AccountIds);
+        system.debug('FromAccountIds<><><' + FromAccountIds);
         if(!FromAccountIds.isEmpty() && FromAccountIds != null)
         {
             delaerList = [select id ,dealer_gc_code__c,dealer_rollout_status__c from Account where Id =:FromAccountIds];
@@ -843,14 +847,17 @@ public class AccountLinkHelper
                 }
             }
         }
+        system.debug('dealerGCCode><><><' + dealerGCCode);
         if(!AccountIds.isEmpty() && AccountIds != null && !FromAccountIds.isEmpty() && FromAccountIds != null)
         {
             ExistC2CList = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND Retail_Delete_Flag__c = false AND (recordtypeid =: AccountLink_contact2conatctRecordTypeId OR recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
         }
         if(!AccountIds.isEmpty() && !FromAccountIds.isEmpty() && FromAccountIds != null)
         {
-            retailcopyList = [Select id,Vehicle__c,Retail_Individual_Home_Phone__c,torole__c,fromRole__c,fromRole__r.Dealer_GC_Code__c,recordtypeid from Account_Link__c where torole__c =:AccountIds AND fromrole__r.Dealer_Rollout_Status__c = 'Done' AND fromrole__r.Dealer_GC_Code__c =:dealerGCCode AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId) Order BY CreatedDate ASC];
+            retailcopyList = [Select id,Vehicle__c,Retail_Individual_Home_Phone__c,torole__c,fromRole__c,fromRole__r.Dealer_GC_Code__c,recordtypeid from Account_Link__c where torole__c =:AccountIds AND fromrole__r.Dealer_GC_Code__c =:dealerGCCode AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId) Order BY CreatedDate ASC];
         }
+        system.debug('retailcopyList><><>' + retailcopyList);
+        system.debug('ExistC2CList><><>' + retailcopyList);
         if(!retailcopyList.isEmpty() && retailcopyList != null)
         {
             for(Account_Link__c aclinks : retailcopyList)
@@ -858,6 +865,7 @@ public class AccountLinkHelper
                 accLinkIds.add(aclinks.Id);
             }
         }
+        system.debug('accLinkIds><><>' + accLinkIds);
         for(Account_Link__c acclink : accLst )
         {
             if(ExistC2CList.size()>0 && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId)
@@ -936,7 +944,6 @@ public class AccountLinkHelper
                    acclnk.Retail_Comments__c != oldacclnkMap.get(acclnk.Id).Retail_Comments__c ||
                    acclnk.Retail_OptOutContact_Reason__c != oldacclnkMap.get(acclnk.Id).Retail_OptOutContact_Reason__c ||
                    acclnk.Retail_Related_Company__c != oldacclnkMap.get(acclnk.Id).Retail_Related_Company__c)
-
                 {
                     customerIds.add(acclnk.toRole__c);
                     dealerIds.add(acclnk.fromRole__c);
@@ -1365,8 +1372,7 @@ public class AccountLinkHelper
             }
         }
     }
-
-	 /*   created by:Dinesh
+     /*   created by:Dinesh
     [CISM:0038992405]
      Desc:Retail_Copy_Accountlink_Retail_Address_Reference.
      Update date:07/12/2016*/
@@ -1417,10 +1423,8 @@ public class AccountLinkHelper
                 update accountList1; 
             }
   }
-
     //Added venky changes related to SFDCJP-2617
     public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
-
     {
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Set<Id> RetailPersonID=new Set<Id>();
@@ -1457,20 +1461,23 @@ public class AccountLinkHelper
                 RetailcompanyID.add(alk.toRole__c);     //Customer Acc
             }
         }
+
         if(RetailcompanyID !=null && RetailPersonID !=null)
         {
             lstC2c=[Select id,fromRole__c,Retail_Delete_Flag__c ,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where  ( (fromRole__c=: RetailPersonID OR fromRole__c=:RetailcompanyID) OR (toRole__c=: RetailPersonID OR toRole__c=:RetailcompanyID)) and RecordtypeId=:AccountLink_Contact2ContactRecordTypeId  ];
         }
+
         if( ToRoleID !=null && FromRoleID!=null)
         {
             lstPersonCompany=[ Select id,Retail_Delete_Flag__c ,fromRole__c,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where (toRole__c =:ToRoleID OR toRole__c=:FromRoleID) AND (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId=:AccountLink_RetailCompanyRecordTypeId)];
         }
+
         if(lstC2c!=null)
         {
             for(Account_Link__c accountLink : lstC2c)
             {
                 if(accountLink.Retail_Delete_Flag__c == false)
-                { 
+                {   
                     dealerAccNameSet.add(accountLink.fromRole__r.Name);
                     GcCode.add(accountLink.fromRole__r.Dealer_GC_Code__c);
                 }
@@ -1498,6 +1505,8 @@ public class AccountLinkHelper
             dealerAccList = [select Name from Account where Dealer_GC_Code__c=:GcCode and RecordtypeId=:DealerAccid];
             system.debug('dealerAccList>>>> ' + dealerAccList );
         }
+        
+        
         if(dealerAccList !=null)
         {
             for(Account dealerRec : dealerAccList) 
@@ -1546,5 +1555,6 @@ public class AccountLinkHelper
         {
             Database.insert(Sharealk, false);
         }
+     
     }
 }
