@@ -273,12 +273,15 @@ public with sharing class AccountMergeController{
         // after merge, also remove master record (checkbox) and Dup Number 
         // from the master record.
              
-         Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c(
-         Master_Account__c = master.Id,
-         Duplicate_Account__c = slave.Id ,
-         Duplicate_Reason_Code__c = slave.Dup_Reason__c,
-		  DUPNumber__c = selectedMasterAccount.DUPNumber__c,
-         Status__c=system.label.Confirmed);
+         Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c();
+         duplicateLog.Master_Account__c = master.Id;
+         duplicateLog.Duplicate_Account__c = slave.Id ;
+         duplicateLog.Duplicate_Reason_Code__c = slave.Dup_Reason__c;
+         if(master.DUPNumber__c !=null)
+         {
+          duplicateLog.DUPNumber__c = selectedMasterAccount.DUPNumber__c;
+          }
+         duplicateLog.Status__c=system.label.Confirmed;
         // Set SavePoint, if slave DML failed, master DML should be rollback .
         SavePoint sp = Database.setSavepoint();        
         try {
