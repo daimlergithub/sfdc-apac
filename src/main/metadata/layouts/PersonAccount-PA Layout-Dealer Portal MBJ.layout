@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>New_Leads</customButtons>
-    <customButtons>New_AfterSales_Leads</customButtons> 
+    <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>Send_to_JPOS_Dealer</customButtons>
     <customButtons>Send_to_SPO_Dealers</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Case_Dealer</customButtons>
-	<customButtons>Create_Vehicle</customButtons> 
+    <customButtons>Create_Vehicle</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
@@ -62,7 +62,7 @@
                 <field>Acquisition_Record_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -88,11 +88,11 @@
                 <field>FirstName_Native_1__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Vehicle_Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -115,7 +115,7 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>COS_Flag__c</field>
             </layoutItems>
             <layoutItems>
@@ -125,7 +125,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Last_Campaign_Date__c</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Sales_Sanction_Comment__c</field>
@@ -303,8 +303,7 @@
                 <field>PersonHasOptedOutOfFax</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Main_Dealer__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -315,7 +314,7 @@
                 <field>Opt_In_Contact_Reason_Details__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
             <layoutItems>
@@ -323,21 +322,21 @@
                 <field>Postal_Opt_Out_Reason__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Phone_Display__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Email_Display__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Fax_Display__c</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Personal_Abroad_Agreement__c</field>
@@ -500,7 +499,7 @@
         <label>System Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Customer_LastUpdatedDate__c</field>
             </layoutItems>
             <layoutItems>
@@ -582,9 +581,9 @@
         <fields>Role__c</fields>
         <fields>toRole__c</fields>
         <fields>Role2__c</fields>
-		<fields>Portal_Email__c</fields>
+        <fields>Portal_Email__c</fields>
         <fields>Retail_Email_OptOut__c</fields>
-		<fields>Portal_Message_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -594,14 +593,14 @@
         <fields>fromRole__c</fields>
         <fields>Role__c</fields>
         <fields>Role2__c</fields>
-		<fields>Portal_Email__c</fields>
+        <fields>Portal_Email__c</fields>
         <fields>Retail_Email_OptOut__c</fields>
-		<fields>Portal_Message_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>		
+        <fields>ContractNumber__c</fields>
         <fields>Type__c</fields>
         <fields>Product_Name__c</fields>
         <fields>Status__c</fields>
@@ -637,7 +636,7 @@
         <fields>Expected_Registration_Date__c</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
@@ -646,7 +645,7 @@
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_Task</customButtons>
         <fields>Campaign_ID__c</fields>
@@ -680,14 +679,14 @@
         <fields>CREATED_DATE</fields>
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
-    <relatedLists>  
+    <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
         <fields>Case_Dealer__c</fields>
-		<fields>Case_Type__c</fields>
+        <fields>Case_Type__c</fields>
         <fields>Customer_Request__c</fields>
         <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
@@ -696,7 +695,7 @@
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
-	 <relatedLists>
+    <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
