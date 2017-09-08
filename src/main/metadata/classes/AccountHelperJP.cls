@@ -277,7 +277,7 @@ public class AccountHelperJP
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
                 // Added changes related to SFDCJP-2555
-                if(Acc.Primary_Address_Reference__c != Null)
+                if(Acc.Primary_Address_Reference__c != Null  && Acc.Primary_Address_Reference__c != OldAcc.Primary_Address_Reference__c)
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
