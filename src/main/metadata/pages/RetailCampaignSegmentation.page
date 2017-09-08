@@ -1132,23 +1132,23 @@
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Interest_Model__c.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.Interest_Model__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonHomePhone}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Individual_Home_Phone__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Individual_Home_Phone__c}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonMobilePhone}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Mobile__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Mobile__c}"/> 
                             </apex:column>
                             
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.Phone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonEmail}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Email__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Email__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.accLink.Sales_Representative__c}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.accLink.Retail_Sales_Consultant__c}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.accLink.Selling_Dealer__c}"/> 
