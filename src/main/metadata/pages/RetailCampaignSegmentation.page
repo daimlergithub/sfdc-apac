@@ -1000,8 +1000,8 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" Type="text"/>
-                              <!--  <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> -->
-                                <apex:selectList styleClass="Type__c" size="1" multiselect="false">
+                              
+                                <apex:selectList styleClass="Type__c" size="1" multiselect="false" style="display:block;">
                                     <apex:selectOptions value="{!RetailTaskType}"></apex:selectOptions>
                                 </apex:selectList>
                               <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
