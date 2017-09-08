@@ -22,6 +22,8 @@ public class AccountHelperJP
 **/
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    public static Id accsoftdeletdCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('CompanySoftDeleted').getRecordTypeId();
+    public static Id accsoftdeletdPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Soft Deleted').getRecordTypeId();
     public static boolean persongroup1 = false;
     public static boolean persongroup2 = false;
     public static boolean persongroup3 = false;
@@ -1089,5 +1091,19 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids,corelnId);
         }
     }
-
+	public static void deletesharingforSoftDeletedRecords(List<Account> softAccountList)
+    {
+     	set<id> deletedAccId = new set<id>();
+        for(Account acct : softAccountList)
+        {
+            if(acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
+            {
+                deletedAccId.add(acct.Id);
+            }
+        }
+        if(!deletedAccId.isEmpty() && deletedAccId != null)
+        {
+            delete [select id from AccountShare where AccountId =:deletedAccId];
+        }
+    }
 }

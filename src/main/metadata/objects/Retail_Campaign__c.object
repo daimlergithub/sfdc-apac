@@ -1857,6 +1857,14 @@
                 <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8458,6 +8466,26 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <fullName>eMail</fullName>
                 <default>false</default>
             </values>
+			<values>
+				<fullName>OB Call</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Survey</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Event</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Lead</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>My Mercedes</fullName>
+				<default>false</default>
+			</values>
         </picklistValues>
         <picklistValues>
             <picklist>Feedback_Status__c</picklist>
