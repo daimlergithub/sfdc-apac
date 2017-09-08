@@ -22,8 +22,8 @@ public class AccountHelperJP
 **/
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-    public static Id accsoftdeletdCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company_Soft_Deleted').getRecordTypeId();
-    public static Id accsoftdeletdPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person_Account_Soft_Deleted').getRecordTypeId();
+    public static Id accsoftdeletdCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('CompanySoftDeleted').getRecordTypeId();
+    public static Id accsoftdeletdPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Soft Deleted').getRecordTypeId();
     public static boolean persongroup1 = false;
     public static boolean persongroup2 = false;
     public static boolean persongroup3 = false;
