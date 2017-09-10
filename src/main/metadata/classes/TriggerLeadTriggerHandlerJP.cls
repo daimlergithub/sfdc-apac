@@ -21,7 +21,7 @@ public class TriggerLeadTriggerHandlerJP
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);
             // LeadHelperAccountLinkCreateJP.updatingleadcontactDetails(trigger.new,isInsert, isUpdate);
              LeadHelperJP.createContactToContactAccounlink(trigger.new);  
-                        
+             LeadHelperJP.deleteSharingTODealers((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap);           
         }
         System.debug('Handletrigger----->');
         
