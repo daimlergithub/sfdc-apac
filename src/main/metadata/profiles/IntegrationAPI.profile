@@ -176,11 +176,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__DataAssessment</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>true</visible>
@@ -5870,6 +5865,51 @@
         <field>Account_Link__c.Retail_Visit_OptOut__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.NextInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.NextServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Retail_WebSite__c</field>
@@ -8084,6 +8124,11 @@
         <editable>true</editable>
         <field>Campaign_Member__c.Address__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Allow_Data_Sharing__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8958,6 +9003,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Aftersales_Manager__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Allow_Data_Sharing__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12434,6 +12484,11 @@
         <editable>true</editable>
         <field>DM_Request__c.Attention__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Allow_Data_Sharing__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19332,6 +19387,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Retail_Task__c.Allow_Data_Sharing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Retail_Task__c.Advise_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21992,6 +22052,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>SurveyTaker__c.Allow_Data_Sharing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>SurveyTaker__c.Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23304,6 +23369,11 @@
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Additional_Offer__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Allow_Data_Sharing__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

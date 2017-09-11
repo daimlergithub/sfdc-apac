@@ -176,11 +176,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__DataAssessment</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -7175,9 +7170,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign.Distribution_is_completed__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8054,6 +8049,31 @@
         <field>Campaign_Member__c.Add_Campaign_Member_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.NextInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.NextServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Add_Sales_Staff__c</field>
