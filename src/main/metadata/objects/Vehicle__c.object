@@ -2496,6 +2496,24 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>LastInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastInspectionDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>LastWorkDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastWorkDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>LastServiceMileage__c</fullName>

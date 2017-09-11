@@ -123,15 +123,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Publish_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Brand__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Class__c</field>
+                <field>BudgetedCost</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>BudgetedCost</field>
+                <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -190,6 +194,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Scale_Volume__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Driven__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

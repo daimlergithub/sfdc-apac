@@ -1091,7 +1091,7 @@ public static Contact contactObj;
            al1.Retail_Fax__c='0123476';
            update al1;
            update listcampaigns1;
-           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
+           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1,oldmap,true,false);
           
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
@@ -1199,7 +1199,7 @@ public static Contact contactObj;
            update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
            AccountLinkHelper.afterDeleteEvent(listcampaigns1);
-           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
+           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1,oldmap,true,false);
           
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
@@ -1318,7 +1318,7 @@ public static Contact contactObj;
            update al1;
            update listcampaigns1;
            //AccountLinkHelperKR.updateRetailCopy(true,true,true,listcampaigns1);
-          AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
+          AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1,oldmap,true,false);
           
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
@@ -1448,7 +1448,7 @@ public static Contact contactObj;
            update listcampaigns1;
            AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
           
-           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
+           AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1,oldmap,false,true);
           
           
           AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
@@ -1568,7 +1568,7 @@ public static Contact contactObj;
            update al1;
            update listcampaigns1;
            //AccountLinkHelperKR.updateRetailCopy(true,true,true,listcampaigns1);
-          AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1);
+          AccountLinkHelper.afterInsertDeleteEvent(listcampaigns1,oldmap,true,false);
           AccountlinkHelper.updateRetailCopy(true, true, listcampaigns1, oldMap);
            AccountlinkHelper.updateRetailCopyafterUpdate(listcampaigns1, oldMap);
           AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
