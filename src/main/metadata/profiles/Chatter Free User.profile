@@ -141,11 +141,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__DataAssessment</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -165,6 +160,11 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+  <applicationVisibilities>
+  <application>standard__DataAssessment</application>
+       <default>false</default>
+      <visible>false</visible>
+  </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
         <default>false</default>
