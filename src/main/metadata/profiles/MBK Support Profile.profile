@@ -14462,7 +14462,6 @@
         <field>Lead__c.Customer_Contacted__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Customer_Information__c</field>
