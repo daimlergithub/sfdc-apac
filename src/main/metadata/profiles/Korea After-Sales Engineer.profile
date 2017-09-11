@@ -9436,7 +9436,7 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
-        <field>Case.Customer_Contacted_Date_Time_c__c</field>
+        <field>Case.Customer_Contacted_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
