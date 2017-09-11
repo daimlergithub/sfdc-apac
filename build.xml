@@ -127,11 +127,7 @@
 					</sf:typeset>
 					<sf:typeset name="pages"/>
 					<sf:typeset name="triggers"/>								
-					<sf:typeset name="profiles" suppressChecksumUpdate="true">	
-					<sf:exclude name="Chatter Free User"/>
-						<sf:exclude name="Chatter Moderator User"/>
-						<sf:exclude name="Partner Community User"/>
-						</sf:typeset>
+					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 						
 				</deploy>
 			</target>
@@ -191,11 +187,7 @@
 			</target>
 			<target name="deploy09">
 				<deploy>                            
-					<sf:typeset name="profiles" force="true">
-						<sf:exclude name="Chatter Free User"/>
-						<sf:exclude name="Chatter Moderator User"/>
-						<sf:exclude name="Partner Community User"/>
-					</sf:typeset>
+					<sf:typeset name="profiles" force="true"/>
 				</deploy>
 			</target>           
 
