@@ -110,6 +110,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Allow_Data_Sharing__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>The flag to identify if this record can be shared with MBJ</description>
+        <externalId>false</externalId>
+        <label>Allow Data Sharing</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Auto_creation_of_DM_requests__c</fullName>
         <defaultValue>false</defaultValue>
         <description>This field can be used if in the response list action is given as create DM Requests</description>
