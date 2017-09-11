@@ -5865,6 +5865,51 @@
         <field>Account_Link__c.Retail_Visit_OptOut__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.NextInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.NextServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Retail_WebSite__c</field>

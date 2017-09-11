@@ -8080,6 +8080,31 @@
         <field>Campaign_Member__c.Auto_creation_of_tasks__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.NextInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.LastServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.NextServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Bonus_Amount1__c</field>
@@ -26521,7 +26546,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.CAC_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -26536,14 +26561,14 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-	    <recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Executiono</recordType>
         <visible>true</visible>
@@ -26551,7 +26576,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
