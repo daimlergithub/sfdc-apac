@@ -7,7 +7,7 @@ Usage               :    Convert to lead functionality for Campaign Member Recor
 JIRA NO             :    SFDCJP-1036 & 1041   
 -->                 
 
-<apex:page controller="ConvertToLeadController" sidebar="false">
+<apex:page controller="coverttolead1controller" sidebar="false">
      <style type="text/css">
         .custPopup{
             background-color: white;
@@ -56,9 +56,8 @@ JIRA NO             :    SFDCJP-1036 & 1041
                     <apex:facet name="header"> 
                         <apex:inputCheckbox onclick="checkAll(this)" />
                     </apex:facet>
-                    <apex:inputCheckbox value="{!cMember.isSelected}"  id="checkedone" />
                 </apex:column>
-                <apex:column value="{!cMember.campaignMember.Name}" headerValue="{!$Label.CL_Member_Name}"/>
+                <apex:column value="{!cMember.Name}" headerValue="{!$Label.CL_Member_Name}"/>
             </apex:pageBlockTable>
             <apex:pageBlockButtons location="bottom">
                 <apex:commandButton action="{!showPopup}" value="{!$Label.Convert_To_Lead}" rerender="tstpopup"/>

@@ -15,6 +15,10 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
     global Set<Id> campignIdSetForLeadType = new Set<Id>();
     global Set<Id> newInsertedLeadId = new Set<Id>();
     global Map<String, Id> templateNameToTemplateIdMap;
+    global String leadRT = 'Sales Leads';
+    global String leadRT1 ='Aftersales Leads';
+    global String leadRTId = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :leadRT].id;
+    global String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :leadRT1].id;
     
     global Database.QueryLocator start(Database.BatchableContext bc) {
         Date today = Date.Today();
@@ -53,6 +57,8 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         notificationWrapperList = new List<NotificationWrapper>();
         List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
         List<Campaign_Member__c> autoCreateLeadCheckedCampaignMemberRecList = new List<Campaign_Member__c>();
+        Id SalesLeadRecordType =Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
+        Id AfterSalesRecordType= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
          
         // Create Tempate Map to avoid SOQL Limits
         templateNameToTemplateIdMap = new Map<String, Id>();
@@ -188,9 +194,15 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         
         
         for(Campaign_Member__c campMemberRec : autoCreateLeadCheckedCampaignMemberRecList) {
-            Id recTypeId = (parentCapmaignToLeadRecTypeMap.containsKey(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c) ? 
-                                    leadRecTypeNameToRecTypeIdMap.get(parentCapmaignToLeadRecTypeMap.get(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c)) : null);
-            Lead__c lead = new Lead__c();
+           Lead__c lead = new Lead__c();
+            if(campMemberRec.Lead_Type__c != null && campMemberRec.Lead_Type__c == leadRT )
+            {
+            lead.RecordTypeId = SalesLeadRecordType ;
+            }else if(campMemberRec.Lead_Type__c != null && campMemberRec.Lead_Type__c == leadRT1 )
+            {
+            lead.RecordTypeId = AfterSalesRecordType ;
+            }
+            
             lead.CAC_Lead_Status__c = 'Approved'; 
             lead.Source_Campaign__c = campMemberRec.Campaign_ID__c;
             lead.Contact__c = campMemberRec.Contact_Id__c;
@@ -230,10 +242,9 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
           lead.Cross_Point_Model__c=campMemberRec.Cross_Point_Model__c;
           
         }
-            if(recTypeId != null) {
-                lead.RecordTypeId = recTypeId;
-            }
+            
             leadLst.add(lead);
+            System.debug('llist<><>'+leadLst);
         }
         
              
