@@ -124,5 +124,4 @@
         <unique>false</unique>
     </fields>
     <label>CallOutHandlerSettingDFW</label>
-    <visibility>Public</visibility>
-</CustomObject>
+ </CustomObject>

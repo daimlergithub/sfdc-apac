@@ -47,5 +47,4 @@
         <type>Checkbox</type>
     </fields>
     <label>SystemSettingsDFW</label>
-    <visibility>Public</visibility>
 </CustomObject>
