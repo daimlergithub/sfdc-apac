@@ -25221,15 +25221,6 @@
         <layout>Case_SubType_Mapping__c-Case SubType Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ChannelProgram-Channel Program Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ChannelProgramLevel-Channel Program Level Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ChannelProgramMember-Channel Program Member Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Claim__c-Claim Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -25423,18 +25414,6 @@
     <layoutAssignments>
         <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
         <recordType>Participating_Dealer__c.Participating_Dealer</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerFundAllocation-Partner Fund Allocation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerFundClaim-Partner Fund Claim Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerFundRequest-Partner Fund Request Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerMarketingBudget-Partner Marketing Budget Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-PA Layout-Dealer Portal</layout>
@@ -25632,12 +25611,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>SSI__c-SSI Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Scorecard-Scorecard Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ScorecardMetric-Scorecard Metric Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Script__kav-Script Layout</layout>
@@ -27579,7 +27552,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Contact</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
