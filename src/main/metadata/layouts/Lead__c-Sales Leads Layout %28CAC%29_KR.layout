@@ -235,15 +235,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>X24H_Untouched__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>X72H_Untouched__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Visit_Dealer__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customer_Contacted__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Customer_Contacted_Date_Time__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -606,6 +606,10 @@
         <editHeading>true</editHeading>
         <label>Description Information</label>
         <layoutColumns>
+		    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CCC_Comment__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>
@@ -668,11 +672,6 @@
         <style>CustomLinks</style>
     </layoutSections>
 	<relatedLists>
-        <fields>Comment__c</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <relatedList>LeadComment__c.Lead_Comment__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <customButtons>New_Campaign_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>

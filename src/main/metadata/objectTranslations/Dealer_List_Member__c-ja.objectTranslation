@@ -131,7 +131,7 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Dealer List Member Name --></nameFieldLabel>
+    <nameFieldLabel>キャンペーンメンバー(リスト確認用)</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- List Maintenance is Completed,You Cant Edit And Create --></errorMessage>
         <name>List_Maintenance_Lock_on_Dealer</name>

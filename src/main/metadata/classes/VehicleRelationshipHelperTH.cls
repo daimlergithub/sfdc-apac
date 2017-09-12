@@ -55,7 +55,7 @@ public with sharing class VehicleRelationshipHelperTH
     } 
     
     Public static void OnAfterUpdate(List<Vehicle_Relationship__c> newVehicleRelRecords,Map<Id,Vehicle_Relationship__c> oldMapVR){     
-		Set<Id> ContactIds=new Set<Id>();
+        Set<Id> ContactIds=new Set<Id>();
         Set<Id> VehicleIds=new Set<Id>();       
         Set<Id> VehicleRelationshipIds=new Set<Id>(); 
         set<Id> ContactIdsforValidity=new Set<Id>();  
@@ -138,12 +138,14 @@ public with sharing class VehicleRelationshipHelperTH
                    acc.vehicle_amount__c=99;
                 }
                 else{       
-                acc.vehicle_amount__c=setVehicleIds.size(); 
+                acc.vehicle_amount__c=setVehicleIds.size();
+                acc.Status__c='Customer'; 
                 }
                  vehicleAmountToUpdate.add(acc);
             }  
             else{
-                acc.vehicle_amount__c=0;   
+                acc.vehicle_amount__c=0;
+                acc.Status__c='Prospect';   
                 vehicleAmountToUpdate.add(acc);
             } 
         }    

@@ -180,6 +180,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>	
+    <fields>
+        <fullName>Allow_Data_Sharing__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>The flag to identify if this record can be shared with MBJ</description>
+        <externalId>false</externalId>
+        <label>Allow Data Sharing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Amount_Financed__c</fullName>
@@ -11240,6 +11250,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <masterLabel>New Case</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?retailTaskID={!Retail_Task__c.Id}&amp;retURL=%2F500%2Fo</url>
+        <url>{!URLFOR($Site.BaseUrl)}/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?retailTaskID={!Retail_Task__c.Id}&amp;retURL=%2F500%2Fo</url>
     </webLinks>
 </CustomObject>

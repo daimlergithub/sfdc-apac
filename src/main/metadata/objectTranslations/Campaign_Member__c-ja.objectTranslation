@@ -464,6 +464,30 @@
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
+        <sections>
+            <label>キャンペーン基本情報</label>
+            <section>Campaign Information</section>
+        </sections>
+        <sections>
+            <label>顧客/車両関連情報 </label>
+            <section>Customer/Vehicle Information</section>
+        </sections>
+        <sections>
+            <label>レスポンス情報</label>
+            <section>Response Information</section>
+        </sections>
+        <sections>
+            <label>リード情報</label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label>クロスポイント情報</label>
+            <section>MBF Crosspoint Information</section>
+        </sections>
+        <sections>
+            <label>保証/契約関連情報</label>
+            <section>MBF Information</section>
+        </sections>
     </layouts>
     <nameFieldLabel>キャンペーンメンバーID</nameFieldLabel>
     <validationRules>

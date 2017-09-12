@@ -779,6 +779,15 @@ Purchased_CAC_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Dealer_Purchased_Date_Time</fullName>
+        <field>Purchased_Date_Time__c</field>
+        <formula>IF ( AND(MD__c = 'TH',ISPICKVAL(Dealer_Lead_Status__c,'Purchased')),if(!isblank( 	Purchased_Date_Time__c), 	Purchased_Date_Time__c,now()),		Purchased_Date_Time__c)</formula>
+        <name>Update Dealer Purchased Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Last_Modified_fields_on_Lead</fullName>
         <description>If the Lead record is updated and the profile is NOT  "Integration API" , then update the field[Lead Last Modified Date].</description>
         <field>Lead_Last_Modified_Date__c</field>
@@ -2155,9 +2164,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISCHANGED( Service_Advisor__c ),NOT(ISNULL(Service_Advisor__c)),MD__c = 'JP', NOT(ISPICKVAL(Dealer_Lead_Status__c, "Order Placed")),
-     NOT(ISPICKVAL(Dealer_Lead_Status__c, "Purchased")),NOT(ISPICKVAL(Dealer_Lead_Status__c, "Purchased(Only Non BDC)")),
-     NOT(ISPICKVAL(Dealer_Lead_Status__c, "Lost")))</formula>
+        <formula>AND(ISCHANGED( Service_Advisor__c ),NOT(ISNULL(Service_Advisor__c)),MD__c = 'JP', NOT(ISPICKVAL(Dealer_Lead_Status__c, "Order Placed")),      NOT(ISPICKVAL(Dealer_Lead_Status__c, "Purchased")),NOT(ISPICKVAL(Dealer_Lead_Status__c, "Purchased(Only Non BDC)")),      NOT(ISPICKVAL(Dealer_Lead_Status__c, "Lost")))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -2199,7 +2206,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISNEW()), MD__c = 'JP',    OR(AND(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),  RecordType.Name = 'Sales Leads')    ,AND(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'), RecordType.Name = 'Aftersales Leads') ) )</formula>
+        <formula>AND(NOT(ISNEW()), MD__c = 'JP',    OR(AND(OR(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),ISPICKVAL( Lead_Latest_Phase__c,'Vehicle Registration' )),  RecordType.Name = 'Sales Leads')    ,AND(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'), RecordType.Name = 'Aftersales Leads') ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -2393,11 +2400,15 @@ Modify Reason:
     <rules>
         <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
         <actions>
+            <name>Update_Dealer_Purchased_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
             <name>Update_Purchased_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"),MD__c="KR"),AND(MD__c="TH",ISPICKVAL(CAC_Lead_Status__c,"Purchased"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"),MD__c="KR"),AND(MD__c="TH",OR(ISPICKVAL(CAC_Lead_Status__c,"Purchased"),ISPICKVAL(Dealer_Lead_Status__c,"Purchased")),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

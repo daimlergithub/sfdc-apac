@@ -62,8 +62,8 @@
        
       
        //This is the filter code for current-vehicle1 and current-vehicle2
-       //$scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Brand": "{!$Label.Brand}", "Registration Number": "{!$Label.RegistrationNo}"};
-       $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Registration Number": "{!$Label.RegistrationNo}"};
+        $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Class": "{!$Label.Class}", "Registration Number": "{!$Label.RegistrationNo}"};
+      
        
        
        
@@ -138,8 +138,8 @@
        /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
        if($scope.caseVehicles.CurrentVehicle1 != undefined){
            $scope.vehicleCurrent1DetailText = "Edit";
-          
-           $scope.CurrentVehicle1Details = (($scope.caseVehicles.CurrentVehicle1.Brand == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle1.Class == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle1.Model == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Model);
+           $scope.CurrentVehicle1Details = (($scope.caseVehicles.CurrentVehicle1.Brand == null || $scope.caseVehicles.CurrentVehicle1.Brand == undefined) ? '' : $scope.caseVehicles.CurrentVehicle1.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle1.Class == null ||
+           $scope.caseVehicles.CurrentVehicle1.Class == undefined) ? '' : $scope.caseVehicles.CurrentVehicle1.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle1.Model == null || $scope.caseVehicles.CurrentVehicle1.Model == undefined) ? '' : $scope.caseVehicles.CurrentVehicle1.Model);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -172,7 +172,9 @@
        /*CURRENT VEHICLE2 : Vehicle Intitialization details*/
        if($scope.caseVehicles.CurrentVehicle2 != undefined){
            $scope.vehicleCurrent2DetailText = "Edit";
-           $scope.CurrentVehicle2Details = (($scope.caseVehicles.CurrentVehicle2.Brand == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle2.Class == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle2.Model == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Model);
+           $scope.CurrentVehicle2Details = (($scope.caseVehicles.CurrentVehicle2.Brand == null || $scope.caseVehicles.CurrentVehicle2.Brand == undefined) ? '' : $scope.caseVehicles.CurrentVehicle2.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle2.Class == null ||
+           $scope.caseVehicles.CurrentVehicle2.Class == undefined) ? '' : $scope.caseVehicles.CurrentVehicle2.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle2.Model == null || $scope.caseVehicles.CurrentVehicle2.Model == undefined) ? '' : $scope.caseVehicles.CurrentVehicle2.Model);
+           
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -349,17 +351,17 @@
          }
          $scope.setColourValue = function(model_selected){
             $scope.Colours = $scope.colorModel[model_selected];
-            console.log($scope.Colours);
+            
          }
          
          
          $scope.getSelectedColour = function (color_value){
-            console.log(color_value);
+            
             $scope.selectedColour = color_value;
          }
          
          $scope.getSelectedFilter = function (filter_value){
-            console.log(filter_value);
+            
             $scope.selectedFilter = filter_value;
         }
             
@@ -368,7 +370,7 @@
                 $scope.vehicleList = [];
             
             for (i=0; i<details.length; i++){
-                console.log(details[i]);
+               
                 $scope.vehicleList.push(details[i]);
             }
    
@@ -386,7 +388,7 @@
               Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.VehiclePickerForCaseControllerKR.searchVehicles}',JSON.stringify($scope.lookupSearchDetails[0]),
                    function(result, event) {
-                        console.log(result);
+                        
                         $scope.refreshLookupData(result);
                         $scope.$apply();
                         //$route.reload();
@@ -395,21 +397,21 @@
          
          /*this is the new search functionality for searching current vehicle1 and current vehicle 2*/
           $scope.searchcurrentVehiclesForLookup = function(vehicle_type, vin, filter){
-                alert('Filter '+ vehicle_type +' '+ vin +' '+filter);
+                
                 if(filter == undefined || filter == ''){
                     alert('{!$Label.User_Msg}');
                 }else if(vin == undefined || vin == ''){
                     alert('{!$Label.User_Msg1}');
                 }else{
                     
-                    if(filter == 'Brand' || filter == 'Registration Number'){
+                    if(filter == 'Class' || filter == 'Registration Number'){
                         $searchText = vin;
                         $filterText = filter;
                         $scope.searchCurrentVehicleDetails = [{sText:$searchText, VehicleType:vehicle_type, fText:$filterText, RecordId:'{!currentRecordId}'}];
                         Visualforce.remoting.Manager.invokeAction(
                          '{!$RemoteAction.VehiclePickerForCaseControllerKR.searchforCurrentVehicles}',JSON.stringify($scope.searchCurrentVehicleDetails[0]),
                            function(result, event) {
-                                 console.log(result);
+                                 
                                  $scope.refreshLookupData(result);
                                  $scope.$apply();
                             }
@@ -526,11 +528,11 @@
           }
 
         $scope.showDetailforInterestedVehicle = function(vehicle_type, selectedBrand, selectedClass, selectedModel, selectedColour){
-                //console.log('This method was called on click');
+               
                 $scope.status_type = 'Own Sellable';
                 $scope.vehicleDetail = true;
                 $scope.vehicleLookup = false;
-                //console.log(vehicle_type +' '+ selectedBrand +' '+ selectedClass +' '+ selectedModel);
+            
                 //Others
                 $scope.vehicleDetailCompetitor = false;
                 $scope.vehicleLookupCompetitor = false;
@@ -623,7 +625,7 @@
                                            }
                                          ];
               /*Remoting method here*/
-              console.log($scope.vehicleAttributes[0]);
+              
               Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.VehiclePickerForCaseControllerKR.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
@@ -654,6 +656,7 @@
           $scope.saveItem = function (vehicleType) { 
               $scope.recordId = '{!currentRecordId}'; 
               $scope.vehicleAttributes = [{Id:$scope.checkedVehicleId, VehicleType:vehicleType, Lookup:"true", CurrentRecordId:$scope.recordId}];
+
               /*Remoting method here*/
               Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.VehiclePickerForCaseControllerKR.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
@@ -675,7 +678,7 @@
                            if(urlCheck.indexOf("MBKorea") != -1){
                                window.top.location="/MBKorea/{!currentRecordId}";
                             }else{
-                                window.top.location="/{!currentRecordId}";
+                               window.top.location="/{!currentRecordId}";
                             }
                        }
               });

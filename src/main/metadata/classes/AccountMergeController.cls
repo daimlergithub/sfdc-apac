@@ -58,12 +58,12 @@ public with sharing class AccountMergeController{
            hasSuspectAccounts=false;
            if(AccountwrapperList == null) {
                AccountwrapperList = new List<Accountwrapper>();             
-               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,RecordType.DeveloperName,(Select Name from Account_Links1__r),Mobile__c,Work_Phone__c,Email__c,Individual_Home_Phone__c,PersonMobilePhone,
+               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,UCID__c ,RecordType.DeveloperName,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True and torole__c=:Apexpages.currentPage().getParameters().get('id')),Mobile__c,Work_Phone__c,Email__c,Individual_Home_Phone__c,PersonMobilePhone,
                        PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
                if(Acct.DUPNumber__c!=Null){
                 AccountwrapperList.add(new Accountwrapper(Acct));  
-                for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
-                      DUPNumber__c,Id,(Select Name from Account_Links1__r) FROM Account
+                for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,UCID__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
+                      DUPNumber__c,Id,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True and torole__c=:Apexpages.currentPage().getParameters().get('id')) FROM Account
                       WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
                     // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
                     AccountwrapperList.add(new Accountwrapper(a));
@@ -223,7 +223,9 @@ public with sharing class AccountMergeController{
             return null;     
         }             
              
-        PageReference pr = new PageReference(system.Label.apex_SelectSlaveAccount+selectedMasterAccount.Id);
+       // PageReference pr = new PageReference(system.Label.apex_SelectSlaveAccount+selectedMasterAccount.Id);
+         PageReference pr = new PageReference('/'+selectedMasterAccount.Id);
+      
         pr.setRedirect(true);
         return pr;
     }
@@ -271,11 +273,15 @@ public with sharing class AccountMergeController{
         // after merge, also remove master record (checkbox) and Dup Number 
         // from the master record.
              
-         Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c(
-         Master_Account__c = master.Id,
-         Duplicate_Account__c = slave.Id ,
-         Duplicate_Reason_Code__c = slave.Dup_Reason__c,
-         Status__c=system.label.Confirmed);
+         Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c();
+         duplicateLog.Master_Account__c = master.Id;
+         duplicateLog.Duplicate_Account__c = slave.Id ;
+         duplicateLog.Duplicate_Reason_Code__c = slave.Dup_Reason__c;
+         if(master.DUPNumber__c !=null)
+         {
+          duplicateLog.DUPNumber__c = selectedMasterAccount.DUPNumber__c;
+          }
+         duplicateLog.Status__c=system.label.Confirmed;
         // Set SavePoint, if slave DML failed, master DML should be rollback .
         SavePoint sp = Database.setSavepoint();        
         try {

@@ -1,6 +1,7 @@
 @isTest
 public with sharing class caseHelperTHTest{
 final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+final static Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
 public List<Id> tmpCaseIds = new List<Id>();
 public List<Account> updateAccount = new List<Account>();
 public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
@@ -81,10 +82,24 @@ init();
          caselist.add(c1);
     	caselist.add(c2);
     	caselist.add(c3);
+    List<String> alpha=new list<String>{'A','B','C','D','E'};
+        for(String s:alpha){
+            Case c4 = new Case();
+            c4.Subject='testing';
+            c4.accountid=personAcc.id;
+            c4.Recordtypeid=caseINquiryId ;
+            c4.MD__c='TH';
+            c4.Priority=s;
+            insert c4;
+			caselist.add(c4);            
+        }
+
+
+
     CaseHelperTH cht = new CaseHelperTH();
     cht.calculateComplaintAmount(caselist);
     cht.countRepeatComplaintCase(caselist,true);
-          
+    cht.updateCaseDeadLineAmount(caselist);      
          system.assertequals([select id from case where id=:c1.id].size(),1);
          delete c1;
          system.assertequals([select id from case where id=:c1.id].size(),0);

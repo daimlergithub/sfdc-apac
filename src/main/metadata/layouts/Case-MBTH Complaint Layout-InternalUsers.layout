@@ -82,6 +82,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>EuroVIN__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Notice_CRM__c</field>
             </layoutItems>
             <layoutItems>
@@ -102,10 +106,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBTH_Turnaround_time__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>MBTH_Waiver_Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -115,6 +115,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MD__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MBTH_Turnaround_Time__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
