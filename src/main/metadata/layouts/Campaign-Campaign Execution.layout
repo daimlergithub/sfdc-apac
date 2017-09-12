@@ -225,6 +225,9 @@
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Upload_Campaign_Member_Response</customButtons>
+		<customButtons>Convert_to_Lead</customButtons>
+        <customButtons>Convert_To_DM_Request</customButtons>
+       <customButtons>Convert_To_Task</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Contact_Id__c</fields>

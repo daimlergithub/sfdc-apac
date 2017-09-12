@@ -101,6 +101,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Allow_Data_Sharing</fullName>
+        <description>Set Allow Data Sharing to &apos;Yes&apos;</description>
+        <field>Allow_Data_Sharing2__c</field>
+        <literalValue>Yes</literalValue>
+        <name>Update Allow Data Sharing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Company_Name</fullName>
         <field>Company_Name__c</field>
         <formula>Name</formula>
@@ -317,6 +327,36 @@ Modify By:
 Modify Reason: 
 */</description>
         <formula>AND (     Assigned_Lead_Amount_of_Everyday__c &gt; 0,     ISCHANGED(Assigned_Lead_Amount_of_Everyday__c) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Allow Data Sharing</fullName>
+        <actions>
+            <name>Update_Allow_Data_Sharing</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Personal_Information_Third_Party_Release__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Personal_Agreement__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Agreement_to_commit_info_processing__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <description>Update Allow Data Sharing KR based on Agreement fields.</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

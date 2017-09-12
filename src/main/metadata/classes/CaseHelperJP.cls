@@ -89,6 +89,7 @@ public class CaseHelperJP
         }
         system.debug('Accounts to be updated...' +updateAccount);
         if(updateAccount.size()>0){
+			TriggerCaseTriggerHandlerKR.recurssionCheckbefore = true;
             update updateAccount;
         }
     }
@@ -935,5 +936,6 @@ List<Account> accUpdLst = new List<Account>();
                 }
             }
         }
+		TriggerCaseTriggerHandlerKR.recurssionCheckafter = true;
     }
  }

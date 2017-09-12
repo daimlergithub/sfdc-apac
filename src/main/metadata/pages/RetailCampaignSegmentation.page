@@ -12,7 +12,7 @@
 
 
         var filterNames = '';
-        var dateInputClass = 'PersonBirthdate;EndDate__c; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c; NextServiceDate__c; NextInspectionDate__c;';
+        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c; NextServiceDate__c; NextInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
@@ -161,13 +161,6 @@
                     return false;
                 }
             });
-                        //to display the extra date field for end date in Contract filter
-            jQueryFieldRow.find('.criteriaContract').children().each(function(){
-                if(this.style.display == 'block'){
-                    this.style.display = 'none';
-                    return false;
-                }
-            });
             
             //to display the extra TO lable for vehicle registration date in vehicle filter
             jQueryFieldRow.find('.criteriaToVehicle1').children().each(function(){
@@ -203,13 +196,6 @@
             
              //to display the extra TO lable for end date in VehRetCopy filter
             jQueryFieldRow.find('.criteriaToVehRet').children().each(function(){
-                if(this.style.display == 'block'){
-                    this.style.display = 'none';
-                    return false;
-                }
-            });
-            //to display the extra TO lable for end date in Contract filter
-            jQueryFieldRow.find('.criteriaToContract').children().each(function(){
                 if(this.style.display == 'block'){
                     this.style.display = 'none';
                     return false;
@@ -586,7 +572,6 @@
                              <td><span class="notDate">
                                 <select style="display:block;">
                                    <option value="Equals">{!$Label.Equals}</option>
-                                   <option value="Include">{!$Label.Include}</option>
                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
                                    <option value="Less Than">{!$Label.Less_Than}</option>
                                    <option value="Exclude">{!$Label.Exclude}</option>
@@ -657,7 +642,6 @@
                             <td><span class="notDate">
                                 <select style="display:block;">
                                     <option value="Equals">{!$Label.Equals}</option>
-                                    <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
@@ -731,7 +715,6 @@
                             <td><span class="notDate">
                                 <select style="display:block;">
                                   <option value="Equals">{!$Label.Equals}</option>
-                                  <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
@@ -791,7 +774,6 @@
                             <td><span class="notDate">
                                 <select style="display:block;">
                                     <option value="Equals">{!$Label.Equals}</option>
-                                    <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
@@ -845,7 +827,6 @@
                             <td><span class="notDate">
                                 <select style="display:block;">
                                     <option value="Equals">{!$Label.Equals}</option>
-                                    <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
@@ -902,7 +883,6 @@
                             <td><span class="notDate">
                                 <select style="display:block;">
                                    <option value="Equals">{!$Label.Equals}</option>
-                                   <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
@@ -965,7 +945,6 @@
                             <td><span class="notDate">
                                 <select style="display:block;">
                                    <option value="Equals">{!$Label.Equals}</option>
-                                   <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
@@ -1004,17 +983,15 @@
                             <td>
                                 <select onchange="showCriteria(this);"> 
                                     <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
-                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option> 
-									<option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>									
+                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>
+                                    <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
-                                      <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option>
-                                      <option value="EndDate__c">{!$ObjectType.Retail_Task__c.Fields.EndDate__c.Label}</option>                                
+                                      <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option>                                
                                 </select>
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
                                    <option value="Equals">{!$Label.Equals}</option>
-                                   <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
@@ -1023,15 +1000,11 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" Type="text"/>
-                              <!--  <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> -->
-                                <apex:selectList styleClass="Type__c" size="1" multiselect="false">
+                              
+                                <apex:selectList styleClass="Type__c" size="1" multiselect="false" style="display:block;">
                                     <apex:selectOptions value="{!RetailTaskType}"></apex:selectOptions>
                                 </apex:selectList>
                               <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
-                                    <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
-                                </apex:selectList>
-								                             <!--   <apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c"/> -->
-                              <apex:selectList styleClass="Finance_Product_Name__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
                                 </apex:selectList>
                                 <!--<apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>-->
@@ -1039,14 +1012,12 @@
                                 <apex:selectList styleClass="Status__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailTaskStatus}"></apex:selectOptions>
                                 </apex:selectList>
-                                <input class="dateInput" id="ContractTableDateInput1" size="12" type="text" 
-                                    onfocus="DatePicker.pickDate(true, this.id, false);"/>
+                                                              <apex:selectList styleClass="Finance_Product_Name__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
+                                </apex:selectList>
                             </td>
-                            <td class="criteriaToContract"><span id="tologicContract" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
-                            <td class="criteriaContract">
-                            <input style="display:none;" class="dateInput2 dateInput" id="VrTableDateInput2" size="12" type="text" 
-                                    onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/> 
-                            </td>
+                            <td></td>
+                            <td></td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -1079,7 +1050,6 @@
                             <td><span class="notDate">
                                 <select style="display:block;">
                                     <option value="Equals">{!$Label.Equals}</option>
-                                    <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
@@ -1115,16 +1085,18 @@
                         <img src="/img/loading24.gif" style="vertical-align:middle;"/>
                     </apex:facet>      
                 </apex:actionStatus>
+                
                 <!--<apex:outputPanel id="saveCriteria" >
                     <apex:commandButton value="Save Criteria"  onclick="queryName()" disabled="{!wrapperList.size = 0 || wrapperList = null}" reRender="none" />
                 </apex:outputPanel>-->
                 <apex:outputPanel rendered="{!wrapperList.size == 0}" id="noMatches">
                  <apex:outputText style="color:red"><h1>   Records found : {!noOfRecords} &nbsp;&nbsp;  No Matches Found, Please try with other filters.</h1></apex:outputtext>
                 </apex:outputPanel>
-                <apex:outputPanel rendered="{!wrapperList!= null && wrapperList.size > 0}" id="buttons">
+                 <apex:outputPanel rendered="{!wrapperList!= null && wrapperList.size > 0}" id="buttons"> 
+                
                     <div style="margin:6px;">Records: {!IF(noOfRecords == null, 0, noOfRecords)}</div>
                     <apex:commandbutton action="{!first}" value="<<" reRender="accounts,buttons,vehicles" disabled="{!!hasPrevious}" status="loading"/>
-                    <apex:commandbutton action="{!previous}" value="<" reRender="accounts,buttons,vehicles" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!previous}" value="<" reRender="accounts,buttons,vehicles" disabled="{!!hasPrevious}" status="loading"/> 
                     <apex:commandbutton action="{!next}" value=">" reRender="accounts,buttons,vehicles" disabled="{!!hasNext}" status="loading"/>
                     <apex:commandbutton action="{!last}" value=">>" reRender="accounts,buttons,vehicles" disabled="{!!hasNext}" status="loading"/>
                     <apex:actionStatus id="loading">
@@ -1160,23 +1132,23 @@
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Interest_Model__c.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.Interest_Model__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonHomePhone}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Individual_Home_Phone__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Individual_Home_Phone__c}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonMobilePhone}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Mobile__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Mobile__c}"/> 
                             </apex:column>
                             
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.Phone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonEmail}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Email__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Email__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.accLink.Sales_Representative__c}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.accLink.Retail_Sales_Consultant__c}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.accLink.Selling_Dealer__c}"/> 
@@ -1229,7 +1201,7 @@
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Product_Name__c}"/> 
                             </apex:column>
-							 <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                           <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                            <apex:outputField value="{!wrapAcc.retail.Finance_Product_Name__c}"/> 
                          </apex:column>
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
@@ -1237,9 +1209,6 @@
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Duration__c}"/> 
-                            </apex:column>
-                               <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.EndDate__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
-                                <apex:outputField value="{!wrapAcc.retail.EndDate__c}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Status__c}"/> 

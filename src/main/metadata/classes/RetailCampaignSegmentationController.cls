@@ -16,7 +16,6 @@
         public Set<Id> vehIdSetForContract;
         public List<Account_Link__c> accLinkRetaiPersonList;
         Public Map<Id,Account_Link__c> toRoleAndAccLinkMap;
-        public String getop;
         
         //To save the query in segmentation criteria object
         public String saveQuery{get;set;}
@@ -651,7 +650,11 @@
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
             AccountLinkSoql = 'SELECT toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
             AddressSoql = 'SELECT Customer__c From Address__c where ';
+<<<<<<< HEAD
             RetailTaskSoql = 'SELECT Account__c,Product_Name__c,EndDate__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
+=======
+            RetailTaskSoql = 'SELECT Account__c,Product_Name__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
+>>>>>>> 10b744cb165c3d2616a2f0ff254a17c9bdee7204
             if(u.contactId != NULL){
                 RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND ';
             }
@@ -738,6 +741,7 @@
                         }
                         
                         if(recallFields.contains(field) && cluster == 'vehicle'){
+
                             if(recallCount == 0)
                             {
                                 if(operation.equalsIgnoreCase('Like'))
@@ -746,6 +750,10 @@
                                 }else{
                                 recallSoql += ' '+field+' '+operation+' '+criteria +' ';
                                 }
+
+                            if(recallCount == 0){
+                                recallSoql += ' '+field+' '+operation+' '+criteria+' ';
+
                                 recallCount++;
 
                             }
@@ -754,16 +762,8 @@
                             }
                         }
                         else{
-                         if(operation.equalsIgnoreCase('Like'))
-                                {
-                                 System.debug('i am here soql'+criteria);
-                                 subSoql += field +' '+ operation+' '+ criteria +' '; 
-                                 System.debug('i am here soql'+subSoql);
-
-                                }else{
-                                subSoql += field + operation +' '+criteria + ' '; 
-                                System.debug('i am here soql11'+subSoql);
-                        }
+                        subSoql += field + operation + criteria + ' '; 
+                        system.debug('Working');
                         }
                             
                         if(bracket){
@@ -1057,7 +1057,6 @@
         
         private String getOperation(String operation,String field, String criteria){
             operation = operation.replace('Exclude', '!=');
-            operation = operation.replace('Include', 'Like');
             operation = operation.replace('Equals', '=');
             operation = operation.replace('Greater Than', '>');
             operation = operation.replace('Less Than', '<');
@@ -1069,12 +1068,12 @@
                     operation = '>';
                 }
             } 
-            getop = operation;
             return operation;
         }
         
         private String getCriteria(String field, String criteria){
             if(textFields.contains(field) || pickListFields.contains(field) || multiplePickListFields.contains(field)){
+
               if(getop.equalsIgnoreCase('Like'))
                 {
                  criteria = '\'%' + criteria + '%\'';
@@ -1083,6 +1082,9 @@
                  criteria = '\'' + criteria + '\'';
                 }
                 return criteria;
+
+                return '\'' + criteria + '\'';
+
             }
             else if(dateFields.contains(field)){
                 if(criteria == 'null'){
@@ -1116,7 +1118,7 @@
             AccountLinkFields =new Set<String>{'Sales_Representative__c','Retail_Sales_Consultant__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c' };  
             recallFields = new Set<String>{'Recall_No__c','Status__c'};
             retialCampaignFields =new Set<String>{'Name'};
-            RetailTaskFields =new Set<String>{ 'Product_Name__c','Finance_Product_Name__c', 'Type__c', 'Duration__c', 'Status__c','EndDate__c'};
+            RetailTaskFields =new Set<String>{ 'Product_Name__c','Finance_Product_Name__c', 'Type__c', 'Duration__c', 'Status__c'};
             AddressFields = new Set<String>{'ZipCode__c' , 'Province__c'};
         }
         
