@@ -138,12 +138,12 @@ public class TriggerRetailCampaignTest {
 
        /* TriggerRetailTaskTriggerHandler rth = new TriggerRetailTaskTriggerHandler();
         rth.handleTrigger(false, false, false, false, false);
-        rth.handleIntegrationTrigger(false, false, false, false, false);*/
+        rth.handleIntegrationTrigger(false, false, false, false, false);
 
         
         TriggerRetailTaskTriggerHandlerJP rthJP = new TriggerRetailTaskTriggerHandlerJP();
         rthJP.handleTrigger(false, false, false, false, false);
-        rthJP.handleIntegrationTrigger(false, false, false, false, false);
+        rthJP.handleIntegrationTrigger(false, false, false, false, false);*/
         
         test.stopTest();
         list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
