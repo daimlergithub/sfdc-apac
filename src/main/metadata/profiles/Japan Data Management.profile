@@ -8105,6 +8105,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Campaign_Member__c.Allow_Data_Sharing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Campaign_Member__c.Auto_creation_of_DM_requests__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8971,6 +8976,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Address_for_Transfer_Certificate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Allow_Data_Sharing__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12442,6 +12452,11 @@
         <editable>false</editable>
         <field>DM_Request__c.AfterSales_Department__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DM_Request__c.Allow_Data_Sharing__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19337,6 +19352,11 @@
         <editable>false</editable>
         <field>Retail_Task__c.Advise_Date__c</field>
         <readable>false</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Allow_Data_Sharing__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -21992,6 +22012,11 @@
         <editable>true</editable>
         <field>SurveyTaker__c.Account__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Allow_Data_Sharing__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -23292,6 +23317,11 @@
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Additional_Offer__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Allow_Data_Sharing__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
