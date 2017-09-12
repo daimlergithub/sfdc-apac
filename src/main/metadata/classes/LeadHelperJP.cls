@@ -18,6 +18,8 @@ public class LeadHelperJP
 **/
      private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
+    private static final String SalesLeadSoftDeletedRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.RECORDTYPE_SALES_LEAD_SOFT_DELETED).getRecordTypeId();
+    private static final String afterSalesLeadSoftDeletedRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.RECORDTYPE_AFTERSALES_LEAD_SOFT_DELETED).getRecordTypeId();
     static boolean isNotificationSendtoAdivisor = false;
     static boolean isNotificationSendtosalesmanager = false;
     private static  final profile p = [select Name from profile where id =:userinfo.getprofileId()]; //JP-1942
@@ -634,5 +636,30 @@ public class LeadHelperJP
                 }
             }
         }
-    }    
+    } 
+
+      public static void deleteSharingTODealers(list<Lead__C> leadList,Map<Id,Lead__C> oldMap)
+      {    
+            set<id> leadID=new set<id>();
+            list<Lead__Share> lstShare=new  list<Lead__Share>(); 
+             for(Lead__C les:leadList)
+             {
+                 if(les.MD__c=='JP' && (les.RecordTypeId!=oldMap.get(les.id).RecordTypeId && (les.RecordTypeId ==SalesLeadSoftDeletedRecordTypeId || les.RecordTypeId ==afterSalesLeadSoftDeletedRecordTypeId)))
+                     leadID.add(les.id);
+                 
+             }
+             
+            if(!leadID.isEmpty() && leadID != null)
+            {
+                 lstShare=[SELECT Id,ParentId FROM Lead__Share where ParentId IN : leadID AND RowCause = 'Assigned_Dealer__c'];
+                system.debug('lstShare.....'+lstShare);
+            }
+            
+            
+            if(!lstShare.isEmpty() && lstShare != null)
+            {
+                
+                delete lstShare;
+            }
+      }   
    }
