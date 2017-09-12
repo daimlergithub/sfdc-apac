@@ -27594,10 +27594,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>standard-PartnerFundClaim</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>standard-PartnerFundRequest</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
