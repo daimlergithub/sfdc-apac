@@ -15,6 +15,11 @@
             <operation>notEqual</operation>
             <value>Vehicle Relationship Soft Deleted</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketVehicle Relatioship_Readable_to_MBJ_IT_Dept</name>
@@ -72,6 +77,11 @@
             <field>RecordTypeId</field>
             <operation>equals</operation>
             <value>Vehicle Relationship Soft Deleted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>Vehicle Relationship with record-type = &apos;Vehicle Relationship Soft Deleted&apos; and MD__c = &apos;JP&apos;, can only be modified by IT Dept. and Data Management User</description>
