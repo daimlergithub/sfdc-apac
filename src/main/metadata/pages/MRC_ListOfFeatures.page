@@ -1,4 +1,4 @@
-<apex:page standardcontroller="Persona__c" extensions="MRC_ListOfFeaturesExt" tabStyle="ListOfFeatures__tab" >
+<apex:page standardcontroller="Persona__c" extensions="MRC_ListOfFeaturesExt"  >
  
 
 <apex:form id="details">
