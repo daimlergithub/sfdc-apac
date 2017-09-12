@@ -19934,6 +19934,16 @@
         <editable>true</editable>
         <field>Vehicle__c.Add_Date__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.LastInspectionDate__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -20419,7 +20429,17 @@
         <editable>true</editable>
         <field>Account_Link__c.Id__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastWorkDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.OwnerId__c</field>
