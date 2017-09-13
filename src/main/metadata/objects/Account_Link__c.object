@@ -48,7 +48,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-   <!-- <enableEnhancedLookup>true</enableEnhancedLookup>-->
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -78,18 +77,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Contract_Count__c</fullName>
-        <externalId>false</externalId>
-        <label>Contract Count</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>CorrelationID__c</fullName>
@@ -177,6 +164,24 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>LastInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastInspectionDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>LastWorkDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastWorkDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Id__c</fullName>
@@ -197,15 +202,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>LastInspectionDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastInspectionDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>LastModifiedById__c</fullName>
@@ -250,15 +246,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>LastWorkDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastWorkDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Last_Modified_User_Type__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(LastModifiedBy.User_Type__c)</formula>
@@ -300,8 +287,7 @@
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -1681,15 +1667,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Retail_Opt_In_Mobile__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Opt In Mobile</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Retail_PersonBirthdate__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
@@ -2053,23 +2030,23 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             <picklistValues>
                 <fullName>A</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>			
             <picklistValues>
                 <fullName>B</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>			
             <picklistValues>
                 <fullName>C</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>			
             <picklistValues>
                 <fullName>D</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>			
             <picklistValues>
                 <fullName>E</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>			
             <picklistValues>
                 <fullName>F</fullName>
                 <default>false</default>
@@ -2080,17 +2057,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Salutation__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Salutation</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Special_Care__c</fullName>
@@ -2484,20 +2450,20 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Selling Dealer</label>
-        <lookupFilter>
+       <lookupFilter>
             <active>true</active>
-            <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+			<booleanFilter>(1 AND 2) OR 3</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
-            </filterItems>
+            </filterItems>		
             <filterItems>
                 <field>Account.Dealer_Active__c</field>
                 <operation>equals</operation>
                 <value>True</value>
-            </filterItems>
+            </filterItems>	
             <filterItems>
                 <field>$Profile.Name</field>
                 <operation>equals</operation>
@@ -2525,26 +2491,26 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
+    </fields> 
+	<fields>
         <fullName>Service_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Service Dealer</label>
-        <lookupFilter>
+		 <lookupFilter>
             <active>true</active>
-            <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+			<booleanFilter>(1 AND 2) OR 3</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
-            </filterItems>
+            </filterItems>		
             <filterItems>
                 <field>Account.Dealer_Active__c</field>
                 <operation>equals</operation>
                 <value>True</value>
-            </filterItems>
+            </filterItems>	
             <filterItems>
                 <field>$Profile.Name</field>
                 <operation>equals</operation>
@@ -2718,64 +2684,11 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <fullName>CCC_Manager_KR_Account_Link</fullName>
         <filterScope>Queue</filterScope>
         <label>CCC Manager KR</label>
+        <queue>CCC_Manager_KR</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-   <!-- <listViews>
-        <fullName>View2</fullName>
-        <columns>NAME</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>fromRole__c</columns>
-        <columns>Role__c</columns>
-        <columns>toRole__c</columns>
-        <columns>Role2__c</columns>
-        <columns>UPDATEDBY_USER</columns>
-        <columns>CREATEDBY_USER</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>fromRole__c</field>
-            <operation>equals</operation>
-            <value>津山サービス工場</value>
-        </filters>
-        <filters>
-            <field>UPDATEDBY_USER</field>
-            <operation>contains</operation>
-            <value>岡本</value>
-        </filters>
-        <label>津山サービス工場</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>View3</fullName>
-        <columns>NAME</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>fromRole__c</columns>
-        <columns>Role__c</columns>
-        <columns>toRole__c</columns>
-        <columns>Role2__c</columns>
-        <columns>UPDATEDBY_USER</columns>
-        <columns>CREATEDBY_USER</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>fromRole__c</field>
-            <operation>equals</operation>
-            <value>御殿場営業所</value>
-        </filters>
-        <filters>
-            <field>UPDATEDBY_USER</field>
-            <operation>contains</operation>
-            <value>原</value>
-        </filters>
-        <label>御殿場営業所</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>-->
     <nameField>
         <label>Name</label>
         <trackHistory>true</trackHistory>
@@ -4550,7 +4463,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Retail_Sales_Sanction__c</picklist>
             <values>
                 <fullName>A</fullName>
@@ -5460,7 +5373,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>E</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>F</fullName>
                 <default>false</default>
             </values>
@@ -5815,7 +5728,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>System__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>fromRole__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Role__c</customTabListAdditionalFields>
@@ -5862,11 +5775,12 @@ $Profile.Name != 'IntegrationAPI' &amp;&amp;
 RecordType.DeveloperName = 'Contact2Contact'</errorConditionFormula>
         <errorMessage>Cannot Link to the same person</errorMessage>
     </validationRules>
-    <validationRules>
+	 <validationRules>
         <fullName>Dealer_User_Cant_Change_toRole_Fromrole</fullName>
         <active>true</active>
-        <description>Dealer users cant change the from role and torole</description>
-        <errorConditionFormula>AND(!ISNEW(),OR($Profile.Name ='Japan Dealer Company Manager',$Profile.Name ='Japan Dealer Sales Manager',$Profile.Name ='Japan Dealer Sales Representative',$Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),MD__c='JP',OR(RecordType.DeveloperName='Retail_Person',RecordType.DeveloperName='Retail_Company'),OR(ISCHANGED(fromRole__c),ISCHANGED(toRole__c)))</errorConditionFormula>
+		<description>Dealer users cant change the from role and torole</description>
+        <errorConditionFormula>AND(!ISNEW(),OR($Profile.Name ='Japan Dealer Company Manager',$Profile.Name ='Japan Dealer Sales Manager',$Profile.Name ='Japan Dealer Sales Representative',$Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),MD__c='JP',OR(RecordType.DeveloperName='Retail_Person',RecordType.DeveloperName='Retail_Company'),OR(ISCHANGED(fromRole__c),ISCHANGED(toRole__c)))
+		</errorConditionFormula> 
         <errorMessage>Dealer User Cant Change the from Role and To role</errorMessage>
     </validationRules>
     <validationRules>
@@ -5996,3 +5910,4 @@ alert(alrt);
 }</url>
     </webLinks>
 </CustomObject>
+
