@@ -53,7 +53,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Account_information_updates__c</fullName>
         <externalId>false</externalId>
@@ -1336,7 +1336,7 @@
     </nameField>
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>StatusChangingFromExecuted</fullName>
         <active>true</active>
@@ -1387,20 +1387,54 @@ ISPICKVAL( Status__c , "Not Responded")
 var CampStatus = "{!Account.Id}";
 openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enableScopes=1&amp;addToCampaign=1',670,'1','')</url>
     </webLinks>
-    <webLinks>
+   <webLinks>
         <fullName>Convert_To_DM_Request</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Convert To DM Request</masterLabel>
-        <openType>sidebar</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>/apex/ConvertToDMRequest?id={!Campaign.Id}</url>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+
+var aid="{!Account.Id}"; 
+if(aid != null) 
+{ 
+window.open('/apex/ConvertToDMRequest?Id={!Account.Id}') 
+} 
+else 
+{ 
+window.open('/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}') 
+}</url>
     </webLinks>
-    <webLinks>
+	<webLinks>
+        <fullName>Convert_To_DM_Request1</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Convert To DM Request</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}' AND Status__c='Responded'"); 
+
+
+var qrerecords = campaignMember.getArray("records"); 
+
+if(qrerecords.length&gt;0){ 
+
+var myWindow = window.open(" {!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest1?CampaignMemberId={! Campaign_Member__c.Id } ") 
+
+
+} 
+else 
+{alert('Status should be Responded');}</url>
+    </webLinks>
+   <webLinks>
         <fullName>Convert_To_Task</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -1409,21 +1443,90 @@ openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enab
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+ 
+ var aid="{!Account.Id}";
+if(aid != null)
+{
+  window.open('/apex/ConvertToTask?CampaignId={!Account.Id}')
+}
+else
+{
+window.open('/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}')
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Convert_To_Task1</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Convert To Task</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}", "_blank","resizable=yes,top=900,left=900,width=900,height=900");</url>
+
+var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}' AND Status__c='Responded'"); 
+
+
+var qrerecords = campaignMember.getArray("records"); 
+
+if(qrerecords.length&gt;0){ 
+
+var myWindow = window.open(" {!URLFOR($Site.Prefix)}/apex/ConvertToTask1?CampaignMemberId={! Campaign_Member__c.Id } ") 
+
+
+} 
+else 
+{alert('Status should be Responded');}</url>
     </webLinks>
     <webLinks>
         <fullName>Convert_to_Lead</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Convert To Lead</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}</url>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+ 
+ var aid = "{!Account.Id}";
+if(aid != '')
+{
+  window.open('/apex/ConvertToLead?CampaignId={!Account.Id}');
+}
+else
+{
+window.open('/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}');
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Convert_to_lead1</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Convert To Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}' AND Status__c='Responded'");
+
+
+var qrerecords = campaignMember.getArray("records");
+
+if(qrerecords.length&gt;0){
+
+var myWindow = window.open(" {!URLFOR($Site.Prefix)}/apex/Converttolead1?CampaignMemberId={! Campaign_Member__c.Id } ")
+
+
+}
+else
+{alert('Status should be Responded');}</url>
     </webLinks>
     <webLinks>
         <fullName>ExportCampaign</fullName>
