@@ -53,7 +53,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Account_information_updates__c</fullName>
         <externalId>false</externalId>
@@ -1336,7 +1336,7 @@
     </nameField>
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>StatusChangingFromExecuted</fullName>
         <active>true</active>
