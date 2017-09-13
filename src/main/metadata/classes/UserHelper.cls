@@ -1182,5 +1182,21 @@ public with sharing class UserHelper {
             }
         }
     }
+    
+    
+  /**    
+     * @Description : invokes another class permission handler which is used to assign permisson set to user based on persona assignment
+     * @author      : Harshit Kabra 
+     * @Date        : 6-September-2017
+     * @param       : list of new users
+     * @see         : UserTriggerHandler(UserHelper.InvokePermissionHandler)
+    **/    
+    
+    public static void InvokePermissionHandler(list<user> usersList)
+    {
+           MRC_PermissionHandler mrcp=new MRC_PermissionHandler();
+           mrcp.assignMarketBasedPermisionSetsToUsers((List<User>)usersList);
+    }
+       
 
 }
