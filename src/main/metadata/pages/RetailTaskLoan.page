@@ -17,7 +17,8 @@
           <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
                         <apex:outputText value="{!relateddelaername}"/>  
-              </apex:pageBlockSectionItem>                     
+              </apex:pageBlockSectionItem>  
+                        
             <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Credit_Loan_Company_Name__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Credit_Loan_Company_Name__c}" />      
@@ -25,6 +26,15 @@
             <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}" >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Credit_Loan_Company_Name__c.Label}"/>
                         <apex:outputText value="{!CreditLoanCompanyName}" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Supporting_Dealer__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Supporting_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Supporting_Dealer__c.Label}"/>
+                        <apex:outputText value="{!Supportingdealer}"/>  
               </apex:pageBlockSectionItem>
               
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 

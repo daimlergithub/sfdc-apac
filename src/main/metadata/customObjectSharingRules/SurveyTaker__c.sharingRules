@@ -10,6 +10,11 @@
             <operation>equals</operation>
             <value>JP</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketSurvey Taken_Readable_to_MBJ_IT_Dept</name>
