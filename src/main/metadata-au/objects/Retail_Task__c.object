@@ -11472,7 +11472,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     <validationRules>
         <fullName>Enddate_must_be_bigger_than_Startdate</fullName>
         <active>true</active>
-        <errorConditionFormula>StartDate__c&gt;EndDate__c</errorConditionFormula>
+        <errorConditionFormula>AND
+		(
+		$Profile.Name != 'IntegrationAPI',
+		StartDate__c&gt;EndDate__c
+		)</errorConditionFormula>
         <errorMessage>End Date must be bigger than Start Date</errorMessage>
     </validationRules>
     <validationRules>
