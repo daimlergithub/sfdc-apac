@@ -824,9 +824,8 @@
 		<fields>Interested_Vehicle__c</fields>
         <fields>Lead_Desired_Service__c</fields>
         <fields>Dealer_Lead_Status__c</fields> 
-        <fields>LastModifiedBy</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
-        <sortField>Drop_off_Time__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
