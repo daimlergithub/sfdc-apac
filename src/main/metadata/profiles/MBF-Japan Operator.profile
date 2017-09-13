@@ -200,102 +200,6 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-	    <pageAccesses>
-        <apexPage>ConvertToDMRequest</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>ConvertToLead</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>ConvertToTask</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-		    <pageAccesses>
-        <apexPage>ConsolidationDisplayList</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>Consolidation_List</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>ExportAsCsvCampaign</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>Segmentation</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>SegmentationCriteria</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <classAccesses>
-        <apexClass>AccountTable</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-			    <classAccesses>
-        <apexClass>Batch_AutoResponseJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>Batch_AutoSegmentation</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>Batch_BounceStatus</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>Batch_DistributionCampaignMembers</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>CampaignMemberDisribution</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>ConsolidationContorller</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>ConvertToDMRequest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>ConvertToLeadController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>ConvertToTaskController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>ScheduleCampCompletion</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>ScheduleRetailCampCompletion</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>SegmentationCriteriaController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>Updatecampaignmemwithrefresh</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>exportCampaignMembers</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>segmentationredirect</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <classAccesses>
         <apexClass>AccountHelper</apexClass>
         <enabled>true</enabled>
@@ -25969,8 +25873,28 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>ConsolidationDisplayList</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Consolidation_List</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ContactTable</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ConvertToDMRequest</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ConvertToLead</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ConvertToTask</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
@@ -25995,6 +25919,10 @@
     <pageAccesses>
         <apexPage>Exception</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ExportAsCsvCampaign</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>FileNotFound</apexPage>
@@ -26211,6 +26139,14 @@
     <pageAccesses>
         <apexPage>SMSSendResult</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Segmentation</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SegmentationCriteria</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SelectAddress</apexPage>
