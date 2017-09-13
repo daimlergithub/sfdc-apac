@@ -221,10 +221,6 @@
         <enabled>true</enabled>
     </pageAccesses>
 	    <pageAccesses>
-        <apexPage>ExportAsCsvCampaign</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
         <apexPage>Segmentation</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -26018,7 +26014,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ExportAsCsvCampaign</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>FileNotFound</apexPage>
