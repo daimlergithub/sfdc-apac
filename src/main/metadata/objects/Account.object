@@ -56815,9 +56815,10 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <active>true</active>
         <description>Birthdate is not allowed to be later than today or earlier than 150 years.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-AND(
-OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()),
-$Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR'))</errorConditionFormula>
+AND( 
+OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()), 
+$Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)
+))</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>
         <errorMessage>Birthdate is not allowed to be later than today or earlier than 150 years.</errorMessage>
     </validationRules>
@@ -57180,17 +57181,17 @@ MD__c = 'JP')</errorConditionFormula>
         <description>Fax must be in any of the following formats : 
 1. Country code + Province code (xx) And PhoneNumber (xxxxxxxxx) 
 2. for int: +XX-XXXXXXXXXX</description>
-        <errorConditionFormula>OR(AND( 
-$Profile.Name != 'IntegrationAPI', 
-LEFT (Fax, 3) = "+60", 
-NOT(ISBLANK(Fax)), MD__c='MY', 
-NOT(OR(REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{7}"),REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{8}"), 
-REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{9}"),REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{10}")))), 
-AND( 
-$Profile.Name != 'IntegrationAPI', 
-LEFT (Fax, 3)!= "+60", 
-NOT(ISBLANK(Fax)), MD__c='MY', 
-NOT(REGEX(Fax, "[+0-9]{3}[0-9]{10}")) 
+        <errorConditionFormula>OR(AND(
+$Profile.Name != 'IntegrationAPI',
+LEFT (Fax, 3) = "+60",
+NOT(ISBLANK(Fax)), MD__c='MY', $Permission.MYGeneric ,
+NOT(OR(REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{7}"),REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{8}"),
+REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{9}"),REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{10}")))),
+AND(
+$Profile.Name != 'IntegrationAPI',
+LEFT (Fax, 3)!= "+60",
+NOT(ISBLANK(Fax)), MD__c='MY', $Permission.MYGeneric ,
+NOT(REGEX(Fax, "[+0-9]{3}[0-9]{10}"))
 ))</errorConditionFormula>
         <errorMessage>Fax must be in any of the following formats : 
 1. Country code + Province code (xx) And PhoneNumber (xxxxxxxxx) 
@@ -57293,11 +57294,11 @@ MD__c = 'JP')</errorConditionFormula>
     <validationRules>
         <fullName>Foundation_Date_Past</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(ISCHANGED(Foundation_Date__c),ISNEW()),
-NOT( ISBLANK(Foundation_Date__c)),
-Foundation_Date__c &gt; TODAY(),
-$Profile.Name != 'IntegrationAPI',
-OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH'))</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISCHANGED(Foundation_Date__c),ISNEW()), 
+NOT( ISBLANK(Foundation_Date__c)), 
+Foundation_Date__c &gt; TODAY(), 
+$Profile.Name != 'IntegrationAPI', 
+OR(MD__c = 'JP',MD__c = 'KR' ,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorDisplayField>Foundation_Date__c</errorDisplayField>
         <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
     </validationRules>
@@ -57393,15 +57394,20 @@ REGEX(Individual_Home_Phone__c, "[0-9]{4}-[0-9]{4}")
         <errorConditionFormula>OR(AND( 
 $Profile.Name != 'IntegrationAPI', 
 LEFT (Individual_Home_Phone__c, 3) = "+60", 
-NOT(ISBLANK(Individual_Home_Phone__c)), MD__c='MY', 
-NOT(OR(REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{7}"),REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{8}"), 
-REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{9}"),REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{10}")))), 
+NOT(ISBLANK(Individual_Home_Phone__c)), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), 
+NOT(OR(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{7}"), 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{8}"), 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{9}"), 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{10}"), 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{7}"), 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{8}"), 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{9}"), 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{10}")))), 
 AND( 
 $Profile.Name != 'IntegrationAPI', 
 LEFT (Individual_Home_Phone__c, 3)!= "+60", 
-NOT(ISBLANK(Individual_Home_Phone__c)), MD__c='MY', 
-NOT(REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{10}")) 
-))</errorConditionFormula>
+NOT(ISBLANK(Individual_Home_Phone__c)), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), 
+NOT(REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{10}"))))</errorConditionFormula>
         <errorMessage>Home Phone must be in any of the following formats : 
 1. Country code + Province code (xx) And PhoneNumber (xxxxxxxxx) 
 2. for int: +XX-XXXXXXXXXX</errorMessage>
@@ -57560,14 +57566,14 @@ $Profile.Name != 'IntegrationAPI',MD__c = 'KR'
         <fullName>Invalid_Email_Address_TH</fullName>
         <active>true</active>
         <description>Email Validation on customer record .</description>
-        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; !ISNEW() &amp;&amp;
-		AND(
-		OR( CONTAINS(Email__c, '?'), CONTAINS(Email__c, '^'), CONTAINS(Email__c, '%'),
-		CONTAINS(Email__c, '$'), RIGHT(Email__c, 1)='.', BEGINS(Email__c, '.') , CONTAINS(Email__c, '@.'), CONTAINS(Email__c, '.@'),
-		CONTAINS(Email__c, '..'), NOT(CONTAINS(Email__c, '.')), NOT(CONTAINS(Email__c, '@')),
-		CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND('@', Email__c)), '@') , LEFT( RIGHT( Email__c, 2), 1)='.'),
-		$Profile.Name != 'IntegrationAPI',MD__c = 'TH'
-		)</errorConditionFormula>
+        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; !ISNEW() &amp;&amp; 
+AND( 
+OR( CONTAINS( Email__c , '?'), CONTAINS(Email__c , '^'), CONTAINS(Email__c , '%'), 
+CONTAINS(Email__c , '$'), RIGHT(Email__c , 1)='.', BEGINS(Email__c , '.') , CONTAINS(Email__c , '@.'), CONTAINS(Email__c , '.@'), 
+CONTAINS(Email__c , '..'), NOT(CONTAINS(Email__c , '.')), NOT(CONTAINS(Email__c , '@')), 
+CONTAINS( RIGHT( Email__c , LEN(Email__c ) - FIND('@', Email__c )), '@') , LEFT( RIGHT( Email__c , 2), 1)='.'), 
+$Profile.Name != 'IntegrationAPI',OR(MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) 
+)</errorConditionFormula>
         <errorMessage>Invalid Email Address.</errorMessage>
     </validationRules>
     <validationRules>
@@ -57594,7 +57600,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <description>ZipCode should be 5 or 6 digits long</description>
         <errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c )), NOT(OR((REGEX(ZipCode__c ,"[0-9]{5}")),(REGEX(ZipCode__c ,"[0-9]{6}")))), 
-$Profile.Name != 'IntegrationAPI', MD__c = 'MY')</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false))</errorConditionFormula>
         <errorMessage>ZipCode should be 5 or 6 digits long</errorMessage>
     </validationRules>
     <validationRules>
@@ -57715,12 +57721,12 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
 $Profile.Name != 'IntegrationAPI', 
 LEFT ( Mobile__c, 3) = "+60", 
 NOT(ISBLANK(Mobile__c)), 
-NOT(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}")), MD__c='MY'), 
+NOT(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}")), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), 
 AND( 
 $Profile.Name != 'IntegrationAPI', 
 LEFT ( Mobile__c, 3)!= "+60", 
 NOT(ISBLANK(Mobile__c)), 
-NOT(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}")), MD__c='MY'))</errorConditionFormula>
+NOT(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}")), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
 1. Country Code + Number(xxxxxxxxxx)</errorMessage>
     </validationRules>
@@ -58044,13 +58050,19 @@ REGEX(Work_Phone__c, "[0-9]{4}-[0-9]{4}")
         <errorConditionFormula>OR(AND( 
 $Profile.Name != 'IntegrationAPI', 
 LEFT (Work_Phone__c, 3) = "+60", 
-NOT(ISBLANK(Work_Phone__c)), MD__c='MY', 
-NOT(OR(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{7}"),REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{8}"), 
-REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{9}"),REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{10}")))), 
+NOT(ISBLANK(Work_Phone__c)), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), 
+NOT(OR(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{7}"),
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{8}"), 
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{9}"),
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{10}"),
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{7}"),
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{8}"), 
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{9}"),
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{10}")))), 
 AND( 
 $Profile.Name != 'IntegrationAPI', 
 LEFT (Work_Phone__c, 3)!= "+60", 
-NOT(ISBLANK(Work_Phone__c)), MD__c='MY', 
+NOT(ISBLANK(Work_Phone__c)), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), 
 NOT(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{10}")) 
 ))</errorConditionFormula>
         <errorMessage>Work Phone must be in any of the following formats : 

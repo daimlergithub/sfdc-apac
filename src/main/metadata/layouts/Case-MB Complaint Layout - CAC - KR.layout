@@ -213,20 +213,16 @@
                 <field>Case_Dealer__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Recommended_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Feedback_to_CAC_New__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Support_Dealer_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Support_Dealer_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Support_Dealer_3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

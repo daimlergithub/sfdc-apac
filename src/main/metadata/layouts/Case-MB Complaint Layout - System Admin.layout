@@ -532,6 +532,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Recommended_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Dealer_Case_Category__c</field>
             </layoutItems>
             <layoutItems>
