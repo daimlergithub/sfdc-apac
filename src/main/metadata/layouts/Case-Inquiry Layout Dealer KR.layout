@@ -180,6 +180,10 @@
                 <behavior>Edit</behavior>
                 <field>Case_Dealer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Recommended_Dealer__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

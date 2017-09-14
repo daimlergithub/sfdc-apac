@@ -4359,6 +4359,14 @@ please contact the number below.</value>
         <shortDescription>MBJ support</shortDescription>
         <value>MBJ support</value>
     </labels>
+	<labels>
+        <fullName>MY</fullName>
+        <categories>Malaysia</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MY</shortDescription>
+        <value>MY</value>
+    </labels>
     <labels>
         <fullName>Maintenance_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
