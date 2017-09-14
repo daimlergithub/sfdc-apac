@@ -1,8 +1,10 @@
 /**
 * Utility for Trigger on Account for TH(Thailand)
-* Author: Mohammed Touseef Ahmed - TH5
+* Author: Mohammed Touseef Ahmed
 * Created Date : 2017-01-23
-*
+*History:
+    Author                         Date                    Description
+    Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
 */
 
 public class AccountHelperTH{
@@ -121,7 +123,8 @@ public class AccountHelperTH{
     public static void updateOnDoNotCall(list<Account> listNewAccounts){        
         
         for(Account acc : listNewAccounts){
-           if(acc.MD__c == Label.TH){
+        //MT20170913- Added market Descrminator MY
+           if(acc.MD__c == Label.TH || acc.MD__c == Label.MY){
                if(acc.PersonDoNotCall){
                    if(acc.Opt_In_Home_Phone__c){ acc.Opt_In_Home_Phone__c = FALSE;}
                    if(acc.Opt_In_Home_Phone2__c){ acc.Opt_In_Home_Phone2__c = FALSE;}
@@ -153,8 +156,9 @@ public class AccountHelperTH{
     addressList =[select id,Opt_In_Hardcopy__c from Address__c where id=:Addd];
     for(Account acc: listNewAccounts)
     {
-    for(Address__c add: addressList)
-    if(acc.MD__c == Label.TH){
+    //MT20170913- Added market Descrminator MY
+    for(Address__c add: addressList)    
+    if(acc.MD__c == Label.TH || acc.MD__c == Label.MY){
                if(acc.Postal_Opt_Out__c){
                    if(add.Opt_In_Hardcopy__c== true){ 
                         add.Opt_In_Hardcopy__c = false;
@@ -173,7 +177,8 @@ public class AccountHelperTH{
     */
     public static void updateOnEmailOptout(list<Account> listNewAccounts){        
         for(Account acc: listNewAccounts){
-            if(acc.MD__c == Label.TH){
+        //MT20170913- Added market Descrminator MY
+            if(acc.MD__c == Label.TH || acc.MD__c == Label.MY){
                 if(acc.PersonHasOptedOutOfEmail){
                     if(acc.Opt_In_Email__c){ acc.Opt_In_Email__c = FALSE;}
                     if(acc.Opt_In_Email2__c){ acc.Opt_In_Email2__c = FALSE;}
@@ -189,7 +194,8 @@ public class AccountHelperTH{
     public static void updateAgeRange(list<Account> listNewAccounts){
         for(Account acc:  listNewAccounts){
             if(acc.PersonBirthdate != NULL){
-                if(acc.MD__c == Label.TH){
+            //MT20170913- Added market Descrminator MY
+                if(acc.MD__c == Label.TH || acc.MD__c == Label.MY){
                    Integer ageInt = (Integer.valueOf(System.today().year())-Integer.valueof(acc.PersonBirthdate.year()) );
                    acc.Age_Range__c = AccountHelperTH.calculateAgeRange(ageInt); 
                 }
@@ -328,8 +334,8 @@ public class AccountHelperTH{
             String province;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
             For(Account a:listNewAccounts)
-            {      
-                if(a.MD__c == Label.TH)
+            {   //MT20170913- Added market Descrminator MY   
+                if(a.MD__c == Label.TH || a.MD__c == Label.MY)
                 {                    
                     addressid.add(a.Primary_Address_Reference__c);
                 }
@@ -339,8 +345,8 @@ public class AccountHelperTH{
                 addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
             }
             For(Account acc:listNewAccounts)
-            {      
-                if( acc.MD__c == Label.TH)
+            {      //MT20170913- Added market Descrminator MY
+                if( acc.MD__c == Label.TH || acc.MD__c == Label.MY)
                 {   
                     If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
                     {              
@@ -386,7 +392,8 @@ public class AccountHelperTH{
             for(Account acc : accLst)
             {
                 system.debug('accountLanguage>>>' + acc.Preferred_Language__c);
-                if(acc.MD__c == 'TH')
+                //MT20170913- Added market Descrminator MY
+                if(acc.MD__c == 'TH' || acc.MD__c == Label.MY)
                 {
                     accid.add(acc.Id);
                 }
