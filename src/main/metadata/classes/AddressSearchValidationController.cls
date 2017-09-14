@@ -566,6 +566,7 @@ public class AddressSearchValidationController
                         objAccount.id = null;
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
+                        AddressObj.Preferred__c = true;
                         if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
                         {
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
@@ -707,6 +708,7 @@ public class AddressSearchValidationController
                             objPersonAccount.Id = null;
                             insert objPersonAccount ;
                             AddressObj.Customer__c = objPersonAccount.id;
+                            AddressObj.Preferred__c = true;
                             if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
                             {
                             AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
