@@ -345,6 +345,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Recommended_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Feedback_to_CAC__c</field>
             </layoutItems>
             <layoutItems>
