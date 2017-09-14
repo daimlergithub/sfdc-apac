@@ -153,7 +153,7 @@ public with sharing class RetailTaskHelper
                     fltCntrctList.add(newMap.get(curCntrctId));
                 }
                 else{
-                    
+                    system.debug('>>>>fltCntrctList'+fltCntrctList);
                     finCntrctList.add(newMap.get(curCntrctId));                    
                 }
             }
@@ -199,6 +199,7 @@ public with sharing class RetailTaskHelper
                     //TODO
                     //newLead.Vehicle__c = curCntrct.Vehicle__c;
                     newLeadList.add(newLead);
+                    system.debug('>>>>newLeadList'+newLeadList);
                 }
             }
         }
@@ -499,7 +500,7 @@ public with sharing class RetailTaskHelper
             if(rtask.RecordTypeId == servicerecordId && rtask.Service_Dealer__c != null && rtask.Related_Vehicle__c != null)
             {
                 rtaskid.add(rtask.Id);
-				relatedvechId.add(rtask.Related_Vehicle__c);                
+                relatedvechId.add(rtask.Related_Vehicle__c);                
             }
         }
         
@@ -545,14 +546,14 @@ public with sharing class RetailTaskHelper
                 groupid.add(rts.Service_Dealer__r.Name);
                 if(!vrmap.isEmpty() && vrmap != null && vrMap.get(rts.Related_Vehicle__c).get(0).contact__c != null)
                 {
-                	shraccid.add(vrMap.get(rts.Related_Vehicle__c).get(0).contact__c);
+                    shraccid.add(vrMap.get(rts.Related_Vehicle__c).get(0).contact__c);
                 }                
             }
         }
-		if(!shraccid.isEmpty() && shraccid != null)
+        if(!shraccid.isEmpty() && shraccid != null)
         {
             duplisharedList =[select AccountId, UserOrGroupId, AccountAccessLevel from AccountShare where AccountId =:shraccid];
-			acclinkList = [select id,recordtypeId,torole__c,fromrole__c from Account_Link__c where torole__c=:shraccid and recordtypeId =:contact2ContactRT];            
+            acclinkList = [select id,recordtypeId,torole__c,fromrole__c from Account_Link__c where torole__c=:shraccid and recordtypeId =:contact2ContactRT];            
         }
                 
         system.debug('duplisharedList>>>' + duplisharedList);
@@ -680,7 +681,7 @@ public with sharing class RetailTaskHelper
         }
         if(!relateddlrgroup.isEmpty() && relateddlrgroup != null)
         {
-        	relgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:relateddlrgroup];
+            relgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:relateddlrgroup];
         }
         for(Group grp : relgroupList)
         {
@@ -735,27 +736,44 @@ public with sharing class RetailTaskHelper
         List<Retail_Task__Share> updateConshreList = new List<Retail_Task__Share>();
         for(Retail_Task__c con : allContractList)
         {
-            if(con.Account__c != null && con.RecordTypeId != servicerecordId && con.RecordTypeId != contractrecordId)
+            if(con.Account__c != null   && con.RecordTypeId != servicerecordId && con.RecordTypeId != contractrecordId)
             {
+                system.debug('Entered>>>>>>1');
                 allaccids.add(con.Account__c);
                 allconids.add(con.Id);
             }
         }
+        system.debug('allaccids>>>>>>'+allaccids);
+        system.debug('allconids>>>>>>'+allconids);
         if(!allaccids.isEmpty() && allaccids != null)
         {
             accShareList = [select id ,AccountId, UserorGroupId from AccountShare where AccountId =:allaccids];
         }
+        system.debug('accShareList>>>>>>' + accShareList);
         if(!allconids.isEmpty() && allconids != null)
         {
             conShareList = [select id ,ParentId, UserorGroupId from Retail_Task__Share where ParentID =:allconids]; 
         }
+        system.debug('conShareList>>>>>>'+ conShareList);
         if(!accShareList.isEmpty() && accShareList != null)
-        {
+        {   
             for(AccountShare acshre : accShareList)
             {
+                
                 userorGroupId.add(acshre.UserOrGroupId);
             }
         }
+        
+        List<user> DeactivateUserList = [Select id ,isActive From User Where IsActive=false AND Id =:userorGroupId ];
+        if(!DeactivateUserList.isEmpty() && DeactivateUserList != null)
+        {
+             for(User U : DeactivateUserList ){
+                 
+                 userorGroupId.remove(U.id);
+                 
+             }
+        }
+        system.debug(' userorGroupId>>>>>>'+  userorGroupId);
         if(!conShareList.isEmpty() && conShareList != null)
         {
             for(Retail_Task__Share sharedcons : conShareList)
@@ -763,13 +781,18 @@ public with sharing class RetailTaskHelper
                 consharedMap.put(sharedcons.ParentId, sharedcons.UserOrGroupId);
             }
         }
+        system.debug(' consharedMap>>>>>>'+  consharedMap);
+        
         for(Retail_Task__c allconshare : allContractList)
         {
             if(allconshare.Account__c != null && allconshare.RecordTypeId != servicerecordId && allconshare.RecordTypeId != contractrecordId)
-            {
+            {     
                 for(ID userId : userorGroupId)
                 {
-                    if(!consharedMap.isEmpty() && consharedMap.get(allconshare.id) != userId && allconshare.OwnerId != userId)
+                    
+                    system.debug('Inserrt>>>.');
+                    
+                    if(!consharedMap.isEmpty() && consharedMap.get(allconshare.id) != userId && allconshare.OwnerId != userId )
                     {
                         Retail_Task__Share allconshr = new Retail_Task__Share();
                         allconshr.ParentId = allconshare.Id;
@@ -778,10 +801,13 @@ public with sharing class RetailTaskHelper
                         updateConshreList.add(allconshr);
                     }
                 }
+                
             }                
         }
+        system.debug('updateConshreList' + updateConshreList);
         if(!updateConshreList.isEmpty() && updateConshreList != null)
         {
+            system.debug('Entered>>>>>>');
             insert updateConshreList;
         }
     }
