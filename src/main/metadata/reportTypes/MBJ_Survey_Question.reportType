@@ -83,11 +83,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Total_Responses__c</field>
-            <table>Survey_Question__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Type__c</field>
             <table>Survey_Question__c</table>
         </columns>
