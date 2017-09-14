@@ -11739,7 +11739,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.AssistantName</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
