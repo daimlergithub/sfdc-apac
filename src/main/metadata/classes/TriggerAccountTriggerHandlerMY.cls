@@ -5,16 +5,16 @@
 * Purpose:
 * 1.Update custom last modified date field(s) associated with each contact information field, when any contact information field(s) are inserted/updated. 
 * 2.Update primary address details from the associated preferred address records.
-* 3.Outbound webservice callout to send customer information to EP. [ ON HOLD ]
-* 4.Calculate Vehicle Amount based on Number of Vehicle Relationships (current date is within start_date and end_date with validy__c is "yes" and 
+
+* 3.Calculate Vehicle Amount based on Number of Vehicle Relationships (current date is within start_date and end_date with validy__c is "yes" and 
 *   if this account has multiple roles for one vehicle, should be counted as 1).
-* 5.Implement Do Not Call(PersonDoNotCall) to automate opt-out for all channels which means that selecting this flag opts out the customer from 
+* 4.Implement Do Not Call(PersonDoNotCall) to automate opt-out for all channels which means that selecting this flag opts out the customer from 
 *    being contacted via all Phone numbers (Ex: Home Phone, Mobile, Work Phone).
-* 6.Implement Postal_Opt_Out__c to automate opt-out for all addresses which means that selecting this flag opts out the customer from being contacted 
+* 5.Implement Postal_Opt_Out__c to automate opt-out for all addresses which means that selecting this flag opts out the customer from being contacted 
 *   via Addresses (Ex: Home Address, Office Address, etc.).
-* 7.Use Email Opt Out (PersonHasOptedOutOfEmail) to automate opt-out from email options.
-* 8.Calculate “Age Range” based on birthdate..
-* 9.
+* 6.Use Email Opt Out (PersonHasOptedOutOfEmail) to automate opt-out from email options.
+* 7.Calculate “Age Range” based on birthdate..
+* 8.
 */
 
 public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
@@ -49,23 +49,17 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         if(isAfter && isInsert && !System.isFuture())
         {
             AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
-            serializedObject=json.serialize(ListAccNew);            
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-           // AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+          
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccNew);
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-           // AccountHelperTH.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+           
             AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
         }
         
         if(isAfter && isDelete && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccOld);
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-           // AccountHelperTH.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
+          
             
         }
         //End of the New code Block 9/21/2016
@@ -86,7 +80,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
 
        
         List<Account> accountNewList = Trigger.new;
-        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'TH')
+        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == label.MY)
         {
             if(isBefore && isInsert){
             AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);

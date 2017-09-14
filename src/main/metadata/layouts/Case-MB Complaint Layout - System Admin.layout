@@ -532,6 +532,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Recommended_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Dealer_Case_Category__c</field>
             </layoutItems>
             <layoutItems>
@@ -541,14 +545,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Support_Dealer_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Support_Dealer_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Support_Dealer_3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -571,14 +567,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Support_Dealer_1_Branch_name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Support_Dealer_2_Branch_name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Support_Dealer_3_Branch_name__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
