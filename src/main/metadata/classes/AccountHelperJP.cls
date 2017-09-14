@@ -1103,7 +1103,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         }
         if(!deletedAccId.isEmpty() && deletedAccId != null)
         {
-            delete [select id from AccountShare where AccountId =:deletedAccId];
+            delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual'];
         }
     }
 }
