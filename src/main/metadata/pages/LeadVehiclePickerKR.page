@@ -61,9 +61,8 @@
        $scope.Colours = [];
        
        //This is the filter code for current-vehicle1 and current-vehicle2
-       //$scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Brand": "{!$Label.Brand}", "Registration Number": "{!$Label.RegistrationNo}"};
-       $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}","Registration Number": "{!$Label.RegistrationNo}"};
-       
+       $scope.userBased_filters =  {"VIN Number": "{!$Label.Vin_Number}", "Class": "{!$Label.Class}", "Registration Number": "{!$Label.RegistrationNo}"};
+      
        /*INTERESTED VEHICLE : Vehicle Intitialization details*/
        if($scope.leadVehicles.InterestedVehicle != undefined){
            $scope.vehicleDetailText = "Edit";
@@ -134,7 +133,7 @@
        /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle1 != undefined){
            $scope.vehicleCurrent1DetailText = "Edit";
-           $scope.CurrentVehicle1Details = (($scope.caseVehicles.CurrentVehicle1.Brand == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle1.Class == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle1.Model == null) ? '' : $scope.caseVehicles.CurrentVehicle1.Model);
+            $scope.CurrentVehicle1Details = (($scope.leadVehicles.CurrentVehicle1.Brand == null || $scope.leadVehicles.CurrentVehicle1.Brand == undefined) ? '' : $scope.leadVehicles.CurrentVehicle1.Brand) +' ' +(($scope.leadVehicles.CurrentVehicle1.Class == null || $scope.leadVehicles.CurrentVehicle1.Class == undefined) ? '' : $scope.leadVehicles.CurrentVehicle1.Class)+ ' ' + (($scope.leadVehicles.CurrentVehicle1.Model == null || $scope.leadVehicles.CurrentVehicle1.Model == undefined) ? '' : $scope.leadVehicles.CurrentVehicle1.Model);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -167,7 +166,7 @@
        /*CURRENT VEHICLE2 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle2 != undefined){
            $scope.vehicleCurrent2DetailText = "Edit";
-            $scope.CurrentVehicle2Details = (($scope.caseVehicles.CurrentVehicle2.Brand == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Brand) +' ' +(($scope.caseVehicles.CurrentVehicle2.Class == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Class)+ ' ' + (($scope.caseVehicles.CurrentVehicle2.Model == null) ? '' : $scope.caseVehicles.CurrentVehicle2.Model);
+           $scope.CurrentVehicle2Details = (($scope.leadVehicles.CurrentVehicle2.Brand == null || $scope.leadVehicles.CurrentVehicle2.Brand == undefined) ? '' : $scope.leadVehicles.CurrentVehicle2.Brand) +' ' +(($scope.leadVehicles.CurrentVehicle2.Class == null || $scope.leadVehicles.CurrentVehicle2.Class == undefined) ? '' : $scope.leadVehicles.CurrentVehicle2.Class)+ ' ' + (($scope.leadVehicles.CurrentVehicle2.Model == null || $scope.leadVehicles.CurrentVehicle2.Model == undefined) ? '' : $scope.leadVehicles.CurrentVehicle2.Model);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -394,7 +393,7 @@
                 }else if(vin == undefined || vin == ''){
                     alert('{!$Label.User_Msg1}');
                 }else{
-                    if(filter == 'Brand' || filter == 'Registration Number'){
+                    if(filter == 'Class' || filter == 'Registration Number'){
                         $searchText = vin;
                         $filterText = filter;
                         $scope.searchCurrentVehicleDetails = [{sText:$searchText, VehicleType:vehicle_type, fText:$filterText, RecordId:'{!currentRecordId}'}];

@@ -1441,7 +1441,7 @@
         <name>Email2</name>
     </customLabels>
     <customLabels>
-        <label>、セールスフォースにてリードの担当者に設定されましたのでお知らせいたします。</label>
+        <label>、統合顧客管理システムにてリードの担当者に設定されましたのでお知らせいたします。</label>
         <name>Email_Assignment</name>
     </customLabels>
     <customLabels>
@@ -1465,7 +1465,7 @@
         <name>Email_LeadDealerAssign1</name>
     </customLabels>
     <customLabels>
-        <label>※リードの確認にはセールスフォースへの
+        <label>※リードの確認には統合顧客管理システムへの
 ログインが必要となります。</label>
         <name>Email_LeadDealerAssign10</name>
     </customLabels>
@@ -1479,7 +1479,7 @@
         <name>Email_LeadDealerAssign12</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースの操作について、ご不明な点がございましたら</label>
+        <label>統合顧客管理システムの操作について、ご不明な点がございましたら</label>
         <name>Email_LeadDealerAssign13</name>
     </customLabels>
     <customLabels>
@@ -1511,7 +1511,7 @@
         <name>Email_LeadDealerAssign20</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースより貴店へ展開したリードデータに担当者が設定されないままでしたので、お知らせいたします。</label>
+        <label>統合顧客管理システムより貴店へ展開したリードデータに担当者が設定されないままでしたので、お知らせいたします。</label>
         <name>Email_LeadDealerAssign21</name>
     </customLabels>
     <customLabels>
@@ -1527,7 +1527,7 @@
         <name>Email_LeadDealerAssign5</name>
     </customLabels>
     <customLabels>
-        <label>、貴店へセールスフォースにてリードデータを展開しましたのでお知らせいたします。</label>
+        <label>、貴店へ統合顧客管理システムにてリードデータを展開しましたのでお知らせいたします。</label>
         <name>Email_LeadDealerAssign6</name>
     </customLabels>
     <customLabels>
@@ -5310,7 +5310,7 @@
         <name>Email_LeadDealerAssignSubject</name>
     </customLabels>
     <customLabels>
-        <label>セールスフォースに展開したリードデータにつきまして１か月以上更新が無いようですのでお知らせいたします。</label>
+        <label>統合顧客管理システムに展開したリードデータにつきまして１か月以上更新が無いようですのでお知らせいたします。</label>
         <name>Email_LeadUntouchedFirstMessage</name>
     </customLabels>
     <customLabels>

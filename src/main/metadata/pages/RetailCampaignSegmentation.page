@@ -983,7 +983,8 @@
                             <td>
                                 <select onchange="showCriteria(this);"> 
                                     <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
-                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>                                  
+                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>
+                                    <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
                                       <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option>                                
                                 </select>
@@ -999,8 +1000,8 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" Type="text"/>
-                              <!--  <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> -->
-                                <apex:selectList styleClass="Type__c" size="1" multiselect="false">
+                              
+                                <apex:selectList styleClass="Type__c" size="1" multiselect="false" style="display:block;">
                                     <apex:selectOptions value="{!RetailTaskType}"></apex:selectOptions>
                                 </apex:selectList>
                               <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
@@ -1010,6 +1011,9 @@
                                 <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
                                 <apex:selectList styleClass="Status__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailTaskStatus}"></apex:selectOptions>
+                                </apex:selectList>
+                                                              <apex:selectList styleClass="Finance_Product_Name__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
                                 </apex:selectList>
                             </td>
                             <td></td>
@@ -1081,16 +1085,18 @@
                         <img src="/img/loading24.gif" style="vertical-align:middle;"/>
                     </apex:facet>      
                 </apex:actionStatus>
+                
                 <!--<apex:outputPanel id="saveCriteria" >
                     <apex:commandButton value="Save Criteria"  onclick="queryName()" disabled="{!wrapperList.size = 0 || wrapperList = null}" reRender="none" />
                 </apex:outputPanel>-->
                 <apex:outputPanel rendered="{!wrapperList.size == 0}" id="noMatches">
                  <apex:outputText style="color:red"><h1>   Records found : {!noOfRecords} &nbsp;&nbsp;  No Matches Found, Please try with other filters.</h1></apex:outputtext>
                 </apex:outputPanel>
-                <apex:outputPanel rendered="{!wrapperList!= null && wrapperList.size > 0}" id="buttons">
+                 <apex:outputPanel rendered="{!wrapperList!= null && wrapperList.size > 0}" id="buttons"> 
+                
                     <div style="margin:6px;">Records: {!IF(noOfRecords == null, 0, noOfRecords)}</div>
                     <apex:commandbutton action="{!first}" value="<<" reRender="accounts,buttons,vehicles" disabled="{!!hasPrevious}" status="loading"/>
-                    <apex:commandbutton action="{!previous}" value="<" reRender="accounts,buttons,vehicles" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!previous}" value="<" reRender="accounts,buttons,vehicles" disabled="{!!hasPrevious}" status="loading"/> 
                     <apex:commandbutton action="{!next}" value=">" reRender="accounts,buttons,vehicles" disabled="{!!hasNext}" status="loading"/>
                     <apex:commandbutton action="{!last}" value=">>" reRender="accounts,buttons,vehicles" disabled="{!!hasNext}" status="loading"/>
                     <apex:actionStatus id="loading">
@@ -1126,23 +1132,23 @@
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Interest_Model__c.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.Interest_Model__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonHomePhone}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Individual_Home_Phone__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Individual_Home_Phone__c}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonMobilePhone}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Mobile__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Mobile__c}"/> 
                             </apex:column>
                             
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.acc.Phone}"/> 
                             </apex:column>
                             
-                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.acc.PersonEmail}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Email__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.acc.Email__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}" rendered="{!segmentationBase='Customer'}">
-                                <apex:outputField value="{!wrapAcc.accLink.Sales_Representative__c}"/> 
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}" rendered="{!segmentationBase='Customer'}">
+                                <apex:outputField value="{!wrapAcc.accLink.Retail_Sales_Consultant__c}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}" rendered="{!segmentationBase='Customer'}">
                                 <apex:outputField value="{!wrapAcc.accLink.Selling_Dealer__c}"/> 
@@ -1195,6 +1201,9 @@
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Product_Name__c}"/> 
                             </apex:column>
+                           <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
+                           <apex:outputField value="{!wrapAcc.retail.Finance_Product_Name__c}"/> 
+                         </apex:column>
                             <apex:column headerValue="{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}" rendered="{!IF(segmentationBase='Contract',true,false)}">
                                 <apex:outputField value="{!wrapAcc.retail.Type__c}"/> 
                             </apex:column>

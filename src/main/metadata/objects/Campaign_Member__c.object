@@ -253,10 +253,16 @@
         <label>Contact Id</label>
         <lookupFilter>
             <active>true</active>
+            <booleanFilter>(1 OR 2)</booleanFilter>
             <filterItems>
                 <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>PersonAccount</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Company</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -808,6 +814,51 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>		
+    <fields>
+        <fullName>NextInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>NextInspectionDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>LastInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastInspectionDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>LastWorkDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastWorkDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>LastServiceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastServiceDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>NextServiceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>NextServiceDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>No_of_Payments__c</fullName>
@@ -1508,5 +1559,7 @@ alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
 </CustomObject>
+
+
 
 

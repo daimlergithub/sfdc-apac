@@ -6,8 +6,8 @@
 */
 
 public class CaseHelperTH {
-    
-  
+    Date myDate =date.newinstance(1900, 1, 7);
+    public Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
     public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
@@ -16,7 +16,72 @@ public class CaseHelperTH {
     Set<Id> parenthasParents = new Set<Id>();
     Set<Id> parentIds = new Set<Id>();
     public static final String NOT_PRIMARY_REMINDER = 'This Complaint is not a primary complaint, please find the primary complaint.';
-            
+    public void updateCaseDeadLineAmount(List<case> caselist){
+        for(Case caserec:Caselist){
+            Integer i=0;
+            Boolean flag;
+            if((caserec.RecordTypeId==caseINquiryId && caserec.priority=='A')||(caserec.RecordTypeId==caseMBComplaintRec_Id && caserec.priority=='Red >= 4')&& caserec.md__c=='TH'){
+                 string dayOfWeek = System.now().format('E');
+                     if(dayOfWeek == 'Sat'){
+                            caserec.DeadLine__c=System.Now()+3;
+                       }
+                     else if(dayOfWeek == 'Sun'){
+                        caserec.DeadLine__c=System.Now()+2;
+                        }
+                     else if(dayOfWeek == 'Fri'){
+                        caserec.DeadLine__c=System.Now()+3;
+                        }
+                     else{
+                        caserec.DeadLine__c=System.Now()+1;
+                        }
+            }
+            else if((caserec.RecordTypeId==caseINquiryId && caserec.priority=='B')||(caserec.RecordTypeId==caseMBComplaintRec_Id && caserec.priority=='Yellow = 3')&& caserec.md__c=='TH'){
+            updatedeadine(caserec,72);
+            }
+            else if(caserec.RecordTypeId==caseMBComplaintRec_Id && caserec.priority=='Green <= 2' && caserec.md__c=='TH'){
+            updatedeadine(caserec,144);
+            }
+ 
+            else if(caserec.RecordTypeId==caseINquiryId && caserec.md__c=='TH'){
+                if(caserec.priority=='C'){
+                    updatedeadine(caserec,120);
+                }
+                else if(caserec.priority=='D'){
+                    updatedeadine(caserec,240);
+                }
+                else if(caserec.priority=='E'){
+                    updatedeadine(caserec,360);
+                }
+        }    
+    }
+    }
+    public void updatedeadine(case Caserec,Integer hours){
+    Integer daystoadd=0;
+    DateTime dt=System.now();
+    
+    Integer hourscount=0;
+    While(hourscount<hours){
+    string dayOfWeek = dt.format('E');
+    system.debug('day of the week'+dayofweek);
+    
+        if(dayOfWeek =='Sat'||dayOfWeek =='Sun'){
+            //hourscount=hourscount+24;
+            system.debug('****hrsif'+hourscount+'   '+dayofweek);
+        }
+        else{
+        
+        hourscount=hourscount+24;
+        system.debug('****hrselse'+hourscount+'   '+dayofweek);
+        }
+        dt=dt+1;
+    daystoadd=daystoadd+1;
+    system.debug('******   '+dt+'  '+daystoadd+'  '+dayofweek+'    '+hourscount);
+    }
+    
+    if(caserec.deadline__c==null){
+    caserec.deadline__c=System.now()+daystoadd;
+    }
+    }
     //Calculate total number of repeated MB complaints per account
     public void calculateComplaintAmount(List<Case> cases){
       
