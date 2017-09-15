@@ -123,9 +123,9 @@ public class AddressSearchValidationController
         // refreshPage = false;        
         u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
-       // objAccount.Market__c=market;        
-        //AddressObj.Market__c=market;        
-       // objPersonAccount.Market__c=market; 
+        objAccount.Market__c=market;        
+        AddressObj.Market__c=market;        
+        objPersonAccount.Market__c=market; 
         
         objPersonAccount.Allow_Data_Sharing2__c = 'No';
         if(market == Label.KR){
@@ -2685,7 +2685,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                             
                     if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be 6 or 6 digits and ONLY Numbers.'));        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be 5 or 6 digits and ONLY Numbers.'));        
                          Validation = true;                             
                     }       
                                                 
