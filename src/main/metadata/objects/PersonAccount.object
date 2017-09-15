@@ -14575,7 +14575,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-		<picklistValues>
             <picklist>Market__c</picklist>
             <values>
                 <fullName>AU</fullName>
@@ -14601,7 +14600,8 @@
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>						  
+        </picklistValues>
+		<picklistValues>		
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
