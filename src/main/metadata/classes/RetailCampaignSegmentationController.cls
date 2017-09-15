@@ -625,6 +625,13 @@
                         RetailTaskSoql += ' AND Related_Vehicle__c IN : vehIdSetForContract';
                     } 
                 } */
+                saveQuery = saveQuery.replace('AND  AND','AND');
+               system.debug('++++++++++++'+saveQuery );
+               saveQuery = saveQuery.replace('AND AND','AND');
+                if(saveQuery.endsWith('AND ') || saveQuery.endsWith('AND  ')){
+                saveQuery = saveQuery.replace('AND ','');
+                }
+                 system.debug('++++++++++++'+saveQuery );
                 system.debug('finalRetailTaskSoql>>>>'+RetailTaskSoql);
                 system.debug('+++++++++++'+saveQuery );
                 //List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ ' limit 10000'); 

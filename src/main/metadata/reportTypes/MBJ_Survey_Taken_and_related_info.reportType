@@ -4875,11 +4875,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Question__c.Total_Responses__c</field>
-            <table>SurveyTaker__c.Survey_Question_Answers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Survey_Question__c.Id</field>
             <table>SurveyTaker__c.Survey_Question_Answers__r</table>
         </columns>

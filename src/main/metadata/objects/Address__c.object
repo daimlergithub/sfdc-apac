@@ -516,7 +516,7 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-   <!-- <fields>
+    <fields>
         <fullName>Hardcopy_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
         <label>Mail Last Modified By</label>
@@ -526,7 +526,7 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>-->
+    </fields>
     <fields>
         <fullName>Hardcopy_Last_Modified_Date__c</fullName>
         <externalId>false</externalId>
@@ -1812,39 +1812,6 @@
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'TH',IF( LEN( Address_Line_2__c ) &gt; 100 ,true,false))</errorConditionFormula>
         <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
-   <!-- <validationRules>
-        <fullName>Address_Line_1_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Address_Line_1_Native__c),
-REGEX(Address_Line_1_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Address_Line_1_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Address_Line_1_is_mandatory</fullName>
-        <active>false</active>
-        <description>Address_Line_1__c
-is Mandatory while creating new Address</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR',
-   OR( ISBLANK(Address_Line_1__c),ISNULL(Address_Line_1__c) )
-)</errorConditionFormula>
-        <errorDisplayField>Address_Line_1__c</errorDisplayField>
-        <errorMessage>Address_Line_1__c is Mandatory</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Address_Line_2_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Address_Line_2_Native__c),
-REGEX(Address_Line_2_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Address_Line_2_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
-    </validationRules>-->
     <validationRules>
         <fullName>Address_Type_Required</fullName>
         <active>true</active>
@@ -1852,17 +1819,6 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Address_Type__c</errorDisplayField>
         <errorMessage>Address Type is required.</errorMessage>
     </validationRules>
-   <!-- <validationRules>
-        <fullName>Block_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Block_Native__c),
-REGEX(Block_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Block_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
-    </validationRules>-->
     <validationRules>
         <fullName>Block_NoOfDigits</fullName>
         <active>true</active>
@@ -1880,17 +1836,6 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Province__c</errorDisplayField>
         <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
     </validationRules>
-  <!--  <validationRules>
-        <fullName>City_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(City_Native__c),
-REGEX(City_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>City_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
-    </validationRules>-->
     <validationRules>
         <fullName>City_NoOfDigit</fullName>
         <active>true</active>
@@ -1981,17 +1926,6 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
     )</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>ZIPCODE is mandatory</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Prefecture_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Province_Native__c),
-REGEX(Province_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Province_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Province_is_mandatory</fullName>
