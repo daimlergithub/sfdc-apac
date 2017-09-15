@@ -72,6 +72,14 @@
                             </apex:selectList>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
+                    <!--Code Added by Sarath for Market discriminator-->        
+                        <!--<apex:pageBlockSectionItem >        
+                        <apex:outputPanel >     
+                           <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>&nbsp;&nbsp;&nbsp;&nbsp;        
+                         <apex:inputField value="{!objAccount.Market__c }" />       
+                         <!--<apex:inputText value="{!objAccount.Market__c }" disabled="true"/>     
+                         </apex:outputPanel>        
+                    </apex:pageBlockSectionItem> -->
                 </apex:pageBlockSection>
         <!--  All Markets Record Type Selection - End -->
                 
@@ -104,6 +112,7 @@
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />
                     <apex:inputField value="{!objAccount.Legal_Form_Position__c}" />
                     <apex:inputField value="{!objAccount.Company_Legal_Form_text__c}" />
+                    <apex:inputField value="{!objAccount.Market__c }" />
                     <apex:pageBlockSectionItem >
                     </apex:pageBlockSectionItem>
                     <apex:inputField value="{!objAccount.Individual_Home_Phone__c}" />
@@ -167,6 +176,7 @@
                     <br>  </br>
                     <apex:inputField value="{!objPersonAccount.Acquisition_Objective_Method__c}" />
                     <apex:inputField value="{!objPersonAccount.Details_of_Acquisition__c}" />
+                    <apex:inputField value="{!objPersonAccount.Market__c }" />
                 </apex:pageBlockSection>
        <!--  KOREA MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',market=='KR'),true,false)}">
@@ -216,13 +226,14 @@
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem> 
                    
-                  <apex:inputField value="{!objPersonAccount.Email__c}" />                    
+                  <apex:inputField value="{!objPersonAccount.Email__c}" /> 
+                  <apex:inputField value="{!objPersonAccount.Market__c }" />                    
                   <apex:inputField value="{!objPersonAccount.PersonBirthdate}"/>
                   <apex:inputField value="{!objPersonAccount.VIN__c}" />
                    <apex:inputField value="{!objPersonAccount.Company_Name__c}" rendered="{!if(RecordType == 'Person Account',True,false)}" />
                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />     
                   <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>         
-                 
+                          
               </apex:pageBlockSection>
         <!--  KOREA MARKET Person Account - End -->
        
@@ -276,14 +287,15 @@
                    <apex:inputField value="{!objAccount.Fax}" />
                    <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
                    <apex:inputField value="{!objAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/>        
-                   <apex:inputField value="{!objAccount.VIN__c}" />   
+                   <apex:inputField value="{!objAccount.VIN__c}" />
+                   <apex:inputField value="{!objAccount.Market__c }" />   
                 </apex:pageBlockSection>       
         <!--  KOREA MARKET Company Account - End -->
          
             <!--  THAILAND MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockTH" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'TH') ),true,false)}">
                    <apex:inputField value="{!objAccount.Salutation__c}" />
-                          
+                        
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
@@ -330,7 +342,7 @@
                  <apex:inputField value="{!objAccount.ID_Number__c}" style="width:160px"/>
                  <!-- //dhanamjaya-->
                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>     
-                   
+                  <apex:inputField value="{!objAccount.Market__c }" />  
                  
               </apex:pageBlockSection>
         <!--  THAILAND MARKET Person Account - End -->
@@ -372,7 +384,8 @@
                         </apex:outputPanel>                   
                     </apex:pageBlockSectionItem>                  
                                   
-                   <apex:inputField value="{!objAccount.Email__c}" />                             
+                   <apex:inputField value="{!objAccount.Email__c}" />  
+                    <apex:inputField value="{!objAccount.Market__c }" />                                         
                    <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/> 
                     <!-- dhanamjaya added code -->
                     <apex:inputField value="{!objAccount.Status__c}" /> 
@@ -463,7 +476,9 @@
                         
                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>            
                    <apex:inputField value="{!objAccount.ID_Number__c}" style="width:160px"/>        
-                        
+                              
+                        <apex:inputField value="{!objAccount.Market__c}"/>                              
+                    
               </apex:pageBlockSection>      
         <!--  Malaysia MARKET Person Account - End -->      
                 
@@ -538,7 +553,7 @@
                                                     
                    <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>       
                    <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" />       
-                            
+                        <apex:inputField value="{!objAccount.Market__c}"/>      
                         
                <!--      <apex:inputField value="{!objAccount.Fax}" /> -->      
                 </apex:pageBlockSection>            
@@ -616,6 +631,10 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Temp_Address__c}"/>                        
                     </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem >       
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
+                        <apex:inputField value="{!AddressObj.Market__c}"/>                              
+                    </apex:pageBlockSectionItem>
                      <apex:pageBlockSectionItem rendered="{!If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province_Native__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Province_Native__c}"/>                        
@@ -653,7 +672,11 @@
                         <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>
                      
                     </apex:pageBlockSectionItem>   
-               
+			   
+               <apex:pageBlockSectionItem >       
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
+                        <apex:inputField value="{!AddressObj.Market__c}"/>                              
+                    </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>
@@ -714,7 +737,10 @@
                         <apex:outputLabel value="Sub District"/>
                          <apex:inputText id="inpSubDistrict" value="{!subdistrict}"/>
                     </apex:pageBlockSectionItem>
-                    
+                <apex:pageBlockSectionItem >        
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
+                        <apex:inputField value="{!AddressObj.Market__c}"/>      
+                    </apex:pageBlockSectionItem>     
                 <apex:pageblockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
                     <apex:outputLabel value="ZIP"/>
                     <apex:selectList size="1" value="{!zip}" id="zip">
@@ -759,7 +785,11 @@
                         <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>       
                             
                     </apex:pageBlockSectionItem>        
-                    
+					
+                    <apex:pageBlockSectionItem >       
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
+                        <apex:inputField value="{!AddressObj.Market__c}"/>                              
+                    </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>      
@@ -998,8 +1028,8 @@
                 <!--    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                            
                         <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>      
                     </apex:Column>     -->
-					
-				<!--	<apex:Column headerValue="{!$ObjectType.Account.fields.Primary_Address_Display__c.Label}">                            
+                    
+                <!--    <apex:Column headerValue="{!$ObjectType.Account.fields.Primary_Address_Display__c.Label}">                            
                         <apex:outputField value="{!cr.Primary_Address_Display__c}"/>      
                     </apex:Column>-->
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                           
@@ -1009,8 +1039,8 @@
                         <apex:outputField value="{!cr.Email__c}"/>      
                     </apex:Column>      
                      <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">
-						<apex:outputField value="{!cr.UCID__c}"/>
-					</apex:Column>        
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>        
                      </apex:pageBlockTable>     
                             
                      <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Company'}">      
@@ -1034,11 +1064,11 @@
                     </apex:Column>      
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
                         <apex:outputField value="{!cr.Email__c}"/>
-						
+                        
                     </apex:Column>      
                       <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">
-						<apex:outputField value="{!cr.UCID__c}"/>
-					</apex:Column>   
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>   
                                             
                 </apex:PageBlockTable>      
                      </apex:pageBlockSection>       
