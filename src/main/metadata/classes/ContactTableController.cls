@@ -327,7 +327,7 @@ public class ContactTableController
                 hmCountryCode=localhmPhone.substring(0,3); 
                 hmphoneNumber=localhmPhone.length()>3?localhmPhone.substring(3,localhmPhone.length()):hmCountryCode;
             }else
-            {system.debug('im here');ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Cannot save too short'));}
+            {ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Cannot save too short'));}
             if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3))
            {
                
