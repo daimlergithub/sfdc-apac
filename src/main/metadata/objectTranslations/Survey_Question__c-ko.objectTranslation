@@ -5,6 +5,11 @@
         <value>설문 조사 질문</value>
     </caseValues>
     <fields>
+        <label><!-- Question Ref --></label>
+        <name>Campaign_Question_Ref__c</name>
+        <relationshipLabel><!-- Survey Questions --></relationshipLabel>
+    </fields>
+    <fields>
         <label>선택 항목</label>
         <name>Choices__c</name>
     </fields>
@@ -47,10 +52,6 @@
         <label>설문 조사</label>
         <name>Survey__c</name>
         <relationshipLabel>설문 조사 질문</relationshipLabel>
-    </fields>
-    <fields>
-        <label>총 응답 수</label>
-        <name>Total_Responses__c</name>
     </fields>
     <fields>
         <label>유형</label>
