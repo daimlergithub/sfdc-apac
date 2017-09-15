@@ -6,4 +6,5 @@
     <tab>standard-Dashboard</tab>
     <tab>standard-Lead</tab>
     <tab>Tasks</tab>
+    <tab>ListOfFeatures</tab>
 </CustomApplication>
