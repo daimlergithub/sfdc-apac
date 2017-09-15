@@ -14575,6 +14575,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>						  
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
@@ -19471,6 +19498,33 @@
             </values>
             <values>
                 <fullName>VOGUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
