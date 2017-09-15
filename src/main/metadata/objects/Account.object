@@ -21580,11 +21580,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>AMG GT</fullName>
                 <default>false</default>
             </values>
-            <values>
-											 
-										
-					 
-					
+			<values>
+-                <fullName>AMG GT R</fullName>
+-                <default>false</default>
+-           </values>
+            <values>					
                 <fullName>B-Class</fullName>
                 <default>false</default>
             </values>
@@ -50933,11 +50933,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>AMG GT</fullName>
                 <default>false</default>
             </values>
-            <values>
-											 
-										
-					 
-					
+			<values>
+-                <fullName>AMG GT R</fullName>
+-                <default>false</default>
+-            </values>
+            <values>	
                 <fullName>B-Class</fullName>
                 <default>false</default>
             </values>
