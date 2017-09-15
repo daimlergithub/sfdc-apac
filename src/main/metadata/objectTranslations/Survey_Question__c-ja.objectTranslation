@@ -5,6 +5,11 @@
         <value>サーベイ質問</value>
     </caseValues>
     <fields>
+        <label><!-- Question Ref --></label>
+        <name>Campaign_Question_Ref__c</name>
+        <relationshipLabel><!-- Survey Questions --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Choices --></label>
         <name>Choices__c</name>
     </fields>
@@ -47,10 +52,6 @@
         <label>対象サーベイ</label>
         <name>Survey__c</name>
         <relationshipLabel>サーベイ質問</relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Total Responses --></label>
-        <name>Total_Responses__c</name>
     </fields>
     <fields>
         <label><!-- Type --></label>

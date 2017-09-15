@@ -13,10 +13,10 @@ public class AccountHelperTH{
     **  Created By: Mohammed Touseef Ahmed
     **  Date: 2017-20-02
     **/
-        public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-    public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-       public static Id retailPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-    public static Id retailCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+    public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
+    public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+    public static Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
+    public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
@@ -534,7 +534,7 @@ public class AccountHelperTH{
             {
                 dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:usr.Contact.Account.Dealer_ND_Code__c];
             }
-            system.debug('dealergrpList>>>>' + dealergrpList);
+            
             if(!dealergrpList.isEmpty() && dealergrpList != null)
             {
                 for(Group g : dealergrpList)
@@ -542,7 +542,7 @@ public class AccountHelperTH{
                    dealerGroupMap.put(g.Name, g.Id);
                 }
             }
-            system.debug('dealerGroupMap>>>' + dealerGroupMap);
+            
             for(Account shareacc : accLst)
             {
                 if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c) != null && shareacc.OwnerId != usr.Id)
@@ -556,7 +556,7 @@ public class AccountHelperTH{
                     insertAccshList.add(accshr);
                 }
             }
-            system.debug('insertAccshList>>>>' + insertAccshList);
+             
             if(!insertAccshList.isEmpty() && insertAccshList != null)
             {
                 insert insertAccshList;
@@ -688,7 +688,8 @@ public class AccountHelperTH{
             list<Account> acclist = new list<Account>();
             list<Account_Link__c> acclinklist = new list<Account_Link__c>();
             set<id> AccIds = new set<id>();
-            Id accountinkIndividualCustomerExternalLinkId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
+            Id accountinkIndividualCustomerExternalLinkId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Individual Customer External Link');
+            
             for(Account acc : TriggerNew)
             {
                 AccIds.add(acc.id);              
