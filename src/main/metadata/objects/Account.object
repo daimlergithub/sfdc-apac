@@ -4209,6 +4209,11 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -18734,6 +18739,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
@@ -24830,6 +24839,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
@@ -30869,6 +30882,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
@@ -36742,6 +36759,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -42863,6 +42884,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
