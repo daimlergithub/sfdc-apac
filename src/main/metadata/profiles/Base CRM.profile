@@ -211,26 +211,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__DataAssessment</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Insights</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -27983,10 +27963,7 @@
         <tab>Campaign_Lead__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    <tabVisibilities>
-        <tab>Campaign_Member__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
+    
     <tabVisibilities>
         <tab>Car_Model__c</tab>
         <visibility>DefaultOff</visibility>
@@ -28068,11 +28045,7 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AddDirectMessageMembers</name>
-    </userPermissions>
-    <userPermissions>
+     <userPermissions>
         <enabled>true</enabled>
         <name>AllowUniversalSearch</name>
     </userPermissions>
@@ -28118,10 +28091,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CreateCustomizeReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>CreateReportFolders</name>
     </userPermissions>
     <userPermissions>
@@ -28152,11 +28121,7 @@
         <enabled>true</enabled>
         <name>EditTask</name>
     </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EnableCommunityAppLauncher</name>
-    </userPermissions>
-    <userPermissions>
+       <userPermissions>
         <enabled>true</enabled>
         <name>ExportReport</name>
     </userPermissions>
@@ -28170,7 +28135,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>RemoveDirectMessageMembers</name>
+        <name>LightningConsoleAllowedForUser</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
