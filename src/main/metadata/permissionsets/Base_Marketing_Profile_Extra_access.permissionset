@@ -168,19 +168,7 @@
         <application>standard__Content</application>
         <visible>false</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Insights</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
+   <applicationVisibilities>
         <application>standard__Marketing</application>
         <visible>false</visible>
     </applicationVisibilities>
