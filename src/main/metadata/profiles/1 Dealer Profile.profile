@@ -3219,7 +3219,7 @@
 	 <fieldPermissions>
         <editable>True</editable>
         <field>Account.Market__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4379,7 +4379,7 @@
 	<fieldPermissions>
         <editable>True</editable>
         <field>Account_Link__c.Market__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5042,9 +5042,9 @@
         <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Address__c.Market__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
