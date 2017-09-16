@@ -3,9 +3,9 @@
     <customButtons>Send_to_JPOS_Dealer</customButtons>
     <customButtons>Send_to_SPO_Dealers</customButtons>
     <customButtons>Merge</customButtons>
-    <customButtons>New_Inquiry</customButtons>  
+    <customButtons>New_Inquiry</customButtons>
     <customButtons>New_MB_Complaint</customButtons>
-	<customButtons>New_Case_Dealer</customButtons>
+    <customButtons>New_Case_Dealer</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
@@ -109,6 +109,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
@@ -223,7 +227,7 @@
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <height>200</height>
                 <page>SelectAddress</page>
@@ -476,6 +480,10 @@
                 <behavior>Readonly</behavior>
                 <field>Home_Phone_Last_Modified_Date2__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -589,9 +597,9 @@
         <relatedList>Lead__c.Company_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>NewCase</excludeButtons>
         <customButtons>New_Inquiry</customButtons>
         <customButtons>New_MB_Complaint</customButtons>
+        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
@@ -615,7 +623,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>LogCall</excludeButtons>
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>

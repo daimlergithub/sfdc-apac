@@ -59,6 +59,10 @@
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -496,15 +500,15 @@
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
         <fields>Case_Dealer__c</fields>
-		<fields>Case_Type__c</fields>
-        <fields>Customer_Request__c</fields> 
+        <fields>Case_Type__c</fields>
+        <fields>Customer_Request__c</fields>
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
-	 <relatedLists>
+    <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

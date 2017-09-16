@@ -55,6 +55,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -75,6 +79,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Visit_OptOut__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Opt_In_Mobile__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -152,6 +160,10 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Agreement_Info_Processing__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contract_Count__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -177,7 +189,8 @@
                 <field>Retail_Address_Line_1__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Retail_Address_Line_3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -263,9 +276,13 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Name</fields>
+        <fields>Retail_Company_Name__c</fields>
+    </miniLayout>
     <relatedLists>
-        <excludeButtons>NewTask</excludeButtons>
         <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -300,8 +317,4 @@
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
-	<miniLayout>
-        <fields>Name</fields>
-       <fields>Retail_Company_Name__c</fields>
-   </miniLayout>
 </Layout>
