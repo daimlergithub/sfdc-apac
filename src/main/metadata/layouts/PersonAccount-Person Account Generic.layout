@@ -75,6 +75,10 @@
                 <behavior>Edit</behavior>
                 <field>PersonHasOptedOutOfEmail</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
