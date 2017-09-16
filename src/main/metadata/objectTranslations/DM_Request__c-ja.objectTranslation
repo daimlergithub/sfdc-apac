@@ -55,10 +55,6 @@
         <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Car Series --></label>
-        <name>Car_Series__c</name>
-    </fields>
-    <fields>
         <label>ケース番号</label>
         <lookupFilter>
             <errorMessage>本カタログリクエストと同じ顧客に紐付くケースを選択して下さい。</errorMessage>

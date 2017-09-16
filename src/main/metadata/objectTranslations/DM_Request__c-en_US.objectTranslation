@@ -59,10 +59,6 @@
         <relationshipLabel><!-- DM Request --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Car Series --></label>
-        <name>Car_Series__c</name>
-    </fields>
-    <fields>
         <label><!-- Case Number --></label>
         <lookupFilter>
             <errorMessage><!-- Please select Case that is linked to the same account as this DM Request. --></errorMessage>
