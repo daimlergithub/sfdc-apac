@@ -28181,6 +28181,14 @@
         <enabled>true</enabled>
         <name>ViewPublicDashboards</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>EmailMass</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>EmailSingle</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewPublicReports</name>
