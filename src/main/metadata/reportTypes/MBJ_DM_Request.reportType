@@ -53,11 +53,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Car_Series__c</field>
-            <table>DM_Request__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Case_Number__c</field>
             <table>DM_Request__c</table>
         </columns>
