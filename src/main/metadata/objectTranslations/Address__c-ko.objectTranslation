@@ -430,10 +430,6 @@
         <name>AddressLine2_NoOfDigit</name>
     </validationRules>
     <validationRules>
-        <errorMessage>주소란 1을 입력하세요</errorMessage>
-        <name>Address_Line_1_is_mandatory</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- Address Type is required. --></errorMessage>
         <name>Address_Type_Required</name>
     </validationRules>

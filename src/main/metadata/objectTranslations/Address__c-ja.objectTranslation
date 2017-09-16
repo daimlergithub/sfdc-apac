@@ -434,10 +434,6 @@
         <name>AddressLine2_NoOfDigit</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Address_Line_1__c is Mandatory --></errorMessage>
-        <name>Address_Line_1_is_mandatory</name>
-    </validationRules>
-    <validationRules>
         <errorMessage>住所区分を入力して下さい。</errorMessage>
         <name>Address_Type_Required</name>
     </validationRules>

@@ -1581,10 +1581,6 @@
     </layouts>
     <startsWith>Consonant</startsWith>
     <validationRules>
-        <errorMessage><!-- Must input conversion: Brand-Series-Type. --></errorMessage>
-        <name>Format_DM_Material_Name</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- Label Printing Name should be less than or equal to 23 letters. --></errorMessage>
         <name>LabelPrint_NoOfDigit</name>
     </validationRules>

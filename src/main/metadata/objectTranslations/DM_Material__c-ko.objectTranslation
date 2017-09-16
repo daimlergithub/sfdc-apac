@@ -1577,10 +1577,6 @@
     </layouts>
     <nameFieldLabel><!-- DM Name --></nameFieldLabel>
     <validationRules>
-        <errorMessage><!-- Must input conversion: Brand-Series-Type. --></errorMessage>
-        <name>Format_DM_Material_Name</name>
-    </validationRules>
-    <validationRules>
         <errorMessage>라벨 인쇄 이름은 23자 이하여야 합니다</errorMessage>
         <name>LabelPrint_NoOfDigit</name>
     </validationRules>
