@@ -138,6 +138,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Country_Field_MY</fullName>
+        <field>Country__c</field>
+        <literalValue>Malaysia</literalValue>
+        <name>Update Country Field MY</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Country_Field_TH</fullName>
         <field>Country__c</field>
         <literalValue>Thailand</literalValue>
@@ -170,6 +179,15 @@
         <field>Preferred_Language__c</field>
         <literalValue>Korean</literalValue>
         <name>Update Preferred Language Field KR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Preferred_Language_Field_MY</fullName>
+        <field>Preferred_Language__c</field>
+        <literalValue>Malaysia</literalValue>
+        <name>Update Preferred Language Field MY</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -398,6 +416,21 @@ Modify Reason:
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for KR</description>
         <formula>ISPICKVAL($User.Market__c,&apos;KR&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Preferred Language and Country MY</fullName>
+        <actions>
+            <name>Update_Country_Field_MY</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Preferred_Language_Field_MY</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for MY</description>
+        <formula>ISPICKVAL($User.Market__c,&apos;MY&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Preferred Language and Country TH</fullName>

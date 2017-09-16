@@ -24,6 +24,13 @@ window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Name.Label}"/>   
                 <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.prefix)}/{!acclnkdealer.id}')">{!acclnkdealer.Name}</apex:outputlink>
            </apex:pageBlockSectionItem>
+           
+         <!--Sarath added the code here-->               
+         <apex:pageBlockSectionItem >                 
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Market__c.Label}"/>
+                <apex:inputField value="{!acclnkdealer.Market__c}"/>  
+         </apex:pageBlockSectionItem>
+         <!--Ended-->
               
            <apex:pageBlockSectionItem >                 
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Comments__c.Label}"/>

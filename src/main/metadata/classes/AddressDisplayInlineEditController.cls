@@ -51,7 +51,7 @@ public class AddressDisplayInlineEditController {
         addressobj = new Address__c();
         User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
-         
+        AddressObj.Market__c=market; 
         openPanal = true;
         if(market == 'KR'){
             openPanal = true;
