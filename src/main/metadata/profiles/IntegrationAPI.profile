@@ -12537,11 +12537,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DM_Request__c.Car_Series__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DM_Request__c.Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
