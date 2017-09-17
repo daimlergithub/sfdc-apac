@@ -32,10 +32,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Company_Name_Native_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Customer_Lifecycle_Phase__c</field>
             </layoutItems>
             <layoutItems>

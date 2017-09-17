@@ -41,10 +41,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Salutation__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing__c</field>
             </layoutItems>
             <layoutItems>
@@ -60,6 +56,10 @@
                 <field>Monthly_Income__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Race__c</field>
+            </layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Race__c</field>
             </layoutItems>
@@ -89,9 +89,21 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>UCID__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>ID_Type__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>ID_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -99,7 +111,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name__c</field>
-            </layoutItems>
+            </layoutItems>			
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>

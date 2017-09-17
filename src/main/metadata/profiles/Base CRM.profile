@@ -2773,11 +2773,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Branch_name_Native__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Branch_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2884,36 +2879,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Company_Fiscal_Year_Start__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Company_Legal_Form_Native__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Company_Legal_Form__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Company_Legal_Form_text_Native__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Company_Legal_Form_text__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Company_Name_Native_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Company_Name_Native_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3454,11 +3419,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dealer_Legal_Entity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Dealer_Legal_NativeCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4067,11 +4027,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.FirstName_Native_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Account.First_Consent_Date__c</field>
         <readable>true</readable>
@@ -4264,11 +4219,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.KaKao_Talk_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.LastName_Native_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5873,11 +5823,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Retail_Company_Name_Native1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account_Link__c.Retail_Company_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5973,11 +5918,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Retail_FirstName_Native__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account_Link__c.Retail_FirstName__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5994,11 +5934,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Foundation_Month__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Retail_Full_Name_Native__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6034,11 +5969,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_LastModifiedDate__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Retail_LastName_Native__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6467,19 +6397,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.Address_Line_1_Native__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Address_Line_1__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.Address_Line_2_Native__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6502,29 +6422,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.Block_Native__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Block__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.City_Native__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.City__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.Company_Name_Native__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6544,11 +6449,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Address__c.Delivery_Point_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.District_Native__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6610,11 +6510,6 @@
         <editable>true</editable>
         <field>Address__c.Preferred__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.Province_Native__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

@@ -237,20 +237,25 @@
                         </apex:outputText>
                     </apex:column>
                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}" rendered="{!IF((market=='MY' && $Permission.Generic),true,false)}">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
                         <apex:outputText value="{!row.Address_Line_3__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
                     </apex:column>
                     
-                   <!-- <apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}" >
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}" rendered="{!IF((market=='TH'),True,false)}">
                         <apex:outputText value="{!row.Sub_District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
                     
-                     <apex:column headerValue="District" >
+                     <apex:column headerValue="District" rendered="{!IF((market=='TH'),True,false)}">
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
-                    </apex:column>-->
+                    </apex:column>
+					
+					<apex:column headerValue="City" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
+                        <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
                     
                     <apex:column headerValue="State/Province" >
                         <apex:outputField value="{!row.Province__c}" style="width:10%; white-space:none;">
@@ -459,7 +464,7 @@
                      
                 </apex:pageBlockSection>
                 
-                 <apex:pageBlockSection title="Address Information" columns="2" id="pbsMY" rendered="{!IF((market=='MY' && $Permission.Generic),true,false)}">       
+                 <apex:pageBlockSection title="Address Information" columns="2" id="pbsMY" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">       
                                                 
                     <apex:pageBlockSectionItem >        
                             

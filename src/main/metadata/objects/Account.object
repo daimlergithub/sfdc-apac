@@ -58982,10 +58982,12 @@ REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{9}"),REGEX(Fax, "[+0-9]{3}[0-9]{2}[0-9]{10}")
 REGEX(Fax, "[+0-9]{3}[0-9]{1}[0-9]{9}"),REGEX(Fax, "[+0-9]{3}[0-9]{1}[0-9]{10}")))),
 AND(
 $Profile.Name != 'IntegrationAPI',
-LEFT (Fax, 3)!= "+60",
+LEFT (Fax, 3) != "+60",
 NOT(ISBLANK(Fax)), MD__c='MY', $Permission.MYGeneric ,
-NOT(REGEX(Fax, "[+0-9]{3}[0-9]{10}"))
-))</errorConditionFormula>
+NOT(OR(REGEX(Fax, "[+0-9]{3}[0-9]{7}"),REGEX(Fax, "[+0-9]{3}[0-9]{8}"),
+REGEX(Fax, "[+0-9]{3}[0-9]{9}"),REGEX(Fax, "[+0-9]{3}[0-9]{10}"),REGEX(Fax, "[+0-9]{3}[0-9]{7}"),REGEX(Fax, "[+0-9]{3}[0-9]{8}"),
+REGEX(Fax, "[+0-9]{3}[0-9]{9}"),REGEX(Fax, "[+0-9]{3}[0-9]{10}")))))
+</errorConditionFormula>
         <errorMessage>Fax must be in any of the following formats : 
 1. Country code + Area code (x Or xx) And Phone Number (7 Or 8 Or 9 Or 10 ) Digits
 2. for int: +XX-XXXXXXXXXX</errorMessage>
@@ -59200,7 +59202,9 @@ AND(
 $Profile.Name != 'IntegrationAPI', 
 LEFT (Individual_Home_Phone__c, 3)!= "+60", 
 NOT(ISBLANK(Individual_Home_Phone__c)), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), 
-NOT(REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{10}"))))</errorConditionFormula>
+NOT(OR(REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{10}"),REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{9}")
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}"),REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{7}")
+))))</errorConditionFormula>
         <errorMessage>Home Phone must be in any of the following formats : 
 1. Country code + Area code (x Or xx) And Phone Number (7 Or 8 Or 9 Or 10 ) Digits
 2. for int: +XX-XXXXXXXXXX</errorMessage>
@@ -59514,12 +59518,12 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
 $Profile.Name != 'IntegrationAPI', 
 LEFT ( Mobile__c, 3) = "+60", 
 NOT(ISBLANK(Mobile__c)), 
-NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"), REGEX(Mobile__c, "[+0-9]{3}[0-9]{1}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{7}"))), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), 
+NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"), REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{7}"))), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), 
 AND( 
 $Profile.Name != 'IntegrationAPI', 
 LEFT ( Mobile__c, 3)!= "+60", 
 NOT(ISBLANK(Mobile__c)), 
-NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"))), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
+NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{7}"))), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
 1. Country Code + Number(xxxxxxxxxx)</errorMessage>
     </validationRules>
@@ -59856,7 +59860,7 @@ AND(
 $Profile.Name != 'IntegrationAPI', 
 LEFT (Work_Phone__c, 3)!= "+60", 
 NOT(ISBLANK(Work_Phone__c)), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), 
-NOT(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{10}")) 
+NOT(OR(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{10}"),REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{9}"),REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{8}"),REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{7}") )) 
 ))</errorConditionFormula>
         <errorMessage>Work Phone must be in any of the following formats : 
 1. Country code + Area code (x or xx) And Phone Number (7 Or 8 Or 9 or 10 ) Digits
