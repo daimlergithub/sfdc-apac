@@ -407,25 +407,26 @@
                 <apex:pageBlockSection id="PersonAccBlockMY" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'MY'),$Permission.MYGeneric ),true,false)}">        
                         
                             
-                       <apex:pageBlockSectionItem >                         
+                  <!--  <apex:pageBlockSectionItem >                         
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Salutation.Label}"/>      
                         <apex:inputField value="{!objContact.Salutation}" />        
-                    </apex:pageBlockSectionItem>                                                 
+                    </apex:pageBlockSectionItem>   -->                                              
                             
-                    <apex:pageBlockSectionItem >        
+                          
+                    <!--Below line was added by Sarath for market Discriminator-->      
+                                           
+                    <apex:pageBlockSectionItem >                        
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.FirstName.Label}"/>       
+                        <apex:inputText value="{!objAccount.FirstName}" />          
+                    </apex:pageBlockSectionItem>  
+					<apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>        
                         <apex:outputPanel styleClass="requiredInput" layout="block">        
                                 
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>       
                             <apex:inputText value="{!objAccount.LastName}" />       
                         </apex:outputPanel>     
-                    </apex:pageBlockSectionItem>        
-                    <!--Below line was added by Sarath for market Discriminator-->      
-                                           
-                    <apex:pageBlockSectionItem >                        
-                        <apex:outputLabel value="{!$ObjectType.Account.fields.FirstName.Label}"/>       
-                        <apex:inputText value="{!objAccount.FirstName}" />          
-                    </apex:pageBlockSectionItem>                                                        
+                    </apex:pageBlockSectionItem>  					
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />       
                         <apex:outputPanel >     

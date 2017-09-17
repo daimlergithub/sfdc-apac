@@ -16,27 +16,27 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf
     {            
         /* any code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */
         
-          if ((Trigger.isBefore && Trigger.isUpdate)||(Trigger.isBefore && Trigger.isInsert)){
+          if ((isBefore && isUpdate)||(isBefore && isInsert)){
             
             AddressHelperTH.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
             }
             
-            if ((Trigger.isAfter && Trigger.isUpdate)){
+            if ((isAfter && isUpdate)){
                 
                 AddressHelperTH.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
             }
             
-             if ((Trigger.isAfter && Trigger.isDelete)){
+             if ((isAfter && isDelete)){
             
             AddressHelperTH.updateAccountonDeletion(Trigger.Old);
             }
         
-           if(trigger.isBefore && trigger.isInsert)
+           if(isBefore && isInsert)
             {           
                 AddressHelperTH.updateAddressOnAccount(trigger.new);
             }
             
-            if(trigger.isBefore && trigger.isUpdate)
+            if(isBefore && isUpdate)
             {            
                 AddressHelperTH.updateAddressOnAccount(trigger.new);
             }
