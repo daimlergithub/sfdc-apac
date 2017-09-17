@@ -102,8 +102,12 @@ public class AddressSearchValidationController
     public boolean next{get;set;}       
     public boolean previous{get;set;}       
     /* SN20170907- END of the Variable and list created as part of Pagination*/
-    
-    // COnstructor
+    /*SN20171709 - Added rendered condition*/
+    public boolean hAreaBoolean{get;set;}
+    Public boolean wAreaBoolean{get;set;}
+    Public boolean fAreaBoolean{get;set;}
+    /*Sn20171709 - end*/
+        // COnstructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
         
@@ -146,6 +150,11 @@ public class AddressSearchValidationController
         lstMobileAreaCode=new List<SelectOption>();     
         lstCountryCode=new List<SelectOption>();        
         lstPhoneAreaCode=new List<SelectOption>();      
+        
+            hAreaBoolean=false;
+            wAreaBoolean=false;
+            fAreaBoolean=false;  
+         
         for(PhoneAreaCode__c pac : [select Country_Code__c,Mobile_Area_Code__c,Phone_Area_Code__c from PhoneAreaCode__c where Phone_Area_Code__c!=''])      
         {       
              lstPhoneAreaCode.add(new SelectOption(pac.Phone_Area_Code__c,pac.Phone_Area_Code__c));     
@@ -186,7 +195,8 @@ public class AddressSearchValidationController
         last=false;     
         previous=false;     
         first=false;        
-        next=false;     
+        next=false;  
+        
         //SN20170907 
     }
     //Fills Address Type picklist, Introduced for TH market - Start
@@ -218,7 +228,8 @@ public class AddressSearchValidationController
     //Fills Province Picklist based on Language selected
       public void LoadProvince()
       {  
-           if(LanguageSelected=='' || LanguageSelected ==null )     
+          
+        if(LanguageSelected=='' || LanguageSelected ==null )     
               LanguageSelected ='English';
         lstProvince=new List<SelectOption>();
         Set<string> setProvinces = new set<string>();
@@ -2710,15 +2721,15 @@ If the user is Saving  same address which matches the fields returned by toleran
                                                                                             
                     if(addressobj.Province__c == null)      
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'State/Province is Mandatory.'));        
                         Validation = TRUE;      
                     }       
                             
-                    if(addressobj.District__c == null )     
-                    {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.'));         
-                        Validation = TRUE;                              
-                    }       
+                          
+							
+																																	
+																		
+							
                         
                             
                     if(addressobj.Address_Line_2__c == null )       
@@ -2854,5 +2865,16 @@ If the user is Saving  same address which matches the fields returned by toleran
                 
         }       
                             
+    }
+    /*SN20171209 */
+    public void checkcountrycode(){
+            wAreaBoolean=false;
+            fAreaBoolean=false;
+            hAreaBoolean=false;
+           
+            if(String.isNOTBlank(faxCountryCode) ? faxCountryCode!='+60'?true:false:false) fAreaBoolean=true;
+            if(String.isNOTBlank(hmCountryCode) ? hmCountryCode!='+60'?true:false:false) hAreaBoolean=true;
+             if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!='+60'?true:false :false) wAreaBoolean=true;
+           
     }
     }
