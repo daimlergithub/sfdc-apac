@@ -37,6 +37,19 @@
                        <th>{!$Label.Last_Modified_By}</th>        
                        <th>{!$Label.Last_Modified_Date}</th>     
                    </tr>
+                  <!--Sarath added extra row to display market over page-->     
+                   <tr>             
+                       <th style="text-align: Right;">Market</th>               
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
+                           <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
+                       </td>                                
+                       <td></td>        
+                       <td></td>        
+                       <td></td>        
+                   </tr>        
+                   <!--Display market Lines end here-->     
+                    
+                   
                    
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Mobile}</th>       
@@ -204,6 +217,7 @@
                        <td><apex:outputField value="{!ParAcc.Work_Fax_Last_Modified_By__c}" /></td>
                        <td><apex:outputField value="{!ParAcc.Fax2_Last_Modified_Date__c}" /></td>
                    </tr> 
+                   
                </table>    
             </apex:pageBlock> 
             <apex:pageBlock id="myTableKR" rendered="{!If(ParAcc.MD__c=='KR',true,false)}">
@@ -216,6 +230,18 @@
                        <th>{!$Label.Last_Modified_By}</th>        
                        <th>{!$Label.Last_Modified_Date}</th>     
                    </tr>
+                   
+                   <!--Sarath added extra row to display market over page-->        
+                   <tr>             
+                       <th style="text-align: Right;">Market</th>               
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
+                           <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
+                       </td>                                
+                       <td></td>        
+                       <td></td>        
+                       <td></td>        
+                   </tr>        
+                   <!--Display market Lines end here-->
                    
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Mobile}</th>       
@@ -437,6 +463,17 @@
                        <th>{!$Label.Last_Modified_By}</th>        
                        <th>{!$Label.Last_Modified_Date}</th>     
                    </tr>
+                   <!--Sarath added extra row to display market over page-->        
+                   <tr>             
+                       <th style="text-align: Right;">Market</th>               
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
+                           <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
+                       </td>                                
+                       <td></td>        
+                       <td></td>        
+                       <td></td>        
+                   </tr>        
+                   <!--Display market Lines end here--> 
                    
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Mobile}</th>       
@@ -560,7 +597,7 @@
                </table>    
              </apex:pageBlock> 
                  <!-- MT20170909 - This code is to view the Contact related date-->     
-                <apex:pageBlock id="myTableMY" rendered="{!If((ParAcc.MD__c='MY' && $Permission.Generic),true,false)}">      
+                <apex:pageBlock id="myTableMY" rendered="{!If((ParAcc.MD__c='MY' && $Permission.MYGeneric),true,false)}">      
                     
                 <table style="width:100%" border="1">                       
                    <tr>             
@@ -571,7 +608,15 @@
                        <th>{!$Label.Last_Modified_Date}</th>            
                    </tr>        
                    <!--Sarath added extra row to display market over page-->        
-                    
+                   <tr>        
+                       <th style="text-align: Right;">Market</th>        
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>
+                       </td>                           
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                   </tr>  
                    <!--Display market Lines end here-->     
                         
                    <tr>             

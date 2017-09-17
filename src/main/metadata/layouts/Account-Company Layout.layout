@@ -60,7 +60,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name_Native_1__c</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Legal_Form__c</field>
@@ -127,6 +127,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
@@ -200,10 +204,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vat_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CDM_UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -366,6 +366,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Old_UCID__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

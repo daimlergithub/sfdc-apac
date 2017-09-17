@@ -32,7 +32,7 @@
     <fields>
         <label><!-- SurveyTaker --></label>
         <name>SurveyTaker__c</name>
-        <relationshipLabel><!-- Survey Question Responses (SurveyTaker) --></relationshipLabel>
+        <relationshipLabel><!-- Survey Question Responses --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Survey Question Id --></label>
@@ -43,11 +43,6 @@
         <label><!-- Survey Question --></label>
         <name>Survey_Question__c</name>
         <relationshipLabel><!-- Survey Question Responses (Survey Question) --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Survey Taken Id --></label>
-        <name>Survey_Taken_Id__c</name>
-        <relationshipLabel><!-- Survey Question Responses (Survey Taken Id) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>
