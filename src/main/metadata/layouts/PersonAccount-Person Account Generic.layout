@@ -59,11 +59,7 @@
                 <behavior>Edit</behavior>
                 <field>Race__c</field>
             </layoutItems>
-			<layoutItems>
-                <behavior>Edit</behavior>
-                <field>Race__c</field>
-            </layoutItems>
-            <layoutItems>
+		    <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Opt_In_SMS__c</field>
             </layoutItems>

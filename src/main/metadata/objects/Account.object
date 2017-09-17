@@ -59202,9 +59202,9 @@ AND(
 $Profile.Name != 'IntegrationAPI', 
 LEFT (Individual_Home_Phone__c, 3)!= "+60", 
 NOT(ISBLANK(Individual_Home_Phone__c)), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), 
-NOT(OR(REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{10}"),REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{9}")
-REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}"),REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{7}")
-))))</errorConditionFormula>
+NOT(OR(REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{10}"),REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{9}"), 
+REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}"),REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{7}")))))
+</errorConditionFormula>
         <errorMessage>Home Phone must be in any of the following formats : 
 1. Country code + Area code (x Or xx) And Phone Number (7 Or 8 Or 9 Or 10 ) Digits
 2. for int: +XX-XXXXXXXXXX</errorMessage>
