@@ -117,6 +117,7 @@ public class AddressSearchValidationController
         public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
         objPersonAccount= new Account();
+		objContact=new contact();
         AddressObj = new Address__c();
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
@@ -2155,9 +2156,36 @@ If the user is Saving  same address which matches the fields returned by toleran
      Online de duplication for MY Market  
 
     */   
-    public void onLineDeduplicationMY(){        
-    
-    if(true){
+    public void onLineDeduplicationMY(){ 
+	displayAccList.clear(); 	
+    Boolean errorFlag=true;
+	boolean mandatoryFlag=True;
+	boolean recordCheck=true;
+	if(Recordtype!='Person Account' && Recordtype!='Company'){
+				recordCheck=false;
+				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Recordtype first for search'));       
+	}
+	
+	if(recordCheck && Recordtype== 'Person Account'?string.isblank(objAccount.firstName) || string.isblank(objAccount.Lastname):false){
+		mandatoryFlag=false;
+		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search First Name, Last Name and any of the contact information or ID number is required'));       
+	}
+	if(recordCheck && mandatoryFlag &&  Recordtype=='Company'? string.isblank(objAccount.name):false){
+		mandatoryFlag=false;
+		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Company Search Account Name and any of the contact information '));       
+	}
+	if(recordCheck && mandatoryFlag){
+	
+	if(Recordtype=='Person Account' && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null && objAccount.ID_Number__c==null){        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search First Name, Last Name and any of the contact information or ID number is required'));       
+					errorFlag=false;
+		}  
+	 if(Recordtype=='Company' && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null ){        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Company Search Account Name and any of the contact information  is required'));       
+					errorFlag=false;
+	 }
+	}
+    if(errorFlag && mandatoryFlag && recordCheck){
     firstsave=true;     
     secondsave=false;       
                 
@@ -2328,7 +2356,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                     if(recordType == 'Company')                     
                         recordTypeId =RecordTypeAccessService.getRecordTypeId('Account','Company');      
                     else        
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');       
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account'); 
+												
                     system.debug('enter 1 :'+Validation);       
                     objAccount.RecordTypeId = recordTypeId;         
                     ValidateAddressMY();        
