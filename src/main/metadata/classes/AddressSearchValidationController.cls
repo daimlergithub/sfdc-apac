@@ -895,7 +895,8 @@ public class AddressSearchValidationController
         }  
     } 
     //SN20170907        
-      displayAccList.clear();      
+      displayAccList.clear();    
+		
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -2556,9 +2557,14 @@ If the user is Saving  same address which matches the fields returned by toleran
             }       
             catch(DMLException e)       
             {       
-                    
-                refreshPage = false;        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));          
+                  
+                refreshPage = false;   
+				if(e.getdmlMessage(0).contains('bad field') ){
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please remove the firstname , lastname  for saving company account and account name for person account'));
+                }
+                else{  				
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0))); 
+				}				
                 return false;       
             }       
             return false;       
