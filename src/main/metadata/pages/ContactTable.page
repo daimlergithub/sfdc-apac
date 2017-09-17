@@ -597,7 +597,7 @@
                </table>    
              </apex:pageBlock> 
                  <!-- MT20170909 - This code is to view the Contact related date-->     
-                <apex:pageBlock id="myTableMY" rendered="{!If((ParAcc.MD__c='MY' && $Permission.Generic),true,false)}">      
+                <apex:pageBlock id="myTableMY" rendered="{!If((ParAcc.MD__c='MY' && $Permission.MYGeneric),true,false)}">      
                     
                 <table style="width:100%" border="1">                       
                    <tr>             

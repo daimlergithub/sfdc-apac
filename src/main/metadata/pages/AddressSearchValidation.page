@@ -1,5 +1,5 @@
 <apex:page standardController="Account" extensions="AddressSearchValidationController" >
-   
+ 
 
     <apex:pageMessages id="msgs" escape="False" />
     <apex:includeScript value="/support/console/20.0/integration.js"/>
@@ -430,10 +430,14 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />       
                         <apex:outputPanel >     
                         <apex:selectList size="1" value="{!hmCountryCode}" id="slHMCountryCode"  >      
-                            <apex:selectOptions value="{!lstCountryCode}"/>                             
+                            <apex:selectOptions value="{!lstCountryCode}"/> 
+                            <apex:actionSupport action="{!checkcountrycode}" event="onchange" reRender="PersonAccBlockMY,slhmAreaCode" >
+                                
+                            </apex:actionSupport>                            
                         </apex:selectList>      
-                        <apex:selectList size="1" value="{!hmAreaCode}" id="slhmAreaCode"  >        
-                            <apex:selectOptions value="{!lstPhoneAreaCode}"/>                               
+                        <apex:selectList size="1" value="{!hmAreaCode}" id="slhmAreaCode" rendered="{!!hAreaBoolean}" >        
+                            <apex:selectOptions value="{!lstPhoneAreaCode}"/>  
+                                                        
                         </apex:selectList>                              
                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px"/>                                      
                                     
@@ -456,10 +460,13 @@
                  <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />      
                         <apex:outputPanel >     
-                        <apex:selectList size="1" value="{!wkCountryCode}" id="slWKCountryCode" onchange="loadDistrict(this.value)" >       
-                            <apex:selectOptions value="{!lstCountryCode}"/>                             
+                        <apex:selectList size="1" value="{!wkCountryCode}" id="slWKCountryCode" >       
+                            <apex:selectOptions value="{!lstCountryCode}"/>   
+                            <apex:actionSupport action="{!checkcountrycode}" event="onchange" reRender="PersonAccBlockMY,slwkAreaCode">
+                                 
+                            </apex:actionSupport>                        
                         </apex:selectList>      
-                        <apex:selectList size="1" value="{!wkAreaCode}" id="slwkAreaCode"  >        
+                        <apex:selectList size="1" value="{!wkAreaCode}" id="slwkAreaCode"  rendered="{!!wAreaBoolean}">        
                             <apex:selectOptions value="{!lstPhoneAreaCode}"/>                               
                         </apex:selectList>      
                                 
@@ -498,10 +505,12 @@
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />       
                         <apex:outputPanel >     
-                        <apex:selectList size="1" value="{!hmCountryCode}" id="slMBCountryCode" onchange="loadDistrict(this.value)" >       
-                            <apex:selectOptions value="{!lstCountryCode}"/>                             
+                        <apex:selectList size="1" value="{!hmCountryCode}" id="slMBCountryCode"  >       
+                            <apex:selectOptions value="{!lstCountryCode}"/>   
+                            <apex:actionSupport action="{!checkcountrycode}" event="onchange" reRender="companyBlockMY">                             
+                            </apex:actionSupport>                           
                         </apex:selectList>      
-                        <apex:selectList size="1" value="{!hmAreaCode}" id="slhmAreaCode"  >        
+                        <apex:selectList size="1" value="{!hmAreaCode}" id="slhmAreaCode" rendered="{!!hAreaBoolean}" >        
                             <apex:selectOptions value="{!lstPhoneAreaCode}"/>                               
                         </apex:selectList>      
                                 
@@ -526,10 +535,13 @@
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />                              
                           <apex:outputPanel >       
-                           <apex:selectList size="1" value="{!wkCountryCode}" id="slWKCountryCode" onchange="loadDistrict(this.value)" >        
-                            <apex:selectOptions value="{!lstCountryCode}"/>                             
+                           <apex:selectList size="1" value="{!wkCountryCode}" id="slWKCountryCode" >        
+                            <apex:selectOptions value="{!lstCountryCode}"/>     
+                            <apex:actionSupport action="{!checkcountrycode}" event="onchange" reRender="companyBlockMY" >
+                            
+                            </apex:actionSupport>                           
                         </apex:selectList>      
-                        <apex:selectList size="1" value="{!wkAreaCode}" id="slwkAreaCode"  >        
+                        <apex:selectList size="1" value="{!wkAreaCode}" id="slwkAreaCode" rendered="{!!wAreaBoolean}" >        
                             <apex:selectOptions value="{!lstPhoneAreaCode}"/>                               
                         </apex:selectList>      
                          <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" style="width:120px"/>                                                      
@@ -539,10 +551,11 @@
                      <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Fax.Label}" />        
                         <apex:outputPanel >     
-                        <apex:selectList size="1" value="{!faxCountryCode}" id="slWKCountryCode" onchange="loadDistrict(this.value)" >      
-                            <apex:selectOptions value="{!lstCountryCode}"/>                             
+                        <apex:selectList size="1" value="{!faxCountryCode}" id="slWKCountryCode"  >      
+                            <apex:selectOptions value="{!lstCountryCode}"/>  
+                            <apex:actionSupport action="{!checkcountrycode}" event="onchange" reRender="companyBlockMY"/>                               
                         </apex:selectList>      
-                        <apex:selectList size="1" value="{!faxAreaCode}" id="slfaxAreaCode"  >      
+                        <apex:selectList size="1" value="{!faxAreaCode}" id="slfaxAreaCode" rendered="{!!fAreaBoolean}" >      
                             <apex:selectOptions value="{!lstPhoneAreaCode}"/>                               
                         </apex:selectList>                                  
                          <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber"  style="width:120px"/>                           
@@ -551,7 +564,7 @@
                     </apex:pageBlockSectionItem>        
                    <apex:inputField value="{!objAccount.Email__c}" />       
                                                     
-                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>       
+                   <apex:inputField value="{!objAccount.Data_Source__c}" />       
                    <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" />       
                         <apex:inputField value="{!objAccount.Market__c}"/>      
                         
@@ -672,7 +685,7 @@
                         <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>
                      
                     </apex:pageBlockSectionItem>   
-			   
+	  
                <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Market__c}"/>                              
@@ -785,7 +798,7 @@
                         <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>       
                             
                     </apex:pageBlockSectionItem>        
-					
+	 
                     <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Market__c}"/>                              
