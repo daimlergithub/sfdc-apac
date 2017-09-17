@@ -59514,12 +59514,12 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
 $Profile.Name != 'IntegrationAPI', 
 LEFT ( Mobile__c, 3) = "+60", 
 NOT(ISBLANK(Mobile__c)), 
-NOT( OR ((REGEX(Mobile__c, "[+0-9]{3}[0-9]{7}")),(REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}")),(REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}")),(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"))) , if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) ) 
+NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"), REGEX(Mobile__c, "[+0-9]{3}[0-9]{1}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{7}"))), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), 
 AND( 
 $Profile.Name != 'IntegrationAPI', 
 LEFT ( Mobile__c, 3)!= "+60", 
 NOT(ISBLANK(Mobile__c)), 
-NOT( OR ((REGEX(Mobile__c, "[+0-9]{3}[0-9]{7}")),(REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}")),(REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}")),(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}")))), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
+NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"))), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
 1. Country Code + Number(xxxxxxxxxx)</errorMessage>
     </validationRules>
