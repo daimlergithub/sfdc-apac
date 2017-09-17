@@ -556,11 +556,11 @@ public class AddressDisplayInlineEditController {
                  Validation = true;                             
             }       
            
-<!--		   if(addressobj.ZipCode__c == null)       
+		  /* if(addressobj.ZipCode__c == null)       
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));         
                 Validation = true;                              
-            }  -->     
+            }  */    
             if(addressobj.Address_Line_1__c == null)        
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));       
