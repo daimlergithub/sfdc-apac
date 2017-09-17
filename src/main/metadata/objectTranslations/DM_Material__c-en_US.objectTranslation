@@ -86,10 +86,6 @@
         <name>Print_Due_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Remark --></label>
-        <name>Remark__c</name>
-    </fields>
-    <fields>
         <label><!-- Sent Total --></label>
         <name>SentTotal__c</name>
     </fields>

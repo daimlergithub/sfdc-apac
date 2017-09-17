@@ -2208,11 +2208,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Car_Series__c</field>
-            <table>Lead__c.DM_Request__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Case_Number__c</field>
             <table>Lead__c.DM_Request__r</table>
         </columns>

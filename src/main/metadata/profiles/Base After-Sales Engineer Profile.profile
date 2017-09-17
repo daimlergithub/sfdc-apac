@@ -6578,11 +6578,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Address__c.Hardcopy_Last_Modified_By__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Address__c.Hardcopy_Last_Modified_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12728,11 +12723,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Material__c.Remark__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Material__c.SentTotal__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12824,11 +12814,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Car_Model__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Car_Series__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
