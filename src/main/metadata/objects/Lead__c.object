@@ -3471,7 +3471,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>CCC_Comment__c</fullName>
         <externalId>false</externalId>
         <label>CCC Comment</label>
@@ -4033,7 +4033,7 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Customer_Contacted_Date_Time__c</fullName>
         <externalId>false</externalId>
         <formula>IF( Customer_Contacted__c == true,Now(),NULL)</formula>
@@ -13576,7 +13576,6 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Questionnaire memo</label>
         <length>4000</length>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14319,7 +14318,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Referal_Referee_Name__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -23512,7 +23511,6 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>MBF_Contract_Administration_CA_Team_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Contract Administration (CA) Team</label>
-        <queue>MBF_Contract_Administration_CA_Team</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23521,7 +23519,6 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>MBF_Customer_Care_CCC_Team_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Customer Care (CCC) Team</label>
-        <queue>MBF_Customer_Care_CCC_Team</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23530,7 +23527,6 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>MBF_Inbound_Outbound_Supervisor_Lead1</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Inbound &amp; Outbound Supervisor</label>
-        <queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
             <role>Central</role>
         </sharedTo>
@@ -23539,7 +23535,6 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>MBF_Quotation_Team_Queue_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Quotation Team Queue</label>
-        <queue>MBF_Quotation_Team_Queue</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23574,7 +23569,6 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
         <language>en_US</language>
-        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23584,7 +23578,6 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
         <language>en_US</language>
-        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23594,7 +23587,6 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
         <language>en_US</language>
-        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23680,7 +23672,6 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
         <language>en_US</language>
-        <queue>Supervisor_Team_A</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23690,7 +23681,6 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
         <language>en_US</language>
-        <queue>Supervisor_Team_A</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23700,7 +23690,6 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>Supervisor Team B</label>
         <language>en_US</language>
-        <queue>Supervisor_Team_B</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -27503,10 +27492,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
             </values>
@@ -27520,6 +27505,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37174,6 +37163,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
             </values>
@@ -37311,6 +37304,10 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41761,6 +41758,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Debit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EFT</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78576,10 +78577,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
@@ -78605,6 +78602,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79604,6 +79605,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Daimler Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Car</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88733,6 +88738,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
@@ -91180,10 +91189,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
@@ -91209,6 +91214,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -102924,10 +102933,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
             </values>
@@ -102941,6 +102946,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -111019,12 +111028,12 @@ Company_Account__r.Work_Phone__c  ,
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
-        <fullName>Dealer_Campaign_Share__c</fullName>
-        <label>Dealer Campaign Share</label>
-    </sharingReasons>
-    <sharingReasons>
         <fullName>Assigned_Dealer__c</fullName>
         <label>Assigned Dealer</label>
+    </sharingReasons>
+    <sharingReasons>
+        <fullName>Dealer_Campaign_Share__c</fullName>
+        <label>Dealer Campaign Share</label>
     </sharingReasons>
     <validationRules>
         <fullName>CAC_Lead_Status_Check_After_Assigned</fullName>
@@ -111145,8 +111154,8 @@ AND User profile is Call center agent"</description>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status_TH</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(OR($Profile.Name='Thailand Call Center',$Profile.Name='Thailand CRM'),$Profile.Name != 'IntegrationAPI',ISPICKVAL(CAC_Lead_Status__c,'assigned'),UPPER(MD__c)= 'TH',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'))</errorConditionFormula>
+        <active>true</active>
+        <errorConditionFormula>AND(OR($Profile.Name='Thailand Call Center New',$Profile.Name='Thailand CRM'),$Profile.Name != 'IntegrationAPI',ISPICKVAL(CAC_Lead_Status__c,'assigned'),ISPICKVAL(CAC_Lead_Status__c,'??'),UPPER(MD__c)= 'TH',RecordType.Name = 'Sales Leads')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>CCC  agent  cannot change the CAC lead status to assigned</errorMessage>
     </validationRules>

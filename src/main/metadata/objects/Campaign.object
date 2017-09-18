@@ -1157,7 +1157,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Class1__c</fullName>
         <externalId>false</externalId>
         <label>Class1</label>
@@ -1226,7 +1226,7 @@
                 <fullName>G-Class SUV</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>GL SUV</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1238,7 +1238,7 @@
                 <fullName>GLC SUV</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>GLE SUV</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1250,7 +1250,7 @@
                 <fullName>Maybach SEDAN</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>M-Class SUV</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1278,7 +1278,7 @@
                 <fullName>SL ROADSTER</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>SLC ROADSTER</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1330,7 +1330,7 @@
                 <fullName>GLC SUC</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>GLS SUV</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1501,6 +1501,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>LongTextArea</type>
         <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Count_of_converted_leads__c</fullName>
+        <externalId>false</externalId>
+        <label>Count of converted leads</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Create_Task__c</fullName>
@@ -2593,7 +2604,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Range__c</fullName>
         <externalId>false</externalId>
         <label>Range</label>
@@ -2753,7 +2764,7 @@
                 <default>false</default>
                 <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>R172</fullName>
                 <default>false</default>
                 <controllingFieldValues>SLC ROADSTER</controllingFieldValues>
@@ -2869,7 +2880,7 @@
                 <default>false</default>
                 <controllingFieldValues>R-Class MPV</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>W163</fullName>
                 <default>false</default>
                 <controllingFieldValues>M-Class SUV</controllingFieldValues>
@@ -2905,7 +2916,7 @@
                 <default>false</default>
                 <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>W204</fullName>
                 <default>false</default>
                 <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
@@ -2950,7 +2961,7 @@
                 <default>false</default>
                 <controllingFieldValues>GLA SUV</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>X164</fullName>
                 <default>false</default>
                 <controllingFieldValues>GL SUV</controllingFieldValues>
@@ -10827,6 +10838,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Department__c</picklist>
+            <values>
+                <fullName>Aftersales%2C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales %26 Marketing</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Driven_Type__c</picklist>
             <values>
                 <fullName>Joint</fullName>
@@ -16761,7 +16795,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Class1__c</picklist>
             <values>
                 <fullName>A-Class HATCHBACK</fullName>
@@ -16839,7 +16873,7 @@
                 <fullName>G-Class SUV</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>GL SUV</fullName>
                 <default>false</default>
             </values>
@@ -16859,7 +16893,7 @@
                 <fullName>GLE SUC</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>GLE SUV</fullName>
                 <default>false</default>
             </values>
@@ -16867,7 +16901,7 @@
                 <fullName>GLK SUV</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>GLS SUV</fullName>
                 <default>false</default>
             </values>
@@ -16903,7 +16937,7 @@
                 <fullName>SL ROADSTER</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>SLC ROADSTER</fullName>
                 <default>false</default>
             </values>
@@ -17315,7 +17349,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Range__c</picklist>
             <values>
                 <fullName>461</fullName>
@@ -17441,7 +17475,7 @@
                 <fullName>R171</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>R172</fullName>
                 <default>false</default>
             </values>
@@ -17533,7 +17567,7 @@
                 <fullName>W%2FV251</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>W163</fullName>
                 <default>false</default>
             </values>
@@ -17561,7 +17595,7 @@
                 <fullName>W202</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>W204</fullName>
                 <default>false</default>
             </values>
@@ -17597,7 +17631,7 @@
                 <fullName>X156</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>X164</fullName>
                 <default>false</default>
             </values>
@@ -22750,5 +22784,47 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <openType>replace</openType>
         <protected>false</protected>
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Marketing Cloud Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var theUrl = "https://"+urlPrefix+"/apex/singleSendETEmail?campaignId={!CASESAFEID( Campaign.Id )}";
+parent.location.href = theUrl;
+}
+catch (e)
+{
+var theUrl = "/apex/singleSendETEmail?campaignId={!CASESAFEID( Campaign.Id )}";
+parent.location.href = theUrl;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ViewCampaignInfluenceReport</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Campaign Influence Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign.Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
+        <width>500</width>
     </webLinks>
 </CustomObject>
