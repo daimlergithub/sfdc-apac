@@ -14,4 +14,5 @@
     <tab>Lead__c</tab>
     <tab>Vehicle__c</tab>
     <tab>Account_Link__c</tab>
+    <tab>ListOfFeatures</tab>
 </CustomApplication>

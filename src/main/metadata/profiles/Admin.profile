@@ -2360,6 +2360,18 @@
         <apexClass>SubmitSuveryTaken</apexClass>
         <enabled>true</enabled>
 </classAccesses>
+	    <classAccesses>
+        <apexClass>coverttolead1controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>ConvertToTask1Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>ConvertToDMRequestController1</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -4186,6 +4198,11 @@
         <field>Account.Marital_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Master_Account_Id__c</field>
@@ -5416,6 +5433,11 @@
         <field>Account_Link__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.NextInspectionDate__c</field>
@@ -6263,11 +6285,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Address__c.Hardcopy_Last_Modified_By__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Address__c.Hardcopy_Last_Modified_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6284,6 +6301,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8215,6 +8237,11 @@
         <editable>false</editable>
         <field>Campaign_Member__c.Contractor_Company_Name__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Convert_To_Lead_Flag__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12383,11 +12410,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DM_Material__c.Remark__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DM_Material__c.SentTotal__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12468,11 +12490,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12483,22 +12500,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DM_Request__c.Car_Series__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DM_Request__c.Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Channel__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12529,16 +12536,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Dealer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Delivery_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12574,11 +12571,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Gender__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Home_Phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22018,11 +22010,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SurveyQuestionResponse__c.Survey_Taken_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>SurveyQuestionResponse__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22184,11 +22171,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Survey_Question__c.Total_Responses__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -26615,6 +26597,18 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Consolidation_List</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		    <pageAccesses>
+        <apexPage>Converttolead1</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	    <pageAccesses>
+        <apexPage>ConvertToTask1</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	    <pageAccesses>
+        <apexPage>ConvertToDMRequest1</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

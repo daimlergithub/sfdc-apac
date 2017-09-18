@@ -186,6 +186,10 @@
                 <behavior>Readonly</behavior>
                 <field>Recall__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -294,10 +298,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SMS_Last_Modified_By__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CDM_UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -807,7 +807,7 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>LogCall</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.TYPE</fields>
         <fields>Activity_Status__c</fields>
@@ -838,14 +838,13 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-		<fields>Assigned_Dealer__c</fields>
-		<fields>Sales_Consultant__c</fields>
-		<fields>Interested_Vehicle__c</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>Sales_Consultant__c</fields>
+        <fields>Interested_Vehicle__c</fields>
         <fields>Lead_Desired_Service__c</fields>
-        <fields>Dealer_Lead_Status__c</fields> 
+        <fields>Dealer_Lead_Status__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
-        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -863,7 +862,7 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-	    <customButtons>SubmitSurvey</customButtons>
+        <customButtons>SubmitSurvey</customButtons>
         <fields>NAME</fields>
         <fields>Survey_Taking_Status__c</fields>
         <fields>Survey__c</fields>

@@ -41,11 +41,6 @@
         <relationshipLabel>설문 응답</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Survey Taken Id --></label>
-        <name>Survey_Taken_Id__c</name>
-        <relationshipLabel><!-- Survey Question Responses (Survey Taken Id) --></relationshipLabel>
-    </fields>
-    <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>

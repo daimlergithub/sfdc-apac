@@ -361,26 +361,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Remark__c</fullName>
-        <description>/*
-Created by:  Chris.Huang
-Used by:  CAC User
-Function: Mapping 'Notes' in Data Dictionary.
-Used in: Integration
-
-Modify History
-Modify By: 
-Modify Reason: 
-*/</description>
-        <externalId>false</externalId>
-        <label>Remark</label>
-        <length>32768</length>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
         <fullName>SentTotal__c</fullName>
         <description>/*
 Created by:  Chris.Huang
@@ -2108,14 +2088,6 @@ Modify Reason:
         <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-    <validationRules>
-        <fullName>Format_DM_Material_Name</fullName>
-        <active>false</active>
-        <description>Make sure DM Material Name input conversion: Brand-Series-Type.</description>
-        <errorConditionFormula>!ISCHANGED( Stock__c ) &amp;&amp; !ISCHANGED( SentTotal__c ) &amp;&amp; NOT(REGEX( Name , ".*-.*-.*"))</errorConditionFormula>
-        <errorDisplayField>Name</errorDisplayField>
-        <errorMessage>Must input conversion: Brand-Series-Type.</errorMessage>
-    </validationRules>
     <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>

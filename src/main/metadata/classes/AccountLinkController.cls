@@ -8,6 +8,8 @@ public  class AccountLinkController
        public List<Account_LInk__c> listdupalk{get;set;}
        public String redirectUrl {public get; private set;}
       public Boolean shouldRedirect {public get; private set;}
+      //sarath created market variable
+      public String market{get;set;}
       //public Account ab{get;set;}
       private ApexPages.StandardController stdController;   
        public static String aid;
@@ -32,8 +34,12 @@ public  class AccountLinkController
         acclnkrellist=new Account_LInk__c();
         listdupalk=new List<Account_LInk__c> ();
         aid = ApexPages.currentPage().getParameters().get('id');
-         us=[Select id,ContactId,contact.AccountId,Dealer_GC_Code__c  from User where id=:userInfo.getuserId()];
-         CommGcCode=us.Dealer_GC_Code__c;
+        //sarath added market field in the query 
+         us=[Select id,ContactId,contact.AccountId,Dealer_GC_Code__c,Market__c from User where id=:userInfo.getuserId()];
+        //sarath added below 2 lines
+        market= us.Market__c;
+        acclnkdealer.Market__c=market;
+        CommGcCode=us.Dealer_GC_Code__c;
         system.debug('######'+ CommGcCode); 
         
         if(ApexPages.currentPage().getParameters().get('id')!=Null){

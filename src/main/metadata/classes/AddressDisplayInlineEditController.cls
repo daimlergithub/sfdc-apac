@@ -51,7 +51,7 @@ public class AddressDisplayInlineEditController {
         addressobj = new Address__c();
         User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
-         
+        AddressObj.Market__c=market; 
         openPanal = true;
         if(market == 'KR'){
             openPanal = true;
@@ -555,11 +555,12 @@ public class AddressDisplayInlineEditController {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 or 6 digits and ONLY Numbers.'));        
                  Validation = true;                             
             }       
-            if(addressobj.ZipCode__c == null)       
+           
+		  /* if(addressobj.ZipCode__c == null)       
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));         
                 Validation = true;                              
-            }       
+            }  */    
             if(addressobj.Address_Line_1__c == null)        
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));       
@@ -618,14 +619,14 @@ public class AddressDisplayInlineEditController {
                             
                     addressobj.Customer__c = acc.id;   
                     DMLManagerService.insertAsSystem(addressobj);     
-                    //insert addressobj;      
+                         
                 }       
                 else        
                 {       
                     addressobj.id = editaddressId;      
                     addressobj.Customer__c = acc.id; 
                     DMLManagerService.updateAsSystem(addressobj);       
-                   // update addressobj;      
+                     
                 }       
             }       
         }       
@@ -633,7 +634,7 @@ public class AddressDisplayInlineEditController {
         {       
             refreshPage = false;        
             ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                           
-            system.debug(e.getDMLMessage(0)+'   Error Meassage   '+refreshPage);        
+                   
         }       
     }       
     
@@ -786,7 +787,7 @@ public class AddressDisplayInlineEditController {
         //Address__c AddressObjtemp1 = new Address__c();       
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(addressobj);
-        system.debug('*$*$*$*$ response   ' + response);
+        
         
         if(response != null && response.ValidationStatus == 'OK'){
              for(Integer i=0;i<response.Addresses.size();i++){                
@@ -795,7 +796,7 @@ public class AddressDisplayInlineEditController {
                 AddressObjtemp.ZipCode__c =  response.Addresses[i].ZipCode;           
                 if(response.Addresses[i].ValidFields != null &&  response.Addresses[i].ValidFields != '' && response.Addresses[i].Valid ){
                     String ValidStr = response.Addresses[i].ValidFields;
-                    system.debug('valid string ------'+ ValidStr );
+                    
                     string province;   
                     Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
                     UtilAddressTranslation.gettranslatedvalues(Market);
@@ -805,52 +806,52 @@ public class AddressDisplayInlineEditController {
                     if(ValidStr.contains('Address_Line_1__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_1__c = response.Addresses[i].Address_Line_1;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
+                       
                     }
                     else if(ValidStr.contains('Address_Line_1__c') && Market == 'KR')
                     {
                         AddressObjtemp.Address_Line_1__c = response.Addresses[i].Address_Line_1;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
+                        
                     }
                     
                      if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_1_Native__c= response.Addresses[i].Address_Line_1_Native;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObjtemp.Address_Line_1_Native__c);
+                        
                     }
                     
                     if(ValidStr.contains('Address_Line_2__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_2__c = response.Addresses[i].Address_Line_2;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
+                        
                     }
                     else if(ValidStr.contains('Address_Line_2__c') && Market == 'KR')
                     {
                         AddressObjtemp.Address_Line_2__c = response.Addresses[i].Address_Line_2;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
+                        
                     }
                     
                      if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_2_Native__c= response.Addresses[i].Address_Line_2_Native;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObjtemp.Address_Line_2_Native__c);
+                        
                     }
                     
                     if(ValidStr.contains('Block__c') && Market == 'JP')
                     {
                       addressobj.Block__c = response.Addresses[i].Block;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
+                        
                     }
                     else if(ValidStr.contains('Block__c') && Market == 'KR')
                     {
                         AddressObjtemp.Block__c = response.Addresses[i].Block;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
+                        
                     }
                     
                     if(ValidStr.contains('Block_Native__c') && Market == 'JP')
                     {
                       addressobj.Block_Native__c= response.Addresses[i].Block_Native;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + addressobj.Block_Native__c);
+                        
                     }
                     
                     
@@ -858,44 +859,44 @@ public class AddressDisplayInlineEditController {
                     {
                       addressobj.City__c = response.Addresses[i].City;
                         //AddressObjtemp.City__c = response.Addresses[i].City;
-                        system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
+                        
                     }
                     else if(ValidStr.contains('City__c') && Market == 'KR')
                     {
                         AddressObjtemp.City__c = response.Addresses[i].City;
-                        system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
+                        
                     }
                     
                     if(ValidStr.contains('City_Native__c') && Market == 'JP')
                     {
                       addressobj.City_Native__c= response.Addresses[i].City_Native;
                         //AddressObjtemp.City__c = response.Addresses[i].City;
-                        system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + addressobj.City_Native__c);
+                        
                     }
                     
                     
                     if(ValidStr.contains('District__c') && Market == 'JP')
                     {
                       addressobj.District__c = response.Addresses[i].District;
-                        system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
+                        
                     }
                     else if(ValidStr.contains('District__c') && Market == 'KR')
                     {
                         AddressObjtemp.District__c = response.Addresses[i].District;
-                        system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
+                        
                     }
                     
                        if(ValidStr.contains('District_Native__c') && Market == 'JP')
                     {
                       addressobj.District_Native__c= response.Addresses[i].District_Native;
-                        system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + addressobj.District_Native__c);
+                        
                     }
                     
                     
                     if(ValidStr.contains('Province__c') && Market == 'JP')
                     {
                       addressobj.Province__c = response.Addresses[i].Province;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
+                        
                     }
                     else if(ValidStr.contains('Province__c') && Market == 'KR')
                     {
@@ -906,7 +907,7 @@ public class AddressDisplayInlineEditController {
                      if(ValidStr.contains('Province_Native__c') && Market == 'JP')
                     {
                       addressobj.Province_Native__c= response.Addresses[i].Province_Native;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + addressobj.Province_Native__c);
+                        
                     }
                     
                     

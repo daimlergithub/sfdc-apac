@@ -130,10 +130,6 @@
         <name>FS_Opt_In_Hardcopy__c</name>
     </fields>
     <fields>
-        <label><!-- Mail Last Modified By --></label>
-        <name>Hardcopy_Last_Modified_By__c</name>
-    </fields>
-    <fields>
         <label><!-- Mail Last Modified Date --></label>
         <name>Hardcopy_Last_Modified_Date__c</name>
     </fields>
@@ -432,10 +428,6 @@
     <validationRules>
         <errorMessage>住所2は必ず50文字以下で入力して下さい。</errorMessage>
         <name>AddressLine2_NoOfDigit</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Address_Line_1__c is Mandatory --></errorMessage>
-        <name>Address_Line_1_is_mandatory</name>
     </validationRules>
     <validationRules>
         <errorMessage>住所区分を入力して下さい。</errorMessage>

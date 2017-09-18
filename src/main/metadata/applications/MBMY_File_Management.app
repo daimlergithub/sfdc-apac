@@ -7,4 +7,5 @@
     <tab>standard-File</tab>
     <tab>standard-report</tab>
     <tab>standard-Workspace</tab>
+    <tab>ListOfFeatures</tab>
 </CustomApplication>

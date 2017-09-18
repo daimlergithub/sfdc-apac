@@ -8,7 +8,7 @@
     
     
 */
-public with sharing class CampaignMembersCustomHelperJP {
+public  class CampaignMembersCustomHelperJP {
     
     /*  1.
         * Added By: Siva Krishna
@@ -88,6 +88,63 @@ public with sharing class CampaignMembersCustomHelperJP {
       }       
              
     }
+    
+      public static void afterInsertSharing(List<Campaign_Member__c> newList)
+{
+
+    Set<Id> recordIds = New Set<id>();
+    Map<Id,String> UserMap = New Map<Id,String>();
+    List<String> dealerCode = New List<String>();
+    List<String> accountName = New List<String>();
+    List<Campaign_Member__Share> campMemShare = New List<Campaign_Member__Share>();
+
+    For(Campaign_Member__c camMem : newList){
+        If(CamMem.Retail_Campaign_Id__c != null && CamMem.MD__c == 'JP'){
+     
+            recordIds.add(camMem.Id);
+        }
+    
+    }
+
+    List<User> UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
+
+    For(User u : UserList){
+        If(u.ContactId != null){    
+            UserMap.put(u.id,u.Dealer_GC_Code__c);  
+            dealerCode.add(u.Dealer_GC_Code__c);
+            system.debug('dcgccode???'+dealerCode);
+        }   
+    }
+    List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  =: dealerCode];
+    System.debug('dlist<<<<'+dealerAccList);
+    For(Account acc :dealerAccList){
+      System.debug('acc????'+ acc.Name);
+        accountName.add(acc.Name);
+    }
+    
+        List<Group> groupList = [select Id, Name, Type from Group where Name =: accountName];
+    System.debug('glist<<<<<<'+groupList );
+    if(recordIds.size()>0 && accountName != null){
+          System.debug('names>>>>>>'+accountName);
+        For(Campaign_Member__c camMem : newList){
+  
+            for(Group groupRec : groupList){
+                Campaign_Member__Share campShare = new Campaign_Member__Share();
+                    campShare.AccessLevel = 'Edit';
+                    campShare.UserOrGroupId = groupRec.Id;
+                    campShare.ParentId = camMem.Id;
+                    campShare.RowCause = Schema.Campaign_Member__Share.RowCause.Manual;
+                    campMemShare.add(campShare);
+                }
+    
+    
+    
+        }
+    }
+    If(campMemShare.size()>0){
+        insert campMemShare;
+    }
+}
     
     /*
      Added by : Lokesh 

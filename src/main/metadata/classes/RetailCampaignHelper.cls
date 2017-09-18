@@ -41,6 +41,56 @@ public  class RetailCampaignHelper
             }
         }
     }
+    public static void afterInsertRetailCampaignSharing(List<Retail_Campaign__c> newList){
+
+Set<Id> recordIds = New Set<id>();
+Map<Id,String> UserMap = New Map<Id,String>();
+Set<String> dealerCode = New Set<String>();
+Set<String> accountName = New Set<String>();
+List<Retail_Campaign__Share> RetailCampaignShare = New List<Retail_Campaign__Share>();
+
+For(Retail_Campaign__c RetMem : newList){
+    If( RetMem.MD__c == 'JP'){
+     
+     recordIds.add(RetMem.Id);
+    }
+    
+}
+
+List<User> UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
+
+For(User u : UserList){
+If(u.ContactId != null){    
+UserMap.put(u.id,u.Dealer_GC_Code__c);  
+dealerCode.add(u.Dealer_GC_Code__c);
+}   
+}
+List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode];
+For(Account acc :dealerAccList){
+    accountName.add(acc.Name);
+}
+List<Group>groupList = [select Id, Name, Type from Group where Name =: accountName];
+if(recordIds.size()>0 && accountName != null){
+    
+   For(Retail_Campaign__c RetMem : newList){
+  
+   for(Group groupRec : groupList){
+    Retail_Campaign__Share RetShare = new Retail_Campaign__Share();
+                    RetShare.AccessLevel = 'Edit';
+                    RetShare.UserOrGroupId = groupRec.Id;
+                    RetShare.ParentId = RetMem.Id;
+                    RetShare.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
+                    RetailCampaignShare.add(RetShare);
+                }
+    
+    
+    
+}
+}
+If(RetailCampaignShare.size()>0){
+insert RetailCampaignShare;
+}
+}
     
     public static void updateParentCampaignQuarter(Set<Id> campaignIds)
     {
