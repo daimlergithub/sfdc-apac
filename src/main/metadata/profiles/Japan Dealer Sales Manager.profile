@@ -204,30 +204,6 @@
         <apexClass>AccountHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-		    <classAccesses>
-        <apexClass>coverttolead1controller</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>ConvertToTask1Controller</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>ConvertToDMRequestController1</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	    <pageAccesses>
-        <apexPage>Converttolead1</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>ConvertToTask1</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>ConvertToDMRequest1</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
 	<classAccesses>
         <apexClass>VehicleEditExtension</apexClass>
         <enabled>true</enabled>
