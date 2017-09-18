@@ -628,9 +628,10 @@
                 saveQuery = saveQuery.replace('AND  AND','AND');
                system.debug('++++++++++++'+saveQuery );
                saveQuery = saveQuery.replace('AND AND','AND');
-                if(saveQuery.endsWith('AND ') || saveQuery.endsWith('AND  ')){
-                saveQuery = saveQuery.replace('AND ','');
+               if(saveQuery.endsWith('AND     ')){
+                saveQuery = saveQuery.replace('AND     ','');
                 }
+                
                  system.debug('++++++++++++'+saveQuery );
                 system.debug('finalRetailTaskSoql>>>>'+RetailTaskSoql);
                 system.debug('+++++++++++'+saveQuery );
@@ -658,9 +659,9 @@
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
             AccountLinkSoql = 'SELECT toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
             AddressSoql = 'SELECT Customer__c From Address__c where ';
-            RetailTaskSoql = 'SELECT Account__c,Product_Name__c,EndDate__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
+            RetailTaskSoql = 'SELECT Account__c,Account__r.RecordTypeId,Finance_Product_Name__c,Product_Name__c,EndDate__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
             if(u.contactId != NULL){
-                RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND ';
+                RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND     ';
             }
             
             if(segmentationBase == 'Customer')
@@ -1070,10 +1071,12 @@
             operation = operation.replace('Less Than', '<');
             //For from and to date filter this will give '>' symbol for from and gives '=' for null operaions
             if(dateFields.contains(field)){
-                if(criteria == 'null'){
-                    operation = '=';    
-                } else {
-                    operation = '>';
+                if(criteria == 'null')
+                {
+                    operation = '<=';    
+                }
+                 else {
+                    operation = '>=';
                 }
             } 
             getop = operation;
@@ -1094,6 +1097,12 @@
             else if(dateFields.contains(field)){
                 if(criteria == 'null'){
                 criteria = null;
+            }
+                        else if(criteria.startsWith(';'))
+            {
+            criteria  = criteria.replace(';','');
+            criteria = (Date.parse(criteria) + ' ').left(10);
+            system.debug('+++++criteria++++++++'+criteria);
             }
             else if(criteria.contains(';')){
                String[] arrCriteia = criteria.split(';');
