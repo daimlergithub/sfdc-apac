@@ -2372,18 +2372,6 @@
         <apexClass>ConvertToDMRequestController1</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	    <pageAccesses>
-        <apexPage>Converttolead1</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>ConvertToTask1</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	    <pageAccesses>
-        <apexPage>ConvertToDMRequest1</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -26624,6 +26612,18 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Consolidation_List</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		    <pageAccesses>
+        <apexPage>Converttolead1</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	    <pageAccesses>
+        <apexPage>ConvertToTask1</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	    <pageAccesses>
+        <apexPage>ConvertToDMRequest1</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
