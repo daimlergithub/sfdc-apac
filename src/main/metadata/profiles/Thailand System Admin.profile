@@ -12625,11 +12625,11 @@
         <field>DM_Request__c.Channel__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.City__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Comment__c</field>
