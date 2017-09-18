@@ -25444,18 +25444,6 @@
         <recordType>Participating_Dealer__c.Participating_Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PartnerFundAllocation-Partner Fund Allocation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerFundClaim-Partner Fund Claim Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerFundRequest-Partner Fund Request Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerMarketingBudget-Partner Marketing Budget Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>PersonAccount-PA Layout-Dealer Portal</layout>
         <recordType>PersonAccount.Person_Account_Manual_Merge</recordType>
     </layoutAssignments>
