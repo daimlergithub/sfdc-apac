@@ -182,19 +182,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CAC SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -463,27 +450,6 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Dealer__c</fullName>
-        <description>This field is only used in All Open DM Request Report</description>
-        <externalId>false</externalId>
-        <label>Dealer</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Delivery_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Delivery Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>Delivery_Type__c</fullName>
         <externalId>false</externalId>
         <label>Delivery Type</label>
@@ -577,17 +543,6 @@ Modify Reason:
         <externalId>false</externalId>
         <formula>CASE(Customer_Name__r.Gender__c, "Male", "Male", "Female", "Female","")</formula>
         <label>Gender</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Home_Phone__c</fullName>
-        <externalId>false</externalId>
-        <formula>Contact__r.HomePhone</formula>
-        <label>Home Phone</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
