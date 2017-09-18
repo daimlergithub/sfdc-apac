@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -23511,6 +23511,7 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>MBF_Contract_Administration_CA_Team_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Contract Administration (CA) Team</label>
+		<queue>MBF_Contract_Administration_CA_Team</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23519,6 +23520,7 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>MBF_Customer_Care_CCC_Team_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Customer Care (CCC) Team</label>
+		<queue>MBF_Customer_Care_CCC_Team</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23527,6 +23529,7 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>MBF_Inbound_Outbound_Supervisor_Lead1</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Inbound &amp; Outbound Supervisor</label>
+		<queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
             <role>Central</role>
         </sharedTo>
@@ -23535,6 +23538,7 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>MBF_Quotation_Team_Queue_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Quotation Team Queue</label>
+		<queue>MBF_Quotation_Team_Queue</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23569,6 +23573,7 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
         <language>en_US</language>
+		<queue>MBJ_Supervisor</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23578,6 +23583,7 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
         <language>en_US</language>
+		<queue>MBJ_Supervisor</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23587,6 +23593,7 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
         <language>en_US</language>
+		<queue>MBJ_Supervisor</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23672,6 +23679,7 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
         <language>en_US</language>
+		<queue>Supervisor_Team_A</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23681,6 +23689,7 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
         <language>en_US</language>
+		<queue>Supervisor_Team_A</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -23690,6 +23699,7 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>Supervisor Team B</label>
         <language>en_US</language>
+		<queue>Supervisor_Team_B</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
