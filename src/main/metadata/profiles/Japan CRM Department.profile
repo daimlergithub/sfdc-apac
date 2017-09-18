@@ -2344,6 +2344,18 @@
         <apexClass>usernotificationsetting</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+		    <classAccesses>
+        <apexClass>coverttolead1controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>ConvertToTask1Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>ConvertToDMRequestController1</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>
@@ -25935,6 +25947,18 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ConvertToDMRequest</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		    <pageAccesses>
+        <apexPage>Converttolead1</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	    <pageAccesses>
+        <apexPage>ConvertToTask1</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	    <pageAccesses>
+        <apexPage>ConvertToDMRequest1</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
