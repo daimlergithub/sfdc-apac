@@ -12476,11 +12476,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>true</readable>
@@ -12531,16 +12526,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Delivery_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Delivery_Type__c</field>
         <readable>true</readable>
@@ -12573,11 +12558,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Gender__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Home_Phone__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
