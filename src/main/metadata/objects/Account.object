@@ -56519,6 +56519,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>Customer_LastUpdatedDate__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+	<validationRules>
+        <fullName>Account_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Account should be same as user&apos;s market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Account_Name_Fullchar</fullName>
         <active>false</active>
