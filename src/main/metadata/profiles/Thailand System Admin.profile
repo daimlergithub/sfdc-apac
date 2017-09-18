@@ -25249,9 +25249,6 @@
         <layout>Case_SubType_Mapping__c-Case SubType Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ChannelProgram-Channel Program Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>ChannelProgramLevel-Channel Program Level Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
