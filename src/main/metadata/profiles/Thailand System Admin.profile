@@ -1941,14 +1941,14 @@
         <apexClass>UtilCampaignTaskGenerationByAccount</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+    <!--<classAccesses>
         <apexClass>UtilCampaignTaskGenerationByAccountTH</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UtilCampaignTaskGenerationByAccountTHtst</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>-->
     <classAccesses>
         <apexClass>UtilCampaignTaskGenerationByAccountTest</apexClass>
         <enabled>false</enabled>
