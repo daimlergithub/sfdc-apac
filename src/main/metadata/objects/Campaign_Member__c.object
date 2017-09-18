@@ -256,6 +256,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Convert_To_Lead_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Convert To Lead Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Contact_Id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1400,13 +1408,13 @@ openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enab
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 
 var aid="{!Account.Id}"; 
-if(aid != null) 
+if(aid != '') 
 { 
-window.open('/apex/ConvertToDMRequest?Id={!Account.Id}') 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!Account.Id}") 
 } 
 else 
 { 
-window.open('/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}') 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}") 
 }</url>
     </webLinks>
 	<webLinks>
@@ -1447,13 +1455,13 @@ else
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
  
  var aid="{!Account.Id}";
-if(aid != null)
+if(aid != '')
 {
-  window.open('/apex/ConvertToTask?CampaignId={!Account.Id}')
+  window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!Account.Id}")
 }
 else
 {
-window.open('/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}')
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}")
 }</url>
     </webLinks>
 	<webLinks>
@@ -1496,11 +1504,11 @@ else
  var aid = "{!Account.Id}";
 if(aid != '')
 {
-  window.open('/apex/ConvertToLead?CampaignId={!Account.Id}');
+  window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!Account.Id}");
 }
 else
 {
-window.open('/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}');
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}");
 }</url>
     </webLinks>
 	<webLinks>

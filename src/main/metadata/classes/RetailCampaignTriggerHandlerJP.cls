@@ -35,6 +35,7 @@ public class RetailCampaignTriggerHandlerJP
            RetailCampaignHelper.afterInsertCopyRetailCampaign(Trigger.New);
            RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
             RetailCampaignHelper.updateLogic(Trigger.New); 
+            RetailCampaignHelper.afterInsertRetailCampaignSharing(Trigger.New);
             
         } 
     }

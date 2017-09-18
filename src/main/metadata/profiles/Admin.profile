@@ -8238,6 +8238,11 @@
         <field>Campaign_Member__c.Contractor_Company_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Convert_To_Lead_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Contractor_Individual_Name__c</field>

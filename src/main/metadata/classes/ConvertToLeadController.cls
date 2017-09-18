@@ -6,7 +6,8 @@ Usage               :    Convert to lead functionality for Campaign Member Recor
                           
 JIRA NO             :    SFDCJP-1036 & 1041                                            
 ************************************************************************************/
-public with sharing class ConvertToLeadController {
+public with sharing class ConvertToLeadController 
+{
     
     private final String campaignId = ApexPages.currentPage().getParameters().get('CampaignId');
     public String recordtypevalue {set; get;}
@@ -17,6 +18,7 @@ public with sharing class ConvertToLeadController {
     private String leadRTId {get; set;}
     private String leadRTId1 {get; set;}
     List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
+    List<Campaign_Member__c> camListToUpdate = new List<Campaign_Member__c>();
     @testvisible private String objectAPIName;
      public boolean displayPopup {get; set;}     
     
@@ -39,7 +41,7 @@ public with sharing class ConvertToLeadController {
         {
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
             String query = 'SELECT Name, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
-            query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND ';
+            query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Convert_To_Lead_Flag__c = false AND';
             
             if(objectAPIName == 'Campaign') {
                 query += ' Campaign_ID__c =: campaignId ';
@@ -90,14 +92,11 @@ public with sharing class ConvertToLeadController {
         
         List<Lead__c> existingLeadList;
         if(objectAPIName == 'Campaign') {
-            existingLeadList = [Select Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
-                                        from Lead__c where Source_Campaign__c =: campaignId];
+            existingLeadList = [Select Source_Campaign__c, Contact__c   from Lead__c where Source_Campaign__c =: campaignId];
         } else if(objectAPIName == 'Retail_Campaign__c') {
-            existingLeadList = [Select Retail_Campaign_Name__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
-                                        from Lead__c where Retail_Campaign_Name__c =: campaignId];
+            existingLeadList = [Select Retail_Campaign_Name__c, Contact__c  from Lead__c where Retail_Campaign_Name__c =: campaignId];
         } else if(objectAPIName == 'Account') {
-            existingLeadList = [Select Retail_Campaign_Name__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
-                                        from Lead__c where Contact__c =: campaignId];
+            existingLeadList = [Select Retail_Campaign_Name__c,Source_Campaign__c, Contact__c  from Lead__c where Contact__c =: campaignId];
         }
 
         
@@ -106,16 +105,39 @@ public with sharing class ConvertToLeadController {
             if(campaignMemberObj.isSelected)
             {
                 Lead__c duplicateLeadRec = checkDuplicate(campaignMemberObj.campaignMember, existingLeadList);
+                System.debug('duprec'+duplicateLeadRec.Id);
                 if(duplicateLeadRec.Id == null)
                 {
+                    
                     if(objectAPIName == 'Campaign') {
                         leadListToInsert.add(setLeadRecordFields(campaignId, campaignMemberObj.campaignMember));
+                        if(leadListToInsert.size()>0)
+                        {
+                           Campaign_Member__c cMember = new Campaign_Member__c();
+                                 cMember.id=campaignMemberObj.campaignMember.id;
+                                 cMember.Convert_To_Lead_Flag__c = true;
+                                 camListToUpdate.add(cMember);
+                        }
                         camIdCamMemMap.add(campaignMemberObj.campaignMember);
                     } else if(objectAPIName == 'Retail_Campaign__c') {
                         leadListToInsert.add(setLeadRecordFields(campaignId, campaignMemberObj.campaignMember));
+                        if(leadListToInsert.size()>0)
+                        {
+                           Campaign_Member__c cMember = new Campaign_Member__c();
+                                 cMember.id=campaignMemberObj.campaignMember.id;
+                                 cMember.Convert_To_Lead_Flag__c = true;
+                                 camListToUpdate.add(cMember);
+                        }
                         camIdCamMemMap.add(campaignMemberObj.campaignMember);
                     } else if(objectAPIName == 'Account') {
                         leadListToInsert.add(setLeadRecordFields(campaignId, campaignMemberObj.campaignMember));
+                        if(leadListToInsert.size()>0)
+                        {
+                           Campaign_Member__c cMember = new Campaign_Member__c();
+                                 cMember.id=campaignMemberObj.campaignMember.id;
+                                 cMember.Convert_To_Lead_Flag__c = true;
+                                 camListToUpdate.add(cMember);
+                        }
                         camIdCamMemMap.add(campaignMemberObj.campaignMember);
                     }
                 } 
@@ -129,6 +151,7 @@ public with sharing class ConvertToLeadController {
         
         if(leadListToInsert.size() > 0) {
             insert leadListToInsert;
+            update camListToUpdate;
             system.debug('leadListToInsert'+leadListToInsert);
             for(lead__c leadlst:leadListToInsert){
             try{
@@ -149,17 +172,39 @@ public with sharing class ConvertToLeadController {
         Lead__c duplicateLeadRec = new Lead__c();
         for(Lead__c leadRec : existingLeadList) 
         {
-            if(String.isNotBlank(leadRec.Contact__c) && String.isNotBlank(leadRec.Lead_Type__c) && String.isNotBlank(leadRec.Lead_Sub_Type__c) &&  
-                String.isNotBlank(leadRec.Interested_Vehicle_Model__c) && 
-                campaignMemberRec.Contact_Id__c == leadRec.Contact__c && campaignMemberRec.Lead_Type__c == leadRec.Lead_Type__c &&
-                campaignMemberRec.Lead_Sub_Type__c == leadRec.Lead_Sub_Type__c && campaignMemberRec.Interested_Model__c == leadRec.Interested_Vehicle_Model__c )
-            {
-                duplicateLeadRec = leadRec;
-                break;
-            }
-        }
-        return duplicateLeadRec;
-    }
+              if(objectAPIName == 'Campaign') 
+              {
+        
+                   if(String.isNotBlank(leadRec.Contact__c)  &&  campaignMemberRec.Contact_Id__c == leadRec.Contact__c &&  String.isNotBlank(leadRec.Source_Campaign__c) && campaignMemberRec.Campaign_ID__c == leadRec.Source_Campaign__c)
+                   {
+                       duplicateLeadRec = leadRec;
+                       break;
+                   }
+              }
+              else if(objectAPIName == 'Retail_Campaign__c')
+              {     
+                   
+                    if(String.isNotBlank(leadRec.Contact__c)  &&  campaignMemberRec.Contact_Id__c == leadRec.Contact__c &&  String.isNotBlank(leadRec.Retail_Campaign_Name__c) && campaignMemberRec.Retail_Campaign_Id__c == leadRec.Retail_Campaign_Name__c)
+                   {
+                       duplicateLeadRec = leadRec;
+                       break;
+                   }
+              }
+                   
+              else if(objectAPIName == 'Account')
+              {  
+                    if(String.isNotBlank(leadRec.Contact__c)  &&  campaignMemberRec.Contact_Id__c == leadRec.Contact__c &&  String.isNotBlank(leadRec.Source_Campaign__c) && campaignMemberRec.Campaign_ID__c == leadRec.Source_Campaign__c)
+                   {
+                       System.debug('LIN><><><><>'); 
+                       duplicateLeadRec = leadRec;
+                       break;
+                   }
+              }
+         }
+         return duplicateLeadRec;
+     }
+        
+    
     @testvisible
     private Lead__c setLeadRecordFields(String campaignId, Campaign_Member__c campaignMember) {
     
