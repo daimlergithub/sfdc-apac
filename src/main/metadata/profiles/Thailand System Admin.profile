@@ -22215,11 +22215,11 @@
         <field>SurveyTaker__c.Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>SurveyTaker__c.Allow_Data_Sharing__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>SurveyTaker__c.Campaign__c</field>
@@ -22358,11 +22358,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Survey_Question__c.Total_Responses__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -27820,10 +27815,10 @@
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>UseWebLink</name>
-    </userPermissions>
+    </userPermissions>-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewGlobalHeader</name>
