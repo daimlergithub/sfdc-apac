@@ -8282,6 +8282,11 @@
         <field>Campaign_Member__c.Customer_Mobile__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Convert_To_Lead_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.DM_Template__c</field>
