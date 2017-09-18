@@ -2071,6 +2071,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <lookupDialogsAdditionalFields>Company_Name__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+	<validationRules>
+        <fullName>Address_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Address should be same as user&apos;s market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>AddressLine1_NoOfDigit</fullName>
         <active>true</active>
