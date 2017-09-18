@@ -2725,11 +2725,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CAC_SourceId__c</field>
-            <table>Account.DM_Request__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Campaign__c</field>
             <table>Account.DM_Request__r</table>
         </columns>
@@ -2775,11 +2770,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Dealer__c</field>
-            <table>Account.DM_Request__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Delivery_Type__c</field>
             <table>Account.DM_Request__r</table>
         </columns>
@@ -2806,11 +2796,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Gender__c</field>
-            <table>Account.DM_Request__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Home_Phone__c</field>
             <table>Account.DM_Request__r</table>
         </columns>
         <columns>
@@ -2886,11 +2871,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Address__c</field>
-            <table>Account.DM_Request__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>City__c</field>
             <table>Account.DM_Request__r</table>
         </columns>
         <columns>
