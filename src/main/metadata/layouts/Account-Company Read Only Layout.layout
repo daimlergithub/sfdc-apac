@@ -167,6 +167,10 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
@@ -610,6 +614,10 @@
                 <behavior>Readonly</behavior>
                 <field>Work_Phone_Last_Modified_Date2__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -738,7 +746,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000JmJe</masterLabel>
+        <masterLabel>00h28000006j53C</masterLabel>
         <sizeX>1</sizeX>
         <sizeY>1</sizeY>
         <summaryLayoutItems>

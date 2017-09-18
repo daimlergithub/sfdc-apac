@@ -129,6 +129,12 @@
     <columns>
         <field>Campaign_Member__c.Interest_Rate__c</field>
     </columns>
+	    <columns>
+        <field>Campaign_Member__c.LastInspectionDate__c</field>
+    </columns>
+    <columns>
+        <field>Campaign_Member__c.LastWorkDate__c</field>
+    </columns>
     <columns>
         <field>Campaign_Member__c.Lead_Desired_Service__c</field>
     </columns>

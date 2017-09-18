@@ -10,7 +10,7 @@
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>New_Case</customButtons>
-	<customButtons>Create_Vehicle</customButtons>
+    <customButtons>Create_Vehicle</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -43,6 +43,9 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -201,6 +204,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -316,10 +323,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Loyalty_Card_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CDM_UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -724,10 +727,14 @@
                 <behavior>Edit</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>DUPNumber__c</field>
-            </layoutItems>			
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -817,8 +824,8 @@
         <fields>Role__c</fields>
         <fields>Role2__c</fields>
         <fields>Portal_Email__c</fields>
-        <fields>Portal_Mail_Opt_Out__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
+        <fields>Primary__c</fields>
+        <fields>Retail_Duplicate_Flag__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
         <sortField>RECORDTYPE</sortField>
@@ -868,14 +875,14 @@
         <sortField>Related_From__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-    <relatedLists> 
+    <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
-        <fields>Case_Dealer__c</fields>		
+        <fields>Case_Dealer__c</fields>
         <fields>Case_Type__c</fields>
         <fields>Customer_Request__c</fields>
         <fields>Customer_Type__c</fields>
@@ -901,7 +908,7 @@
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
@@ -910,7 +917,7 @@
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_DM_Request</customButtons>
         <customButtons>Convert_To_Task</customButtons>
@@ -971,7 +978,7 @@
     </relatedLists>
     <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>
-        <excludeButtons>NewProposeMeeting</excludeButtons>
+      
         <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>

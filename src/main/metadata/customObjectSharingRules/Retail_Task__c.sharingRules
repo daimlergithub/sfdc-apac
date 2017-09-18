@@ -48,6 +48,11 @@
             <operation>equals</operation>
             <value>JP</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
         <accessLevel>Read</accessLevel>
         <name>JP Retail Task Readable to MBJ Dealers</name>
     </criteriaBasedRules>

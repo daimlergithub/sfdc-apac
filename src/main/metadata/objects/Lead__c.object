@@ -4455,6 +4455,30 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>WIP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Estimation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invoiced</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Order Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -37295,7 +37319,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Estimation</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoiced</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Job Card Issue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37344,6 +37380,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WIP</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40640,7 +40680,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
-                <fullName>Check Out</fullName>
+                <fullName>Checkout</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88714,6 +88754,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Invoiced</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost</fullName>
                 <default>false</default>
             </values>
@@ -88730,6 +88774,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Order Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
@@ -88739,6 +88787,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -111499,7 +111551,7 @@ Visit_Dealer__c = true &amp;&amp; (OR(ISNULL(Recommended_Dealer__c), ISBLANK( Re
     </validationRules>
     <validationRules>
         <fullName>Service_Date_is_Mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
 ISPICKVAL(Dealer_Lead_Status__c,"Service Completed"),
 ISNULL(Service_Date__c))</errorConditionFormula>

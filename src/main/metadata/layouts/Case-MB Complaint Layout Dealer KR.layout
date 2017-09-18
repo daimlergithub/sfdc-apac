@@ -157,6 +157,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Recommended_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Support_Dealer_1__c</field>
             </layoutItems>
             <layoutItems>

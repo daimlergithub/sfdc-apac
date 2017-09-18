@@ -2832,11 +2832,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Question__c.Total_Responses__c</field>
-            <table>Account.Surveys_Taken__r.Survey_Question_Answers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Survey_Question__c.Survey__c</field>
             <table>Account.Surveys_Taken__r.Survey_Question_Answers__r</table>
         </columns>

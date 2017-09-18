@@ -10,7 +10,7 @@
     <customButtons>Merge</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>New_Case_Dealer</customButtons>
-	<customButtons>Create_Vehicle</customButtons>
+    <customButtons>Create_Vehicle</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
@@ -80,6 +80,10 @@
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -148,10 +152,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>FS_SMS_Last_Modified_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CDM_UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -285,11 +285,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Personal_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Personal_Information_Third_Party_Release__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Personal_Agreement__c</field>
+                <field>Agreement_to_commit_info_processing__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -355,11 +363,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Personal_Abroad_Agreement__c</field>
+                <field>Personal_Agreement_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Agreement_to_commit_info_processing__c</field>
+                <field>Personal_Info_Third_Party_Release_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Agreement_to_commit_info_processing_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -597,9 +613,9 @@
         <fields>Role__c</fields>
         <fields>toRole__c</fields>
         <fields>Role2__c</fields>
-		<fields>Portal_Email__c</fields>
+        <fields>Portal_Email__c</fields>
         <fields>Retail_Email_OptOut__c</fields>
-		<fields>Portal_Message_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -609,14 +625,14 @@
         <fields>fromRole__c</fields>
         <fields>Role__c</fields>
         <fields>Role2__c</fields>
-		<fields>Portal_Email__c</fields>
+        <fields>Portal_Email__c</fields>
         <fields>Retail_Email_OptOut__c</fields>
-		<fields>Portal_Message_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>		
+        <fields>ContractNumber__c</fields>
         <fields>Type__c</fields>
         <fields>Product_Name__c</fields>
         <fields>Status__c</fields>
@@ -642,17 +658,15 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Lead_Desired_Service__c</fields>
-        <fields>Assigned_Date_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
-        <fields>Lead_Latest_Phase__c</fields>
-        <fields>Lead_DataSource__c</fields>
-        <fields>AfterSales_VIN__c</fields>
-        <fields>Expected_Close_Date__c</fields>
-        <fields>Expected_Registration_Date__c</fields>
+        <fields>Sales_Consultant__c</fields>
+        <fields>Interested_Vehicle__c</fields>
+        <fields>Lead_Desired_Service__c</fields>
+        <fields>Dealer_Lead_Status__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
@@ -661,7 +675,7 @@
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_Task</customButtons>
         <fields>Campaign_ID__c</fields>
@@ -686,7 +700,7 @@
         <relatedList>DM_Request__c.Customer_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
-	    <customButtons>SubmitSurvey</customButtons>
+        <customButtons>SubmitSurvey</customButtons>
         <fields>NAME</fields>
         <fields>Survey_Taking_Status__c</fields>
         <fields>Survey__c</fields>
@@ -697,16 +711,16 @@
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>NewCase</excludeButtons>
         <customButtons>New_Inquiry</customButtons>
         <customButtons>New_MB_Complaint</customButtons>
+        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
         <fields>Case_Dealer__c</fields>
-		<fields>Case_Type__c</fields>
+        <fields>Case_Type__c</fields>
         <fields>Customer_Request__c</fields>
         <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
@@ -724,7 +738,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>LogCall</excludeButtons>
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
@@ -744,7 +758,7 @@
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
-	 <relatedLists>
+    <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

@@ -12,7 +12,7 @@
 
 
         var filterNames = '';
-        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;';
+        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;LastWorkDate__c;LastInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
@@ -646,6 +646,7 @@
                                 <select onchange="showCriteria(this);"> 
                                     <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
                                     <option value="Retail_Sales_Consultant__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}</option>
+									<option value="Selling_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}</option>
                                     <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
                                     <option value="Retail_Sales_Sanction__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Sanction__c.Label}</option>
                                     <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
@@ -898,6 +899,8 @@
                                     <option value="NextInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}</option>
                                     <option value="CurrentMileage__c">{!$ObjectType.Account_Link__c.Fields.CurrentMileage__c.Label}</option> 
                                     <option value="Service_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}</option> 
+                                    <option value="LastWorkDate__c">{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}</option>
+                                    <option value="LastInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}</option>
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -1217,6 +1220,12 @@
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.accLink.Service_Dealer__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.accLink.LastWorkDate__c}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.accLink.LastInspectionDate__c}"/> 
                             </apex:column>
                             
                             <!-----------------------------vehicleBase Ends---------------------------------->

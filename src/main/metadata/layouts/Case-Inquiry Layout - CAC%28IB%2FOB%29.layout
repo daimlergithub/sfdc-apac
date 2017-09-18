@@ -181,6 +181,10 @@
                 <behavior>Edit</behavior>
                 <field>MBK_Case_Sub_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -341,6 +345,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Recommended_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Feedback_to_CAC__c</field>
             </layoutItems>
             <layoutItems>
@@ -357,7 +365,7 @@
                 <behavior>Edit</behavior>
                 <field>Feedback_Read__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Contacted__c</field>
             </layoutItems>
