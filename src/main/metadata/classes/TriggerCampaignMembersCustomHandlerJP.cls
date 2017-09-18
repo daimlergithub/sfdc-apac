@@ -16,6 +16,7 @@ public class TriggerCampaignMembersCustomHandlerJP
            CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection(Trigger.new);
                      // CampaignMembersCustomHelperJP.batchbounce(trigger.new);
                       CampaignMembersCustomHelperJP.addSalesCampaignMember(Trigger.new);
+                      CampaignMembersCustomHelperJP.afterInsertSharing(Trigger.new);
 
         }
        if(Trigger.isAfter && Trigger.isUpdate) {
