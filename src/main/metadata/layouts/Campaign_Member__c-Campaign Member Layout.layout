@@ -38,10 +38,6 @@
                 <behavior>Edit</behavior>
                 <field>Add_Campaign_Member_ID__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Sales_Consultant__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -75,10 +71,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Service_Advisor__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -137,12 +129,16 @@
                 <field>First_Registration_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Next_Inspection_Date__c</field>
+                <behavior>Edit</behavior>
+                <field>LastWorkDate__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Next_MOT_Date__c</field>
+                <behavior>Edit</behavior>
+                <field>LastInspectionDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>LastServiceDate__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -188,15 +184,20 @@
                 <field>Registration_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Sales_Representative__c</field>
+                <behavior>Edit</behavior>
+                <field>Sales_Consultant__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Service_Representative__c</field>
+                <behavior>Edit</behavior>
+                <field>Service_Advisor__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>NextInspectionDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NextServiceDate__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
