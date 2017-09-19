@@ -2683,6 +2683,16 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Agreement_to_commit_info_processing_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <externalId>false</externalId>
+        <label>Agreement to commit info processing Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Agreement_to_commit_info_processing__c</fullName>
         <externalId>false</externalId>
         <label>Agreement to commit info processing</label>
@@ -14240,6 +14250,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Personal_Abroad_Agreement_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Abroad Agreement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Personal_Abroad_Agreement__c</fullName>
         <externalId>false</externalId>
         <label>Personal Abroad Agreement</label>
@@ -14268,6 +14288,16 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Personal_Agreement_Date__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Agreement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Personal_Agreement__c</fullName>
         <externalId>false</externalId>
         <label>Personal Agreement</label>
@@ -14294,6 +14324,16 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Personal_Info_Third_Party_Release_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Info Third Party Release Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
