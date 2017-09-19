@@ -157,6 +157,10 @@
                     parCampType = AfterSalesOrFinance;
                 }
             }
+           
+            
+           
+            
             setFieldType();
         }
         
@@ -164,6 +168,51 @@
         public String selectedValueService {set;get;}
         public String selectedValue {set;get;}// holding the value which they selected either 'company' or 'outlet'
       
+       
+        public List<SelectOption> InterestModel{
+            get{
+                InterestModel= new List<SelectOption>();
+                InterestModel.add(new SelectOption('', '--None--'));
+      Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Interest_Model__c;
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+          for( Schema.PicklistEntry f : ple)
+         {
+             InterestModel.add(new SelectOption(f.getValue(), f.getLabel()));
+           }
+                return InterestModel;
+            }
+            set;
+        }  
+        public List<SelectOption> Occupation{
+            get{
+                Occupation= new List<SelectOption>();
+                Occupation.add(new SelectOption('', '--None--'));
+      Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Occupation__c;
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+          for( Schema.PicklistEntry f : ple)
+         {
+             Occupation.add(new SelectOption(f.getValue(), f.getLabel()));
+           }
+                return Occupation;
+            }
+            set;
+        }
+     
+        public List<SelectOption> provincemodel{
+            get{
+                provincemodel= new List<SelectOption>();
+                provincemodel.add(new SelectOption('', '--None--'));
+                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Address__c.fields.Province__c;
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+          for( Schema.PicklistEntry f : ple)
+         {
+             provincemodel.add(new SelectOption(f.getValue(), f.getLabel()));
+           }
+                return provincemodel;
+            }
+            set;
+        }
+        
         public List<SelectOption> getItems() {
             List<SelectOption> options = new List<SelectOption>();
             options.add(new SelectOption('None','--None--'));
@@ -239,6 +288,8 @@
             }
             set;
         }
+        
+        
         
         public List<SelectOption> Customerphase{
             get{
@@ -372,7 +423,7 @@
             }
             
             if(AccountLinkSoql.length()>accLinkLength){
-                AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name');
+                AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
                 //saveQuery += 'AND Id IN('+AccountLinkSoql+')';
                 system.debug('FianlAccountLinkSoql '+AccountLinkSoql);
                 List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
@@ -648,7 +699,7 @@
         }
         
         public void setSoql(){
-            accountSoql = 'SELECT Id, Name, PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
+            accountSoql = 'SELECT Id, Name, Market__c,PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
             vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Car_Model__r.Model_Name__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';
             if(selectedValueService=='Outlet'){
                 vehicleRelSoql += 'Last_Service_Dealer__c =\''+ u.Contact.AccountId+'\' AND ';
@@ -975,6 +1026,8 @@
             public Boolean isSelected {set;get;}
             public Recall__c recall{set;get;}
             public Account_Link__c accLink{set;get;}
+            
+            
         }
         
         
@@ -1125,11 +1178,11 @@
             numberFields = new Set<String>{'Vehicle_Amount__c', 'CurrentMileage__c'};
             dateFields = new Set<String>{'PersonBirthdate', 'LastServiceDate__c', 'End_Date__c','LastServiceDate__c', 'NextServiceDate__c','FirstRegistrationDate__c', 'Registration_Date__c', 'Expected_Close_Date__c','Expected_Registration_Date__c','NextInspectionDate__c'};
             textFields = new Set<String>{'Recall_No__c','Retail_Sales_Consultant__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'ZipCode__c', 'Selling_Dealer__c','Name','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c','Service_Dealer__c'};
-            pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c','Car_Model__r.Model_Name__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
+            pickListFields = new Set<String>{'Market__c','Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c','Car_Model__r.Model_Name__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
             multiplePickListFields = new Set<String>{'Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
             vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','FirstRegistrationDate__c', 'Class__c','Car_Model__r.Model_Name__c'};
             vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
-            AccountLinkFields =new Set<String>{'Sales_Representative__c','Retail_Sales_Consultant__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c','LastWorkDate__c','LastInspectionDate__c'};  
+            AccountLinkFields =new Set<String>{'Sales_Representative__c','Selling_Dealer__c','Retail_Sales_Consultant__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c','LastWorkDate__c','LastInspectionDate__c'};  
             recallFields = new Set<String>{'Recall_No__c','Status__c'};
             retialCampaignFields =new Set<String>{'Name'};
             RetailTaskFields =new Set<String>{ 'Product_Name__c','Finance_Product_Name__c', 'Type__c', 'Duration__c', 'Status__c','EndDate__c'};
