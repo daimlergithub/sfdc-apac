@@ -86,7 +86,7 @@
                 <field>OwnerId</field>
             </layoutItems>
 			 <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Market__c</field>
             </layoutItems>
             <layoutItems>
