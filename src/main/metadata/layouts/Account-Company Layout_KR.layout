@@ -568,8 +568,6 @@
         <fields>Dealer_Lead_Status__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
-        <sortField>Drop_off_Time__c</sortField>
-        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
