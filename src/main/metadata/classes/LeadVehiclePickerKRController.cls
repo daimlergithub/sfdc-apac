@@ -479,25 +479,25 @@ global without sharing class LeadVehiclePickerKRController {
             }
             if (vin_number.equalsIgnoreCase('')){
                 if(!Test.isRunningTest()){
-                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c LIMIT 3];
+                    vehicle = [Select Brand__c, Class__c, Model__c, Model_Description__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c LIMIT 3];
                     system.debug('Default Vehicle Records...' +vehicle);
                 }else{
-                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds];
+                    vehicle = [Select Brand__c, Class__c, Model__c, Model_Description__c from Vehicle__c Where Id IN :defaultVehicleIds];
                 }
             }
             else{
                 if(!Test.isRunningTest()){
-                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
+                    vehicle = [Select Brand__c, Class__c, Model__c, Model_Description__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
                 }
                 else{
-                    vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number];
+                    vehicle = [Select Brand__c, Class__c, Model__c , Model_Description__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number];
                 }
             }                 
             system.debug('Vehicle for else' +vehicle); 
         }
             
          for(Vehicle__c veh: vehicle){
-                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, vehicleToVRRegDateMap.get(veh.id)));
+                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, veh.Model_Description__c, vehicleToVRRegDateMap.get(veh.id)));
             }
         return vehilclewrapLst;
     }
@@ -510,12 +510,14 @@ global without sharing class LeadVehiclePickerKRController {
         public string classW{get;set;}
         public string modelW{get;set;}
         public string RegnumW{get;set;}
+		public String modeldescriW{get;set;}
         
-        public vehicleWrapper(string vId, string brn, string cls, string mod, string regNum){
+        public vehicleWrapper(string vId, string brn, string cls, string mod, string regNum, string moddes ){
             vehIdW = vId;
             brandW = brn;
             classW = cls;
             modelW = mod;
+			modeldescriW = moddes;
             if(regNum != null){
                 RegnumW = regNum;
             }else{
@@ -554,12 +556,12 @@ global without sharing class LeadVehiclePickerKRController {
             
         if(filterText == 'Class'){
             system.debug('PSM CHECK QUERY FILTER '+ searchText + allVehicleIds + usr.Market__c);
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Class__c =: searchText];
+            vehicle = [Select Brand__c, Class__c, Model__c, Model_Description__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Class__c =: searchText];
         }else{
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c];
+            vehicle = [Select Brand__c, Class__c, Model__c, Model_Description__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c];
         }   
         for(Vehicle__c veh: vehicle){
-                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, vehicleToVRRegDateMap.get(veh.id)));
+                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, veh.Model_Description__c, vehicleToVRRegDateMap.get(veh.id)));
         }   
         system.debug('PSM RETURN VALUE '+ vehilclewrapLst);
             return vehilclewrapLst;

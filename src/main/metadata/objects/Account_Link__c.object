@@ -6609,8 +6609,8 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
     <validationRules>
         <fullName>AccountLink_Market_Cannot_be_Changed</fullName>
         <active>true</active>
-        <description>Market field of AccountLink should be same as user's market field</description>
-        <errorConditionFormula>TEXT( Market__c ) != TEXT( $User.Market__c )</errorConditionFormula>
+        <description>Market field of AccountLink should be same as user&apos;s market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>

@@ -8558,6 +8558,11 @@
         <field>Campaign_Member__c.Retail_Task__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Sales_Consultant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Sales_Representative__c</field>
@@ -8566,6 +8571,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Sending_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Service_Advisor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
