@@ -277,46 +277,25 @@
         <externalId>false</externalId>
         <label>Address Type</label>
         <picklist>
-            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Home</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Business</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 1</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                   
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 2</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 3</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -400,52 +379,38 @@
             <picklistValues>
                 <fullName>Japan</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Korea</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Australia</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Zealand</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Laos</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Thailand</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Singapore</fullName>
-                <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default> 
             </picklistValues>
             <picklistValues>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Malaysia</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -684,301 +649,190 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             <picklistValues>
                 <fullName>Hokkaido</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aomori</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Iwate</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Miyagi</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Akita</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Yamagata</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fukushima</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ibaraki</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Tochigi</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gunma</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Saitama</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Chiba</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Tokyo</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Kanagawa</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                                
             </picklistValues>
             <picklistValues>
                 <fullName>Niigata</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Toyama</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Ishikawa</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fukui</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Yamanashi</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Nagano</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gifu</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Shizuoka</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aichi</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mie</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Shiga</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Kyoto</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Osaka</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hyogo</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Nara</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wakayama</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Tottori</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>               
             </picklistValues>
             <picklistValues>
                 <fullName>Shimane</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>   
             </picklistValues>
             <picklistValues>
                 <fullName>Okayama</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hiroshima</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Yamaguchi</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Tokushima</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Kagawa</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ehime</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Kochi</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fukuoka</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Saga</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Nagasaki</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Kumamoto</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Oita</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Miyazaki</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Kagoshima</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Okinawa</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1006,35 +860,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Active</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Dead Mail</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Opt out</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1085,16 +923,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             <picklistValues>
                 <fullName>To Person</fullName>
                 <default>true</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>To Company</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2073,7 +1905,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
     <sharingModel>ControlledByParent</sharingModel>
 	<validationRules>
         <fullName>Address_Market_Cannot_be_Changed</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Market field of Address should be same as user&apos;s market field</description>
         <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
