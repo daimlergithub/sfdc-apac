@@ -342,7 +342,7 @@
                     </apex:pageBlockSectionItem>
                     
                 
-                    <apex:inputField value="{!addressobj.Market__c }" />
+                    <apex:outputField value="{!addressobj.Market__c }" />
                     <!-- <apex:inputField value="{!addressobj.Block__c}"/> -->
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>
                    
@@ -459,7 +459,7 @@
                  </apex:pageblockSectionItem>  
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="Market"/>
-                        <apex:inputField value="{!addressObj.Market__c}"/>
+                        <apex:outputField value="{!addressObj.Market__c}"/>
                  </apex:pageBlockSectionItem>
                      
                 </apex:pageBlockSection>
@@ -474,7 +474,7 @@
                         </apex:selectList>      
                     </apex:pageBlockSectionItem>        
                     <!--Added Picklist Redesign Market Field-->     
-                    <apex:inputField value="{!addressobj.Market__c }" />        
+                    <apex:outputField value="{!addressobj.Market__c }" />        
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>                          
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>          
                     <apex:inputField value="{!addressobj.Address_Line_3__c}"/>          
