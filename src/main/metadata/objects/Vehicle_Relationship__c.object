@@ -4839,7 +4839,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <label>All Vehicle Relationships</label>
         <language>en_US</language>
         <sharedTo>
-            <group>MBK01Ehq</group>
             <group>MBK09Shq</group>
             <group>MBK11Whq</group>
             <group>MBK30Whq</group>

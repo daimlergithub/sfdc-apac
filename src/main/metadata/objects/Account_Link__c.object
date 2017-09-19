@@ -3007,7 +3007,6 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <label>All Account Links</label>
         <language>en_US</language>
         <sharedTo>
-            <group>MBK01Ehq</group>
             <group>MBK09Shq</group>
             <group>MBK11Whq</group>
             <group>MBK30Whq</group>

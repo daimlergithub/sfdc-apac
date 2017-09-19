@@ -16339,7 +16339,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All Account</label>
         <language>en_US</language>
         <sharedTo>
-            <group>MBK01Ehq</group>
             <group>MBK09Shq</group>
             <group>MBK11Whq</group>
             <group>MBK30Whq</group>
