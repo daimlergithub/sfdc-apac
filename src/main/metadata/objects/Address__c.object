@@ -375,7 +375,6 @@
         <externalId>false</externalId>
         <label>Country</label>
         <picklist>
-            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Japan</fullName>
                 <default>false</default>
@@ -644,8 +643,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
         <label>Prefecture</label>
-        <picklist>
-            <controllingField>Market__c</controllingField>
+        <picklist>            
             <picklistValues>
                 <fullName>Hokkaido</fullName>
                 <default>false</default>
@@ -857,7 +855,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Status</label>
         <picklist>
-            <controllingField>Market__c</controllingField>
+            
             <picklistValues>
                 <fullName>Active</fullName>
                 <default>false</default>                
@@ -919,7 +917,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>TitleOfHonor</label>
         <picklist>
-            <controllingField>Market__c</controllingField>
+            
             <picklistValues>
                 <fullName>To Person</fullName>
                 <default>true</default>
