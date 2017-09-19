@@ -5751,22 +5751,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
     </fields>
     <label>Vehicle</label>
     <listViews>
-        <fullName>All_Vehicles</fullName>
-        <columns>NAME</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>OWNER.FIRST_NAME</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <label>All Vehicles</label>
-        <language>en_US</language>
-        <sharedTo>
-            <group>MBK09Shq</group>
-            <group>MBK11Whq</group>
-            <group>MBK30Whq</group>
-            <group>MBK31Shq</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>New_Created_Vehicles</fullName>
         <columns>UsVIN__c</columns>
         <columns>NAME</columns>
