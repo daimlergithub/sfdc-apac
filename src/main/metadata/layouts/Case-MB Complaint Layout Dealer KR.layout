@@ -157,10 +157,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Recommended_Dealer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Support_Dealer_1__c</field>
             </layoutItems>
             <layoutItems>
@@ -169,10 +165,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Contact__c</field>
-            </layoutItems>
 			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Contacted__c</field>
