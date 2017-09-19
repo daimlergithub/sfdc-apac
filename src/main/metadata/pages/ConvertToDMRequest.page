@@ -18,14 +18,14 @@
  
             <apex:pageblockSection title="All Accounts" collapsible="false" columns="2">
  
-                <apex:pageBlockTable value="{!wrapAccountList}" var="accWrap" id="table" title="All Accounts">
+                <apex:pageBlockTable value="{!campaignMembers}" var="accWrap" id="table" title="All Accounts">
                     <apex:column >
                         <apex:facet name="header">
                             <apex:inputCheckbox onclick="selectAllCheckboxes(this,'inputId')"/>
                         </apex:facet>
-                        <apex:inputCheckbox value="{!accWrap.selected}" id="inputId"/>
+                        <apex:inputCheckbox value="{!accWrap.isselected}" id="inputId"/>
                     </apex:column>
-                    <apex:column value="{!accWrap.acc.Name}" />
+                    <apex:column value="{!accWrap.campaignMember.Name}" />
                     
                 </apex:pageBlockTable>
  

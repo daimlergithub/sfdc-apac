@@ -12,13 +12,13 @@ public class ConvertToDMRequest{
     //Our collection of the class/wrapper objects wrapAccount
    
     public List<Campaign_Member__c > selectedAccounts{get;set;}
-    Public Static Id camId;
+    Public Static Id camId = ApexPages.currentPage().getParameters().get('Id');
     private String objectAPIName;
     public List<CampaignMemberInfo> campaignMembers {get; set;}
  List<DM_Request__c> dmrec = New List<DM_Request__c>(); 
     public ConvertToDMRequest(){
     
-        camId = ApexPages.currentPage().getParameters().get('id');
+       
         if(camId!=null)
         {
          objectAPIName = (Id.valueOf(camId)).getSObjectType().getDescribe().getName();
@@ -56,7 +56,7 @@ public class ConvertToDMRequest{
             this.isSelected = false;
          }
        }
-    public void  processSelected() {
+    public pagereference  processSelected() {
     //objectAPIName = (Id.valueOf(camId)).getSObjectType().getDescribe().getName();
      for(CampaignMemberInfo campaignMemberObj : campaignMembers) 
         {
@@ -88,6 +88,7 @@ public class ConvertToDMRequest{
       {
          insert dmrec;
       }
+      return new PageReference('/' +camId);
     }
      public PageReference cancel() 
       {
