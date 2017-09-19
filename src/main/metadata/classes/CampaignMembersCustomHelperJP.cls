@@ -19,7 +19,7 @@ public  class CampaignMembersCustomHelperJP {
         date   : 15th Mar, 2017
         Desc : if campaign members status is 'responded or not responded or bounced' then update the reated execution campaing status to 'Response collection'(if the status is not in 'completed')
         */
-    
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      public static void afterUpdateOperation(Map<Id, Campaign_Member__c> oldMap, Map<Id, Campaign_Member__c> newMap, List<Campaign_Member__c> newList) {
         Set<Id> campaignIdSet = new Set<Id>(); 
         Set<Id> parentIdSet = new Set<Id>();
@@ -89,47 +89,41 @@ public  class CampaignMembersCustomHelperJP {
              
     }
     
-      public static void afterInsertSharing(List<Campaign_Member__c> newList)
-{
+    public static void afterInsertSharing(List<Campaign_Member__c> newList){
 
-    Set<Id> recordIds = New Set<id>();
-    Map<Id,String> UserMap = New Map<Id,String>();
-    List<String> dealerCode = New List<String>();
-    List<String> accountName = New List<String>();
-    List<Campaign_Member__Share> campMemShare = New List<Campaign_Member__Share>();
+Set<Id> recordIds = New Set<id>();
+Map<Id,String> UserMap = New Map<Id,String>();
+Set<String> dealerCode = New Set<String>();
+Set<String> accountName = New Set<String>();
+List<Campaign_Member__Share> campMemShare = New List<Campaign_Member__Share>();
 
-    For(Campaign_Member__c camMem : newList){
-        If(CamMem.Retail_Campaign_Id__c != null && CamMem.MD__c == 'JP'){
+For(Campaign_Member__c camMem : newList){
+    If(CamMem.Retail_Campaign_Id__c != null && CamMem.MD__c == 'JP'){
      
-            recordIds.add(camMem.Id);
-        }
-    
-    }
-
-    List<User> UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
-
-    For(User u : UserList){
-        If(u.ContactId != null){    
-            UserMap.put(u.id,u.Dealer_GC_Code__c);  
-            dealerCode.add(u.Dealer_GC_Code__c);
-            system.debug('dcgccode???'+dealerCode);
-        }   
-    }
-    List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  =: dealerCode];
-    System.debug('dlist<<<<'+dealerAccList);
-    For(Account acc :dealerAccList){
-      System.debug('acc????'+ acc.Name);
-        accountName.add(acc.Name);
+     recordIds.add(camMem.Id);
     }
     
-        List<Group> groupList = [select Id, Name, Type from Group where Name =: accountName];
-    System.debug('glist<<<<<<'+groupList );
-    if(recordIds.size()>0 && accountName != null){
-          System.debug('names>>>>>>'+accountName);
-        For(Campaign_Member__c camMem : newList){
+}
+
+List<User> UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
+
+For(User u : UserList){
+If(u.ContactId != null){    
+UserMap.put(u.id,u.Dealer_GC_Code__c);  
+dealerCode.add(u.Dealer_GC_Code__c);
+}   
+}
+List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode];
+For(Account acc :dealerAccList){
+    accountName.add(acc.Name);
+}
+List<Group>grList = [select Id, Name, Type from Group where Name =: accountName];
+if(recordIds.size()>0 && accountName != null){
+    
+   For(Campaign_Member__c camMem : newList){
   
-            for(Group groupRec : groupList){
-                Campaign_Member__Share campShare = new Campaign_Member__Share();
+   for(Group groupRec : grList){
+    Campaign_Member__Share campShare = new Campaign_Member__Share();
                     campShare.AccessLevel = 'Edit';
                     campShare.UserOrGroupId = groupRec.Id;
                     campShare.ParentId = camMem.Id;
@@ -139,12 +133,239 @@ public  class CampaignMembersCustomHelperJP {
     
     
     
-        }
-    }
-    If(campMemShare.size()>0){
-        insert campMemShare;
-    }
 }
+}
+If(campMemShare.size()>0){
+insert campMemShare;
+}
+}
+
+     public static void wholesaleCampaignSharing(List<Campaign_Member__c>newlist)
+    {
+        List<Campaign_Member__c>campaignmemberlist = [select id,name,Campaign_ID__r.Share_Campaign_Participation_Flag__c,Preferred_Dealer__c,Preferred_Dealer__r.name,Contact_Id__c from Campaign_Member__c where id IN:newlist];
+        Map<Id, List<Id>> mapCamapignMember = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> mapCheckingType = new Map<Id, List<Id>>();
+        List<Campaign_Member__share> list_SharingRecord = new List<Campaign_Member__share>();
+        Set<Id> set_CampaignMemberId = new Set<Id>();
+        List<Account_Link__c> ListAlk=new List<Account_Link__c>();
+        //List<User> list_User = new List<User>();
+        List<String> accNames=new List<String>();
+        List<String> GcNames=new List<String>();
+        Set<Id> set_AccountId = new Set<Id>();
+        Set<Id> set_LinkId = new Set<Id>();
+        Set<Id> set_CustomerId = new Set<Id>();
+        List<Id> list_CamMemberId = new List<Id>();
+        
+        
+        for(Campaign_Member__c vc : campaignmemberlist )
+        {
+           if( vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c == null && vc.contact_Id__c != null)
+            {
+                    if(!mapCheckingType.containsKey(vc.contact_Id__c))
+                    {
+                        mapCheckingType.put(vc.contact_Id__c, new List<Id>());
+                    }
+                    mapCheckingType.get(vc.contact_Id__c).add(vc.Id);
+                    set_CampaignMemberId.add(vc.id);
+                    set_CustomerId.add(vc.contact_Id__c);
+            }else if(vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c != null  )
+            {
+                if(!mapCamapignMember.containsKey(vc.Preferred_Dealer__c)){
+                      mapCamapignMember.put(vc.Preferred_Dealer__c, new List<Id>());
+                  }
+                  mapCamapignMember.get(vc.Preferred_Dealer__c).add(vc.Id);
+                  set_AccountId.add(vc.Preferred_Dealer__c);
+            }
+        }  
+            if(set_AccountId.size() > 0)
+            {
+                List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_AccountId];
+                for(Account acc : accName)
+                {
+                    GcNames.add(acc.Dealer_GC_Code__c );
+                    system.debug('++++++++++++++'+'True');
+                } 
+                List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
+                for(Account accs : accGCode )
+                {
+                  accNames.add(accs.Name);  
+                }
+            } else if(set_CustomerId.size() >0)
+            {
+                system.debug('++++++++++++++'+'False');
+                ListAlk=[select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:set_CustomerId];
+                if(ListAlk.size() > 0)
+                {
+         
+                    for(Account_Link__c  alk:ListAlk)
+                    {
+                        if(alk.fromRole__c!=null && alk.toRole__c!=null)
+                        {
+                            set_LinkId.add(alk.fromRole__c);
+                        }     
+                    }
+                    List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_LinkId];
+                    for(Account acc : accName)
+                    {
+                        // accNames.add(acc.Name);
+                        GcNames.add(acc.Dealer_GC_Code__c );
+            
+                    }
+                    List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
+                    for(Account accs : accGCode )
+                    {
+                        accNames.add(accs.Name);  
+                
+                    }
+            
+                } 
+            }
+         
+              system.debug('++++++++++++++'+accNames);
+            
+            
+            List<Group> list_User = new List<Group>( [select Id, Name, Type from Group where Name IN:accNames]);
+            system.debug('+++++++++++'+list_User);
+          
+        
+        
+        if(mapCamapignMember.size() > 0){
+            list_SharingRecord.addAll(createDealerAccountSharing(mapCamapignMember));
+        }
+        
+        if(mapCheckingType.size() > 0){
+            list_SharingRecord.addAll(createPersonOrCompanyAccountSharing(mapCheckingType,set_CampaignMemberId));
+            
+        }
+        
+        if(list_SharingRecord.size() > 0){
+            Database.insert(list_SharingRecord, false);
+        }
+        system.debug('++++++++++++++'+list_SharingRecord);
+    }
+    
+    // Get all the Dealer Account with Same GC Code -
+    private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
+        
+        List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordTypeId =: Dealer_RecordTypeId ];
+        Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
+        for(Account accRec : dealerAccList) {
+            gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+        }
+        
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
+        if(dealerAccList.size() > 0) {
+            List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
+                                                                    AND RecordTypeId =: Dealer_RecordTypeId ];
+                                                                    
+                       system.debug('+++++++++++++++++++'+similarGCCodeDealerAccountList);
+            for(Account accRec : similarGCCodeDealerAccountList) {
+                if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
+                    dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                }
+                dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
+            }                                                       
+        }
+        return dealerIdToSimilarGCCodeDealerAccountIdsMap;
+    }
+    
+    
+    private static List<Campaign_Member__share> createDealerAccountSharing(Map<Id, List<Id>> mapCamapignMember){
+    // START: Adding Similar GC Code related Account To Map which is sharing already.
+        Set<Id> dealerAccIdSet = new Set<Id>();
+        for(Id dealerAccId : mapCamapignMember.keySet()) {
+            dealerAccIdSet.add(dealerAccId);
+        }
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(dealerAccIdSet);
+        
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+            if(mapCamapignMember.containsKey(dealerId)) {
+                List<Id> vrIdList = mapCamapignMember.get(dealerId);
+                for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                    mapCamapignMember.put(similarGCCodeDealerId, vrIdList);
+                }
+            }
+        }
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: mapCamapignMember.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+
+        // END: Adding Similar GC Code related Account To Map which is sharing already.
+        List<Campaign_Member__share> list_SharingRecord = new List<Campaign_Member__share>();
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && mapCamapignMember.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id acId : mapCamapignMember.get(accNameToAccIdMap.get(groupRec.Name))){
+                    Campaign_Member__share dmRequestShare = new Campaign_Member__share();
+                    dmRequestShare.AccessLevel = 'Edit';
+                    dmRequestShare.UserOrGroupId = groupRec.Id;
+                    dmRequestShare.ParentId = acId;
+                    dmRequestShare.RowCause = Schema.Campaign_Member__share.RowCause.Manual;
+                    list_SharingRecord.add(dmRequestShare);
+                }
+            }
+        }
+        return list_SharingRecord;
+    }
+    
+    
+    private static List<Campaign_Member__share> createPersonOrCompanyAccountSharing(Map<Id, List<Id>> mapCheckingType,Set<Id> set_CampaignMemberId)
+    {
+        List<Account_Link__c> ListAlk=new List<Account_Link__c>();
+        Set<Id> DealerAccId=new Set<Id>();
+        Set<Id> VrID=new Set<Id>();
+        
+        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:mapCheckingType.keySet() ];
+        for(Account_Link__c alk:ListAlk) {
+            DealerAccId.add(alk.fromRole__c);
+        }
+        DealerAccId.remove(null);
+        
+        // Start: Share with all Dealer Account with same GC Code
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(DealerAccId);
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+            for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                DealerAccId.add(similarGCCodeDealerId);
+            }
+        }
+        // Finish: Share with all Dealer Account with same GC Code
+        
+        
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: DealerAccId];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
+        
+        System.debug('DealerAccId  newList'+DealerAccId);
+
+        List<Campaign_Member__share> list_SharingRecord = new List<Campaign_Member__share>();
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet])
+        {
+            if(set_CampaignMemberId != null)
+            {
+                for(Id ids:set_CampaignMemberId)
+                {
+                    Campaign_Member__share dmRequestShare = new Campaign_Member__share();
+                    dmRequestShare.AccessLevel = 'Edit';
+                    dmRequestShare.UserOrGroupId = groupRec.Id;
+                    dmRequestShare.ParentId = ids;
+                    dmRequestShare.RowCause = Schema.Campaign_Member__share.RowCause.Manual;
+                    list_SharingRecord.add(dmRequestShare);
+                }
+            }
+        }
+        return list_SharingRecord;
+    }
+
     
     /*
      Added by : Lokesh 
