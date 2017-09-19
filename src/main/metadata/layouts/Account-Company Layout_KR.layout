@@ -561,13 +561,11 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Lead_Desired_Service__c</fields>
-        <fields>Drop_off_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
-        <fields>CAC_Lead_Status__c</fields>
+        <fields>Sales_Consultant__c</fields>
+        <fields>Interested_Vehicle__c</fields>
+        <fields>Lead_Desired_Service__c</fields>
         <fields>Dealer_Lead_Status__c</fields>
-        <fields>Source_Campaign__c</fields>
-        <fields>Lead_DataSource__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
         <sortField>Drop_off_Time__c</sortField>
