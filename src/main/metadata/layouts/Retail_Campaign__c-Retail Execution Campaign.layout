@@ -49,7 +49,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Parent_Campaign1__c</field>
             </layoutItems>
             <layoutItems>
@@ -87,7 +87,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>hasError__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
@@ -127,9 +127,9 @@
         <relatedList>Campaign_Member__c.Retail_Campaign_Id__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Lead__c</fields>		
-        <fields>NAME</fields> 
-		<fields>Campaign__c</fields> 
+        <fields>Lead__c</fields>
+        <fields>NAME</fields>
+        <fields>Campaign__c</fields>
         <fields>Contact__c</fields>
         <relatedList>Campaign_Lead__c.Retail_Campaign__c</relatedList>
     </relatedLists>
@@ -174,7 +174,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000OGxb</masterLabel>
+        <masterLabel>00h28000006jLP4</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
