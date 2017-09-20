@@ -9217,6 +9217,52 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Master_Account_Id__c</fullName>
         <description>Created by: Mouse Liu 
@@ -11233,6 +11279,34 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Race__c</fullName>
+        <externalId>false</externalId>
+        <label>Race</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Rating</fullName>
@@ -17365,6 +17439,37 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>true</default>
             </values>
         </picklistValues>
+		 <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
@@ -17982,6 +18087,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		 <picklistValues>
+            <picklist>Race__c</picklist>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22470,6 +22594,37 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>true</default>
             </values>
         </picklistValues>
+		 <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
@@ -23087,6 +23242,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Race__c</picklist>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27256,6 +27430,37 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>true</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
@@ -27865,6 +28070,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Race__c</picklist>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
