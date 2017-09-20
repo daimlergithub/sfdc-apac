@@ -9998,11 +9998,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10013,22 +10008,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DM_Request__c.Car_Series__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DM_Request__c.Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Channel__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10063,16 +10048,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DM_Request__c.Dealer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Delivery_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DM_Request__c.Delivery_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10099,11 +10074,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Gender__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Home_Phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
