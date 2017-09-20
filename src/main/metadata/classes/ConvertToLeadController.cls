@@ -6,7 +6,7 @@ Usage               :    Convert to lead functionality for Campaign Member Recor
                           
 JIRA NO             :    SFDCJP-1036 & 1041                                            
 ************************************************************************************/
-public with sharing class ConvertToLeadController 
+public class ConvertToLeadController 
 {
     
     private final String campaignId = ApexPages.currentPage().getParameters().get('CampaignId');
