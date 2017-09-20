@@ -6,7 +6,7 @@
 
 고객명：{!Lead__c.Contact__c}
 할당된 딜러: {!Lead__c.Assigned_Dealer__c}
-리드 번호：{!Lead__c.Name}
+리드 번호：	 {!Lead__c.Name}
 리드 대분류: {!Lead__c.RecordType}
 리드 소분류: {!Lead__c.Lead_Type__c}
 요청 서비스: {!Lead__c.MBK_Lead_Desired_Service__c}
@@ -15,4 +15,4 @@
 
 딜러 사용자 :  {!Lead__c.Link}
 
-- MBK 고객센터- {!Lead__c.Link}
+- MBK 고객센터-
