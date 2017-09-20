@@ -5,7 +5,7 @@
  */
 
 global class Updatecampaignmemwithrefresh{
- //User usr = [Select id, LanguageLocaleKey,Market__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
+ static User usr = [Select id, LanguageLocaleKey,Dealer_GC_Code__c,Market__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     webservice static void Refreshcampaignmember(String camid){
     String province;
     String provincecontact;
@@ -78,7 +78,8 @@ global class Updatecampaignmemwithrefresh{
       String provincecontacts;
     String provincevehicles;
 
-            
+         set<String> vehicleid = new set<String>();
+         set<string> contactid = new set<string>();
           //market = usr.Market__c;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
       //if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
@@ -86,11 +87,19 @@ global class Updatecampaignmemwithrefresh{
         UtilAddressTranslation.gettranslatedvalues(market);
      // }
         system.debug('--------------->'+retcamid);
-       List<campaign_Member__c> retcmmeber = [select id,Name,Address__r.Name,Finance_Address__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Address__r.District__c,Contract__r.Contractor_Address1_Native__c ,Contact_Id__r.Primary_Address_Reference__r.District__c, Contract__r.Contractor_Address3_Native__c,Campaign_ID__c 
-                                            ,Vehicle_Relationship__r.vehicle_address__r.name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c ,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,
+       List<campaign_Member__c> retcmmeber = [select id,Name,Address__r.Name,Vehicle__c,Contact_Id__c,Finance_Address__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Address__r.District__c,Contract__r.Contractor_Address1_Native__c ,Contact_Id__r.Primary_Address_Reference__r.District__c, Contract__r.Contractor_Address3_Native__c,Campaign_ID__c 
+                                            ,Vehicle_Relationship__r.vehicle_address__r.name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c ,Vehicle_Relationship__r.vehicle_address__r.Province__c,
+                                            Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,NextInspectionDate__c,NextServiceDate__c,LastInspectionDate__c,LastServiceDate__c,LastWorkDate__c,Service_Advisor__c,Sales_Consultant__c,
                                             Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Retail_Campaign_Id__r.Segmentation_Base__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c  from campaign_Member__c WHERE Retail_Campaign_Id__c = : retcamid];
-        List<Campaign_Member__c> membertoupdate = new List<Campaign_Member__c>();
+        //List<Campaign_Member__c> membertoupdate = new List<Campaign_Member__c>();
+        Map<id,Campaign_Member__c> membertoupdate = new Map<id,Campaign_Member__c>();
         for(campaign_Member__c mem : retcmmeber){
+            if(mem.Vehicle__c != null){
+                vehicleid.add(mem.Vehicle__c);
+            }
+            if(mem.Contact_Id__c != null){
+                contactid.add(mem.Contact_Id__c);
+            }
         provinces = addtrmap1.get(mem.Address__r.Province__c);
         provincecontacts=addtrmap1.get(mem.Contact_Id__r.Primary_Address_Reference__r.Province__c);
         provincevehicles=addtrmap1.get(mem.Vehicle_Relationship__r.vehicle_address__r.Province__c);
@@ -130,10 +139,31 @@ global class Updatecampaignmemwithrefresh{
             //getSObjectField(mem.Customer_Complete_Address__c);
             mem.Customer_Complete_Address__c = mem.Customer_Complete_Address__c.replaceAll('null,',' ');
             mem.Customer_Complete_Address__c = mem.Customer_Complete_Address__c.replaceAll('null',' ');
-            membertoupdate.add(mem);
+            membertoupdate.put(mem.id,mem);
         //}
         }
-        update membertoupdate;
+        
+        List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: vehicleid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c order by LastModifiedDate desc LIMIT 1];
+        if(!acclink.isempty() && acclink.size()>0){
+        for(Campaign_Member__c camp : retcmmeber){
+            camp.NextInspectionDate__c = acclink[0].NextInspectionDate__c;
+            camp.NextServiceDate__c = acclink[0].NextServiceDate__c;
+            camp.LastInspectionDate__c = acclink[0].LastInspectionDate__c;
+            camp.LastServiceDate__c = acclink[0].LastServiceDate__c;
+            camp.LastWorkDate__c = acclink[0].LastWorkDate__c;
+            camp.Service_Advisor__c = acclink[0].Service_Advisor__c;
+            membertoupdate.put(camp.id,camp);
+        }
+        }
+        
+        List<Account_Link__c> Personacclink = [select Id, Name, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc LIMIT 1];
+        if(!Personacclink.isempty() && Personacclink.size()>0){
+        for(Campaign_Member__c retcamp : retcmmeber){
+            retcamp.Sales_Consultant__c = Personacclink[0].Retail_Sales_Consultant__c;
+            membertoupdate.put(retcamp.id,retcamp);
+        }
+        }
+        update membertoupdate.values();
     }
     /*public static String getSObjectField(String str){
         if (str == null) { 
