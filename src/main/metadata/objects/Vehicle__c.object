@@ -21738,7 +21738,7 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+
 
 var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
 records = ReferraAccepted.getArray("records"); 
@@ -21826,7 +21826,7 @@ alert('{!$Label.Send_to_spo_translate}');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+
 
 var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
 records = ReferraAccepted.getArray("records");
