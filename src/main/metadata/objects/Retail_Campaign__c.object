@@ -14452,6 +14452,20 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>You Couldn't Update Retail Candidate With Current Status.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>DM_Material_Template_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND
+(
+$Profile.Name !='IntegrationAPI',
+ISBLANK(DM_Template__c),
+ISPICKVAL(Execution_Type__c,"DM"),
+Record_Type_Name__c = 'Campaign Execution',
+MD__c ='JP'
+)</errorConditionFormula>
+        <errorDisplayField>DM_Template__c</errorDisplayField>
+        <errorMessage>DM Material Template is reqired when execution type is DM</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Dealer_Couldnot_update_Retail_BP</fullName>
         <active>true</active>
