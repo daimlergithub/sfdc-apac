@@ -6287,6 +6287,11 @@
         <field>Address__c.Foreign_Nationals__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Hardcopy_Last_Modified_By__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Hardcopy_Last_Modified_Date__c</field>

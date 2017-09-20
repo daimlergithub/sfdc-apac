@@ -1276,6 +1276,10 @@
         <apexClass>SegmentationCriteriaController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+			    <classAccesses>
+        <apexClass>Batch_BounceStatusretail</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>SegmentationCriteriaControllerTest</apexClass>
         <enabled>true</enabled>
