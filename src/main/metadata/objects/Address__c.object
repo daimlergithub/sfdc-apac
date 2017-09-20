@@ -517,6 +517,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Hardcopy_Last_Modified_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Mail Last Modified By</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Hardcopy_Last_Modified_Date__c</fullName>
         <externalId>false</externalId>
         <label>Mail Last Modified Date</label>
