@@ -2,7 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Convert_to_lead1</customButtons>
     <customButtons>Convert_To_Task1</customButtons>
-    <customButtons>Convert_To_DM_Request1</customButtons>
+    <excludeButtons>Convert_To_DM_Request1</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
