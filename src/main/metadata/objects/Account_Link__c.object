@@ -76,6 +76,18 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Contract_Count__c</fullName>					  														 
+        <externalId>false</externalId>
+        <label>Contract Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Retail_Abroad_Agreement__c</fullName>
         <externalId>false</externalId>
@@ -455,6 +467,49 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	 <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>NextInspectionDate__c</fullName>
         <externalId>false</externalId>
@@ -507,8 +562,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-	
+    </fields>	
     <fields>
         <fullName>Personal_Abroad_Agreement__c</fullName>
         <defaultValue>false</defaultValue>
@@ -691,6 +745,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+		<fullName>Retail_Address_Line_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Address Line 3</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>									 
+	<fields>
         <fullName>Retail_Address_Reference__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Read Only</description>
@@ -1291,6 +1356,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+		<fullName>Retail_Opt_In_Mobile__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Opt In Mobile</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields> 
         <fullName>Retail_PersonBirthdate__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
@@ -1457,6 +1531,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Retail_Salutation__c</fullName>
+        <description>Retail Salutation</description>
+        <externalId>false</externalId>
+        <label>Retail Salutation</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Special_Care__c</fullName>
@@ -2054,6 +2140,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>CompanyExternalLink</fullName>
         <active>true</active>
         <label>Company Customer External Link</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
             <values>
@@ -2234,6 +2347,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Contact2Contact</fullName>
         <active>true</active>
         <label>Contact2Contact</label>
+		 <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
             <values>
@@ -2382,6 +2522,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>ContactSector</fullName>
         <active>true</active>
         <label>ContactSector</label>
+		 <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
             <values>
@@ -2530,6 +2697,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>IndividualExternalLink</fullName>
         <active>true</active>
         <label>Individual Customer External Link</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
             <values>
@@ -3092,6 +3286,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Vehicle_External_Link</fullName>
         <active>true</active>
         <label>Vehicle External Link</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
             <values>

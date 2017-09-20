@@ -3719,6 +3719,11 @@
         <field>Account.Occupation__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Old_UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Opt_In_Contact_Reason_Details__c</field>
@@ -4189,6 +4194,11 @@
         <field>Account.R_remark__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Race__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Rating</field>
@@ -4624,6 +4634,11 @@
         <field>Account.Warranty_Apply_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Website</field>
@@ -4704,6 +4719,11 @@
         <field>Account_Link__c.To_Be_Deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Contract_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.ContractId__c</field>
@@ -4734,6 +4754,16 @@
         <field>Account_Link__c.End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Salutation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Opt_In_Mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.LastServiceDate__c</field>
@@ -4762,6 +4792,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4827,6 +4862,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Retail_Address_CreatedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Address_Line_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5042,6 +5082,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Retail_Individual_Home_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Opt_In_Mobile__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
