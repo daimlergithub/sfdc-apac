@@ -5264,6 +5264,11 @@
         <field>Address__c.Address_Line_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Address_Line_3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Address_Type__c</field>
@@ -5367,6 +5372,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
