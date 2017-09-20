@@ -2996,7 +2996,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
-    </listViews>    
+    </listViews>
     <nameField>
         <label>Name</label>
         <trackHistory>true</trackHistory>
