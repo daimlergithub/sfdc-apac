@@ -4,7 +4,7 @@
 ** Date        : 2017-08-02
 **/
 
-public with sharing class ConvertToTaskController
+public  class ConvertToTaskController
 {
     private final String campaignId = ApexPages.currentPage().getParameters().get('CampaignId');
     private String objectAPIName;
@@ -117,7 +117,12 @@ public with sharing class ConvertToTaskController
         taskRec.status= 'New';
         taskRec.Priority='Low';
         taskRec.subject = 'Campaign Executed';
+		if(objectAPIName == 'Campaign' && campaignMember.Campaign_Id__c != null){
         taskRec.Whatid = campaignMember.Campaign_Id__c ;
+		}
+		else if(objectAPIName == 'Retail_Campaign__c' && campaignMember.Retail_Campaign_Id__c != null){
+		taskRec.Whatid = campaignMember.Retail_Campaign_Id__c;
+		}
         taskRec.whoid = contactList.PersonContactId;
         taskRec.Contract__c = campaignMember.Contract__c ;
         taskRec.Related_Vehicle__c= campaignMember.Vehicle__c;    
