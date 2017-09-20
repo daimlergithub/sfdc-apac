@@ -58938,8 +58938,8 @@ alert('Error: Your Market Is Not defined ');
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
-		{!REQUIRESCRIPT($Site.Prefix & "/soap/ajax/30.0/connection.js")}
-{!REQUIRESCRIPT($Site.Prefix & "/support/console/30.0/integration.js")}
+		{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}
 var ContactObject = sforce.connection.query("SELECT Id,AccountId,Account.Name FROM Contact WHERE Id = '{!$User.ContactId}'");
 records = ContactObject.getArray("records");
 var accid = records[0].AccountId; 
