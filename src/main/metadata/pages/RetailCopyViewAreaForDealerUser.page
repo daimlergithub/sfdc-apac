@@ -26,10 +26,10 @@ window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.
            </apex:pageBlockSectionItem>
            
          <!--Sarath added the code here-->               
-         <apex:pageBlockSectionItem >                 
+         <!--<apex:pageBlockSectionItem >                 
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Market__c.Label}"/>
                 <apex:outputField value="{!acclnkdealer.Market__c}"/> 
-         </apex:pageBlockSectionItem>
+         </apex:pageBlockSectionItem>-->
          <!--Ended-->
               
            <apex:pageBlockSectionItem >                 
