@@ -333,7 +333,7 @@ NOT(ISCHANGED([Lead__c].Dealer_Lead_Status__c)) </stringValue>
         <expression>({!myVariable_current.RecordType.Name} = &apos;Sales Leads&apos; &amp;&amp;
 NOT(ISPICKVAL({!myVariable_current.Dealer_Lead_Status__c}, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_current.Dealer_Lead_Status__c}, &apos;Received&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_current.Dealer_Lead_Status__c}, &apos;Lost&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_current.Dealer_Lead_Status__c}, &apos;Invoiced&apos;))) || 
 ({!myVariable_current.RecordType.Name} = &apos;Aftersales Leads&apos; &amp;&amp; 
-NOT(ISPICKVAL({!myVariable_current.Dealer_Lead_Status__c}, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_current.Dealer_Lead_Status__c}, &apos;Service Completed&apos;))) 
+NOT(ISPICKVAL({!myVariable_current.Dealer_Lead_Status__c}, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_current.Dealer_Lead_Status__c}, &apos;Service Completed&apos;)) &amp;&amp; NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Lost&apos;))) 
 &amp;&amp; NOT(ISBLANK({!myVariable_current.Assigned_Dealer__c})) &amp;&amp; 
 {!myVariable_current.MD__c} == &apos;KR&apos; &amp;&amp; 
 NOT(ISCHANGED({!myVariable_current.Dealer_Lead_Status__c}))</expression>
@@ -345,7 +345,7 @@ NOT(ISCHANGED({!myVariable_current.Dealer_Lead_Status__c}))</expression>
                 <stringValue>([Lead__c].RecordType.Name = &apos;Sales Leads&apos; &amp;&amp;
 NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Received&apos;)) &amp;&amp; NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Lost&apos;)) &amp;&amp; NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Invoiced&apos;))) || 
 ([Lead__c].RecordType.Name = &apos;Aftersales Leads&apos; &amp;&amp; 
-NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Service Completed&apos;))) 
+NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Service Completed&apos;)) &amp;&amp; NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Lost&apos;))) 
 &amp;&amp; NOT(ISBLANK([Lead__c].Assigned_Dealer__c)) &amp;&amp; 
 [Lead__c].MD__c == &apos;KR&apos; &amp;&amp; 
 NOT(ISCHANGED([Lead__c].Dealer_Lead_Status__c)) </stringValue>
@@ -356,7 +356,7 @@ NOT(ISCHANGED([Lead__c].Dealer_Lead_Status__c)) </stringValue>
         <expression>({!myVariable_old.RecordType.Name} = &apos;Sales Leads&apos; &amp;&amp;
 NOT(ISPICKVAL({!myVariable_old.Dealer_Lead_Status__c}, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_old.Dealer_Lead_Status__c}, &apos;Received&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_old.Dealer_Lead_Status__c}, &apos;Lost&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_old.Dealer_Lead_Status__c}, &apos;Invoiced&apos;))) || 
 ({!myVariable_old.RecordType.Name} = &apos;Aftersales Leads&apos; &amp;&amp; 
-NOT(ISPICKVAL({!myVariable_old.Dealer_Lead_Status__c}, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_old.Dealer_Lead_Status__c}, &apos;Service Completed&apos;))) 
+NOT(ISPICKVAL({!myVariable_old.Dealer_Lead_Status__c}, &apos;Lost(Dealer)&apos;)) &amp;&amp; NOT(ISPICKVAL({!myVariable_old.Dealer_Lead_Status__c}, &apos;Service Completed&apos;)) &amp;&amp; NOT(ISPICKVAL([Lead__c].Dealer_Lead_Status__c, &apos;Lost&apos;))) 
 &amp;&amp; NOT(ISBLANK({!myVariable_old.Assigned_Dealer__c})) &amp;&amp; 
 {!myVariable_old.MD__c} == &apos;KR&apos; &amp;&amp; 
 NOT(ISCHANGED({!myVariable_old.Dealer_Lead_Status__c}))</expression>
