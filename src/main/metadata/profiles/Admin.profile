@@ -5747,11 +5747,6 @@
         <field>Campaign.Body_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	    <fieldPermissions>
-        <editable>true</editable>
-        <field>Dealer_List_Member__c.NewAccount__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Brand__c</field>
