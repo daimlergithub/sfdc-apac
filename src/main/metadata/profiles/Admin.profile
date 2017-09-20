@@ -436,6 +436,10 @@
         <apexClass>Batch_BounceStatus</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+			    <classAccesses>
+        <apexClass>Batch_BounceStatusretail</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>Batch_BounceStatusTest</apexClass>
         <enabled>true</enabled>
