@@ -28,10 +28,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Campaign_Execution_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Add_Sales_Staff__c</field>
             </layoutItems>
             <layoutItems>
