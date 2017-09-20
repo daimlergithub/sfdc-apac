@@ -511,6 +511,8 @@
                     vehicleRelCopyMain.add(ac.toRole__c);
                 }
                  system.debug('++++++vehIdSet1 ++++++'+vehIdSet1 );
+                 system.debug('++++++vehIdSet2 ++++++'+vehicleRelCopyMain );
+                 system.debug('++++++vehIdSet1 ++++++'+vehRetialList );
                 vehicleRelSoql+= 'AND Vehicle_Id__c IN: vehIdSet1 ';
                 //saveQuery += 'AND Vehicle_Id__c IN : vehIdSet1 ';
                 if(segmentationBase == 'customer' ){
@@ -532,7 +534,7 @@
                     if(segmentationBase == 'Customer'){
                     accountIdSet.add(vr.Contact__c);
                     vehicleRetailCustomer.add(vr.Contact__c);
-                    
+                  system.debug('++vehicleRetailCustomer+++++'+vehicleRetailCustomer);
                     }
                     else if(segmentationBase == 'Contract'){
                         vehIdSetForContract.add(vr.Contact__c);
@@ -1126,7 +1128,7 @@
             if(dateFields.contains(field)){
                 if(criteria == 'null')
                 {
-                    operation = '<=';    
+                    operation = '=';    
                 }
                  else {
                     operation = '>=';
@@ -1151,7 +1153,7 @@
                 if(criteria == 'null'){
                 criteria = null;
             }
-                        else if(criteria.startsWith(';'))
+         else if(criteria.startsWith(';'))
             {
             criteria  = criteria.replace(';','');
             criteria = (Date.parse(criteria) + ' ').left(10);
