@@ -129,6 +129,8 @@
         String vehRetCopyRecType;
         String dealerAccntRecTypId;
         String retailPesonRecType;
+        String retailTaskcontractType;
+        
         //String retailCompanyRecType;
         
         //Segmentation_Base__c
@@ -143,6 +145,7 @@
             retailTaskLeaseRecType = Schema.SobjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
             retailTaskLoanRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Loan Contract').getRecordTypeId();
             retailTaskInsRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Insurance Contract').getRecordTypeId();
+            retailTaskcontractType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
             retailPesonRecType = Schema.sObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
             //retailCompanyRecType = Schema.sObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
             dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -712,7 +715,7 @@
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
             AccountLinkSoql = 'SELECT toRole__c,LastWorkDate__c,LastInspectionDate__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
             AddressSoql = 'SELECT Customer__c From Address__c where ';
-            RetailTaskSoql = 'SELECT Account__c,Account__r.RecordTypeId,Finance_Product_Name__c,Product_Name__c,EndDate__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
+            RetailTaskSoql = 'SELECT Account__c,Account__r.RecordTypeId,Finance_Product_Name__c,Product_Name__c,EndDate__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\'or RecordTypeId = \''+ retailTaskcontractType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
             if(u.contactId != NULL){
                 RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND     ';
             }
@@ -1134,8 +1137,9 @@
                 }
                  else if(criteria.startsWith(';'))
                   {
-                    operation = '<';
+                    operation = '<=';
                   }
+
                   else{
                    operation = '>';
                   }
@@ -1173,10 +1177,10 @@
                String[] arrCriteia = criteria.split(';');
                System.debug('Before changing the criteria'+criteria );
                if(vehicleFields.contains(field)){
-                   criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND Vehicle_Id__r.'+field+'<'+(Date.parse(arrCriteia[1]) + ' ').left(10);
+                   criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND Vehicle_Id__r.'+field+'<='+(Date.parse(arrCriteia[1]) + ' ').left(10);
                }
                else{
-                   criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND '+field+'<'+(Date.parse(arrCriteia[1]) + ' ').left(10);
+                   criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND '+field+'<='+(Date.parse(arrCriteia[1]) + ' ').left(10);
                }
                System.debug('After changing the criteria'+criteria);
             }
