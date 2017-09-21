@@ -497,7 +497,7 @@
         <name>CA</name>
     </customLabels>
     <customLabels>
-        <label><!-- CL Cancel --></label>
+        <label>キャンセル</label>
         <name>CL_Cancel</name>
     </customLabels>
     <customLabels>
@@ -533,7 +533,7 @@
         <name>CL_Lead_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- CL Member Name --></label>
+        <label>キャンペーンメンバーID</label>
         <name>CL_Member_Name</name>
     </customLabels>
     <customLabels>
@@ -1105,15 +1105,15 @@
         <name>Contract_related</name>
     </customLabels>
     <customLabels>
-        <label><!-- Convert Lead --></label>
+        <label>リード変換</label>
         <name>Convert_Lead</name>
     </customLabels>
     <customLabels>
-        <label><!-- Convert To Lead --></label>
+        <label>リード変換</label>
         <name>Convert_To_Lead</name>
     </customLabels>
     <customLabels>
-        <label><!-- Convert To Task --></label>
+        <label>タスク変換</label>
         <name>Convert_To_Task</name>
     </customLabels>
     <customLabels>
