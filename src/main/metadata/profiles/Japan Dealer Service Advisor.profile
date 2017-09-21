@@ -18561,7 +18561,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Retail_Campaign__c.CloneCampaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
