@@ -1125,20 +1125,29 @@
             operation = operation.replace('Greater Than', '>');
             operation = operation.replace('Less Than', '<');
             //For from and to date filter this will give '>' symbol for from and gives '=' for null operaions
-            if(dateFields.contains(field)){
-                if(criteria == 'null')
+            system.debug('+++++criteria++++ ++++op'+criteria);
+            if(dateFields.contains(field))
+            {
+               if(criteria == 'null')
                 {
                     operation = '=';    
                 }
-                 else {
-                    operation = '>=';
-                }
+                 else if(criteria.startsWith(';'))
+                  {
+                    operation = '<=';
+                  }
+                  else{
+                   operation = '>';
+                  }
             } 
             getop = operation;
+            system.debug('getop--'+getop);
             return operation;
         }
         
         private String getCriteria(String field, String criteria){
+        system.debug('+++++criteria++++++++'+criteria);
+
             if(textFields.contains(field) || pickListFields.contains(field) || multiplePickListFields.contains(field)){
               if(getop.equalsIgnoreCase('Like'))
                 {
@@ -1150,6 +1159,7 @@
                 return criteria;
             }
             else if(dateFields.contains(field)){
+            
                 if(criteria == 'null'){
                 criteria = null;
             }
