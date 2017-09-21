@@ -117,7 +117,7 @@ public class AddressSearchValidationController
         public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
         objPersonAccount= new Account();
-		objContact=new contact();
+        objContact=new contact();
         AddressObj = new Address__c();
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
@@ -355,7 +355,7 @@ public class AddressSearchValidationController
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }
-                    else
+                   else
                     {   
                         refreshPage = true;
                         if(TouchPoint !=null)
@@ -558,7 +558,7 @@ public class AddressSearchValidationController
                 if(recordType == System.Label.Company && market == System.Label.KR)
                 {                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.Company).getRecordTypeId();
-                    objAccount.RecordTypeId = recordTypeId;                   
+                   objAccount.RecordTypeId = recordTypeId;                   
                     if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
@@ -666,10 +666,10 @@ public class AddressSearchValidationController
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                     }
-                    if(AddressObj.Address_Type__c == null )
+                    if((AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '--None--'))
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
-                        
+                        return null;
                     }
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {
@@ -803,7 +803,7 @@ public class AddressSearchValidationController
                 {
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
-                    system.debug('Enter JP Loop 2 :');
+                   system.debug('Enter JP Loop 2 :');
 
 
                     /****************************************/
@@ -811,9 +811,10 @@ public class AddressSearchValidationController
                     {   system.debug('Enter JP Loop 3 :');                    
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                     }
-                    if(AddressObj.Address_Type__c == null )
+                    if((AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '--None--'))
                     {   system.debug('Enter JP Loop 4 :'); 
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
+                                                                                                return null;
                         
                     }                    
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
@@ -897,7 +898,7 @@ public class AddressSearchValidationController
     } 
     //SN20170907        
       displayAccList.clear();    
-		
+        
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -1147,7 +1148,7 @@ EP/Tolerant for Validation.
                     if(ValidStr.contains('City__c') && Market == Label.JP)
                     {
                       AddressObj.City__c = response.Addresses[i].City;
-                        //AddressObjtemp.City__c = response.Addresses[i].City;
+                       //AddressObjtemp.City__c = response.Addresses[i].City;
                         system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
                     }
                     else if(ValidStr.contains('City__c') && Market == Label.KR)
@@ -1155,7 +1156,7 @@ EP/Tolerant for Validation.
                         AddressObjtemp.City__c = response.Addresses[i].City;
                         system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
                     }
-                    if(ValidStr.contains('District__c') && Market == Label.JP)
+                   if(ValidStr.contains('District__c') && Market == Label.JP)
                     {
                       AddressObj.District__c = response.Addresses[i].District;
                         system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
@@ -1576,7 +1577,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
                 lstAcc = [Select Name,MD__c,DMS_Customer_ID__c,Company_Name__c,FirstName,LastName,Phone ,Email__c,
-                          Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c,PersonHasOptedOutOfEmail,
+                         Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c,PersonHasOptedOutOfEmail,
                           PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,PersonDoNotCall,Postal_Opt_Out__c,
                           Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
                           Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
@@ -2051,7 +2052,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Firstname=response.CustomerIdentificationResponseMessage[0].Customer.Firstname;
                     }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                   if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
                     }
@@ -2157,34 +2158,34 @@ If the user is Saving  same address which matches the fields returned by toleran
 
     */   
     public void onLineDeduplicationMY(){ 
-	displayAccList.clear(); 	
+    displayAccList.clear();     
     Boolean errorFlag=true;
-	boolean mandatoryFlag=True;
-	boolean recordCheck=true;
-	if(Recordtype!='Person Account' && Recordtype!='Company'){
-				recordCheck=false;
-				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Recordtype first for search'));       
-	}
-	
-	if(recordCheck && Recordtype== 'Person Account'?string.isblank(objAccount.firstName) || string.isblank(objAccount.Lastname):false){
-		mandatoryFlag=false;
-		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search First Name, Last Name and any of the contact information or ID number is required'));       
-	}
-	if(recordCheck && mandatoryFlag &&  Recordtype=='Company'? string.isblank(objAccount.name):false){
-		mandatoryFlag=false;
-		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Company Search Account Name and any of the contact information '));       
-	}
-	if(recordCheck && mandatoryFlag){
-	
-	if(Recordtype=='Person Account' && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null && objAccount.ID_Number__c==null){        
+    boolean mandatoryFlag=True;
+    boolean recordCheck=true;
+    if(Recordtype!='Person Account' && Recordtype!='Company'){
+                recordCheck=false;
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Recordtype first for search'));       
+    }
+    
+    if(recordCheck && Recordtype== 'Person Account'?string.isblank(objAccount.firstName) || string.isblank(objAccount.Lastname):false){
+        mandatoryFlag=false;
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search First Name, Last Name and any of the contact information or ID number is required'));       
+    }
+    if(recordCheck && mandatoryFlag &&  Recordtype=='Company'? string.isblank(objAccount.name):false){
+        mandatoryFlag=false;
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Company Search Account Name and any of the contact information '));       
+    }
+    if(recordCheck && mandatoryFlag){
+    
+    if(Recordtype=='Person Account' && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null && objAccount.ID_Number__c==null){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search First Name, Last Name and any of the contact information or ID number is required'));       
-					errorFlag=false;
-		}  
-	 if(Recordtype=='Company' && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null ){        
+                    errorFlag=false;
+        }  
+     if(Recordtype=='Company' && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null ){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Company Search Account Name and any of the contact information  is required'));       
-					errorFlag=false;
-	 }
-	}
+                    errorFlag=false;
+     }
+    }
     if(errorFlag && mandatoryFlag && recordCheck){
     firstsave=true;     
     secondsave=false;       
@@ -2227,19 +2228,19 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;
                 AddressObj.Address_Line_2__c= cWrapper.add.Address_Line_2__c;  
                 AddressObj.Temp_ZipCode__c = '';
-                AddressObj.Temp_Address__c = '';             
+               AddressObj.Temp_Address__c = '';             
             }
         }           
     } 
 
- /**  Save Account based on two scenarios
+/**  Save Account based on two scenarios
 * 1. With Validated Address information record.
 * 2.Without Address record.
 **  Created By: Mohammed Touseef Ahmed 
 **  Date: 2017-2-08
 ** Updated for CR#89 - PhoneNumberFormat
 **/
- public pagereference saveAccountTH()
+public pagereference saveAccountTH()
     { 
         //adde by dhanamjaya as per SFDCTH-300
         if(market == System.Label.TH & objAccount.ID_Type__c=='National ID'){
@@ -2357,7 +2358,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         recordTypeId =RecordTypeAccessService.getRecordTypeId('Account','Company');      
                     else        
                         recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account'); 
-												
+                                                
                     system.debug('enter 1 :'+Validation);       
                     objAccount.RecordTypeId = recordTypeId;         
                     ValidateAddressMY();        
@@ -2428,7 +2429,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                       (
                           (String.isBlank(wkphoneNumber)) &&
                           (String.isBlank(wkCountryCode))
-                      )
+                     )
                       
                       {              
                                objAccount.Work_Phone__c='';
@@ -2588,12 +2589,12 @@ If the user is Saving  same address which matches the fields returned by toleran
             {       
                   
                 refreshPage = false;   
-				if(e.getdmlMessage(0).contains('bad field') ){
+                if(e.getdmlMessage(0).contains('bad field') ){
                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please remove the firstname , lastname  for saving company account and account name for person account'));
                 }
-                else{  				
+                else{               
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0))); 
-				}				
+                }               
                 return false;       
             }       
             return false;       
@@ -2761,10 +2762,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                     }       
                             
                           
-							
-																																	
-																		
-							
+                            
+                                                                                                                                    
+                                                                        
+                            
                         
                             
                     if(addressobj.Address_Line_2__c == null )       
