@@ -4830,6 +4830,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
     </fields>
     <label>Vehicle Relationship</label>
     <listViews>
+        <fullName>All_Vehicle_Relationships</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Vehicle Relationships</label>
+        <language>en_US</language>
+        <sharedTo>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MBK_New_Vehicle_Relationship</fullName>
         <columns>NAME</columns>
         <columns>Validity__c</columns>
