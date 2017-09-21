@@ -1134,7 +1134,7 @@
                 }
                  else if(criteria.startsWith(';'))
                   {
-                    operation = '<';
+                    operation = '<=';
                   }
                   else{
                    operation = '>';
