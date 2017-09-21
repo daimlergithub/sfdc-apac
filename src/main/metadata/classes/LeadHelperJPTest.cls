@@ -18,7 +18,7 @@ public class LeadHelperJPTest
     public static final String aftersalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     
     
-    public static testMethod void test_updateCustomerStage1()
+    /*public static testMethod void test_updateCustomerStage1()
     {  
         Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI'];
         User u = new User(Alias = 'standt', Email='test@mbj.com', 
@@ -42,8 +42,8 @@ public class LeadHelperJPTest
         //system.assertEquals('Sales Lead', testAcc.Customer_Lifecycle_Phase__c);
         //}
         
-    }
-    public static testMethod void test_updateCustomerStage2()
+    }*/
+    /*public static testMethod void test_updateCustomerStage2()
     {
         Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
         User u = new User(Alias = 'standt', Email='test@mbj.com', 
@@ -62,7 +62,7 @@ public class LeadHelperJPTest
         test.stopTest();
         system.assertEquals('Care', testAcc.Customer_Lifecycle_Phase__c);
         //}
-    }
+    }*/
     
     public static testMethod void test_createAccountLinkFromDealer()
     {
