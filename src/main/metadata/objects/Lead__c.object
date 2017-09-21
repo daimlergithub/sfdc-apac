@@ -23037,6 +23037,18 @@ Company_Account__r.Work_Phone__c  ,
     </fields>
     <label>Leads</label>
     <listViews>
+        <fullName>All_Leadss</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All-Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>AMG_DM2016</fullName>
         <columns>NAME</columns>
         <columns>Contact__c</columns>

@@ -2984,9 +2984,16 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
     </fields>
     <label>Account Link</label>
     <listViews>
-        <fullName>All</fullName>
+        <fullName>All_Account_Links</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
         <filterScope>Everything</filterScope>
-        <label>All</label>
+        <label>All Account Links</label>
+        <language>en_US</language>
+        <sharedTo>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>CCC_Manager_KR_Account_Link</fullName>
