@@ -691,6 +691,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Campaign__c</fields>
+		<fields>Retail_Campaign__c</fields>
         <fields>Central_Campaign_Name__c</fields>
         <fields>Participate__c</fields>
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
