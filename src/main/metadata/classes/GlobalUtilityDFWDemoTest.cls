@@ -27,7 +27,7 @@ public class GlobalUtilityDFWDemoTest {
     }
     
     
-    //test webservice
+    //test webservice method
     public static testmethod void test3(){
         Test.startTest();
         Id retId= GlobalUtilityDFWDemo.webServiceDemoTest('Test',new Account(Name='TestAccount'));
