@@ -20,10 +20,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Car_Series__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Status2__c</field>
             </layoutItems>
             <layoutItems>
