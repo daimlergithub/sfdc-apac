@@ -178,7 +178,7 @@
 				<sf:include name="Survey_Question__c"/>
 				<sf:include name="Participating_Dealer__c"/>
 				<sf:include name="Campaign_Member__c"/>
-				<!--<sf:include name="Dealer_List_Member__c"/>-->
+				<sf:include name="Dealer_List_Member__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -186,7 +186,7 @@
 	<target name="deploy20">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
-				<sf:include name="Dealer_List_Member__c"/>
+				<!--<sf:include name="Dealer_List_Member__c"/> -->
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
