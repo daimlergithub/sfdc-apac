@@ -10095,6 +10095,11 @@
         <field>Dealer_Offering__c.Session_Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.NewAccount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Duplicate_Customer__c</field>

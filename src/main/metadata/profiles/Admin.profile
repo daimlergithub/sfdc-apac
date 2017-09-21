@@ -10341,6 +10341,11 @@
         <field>Dealer_Offering__c.Session_End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.NewAccount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_Offering__c.Session_Start_Date__c</field>
