@@ -512,7 +512,7 @@ global without sharing class LeadVehiclePickerKRController {
         public string RegnumW{get;set;}
 		public String modeldescriW{get;set;}
         
-        public vehicleWrapper(string vId, string brn, string cls, string mod, string regNum, string moddes ){
+        public vehicleWrapper(string vId, string brn, string cls, string mod,string moddes,string regNum ){
             vehIdW = vId;
             brandW = brn;
             classW = cls;
