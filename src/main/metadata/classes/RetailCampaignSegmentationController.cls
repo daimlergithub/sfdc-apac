@@ -516,7 +516,7 @@
                 vehicleRelSoql+= 'AND Vehicle_Id__c IN: vehIdSet1 ';
                 //saveQuery += 'AND Vehicle_Id__c IN : vehIdSet1 ';
                 if(segmentationBase == 'customer' ){
-                saveQuery += ' AND Id IN :vehicleRelCopyMain ';
+                //saveQuery += ' AND Id IN :vehicleRelCopyMain ';
                 }
                 if(segmentationBase == 'Vehicle' ){
                 saveQuery += ' AND Vehicle_Id__c IN: vehIdSet1 ';

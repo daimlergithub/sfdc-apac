@@ -24732,6 +24732,11 @@
         <field>Vehicle__c.Warranty_End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Total_Responses__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Warranty_Start_Date__c</field>

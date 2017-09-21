@@ -5929,7 +5929,12 @@
         <editable>true</editable>
         <field>Campaign_Member__c.NextServiceDate__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Total_Responses__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.LastWorkDate__c</field>
