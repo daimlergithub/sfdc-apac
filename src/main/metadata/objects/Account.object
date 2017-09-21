@@ -57134,6 +57134,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <customTabListAdditionalFields>Sales_Address_Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Phone_Display__c</customTabListAdditionalFields>
+		<customTabListAdditionalFields>Primary_Email_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Customer_LastUpdatedDate__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
@@ -57165,6 +57166,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>Sales_Address_Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Customer_LastUpdatedDate__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>

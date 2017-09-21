@@ -1473,7 +1473,7 @@ else
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+        <url>
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
  
  var aid="{!Account.Id}";
@@ -1520,7 +1520,7 @@ else
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+        <url>
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
  
  var aid = "{!Account.Id}";
