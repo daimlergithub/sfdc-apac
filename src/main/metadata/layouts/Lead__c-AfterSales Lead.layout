@@ -133,7 +133,7 @@
                 <behavior>Edit</behavior>
                 <field>Assigned_Dealer__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Lost_Reason__c</field>
             </layoutItems>
@@ -143,7 +143,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Lead_Status__c</field>
             </layoutItems>
@@ -199,7 +199,7 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Desired_Service__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Advisor__c</field>
             </layoutItems>
@@ -301,7 +301,7 @@
                 <behavior>Edit</behavior>
                 <field>Questionnair__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Items__c</field>
             </layoutItems>
@@ -427,11 +427,11 @@
                 <behavior>Edit</behavior>
                 <field>Quotation_Amount__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Next_Contact_Customer_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Quotation_Number_History__c</field>
             </layoutItems>
@@ -561,6 +561,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Campaign__c</fields>
+        <fields>Retail_Campaign__c</fields>
         <fields>Central_Campaign_Name__c</fields>
         <fields>Participate__c</fields>
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
@@ -576,7 +577,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>LogCall</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -586,7 +587,6 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-	    
         <fields>CreatedDate</fields>
         <fields>StepStatus</fields>
         <fields>OriginalActor</fields>
