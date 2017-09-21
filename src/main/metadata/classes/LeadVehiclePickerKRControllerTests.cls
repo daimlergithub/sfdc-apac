@@ -491,9 +491,9 @@ Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAccountLink',Trigger_Name_
                 searchDetails.put('VIN',Vin);
                 searchDetails.put('VehicleType',vehicle);
                 searchDetails.put('RecordId',testLead.Id);
-                List<LeadVehiclePickerKRController.vehicleWrapper> resultVehicles = LeadVehiclePickerKRController.searchVehicles(JSON.serialize(searchDetails));
+                //List<LeadVehiclePickerKRController.vehicleWrapper> resultVehicles = LeadVehiclePickerKRController.searchVehicles(JSON.serialize(searchDetails));
                 
-                Vehicle__c tmpVehicle = [Select UsVIN__c from Vehicle__c Where Id =:resultVehicles[0].vehIdW];
+                //Vehicle__c tmpVehicle = [Select UsVIN__c from Vehicle__c Where Id =:resultVehicles[0].vehIdW];
                 
                 
             }else{
