@@ -25,8 +25,8 @@ global class UpdateAllowDataSharingAccountLink implements Database.Batchable<sOb
                                          toRole__r.MB_Customer_Info_Remove__c = true) and Retail_Allow_Data_Sharing__c != 'No') 
                                          or ((fromRole__r.Allow_Data_Sharing2__c != 'No' and 
                                          toRole__r.Allow_Data_Sharing2__c != 'No' and 
-                                         fromRole__r.MB_Customer_Info_Remove__c = false and 
-                                         toRole__r.MB_Customer_Info_Remove__c = false) and Retail_Allow_Data_Sharing__c = 'No'))]);
+                                         fromRole__r.MB_Customer_Info_Remove__c != true and 
+                                         toRole__r.MB_Customer_Info_Remove__c != true) and Retail_Allow_Data_Sharing__c = 'No'))]);
     }
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Account_Link__c> scope){
