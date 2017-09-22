@@ -9502,11 +9502,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Material__c.Remark__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>DM_Material__c.SentTotal__c</field>
         <readable>true</readable>
@@ -9577,11 +9572,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>true</readable>
@@ -9589,11 +9579,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Car_Model__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Car_Series__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
