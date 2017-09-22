@@ -19,6 +19,8 @@ public class ConvertToLeadController
     private String leadRTId1 {get; set;}
     List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
     List<Campaign_Member__c> camListToUpdate = new List<Campaign_Member__c>();
+    Public Static Boolean Campaigncheck = true;
+    Public Static Boolean RetailCampaignid = true;
     @testvisible private String objectAPIName;
      public boolean displayPopup {get; set;}     
     
@@ -51,12 +53,15 @@ public class ConvertToLeadController
                 query += ' Contact_Id__c =: campaignId ';
             }
             
+            
+            
             List<Campaign_Member__c> campaignMemberList = Database.query(query);
             System.debug('clist<<<<'+campaignMemberList);
             campaignMembers = new List<CampaignMemberInfo>();
             for(Campaign_Member__c campaignMemberRec : campaignMemberList) {
                 System.debug('crec>>>>'+campaignMemberRec);
                 campaignMembers.add(new CampaignMemberInfo(campaignMemberRec));
+                
             }
         }
     }
@@ -97,6 +102,9 @@ public class ConvertToLeadController
             existingLeadList = [Select Retail_Campaign_Name__c, Contact__c  from Lead__c where Retail_Campaign_Name__c =: campaignId];
         } else if(objectAPIName == 'Account') {
             existingLeadList = [Select Retail_Campaign_Name__c,Source_Campaign__c, Contact__c  from Lead__c where Contact__c =: campaignId];
+            
+             
+            
         }
 
         
@@ -220,6 +228,9 @@ public class ConvertToLeadController
         } else if(objectAPIName == 'Account') {
             leadRec.Contact__c = campaignId;
             leadRec.OwnerId = campaignMember.Contact_Id__r.OwnerId;
+            leadRec.Retail_Campaign_Name__c = campaignMember.Retail_Campaign_Id__c;
+            leadRec.Source_Campaign__c = campaignMember.Campaign_ID__c;
+            
         } 
        
         leadRec.Contact__c = campaignMember.Contact_Id__c;
@@ -284,7 +295,15 @@ public class ConvertToLeadController
         } else if(objectAPIName == 'Retail_Campaign__c') {
             cLeadRec.Retail_Campaign__c = leadRec.Retail_Campaign_Name__c;
         } else if(objectAPIName == 'Account') {
+             system.debug('++++In Loop One+++++++++');
             cLeadRec.Contact__c = leadRec.Contact__c;
+            if(leadRec.Source_Campaign__c != null){
+             cLeadRec.Campaign__c = leadRec.Source_Campaign__c;
+            }else if (leadRec.Retail_Campaign_Name__c != null){
+               system.debug('++++In Loop+++++++++');
+               system.debug('++++In Loop+++++++++'+leadRec.Retail_Campaign_Name__c);
+            cLeadRec.Retail_Campaign__c = leadRec.Retail_Campaign_Name__c;
+            }
         }
          
         return cLeadRec;
