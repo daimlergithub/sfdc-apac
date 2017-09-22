@@ -41,8 +41,8 @@ public class UpdateAllowDataSharingAccountLinkTest {
                                          toRole__r.MB_Customer_Info_Remove__c = true) and Retail_Allow_Data_Sharing__c != 'No') 
                                          or ((fromRole__r.Allow_Data_Sharing2__c != 'No' and 
                                          toRole__r.Allow_Data_Sharing2__c != 'No' and 
-                                         fromRole__r.MB_Customer_Info_Remove__c = false and 
-                                         toRole__r.MB_Customer_Info_Remove__c = false) and Retail_Allow_Data_Sharing__c = 'No'))];
+                                         fromRole__r.MB_Customer_Info_Remove__c != true and 
+                                         toRole__r.MB_Customer_Info_Remove__c != true) and Retail_Allow_Data_Sharing__c = 'No'))];
         system.assertEquals(2, allist.size());
         
         
@@ -64,8 +64,8 @@ public class UpdateAllowDataSharingAccountLinkTest {
                                          toRole__r.MB_Customer_Info_Remove__c = true) and Retail_Allow_Data_Sharing__c != 'No') 
                                          or ((fromRole__r.Allow_Data_Sharing2__c != 'No' and 
                                          toRole__r.Allow_Data_Sharing2__c != 'No' and 
-                                         fromRole__r.MB_Customer_Info_Remove__c = false and 
-                                         toRole__r.MB_Customer_Info_Remove__c = false) and Retail_Allow_Data_Sharing__c = 'No'))];
+                                         fromRole__r.MB_Customer_Info_Remove__c != true and 
+                                         toRole__r.MB_Customer_Info_Remove__c != true) and Retail_Allow_Data_Sharing__c = 'No'))];
         system.assertEquals(0, allist.size());
 
         
