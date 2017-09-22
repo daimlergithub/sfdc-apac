@@ -183,13 +183,14 @@ insert campMemShare;
                 for(Account acc : accName)
                 {
                     GcNames.add(acc.Dealer_GC_Code__c );
+                    accNames.add(acc.Name);
                     system.debug('++++++++++++++'+'True');
                 } 
-                List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
+              /*  List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
                 for(Account accs : accGCode )
                 {
                   accNames.add(accs.Name);  
-                }
+                }*/
             } else if(set_CustomerId.size() >0)
             {
                 system.debug('++++++++++++++'+'False');
@@ -272,7 +273,7 @@ insert campMemShare;
     
     private static List<Campaign_Member__share> createDealerAccountSharing(Map<Id, List<Id>> mapCamapignMember){
     // START: Adding Similar GC Code related Account To Map which is sharing already.
-        Set<Id> dealerAccIdSet = new Set<Id>();
+       /* Set<Id> dealerAccIdSet = new Set<Id>();
         for(Id dealerAccId : mapCamapignMember.keySet()) {
             dealerAccIdSet.add(dealerAccId);
         }
@@ -285,7 +286,7 @@ insert campMemShare;
                     mapCamapignMember.put(similarGCCodeDealerId, vrIdList);
                 }
             }
-        }
+        }*/
         // Changing Sharing from User to Public Group
         List<Account> dealerAccList = [select Name from Account where Id IN: mapCamapignMember.keySet()];
         Set<String> dealerAccNameSet = new Set<String>();
