@@ -263,9 +263,9 @@ public class ConvertToLeadController
     @testvisible
     private void insertCampaignLeadRecords(List<Lead__c> insertedLeadList, List<Lead__c> leadList) {
         List<Campaign_Lead__c> cLeadList = new List<Campaign_Lead__c>();
-      /*  for(Lead__c leadRec : insertedLeadList){
+        for(Lead__c leadRec : insertedLeadList){
             cLeadList.add(setCampaignRec(leadRec));
-        }*/
+        }
         
         for(Lead__c leadRec : leadList){
             cLeadList.add(setCampaignRec(leadRec));
