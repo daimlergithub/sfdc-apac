@@ -2,8 +2,9 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>38.0</apiVersion>
     <available>true</available>
-    <encodingKey>ISO-8859-1</encodingKey>
+    <encodingKey>UTF-8</encodingKey>
     <name>Notify to Dealer</name>
     <style>none</style>
+    <subject>【ご確認ください】　新規お客様関連情報展開のお知らせ</subject>
     <type>visualforce</type>
 </EmailTemplate>
