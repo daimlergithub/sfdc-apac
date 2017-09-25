@@ -2398,7 +2398,7 @@ public pagereference saveAccountTH()
          try
             {                    
                     if(recordType == 'Company')               
-                        RecordTypeAccessService.getRecordTypeId('Account','Company');
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
                     else
                         recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
                     
@@ -2515,7 +2515,7 @@ public pagereference saveAccountTH()
          try        
             {                           
                     if(recordType == 'Company')                     
-                        recordTypeId = recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');      
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');      
                     else        
                         recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');       
                             
