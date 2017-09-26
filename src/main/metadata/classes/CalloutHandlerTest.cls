@@ -62,7 +62,7 @@ public class CalloutHandlerTest {
         User u = new User(Alias = 'standt', Email='testUser@testorg.com', 
                           EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
                           LocaleSidKey='en_US', ProfileId = p.Id, 
-                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com', isActive=true);
+                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
         DMLManagerService.insertAsSystem(u);
     }
     
