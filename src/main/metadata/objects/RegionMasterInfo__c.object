@@ -86,7 +86,18 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+   
+	 <fields>
+        <fullName>Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>		
+	 <fields>	
         <fullName>Province__c</fullName>
         <description>List of all provinces of Thailand</description>
         <externalId>false</externalId>

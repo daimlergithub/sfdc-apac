@@ -81,6 +81,26 @@
             <field>Contact__c.Mobile__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vehicle_ID__c.CylinderCapacity__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contact__c.Personal_Agreement__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contact__c.Personal_Information_Third_Party_Release__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contact__c.Agreement_to_commit_info_processing__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
         <masterLabel>NCBS Report</masterLabel>
     </sections>
 </ReportType>

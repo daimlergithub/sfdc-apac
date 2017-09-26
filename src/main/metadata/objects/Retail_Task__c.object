@@ -180,6 +180,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>	
+    <fields>
+        <fullName>Allow_Data_Sharing__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>The flag to identify if this record can be shared with MBJ</description>
+        <externalId>false</externalId>
+        <label>Allow Data Sharing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Amount_Financed__c</fullName>

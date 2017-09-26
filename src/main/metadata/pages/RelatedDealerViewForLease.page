@@ -29,6 +29,16 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Lease_Category__c.Label}"/>
                         <apex:outputText value="{!LeaseaCategoryaac}"/>  
                 </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Supporting_Dealer__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Supporting_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Supporting_Dealer__c.Label}"/>
+                        <apex:outputText value="{!Supportingdealer}"/>  
+              </apex:pageBlockSectionItem>
+              
                 <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Latest_Sales_Person__c.Label}"/>
                         <apex:outputField value="{!rettsk.Latest_Sales_Person__c}"/>  

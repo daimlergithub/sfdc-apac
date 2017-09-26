@@ -84,12 +84,14 @@ public class CaseHelperJP
         {
             List<Id> caseIds = accountCaseMap.get(acc.Id);
             List<Integer> caseCount = acc_Count.get(acc.Id);
+            if (acc.Complaint_Amount__c != (caseIds.size()-caseCount[0])){
             acc.Complaint_Amount__c = caseIds.size()-caseCount[0];
             updateAccount.add(acc);
+            }
         }
         system.debug('Accounts to be updated...' +updateAccount);
         if(updateAccount.size()>0){
-			TriggerCaseTriggerHandlerKR.recurssionCheckbefore = true;
+            TriggerCaseTriggerHandlerKR.recurssionCheckbefore = true;
             update updateAccount;
         }
     }
@@ -147,8 +149,10 @@ public class CaseHelperJP
             for (Account acc : accRecords)
             {
                 List<Id> caseIds = accountCaseMap.get(acc.Id);
+                if(acc.Complaint_Amount__c != caseIds.size()){
                 acc.Complaint_Amount__c = caseIds.size();
                 updateAccount.add(acc);
+                }
             }
             system.debug('Accounts to be updated...' +updateAccount);
         }
@@ -162,11 +166,15 @@ public class CaseHelperJP
             accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accountIds];
             for (Account acc : accRecords)
             {
+                if(acc.Complaint_Amount__c != 0){
                 acc.Complaint_Amount__c = 0;
                 updateAccount.add(acc);
+                }
             } 
         }
+        if (updateAccount.size() > 0){
         update updateAccount;
+        }
            system.debug('primarydealercompany ###' +primarydealercompany );
            system.debug('accRecords ###' +accRecords );
           List<Account_Link__c> AccountlinkUpdate = new list<Account_Link__c>();
@@ -936,6 +944,6 @@ List<Account> accUpdLst = new List<Account>();
                 }
             }
         }
-		TriggerCaseTriggerHandlerKR.recurssionCheckafter = true;
+        TriggerCaseTriggerHandlerKR.recurssionCheckafter = true;
     }
  }
