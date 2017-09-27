@@ -235,7 +235,7 @@ public class AddressSearchValidationController
         lstProvince=new List<SelectOption>();
         Set<string> setProvinces = new set<string>();
         lstProvince.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected order by Province__c asc])
+        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Market__c=:market order by Province__c asc])
         {
             if(!setProvinces.contains(lsttempProvince.Province__c))
             {
@@ -256,7 +256,7 @@ public class AddressSearchValidationController
         lstDistrict=new List<SelectOption>();
         Set<string> setDistricts = new set<string>();
         lstDistrict.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province order by District__c asc])
+        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where  Language__c=:LanguageSelected and Market__c=:market and Province__c=:province order by District__c asc])
         {
             if(!setDistricts.contains(lsttempDistrict.District__c))
             {
@@ -2717,8 +2717,7 @@ public pagereference saveAccountTH()
             
          if(AddressObj.Address_Type__c != null &&       
             (AddressObj.Address_Line_1__c==null ||      
-            AddressObj.Address_Line_2__c==null ||           
-            AddressObj.Address_Line_3__c==null ||                       
+            AddressObj.Address_Line_2__c==null ||                       
             province==null ||       
             district==null ||                   
             zip==null || AddressObj.Country__c==null)       
@@ -2760,7 +2759,11 @@ public pagereference saveAccountTH()
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'State/Province is Mandatory.'));        
                         Validation = TRUE;      
                     }       
-                            
+                       if(addressobj.District__c == null )     		                            
+                    {       		
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'City is Mandatory.'));         		
+                        Validation = TRUE;                              		
+                    }           
                           
                             
                                                                                                                                     
@@ -2783,20 +2786,7 @@ public pagereference saveAccountTH()
                         }       
                     }       
                             
-                    if(addressobj.Address_Line_3__c == null )       
-                    {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_3__c is Mandatory.'));       
-                        Validation = TRUE;                              
-                    }       
-                    else        
-                    {                           
-                            
-                        if(addressobj.Address_Line_3__c.length()>100)       
-                        {       
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 3 should be less than or equal to 100 characters.'));        
-                            Validation = true;                              
-                        }       
-                    }       
+                      
                             
             }       
             catch (exception e)     
