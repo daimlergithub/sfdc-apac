@@ -190,17 +190,7 @@
 			</target>
 			<target name="deploy09">
 				<deploy>    
-					<!--SN20170912 excluding following profile-->
-					<sf:typeset name="profiles" force="true">
-						<!--<sf:exclude name="Base Call Center"/>
-						<sf:exclude name="Base After-Sales Engineer"/>
-						<sf:exclude name="Base CRM"/>
-						<sf:exclude name="Base Data Management"/>
-						<sf:exclude name="Base IT Department"/>
-						<sf:exclude name="Base Marketing"/>
-						<sf:exclude name="Base Sales/After-Sales"/>-->
-						<!--Sn30170913-->
-						
+					<sf:typeset name="profiles" force="true">								
 					</sf:typeset>
 				</deploy>
 			</target>           
