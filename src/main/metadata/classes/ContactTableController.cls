@@ -362,42 +362,78 @@ public class ContactTableController
     {           
             string localhmPhone,localwkPhone,localMBPhone,localFaxPhone;        
             localhmPhone=string.valueOf(ParAcc.Individual_Home_Phone__c);       
-             localwkPhone=string.valueOf(ParAcc.Work_Phone__c);     
-             localMBPhone=string.valueOf(ParAcc.Mobile__c);     
-              localFaxPhone=string.valueOf(ParAcc.fax);     
+            localwkPhone=string.valueOf(ParAcc.Work_Phone__c);     
+            localMBPhone=string.valueOf(ParAcc.Mobile__c);     
+            localFaxPhone=string.valueOf(ParAcc.fax);     
             if ((!String.IsBlank(localhmPhone))&&(localhmPhone.length()>3))     
             {       
                 hmCountryCode=localhmPhone.substring(0,3);      
-                if(hmCountryCode=='+60') hmAreaCode=localhmPhone.substring(3,4)!='8'?localhmPhone.substring(3,4):localhmPhone.substring(3,5);      
-                hmphoneNumber=hmCountryCode=='+60'?localhmPhone.substring(3,localhmPhone.length()):localhmPhone.substring(3 +hmAreaCode.length(),localhmPhone.length()) ;       
-            }else       
-            {ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Cannot save too short'));}       
+                if(hmCountryCode=='+60')
+                {
+                    if(localhmPhone.substring(3,4)!='8')
+                        hmAreaCode=localhmPhone.substring(3,4);
+                    else
+                        hmAreaCode=localhmPhone.substring(3,5);
+                }
+                if(hmCountryCode=='+60')
+                {
+                    if(hmAreaCode.length()==1)
+                        hmphoneNumber=localhmPhone.substring(4,localhmPhone.length());
+                    else
+                        hmphoneNumber=localhmPhone.substring(5,localhmPhone.length());
+                }
+            }
+            else       
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Cannot save too short'));
+            }       
             if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3))        
-           {        
+            {        
                     
-                wkCountryCode=localwkPhone.substring(0,3);      
-               // wkAreaCode=localwkPhone.length()>5?localwkPhone.substring(3,5):'';      
-               // wkphoneNumber=localwkPhone.length()>5?localwkPhone.substring(5,localwkPhone.length()):'';    
-                if(wkCountryCode=='+60') wkAreaCode=localwkPhone.substring(3,4)!='8'?localwkPhone.substring(3,4):localwkPhone.substring(3,5);      
-                wkphoneNumber=wkCountryCode=='+60'?localwkPhone.substring(3,localwkPhone.length()):localwkPhone.substring(3 +wkAreaCode.length(),localwkPhone.length()) ;       
-                            
-           }        
+                wkCountryCode=localwkPhone.substring(0,3);  
+                
+                if(wkCountryCode=='+60')
+                {
+                    if(localwkPhone.substring(3,4)!='8')
+                        wkAreaCode=localwkPhone.substring(3,4);
+                    else
+                        wkAreaCode=localwkPhone.substring(3,5);
+                }
+                if(wkCountryCode=='+60')
+                {
+                    if(wkAreaCode.length()==1)
+                        wkphoneNumber=localwkPhone.substring(4,localwkPhone.length());
+                    else
+                        wkphoneNumber=localwkPhone.substring(5,localwkPhone.length());
+                }           
+            }        
             if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3))       
-           {        
+            {        
                         
                 mbCountryCode=localMBPhone.substring(0,3);              
                 mbphoneNumber=localMBPhone.length()>3?localMBPhone.substring(3,localMBPhone.length()):mbCountryCode;        
-           }        
+            }        
             if ((!String.IsBlank(localFaxPhone)) && (localFaxPhone.length()>3))     
-           {        
+            {        
                         
                 faxCountryCode=localFaxPhone.substring(0,3);            
-                faxAreaCode=localFaxPhone.length()>5?localFaxPhone.substring(3,5):'';        
-                faxphoneNumber=localFaxPhone.length()>5?localFaxPhone.substring(5,localFaxPhone.length()):'';      
-                if(faxCountryCode=='+60') faxAreaCode=localFaxPhone.substring(3,4)!='8'?localFaxPhone.substring(3,4):localFaxPhone.substring(3,5);      
-                faxphoneNumber=faxCountryCode=='+60'?localFaxPhone.substring(3,localFaxPhone.length()):localFaxPhone.substring(3 +faxAreaCode.length(),localFaxPhone.length()) ;       
+                
+                if(wkCountryCode=='+60')
+                {
+                    if(localFaxPhone.substring(3,4)!='8')
+                        faxAreaCode=localFaxPhone.substring(3,4);
+                    else
+                        faxAreaCode=localFaxPhone.substring(3,5);
+                }
+                if(wkCountryCode=='+60')
+                {
+                    if(faxAreaCode.length()==1)
+                        faxphoneNumber=localFaxPhone.substring(4,localFaxPhone.length());
+                    else
+                        faxphoneNumber=localFaxPhone.substring(5,localFaxPhone.length());
+                } 
                             
-           }        
+            }        
     }
     
      // pavan end
