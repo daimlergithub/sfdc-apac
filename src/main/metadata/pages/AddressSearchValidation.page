@@ -232,8 +232,8 @@
                   <apex:inputField value="{!objPersonAccount.VIN__c}" />
                    <apex:inputField value="{!objPersonAccount.Company_Name__c}" rendered="{!if(RecordType == 'Person Account',True,false)}" />
                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />
-				  <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/> 
-				  <apex:inputField value="{!objPersonAccount.Personal_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px"/>
+                  <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/> 
+                  <apex:inputField value="{!objPersonAccount.Personal_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px"/>
                   <apex:inputField value="{!objPersonAccount.Agreement_to_commit_info_processing__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px"/>
                   <apex:inputField value="{!objPersonAccount.Personal_Information_Third_Party_Release__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px"/>
                   <apex:inputField value="{!objPersonAccount.Personal_Abroad_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px"/>      
@@ -423,14 +423,14 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.FirstName.Label}"/>       
                         <apex:inputText value="{!objAccount.FirstName}" />          
                     </apex:pageBlockSectionItem>  
-					<apex:pageBlockSectionItem >        
+                    <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>        
                         <apex:outputPanel styleClass="requiredInput" layout="block">        
                                 
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>       
                             <apex:inputText value="{!objAccount.LastName}" />       
                         </apex:outputPanel>     
-                    </apex:pageBlockSectionItem>  					
+                    </apex:pageBlockSectionItem>                    
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />       
                         <apex:outputPanel >     
@@ -690,7 +690,7 @@
                         <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>
                      
                     </apex:pageBlockSectionItem>   
-	  
+      
                <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:outputField value="{!AddressObj.Market__c}"/>                              
@@ -803,7 +803,7 @@
                         <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>       
                             
                     </apex:pageBlockSectionItem>        
-	 
+     
                     <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:outputField value="{!AddressObj.Market__c}"/>                              
@@ -885,7 +885,10 @@
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>
-                    <apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />
+                    <!--PR20170918--Start-->
+                    <!--<apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />-->
+                    <apex:commandButton action="{!onLineDeduplicationCDMTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" reRender="form,msgs" />
+                    <!--PR20170918--End-->
                      <!--MT20170909- Added Button for Malaysia-->
                      <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'MY') ,true,false)}" />      
                     <!--MT20170909-->
@@ -905,7 +908,7 @@
                     </apex:outputPanel>                                  
                     
                     <apex:outputPanel id="redirectPanel">                  
-                        <apex:outputText rendered="{!refreshPage}">
+                        <apex:outputText rendered="{!refreshPage}" value="">
                             <script type="text/javascript">
                             function testGetFocusedSubtabId()
                             {
@@ -948,7 +951,10 @@
         </div>
         <div>
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
-                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF((market == 'TH' || market == 'JP'), true, false)}">
+                <!--PR20170918--Start-- Modified for Thailand(Will be modified shortly)-->
+                <!--<apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF((market == 'TH' || market == 'JP'), true, false)}">-->
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'JP', true, false)}">
+                <!--PR20170918--End-- Modified for Thailand-->
                      <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
@@ -1031,8 +1037,49 @@
             </apex:PageBlock>
             
              <!--SN20170907 - Added Block for Malaysia-->       
-                 <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!IF((market == 'MY' &&  displayAccList.size!=0 && $Permission.MYGeneric), true, false)}" id="frm">     
-                     <apex:pageBlockSection columns="1">        
+                 <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!IF((market == 'MY' &&  displayAccList.size!=0 && $Permission.MYGeneric), true, false)}" id="frm">     
+                     <apex:pageBlockSection columns="1">-->
+            <!--PR20170918--Start-- Introduced for Thailand. Shows Customer Search Result from CDM via Informatica-->
+                <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
+                    <apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
+                        <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="Th">   
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!($User.ContactId !=null && recordType == 'Person Account')}">  
+                                <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.LastName}</apex:outputLink>    
+                            </apex:Column>
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!($User.ContactId ==null && recordType == 'Person Account')}">  
+                                <apex:outputLink value="/{!Th.Id}" rendered="{!$User.ContactId ==null}">{!Th.LastName}</apex:outputLink>    
+                            </apex:Column>
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}" rendered="{!recordType == 'Person Account'}">                    
+                                <apex:outputField value="{!Th.firstName}"/>
+                            </apex:Column>
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!recordType == 'Company'}">                    
+                                <apex:outputLink value="/{!Th.Id}">{!Th.Name}</apex:outputLink>
+                            </apex:Column>
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">                    
+                                <apex:outputField value="{!Th.UCID__c}"/>
+                            </apex:Column>
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Mobile__c.Label}">                    
+                                <apex:outputField value="{!Th.Mobile__c}"/>
+                            </apex:Column>
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                    
+                                <apex:outputField value="{!Th.Individual_Home_Phone__c}"/>
+                            </apex:Column>
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Work_Phone__c.Label}">                    
+                                <apex:outputField value="{!Th.Work_Phone__c}"/>
+                            </apex:Column>
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                                <apex:outputField value="{!Th.Email__c}"/>
+                            </apex:Column>  
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.ID_Number__c.Label}" rendered="{!recordType == 'Person Account'}">                    
+                                <apex:outputField value="{!Th.ID_Number__c}"/>
+                            </apex:Column>                  
+                        </apex:PageBlockTable>
+                    </apex:pageBlockSection>
+                 <!--PR20170918--End-- Introduced for Thailand-->
+                 
+                 <!--SN20170907 - Added Block for Malaysia-->       
+                 <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" id="frm">-->
+                     <apex:pageBlockSection columns="1" rendered="{!IF((market == 'MY' &&  displayAccList.size!=0 && $Permission.MYGeneric), true, false)}">                 
                      <apex:pageBlockTable value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Person Account'}">       
                       <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">         
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>            
@@ -1091,10 +1138,10 @@
                 </apex:PageBlockTable>      
                      </apex:pageBlockSection>       
                      <apex:pageblockButtons >       
-                     <apex:commandButton value="First" action="{!first}" reRender="frm" disabled="{!first}"/>       
-                     <apex:commandButton value="Previous" action="{!previous}" reRender="frm" disabled="{!previous}"/>      
-                     <apex:commandButton value="Next"  disabled="{!next}" reRender="frm" action="{!next}"/>     
-                     <apex:commandButton value="Last" disabled="{!last}" reRender="frm" action="{!last}"/>      
+                     <apex:commandButton value="First" action="{!first}" reRender="frmCDM" disabled="{!first}"/>       
+                     <apex:commandButton value="Previous" action="{!previous}" reRender="frmCDM" disabled="{!previous}"/>      
+                     <apex:commandButton value="Next"  disabled="{!next}" reRender="frmCDM" action="{!next}"/>     
+                     <apex:commandButton value="Last" disabled="{!last}" reRender="frmCDM" action="{!last}"/>      
                      </apex:pageblockButtons>       
                 </apex:pageBlock>       
                 <!--SN20170907--->
