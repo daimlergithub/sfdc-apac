@@ -331,6 +331,14 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Mercedes-AMG GT C Roadster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT Roadster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Mercedes-AMG GT S</fullName>
                 <default>false</default>
             </picklistValues>
