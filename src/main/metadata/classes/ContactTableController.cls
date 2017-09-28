@@ -50,6 +50,11 @@ public class ContactTableController
     public List<SelectOption> lstCountryCode{get; set;}        
     public List<SelectOption> lstMobileAreaCode{get; set;}      
     public List<SelectOption> lstPhoneAreaCode{get; set;}       
+    /*SN20171709 - Added rendered condition*/
+    public boolean hAreaBoolean{get;set;}
+    Public boolean wAreaBoolean{get;set;}
+    Public boolean fAreaBoolean{get;set;}
+    /*Sn20171709 - end*/
     
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
     /**
@@ -67,6 +72,9 @@ public class ContactTableController
         editMode = false;
         editMode1 = false;
         editMode2 = false;
+        hAreaBoolean=false;
+        wAreaBoolean=false;
+        fAreaBoolean=false;
         //MT20170909 - Added  code to get the area code from the custom settings
           //Fill in CountryCodes
         //lstMobileAreaCode=new List<SelectOption>();
@@ -371,21 +379,26 @@ public class ContactTableController
                 if(hmCountryCode=='+60')
                 {
                     if(localhmPhone.substring(3,4)!='8')
+                    {
                         hmAreaCode=localhmPhone.substring(3,4);
-                    else
-                        hmAreaCode=localhmPhone.substring(3,5);
-                }
-                if(hmCountryCode=='+60')
-                {
-                    if(hmAreaCode.length()==1)
                         hmphoneNumber=localhmPhone.substring(4,localhmPhone.length());
+                    }
                     else
+                    {
+                        hmAreaCode=localhmPhone.substring(3,5);
                         hmphoneNumber=localhmPhone.substring(5,localhmPhone.length());
+                    }
                 }
+                else
+                {
+                        hmphoneNumber=localhmPhone.substring(3,localhmPhone.length());
+                }
+                
+                
             }
             else       
-            {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Cannot save too short'));
+            {               
+               hmCountryCode='+65';
             }       
             if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3))        
             {        
@@ -395,18 +408,25 @@ public class ContactTableController
                 if(wkCountryCode=='+60')
                 {
                     if(localwkPhone.substring(3,4)!='8')
+                    {
                         wkAreaCode=localwkPhone.substring(3,4);
-                    else
-                        wkAreaCode=localwkPhone.substring(3,5);
-                }
-                if(wkCountryCode=='+60')
-                {
-                    if(wkAreaCode.length()==1)
                         wkphoneNumber=localwkPhone.substring(4,localwkPhone.length());
+                    }
                     else
-                        wkphoneNumber=localwkPhone.substring(5,localwkPhone.length());
+                    {
+                        wkAreaCode=localwkPhone.substring(3,5);
+                         wkphoneNumber=localwkPhone.substring(5,localwkPhone.length());
+                    }    
+                }
+                else
+                {
+                    wkphoneNumber=localwkPhone.substring(3,localwkPhone.length());
                 }           
-            }        
+            }
+            else
+            {
+                wkCountryCode='+60';
+            }       
             if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3))       
             {        
                         
@@ -418,22 +438,30 @@ public class ContactTableController
                         
                 faxCountryCode=localFaxPhone.substring(0,3);            
                 
-                if(wkCountryCode=='+60')
+                if(faxCountryCode=='+60')
                 {
                     if(localFaxPhone.substring(3,4)!='8')
+                    {
                         faxAreaCode=localFaxPhone.substring(3,4);
-                    else
-                        faxAreaCode=localFaxPhone.substring(3,5);
-                }
-                if(wkCountryCode=='+60')
-                {
-                    if(faxAreaCode.length()==1)
                         faxphoneNumber=localFaxPhone.substring(4,localFaxPhone.length());
+                    }
                     else
+                    {
+                        faxAreaCode=localFaxPhone.substring(3,5);
                         faxphoneNumber=localFaxPhone.substring(5,localFaxPhone.length());
-                } 
+                    }
+                }
+                else
+                {
+                    faxphoneNumber=localFaxPhone.substring(3,localFaxPhone.length());
+                }
+                
                             
-            }        
+            } 
+            else
+            {
+                faxCountryCode='+60';
+            }       
     }
     
      // pavan end
@@ -459,8 +487,9 @@ public class ContactTableController
         }
          //MT20170909       
         else if (ParAcc.MD__c == Label.MY)      
-        {       
-            PhoneNumberFormatMY();      
+        {   
+            PhoneNumberFormatMY(); 
+            checkcountrycode();     
         }
     }
  public void UpdateAccountTH()  
@@ -869,5 +898,31 @@ public class ContactTableController
         PageReference page = new PageReference('/apex/ContactTable?Id='+ParAcc.Id);
         page.setRedirect(true);
         return page;
-    }    
+    }   
+    
+      /*SN20171209 */
+    public void checkcountrycode(){
+            wAreaBoolean=false;
+            fAreaBoolean=false;
+            hAreaBoolean=false;
+            
+            if(hmCountryCode=='+60')
+                hAreaBoolean=true;
+            else
+                hAreaBoolean=false;
+                
+            if(wkCountryCode=='+60' || wkCountryCode=='')
+                wAreaBoolean=true;
+            else
+                wAreaBoolean=false;
+                
+            if(faxCountryCode=='+60' )
+                fAreaBoolean=true;
+            else
+                fAreaBoolean=false;
+                       
+             
+           
+    }
+     
 }
