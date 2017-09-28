@@ -14,62 +14,6 @@
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
     </labels>
-	 <labels>
-        <fullName>Vin_Number</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Vin_Number</shortDescription>
-        <value>VIN Number</value>
-    </labels>
-	<labels>
-        <fullName>select_criteria</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>select_criteria</shortDescription>
-        <value>select filter criteria</value>
-    </labels>
-	<labels>
-        <fullName>You_cannot_delete_this_record</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>You cannot delete this record</shortDescription>
-        <value>You cannot delete this record</value>
-    </labels>
-	<labels>
-        <fullName>enter_criteria</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>enter_criteria</shortDescription>
-        <value>enter filter text</value>
-    </labels>
-	<labels>
-        <fullName>searchbutton_title</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>searchbutton_title</shortDescription>
-        <value>Please select the filter criteria before entering search text</value>
-    </labels>
-	<labels>
-        <fullName>Registration_Number</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration_Number</shortDescription>
-        <value>	Registration Number</value>
-    </labels>
-	<labels>
-        <fullName>User_Msg</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>User_Msg</shortDescription>
-        <value>Please select the filter criteria before searching</value>
-    </labels>
-	<labels>
-        <fullName>User_Msg1</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>User_Msg1</shortDescription>
-        <value>Please enter the search text</value>
-    </labels>
     <labels>
         <fullName>A6_Invitation_to_an_event_event_at_the_car_dealership</fullName>
         <language>en_US</language>
@@ -125,6 +69,13 @@
         <protected>false</protected>
         <shortDescription>A6 Visit to a car dealership</shortDescription>
         <value>Visit to a car dealership</value>
+    </labels>
+    <labels>
+        <fullName>A_selected_DM_Material_does_not_have_a_sufficient_stock</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A selected DM Material does not have a sufficient stock</shortDescription>
+        <value>A selected DM Material does not have a sufficient stock</value>
     </labels>
     <labels>
         <fullName>Accepted</fullName>
@@ -660,41 +611,6 @@
         <protected>false</protected>
         <shortDescription>AutolineCreate Retail Copy</shortDescription>
         <value>Create Retail Copy</value>
-    </labels>
-	<labels>
-        <fullName>A_selected_DM_Material_does_not_have_a_sufficient_stock</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>A selected DM Material does not have a sufficient stock</shortDescription>
-        <value>A selected DM Material does not have a sufficient stock</value>
-    </labels>
-	<labels>
-        <fullName>You_don_t_have_permission_to_update_this_record</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>You don't have permission to update this record for case edit for KR roles</shortDescription>
-        <value>You don't have permission to update this record</value>
-    </labels>
-	<labels>
-        <fullName>You_cannot_Delete_CaseComment</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>You cannot Delete CaseComment</shortDescription>
-        <value>You cannot Delete CaseComment</value>
-    </labels>
-	<labels>
-        <fullName>Insufficient_access_to_update</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Insufficient access to update</shortDescription>
-        <value>Insufficient access to update few fields. You can edit only following fields:</value>
-    </labels>
-	<labels>
-        <fullName>Insufficient_access_to_update_this_field</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Insufficient access to update this field</shortDescription>
-        <value>Insufficient access to update this field</value>
     </labels>
     <labels>
         <fullName>Available_Contacts</fullName>
@@ -3402,7 +3318,7 @@ please contact the number below.</value>
         <shortDescription>If yes, within which period do you plan to purchase</shortDescription>
         <value>If yes, within which period do you plan to purchase</value>
     </labels>
-	    <labels>
+    <labels>
         <fullName>Include</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3437,6 +3353,20 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>InsufficientAccessToCreate</shortDescription>
         <value>Insufficient privilege to create new vehicle.</value>
+    </labels>
+    <labels>
+        <fullName>Insufficient_access_to_update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insufficient access to update</shortDescription>
+        <value>Insufficient access to update few fields. You can edit only following fields:</value>
+    </labels>
+    <labels>
+        <fullName>Insufficient_access_to_update_this_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insufficient access to update this field</shortDescription>
+        <value>Insufficient access to update this field</value>
     </labels>
     <labels>
         <fullName>Insufficient_privilege</fullName>
@@ -4359,7 +4289,7 @@ please contact the number below.</value>
         <shortDescription>MBJ support</shortDescription>
         <value>MBJ support</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>MY</fullName>
         <categories>Malaysia</categories>
         <language>en_US</language>
@@ -5212,6 +5142,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Parent</shortDescription>
         <value>Parent</value>
+    </labels>
+    <labels>
+        <fullName>Partial_Match</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partial Match</shortDescription>
+        <value>Partial Match</value>
     </labels>
     <labels>
         <fullName>Parts_Cross_Promotion</fullName>
@@ -6248,6 +6185,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Registration Information</shortDescription>
         <value>Registration Information</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration_Number</shortDescription>
+        <value>Registration Number</value>
     </labels>
     <labels>
         <fullName>Registration_Plan_Date</fullName>
@@ -8717,6 +8661,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>The filter count is greater than 20</value>
     </labels>
     <labels>
+        <fullName>The_request_could_not_reach_server</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The request could not reach server.</shortDescription>
+        <value>The request could not reach server.</value>
+    </labels>
+    <labels>
         <fullName>This_Lead_cannot_be_send_to_Autoline</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8949,6 +8900,20 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>User Details</shortDescription>
         <value>User Details</value>
+    </labels>
+    <labels>
+        <fullName>User_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User_Msg</shortDescription>
+        <value>Please select the filter criteria before searching</value>
+    </labels>
+    <labels>
+        <fullName>User_Msg1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User_Msg1</shortDescription>
+        <value>Please enter the search text</value>
     </labels>
     <labels>
         <fullName>User_Notification_Settings</fullName>
@@ -9235,6 +9200,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>ViewHierarchy</value>
     </labels>
     <labels>
+        <fullName>Vin_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vin_Number</shortDescription>
+        <value>VIN Number</value>
+    </labels>
+    <labels>
         <fullName>Visited</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9478,6 +9450,27 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>ใช่</value>
     </labels>
     <labels>
+        <fullName>You_cannot_Delete_CaseComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You cannot Delete CaseComment</shortDescription>
+        <value>You cannot Delete CaseComment</value>
+    </labels>
+    <labels>
+        <fullName>You_cannot_delete_this_record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You cannot delete this record</shortDescription>
+        <value>You cannot delete this record</value>
+    </labels>
+    <labels>
+        <fullName>You_don_t_have_permission_to_update_this_record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You don&apos;t have permission to update this record for case edit for KR roles</shortDescription>
+        <value>You don&apos;t have permission to update this record</value>
+    </labels>
+    <labels>
         <fullName>Your_Current_car_s</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9575,6 +9568,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>displayOnly</shortDescription>
         <value>displayOnly</value>
+    </labels>
+    <labels>
+        <fullName>enter_criteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>enter_criteria</shortDescription>
+        <value>enter filter text</value>
     </labels>
     <labels>
         <fullName>korea_Business_Hours_Id</fullName>
@@ -9882,11 +9882,25 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Please operate My Mercedes Registration first</value>
     </labels>
     <labels>
+        <fullName>searchbutton_title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchbutton_title</shortDescription>
+        <value>Please select the filter criteria before entering search text</value>
+    </labels>
+    <labels>
         <fullName>select</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>select</shortDescription>
         <value>select</value>
+    </labels>
+    <labels>
+        <fullName>select_criteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>select_criteria</shortDescription>
+        <value>select filter criteria</value>
     </labels>
     <labels>
         <fullName>select_dealer</fullName>
