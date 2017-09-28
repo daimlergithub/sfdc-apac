@@ -188,7 +188,6 @@
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
 					</sf:typeset> -->
-					
 					<sf:typeset name="translations"/>
 				</deploy>
 			</target>
