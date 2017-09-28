@@ -31,7 +31,11 @@ public class TriggerAccountLinkTriggerHandlerJP
                 Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
                 AccountLinkHelper.afterInsertDeleteEvent(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate); 
                 AccountLinkHelper.afterInsertEvent(Trigger.new);
+                if(LeadUtil.Share2contactInsert)
+                {
                 AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+                LeadUtil.Share2contactInsert=false;
+                }
                 //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
             }
             if(Trigger.isAfter && Trigger.isDelete)
@@ -46,8 +50,12 @@ public class TriggerAccountLinkTriggerHandlerJP
                 AccountLinkHelper.updateRetailCopyafterUpdate(Trigger.new, oldmap);
                 AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
                 AccountLinkHelper.ExportNotification(Trigger.new, oldmap);
+                if(LeadUtil.Share2contactUpdate)
+                {
                 AccountLinkHelper.Sharecontact2conatct(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
-				AccountLinkHelper.updateAccountlinks(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+                LeadUtil.Share2contactUpdate=false;
+                }
+                AccountLinkHelper.updateAccountlinks(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
                 
                 //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
             }
