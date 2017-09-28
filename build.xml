@@ -110,6 +110,10 @@
 					<sf:typeset name="roles"/>
 					<sf:typeset name="documents"/>
 					<sf:typeset name="callCenters"/>
+					<sf:typeset name="objects">
+						<sf:include name="CDM_EP_Switch__c"/>
+						<sf:include name="CDM_Integration_URLs__c"/>
+					</sf:typeset>
 				</deploy>
 			</target>
 			<target name="deploy05">
