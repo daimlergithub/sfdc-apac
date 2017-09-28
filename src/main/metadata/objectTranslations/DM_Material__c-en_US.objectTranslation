@@ -86,10 +86,6 @@
         <name>Print_Due_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Remark --></label>
-        <name>Remark__c</name>
-    </fields>
-    <fields>
         <label><!-- Sent Total --></label>
         <name>SentTotal__c</name>
     </fields>
@@ -1580,10 +1576,6 @@
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- Must input conversion: Brand-Series-Type. --></errorMessage>
-        <name>Format_DM_Material_Name</name>
-    </validationRules>
     <validationRules>
         <errorMessage><!-- Label Printing Name should be less than or equal to 23 letters. --></errorMessage>
         <name>LabelPrint_NoOfDigit</name>

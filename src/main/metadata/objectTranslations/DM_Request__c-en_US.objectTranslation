@@ -45,10 +45,6 @@
         <name>Attention__c</name>
     </fields>
     <fields>
-        <label><!-- CAC SourceId --></label>
-        <name>CAC_SourceId__c</name>
-    </fields>
-    <fields>
         <label><!-- Campaign --></label>
         <name>Campaign__c</name>
         <relationshipLabel><!-- DM Request --></relationshipLabel>
@@ -57,10 +53,6 @@
         <label><!-- Car Model --></label>
         <name>Car_Model__c</name>
         <relationshipLabel><!-- DM Request --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Car Series --></label>
-        <name>Car_Series__c</name>
     </fields>
     <fields>
         <label><!-- Case Number --></label>
@@ -206,14 +198,6 @@
         <name>Date__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer --></label>
-        <name>Dealer__c</name>
-    </fields>
-    <fields>
-        <label><!-- Delivery Date --></label>
-        <name>Delivery_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Delivery Type --></label>
         <name>Delivery_Type__c</name>
         <picklistValues>
@@ -255,10 +239,6 @@
     <fields>
         <label><!-- Gender --></label>
         <name>Gender__c</name>
-    </fields>
-    <fields>
-        <label><!-- Home Phone --></label>
-        <name>Home_Phone__c</name>
     </fields>
     <fields>
         <label><!-- Lead --></label>

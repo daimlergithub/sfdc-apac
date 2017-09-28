@@ -123,11 +123,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Hardcopy_Last_Modified_By__c</field>
-            <table>Address__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Hardcopy_Last_Modified_Date__c</field>
             <table>Address__c</table>
         </columns>

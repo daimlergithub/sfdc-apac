@@ -67,6 +67,16 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>	
+    <fields>
+        <fullName>Allow_Data_Sharing__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>The flag to identify if this record can be shared with MBJ</description>
+        <externalId>false</externalId>
+        <label>Allow Data Sharing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Campaign__c</fullName>
@@ -347,6 +357,9 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         </filters>
         <label>今日作成のセントラルDM</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>DM1</fullName>
@@ -370,6 +383,9 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         </filters>
         <label>今日作成のセントラルDM_コピー</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>E_S_DM2016</fullName>
@@ -393,6 +409,9 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         </filters>
         <label>E&amp;SセントラルDM2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBK_Surveys_Taken</fullName>

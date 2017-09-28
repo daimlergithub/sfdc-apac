@@ -1,0 +1,3 @@
+<apex:page standardController="Persona__c" extensions="MRC_MAJNewEditExt" action="{!revokeAccess}"> 
+  <Apex:pageMessages ></Apex:pageMessages>
+</apex:page>

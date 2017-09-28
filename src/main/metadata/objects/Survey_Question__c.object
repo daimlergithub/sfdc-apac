@@ -185,7 +185,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
-    <fields>
+	<fields>
         <fullName>Total_Responses__c</fullName>
         <externalId>false</externalId>
         <label>Total Responses</label>

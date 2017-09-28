@@ -165,9 +165,13 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Contact__c</field>
+                <field>Customer_Contacted__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Customer_Contacted_Date_Time__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

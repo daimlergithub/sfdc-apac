@@ -12,7 +12,7 @@ global class RetailCampaignSchedulerAndNotificationJP implements Database.Batcha
     global String emailBodyStr;
     global String templateName;
     global List<NotificationWrapper> notificationWrapperList;
-    global List<String> templateNameList = new List<String>{'Retail CampaignnotificationforExecution', 'Campaign Lead Assignment Notification', 'Task Notification to Dealer Outlet'};
+    global List<String> templateNameList = new List<String>{'Retail CampaignnotificationforExecution', 'Retail Campaign Lead Assignment Notification', 'Task Notification to Dealer Outlet'};
     global Set<Id> campignIdSetForLeadType = new Set<Id>();
     global Set<Id> newInsertedLeadId = new Set<Id>();
     global Map<String, Id> templateNameToTemplateIdMap;
@@ -155,8 +155,8 @@ global class RetailCampaignSchedulerAndNotificationJP implements Database.Batcha
                     campaignRec.Child_Campaign_Status__c = 'Execution';
                     campLst.add(campaignRec);
                     
-                    /*String templateId = templateNameToTemplateIdMap.containsKey('Campaign Lead Assignment Notification') 
-                                                    ? templateNameToTemplateIdMap.get('Campaign Lead Assignment Notification')
+                    /*String templateId = templateNameToTemplateIdMap.containsKey('Retail Campaign Lead Assignment Notification') 
+                                                    ? templateNameToTemplateIdMap.get('Retail Campaign Lead Assignment Notification')
                                                     : templateNameToTemplateIdMap.get('Task Notification to Dealer Outlet');
                     setNotificationTemplate(campaignRec.OwnerId, templateId, campaignRec.Id);*/
                     campignIdSetForLeadType.add(campaignRec.Id);
@@ -314,8 +314,8 @@ global class RetailCampaignSchedulerAndNotificationJP implements Database.Batcha
     
     private void setWrapperListForLeads(Set<Id> campignIdSetForLeadType) {
         List<Retail_Campaign__c> campaignList = [select OwnerId, (select Id from Leads__r where Id IN : newInsertedLeadId) from Retail_Campaign__c where Id IN: campignIdSetForLeadType];
-        String templateId = templateNameToTemplateIdMap.containsKey('Campaign Lead Assignment Notification') 
-                                                    ? templateNameToTemplateIdMap.get('Campaign Lead Assignment Notification')
+        String templateId = templateNameToTemplateIdMap.containsKey('Retail Campaign Lead Assignment Notification') 
+                                                    ? templateNameToTemplateIdMap.get('Retail Campaign Lead Assignment Notification')
                                                     : templateNameToTemplateIdMap.get('Task Notification to Dealer Outlet');
                                                     
         for(Retail_Campaign__c campRec : campaignList) {

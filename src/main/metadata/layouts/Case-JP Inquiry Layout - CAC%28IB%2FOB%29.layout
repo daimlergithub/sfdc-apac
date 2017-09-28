@@ -4,7 +4,7 @@
     <customButtons>Generate_Pdf</customButtons>
     <customButtons>Notify_to_Dealer</customButtons>
     <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
-	<customButtons>New_DM_Request</customButtons>
+    <customButtons>New_DM_Request</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -83,7 +83,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Approval_Submit_Date__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Narrative_of_Type__c</field>
@@ -153,10 +153,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Escalate_Date_to_CO__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Share_to_Regional_Office__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

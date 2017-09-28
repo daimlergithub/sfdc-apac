@@ -486,6 +486,8 @@ public class LeadHelperJP
         map<string,List<User>> dealerUserMap = new map<string,List<User>>();
         List<Lead__c> updateLeadLists = new List<Lead__c>();
         List<Messaging.SingleEmailMessage > mails  = new  List<Messaging.SingleEmailMessage >();
+        List<String> assignedList = new List<String>();
+        
         
         if(!listNewLeads.isEmpty() && listNewLeads != null)
         {
@@ -503,7 +505,7 @@ public class LeadHelperJP
         {
             Leadlist = [Select id,MD__c,Assigned_Dealer__r.id,Lead_DataSource__c,ownerid,contact__c,Assigned_Dealer__r.Dealer_GC_Code__c,
                         Service_Advisor__r.Email,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,
-                        RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,
+                        RecordTypeId,CAC_Lead_Status__c ,Assigned_Dealer__r.Name,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,
                         Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,
                         Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :dealerleadIds];
         }
@@ -516,15 +518,41 @@ public class LeadHelperJP
                   && lsds.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
                 { 
                     DealerAccid.add(lsds.Assigned_Dealer__c);
+                    
                     DealerGcCode.add(lsds.Assigned_Dealer__r.Dealer_GC_Code__c);
                 }
             }
         }
+        List<User> userGCCode = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User where Dealer_GC_Code__c IN:DealerGcCode and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative')) ];
+        
+        set<String> usrlst = New set<String>();
+        for(Lead__c led : Leadlist){
+        for(User usr : userGCCode){
+            if(usr.Notification_Lead_Dealer_Assignment__c != null){
+              List<string> LeadAssignement = (usr.Notification_Lead_Dealer_Assignment__c.split(';')); 
+               for(String leadAssinstr: LeadAssignement ){
+                   if(leadAssinstr == led.Assigned_Dealer__r.Name){
+                       usrlst.add(usr.id);    
+                   }
+               }
+            }
+            
+        }
+        }
+        List<User> ChangeList =[Select id From User Where id =: usrlst];
+        
+        //List<User> LeadAssignedusers = [select Id,Name from User WHERE Name IN:assignedList];
+        
+        
         system.debug('DealerAccid ><><><>' + DealerAccid);
         if(!DealerAccid.isEmpty() && DealerAccid != null)
         {
-            dealerUserList = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c from User
-                             where contact.AccountId =: DealerAccid  and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
+            dealerUserList = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User
+                             where contact.AccountId =: DealerAccid  and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
+        }
+        
+        for(User Us : ChangeList ){
+            dealerUserList.add(Us);
         }
         system.debug('dealerUserList ><><><>' + dealerUserList);
         
@@ -533,6 +561,7 @@ public class LeadHelperJP
         
         if(!Leadlist.isEmpty() && Leadlist != null)
         {
+            
             for(Lead__c emaLeds : Leadlist)
             {
                 // System.debug('$$$$$$$$&^&^&^'+dealerUserList);
@@ -607,7 +636,7 @@ public class LeadHelperJP
                 
             }                     
         }
-    }   
+    }    
          public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)
     {
         List<User> userList = new List<User>();
@@ -632,6 +661,10 @@ public class LeadHelperJP
                     if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
                     {
                         dellead.Assigned_Dealer__c = u.Contact.AccountId;
+						if(dellead.Dealer_Lead_Status__c != null && dellead.Dealer_Lead_Status__c != '')
+						{
+							// dellead.Dealer_Assigned_Date_Time__c = system.now();
+						}						
                     }
                 }
             }

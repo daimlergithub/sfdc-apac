@@ -259,10 +259,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBTH_Assigned_Dealer_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Customer_Preferred_Rep__c</field>
             </layoutItems>
         </layoutColumns>
