@@ -251,8 +251,8 @@
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
-					
-					<apex:column headerValue="City" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
+                    
+                    <apex:column headerValue="City" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
@@ -478,13 +478,12 @@
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>                          
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>          
                     <apex:inputField value="{!addressobj.Address_Line_3__c}"/>          
-                        
-                    <apex:pageBlockSectionItem >        
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>     
-                        <apex:inputField value="{!AddressObj.Foreign_Nationals__c}" id="chkForeignNational"     
-                            onclick="ForeignNationalFields(this.value)"/>       
-                    </apex:pageBlockSectionItem>        
                             
+                 <apex:pageblockSectionItem >       
+                    <apex:outputLabel value="Country"/>     
+                    <apex:inputField value="{!addressobj.Country__c}" onchange="ForeignNationalFields(this.value)"/>     
+                 </apex:pageblockSectionItem>  
+                 
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
                         <apex:outputLabel value="State/Province"/>      
                          <apex:selectList size="1" value="{!province}" id="slDistrict" onchange="loadDistrict(this.value)">     
@@ -516,10 +515,7 @@
                          <apex:inputText id="inpZip" value="{!zip}"/>       
                 </apex:pageBlockSectionItem>        
                         
-                 <apex:pageblockSectionItem >       
-                    <apex:outputLabel value="Country"/>     
-                    <apex:inputField value="{!addressobj.Country__c}"/>     
-                 </apex:pageblockSectionItem>       
+                      
                         
                  <apex:pageblockSectionItem >       
                     <apex:outputLabel value="Status"/>      

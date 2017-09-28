@@ -139,10 +139,20 @@ public class AddressDisplayInlineEditController {
       
        public void ShowHideFields()
       {
-        if(AddressObj.Foreign_Nationals__c==true)
-            IsForeignNational=true;
-        else
-            IsForeignNational=false;
+       if(market == System.Label.TH)
+       {  
+            if(AddressObj.Foreign_Nationals__c==true)
+                IsForeignNational=true;
+            else
+                IsForeignNational=false;
+        }
+        else if(market == System.Label.MY)
+        {
+            if(AddressObj.Country__c!='Malaysia')            
+                IsForeignNational=true;
+            else
+                IsForeignNational=false;
+        }
       }
       
     
@@ -556,7 +566,7 @@ public class AddressDisplayInlineEditController {
                  Validation = true;                             
             }       
            
-		  /* if(addressobj.ZipCode__c == null)       
+      /* if(addressobj.ZipCode__c == null)       
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));         
                 Validation = true;                              
@@ -598,19 +608,7 @@ public class AddressDisplayInlineEditController {
                 }       
             }       
                     
-            if(addressobj.Address_Line_3__c == null )       
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_3__c is Mandatory.'));       
-                Validation = TRUE;                              
-            }       
-            else        
-            {                   
-                if(addressobj.Address_Line_3__c.length()>100)       
-                {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 3 should be less than or equal to 100 characters.'));        
-                    Validation = true;                              
-                }       
-            }       
+                  
             if(Validation == False){                
                 refreshPage = true;         
                 Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];     

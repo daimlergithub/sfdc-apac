@@ -248,6 +248,30 @@ public with sharing class AccountMergeController{
                 master.put(wrap.fieldAPI, slave.get(wrap.fieldAPI));
               }
           }
+          
+          for(Accountwrapper AccountwrapperObj : AccountwrapperList) {          
+            if(AccountwrapperObj.selected == true) {
+                selectedSlaveAccount=AccountwrapperObj.acc; 
+            }           
+            if(AccountwrapperObj.acc.Master_Record__c== true)
+            {
+                selectedMasterAccount=AccountwrapperObj.acc; 
+            }
+         }
+          
+        // If the merged record is the last suspected duplicate to the master record, 
+        // after merge, also remove master record (checkbox) and Dup Number 
+        // from the master record.
+             
+         Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c();
+         duplicateLog.Master_Account__c = master.Id;
+         duplicateLog.Duplicate_Account__c = slave.Id ;
+         duplicateLog.Duplicate_Reason_Code__c = slave.Dup_Reason__c; 
+         if(master.DUPNumber__c !=null)
+         { 
+          duplicateLog.DUPNumber__c = selectedMasterAccount.DUPNumber__c;
+          }
+         duplicateLog.Status__c=system.label.Confirmed;
          
         // Update Slave RecordTypeId and Owner
           if
@@ -269,19 +293,6 @@ public with sharing class AccountMergeController{
              master.Master_Record__c=false;                
          }
         
-        // If the merged record is the last suspected duplicate to the master record, 
-        // after merge, also remove master record (checkbox) and Dup Number 
-        // from the master record.
-             
-         Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c();
-         duplicateLog.Master_Account__c = master.Id;
-         duplicateLog.Duplicate_Account__c = slave.Id ;
-         duplicateLog.Duplicate_Reason_Code__c = slave.Dup_Reason__c;
-         if(master.DUPNumber__c !=null)
-         {
-          duplicateLog.DUPNumber__c = selectedMasterAccount.DUPNumber__c;
-          }
-         duplicateLog.Status__c=system.label.Confirmed;
         // Set SavePoint, if slave DML failed, master DML should be rollback .
         SavePoint sp = Database.setSavepoint();        
         try {
