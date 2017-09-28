@@ -283,25 +283,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Remark__c</fullName>
-        <description>/*
-Created by:  Chris.Huang
-Used by:  CAC User
-Function: Mapping 'Notes' in Data Dictionary.
-Used in: Integration
-
-Modify History
-Modify By: 
-Modify Reason: 
-*/</description>
-        <externalId>false</externalId>
-        <label>Remark</label>
-        <length>32768</length>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
         <fullName>SentTotal__c</fullName>
         <description>/*
 Created by:  Chris.Huang
