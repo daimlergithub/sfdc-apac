@@ -56,7 +56,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-     <fieldSets>
+    <fieldSets>
         <fullName>AddressFieldset</fullName>
         <description>Account Merge</description>
         <displayedFields>
@@ -252,6 +252,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Address_Line_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Address_Type_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
         <externalId>false</externalId>
@@ -276,7 +287,7 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 1</fullName>
-                <default>false</default>
+                <default>false</default>                   
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 2</fullName>
@@ -390,7 +401,7 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Singapore</fullName>
-                <default>false</default>
+                <default>false</default> 
             </picklistValues>
             <picklistValues>
                 <fullName>Vietnam</fullName>
@@ -511,7 +522,6 @@
         <label>Mail Last Modified By</label>
         <length>50</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -554,8 +564,9 @@
 	IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 	IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
         IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+        IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 	IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
-	))))</defaultValue>
+	)))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -565,6 +576,49 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Opt_In_Hardcopy__c</fullName>
@@ -599,7 +653,7 @@
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
         <label>Prefecture</label>
-        <picklist>
+        <picklist>            
             <picklistValues>
                 <fullName>Hokkaido</fullName>
                 <default>false</default>
@@ -654,7 +708,7 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Kanagawa</fullName>
-                <default>false</default>
+                <default>false</default>                                
             </picklistValues>
             <picklistValues>
                 <fullName>Niigata</fullName>
@@ -662,7 +716,7 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Toyama</fullName>
-                <default>false</default>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Ishikawa</fullName>
@@ -722,11 +776,11 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Tottori</fullName>
-                <default>false</default>
+                <default>false</default>               
             </picklistValues>
             <picklistValues>
                 <fullName>Shimane</fullName>
-                <default>false</default>
+                <default>false</default>   
             </picklistValues>
             <picklistValues>
                 <fullName>Okayama</fullName>
@@ -811,9 +865,10 @@
         <externalId>false</externalId>
         <label>Status</label>
         <picklist>
+            
             <picklistValues>
                 <fullName>Active</fullName>
-                <default>false</default>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Dead Mail</fullName>
@@ -872,6 +927,7 @@
         <externalId>false</externalId>
         <label>TitleOfHonor</label>
         <picklist>
+            
             <picklistValues>
                 <fullName>To Person</fullName>
                 <default>true</default>
@@ -985,6 +1041,33 @@
             </values>
             <values>
                 <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1266,6 +1349,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Aichi</fullName>
@@ -1543,6 +1653,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Aichi</fullName>
@@ -1774,6 +1911,14 @@
         <lookupDialogsAdditionalFields>Company_Name__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+	<validationRules>
+        <fullName>Address_Market_Cannot_be_Changed</fullName>
+        <active>false</active>
+        <description>Market field of Address should be same as user&apos;s market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>AddressLine1_NoOfDigit</fullName>
         <active>true</active>
@@ -1800,39 +1945,7 @@
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'TH',IF( LEN( Address_Line_2__c ) &gt; 100 ,true,false))</errorConditionFormula>
         <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Address_Line_1_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Address_Line_1_Native__c),
-REGEX(Address_Line_1_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Address_Line_1_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Address_Line_1_is_mandatory</fullName>
-        <active>false</active>
-        <description>Address_Line_1__c
-is Mandatory while creating new Address</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR',
-   OR( ISBLANK(Address_Line_1__c),ISNULL(Address_Line_1__c) )
-)</errorConditionFormula>
-        <errorDisplayField>Address_Line_1__c</errorDisplayField>
-        <errorMessage>Address_Line_1__c is Mandatory</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Address_Line_2_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Address_Line_2_Native__c),
-REGEX(Address_Line_2_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Address_Line_2_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
-    </validationRules>
+   
     <validationRules>
         <fullName>Address_Type_Required</fullName>
         <active>true</active>
@@ -1840,17 +1953,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Address_Type__c</errorDisplayField>
         <errorMessage>Address Type is required.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Block_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Block_Native__c),
-REGEX(Block_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Block_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
-    </validationRules>
+   
     <validationRules>
         <fullName>Block_NoOfDigits</fullName>
         <active>true</active>
@@ -1867,17 +1970,6 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
         <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>City_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(City_Native__c),
-REGEX(City_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>City_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>City_NoOfDigit</fullName>
@@ -1969,17 +2061,6 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
     )</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>ZIPCODE is mandatory</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Prefecture_Native_Kana</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Province_Native__c),
-REGEX(Province_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Province_Native__c</errorDisplayField>
-        <errorMessage>It should be "Kana" characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Province_is_mandatory</fullName>

@@ -12,6 +12,8 @@
 public class AccountMergeControllerTest {  
     public static Account objMaster;
     public static Account objSlave;
+    private static Address__c address;
+    private static Address__c address1;
     public static User user;
     public static Id personaccRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -26,6 +28,8 @@ public class AccountMergeControllerTest {
                                Last_Successful_Call_Office_Phone__c = System.today() - 10,MBK_Data_Source__c='Email',Mobile__c = '00000009642',DMS_Address__c = 'dmsaddress1');       
         objSlave= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = false,lastname = '雄志',DUPNumber__c='110',
                               Last_Successful_Call_Office_Phone__c = System.today(),MBK_Data_Source__c='Email',Mobile__c = '00000009642',DMS_Address__c = 'dmsaddress2');
+                              
+        
         System.runAs(new User(Id = UserInfo.getUserId())){
             user = (User)UtilTestData.createUser('Central', UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED);
         }                         
@@ -34,9 +38,13 @@ public class AccountMergeControllerTest {
     public static testMethod void testAccountMergeController() {
         init();
         list<Account> lstAccToInsert = new list<Account>();
+        
+         
         lstAccToInsert.add(objMaster);
         lstAccToInsert.add(objSlave);
         insert lstAccToInsert;
+        
+        
         
         //Use the PageReference Apex class to instantiate a page
         PageReference pageRef = Page.SelectSlaveAccount; 
@@ -98,6 +106,7 @@ public class AccountMergeControllerTest {
                     objAccWr.selected = TRUE;
                 }
             }
+            objAccountController.displayAdds = true;
             objAccountController.processSelected();
             objAccountController.rejectDup();
             objAccountController.mergeAccount();
@@ -108,6 +117,7 @@ public class AccountMergeControllerTest {
             objAccountController.selectAll();
             system.assertEquals(objAccountController.selectAllParam,System.Label.slave);
             objAccountController.previous(); 
+            objAccountController.populateAddressWrappers();
         Test.stopTest();  
         list<Rejected_Duplicate_Log__c> lstLogsCreated = [select id from Rejected_Duplicate_Log__c];
         system.assert(lstLogsCreated.size() > 0 );           
@@ -156,6 +166,8 @@ public static testMethod void testAccountMergeControllerCompany() {
                                 Primary_Phone__c ='Other2',
                                 
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
+                                
+        
          
         System.runAs(new User(Id = UserInfo.getUserId())){
             user = (User)UtilTestData.createUser('Central', UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED);
@@ -163,6 +175,12 @@ public static testMethod void testAccountMergeControllerCompany() {
         lstAccToInsert.add(objMastercom);
         lstAccToInsert.add(objSlavecom);
         insert lstAccToInsert;
+        
+        Address__c address2 = new Address__c(Address_Type__c='Home',Province__c='test1',City__c='bangalore', District__c='test2', Block__c='test3', Address_Line_1__c='testaddress1', 
+                                Address_Line_2__c='testaddress2',Customer__c=lstAccToInsert[0].id, TitleOfHonor__c = 'To Person');
+                                
+        Address__c address3 = new Address__c(Address_Type__c='Home',Province__c='test1',City__c='bangalore', District__c='test2', Block__c='test3', Address_Line_1__c='testaddress1', 
+                                Address_Line_2__c='testaddress2',Customer__c=lstAccToInsert[1].id, TitleOfHonor__c = 'To Person');
         
         //Use the PageReference Apex class to instantiate a page
         PageReference pageRef = Page.SelectSlaveAccount; 
@@ -187,8 +205,10 @@ public static testMethod void testAccountMergeControllerCompany() {
                     objAccWr.selected = TRUE;
                 }
             }
+            objAccountController.selectedAddress = 'test';
             objAccountController.processSelected();
             objAccountController.rejectDup();
+            
             objAccountController.displayAddress();
            
             objAccountController.selectAllParam = System.Label.master;
@@ -198,6 +218,8 @@ public static testMethod void testAccountMergeControllerCompany() {
             objAccountController.selectAll();
             system.assertEquals(objAccountController.selectAllParam,System.Label.slave);
             objAccountController.previous(); 
+            objAccountController.getaddtype();
+            //objAccountController.fieldAPIList1;
         Test.stopTest();  
              
     } 

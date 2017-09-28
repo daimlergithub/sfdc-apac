@@ -63,4 +63,36 @@ private class BusinessHrHolidaysRetrieverTest{
         System.assert(bHrs != null);
         System.Test.stopTest();
     }
+    
+    private static testMethod void testweekendDatesLst() {
+        Date sDate = system.today();
+        Date eDate = system.today() + 30;
+        List<Date> dateLst  = BusinessHrHolidaysRetriever.weekendDatesLst(sDate, eDate);
+        system.assertNotEquals(dateLst, null);
+            
+    }
+    
+    private static testMethod void testupdateCaseDeadLine(){
+        string caseRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.INQUIRY).getRecordTypeId();
+        string perAccountId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        List<Id> caseIds = new List<Id>();
+        Account pAcc = new Account();
+           pAcc.RecordTypeId = perAccountId;
+           pAcc.LastName = 'test';
+           pAcc.Data_Source__c = 'Dealer Outlet';
+           pAcc.MBK_Data_Source__c='Dealers';
+           pAcc.MB_Customer_Info_Remove__c=true;
+           insert pAcc;
+           
+           case cs = new case();
+               cs.RecordTypeId = caseRecordTypeId;
+               cs.AccountId = pAcc.id;
+               cs.Status='Waiting for Response approval';
+               insert cs;
+               caseIds.add(cs.id);
+                string caseJsonStr = JSON.serialize(caseIds);
+               updateCaseDeadLine.caseDeadLinesetter(caseJsonStr);
+    }
+    
+   
 }

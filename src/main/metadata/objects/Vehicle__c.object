@@ -5751,6 +5751,18 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
     </fields>
     <label>Vehicle</label>
     <listViews>
+        <fullName>All_Vehicles</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Vehicles</label>
+        <language>en_US</language>
+        <sharedTo>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>New_Created_Vehicles</fullName>
         <columns>UsVIN__c</columns>
         <columns>NAME</columns>
@@ -21738,7 +21750,7 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+
 
 var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
 records = ReferraAccepted.getArray("records"); 
@@ -21826,7 +21838,7 @@ alert('{!$Label.Send_to_spo_translate}');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+
 
 var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
 records = ReferraAccepted.getArray("records");

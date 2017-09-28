@@ -367,6 +367,7 @@ public with sharing class AccountMergeController{
             wraps.add(wrap);           
         }        
     } 
+      @TestVisible
       private void populateAddressWrappers() {
         wraps1 = new List<Accountwrapper>(); 
         List<string> TotalFieldset1 = new list<string>();

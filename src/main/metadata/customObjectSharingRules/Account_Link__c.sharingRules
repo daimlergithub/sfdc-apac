@@ -15,6 +15,11 @@
             <operation>equals</operation>
             <value>False</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Allow_Data_Sharing__c</field>
+            <operation>notEqual</operation>
+            <value>No</value>
+        </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketAccountLink_Readable_to_MBJ_IT_Dept</name>

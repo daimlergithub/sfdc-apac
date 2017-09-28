@@ -126,10 +126,6 @@
         <name>FS_Opt_In_Hardcopy__c</name>
     </fields>
     <fields>
-        <label><!-- Mail Last Modified By --></label>
-        <name>Hardcopy_Last_Modified_By__c</name>
-    </fields>
-    <fields>
         <label><!-- Mail Last Modified Date --></label>
         <name>Hardcopy_Last_Modified_Date__c</name>
     </fields>
@@ -428,10 +424,6 @@
     <validationRules>
         <errorMessage><!-- Address Line 2 should be less than or equal to 50 letters. --></errorMessage>
         <name>AddressLine2_NoOfDigit</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage>주소란 1을 입력하세요</errorMessage>
-        <name>Address_Line_1_is_mandatory</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Address Type is required. --></errorMessage>
