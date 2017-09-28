@@ -311,13 +311,23 @@ public class AddressSearchValidationController
         }
       }
       
-      public void ShowHideFields()
+       public void ShowHideFields()
       {
-        if(AddressObj.Foreign_Nationals__c==true)
-            IsForeignNational=true;
-        else
-            IsForeignNational=false;
-      }
+       if(market == System.Label.TH)
+       {  
+            if(AddressObj.Foreign_Nationals__c==true)
+                IsForeignNational=true;
+            else
+                IsForeignNational=false;
+        }
+        else if(market == System.Label.MY)
+        {
+            if(AddressObj.Country__c!='Malaysia')            
+                IsForeignNational=true;
+            else
+                IsForeignNational=false;
+         }
+       }
     //Introduced for TH market - End
 
     /**  Save Account based on two scenarios
@@ -2172,14 +2182,14 @@ If the user is Saving  same address which matches the fields returned by toleran
         secondsave = false;        
     }
     /* DH2017/09/27 Common method to Form Endpoint URL*/
-	public String generateCDMEndPointURL(){
+    public String generateCDMEndPointURL(){
         String sss='';
             map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
             sss+= recordType == 'Person Account'?mapURLs.get('SearchPersonAccount').Informatica_URL__c:mapURLs.get('SearchCompanyAccount').Informatica_URL__c;
             if(recordType == 'Person Account')
             {
-                   	sss = mapURLs.get('SearchPersonAccount').Informatica_URL__c;
-                	sss+=string.isnotblank(objAccount.firstname)?'ip_Firstname='+EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'';
+                    sss = mapURLs.get('SearchPersonAccount').Informatica_URL__c;
+                    sss+=string.isnotblank(objAccount.firstname)?'ip_Firstname='+EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'';
                     sss+=string.isnotblank(objAccount.LastName)?'&ip_LastName='+EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'';
                     sss+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
                     sss+=string.isnotblank(objAccount.Individual_Home_Phone__c )?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
@@ -2189,14 +2199,14 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             else if(recordType == 'Company'){
                          sss+=string.isnotblank(objAccount.Name)?'ip_Orgname='+EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'';
-                   		 sss+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
-                    	 sss+=string.isnotblank(objAccount.Individual_Home_Phone__c)?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
-                   		 sss+=string.isnotblank(objAccount.Work_Phone__c)?sss+'&ip_BusinessTelephone='+objAccount.Work_Phone__c:'';
+                         sss+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
+                         sss+=string.isnotblank(objAccount.Individual_Home_Phone__c)?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
+                         sss+=string.isnotblank(objAccount.Work_Phone__c)?sss+'&ip_BusinessTelephone='+objAccount.Work_Phone__c:'';
                          sss+=string.isnotblank(objAccount.Email__c)?'&ip_PersonalEmail='+objAccount.Email__c:'';
             }
        
         return sss;
-	}
+    }
     
     /* *PR20170918- CustomerSearch in CDM* */
     public Object onLineDeduplicationCDMTH() {
@@ -2936,9 +2946,9 @@ public pagereference saveAccountTH()
                         Validation = TRUE;      
                     }       
                     if(addressobj.District__c == null )
-					{       				
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'City is Mandatory.'));         				
-                        Validation = TRUE;                              				
+                    {                       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'City is Mandatory.'));                        
+                        Validation = TRUE;                                              
                     }        
                           
                             
