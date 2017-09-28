@@ -25582,19 +25582,19 @@
         <layout>Task-Task Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+        <layout>Task-Campaign Task</layout>
         <recordType>Task.Campaign_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+        <layout>Task-DM</layout>
         <recordType>Task.DM</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+        <layout>Task-General Task Layout</layout>
         <recordType>Task.General_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+        <layout>Task-IB Call</layout>
         <recordType>Task.IB_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25606,11 +25606,11 @@
         <recordType>Task.MMS</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+        <layout>Task-OB Call</layout>
         <recordType>Task.OB_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+        <layout>Task-OB Call</layout>
         <recordType>Task.OB_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25626,11 +25626,11 @@
         <recordType>Task.Social_Media</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+        <layout>Task-Welcome Call Task</layout>
         <recordType>Task.Welcome_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+        <layout>Task-eDM</layout>
         <recordType>Task.eDM</recordType>
     </layoutAssignments>
     <layoutAssignments>
