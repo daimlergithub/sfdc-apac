@@ -25,14 +25,6 @@
                 <behavior>Edit</behavior>
                 <field>List_Maitenence_Retail_CM_Flag__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Add_Sales_Staff__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Add_Campaign_Member_ID__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -54,10 +46,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Participate_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Add_Service_Staff__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
