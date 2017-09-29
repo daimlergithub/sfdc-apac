@@ -1426,6 +1426,9 @@ public class AccountLinkHelper
     //Added venky changes related to SFDCJP-2617
     public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
     {
+    
+    if(leadUtil.Share2contactUpdate || leadUtil.Share2contactInsert)
+    {
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Set<Id> RetailPersonID=new Set<Id>();
         Set<Id> RetailcompanyID=new Set<Id>();
@@ -1555,6 +1558,6 @@ public class AccountLinkHelper
         {
             Database.insert(Sharealk, false);
         }
-     
+     }
     }
 }
