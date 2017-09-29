@@ -2542,7 +2542,8 @@ public pagereference saveAccountTH()
                                 
                         if(SaveAccountDetailsMY())      
                         {           
-                            AddressObj.Customer__c = objAccount.id;  
+                            AddressObj.Customer__c = objAccount.id; 
+                            AddressObj.Preferred__c=true; 
                             DMLManagerService.insertAsSystem(AddressObj);                              
                             //insert AddressObj;      
                             PageReference pageRef = new PageReference('/'+objAccount.Id);       
