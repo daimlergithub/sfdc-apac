@@ -25,14 +25,6 @@
                 <behavior>Edit</behavior>
                 <field>List_Maitenence_Retail_CM_Flag__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Add_Sales_Staff__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Add_Campaign_Member_ID__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -54,10 +46,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Participate_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Add_Service_Staff__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -93,7 +81,7 @@
                 <field>Zip_Code__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Customer_Complete_Address__c</field>
             </layoutItems>
             <layoutItems>
@@ -120,15 +108,15 @@
                 <field>First_Registration_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>LastWorkDate__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>LastInspectionDate__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>LastServiceDate__c</field>
             </layoutItems>
         </layoutColumns>
@@ -175,19 +163,19 @@
                 <field>Registration_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Sales_Consultant__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Service_Advisor__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>NextInspectionDate__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>NextServiceDate__c</field>
             </layoutItems>
         </layoutColumns>
