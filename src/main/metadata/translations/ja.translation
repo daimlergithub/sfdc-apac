@@ -2651,6 +2651,10 @@
         <name>Notify_To_Dealer2</name>
     </customLabels>
     <customLabels>
+        <label>&quot;販売店展開許諾&quot;が&quot;了承済み&quot;になっていない為、販売店への通知は出来ません。</label>
+        <name>Notify_To_Dealer3</name>
+    </customLabels>
+    <customLabels>
         <label>職業</label>
         <name>Occupation</name>
     </customLabels>

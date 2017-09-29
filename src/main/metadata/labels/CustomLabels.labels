@@ -4954,6 +4954,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Have you checked with supervisor to notify the dealer?</value>
     </labels>
     <labels>
+        <fullName>Notify_To_Dealer3</fullName>
+        <categories>Case, Button, Alert, Error, Message</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Notify_To_Dealer3</shortDescription>
+        <value>You cannot notify to the dealer because Dealer Contact is not &apos;Yes&apos;.</value>
+    </labels>
+    <labels>
         <fullName>Occupation</fullName>
         <language>en_US</language>
         <protected>false</protected>
