@@ -1935,8 +1935,15 @@
         <fullName>CreateRetailCopy</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>CreateRetailCopy</shortDescription>
+        <shortDescription>CreateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>CreateRetailCopy</value>
+    </labels>
+	<labels>
+        <fullName>updateRetailCopy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
+        <value>updateRetailCopy</value>
     </labels>
     <labels>
         <fullName>Create_ContactSector</fullName>
@@ -9952,5 +9959,68 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
+    </labels>
+	<labels>
+        <fullName>InsertContext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is user to send the context to CDM in Trigger </shortDescription>
+        <value>insert</value>
+    </labels>
+	<labels>
+        <fullName>updateContext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is user to send the context to CDM in Trigger </shortDescription>
+        <value>update</value>
+    </labels>
+	<labels>
+        <fullName>IntProfileName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is used in Trigger </shortDescription>
+        <value>IntegrationAPI</value>
+    </labels>
+	<labels>
+        <fullName>AdminClientNum</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is used in CDM Context </shortDescription>
+        <value>AdminClientNum</value>
+    </labels>
+	<labels>
+        <fullName>RecordTypeError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MY Address Search Validation Controller</shortDescription>
+        <value>Please Recordtype for search</value>
+    </labels>
+	<labels>
+        <fullName>PersonAccountSearchError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>used in MY Address Search Validation Controller</shortDescription>
+        <value>For Customer Search First Name, Last Name and any of the contact information or ID number is required</value>
+    </labels>
+	<labels>
+        <fullName>CompanyAccountSearchError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>used in MY Address Search Validation Controller</shortDescription>
+        <value>For Company Search Account Name and any of the contact information</value>
+    </labels>
+	<labels>
+        <fullName>InformaticaError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MY Address Search Validation Controller</shortDescription>
+        <value>Exception Occurred while reaching informatica, please contact System Administrator</value>
+    </labels>
+	<labels>
+        <fullName>MYPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search Validation Controller</shortDescription>
+        <value>+60</value>
     </labels>
 </CustomLabels>
