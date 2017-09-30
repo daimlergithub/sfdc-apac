@@ -12,7 +12,7 @@ History:
     Author                         Date                    Description
     Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
     Sanjay Nandi(SN20170907)    2017/09/09            //SN20170907- Pagination Logic
-	Sanjay Nandi(SN20170912)    2017/09/09            //SN20170912- Area Code logic For MY
+	Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
     Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in
     CDM   
 **/
@@ -2302,12 +2302,12 @@ If the user is Saving  same address which matches the fields returned by toleran
             Set<string> set_accounts= new set<string>();
             For(JSON2ApexCustomerCDM.cls_OP_UCID cust : custSearch.OP_UCID){
                 Map<String, Object> m = (Map<String, Object>)JSON.deserializeUntyped(JSON.serialize(cust));
-                if(string.valueof(m.get('IdentificationNum'))!=null)
-                    set_accounts.add(string.valueof(m.get('IdentificationNum')));
+                if(string.valueof(m.get('AdminClientNum'))!=null)
+                    set_accounts.add(string.valueof(m.get('AdminClientNum')));
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
+                for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where id in: set_accounts]){
                     DedupAccountList.add(acc);
                 }
                 
