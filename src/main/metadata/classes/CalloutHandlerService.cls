@@ -98,12 +98,12 @@ public class CalloutHandlerService {
             request.setEndpoint(endpoint);
             request.setTimeout(calculateTimeout(timeout));        
             request.setBody(Body);
-            
-			for (String headerKey : headerKeyByValue.keySet())
-                {
-                    request.setHeader(headerKey, headerKeyByValue.get(headerKey));
-                }	
-			
+            if(headerKeyByValue!=null){
+				for (String headerKey : headerKeyByValue.keySet())
+					{
+						request.setHeader(headerKey, headerKeyByValue.get(headerKey));
+					}	
+			}
 			response = h.send(request);            
             //responseString = processCalloutResponse(response, status);  
            
