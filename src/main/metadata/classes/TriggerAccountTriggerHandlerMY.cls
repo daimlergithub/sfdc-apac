@@ -47,24 +47,24 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         if(isAfter && isInsert && !System.isFuture())
         {
             AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
-			AccountHelperTH.createUpdateCDMUCID('insert',Label.MY,Trigger.new);
+			AccountHelperTH.createUpdateCDMUCID(label.UpdateContext,Label.MY,Trigger.new);
                
         } 																	   
          if(isAfter && isInsert )
         {
            //Harshit added to check for User permission-Access Management
-            if(Util_GetPermissionList.checkAccessOnUser('CreateRetailCopy')){
+            if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
                 AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
                 }																				
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
 			if(firstRun==true){
-                    AccountHelperTH.createUpdateCDMUCID('Insert',Label.MY,Trigger.new);
+                    AccountHelperTH.createUpdateCDMUCID(Label.InsertContext,Label.MY,Trigger.new);
                     firstRun=false;
                 }
 			//Harshit added to check for User permission-Access Management
-            if(Util_GetPermissionList.checkAccessOnUser('updateRetailCopy'))
+            if(Util_GetPermissionList.checkAccessOnUser(Label.updateRetailCopy))
             {   															 
 				AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
            
@@ -85,7 +85,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         # Date: 02/20/2017
         # Author : Mohammed Touseef Ahmed
         */
-        if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
+        if(isAfter && isUpdate && Usr.Profile.Name != Label.IntProfileName){
             AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
         }
     }

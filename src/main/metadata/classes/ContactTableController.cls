@@ -376,7 +376,7 @@ public class ContactTableController
             if ((!String.IsBlank(localhmPhone))&&(localhmPhone.length()>3))     
             {       
                 hmCountryCode=localhmPhone.substring(0,3);      
-                if(hmCountryCode=='+60')
+                if(hmCountryCode==label.MYPhoneCountryCode)
                 {
                     if(localhmPhone.substring(3,4)!='8')
                     {
@@ -405,7 +405,7 @@ public class ContactTableController
                     
                 wkCountryCode=localwkPhone.substring(0,3);  
                 
-                if(wkCountryCode=='+60')
+                if(wkCountryCode==label.MYPhoneCountryCode)
                 {
                     if(localwkPhone.substring(3,4)!='8')
                     {
@@ -425,7 +425,7 @@ public class ContactTableController
             }
             else
             {
-                wkCountryCode='+60';
+                wkCountryCode=label.MYPhoneCountryCode;
             }       
             if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3))       
             {        
@@ -438,7 +438,7 @@ public class ContactTableController
                         
                 faxCountryCode=localFaxPhone.substring(0,3);            
                 
-                if(faxCountryCode=='+60')
+                if(faxCountryCode==label.MYPhoneCountryCode)
                 {
                     if(localFaxPhone.substring(3,4)!='8')
                     {
@@ -460,7 +460,7 @@ public class ContactTableController
             } 
             else
             {
-                faxCountryCode='+60';
+                faxCountryCode=label.MYPhoneCountryCode;
             }       
     }
     
@@ -614,7 +614,7 @@ public class ContactTableController
                       {                     
                                ParAcc.Individual_Home_Phone__c='';      
                       }     
-                       else if(hmCountryCode!='' && hmphoneNumber!='' && hmCountryCode=='+60')      
+                       else if(hmCountryCode!='' && hmphoneNumber!='' && hmCountryCode==label.MYPhoneCountryCode)      
                       {             
                         ParAcc.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;     
                       }                                 
@@ -628,7 +628,7 @@ public class ContactTableController
                       {                     
                                ParAcc.Work_Phone__c='';     
                       }     
-                      else if(wkCountryCode!='' && wkphoneNumber!='' && wkCountryCode=='+60')       
+                      else if(wkCountryCode!='' && wkphoneNumber!='' && wkCountryCode==label.MYPhoneCountryCode)       
                       {         
                         ParAcc.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                                                
                       }             
@@ -653,7 +653,7 @@ public class ContactTableController
                       {                     
                                ParAcc.fax='';       
                       }     
-                      else if(faxCountryCode!='' && faxphoneNumber!='' && faxCountryCode=='+60')        
+                      else if(faxCountryCode!='' && faxphoneNumber!='' && faxCountryCode==label.MYPhoneCountryCode)        
                       {         
                                ParAcc.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
                       }             
@@ -671,7 +671,7 @@ public class ContactTableController
             ParAcc.Email__c == null     
             )       
             {       
-                                
+                   refreshPage = false;              
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));        
             }       
             else        
@@ -906,17 +906,17 @@ public class ContactTableController
             fAreaBoolean=false;
             hAreaBoolean=false;
             
-            if(hmCountryCode=='+60')
+            if(hmCountryCode==label.MYPhoneCountryCode)
                 hAreaBoolean=true;
             else
                 hAreaBoolean=false;
                 
-            if(wkCountryCode=='+60' || wkCountryCode=='')
+            if(wkCountryCode==label.MYPhoneCountryCode || wkCountryCode=='')
                 wAreaBoolean=true;
             else
                 wAreaBoolean=false;
                 
-            if(faxCountryCode=='+60' )
+            if(faxCountryCode==label.MYPhoneCountryCode )
                 fAreaBoolean=true;
             else
                 fAreaBoolean=false;

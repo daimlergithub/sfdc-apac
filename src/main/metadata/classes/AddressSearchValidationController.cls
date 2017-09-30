@@ -197,9 +197,11 @@ public class AddressSearchValidationController
             secondsave = true; 
         }
         //MT20170913
-        if(market=='MY')        
-            LoadProvince();     
-                
+        if(market==Label.MY){        
+            AddressObj.Country__c='Malaysia';
+			LoadProvince();     
+			
+        }        
         //SN20170907 -added Pagination Variable initialization      
         DedupAccountList= new List<account>();      
         displayAccList=new list<account>();     
@@ -324,7 +326,7 @@ public class AddressSearchValidationController
         }
         else if(market == System.Label.MY)
         {
-            if(AddressObj.Country__c!='Malaysia')            
+            if(AddressObj.Country__c!=Label.MYCountry)            
                 IsForeignNational=true;
             else
                 IsForeignNational=false;
@@ -2302,8 +2304,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             Set<string> set_accounts= new set<string>();
             For(JSON2ApexCustomerCDM.cls_OP_UCID cust : custSearch.OP_UCID){
                 Map<String, Object> m = (Map<String, Object>)JSON.deserializeUntyped(JSON.serialize(cust));
-                if(string.valueof(m.get('AdminClientNum'))!=null)
-                    set_accounts.add(string.valueof(m.get('AdminClientNum')));
+                if(string.valueof(m.get(Label.AdminClientNum))!=null)
+                    set_accounts.add(string.valueof(m.get(label.AdminClientNum)));
             }
             if(set_accounts.size()>0){
                 showCDM=true;
@@ -2341,27 +2343,27 @@ If the user is Saving  same address which matches the fields returned by toleran
     boolean mandatoryFlag=True;
     boolean recordCheck=true;
 	Continuation con=null;					  
-    if(Recordtype!='Person Account' && Recordtype!='Company'){
+    if(Recordtype!=Label.PersonAccount && Recordtype!=Label.Company){
                 recordCheck=false;
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Recordtype first for search'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.RecordTypeError));       
     }
     
-    if(recordCheck && Recordtype== 'Person Account'?string.isblank(objAccount.firstName) || string.isblank(objAccount.Lastname):false){
+    if(recordCheck && Recordtype== Label.PersonAccount?string.isblank(objAccount.firstName) || string.isblank(objAccount.Lastname):false){
         mandatoryFlag=false;
-        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search First Name, Last Name and any of the contact information or ID number is required'));       
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
     }
-    if(recordCheck && mandatoryFlag &&  Recordtype=='Company'? string.isblank(objAccount.name):false){
+    if(recordCheck && mandatoryFlag &&  Recordtype==Label.Company? string.isblank(objAccount.name):false){
         mandatoryFlag=false;
-        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Company Search Account Name and any of the contact information '));       
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError ));       
     }
     if(recordCheck && mandatoryFlag){
     
-    if(Recordtype=='Person Account' && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null && objAccount.ID_Number__c==null){        
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search First Name, Last Name and any of the contact information or ID number is required'));       
+    if(Recordtype==Label.PersonAccount && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null && objAccount.ID_Number__c==null){        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
                     errorFlag=false;
         }  
-     if(Recordtype=='Company' && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null ){        
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Company Search Account Name and any of the contact information  is required'));       
+     if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null ){        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError));       
                     errorFlag=false;
      }
     }
@@ -2383,7 +2385,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     con.continuationMethod='processResponse';
     this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
 	} catch (Exception e){
-         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Exception Occurred while reaching informatica, please contact System Administrator'));       
+         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
          
     }  					
@@ -2538,10 +2540,10 @@ public pagereference saveAccountTH()
                 
             try     
             {       
-                    if(recordType == 'Company')                     
-                        recordTypeId =RecordTypeAccessService.getRecordTypeId('Account','Company');      
+                    if(recordType == Label.Company)                     
+                        recordTypeId =RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
                     else        
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account'); 
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount); 
                                                 
                           
                     objAccount.RecordTypeId = recordTypeId;         
@@ -2549,10 +2551,8 @@ public pagereference saveAccountTH()
                            
                     if(Validation == False)     
                     {       
-                        system.debug('enter 1 :'+Validation);       
-                        refreshPage = true;                             
-                                
-                        if(SaveAccountDetailsMY())      
+                        refreshPage = true; 
+						if(SaveAccountDetailsMY())      
                         {           
                             AddressObj.Customer__c = objAccount.id; 
                             AddressObj.Preferred__c=true; 
@@ -2565,7 +2565,7 @@ public pagereference saveAccountTH()
             }       
             catch(DMLException e)       
             {       
-                system.debug('exception@@@'+e);     
+                    
                 refreshPage = false;        
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));          
             }               
@@ -2708,11 +2708,11 @@ public pagereference saveAccountTH()
 	public void phoneFieldConcatMY(){
         
          if(String.isBlank(hmphoneNumber))  objAccount.Individual_Home_Phone__c='';       
-         else if(hmCountryCode!='' && hmphoneNumber!='' && hmCountryCode=='+60')  objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
+         else if(hmCountryCode!='' && hmphoneNumber!='' && hmCountryCode==label.MYPhoneCountryCode)  objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
          else objAccount.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;                                    
          
          if( String.isBlank(wkphoneNumber)) objAccount.Work_Phone__c='';     
-         else if(wkCountryCode!='' && wkphoneNumber!='' && wkCountryCode=='+60') objAccount.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
+         else if(wkCountryCode!='' && wkphoneNumber!='' && wkCountryCode==label.MYPhoneCountryCode) objAccount.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
          else objAccount.Work_Phone__c=wkCountryCode+wkphoneNumber;      
           
          if((String.isBlank(mbphoneNumber)) )  objAccount.Mobile__c='';         
@@ -2720,7 +2720,7 @@ public pagereference saveAccountTH()
          else objAccount.Mobile__c='';          
          
          if((String.isBlank(faxphoneNumber))) objAccount.fax='';       
-         else if(faxCountryCode!='' && faxphoneNumber!='' && faxCountryCode=='+60') objAccount.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
+         else if(faxCountryCode!='' && faxphoneNumber!='' && faxCountryCode==label.MYPhoneCountryCode) objAccount.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
          else objAccount.fax=faxCountryCode+faxphoneNumber;      
          
     }
@@ -2734,10 +2734,10 @@ public pagereference saveAccountTH()
                     
          try        
             {                           
-                    if(recordType == 'Company')                     
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');      
+                    if(recordType == label.Company)                     
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
                     else        
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');       
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount);       
                             
                     objAccount.RecordTypeId = recordTypeId;         
 					phoneFieldConcatMY(); 							
@@ -2897,49 +2897,43 @@ public pagereference saveAccountTH()
                             
                     if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be 5 or 6 digits and ONLY Numbers.'));        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYZipCode));        
                          Validation = true;                             
                     }       
                                                 
                     if(addressobj.ZipCode__c == null)       
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));         
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.ZipCodeMandatory));         
                         Validation = true;                              
                     }       
                     if(addressobj.Address_Line_1__c == null)        
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline1Mandatory));       
                         Validation = true;                              
                     }       
                     else        
                     {       
                         if(addressobj.Address_Line_1__c.length()>100)       
                         {       
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 should be less than or equal to 100 characters.'));        
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddressline1Length));        
                             Validation = true;                              
                         }       
                      }      
                                                                                             
                     if(addressobj.Province__c == null)      
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'State/Province is Mandatory.'));        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateProvError));        
                         Validation = TRUE;      
                     }       
                     if(addressobj.District__c == null )
                     {                       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'City is Mandatory.'));                        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.CityError));                        
                         Validation = TRUE;                                              
                     }        
-                          
-                            
-                                                                                                                                    
-                                                                        
-                            
-                        
-                            
+                           
                     if(addressobj.Address_Line_2__c == null )       
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.'));       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,label.Addressline2));       
                         Validation = TRUE;                              
                     }       
                     else        
@@ -2947,7 +2941,7 @@ public pagereference saveAccountTH()
                             
                         if(addressobj.Address_Line_2__c.length()>100)       
                         {       
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));        
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddresslinelen2Length));        
                             Validation = true;                              
                         }       
                     }        
@@ -3060,9 +3054,9 @@ public pagereference saveAccountTH()
             fAreaBoolean=false;
             hAreaBoolean=false;
            
-            if(String.isNOTBlank(faxCountryCode) ? faxCountryCode!='+60'?true:false:false) fAreaBoolean=true;
-            if(String.isNOTBlank(hmCountryCode) ? hmCountryCode!='+60'?true:false:false) hAreaBoolean=true;
-             if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!='+60'?true:false :false) wAreaBoolean=true;
+            if(String.isNOTBlank(faxCountryCode) ? faxCountryCode!=label.MYPhoneCountryCode?true:false:false) fAreaBoolean=true;
+            if(String.isNOTBlank(hmCountryCode) ? hmCountryCode!=label.MYPhoneCountryCode?true:false:false) hAreaBoolean=true;
+             if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.MYPhoneCountryCode?true:false :false) wAreaBoolean=true;
            
     }
 }
