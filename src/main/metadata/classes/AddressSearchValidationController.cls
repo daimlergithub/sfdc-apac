@@ -2382,7 +2382,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     con = new Continuation(120);            
     con.continuationMethod='processResponse';
     this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
-	 catch (Exception e){
+	} catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Exception Occurred while reaching informatica, please contact System Administrator'));       
          errorFlag=false;
          
