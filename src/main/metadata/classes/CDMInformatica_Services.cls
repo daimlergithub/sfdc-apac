@@ -79,6 +79,43 @@ public Class CDMInformatica_Services extends CDMServices{
         String str=s.substring(0,inde)+s.substring(inde+1);
       return str;
      }
-
+	
+	@future(callout=true)
+     public static void  createCustomerCDM(Set<ID> acc, string Market,string context){
+         List<ID> personacc=new List<ID>();
+         List<ID> companyacc=new List<ID>();
+         HttpResponse res=new HttpResponse();
+         String Endpoint=null;
+         String serializedAccountobj=null;
+         map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
+         for( string str : mapURLs.keyset()){
+             if(mapURLs.get(str).type__c==context && mapURLs.get(str).country__c==Market)
+                Endpoint = mapURLs.get(str).Informatica_URL__c; 
+         }
+         
+         String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+         String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+         List<Account> accountstosend=[Select id,recordtypeid from Account where id IN :acc];
+         for(Account accrec:accountstosend){
+             if(accrec.recordtypeid==PersonAccountRecordTypeID){
+                 personacc.add(accrec.id);
+             }
+             else if(accrec.recordtypeid==companyRecordTypeId){
+                 companyacc.add(accrec.id);
+             }
+         }        
+         if(personacc.size()>0){
+             serializedAccountobj=generateJson(personacc);
+             serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
+             res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+         }
+         if(companyacc.size()>0){
+         serializedAccountobj=generateJson(companyacc);
+         serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
+         res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+         }
+        
+     
+     }
      
 }

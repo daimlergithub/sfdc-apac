@@ -12,7 +12,9 @@ History:
     Author                         Date                    Description
     Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
     Sanjay Nandi(SN20170907)    2017/09/09            //SN20170907- Pagination Logic
-    Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in CDM
+	Sanjay Nandi(SN20170912)    2017/09/09            //SN20170912- Area Code logic For MY
+    Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in
+    CDM   
 **/
 public class AddressSearchValidationController
 {
@@ -115,7 +117,7 @@ public class AddressSearchValidationController
     public boolean hAreaBoolean{get;set;}
     Public boolean wAreaBoolean{get;set;}
     Public boolean fAreaBoolean{get;set;}
-    /*Sn20171709 - end*/
+    /*SN20171709 - end*/
         // COnstructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
@@ -2183,34 +2185,38 @@ If the user is Saving  same address which matches the fields returned by toleran
     }
     /* DH2017/09/27 Common method to Form Endpoint URL*/
     public String generateCDMEndPointURL(){
-        String sss='';
+        String endUrl='';
             map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
-            sss+= recordType == 'Person Account'?mapURLs.get('SearchPersonAccount').Informatica_URL__c:mapURLs.get('SearchCompanyAccount').Informatica_URL__c;
+			For(string str: mapURLs.keyset()){
+                if(mapURLs.get(str).Country__c == Market && mapURLs.get(str).Type__c==RecordType){
+                    endUrl+=mapURLs.get(str).Informatica_URL__c;
+                }
+            }
+			//endUrl+= recordType == 'Person Account'?mapURLs.get('SearchPersonAccount').Informatica_URL__c:mapURLs.get('SearchCompanyAccount').Informatica_URL__c;
             if(recordType == 'Person Account')
             {
-                    sss = mapURLs.get('SearchPersonAccount').Informatica_URL__c;
-                    sss+=string.isnotblank(objAccount.firstname)?'ip_Firstname='+EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'';
-                    sss+=string.isnotblank(objAccount.LastName)?'&ip_LastName='+EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'';
-                    sss+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
-                    sss+=string.isnotblank(objAccount.Individual_Home_Phone__c )?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
-                    sss+=string.isnotblank(objAccount.Work_Phone__c)?'&ip_BusinessTelephone='+objAccount.Work_Phone__c:'';
-                    sss+=string.isnotblank(objAccount.Email__c)?sss=sss+'&ip_PersonalEmail='+objAccount.Email__c:'';
-                    sss+=string.isnotblank(objAccount.ID_Number__c)?'&ip_SocialSecurity='+objAccount.ID_Number__c:''; 
+                    //sss = mapURLs.get('SearchPersonAccount').Informatica_URL__c;
+                    endUrl+=string.isnotblank(objAccount.firstname)?'ip_Firstname='+EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'';
+                    endUrl+=string.isnotblank(objAccount.LastName)?'&ip_LastName='+EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'';
+                    endUrl+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
+                    endUrl+=string.isnotblank(objAccount.Individual_Home_Phone__c )?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
+                    endUrl+=string.isnotblank(objAccount.Work_Phone__c)?'&ip_BusinessTelephone='+objAccount.Work_Phone__c:'';
+                    endUrl+=string.isnotblank(objAccount.Email__c)?'&ip_PersonalEmail='+objAccount.Email__c:'';
+                    endUrl+=string.isnotblank(objAccount.ID_Number__c)?'&ip_SocialSecurity='+objAccount.ID_Number__c:''; 
             }
             else if(recordType == 'Company'){
-                         sss+=string.isnotblank(objAccount.Name)?'ip_Orgname='+EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'';
-                         sss+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
-                         sss+=string.isnotblank(objAccount.Individual_Home_Phone__c)?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
-                         sss+=string.isnotblank(objAccount.Work_Phone__c)?sss+'&ip_BusinessTelephone='+objAccount.Work_Phone__c:'';
-                         sss+=string.isnotblank(objAccount.Email__c)?'&ip_PersonalEmail='+objAccount.Email__c:'';
+                         endUrl+=string.isnotblank(objAccount.Name)?'ip_Orgname='+EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'';
+                         endUrl+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
+                         endUrl+=string.isnotblank(objAccount.Individual_Home_Phone__c)?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
+                         endUrl+=string.isnotblank(objAccount.Work_Phone__c)?'&ip_BusinessTelephone='+objAccount.Work_Phone__c:'';
+                         endUrl+=string.isnotblank(objAccount.Email__c)?'&ip_PersonalEmail='+objAccount.Email__c:'';
             }
        
-        return sss;
+        return endUrl;
     }
-    
     /* *PR20170918- CustomerSearch in CDM* */
     public Object onLineDeduplicationCDMTH() {
-        System.debug('Enterd onlinededupCDM');
+        
         Map<String, String> addtrmapUpdate1 = UtilAddressTranslation.addtrmap;
         List<Account>   lstAcc = New List<Account>();
         DedupAccountList= new list<account>();
@@ -2220,7 +2226,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             
             companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
             PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-            system.debug('recordTypeCDM------------:'+recordType);
+            
             if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
@@ -2229,7 +2235,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             {             
                 objAccount.Recordtypeid=PersonAccountRecordTypeID ;
             }
-            system.debug('######------------:'+objAccount.Recordtypeid);
+           
             
             if(market == System.Label.TH)
             {
@@ -2267,10 +2273,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
             }         
             
-           String sss=generateCDMEndPointURL();
+           String endUrl=generateCDMEndPointURL();
             con = new Continuation(120);            
             con.continuationMethod='processResponse';
-            this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMTHCallout(sss,con);
+            this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(endUrl,con);
         }
      return con;
     }
@@ -2318,8 +2324,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 else if(displayAccList.size()>1)
                     one = false;
             }
-            System.debug('######Account List:'+DedupAccountList);
-                }
+		}
 
       // Return null to re-render the original Visualforce page
       return null;
@@ -2330,11 +2335,12 @@ If the user is Saving  same address which matches the fields returned by toleran
      Online de duplication for MY Market  
 
     */   
-    public void onLineDeduplicationMY(){ 
+    public object onLineDeduplicationMY(){ 
     displayAccList.clear();     
     Boolean errorFlag=true;
     boolean mandatoryFlag=True;
     boolean recordCheck=true;
+	Continuation con=null;					  
     if(Recordtype!='Person Account' && Recordtype!='Company'){
                 recordCheck=false;
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Recordtype first for search'));       
@@ -2370,13 +2376,14 @@ If the user is Saving  same address which matches the fields returned by toleran
     next=false;     
     //SN20170907 this list will share all the data      
             
-    DedupAccountList= [select id , name ,firstname,UCID__c,lastname,Mobile__c,Email__c,Primary_Address_Display__c,Dealer_Address_EN__c,Individual_Home_Phone__c  from account where recordtype.name=:recordType and MD__c=:market order by createddate limit 53];         
-    if(DedupAccountList.size()>0){      
-            //show=true;        
-            LastIndex=DedupAccountList.size();      
-            First();        
-        }  
-     }
+	phoneFieldConcatMY();
+    String EndUrl=generateCDMEndPointURL();
+    con = new Continuation(120);            
+    con.continuationMethod='processResponse';
+    this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+							
+      }
+      return con;
     }
     
     Public class addressSelectionWrapper
@@ -2509,7 +2516,7 @@ public pagereference saveAccountTH()
         if(addresspicklist!=null)       
             AddressObj.Address_Type__c = addresspicklist;       
         Validation = false;     
-         system.debug('enter 1 :');     
+           
         // Save record without Address record if no value is Entered in Address section     
         if(AddressObj.Address_Type__c == null)      
         {       
@@ -2519,7 +2526,7 @@ public pagereference saveAccountTH()
                 return PageRef;                 
             }       
         }       
-        system.debug('enter 1 :');      
+             
         // Save record with Address details Validating the Address Details      
         If(AddressObj.Address_Type__c != null)      
         {       
@@ -2531,10 +2538,10 @@ public pagereference saveAccountTH()
                     else        
                         recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account'); 
                                                 
-                    system.debug('enter 1 :'+Validation);       
+                          
                     objAccount.RecordTypeId = recordTypeId;         
                     ValidateAddressMY();        
-                    system.debug('enter 1 :'+Validation);       
+                           
                     if(Validation == False)     
                     {       
                         system.debug('enter 1 :'+Validation);       
@@ -2693,8 +2700,27 @@ public pagereference saveAccountTH()
             return false;
     }    
     
-    
-    //Saves the Account relaed details for Malaysia Market      
+	public void phoneFieldConcatMY(){
+        
+         if(String.isBlank(hmphoneNumber))  objAccount.Individual_Home_Phone__c='';       
+         else if(hmCountryCode!='' && hmphoneNumber!='' && hmCountryCode=='+60')  objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
+         else objAccount.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;                                    
+         
+         if( String.isBlank(wkphoneNumber)) objAccount.Work_Phone__c='';     
+         else if(wkCountryCode!='' && wkphoneNumber!='' && wkCountryCode=='+60') objAccount.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
+         else objAccount.Work_Phone__c=wkCountryCode+wkphoneNumber;      
+          
+         if((String.isBlank(mbphoneNumber)) )  objAccount.Mobile__c='';         
+         else if(mbCountryCode!='' && mbphoneNumber!='') objAccount.Mobile__c=mbCountryCode+mbphoneNumber;        
+         else objAccount.Mobile__c='';          
+         
+         if((String.isBlank(faxphoneNumber))) objAccount.fax='';       
+         else if(faxCountryCode!='' && faxphoneNumber!='' && faxCountryCode=='+60') objAccount.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
+         else objAccount.fax=faxCountryCode+faxphoneNumber;      
+         
+    }
+	
+//Saves the Account relaed details for Malaysia Market      
 //Created By : Mohammed Touseef AHmed       
 //Date: 03/09/2017      MT20170903
         
@@ -2709,59 +2735,7 @@ public pagereference saveAccountTH()
                         recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');       
                             
                     objAccount.RecordTypeId = recordTypeId;         
-                        
-                  if(String.isBlank(hmphoneNumber))     
-                      {                     
-                               objAccount.Individual_Home_Phone__c='';      
-                      }     
-                       else if(hmCountryCode!='' && hmphoneNumber!='' && hmCountryCode=='+60')      
-                      {             
-                        objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
-                      }     
-                                
-                      else      
-                      {             
-                            objAccount.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;                                    
-                      }                     
-                            
-                       if       
-                      ( String.isBlank(wkphoneNumber))                              
-                      {                     
-                               objAccount.Work_Phone__c='';     
-                      }     
-                      else if(wkCountryCode!='' && wkphoneNumber!='' && wkCountryCode=='+60')       
-                      {         
-                           objAccount.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
-                      }             
-                      else      
-                      {                     
-                             objAccount.Work_Phone__c=wkCountryCode+wkphoneNumber;      
-                      }         
-                            
-                     if((String.isBlank(mbphoneNumber)) )                           
-                      {                     
-                               objAccount.Mobile__c='';     
-                      }     
-                      else if(mbCountryCode!='' && mbphoneNumber!='')       
-                      {     
-                               objAccount.Mobile__c=mbCountryCode+mbphoneNumber;        
-                      }             
-                      else      
-                      {                     
-                             objAccount.Mobile__c='';       
-                      }         
-                      if((String.isBlank(faxphoneNumber)))                              
-                      {                     
-                               objAccount.fax='';       
-                      }     
-                      else if(faxCountryCode!='' && faxphoneNumber!='' && faxCountryCode=='+60')        
-                      {         
-                               objAccount.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
-                      }             
-                      else      
-                      {                     
-                             objAccount.fax=faxCountryCode+faxphoneNumber;      
-                      }     
+					phoneFieldConcatMY(); 							
                         
                   if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));       
@@ -2983,13 +2957,10 @@ public pagereference saveAccountTH()
             
             
 /*      
-//This below method are used to give paginated data after the search in CDM     
-//Created By : Sanjay Nandi     
-//Date: 07/09/2017      
-*/          
-    /*      
+      
     SN20170907      
-    Method to help us move to next page and setting the boolean for the respective buttons       
+     Method to help us move to next page and setting the boolean for the respective buttons   
+            and are used to give paginated data after the search in CDM  														 
     */      
     public void next(){     
         displayAccList.clear();     
@@ -3076,7 +3047,9 @@ public pagereference saveAccountTH()
         }       
                             
     }
-    /*SN20171209 */
+    /*SN20170912 
+	Description: This code is added for rerendering the areacode
+    */												
     public void checkcountrycode(){
             wAreaBoolean=false;
             fAreaBoolean=false;

@@ -68,7 +68,8 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                 for(Account accrec:acc){
                     accids.add(accrec.id);
                 }
-                CDMInformatica_Services.createCustomerCDM(accids);
+                //CDMInformatica_Services.createCustomerCDM(accids);
+				CDMInformatica_Services.createCustomerCDM(accids,'TH','insert');
             }
         } 
         if(isAfter && isUpdate && !System.isFuture())
@@ -85,7 +86,8 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                 accids.add(accrec.id);
             }
             if(firstRun==true){
-            CDMInformatica_Services.createCustomerCDM(accids);
+            //CDMInformatica_Services.createCustomerCDM(accids);
+			CDMInformatica_Services.createCustomerCDM(accids,'TH','update');
             firstRun=false;
             }
             }
