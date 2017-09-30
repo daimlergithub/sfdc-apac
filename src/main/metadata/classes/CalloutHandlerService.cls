@@ -146,6 +146,14 @@ public class CalloutHandlerService {
 		return con.addHttpRequest(req);
     	}
 
+	 /* added by dhanamjaya and narendra to handle callouts from VF pages i.e Continuation call outs*/
+    public Static String onLineDeduplicationCDMCallout(String sss,Continuation con){
+        HttpRequest req = new HttpRequest();
+        HttpResponse res = new HttpResponse();
+        req.setEndpoint(sss); 
+        req.setMethod('GET');
+        return con.addHttpRequest(req);
+        }
     /**
     
     * @date 08/07/2017
