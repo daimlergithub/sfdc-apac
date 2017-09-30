@@ -83,7 +83,7 @@ public class CalloutHandlerService {
         
        return response;     
     }
-	/** Added by Dhanamjaya&Narendra to Handle Call outs Through Post method*/
+	/** Added by Dhanamjaya & Narendra to Handle Call outs Through Post method*/
 	public static HttpResponse sendCalloutForPost(String method, String endpoint, Integer timeout, Map<String,String> headerKeyByValue, String Status,String Body)
     {
         // Perform HTTP Callout
@@ -147,10 +147,10 @@ public class CalloutHandlerService {
     	}
 
 	 /* added by dhanamjaya and narendra to handle callouts from VF pages i.e Continuation call outs*/
-    public Static String onLineDeduplicationCDMCallout(String sss,Continuation con){
+    public Static String onLineDeduplicationCDMCallout(String endURL,Continuation con){
         HttpRequest req = new HttpRequest();
         HttpResponse res = new HttpResponse();
-        req.setEndpoint(sss); 
+        req.setEndpoint(endURL); 
         req.setMethod('GET');
         return con.addHttpRequest(req);
         }
