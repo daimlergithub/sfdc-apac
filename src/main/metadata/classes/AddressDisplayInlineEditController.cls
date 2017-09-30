@@ -148,7 +148,7 @@ public class AddressDisplayInlineEditController {
         }
         else if(market == System.Label.MY)
         {
-            if(AddressObj.Country__c!='Malaysia')            
+            if(AddressObj.Country__c!=Label.MYCountry)            
                 IsForeignNational=true;
             else
                 IsForeignNational=false;
@@ -242,7 +242,9 @@ public class AddressDisplayInlineEditController {
         }
         else 
             ShowpageBlockFlag = true;
-            
+            if(Market==label.MY)
+				addressobj.Country__c=Label.MYCountry;
+		
             LoadProvince();
     }
     
@@ -298,14 +300,14 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
-            if(market=='TH' || market=='MY')
+            if(market=='TH' || market==Label.MY)
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
                    
                     if(market=='TH')
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
-                    else  if(addressobj.Country__c=='Malaysia' && market=='MY')
+                    else  if(addressobj.Country__c==label.MYCountry && market==Label.MY)
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
                     else
                         LanguageSelected='English';
@@ -557,60 +559,54 @@ public class AddressDisplayInlineEditController {
             {                       
                 if(add.id!=addressobj.id && addressobj.preferred__c==true)      
                 {                       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'There must be only one Preferred address.'));         
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.OnePreferredError));         
                     Validation = true;          
                 }  
                 
                 if(add.id!=addressobj.id && addressobj.Address_Type__c==add.Address_Type__c)      
                 {                       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'This address type already exist.'));         
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeError));         
                     Validation = true;          
                 }                       
             }       
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 or 6 digits and ONLY Numbers.'));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));        
                  Validation = true;                             
             }       
-           
-      /* if(addressobj.ZipCode__c == null)       
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));         
-                Validation = true;                              
-            }  */    
             if(addressobj.Address_Line_1__c == null)        
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline1Mandatory));       
                 Validation = true;                              
             }       
             else        
             {                   
                 if(addressobj.Address_Line_1__c.length()>100)       
                 {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 should be less than or equal to 100 characters.'));        
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddressline1Length));        
                     Validation = true;                              
                 }       
             }       
             if(addressobj.Province__c == null)      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.StateProvError));        
             }       
             if(addressobj.District__c == null )     
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.'));         
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CityError));         
                 Validation = TRUE;                              
             }       
                     
             if(addressobj.Address_Line_2__c == null )       
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline2));       
                 Validation = TRUE;                              
             }       
             else        
             {                   
                 if(addressobj.Address_Line_2__c.length()>100)       
                 {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));        
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddresslinelen2Length));        
                     Validation = true;                              
                 }       
             }       

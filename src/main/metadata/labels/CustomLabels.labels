@@ -10023,4 +10023,81 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Search Validation Controller</shortDescription>
         <value>+60</value>
     </labels>
+	<labels>
+        <fullName>MYZipCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIP CODE should be 5 or 6 digits and ONLY Numbers.</shortDescription>
+        <value>ZIP CODE should be 5 or 6 digits and ONLY Numbers.</value>
+    </labels>
+	<labels>
+        <fullName>ZipCodeMandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIPCODE is mandatory.</shortDescription>
+        <value>ZIPCODE is mandatory.</value>
+    </labels>
+	<labels>
+        <fullName>Addressline1Mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 1 is Mandatory.</shortDescription>
+        <value>Address Line 1 is Mandatory.</value>
+    </labels>	
+	<labels>
+        <fullName>MYAddressline1Length</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 1 should be less than or equal to 100 characters.</shortDescription>
+        <value>Address Line 1 should be less than or equal to 100 characters.</value>
+    </labels>
+	<labels>
+        <fullName>StateProvError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>State/Province is Mandatory.</shortDescription>
+        <value>State/Province is Mandatory.</value>
+    </labels>
+	<labels>
+        <fullName>CityError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City is Mandatory.</shortDescription>
+        <value>City is Mandatory.</value>
+    </labels>
+	<labels>
+        <fullName>Addressline2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 2 is Mandatory.</shortDescription>
+        <value>Address Line 2 is Mandatory.</value>
+    </labels>
+	<labels>
+        <fullName>MYAddresslinelen2Length</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 2 should be less than or equal to 100 characters.</shortDescription>
+        <value>Address Line 2 should be less than or equal to 100 characters.</value>
+    </labels>
+	<labels>
+        <fullName>OnePreferredError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>There must be only one Preferred address.</shortDescription>
+        <value>There must be only one Preferred address.</value>
+    </labels>	
+	<labels>
+        <fullName>AddressTypeError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This address type already exist.</shortDescription>
+        <value>This address type already exist.</value>
+    </labels>
+	<labels>
+        <fullName>MYCountry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Malaysia</shortDescription>
+        <value>Malaysia</value>
+    </labels>
 </CustomLabels>

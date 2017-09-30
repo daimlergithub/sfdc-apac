@@ -197,9 +197,11 @@ public class AddressSearchValidationController
             secondsave = true; 
         }
         //MT20170913
-        if(market=='MY')        
-            LoadProvince();     
-                
+        if(market==Label.MY){        
+            AddressObj.Country__c='Malaysia';
+			LoadProvince();     
+			
+        }        
         //SN20170907 -added Pagination Variable initialization      
         DedupAccountList= new List<account>();      
         displayAccList=new list<account>();     
@@ -324,7 +326,7 @@ public class AddressSearchValidationController
         }
         else if(market == System.Label.MY)
         {
-            if(AddressObj.Country__c!='Malaysia')            
+            if(AddressObj.Country__c!=Label.MYCountry)            
                 IsForeignNational=true;
             else
                 IsForeignNational=false;
@@ -2895,43 +2897,43 @@ public pagereference saveAccountTH()
                             
                     if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be 5 or 6 digits and ONLY Numbers.'));        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYZipCode));        
                          Validation = true;                             
                     }       
                                                 
                     if(addressobj.ZipCode__c == null)       
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));         
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.ZipCodeMandatory));         
                         Validation = true;                              
                     }       
                     if(addressobj.Address_Line_1__c == null)        
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline1Mandatory));       
                         Validation = true;                              
                     }       
                     else        
                     {       
                         if(addressobj.Address_Line_1__c.length()>100)       
                         {       
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 should be less than or equal to 100 characters.'));        
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddressline1Length));        
                             Validation = true;                              
                         }       
                      }      
                                                                                             
                     if(addressobj.Province__c == null)      
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'State/Province is Mandatory.'));        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateProvError));        
                         Validation = TRUE;      
                     }       
                     if(addressobj.District__c == null )
                     {                       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'City is Mandatory.'));                        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.CityError));                        
                         Validation = TRUE;                                              
                     }        
                            
                     if(addressobj.Address_Line_2__c == null )       
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.'));       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,label.Addressline2));       
                         Validation = TRUE;                              
                     }       
                     else        
@@ -2939,7 +2941,7 @@ public pagereference saveAccountTH()
                             
                         if(addressobj.Address_Line_2__c.length()>100)       
                         {       
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));        
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddresslinelen2Length));        
                             Validation = true;                              
                         }       
                     }        
