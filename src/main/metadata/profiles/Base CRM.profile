@@ -6417,7 +6417,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Address__c.Address_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
