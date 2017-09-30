@@ -2198,20 +2198,20 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(recordType == 'Person Account')
             {
                     //sss = mapURLs.get('SearchPersonAccount').Informatica_URL__c;
-                    endUrl+=string.isnotblank(objAccount.firstname)?'ip_Firstname='+EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'';
-                    endUrl+=string.isnotblank(objAccount.LastName)?'&ip_LastName='+EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'';
-                    endUrl+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
-                    endUrl+=string.isnotblank(objAccount.Individual_Home_Phone__c )?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
-                    endUrl+=string.isnotblank(objAccount.Work_Phone__c)?'&ip_BusinessTelephone='+objAccount.Work_Phone__c:'';
-                    endUrl+=string.isnotblank(objAccount.Email__c)?'&ip_PersonalEmail='+objAccount.Email__c:'';
-                    endUrl+=string.isnotblank(objAccount.ID_Number__c)?'&ip_SocialSecurity='+objAccount.ID_Number__c:''; 
+                    endUrl+='ip_Firstname='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
+                    endUrl+='&ip_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
+                    endUrl+='&ip_MobileTelephone='+((string.isnotblank(objAccount.Mobile__c))?+objAccount.Mobile__c:'');
+                    endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?objAccount.Individual_Home_Phone__c:'');
+                    endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?objAccount.Work_Phone__c:'');
+                    endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+                    endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?objAccount.ID_Number__c:''); 
             }
             else if(recordType == 'Company'){
-                         endUrl+=string.isnotblank(objAccount.Name)?'ip_Orgname='+EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'';
-                         endUrl+=string.isnotblank(objAccount.Mobile__c)?'&ip_MobileTelephone='+objAccount.Mobile__c:'';
-                         endUrl+=string.isnotblank(objAccount.Individual_Home_Phone__c)?'&ip_HomeTelephone='+objAccount.Individual_Home_Phone__c:'';
-                         endUrl+=string.isnotblank(objAccount.Work_Phone__c)?'&ip_BusinessTelephone='+objAccount.Work_Phone__c:'';
-                         endUrl+=string.isnotblank(objAccount.Email__c)?'&ip_PersonalEmail='+objAccount.Email__c:'';
+                         endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
+                         endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?objAccount.Mobile__c:'');
+                         endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?objAccount.Individual_Home_Phone__c:'');
+                         endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?objAccount.Work_Phone__c:'');
+                         endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
             }
        
         return endUrl;
