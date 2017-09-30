@@ -882,7 +882,7 @@
                     <apex:commandButton action="{!onLineDeduplicationCDMTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" reRender="form,msgs" />
                     <!--PR20170918--End-->
                      <!--MT20170909- Added Button for Malaysia-->
-                     <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'MY') ,true,false)}" />      
+                     <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'MY') ,true,false)}" reRender="form,msgs"/>      
                     <!--MT20170909-->
                     
                     <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'MY'))) ,true,false)}"/>

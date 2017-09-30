@@ -2287,7 +2287,8 @@ If the user is Saving  same address which matches the fields returned by toleran
     public Object processResponse() {
         HttpResponse res = Continuation.getResponse(this.requestLabel);
       // Set the result variable that is displayed on the Visualforce page
-      this.requestLabel = res.getBody();
+      try{
+	  this.requestLabel = res.getBody();
       //this.responsedisp = res.getBody();
         if(res.getbody()=='{}'){
             showCDM=false;
@@ -2327,7 +2328,12 @@ If the user is Saving  same address which matches the fields returned by toleran
                     one = false;
             }
 		}
-
+		}
+		catch (Exception e){
+         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
+         
+         
+    }
       // Return null to re-render the original Visualforce page
       return null;
     }
