@@ -9236,6 +9236,11 @@
         <field>Car_Model__c.Vehicle_SubSubGroup__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>False</editable>
+        <field>Case.Vehicle_Registration_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Accident_Location_Details__c</field>
