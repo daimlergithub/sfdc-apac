@@ -6419,7 +6419,7 @@
     <fieldPermissions>
         <editable>True</editable>
         <field>Address__c.Address_Type__c</field>
-        <readable>true</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6507,9 +6507,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Address__c.Preferred__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6522,9 +6522,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Address__c.Status__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
