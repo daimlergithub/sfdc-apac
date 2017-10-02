@@ -24818,7 +24818,7 @@
         <recordType>Account.Company_Manual_Merge</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Company Layou</layout>
+        <layout>Account-Company Layout</layout>
         <recordType>Account.Dealer1</recordType>
     </layoutAssignments>
     <layoutAssignments>
