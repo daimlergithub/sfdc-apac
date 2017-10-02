@@ -58,9 +58,9 @@ public Class CDMInformatica_Services extends CDMServices{
              res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
          }
          if(companyacc.size()>0){
-         serializedAccountobj=generateJson(companyacc);
-         serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
-         res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+			 serializedAccountobj=generateJson(companyacc);
+			 serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
+			 res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
          }
         
      

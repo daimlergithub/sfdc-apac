@@ -771,12 +771,17 @@ public class AccountHelperTH{
     */
     
     public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist)
-    {
+    {		try{
+	
             set<ID> accids=new set<ID>();
             for(Account accrec:accountlist){
                 accids.add(accrec.id);
             }
             CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+			}Catch(exception e){
+				CustomLogUtil.DebugException(e);
+				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
+			}
     }
     /*	  
 It is a temporary code fix for the phone format issue following these 3 rules
