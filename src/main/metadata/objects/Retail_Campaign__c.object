@@ -852,171 +852,171 @@
 2.All select‘GenericModel’</inlineHelpText>
         <label>Class</label>
         <picklist>
-            <controllingField>Brand__c</controllingField>
+            
             <picklistValues>
                 <fullName>A-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>B-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>C-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Estate</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>C-Coupe</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>CL-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>E-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>E Coupe Sport</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>G-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>GL-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>ML-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>R-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>S-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>SL-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+               
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-CLASS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>Concept Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
                 <default>false</default>
-                <controllingFieldValues>smart</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
-                <controllingFieldValues>StarElite</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>G65 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>G63 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>E63 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>SLK55 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>C63 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>CLS63 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>G55 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>ML63 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>S65 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>SL63 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>SLS AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>TRUCKS</fullName>
@@ -1025,67 +1025,67 @@
             <picklistValues>
                 <fullName>E-Class Coupe</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>GL 63 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 L AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>GenericModel</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>C55 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>E55 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>ML 55 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>S55 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>SL55 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Sport Sedan</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 AMG</fullName>
                 <default>false</default>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
+                
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1144,25 +1144,33 @@
         <externalId>false</externalId>
         <label>Class</label>
         <picklist>
-            <picklistValues>
+            <controllingField>Brand__c</controllingField>
+			
+			<picklistValues>
+			
                 <fullName>A-Class HATCHBACK</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B-Class MPV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class COUPE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class HATCHBACK</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class SEDAN</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CL COUPE</fullName>
@@ -1171,10 +1179,12 @@
             <picklistValues>
                 <fullName>CLA 4 DOOR COUPE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA ESTATE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK CABRIO</fullName>
@@ -1187,42 +1197,52 @@
             <picklistValues>
                 <fullName>CLS 4 DOOR COUPE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS ESTATE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class CABRIO</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class ESTATE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class SEDAN</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G-Class SUV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL SUV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA SUV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLC SUV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLE SUV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK SUV</fullName>
@@ -1239,74 +1259,102 @@
             <picklistValues>
                 <fullName>Mercedes-AMG GT SPORTCOUPE</fullName>
                 <default>false</default>
+			<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R-Class MPV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class CABRIO</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class COUPE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class SEDAN</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL ROADSTER</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLC ROADSTER</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK ROADSTER</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLR ROADSTER</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLR SPORTCOUPE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLS ROADSTER</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLS SPORTCOUPE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>VANEO MPV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>V-Class MPV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>GLE COUPE</fullName>
+                <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>GT ROADSTER</fullName>
+                <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>VITO MPV</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class ESTATE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class COUPE</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class CABRIO</fullName>
                 <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLC SUC</fullName>
@@ -1319,6 +1367,31 @@
             <picklistValues>
                 <fullName>GLE SUC</fullName>
                 <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Smart fortwo CABRIO</fullName>
+                <default>false</default>
+				<controllingFieldValues>smart</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Smart fortwo HATCHBACK</fullName>
+                <default>false</default>
+				<controllingFieldValues>smart</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Smart forfour HATCHBACK</fullName>
+                <default>false</default>
+				<controllingFieldValues>smart</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Smart roadster COUPE</fullName>
+                <default>false</default>
+				<controllingFieldValues>smart</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Smart roadster ROUDSTER</fullName>
+                <default>false</default>
+				<controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10477,11 +10550,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         </picklistValues>
         <picklistValues>
             <picklist>Brand__c</picklist>
-            <values>
-                <fullName>AMG</fullName>
-                <default>false</default>
-            </values>
-            <values>
+               <values>
                 <fullName>MB</fullName>
                 <default>false</default>
             </values>
@@ -10489,10 +10558,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <fullName>StarElite</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>smart</fullName>
-                <default>false</default>
-            </values>
+            
         </picklistValues>
         <picklistValues>
             <picklist>CBU_PbP__c</picklist>
@@ -10951,6 +11017,34 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>SLS ROADSTER</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>GLE COUPE</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>GT ROADSTER</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Smart fortwo CABRIO</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Smart fortwo HATCHBACK</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Smart forfour HATCHBACK</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Smart roadster COUPE</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Smart roadster ROUDSTER</fullName>
                 <default>false</default>
             </values>
             <values>
