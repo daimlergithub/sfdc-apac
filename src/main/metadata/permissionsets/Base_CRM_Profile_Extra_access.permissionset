@@ -4052,14 +4052,14 @@
         <readable>False</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>False</editable>
         <field>Account.First_Consent_Date__c</field>
-        <readable>true</readable>
+        <readable>False</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>False</editable>
         <field>Account.First_Consent_User__c</field>
-        <readable>true</readable>
+        <readable>False</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5392,9 +5392,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>False</editable>
         <field>Account.Updated_Consent_Date__c</field>
-        <readable>true</readable>
+        <readable>False</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6297,9 +6297,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Address__c.Address_Type__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6337,9 +6337,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Address__c.District__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6392,9 +6392,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Address__c.Preferred__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
