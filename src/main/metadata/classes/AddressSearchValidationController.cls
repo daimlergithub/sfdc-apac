@@ -2289,6 +2289,7 @@ If the user is Saving  same address which matches the fields returned by toleran
       // Set the result variable that is displayed on the Visualforce page
       try{
 	  this.requestLabel = res.getBody();
+	  CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + res.getBody());
       //this.responsedisp = res.getBody();
         if(res.getbody()=='{}'){
             showCDM=false;
@@ -2396,6 +2397,7 @@ If the user is Saving  same address which matches the fields returned by toleran
          errorFlag=false;
          CustomLogUtil.DebugException(e);
 		 CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e); 
+		
     }  					
       }
       return con;
