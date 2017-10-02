@@ -2331,8 +2331,8 @@ If the user is Saving  same address which matches the fields returned by toleran
 		}
 		catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
-         CustomLogUtil.DebugException(ex);
-		 CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + ex);
+         CustomLogUtil.DebugException(e);
+		 CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
          
     }
       // Return null to re-render the original Visualforce page
@@ -2394,8 +2394,8 @@ If the user is Saving  same address which matches the fields returned by toleran
 	} catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
-         CustomLogUtil.DebugException(ex);
-		 CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + ex); 
+         CustomLogUtil.DebugException(e);
+		 CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e); 
     }  					
       }
       return con;
@@ -2576,8 +2576,8 @@ public pagereference saveAccountTH()
                     
                 refreshPage = false;        
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));       
-				CustomLogUtil.DebugException(ex);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + ex);				
+				CustomLogUtil.DebugException(e);
+				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);				
             }               
         }       
      return null;       
@@ -2769,13 +2769,13 @@ public pagereference saveAccountTH()
                 refreshPage = false;   
                 if(e.getdmlMessage(0).contains('bad field') ){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please remove the firstname , lastname  for saving company account and account name for person account'));
-				CustomLogUtil.DebugException(ex);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + ex);
+				CustomLogUtil.DebugException(e);
+				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
 			   }
                 else{               
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0))); 
-				CustomLogUtil.DebugException(ex);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + ex);
+				CustomLogUtil.DebugException(e);
+				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
                 }               
                 return false;       
             }       
@@ -2964,8 +2964,8 @@ public pagereference saveAccountTH()
             {       
                  
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));   
-				CustomLogUtil.DebugException(ex);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + ex);				 
+				CustomLogUtil.DebugException(e);
+				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);				 
             }       
     }       
             
