@@ -1172,6 +1172,11 @@
                 <default>false</default>
 				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>GLC COUPE</fullName>
+                <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>CL COUPE</fullName>
                 <default>false</default>
@@ -7812,6 +7817,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <recordTypes>
         <fullName>Retail_Execution_Campaign</fullName>
         <active>true</active>
+		<description> 子キャンペーン作成時に使用</description>
         <label>Campaign Execution</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -10486,6 +10492,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <recordTypes>
         <fullName>Retail_Parent_Campaign</fullName>
         <active>true</active>
+		<description>親キャンペーン作成時に使用</description>
         <label>Planning &amp; Design Campaign</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -10889,6 +10896,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>CL COUPE</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>GLC COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
