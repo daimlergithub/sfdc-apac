@@ -23979,7 +23979,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Insurer__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25317,11 +25317,11 @@
         <recordType>Case.Touring_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-MBTH Complaint Layout-InternalUsers</layout>
+        <layout>Case-Complaint Layout Generic</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-MBTH_Inquiry Layout - InternalUsers</layout>
+        <layout>Case-Inquiry Layout Generic</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25960,11 +25960,11 @@
         <layout>Vehicle_Inspection__c-Vehicle Inspection Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-MBTH Vehicle Relationship Layout-CAC</layout>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-Generic</layout>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-MBTH Vehicle Relationship Layout-Retail</layout>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-Retail Generic</layout>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25990,11 +25990,11 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MBTH Competitor Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-Competitor Vehicle Layout-Generic</layout>
         <recordType>Vehicle__c.Competitor</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MBTH MB Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-MB Vehicle Layout-Generic</layout>
         <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <loginIpRanges>

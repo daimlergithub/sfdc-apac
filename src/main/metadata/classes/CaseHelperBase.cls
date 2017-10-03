@@ -135,7 +135,7 @@ public class CaseHelperBase {
                         }
                         else
                         {
-                            system.debug('in else condition'+parentIdChildIds.get(caseNew.ParentId).size());
+                            //system.debug('in else condition'+parentIdChildIds.get(caseNew.ParentId).size());
                             if(parentIdChildIds.containsKey(caseNew.ParentId))
                                 caseNew.Repeat_Complaint_Times__c = parentIdChildIds.get(caseNew.ParentId).size() + 1;
                             else

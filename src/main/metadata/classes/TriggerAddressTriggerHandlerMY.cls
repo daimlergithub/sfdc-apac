@@ -18,7 +18,7 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf
         
           if ((isBefore && isUpdate)||(isBefore && isInsert)){
             
-            AddressHelperTH.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+				AddressHelperTH.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
             }
             
             if ((isAfter && isUpdate)){
@@ -40,6 +40,24 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf
             {            
                 AddressHelperTH.updateAddressOnAccount(trigger.new);
             }
+			if(isAfter && isinsert){
+				if(TriggerRecursiveCheck.run){
+					TriggerRecursiveCheck.runOnce();
+					AddressHelperTH.updateAddressCDM(trigger.new,Label.MY,Label.InsertContext);
+				}
+			}
+			if(isafter && isupdate){
+				if(TriggerRecursiveCheck.run){
+					TriggerRecursiveCheck.runOnce();
+					AddressHelperTH.updateAddressCDM(trigger.new,Label.MY,Label.UpdateContext);
+				}
+			}
+			if(isafter && isupdate){
+				if(TriggerRecursiveCheck.run){
+					TriggerRecursiveCheck.runOnce();
+					AddressHelperTH.updateAddressCDM(Trigger.Old,Label.MY,Label.UpdateContext);
+				}
+			}
         
     }
     

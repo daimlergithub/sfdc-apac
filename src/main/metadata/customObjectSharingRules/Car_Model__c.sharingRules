@@ -55,6 +55,20 @@
         <name>MBK Car Model Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MY_CarModel_Readable_to_Malaysia_Call_Centre</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>view all Car model records by Malaysia Call Center agents if Market = MY</description>
+        <name>MY_CarModel_Readable_to_Malaysia_Call_Centre</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>TH_CarModel_Readable_to_Thailand_Call_Centre</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
