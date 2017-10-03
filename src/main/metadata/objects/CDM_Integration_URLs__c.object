@@ -32,5 +32,15 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Context__c</fullName>
+        <externalId>false</externalId>
+        <label>Context</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>CDM Integration URLs</label>
 </CustomObject>

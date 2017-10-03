@@ -1172,6 +1172,11 @@
                 <default>false</default>
 				<controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>GLC COUPE</fullName>
+                <default>false</default>
+				<controllingFieldValues>MB</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>CL COUPE</fullName>
                 <default>false</default>
@@ -7812,6 +7817,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <recordTypes>
         <fullName>Retail_Execution_Campaign</fullName>
         <active>true</active>
+		<description> 子キャンペーン作成時に使用</description>
         <label>Campaign Execution</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -10486,6 +10492,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <recordTypes>
         <fullName>Retail_Parent_Campaign</fullName>
         <active>true</active>
+		<description>親キャンペーン作成時に使用</description>
         <label>Planning &amp; Design Campaign</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -10889,6 +10896,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>CL COUPE</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>GLC COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15012,8 +15023,7 @@ alert('The event has yet to be published or has been closed.');
         <masterLabel>[OPRO]Label Print(PDF)</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url> 
-		// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
 // 
 // OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
 // Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
@@ -15027,21 +15037,21 @@ alert('The event has yet to be published or has been closed.');
 var tpArray = (function () { 
 var dmmaterial_type = '{!Retail_Campaign__c.DM_Template__c}'; 
 switch(dmmaterial_type){ 
-case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate_RC';brak; 
+case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate_RC';brak; 
 case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate_RC';brak; 
-case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate_RC';brak; 
+case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate_RC';brak; 
 case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate_RC';brak; 
-case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint_RC';brak; 
+case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint_RC';brak; 
 case 'Direct Mail Print': return 'p03_DirectMailPrint_RC';brak; 
-case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
+case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
 case 'Company Account': return 'p04_CompanyAccount_RC';brak; 
-case 'Smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
+case 'DM_Smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
 case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
-case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
+case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
-case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting_RC';brak;
 } 
 }()); 
 
@@ -15091,8 +15101,7 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
         <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>
-		// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
 // 
 // OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
 // Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
@@ -15106,21 +15115,21 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 var tpArray = (function () { 
 var dmmaterial_type = '{!Retail_Campaign__c.DM_Template__c}'; 
 switch(dmmaterial_type){ 
-case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate_RC';brak; 
+case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate_RC';brak; 
 case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate_RC';brak; 
-case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate_RC';brak; 
+case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate_RC';brak; 
 case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate_RC';brak; 
-case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint_RC';brak; 
+case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint_RC';brak; 
 case 'Direct Mail Print': return 'p03_DirectMailPrint_RC';brak; 
-case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
+case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
 case 'Company Account': return 'p04_CompanyAccount_RC';brak; 
-case 'Smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
+case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
 case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
-case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
+case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
-case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting_RC';brak;
 } 
 }()); 
 
