@@ -10573,7 +10573,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+     <fields>
         <fullName>Lead_Sub_Type__c</fullName>
         <externalId>false</externalId>
         <label>Lead Sub-Type</label>
@@ -10592,11 +10592,11 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Daimler Employee Rental Car</fullName>
+                <fullName>Daimler Employee</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Dealer Car Rental</fullName>
+                <fullName>Daimler Employee Rental Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10616,7 +10616,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Daimler Company Car</fullName>
+                <fullName>Company Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
@@ -10679,6 +10679,11 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
             <picklistValues>
                 <fullName>others</fullName>
                 <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+                <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
+                <controllingFieldValues>AS – Event &amp; Campaign</controllingFieldValues>
+                <controllingFieldValues>AS – Others</controllingFieldValues>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
                 <controllingFieldValues>Activities</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
             </picklistValues>
@@ -10691,6 +10696,86 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>collection</fullName>
                 <default>false</default>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accessories &amp; Collection Warranty</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accident repair</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compact package / Compact plus package</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event related inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Event &amp; Campaign</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Exchange &amp; refund</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ISP</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lifestyle accessories</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintenance reservation</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Service reservation &amp; inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other service reservation</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick-up &amp; delivery</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle accessories</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle noise</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty &amp; recall</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty plus</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10735,6 +10820,26 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
             </picklistValues>
             <picklistValues>
                 <fullName>No Need Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS - Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS – Package Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS – Accessories &amp; Collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS – Event &amp; Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS – Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
