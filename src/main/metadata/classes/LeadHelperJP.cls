@@ -24,6 +24,9 @@ public class LeadHelperJP
     static boolean isNotificationSendtosalesmanager = false;
     private static  final profile p = [select Name from profile where id =:userinfo.getprofileId()]; //JP-1942
     private static  final User assigneduser=[select id,Market__c,profile.name,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+    private static final EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];
+    private static final EmailTemplate salesAdvisorNotification =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to Service Advisor' limit 1]; 
+       
     
     
     public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
@@ -556,8 +559,6 @@ public class LeadHelperJP
         }
         system.debug('dealerUserList ><><><>' + dealerUserList);
         
-        EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];
-        EmailTemplate salesAdvisorNotification =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to Service Advisor' limit 1]; 
         
         if(!Leadlist.isEmpty() && Leadlist != null)
         {
@@ -664,7 +665,7 @@ public class LeadHelperJP
 						if(dellead.Dealer_Lead_Status__c != null && dellead.Dealer_Lead_Status__c != '')
 						{
 							dellead.Dealer_Assigned_Date_Time__c = system.now();
-						}						
+						}
                     }
                 }
             }

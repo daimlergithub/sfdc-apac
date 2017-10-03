@@ -107,10 +107,10 @@ public class createUpdateRetailCopy
                         {
                             province = addtrmap1.get(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c);
                         } 
-						if(province !=null)
-						{
+                        if(province !=null)
+                        {
                         acclink.Retail_Province__c = province ;  
-						}
+                        }
                         if(province ==null && province == '')
                         {
                             acclink.Retail_Province__c  =acclink.Retail_Province__c.replaceAll(regexForNullValue,nullValue); 
@@ -229,9 +229,9 @@ public class createUpdateRetailCopy
                             aclnk.Retail_Work_Phone__c = accountLinkMap.get(aclnk.toRole__c).Retail_Work_Phone__c;
                             aclnk.Retail_Mobile__c = accountLinkMap.get(aclnk.toRole__c).Retail_Mobile__c;
                             aclnk.Retail_Individual_Home_Phone__c = accountLinkMap.get(aclnk.toRole__c).Retail_Individual_Home_Phone__c;
-                        	aclnk.Retail_Phone_OptOut__c = accountLinkMap.get(aclnk.toRole__c).Retail_Phone_OptOut__c;
+                            aclnk.Retail_Phone_OptOut__c = accountLinkMap.get(aclnk.toRole__c).Retail_Phone_OptOut__c;
                             aclnk.Retail_Position__c = accountLinkMap.get(aclnk.toRole__c).Retail_Position__c;
-                        	aclnk.Retail_Phone_OptOut__c = accountLinkMap.get(aclnk.toRole__c).Retail_Phone_OptOut__c;
+                            aclnk.Retail_Phone_OptOut__c = accountLinkMap.get(aclnk.toRole__c).Retail_Phone_OptOut__c;
                         }
                         if(accountLinkMap.get(aclnk.toRole__c).RecordType.Name == 'Retail Company')
                         { 
@@ -296,7 +296,7 @@ public class createUpdateRetailCopy
                 aclnk.Retail_Website__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Website__c;
                 aclnk.Retail_Fax__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Fax__c;
                 aclnk.Retail_UCID__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_UCID__c;
-				aclnk.Retail_Preferred_Language__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Preferred_Language__c;
+                aclnk.Retail_Preferred_Language__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Preferred_Language__c;
                 aclnk.Retail_Primary_Phone__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Primary_Phone__c;
                 aclnk.Retail_Special_Care__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Special_Care__c;
                 aclnk.Retail_Special_Needs_Class__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Special_Needs_Class__c;
@@ -331,7 +331,7 @@ public class createUpdateRetailCopy
                     aclnk.Retail_Mobile__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Mobile__c;                
                     aclnk.Retail_Email__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Email__c;
                     aclnk.Retail_Individual_Home_Phone__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Individual_Home_Phone__c;
-                	aclnk.Retail_Phone_OptOut__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Phone_OptOut__c;
+                    aclnk.Retail_Phone_OptOut__c = updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Retail_Phone_OptOut__c;
                 }
                 if(updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
                 { 
@@ -382,7 +382,7 @@ public class createUpdateRetailCopy
                        gender__c, Occupation__c, Industry,Preferred_Language__c,Special_Needs_Class__c,Primary_Address_Reference__r.LastModifiedDate,
                        Allow_Data_Sharing2__c, Primary_Address_Reference__r.Address_Type__c,Preferred_Contact_Method__c, 
                        Primary_Address_Reference__r.Province__c,MD__c,owner.Contact.AccountId,Primary_Address_Reference__r.CreatedDate,
-                       UCID__c, RecordtypeId, Name, Company_Name_Native_1__c,Foundation_Date__c,ownerid,Commercial_Reg_No__c,
+                       UCID__c, RecordtypeId, Name, Company_Name_Native_1__c,Foundation_Date__c,Primary_Phone__c,ownerid,Commercial_Reg_No__c,
                        Website,Vat_No__c from Account WHERE id IN : accIds];
             
             existAccLinkList = [select id,torole__c,RecordType.Name,Retail_LastName__c,Retail_FirstName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,
@@ -453,6 +453,8 @@ public class createUpdateRetailCopy
                     
                     exstacclnk.Retail_Fax__c = acc.Fax;
                     exstacclnk.Retail_Industry__c = acc.Industry;
+                    exstacclnk.Retail_Preferred_Contact_Method__c = acc.Preferred_Contact_Method__c;
+                    exstacclnk.Retail_Primary_Phone__c = acc.Primary_Phone__c;
                     
                     if(corelationID != null && corelationID != '')
                     {
@@ -478,10 +480,10 @@ public class createUpdateRetailCopy
                         {
                             province = addtrmap1.get(acc.Primary_Address_Reference__r.Province__c);
                         } 
-						if(province !=null)
-						{
+                        if(province !=null)
+                        {
                         exstacclnk.Retail_Province__c = province ;
-						}
+                        }
                         if(province ==null && province == '')
                         {
                             exstacclnk.Retail_Province__c =exstacclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue); 

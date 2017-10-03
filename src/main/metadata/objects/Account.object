@@ -4005,7 +4005,11 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <fullName>Malaysia</fullName>
                 <default>false</default>
               </picklistValues>
-            <sorted>false</sorted>
+			 <picklistValues>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </picklistValues>
+			<sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -11899,7 +11903,11 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>MY</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+			<picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>				
+			<restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12015,18 +12023,15 @@ Function: After a suspect account is rejected or merged, master account id shoul
             <picklistValues>
                 <fullName>&lt; 10,000 MYR</fullName>
                 <default>false</default>
-				
-            </picklistValues>
+			</picklistValues>
             <picklistValues>
                 <fullName>10,001 - 20,000 MYR</fullName>
                 <default>false</default>
-				
-            </picklistValues>
+			</picklistValues>
             <picklistValues>
                 <fullName>20,001 - 30,000 MYR</fullName>
                 <default>false</default>
-				
-            </picklistValues>
+			</picklistValues>
             <picklistValues>
                 <fullName>30,001 - 40,000 MYR</fullName>
                 <default>false</default>
@@ -12035,16 +12040,10 @@ Function: After a suspect account is rejected or merged, master account id shoul
             <picklistValues>
                 <fullName>40,001 - 50,000 MYR</fullName>
                 <default>false</default>
-				
-            </picklistValues>
+			</picklistValues>
             <picklistValues>
-													
-										
-							 
-							
-                <fullName>&gt; 50,001 MYR</fullName>
-				
-                <default>false</default>
+             <fullName>&gt; 50,001 MYR</fullName>
+			   <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
@@ -17302,7 +17301,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Canada</fullName>
+				<fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>Canada</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17334,11 +17337,35 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mexico</fullName>
+				<fullName>Korea</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+			<fullName>Other country</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Southeast Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>		
+				<fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17366,7 +17393,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Turkey</fullName>
+			 <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>Turkey</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17381,10 +17412,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Malaysia</fullName>
-                <default>false</default>
-            </values>
+			
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
@@ -21241,26 +21269,50 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Monthly_Income__c</picklist>
             <values>
-                <fullName>%3C 100%2C000 THB</fullName>
+				<fullName>%3C 10%2C000 MYR</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>%3E 500%2C000 THB</fullName>
+				<fullName>%3C 100%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>%3E 50%2C001 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>%3E 500%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>10%2C001 - 20%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>						
                 <fullName>100%2C001 - 200%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+					<fullName>20%2C001 - 30%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>					
                 <fullName>200%2C001 - 300%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+					<fullName>30%2C001 - 40%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>					
                 <fullName>300%2C001 - 400%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+					<fullName>40%2C001 - 50%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>					
                 <fullName>400%2C001 - 500%2C000 THB</fullName>
                 <default>false</default>
             </values>
@@ -23382,7 +23434,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Canada</fullName>
+			  <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>Canada</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23415,6 +23471,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23479,10 +23539,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -29445,7 +29501,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Canada</fullName>
+				<fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>Canada</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29477,6 +29537,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>true</default>
             </values>
             <values>
+				<fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>					   
                 <fullName>Mexico</fullName>
                 <default>false</default>
             </values>
@@ -29522,10 +29586,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -35304,6 +35364,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+					<fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Canada</fullName>
                 <default>false</default>
             </values>
@@ -35337,6 +35401,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35388,7 +35456,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Turkey</fullName>
+				<fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+			<fullName>Turkey</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35403,11 +35475,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Malaysia</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+       </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
             <values>
@@ -41447,6 +41515,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+				<fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>			
                 <fullName>Canada</fullName>
                 <default>false</default>
             </values>
@@ -41479,6 +41551,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>true</default>
             </values>
             <values>
+			<fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>						   
                 <fullName>Mexico</fullName>
                 <default>false</default>
             </values>
@@ -41526,10 +41602,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Malaysia</fullName>
-                <default>false</default>
-            </values>			
+						
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>

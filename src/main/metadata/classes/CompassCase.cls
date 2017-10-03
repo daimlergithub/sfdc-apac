@@ -1,3 +1,4 @@
+/*Class for Compass (To be deleted)*/
 public class CompassCase
 {
 public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -13,7 +14,6 @@ set<String> newmapid= new set<String>();
                     {
                         gscode.add(c.Compass_Dealer_GS_Code__c);    
                     }
-             
             }
             List<Account> accList = new List<Account>();
             accList=[Select id,Dealer_GS_Code__c,Dealer_Lead_Gate_Keeper__c from Account where Dealer_GS_Code__c=:gscode];

@@ -8957,6 +8957,11 @@
         <field>Car_Model__c.Vehicle_SubSubGroup__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Vehicle_Registration_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Accident_Location_Details__c</field>
@@ -24760,6 +24765,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.last_updated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>RegionMasterInfo__c.market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
