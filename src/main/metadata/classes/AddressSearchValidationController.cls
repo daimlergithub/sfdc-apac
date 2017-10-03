@@ -2311,7 +2311,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where id in: set_accounts]){
+                for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
                     DedupAccountList.add(acc);
                 }
                 
