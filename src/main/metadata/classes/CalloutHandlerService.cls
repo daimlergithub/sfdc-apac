@@ -152,6 +152,8 @@ public class CalloutHandlerService {
         HttpResponse res = new HttpResponse();
         req.setEndpoint(endURL); 
         req.setMethod('GET');
+		req.setHeader('Content-Type','application/json');
+        req.setHeader('Accept-Language','application/json');
         return con.addHttpRequest(req);
         }
     /**
