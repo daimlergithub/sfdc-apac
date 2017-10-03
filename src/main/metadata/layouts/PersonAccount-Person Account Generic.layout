@@ -130,6 +130,10 @@
                 <behavior>Edit</behavior>
                 <field>Updated_Consent_User__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Job__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
