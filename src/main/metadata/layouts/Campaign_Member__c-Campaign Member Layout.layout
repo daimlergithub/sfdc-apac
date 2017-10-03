@@ -25,6 +25,10 @@
                 <behavior>Edit</behavior>
                 <field>List_Maitenence_Retail_CM_Flag__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Convert_To_Lead_Flag__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
