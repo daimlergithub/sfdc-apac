@@ -184,10 +184,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preferred_Newspaper__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Latest_Sales_Dealer__c</field>
             </layoutItems>
             <layoutItems>
