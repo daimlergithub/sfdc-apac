@@ -9986,7 +9986,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>This is used in CDM Context </shortDescription>
-        <value>AdminClientNum</value>
+        <value>IdentificationNum</value>
     </labels>
 	<labels>
         <fullName>RecordTypeError</fullName>
