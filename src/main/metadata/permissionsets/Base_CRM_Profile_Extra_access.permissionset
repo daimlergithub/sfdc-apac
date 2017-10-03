@@ -5397,9 +5397,9 @@
         <readable>False</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>False</editable>
         <field>Account.Updated_Consent_User__c</field>
-        <readable>true</readable>
+        <readable>False</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
