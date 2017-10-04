@@ -212,8 +212,7 @@ public with sharing class AddressHelperTH {
 					}
 					CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
 					}Catch(exception e){
-						CustomLogUtil.DebugException(e);
-						CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
+						CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
 					}
 				}
           }

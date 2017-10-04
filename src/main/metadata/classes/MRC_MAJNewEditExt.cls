@@ -73,10 +73,12 @@ public class MRC_MAJNewEditExt {
              {
                  ApexPages.Message myMsg = new ApexPages.Message(ApexPages.Severity.ERROR,'Value of Persona and combination of functionality-market should be unique');
                  ApexPages.addMessage(myMsg);
+				 CustomLogUtil.CustomLoggingEntry('Error Occured' + ex.getmessage() +'-- '+ex.getlinenumber());
              }
                else{
              ApexPages.Message myMsg = new ApexPages.Message(ApexPages.Severity.ERROR,'Error:'+ex.getMessage());
              ApexPages.addMessage(myMsg);
+			 CustomLogUtil.CustomLoggingEntry('Error Occured' + ex.getmessage() +'-- '+ex.getlinenumber());
               }  
              
                return null;
