@@ -126,10 +126,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Marketing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -207,10 +203,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Marketing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
