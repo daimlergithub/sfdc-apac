@@ -12,7 +12,7 @@ public class TriggerLeadTriggerHandlerJP
         
         if(isBefore && isInsert)
         {         
-				LeadHelperJP.InsertAssignedDealer(trigger.new);		
+				//LeadHelperJP.InsertAssignedDealer(trigger.new);		
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate); 
               LeadHelperJP.createContactToContactAccounlink(trigger.new);               
         }
