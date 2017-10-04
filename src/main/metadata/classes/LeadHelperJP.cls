@@ -172,6 +172,44 @@ public class LeadHelperJP
         LeadUtil.updateCustomerStageMethod = false;
         }//
     }
+	     /** 
+       Created By: Dinesh Govindaswamy
+	   SFDCjp-2915
+       **/
+	
+	
+	          public static void InsertAssignedDealer(List<Lead__c> dealerLeadList )
+    {
+        List<User> userList = new List<User>();
+        set<id> userid = new set<id>();
+       // map<id, id> mapsalesConandUsrId = new map<id, id>();
+        userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+        
+         if(!userList.isEmpty() && userList != null)
+            {
+      
+               for(Lead__c dellead: dealerLeadList)
+               
+                {
+                
+  
+        
+                  for(User u : userList)
+                {
+                
+                    if(u.Market__c == 'JP' && u.ContactId != null)
+                    {
+                        dellead.Service_Advisor__c = u.Id;
+                        system.debug('+++++++++ u.Contact.AccountId' + u.Contact.AccountId);
+                                             
+                    }
+                }
+          }            
+          }
+       
+       
+        }
+    
     
      /** Create AccountLink with reocrdtype contact2contact wherever lead is created with contact and company account field is not null
        Created By: Sivaramakrishna Aduri
