@@ -169,18 +169,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__Insights</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <visible>false</visible>
     </applicationVisibilities>
@@ -440,15 +428,7 @@
         <apexClass>Batch_BounceStatusTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>Batch_BounceStatusretail</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Batch_BounceStatusretailretailTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
+   <classAccesses>
         <apexClass>Batch_CreateCampaignNotification</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2659,11 +2639,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Age__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Agreement_to_commit_info_processing_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8054,11 +8029,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Contractor_Individual_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Campaign_Member__c.Convert_To_Lead_Flag__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -21159,11 +21129,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Survey_Question__c.Total_Responses__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
