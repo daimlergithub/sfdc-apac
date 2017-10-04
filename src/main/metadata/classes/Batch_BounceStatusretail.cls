@@ -23,8 +23,11 @@ global class Batch_BounceStatusretail implements Database.Batchable<SObject>, Da
                 set<id> camOBcall = new set<id>();
                 set<id> cameMail = new set<id>();
                 set<id> camDM = new set<id>();
-                for(Retail_Campaign__c cam : scope)
+            system.debug('scope'+scope);    
+            for(Retail_Campaign__c cam : scope)
                 {
+                    
+                    system.debug('Nullpointer'+cam.Campaign_Members__r);
                    for(Campaign_Member__c camp : cam.Campaign_Members__r){
                     if(camp.Status__c =='Bounced')
                         {                                   
@@ -53,14 +56,14 @@ global class Batch_BounceStatusretail implements Database.Batchable<SObject>, Da
                    if(acc.SMS_Last_Modified_Date__c < campCheck.Execution_Start_Date__c && campCheck.Execution_Type__c == 'OB Call')
                                             {
                                                 acc.Mobile_Status__c = 'Invalid';
-             
+                                              accMainList.add(acc);
                                             }else {
                                                 String Recordmain= acc.id+','+acc.LastName+'\n';
                                                 MainString = MainString +Recordmain ;
                                 
                                             }
                                             
-                        accMainList.add(acc); 
+                         
                         system.debug('+++++++++++++accMainList'+accMainList);
                         system.debug('+++++++++++++accMainList'+acc.Mobile_Status__c);
                 }
@@ -74,17 +77,18 @@ global class Batch_BounceStatusretail implements Database.Batchable<SObject>, Da
                 For(Account acc : addListTwo )
                 {
                                                             
-                                        if(acc.Email_Last_Modified_Date__c < campCheck.Execution_Start_Date__c && campCheck.Execution_Type__c == 'eMail')
+                                        if(acc.Email_Last_Modified_Date__c == campCheck.Execution_Start_Date__c && campCheck.Execution_Type__c == 'eMail')
                                             {
                                                 acc.Email_Status__c = 'Invalid';
+                                                accMainList.add(acc);
                 
                                             } else {
                                                 
-                                               // String Recordmain= acc.id+','+acc.Name+'\n';
-                                                //MainString = MainString +Recordmain ;
-                                
+                                                String Recordmain= acc.id+','+acc.LastName+'\n';
+                                                MainString = MainString +Recordmain ;
+                                                     system.debug('++++Working2++++++');
                                             }
-                            accMainList.add(acc);           
+                                       
                           }
                           }
                           }
@@ -103,6 +107,7 @@ global class Batch_BounceStatusretail implements Database.Batchable<SObject>, Da
                                     
                                     {
                                                 add.Status__c = 'Dead Mail';
+                                                accMainList.add(acc);
                                     } else {
                                                 
                                                 String Recordmain= acc.id+','+acc.Name+'\n';
@@ -111,11 +116,12 @@ global class Batch_BounceStatusretail implements Database.Batchable<SObject>, Da
                                             }
                                 }               
                     
-                    accMainList.add(acc);                   
+                    //accMainList.add(acc);                   
                
                 }
                 }
                 }
+                  system.debug('+++++accMainList++++++'+accMainList);
                  if(accMainList.size()>0){ 
                    update accMainList;
                  }      
@@ -126,7 +132,7 @@ global class Batch_BounceStatusretail implements Database.Batchable<SObject>, Da
      
                 For(Retail_Campaign__c cam : Scope)
                 {
-        
+                       system.debug('+++MainString+++++++'+MainString);
                     
                     if(!String.isBlank(MainString))
                     {

@@ -647,9 +647,11 @@
                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>             
                        <td>     
                         <apex:selectList size="1" value="{!hmCountryCode}" id="slHMCountryCode"  rendered="{!editMode}">        
-                            <apex:selectOptions value="{!lstCountryCode}"/>                             
+                            <apex:selectOptions value="{!lstCountryCode}"/>  
+                             <apex:actionSupport action="{!checkcountrycode}" event="onchange" reRender="myTableMY,slhmAreaCode" >                                
+                            </apex:actionSupport>                                                       
                         </apex:selectList>      
-                         <apex:selectList size="1" value="{!hmAreaCode}" id="slhmAreaCode" rendered="{!editMode}" >     
+                         <apex:selectList size="1" value="{!hmAreaCode}" id="slhmAreaCode" rendered="{!hAreaBoolean}" >     
                             <apex:selectOptions value="{!lstPhoneAreaCode}"/>                               
                         </apex:selectList>      
                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" rendered="{!editMode}" style="width:120px"/>       
@@ -671,10 +673,12 @@
                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                        
                        <td>     
                          <apex:selectList size="1" value="{!wkCountryCode}" id="slWKCountryCode" rendered="{!editMode}" >       
-                            <apex:selectOptions value="{!lstCountryCode}"/>                             
+                            <apex:selectOptions value="{!lstCountryCode}"/>   
+                            <apex:actionSupport action="{!checkcountrycode}" event="onchange" reRender="myTableMY,slwkAreaCode" >                            
+                            </apex:actionSupport>                          
                         </apex:selectList>      
-                        <apex:selectList size="1" value="{!wkAreaCode}" id="slwkAreaCode" rendered="{!editMode}" >      
-                            <apex:selectOptions value="{!lstPhoneAreaCode}"/>                               
+                        <apex:selectList size="1" value="{!wkAreaCode}" id="slwkAreaCode" rendered="{!wAreaBoolean}" >      
+                            <apex:selectOptions value="{!lstPhoneAreaCode}"/>  
                         </apex:selectList>      
                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" rendered="{!editMode}" style="width:120px"/>        
                                 
@@ -724,9 +728,10 @@
                        <th style="text-align: Right;">{!$Label.Fax}</th>            
                        <td>     
                           <apex:selectList size="1" value="{!faxCountryCode}" id="slfaxCountryCode" rendered="{!editMode}" >        
-                            <apex:selectOptions value="{!lstCountryCode}"/>                             
+                            <apex:selectOptions value="{!lstCountryCode}"/>  
+                            <apex:actionSupport action="{!checkcountrycode}" event="onchange" reRender="myTableMY,slfaxAreaCode"/>                            
                         </apex:selectList>      
-                         <apex:selectList size="1" value="{!faxAreaCode}" id="slfaxAreaCode"  rendered="{!editMode}">       
+                         <apex:selectList size="1" value="{!faxAreaCode}" id="slfaxAreaCode"  rendered="{!fAreaBoolean}">       
                             <apex:selectOptions value="{!lstPhoneAreaCode}"/>                               
                         </apex:selectList>              
                          <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber" rendered="{!editMode}" style="width:120px"/>     
@@ -748,14 +753,14 @@
 
                    <apex:outputPanel rendered="{!if(disableButtons==true,true,false)}">
                        <center>
-                       <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!editMode1}" rerender="myTableJP,myTableKR,myTableTH,Block"  />
+                       <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!editMode1}" rerender="myTableJP,myTableKR,myTableTH,myTableMY,Block"  />
                        <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,myTableTH,Block,redirectPanel,showmsg" />
               
                     
              <!-- <apex:pageBlockButtons location="bottom" style="align:left;"  >-->
                   <!-- <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!if(profilename==TRUE,(!editMode),TRUE)}" rerender="myTableJP,myTableKR,Block"  />
                    -->
-                   <apex:commandbutton value="{!$Label.Save_Button}"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,Block,redirectPanel,myTableTH,showmsg" />
+                   <apex:commandbutton value="{!$Label.Save_Button}"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,Block,redirectPanel,myTableTH,myTableMY,showmsg" />
                    <apex:outputPanel id="redirectPanel">                   
                         <apex:outputText rendered="{!refreshPage}">
                             <script type="text/javascript">                            

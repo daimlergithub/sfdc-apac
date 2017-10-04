@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>New_Case</customButtons>
     <customButtons>New_Lead</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -30,6 +32,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Status__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Newspaper__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Radio_Station__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -59,7 +69,7 @@
                 <behavior>Edit</behavior>
                 <field>Race__c</field>
             </layoutItems>
-		    <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Opt_In_SMS__c</field>
             </layoutItems>
@@ -85,7 +95,7 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Market__c</field>
             </layoutItems>
@@ -93,11 +103,11 @@
                 <behavior>Edit</behavior>
                 <field>UCID__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ID_Type__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ID_Number__c</field>
             </layoutItems>
@@ -107,7 +117,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>
@@ -127,6 +137,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Updated_Consent_User__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Job__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -426,7 +440,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h5D000000EVLY</masterLabel>
+        <masterLabel>00h5D000000Ihnq</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

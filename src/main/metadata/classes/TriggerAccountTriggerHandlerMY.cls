@@ -22,19 +22,17 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
     list<Account> ListAccOld = (list<Account>)trigger.old;
     list<Account> ListAccNew = (list<Account>)trigger.new;
     string serializedObject;
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
+	public Static boolean insertcontext=true;
+    public Static boolean updatecontext=true;
+    public static boolean firstRun = true;	
+	public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
 
         if(isBefore && isInsert){
             AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
         }
-        
-         if(isAfter && isInsert )
-        {
-            AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
-        }
-        
+            
         if(isBefore && isUpdate){
-        AccountHelperTH.ValidateNationalid(Trigger.new);
+			//AccountHelperTH.ValidateNationalid(Trigger.new);
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
@@ -47,16 +45,34 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
+        {	
+			if(TriggerRecursiveCheck.run){
+				TriggerRecursiveCheck.runOnce();
+				AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
+				AccountHelperTH.createUpdateCDMUCID(label.InsertContext,Label.MY,Trigger.new);
+            }   
+        } 																	   
+         if(isAfter && isInsert )
         {
-            AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
-          
+           //Harshit added to check for User permission-Access Management
+            if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
+                AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+                }																				
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
+			if(TriggerRecursiveCheck.run){
+                    AccountHelperTH.createUpdateCDMUCID(Label.UpdateContext,Label.MY,Trigger.new);
+                    firstRun=false;
+                }
+			//Harshit added to check for User permission-Access Management
+            if(Util_GetPermissionList.checkAccessOnUser(Label.updateRetailCopy))
+            {   															 
+				AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
            
-            AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
+			}
+			
         }
-        
         if(isAfter && isDelete && !System.isFuture())
         {
           
@@ -64,14 +80,14 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         }
         //End of the New code Block 9/21/2016
         
-    
+
     
       /*
         # Description:Calling UpdateRetailCopy to update the retail Copy when related account(Account 1) is updated.       
         # Date: 02/20/2017
         # Author : Mohammed Touseef Ahmed
         */
-        if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
+        if(isAfter && isUpdate && Usr.Profile.Name != Label.IntProfileName){
             AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
         }
     }

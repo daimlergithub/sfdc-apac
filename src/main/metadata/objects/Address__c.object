@@ -411,6 +411,10 @@
                 <fullName>Malaysia</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </picklistValues>				
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -612,6 +616,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>CN</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>				
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -1020,6 +1028,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <picklistValues>
             <picklist>Country__c</picklist>
             <values>
+				<fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>						   
                 <fullName>Japan</fullName>
                 <default>false</default>
             </values>
@@ -1324,6 +1336,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <picklistValues>
             <picklist>Country__c</picklist>
             <values>
+					 <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>					   
                 <fullName>Japan</fullName>
                 <default>false</default>
             </values>
@@ -1628,6 +1644,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <picklistValues>
             <picklist>Country__c</picklist>
             <values>
+				<fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>						   
                 <fullName>Japan</fullName>
                 <default>false</default>
             </values>
