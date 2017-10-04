@@ -1946,6 +1946,17 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Expected_Cars_Sale__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Cars Sale</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Expected_Lead__c</fullName>
         <externalId>false</externalId>
         <label>Expected Leads (%)</label>
@@ -2414,6 +2425,17 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Noof_Car_display__c</fullName>
+        <externalId>false</externalId>
+        <label>No Of Cars  Display</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>NumberOfContacts</fullName>
@@ -3942,6 +3964,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Space__c</fullName>
+        <externalId>false</externalId>
+        <label>Space</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>StartDate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -4227,6 +4259,17 @@
         <label>Use Segmentation Criteria</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Venue__c</fullName>
+        <description>Venue of the Campaign</description>
+        <externalId>false</externalId>
+        <label>Venue</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>parentcampaign__c</fullName>
