@@ -191,6 +191,10 @@
                 <behavior>Edit</behavior>
                 <field>SendEmailToGateKeeper__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Complaint_Creator_Department__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
