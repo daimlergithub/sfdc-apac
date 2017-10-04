@@ -249,6 +249,13 @@
         <value>Addresses</value>
     </labels>
     <labels>
+        <fullName>AddressTypeError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This address type already exist.</shortDescription>
+        <value>This address type already exist.</value>
+    </labels>
+    <labels>
         <fullName>AddressType_Validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -363,6 +370,27 @@
         <protected>false</protected>
         <shortDescription>AddressforAddressdata</shortDescription>
         <value>Address for Address data</value>
+    </labels>
+    <labels>
+        <fullName>Addressline1Mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 1 is Mandatory.</shortDescription>
+        <value>Address Line 1 is Mandatory.</value>
+    </labels>
+    <labels>
+        <fullName>Addressline2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 2 is Mandatory.</shortDescription>
+        <value>Address Line 2 is Mandatory.</value>
+    </labels>
+    <labels>
+        <fullName>AdminClientNum</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is used in CDM Context</shortDescription>
+        <value>IdentificationNum</value>
     </labels>
     <labels>
         <fullName>Advisor</fullName>
@@ -1642,6 +1670,13 @@
         <value>City</value>
     </labels>
     <labels>
+        <fullName>CityError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City is Mandatory.</shortDescription>
+        <value>City is Mandatory.</value>
+    </labels>
+    <labels>
         <fullName>City_native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1738,6 +1773,13 @@
         <protected>false</protected>
         <shortDescription>Company</shortDescription>
         <value>Company</value>
+    </labels>
+    <labels>
+        <fullName>CompanyAccountSearchError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>used in MY Address Search Validation Controller</shortDescription>
+        <value>For Company Search Account Name and any of the contact information</value>
     </labels>
     <labels>
         <fullName>Company_Account_Information</fullName>
@@ -1937,13 +1979,6 @@
         <protected>false</protected>
         <shortDescription>CreateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>CreateRetailCopy</value>
-    </labels>
-	<labels>
-        <fullName>updateRetailCopy</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
-        <value>updateRetailCopy</value>
     </labels>
     <labels>
         <fullName>Create_ContactSector</fullName>
@@ -3340,11 +3375,25 @@ please contact the number below.</value>
         <value>Individual Customer</value>
     </labels>
     <labels>
+        <fullName>InformaticaError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MY Address Search Validation Controller</shortDescription>
+        <value>Exception Occurred while reaching informatica, please contact System Administrator</value>
+    </labels>
+    <labels>
         <fullName>Informationsharing</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Information sharing</shortDescription>
         <value>Information sharing to Dealer/ Internal related department</value>
+    </labels>
+    <labels>
+        <fullName>InsertContext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is user to send the context to CDM in Trigger</shortDescription>
+        <value>insert</value>
     </labels>
     <labels>
         <fullName>Instructor_team</fullName>
@@ -3396,6 +3445,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Insurance Proposal</shortDescription>
         <value>Insurance Proposal</value>
+    </labels>
+    <labels>
+        <fullName>IntProfileName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is used in Trigger</shortDescription>
+        <value>IntegrationAPI</value>
     </labels>
     <labels>
         <fullName>Interest</fullName>
@@ -4304,13 +4360,40 @@ please contact the number below.</value>
         <shortDescription>MY</shortDescription>
         <value>MY</value>
     </labels>
-	<labels>
-        <fullName>MarketMY</fullName>
-        <categories>Malaysia</categories>
+    <labels>
+        <fullName>MYAddressline1Length</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>MarketMY</shortDescription>
-        <value>MY</value>
+        <shortDescription>Address Line 1 should be less than or equal to 100 characters.</shortDescription>
+        <value>Address Line 1 should be less than or equal to 100 characters.</value>
+    </labels>
+    <labels>
+        <fullName>MYAddresslinelen2Length</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 2 should be less than or equal to 100 characters.</shortDescription>
+        <value>Address Line 2 should be less than or equal to 100 characters.</value>
+    </labels>
+    <labels>
+        <fullName>MYCountry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Malaysia</shortDescription>
+        <value>Malaysia</value>
+    </labels>
+    <labels>
+        <fullName>MYPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search Validation Controller</shortDescription>
+        <value>+60</value>
+    </labels>
+    <labels>
+        <fullName>MYZipCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIP CODE should be 5 or 6 digits and ONLY Numbers.</shortDescription>
+        <value>ZIP CODE should be 5 or 6 digits and ONLY Numbers.</value>
     </labels>
     <labels>
         <fullName>Maintenance_Promotion</fullName>
@@ -4340,6 +4423,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>MarketKR</shortDescription>
         <value>KR</value>
+    </labels>
+    <labels>
+        <fullName>MarketMY</fullName>
+        <categories>Malaysia</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketMY</shortDescription>
+        <value>MY</value>
     </labels>
     <labels>
         <fullName>MarketTH</fullName>
@@ -5004,6 +5095,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>1</value>
     </labels>
     <labels>
+        <fullName>OnePreferredError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>There must be only one Preferred address.</shortDescription>
+        <value>There must be only one Preferred address.</value>
+    </labels>
+    <labels>
         <fullName>Online_Dedup_callout_failure</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5201,6 +5299,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>PersonAccount</shortDescription>
         <value>Person Account</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccountSearchError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>used in MY Address Search Validation Controller</shortDescription>
+        <value>For Customer Search First Name, Last Name and any of the contact information or ID number is required</value>
     </labels>
     <labels>
         <fullName>PersonAccount_Record_Type_From_Account</fullName>
@@ -5512,6 +5617,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Proposed Date(3):</shortDescription>
         <value>Proposed Date(3):</value>
+    </labels>
+    <labels>
+        <fullName>ProspectStatus</fullName>
+        <categories>MY</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProspectStatus</shortDescription>
+        <value>Prospect</value>
     </labels>
     <labels>
         <fullName>Province_Native_should_not_be_null</fullName>
@@ -6137,6 +6250,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Record Type</shortDescription>
         <value>Record Type</value>
+    </labels>
+    <labels>
+        <fullName>RecordTypeError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MY Address Search Validation Controller</shortDescription>
+        <value>Please Recordtype for search</value>
     </labels>
     <labels>
         <fullName>RecordTypeId</fullName>
@@ -8139,6 +8259,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Special Filters</value>
     </labels>
     <labels>
+        <fullName>StateProvError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>State/Province is Mandatory.</shortDescription>
+        <value>State/Province is Mandatory.</value>
+    </labels>
+    <labels>
         <fullName>Status</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9501,6 +9628,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Q.Your Current Car(s)</value>
     </labels>
     <labels>
+        <fullName>ZipCodeMandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIPCODE is mandatory.</shortDescription>
+        <value>ZIPCODE is mandatory.</value>
+    </labels>
+    <labels>
         <fullName>Zipcode</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9960,144 +10094,18 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
     </labels>
-	<labels>
-        <fullName>InsertContext</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>This is user to send the context to CDM in Trigger </shortDescription>
-        <value>insert</value>
-    </labels>
-	<labels>
+    <labels>
         <fullName>updateContext</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>This is user to send the context to CDM in Trigger </shortDescription>
+        <shortDescription>This is user to send the context to CDM in Trigger</shortDescription>
         <value>update</value>
     </labels>
-	<labels>
-        <fullName>IntProfileName</fullName>
+    <labels>
+        <fullName>updateRetailCopy</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>This is used in Trigger </shortDescription>
-        <value>IntegrationAPI</value>
-    </labels>
-	<labels>
-        <fullName>AdminClientNum</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>This is used in CDM Context </shortDescription>
-        <value>IdentificationNum</value>
-    </labels>
-	<labels>
-        <fullName>RecordTypeError</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>MY Address Search Validation Controller</shortDescription>
-        <value>Please Recordtype for search</value>
-    </labels>
-	<labels>
-        <fullName>PersonAccountSearchError</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>used in MY Address Search Validation Controller</shortDescription>
-        <value>For Customer Search First Name, Last Name and any of the contact information or ID number is required</value>
-    </labels>
-	<labels>
-        <fullName>CompanyAccountSearchError</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>used in MY Address Search Validation Controller</shortDescription>
-        <value>For Company Search Account Name and any of the contact information</value>
-    </labels>
-	<labels>
-        <fullName>InformaticaError</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>MY Address Search Validation Controller</shortDescription>
-        <value>Exception Occurred while reaching informatica, please contact System Administrator</value>
-    </labels>
-	<labels>
-        <fullName>MYPhoneCountryCode</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Search Validation Controller</shortDescription>
-        <value>+60</value>
-    </labels>
-	<labels>
-        <fullName>MYZipCode</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>ZIP CODE should be 5 or 6 digits and ONLY Numbers.</shortDescription>
-        <value>ZIP CODE should be 5 or 6 digits and ONLY Numbers.</value>
-    </labels>
-	<labels>
-        <fullName>ZipCodeMandatory</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>ZIPCODE is mandatory.</shortDescription>
-        <value>ZIPCODE is mandatory.</value>
-    </labels>
-	<labels>
-        <fullName>Addressline1Mandatory</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Address Line 1 is Mandatory.</shortDescription>
-        <value>Address Line 1 is Mandatory.</value>
-    </labels>	
-	<labels>
-        <fullName>MYAddressline1Length</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Address Line 1 should be less than or equal to 100 characters.</shortDescription>
-        <value>Address Line 1 should be less than or equal to 100 characters.</value>
-    </labels>
-	<labels>
-        <fullName>StateProvError</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>State/Province is Mandatory.</shortDescription>
-        <value>State/Province is Mandatory.</value>
-    </labels>
-	<labels>
-        <fullName>CityError</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>City is Mandatory.</shortDescription>
-        <value>City is Mandatory.</value>
-    </labels>
-	<labels>
-        <fullName>Addressline2</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Address Line 2 is Mandatory.</shortDescription>
-        <value>Address Line 2 is Mandatory.</value>
-    </labels>
-	<labels>
-        <fullName>MYAddresslinelen2Length</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Address Line 2 should be less than or equal to 100 characters.</shortDescription>
-        <value>Address Line 2 should be less than or equal to 100 characters.</value>
-    </labels>
-	<labels>
-        <fullName>OnePreferredError</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>There must be only one Preferred address.</shortDescription>
-        <value>There must be only one Preferred address.</value>
-    </labels>	
-	<labels>
-        <fullName>AddressTypeError</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>This address type already exist.</shortDescription>
-        <value>This address type already exist.</value>
-    </labels>
-	<labels>
-        <fullName>MYCountry</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Malaysia</shortDescription>
-        <value>Malaysia</value>
+        <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
+        <value>updateRetailCopy</value>
     </labels>
 </CustomLabels>
