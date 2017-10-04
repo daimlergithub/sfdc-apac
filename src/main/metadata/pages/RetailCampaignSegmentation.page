@@ -1236,10 +1236,10 @@
                                 <apex:outputField value="{!wrapAcc.accLink.Service_Dealer__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
-                                <apex:outputField value="{!wrapAcc.accLink.LastWorkDate__c}"/> 
+                                <apex:outputField value="{!wrapAcc.accLink.LastWorkDate__c}" rendered="{wrapAcc.accLink != null}"/> 
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
-                                <apex:outputField value="{!wrapAcc.accLink.LastInspectionDate__c}"/> 
+                                <apex:outputField value="{!wrapAcc.accLink.LastInspectionDate__c}" rendered="{wrapAcc.accLink != null}"/> 
                             </apex:column>
                             
                             <!-----------------------------vehicleBase Ends---------------------------------->

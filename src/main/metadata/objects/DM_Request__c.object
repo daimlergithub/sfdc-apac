@@ -137,7 +137,7 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>	
+    </fields>
     <fields>
         <fullName>Allow_Data_Sharing__c</fullName>
         <defaultValue>true</defaultValue>
@@ -148,7 +148,7 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Assigned_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1683,7 +1683,7 @@ Modify Reason:
         <description>Additional Address should be less than or equal to 50 letters.</description>
         <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
 $Profile.Name != 'IntegrationAPI', 
-OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH'))</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Additional_Address__c</errorDisplayField>
         <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
@@ -1789,24 +1789,24 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Not send".</errorMessage>
     </validationRules>
-<validationRules>
+    <validationRules>
         <fullName>Negative_Stock_on_ExpectedDMMat1</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Expected_DM_Material1__c != Null,Expected_DM_Material1__r.Stock__c &lt;=0,$Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL($Profile.UserType, &apos;Standard&apos;), ISPICKVAL($User.Market__c,&apos;KR&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND(Expected_DM_Material1__c != Null,Expected_DM_Material1__r.Stock__c &lt;=0,$Profile.Name != 'IntegrationAPI',ISPICKVAL($Profile.UserType, 'Standard'), ISPICKVAL($User.Market__c,'KR'))</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
         <errorMessage>A selected DM Material does not have a sufficient stock</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Negative_Stock_on_ExpectedDMMat2</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Expected_DM_Material2__c != Null,Expected_DM_Material2__r.Stock__c &lt;=0,$Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL($Profile.UserType, &apos;Standard&apos;), ISPICKVAL($User.Market__c,&apos;KR&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND(Expected_DM_Material2__c != Null,Expected_DM_Material2__r.Stock__c &lt;=0,$Profile.Name != 'IntegrationAPI',ISPICKVAL($Profile.UserType, 'Standard'), ISPICKVAL($User.Market__c,'KR'))</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
         <errorMessage>A selected DM Material does not have a sufficient stock</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Negative_Stock_on_ExpectedDMMat3</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Expected_DM_Material3__c != Null,Expected_DM_Material3__r.Stock__c &lt;=0,$Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL($Profile.UserType, &apos;Standard&apos;), ISPICKVAL($User.Market__c,&apos;KR&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND(Expected_DM_Material3__c != Null,Expected_DM_Material3__r.Stock__c &lt;=0,$Profile.Name != 'IntegrationAPI',ISPICKVAL($Profile.UserType, 'Standard'), ISPICKVAL($User.Market__c,'KR'))</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
         <errorMessage>A selected DM Material does not have a sufficient stock</errorMessage>
     </validationRules>
