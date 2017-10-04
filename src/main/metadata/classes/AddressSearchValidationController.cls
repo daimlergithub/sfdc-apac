@@ -2291,15 +2291,17 @@ If the user is Saving  same address which matches the fields returned by toleran
       // Set the result variable that is displayed on the Visualforce page
       try{
       this.requestLabel = res.getBody();
-      CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + res.getBody());
+      CustomLogUtil.CustomLoggingEntry('Continuation Response Body' + res.getBody());
       //this.responsedisp = res.getBody();
         if(res.getbody()=='{}'){
             showCDM=false;
+			CustomLogUtil.CustomLoggingEntry('Error Occured will calling ' + 'Response Body' +res.getbody());
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
         }
         else if(res.getStatusCode()==500)
         {
             showCDM=false;
+			CustomLogUtil.CustomLoggingEntry('Error Occured ' + res.getstatuscode() +'-- '+res.getStatusCode());
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.The_request_could_not_reach_server));
         }
         else
@@ -2334,8 +2336,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         }
         catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
-         CustomLogUtil.DebugException(e);
-         CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
+         CustomLogUtil.CustomLoggingEntry('Error Occured ' + e +'-- '+e.getMessage());
          
     }
       // Return null to re-render the original Visualforce page
@@ -2390,6 +2391,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             
     phoneFieldConcatMY();
     String EndUrl=generateCDMEndPointURL();
+	CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
     try{    
         con = new Continuation(120);            
         con.continuationMethod='processResponse';
@@ -2397,8 +2399,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     } catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
-         CustomLogUtil.DebugException(e);
-         CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e); 
+         CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
         
     }                   
       }
@@ -2580,8 +2581,7 @@ public pagereference saveAccountTH()
                     
                 refreshPage = false;        
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));       
-                CustomLogUtil.DebugException(e);
-                CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);              
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' +e.getDMlMessage(0));              
             }               
         }       
      return null;       
@@ -2778,13 +2778,11 @@ public pagereference saveAccountTH()
                 refreshPage = false;   
                 if(e.getdmlMessage(0).contains('bad field') ){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please remove the firstname , lastname  for saving company account and account name for person account'));
-                CustomLogUtil.DebugException(e);
-                CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
                }
                 else{               
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0))); 
-                CustomLogUtil.DebugException(e);
-                CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
                 }               
                 return false;       
             }       
@@ -2973,8 +2971,8 @@ public pagereference saveAccountTH()
             {       
                  
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));   
-                CustomLogUtil.DebugException(e);
-                CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);               
+                
+                CustomLogUtil.CustomLoggingEntry('error' + e);               
             }       
     }       
             

@@ -631,12 +631,13 @@ public class AddressDisplayInlineEditController {
                 }       
             }       
         }       
-        catch (DmlException e)      
+        catch (Exception e)      
         {       
             refreshPage = false;        
-            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                           
-                   
-        }       
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getMessage()));                           
+            CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());       
+        }
+		
     }       
     
     
