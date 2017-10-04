@@ -182,39 +182,39 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Accounting</fullName>
+                <fullName>Accounting</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Collection</fullName>
+                <fullName>Collection</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Contract Activation</fullName>
+                <fullName>Contract Activation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Contract Management</fullName>
+                <fullName>Contract Management</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Credit</fullName>
+                <fullName>Credit</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Customer Service</fullName>
+                <fullName>Customer Service</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Insurance</fullName>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Marketing</fullName>
+                <fullName>Marketing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBLT-Sales</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
