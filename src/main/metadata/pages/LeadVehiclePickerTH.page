@@ -1,4 +1,5 @@
 <apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Lead__c" extensions="LeadVehiclePickerTHController">
+<apex:outputPanel layout="block" style="overflow:auto;height:160px" >
 <apex:form >
 <apex:pageMessages escape="false"  ></apex:pageMessages>
     <apex:includeScript value="{!$Resource.jQuery}" />
@@ -1124,4 +1125,5 @@
     </body>
     </html>
 </apex:form>
+</apex:OutputPanel>
 </apex:page>

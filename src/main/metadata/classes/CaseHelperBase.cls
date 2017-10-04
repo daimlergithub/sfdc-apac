@@ -38,6 +38,7 @@ public class CaseHelperBase {
         Integer hourscount=0;
         While(hourscount<hours){
             string dayOfWeek = dt.format('E');
+            system.debug('dayOfWeek'+dayOfWeek);
             if(dayOfWeek =='Sat'||dayOfWeek =='Sun'){
                 hourscount=hourscount+24;
             }
@@ -49,7 +50,17 @@ public class CaseHelperBase {
         }
     
         if(caserec.deadline__c==null){
-            caserec.deadline__c=System.now()+daystoadd;
+            Datetime dow = System.now()+daystoadd;
+            string dayOfWeek = dow.format('E');
+            if(dayOfWeek =='Sat'){
+                caserec.deadline__c=System.now()+daystoadd+2;
+            }
+            else if(dayOfWeek =='Sun'){
+                caserec.deadline__c=System.now()+daystoadd+1;
+            }
+            else
+                caserec.deadline__c=System.now()+daystoadd;
+            
         }
     }
     
