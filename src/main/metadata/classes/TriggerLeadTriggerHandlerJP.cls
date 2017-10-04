@@ -11,7 +11,8 @@ public class TriggerLeadTriggerHandlerJP
         //user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
         
         if(isBefore && isInsert)
-        {           
+        {         
+				LeadHelperJP.InsertAssignedDealer((list<Lead__C>)trigger.new);		
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate); 
               LeadHelperJP.createContactToContactAccounlink(trigger.new);               
         }
