@@ -58,10 +58,6 @@
                 <field>Retail_LastName__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Salutation__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Full_Name__c</field>
             </layoutItems>
@@ -163,18 +159,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Agreement_Info_Processing__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Updated_Consent_User__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_First_Consent_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_List_of_Events__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -283,10 +267,6 @@
                 <field>Retail_Address_Line_2__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Address_Line_3__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Address_CreatedDate__c</field>
             </layoutItems>
@@ -311,22 +291,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Company_Other_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_First_Consent_User__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Updated_Consent_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Race__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Opt_In_Mobile__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
