@@ -38,6 +38,10 @@
                 <behavior>Edit</behavior>
                 <field>MD__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Turnaround_time__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -150,6 +154,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Remarks__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Recall_ID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
