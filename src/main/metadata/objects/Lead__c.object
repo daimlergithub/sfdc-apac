@@ -10776,6 +10776,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Warranty plus</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+			</picklistValues>
             <picklistValues>
                 <fullName>MBJ Online Sales</fullName>
                 <default>false</default>
