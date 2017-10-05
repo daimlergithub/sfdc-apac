@@ -9143,7 +9143,7 @@ Modify Reason:
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -11822,7 +11822,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
