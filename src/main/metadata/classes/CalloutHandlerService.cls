@@ -104,6 +104,7 @@ public class CalloutHandlerService {
 						request.setHeader(headerKey, headerKeyByValue.get(headerKey));
 					}	
 			}
+			CustomLogUtil.CustomLoggingEntry('Call for post' + request.getbody() +'-- '+endpoint);
 			response = h.send(request);            
             //responseString = processCalloutResponse(response, status);  
            
@@ -152,6 +153,9 @@ public class CalloutHandlerService {
         HttpResponse res = new HttpResponse();
         req.setEndpoint(endURL); 
         req.setMethod('GET');
+		req.setHeader('Content-Type','application/json');
+        req.setHeader('Accept-Language','application/json');
+		CustomLogUtil.CustomLoggingEntry('Online Dedup Request' + endUrl);
         return con.addHttpRequest(req);
         }
     /**

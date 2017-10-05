@@ -17,39 +17,58 @@ public class CaseHelperBase {
     public static final String NOT_PRIMARY_REMINDER = 'This Complaint is not a primary complaint, please find the primary complaint.';
     
     // This method is used to calculate deadline amount for complain case
-    public void updateCaseDeadLineAmount(List<case> caselist, string market){
+    public void updateCaseDeadLineAmount(List<case> caselist, string market, Map<Id,Case> oldValcase){
         Case_Escalation_Matrix__mdt[] ceMatrix = [SELECT MasterLabel, DeveloperName, Escalation_Hours__c,Priority__c,Record_Type__c 
                                                     FROM Case_Escalation_Matrix__mdt];
         for(Case caserec:Caselist){
             for(Case_Escalation_Matrix__mdt cem : ceMatrix){
                 system.debug('inside for'+caserec.RecordTypeId+caserec.RecordTypeID+caserec.RecordType.DeveloperName+'=record type'+UtilRecordType.getRecordTypeIdByName('Case',cem.Record_Type__c)+'priorty'+caserec.priority+'---'+cem.Priority__C+'market'+caserec.md__c+'----'+cem.MasterLabel);
                 if(caserec.RecordTypeID==UtilRecordType.getRecordTypeIdByName('Case',cem.Record_Type__c) && caserec.priority== cem.Priority__C && caserec.md__c==cem.MasterLabel){
-                    system.debug('inside if'+caserec+Integer.ValueOf(cem.Escalation_Hours__c));
-                    updatedeadine(caserec,Integer.ValueOf(cem.Escalation_Hours__c));
+                    if(oldValCase == NULL)
+                        updatedeadine(caserec,Integer.ValueOf(cem.Escalation_Hours__c));
+                    else if(caserec.priority !=oldValcase.get(caserec.id).priority)
+                        updatedeadine(caserec,Integer.ValueOf(cem.Escalation_Hours__c));
                 }
             }
         }                                            
     }
     //This method is used to return date to deadline amount method
     public void updatedeadine(case Caserec,Integer hours){
-        Integer daystoadd=0;
-        DateTime dt=System.now();
-    
-        Integer hourscount=0;
-        While(hourscount<hours){
-            string dayOfWeek = dt.format('E');
-            if(dayOfWeek =='Sat'||dayOfWeek =='Sun'){
-                hourscount=hourscount+24;
-            }
-            else{
-                hourscount=hourscount+24;
-            }
-            dt=dt+1;
-            daystoadd=daystoadd+1;
+        
+        if(hours < 24){
+            caserec.deadline__c=System.now().addHours(hours);
         }
-    
-        if(caserec.deadline__c==null){
-            caserec.deadline__c=System.now()+daystoadd;
+        else{
+            Integer daystoadd=0;
+            DateTime dt=System.now();
+        
+            Integer hourscount=0;
+            While(hourscount<hours){
+                string dayOfWeek = dt.format('E');
+                system.debug('dayOfWeek'+dayOfWeek);
+                if(dayOfWeek =='Sat'||dayOfWeek =='Sun'){
+                    hourscount=hourscount+24;
+                }
+                else{
+                    hourscount=hourscount+24;
+                }
+                dt=dt+1;
+                daystoadd=daystoadd+1;
+            }
+        
+           //if(caserec.deadline__c==null){
+                Datetime dow = System.now()+daystoadd;
+                string dayOfWeek = dow.format('E');
+                if(dayOfWeek =='Sat'){
+                    caserec.deadline__c=System.now()+daystoadd+2;
+                }
+                else if(dayOfWeek =='Sun'){
+                    caserec.deadline__c=System.now()+daystoadd+1;
+                }
+                else
+                    caserec.deadline__c=System.now()+daystoadd;
+                
+            //}
         }
     }
     
@@ -135,7 +154,7 @@ public class CaseHelperBase {
                         }
                         else
                         {
-                            system.debug('in else condition'+parentIdChildIds.get(caseNew.ParentId).size());
+                            //system.debug('in else condition'+parentIdChildIds.get(caseNew.ParentId).size());
                             if(parentIdChildIds.containsKey(caseNew.ParentId))
                                 caseNew.Repeat_Complaint_Times__c = parentIdChildIds.get(caseNew.ParentId).size() + 1;
                             else

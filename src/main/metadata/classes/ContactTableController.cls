@@ -137,6 +137,7 @@ public class ContactTableController
             firstsave = false;  
             secondsave = true; 
         }
+        
      }
      
     /**
@@ -767,7 +768,7 @@ public class ContactTableController
 
         try
         {
-            if(ParAcc != null)
+            if(ParAcc != null && ParAcc.Md__c =='KR')
             {
                 refreshPage = true;
                 update ParAcc;         

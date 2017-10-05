@@ -45,10 +45,12 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
-        {
-            AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
-			AccountHelperTH.createUpdateCDMUCID(label.UpdateContext,Label.MY,Trigger.new);
-               
+        {	
+			if(TriggerRecursiveCheck.run){
+				TriggerRecursiveCheck.runOnce();
+				AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
+				AccountHelperTH.createUpdateCDMUCID(label.InsertContext,Label.MY,Trigger.new);
+            }   
         } 																	   
          if(isAfter && isInsert )
         {
@@ -59,8 +61,8 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-			if(firstRun==true){
-                    AccountHelperTH.createUpdateCDMUCID(Label.InsertContext,Label.MY,Trigger.new);
+			if(TriggerRecursiveCheck.run){
+                    AccountHelperTH.createUpdateCDMUCID(Label.UpdateContext,Label.MY,Trigger.new);
                     firstRun=false;
                 }
 			//Harshit added to check for User permission-Access Management

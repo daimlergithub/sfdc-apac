@@ -55,12 +55,24 @@ public Class CDMInformatica_Services extends CDMServices{
          if(personacc.size()>0){
              serializedAccountobj=generateJson(personacc);
              serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
-             res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+           
+             string str='[{"attributes":{"type":"Account","url":"/services/data/v41.0/sobjects/Account/'+personacc[0]+'"},"Id":"'+personacc[0]+'","RecordTypeId":"012280000000f14AAA"}]';
+                
+
+             //res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+             Endpoint = mapURLs.get('MY-Customer create').Informatica_URL__c;
+             res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,str);
+             
          }
          if(companyacc.size()>0){
-			 serializedAccountobj=generateJson(companyacc);
-			 serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
-			 res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+             serializedAccountobj=generateJson(companyacc);
+             serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
+             //system.debug('---sanjay---'+serializedAccountobj);
+             //res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+             
+             Endpoint = mapURLs.get('MY-Customer Create').Informatica_URL__c;
+             string str='[{"attributes":{"type":"Account","url":"/services/data/v41.0/sobjects/Account/'+companyacc[0]+'"},"Id":"'+companyacc[0]+'","RecordTypeId":"012280000000f0p"}]';
+             res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,str);
          }
         
      
@@ -79,8 +91,8 @@ public Class CDMInformatica_Services extends CDMServices{
         String str=s.substring(0,inde)+s.substring(inde+1);
       return str;
      }
-	
-	@future(callout=true)
+    
+    @future(callout=true)
      public static void  createCustomerCDM(Set<ID> acc, string Market,string context){
          List<ID> personacc=new List<ID>();
          List<ID> companyacc=new List<ID>();
@@ -88,10 +100,7 @@ public Class CDMInformatica_Services extends CDMServices{
          String Endpoint=null;
          String serializedAccountobj=null;
          map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
-         for( string str : mapURLs.keyset()){
-             if(mapURLs.get(str).type__c==context && mapURLs.get(str).country__c==Market)
-                Endpoint = mapURLs.get(str).Informatica_URL__c; 
-         }
+         
          
          String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
          String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
@@ -105,14 +114,44 @@ public Class CDMInformatica_Services extends CDMServices{
              }
          }        
          if(personacc.size()>0){
+			for( string str : mapURLs.keyset()){
+             if(mapURLs.get(str).type__c==context && mapURLs.get(str).country__c==Market && MapUrls.get(str).Context__c=='Person Account')
+                Endpoint = mapURLs.get(str).Informatica_URL__c; 
+         }
              serializedAccountobj=generateJson(personacc);
              serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
-             res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+             string body='[';
+			for(integer i=0 ;i<personacc.size();i++){
+				   if(body.length()==1)
+					   body=body+'{"attributes":{"type":"Account","url":"/services/data/v41.0/sobjects/Account/'+personacc[i]+'"},"Id":"'+personacc[i]+'","RecordTypeId":"'+PersonAccountRecordTypeID+'"}';
+				   else
+					   body=body+',{"attributes":{"type":"Account","url":"/services/data/v41.0/sobjects/Account/'+personacc[i]+'"},"Id":"'+personacc[i]+'","RecordTypeId":"'+PersonAccountRecordTypeID+'"}';
+				}
+			 body=body+']';
+              Map<string,string> headerCDM= new Map<string,string>();
+              headerCDM.put('Content-Type','application/json');
+              res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,60000,headerCDM,null,body);
          }
          if(companyacc.size()>0){
          serializedAccountobj=generateJson(companyacc);
          serializedAccountobj= EncodingUtil.URLENCODE(serializedAccountobj,'UTF-8');
-         res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,null,null,null,serializedAccountobj);
+		 for( string str : mapURLs.keyset()){
+             if(mapURLs.get(str).type__c==context && mapURLs.get(str).country__c==Market && MapUrls.get(str).Context__c=='Company')
+                Endpoint = mapURLs.get(str).Informatica_URL__c; 
+         }
+         Map<string,string> headerCDM= new Map<string,string>();
+              headerCDM.put('Content-Type','application/json');    
+
+            string body='[';
+		   for(integer i=0 ;i<companyacc.size();i++){
+			   if(body.length()==1)
+				   body=body+'{"attributes":{"type":"Account","url":"/services/data/v41.0/sobjects/Account/'+companyacc[i]+'"},"Id":"'+companyacc[i]+'","RecordTypeId":"'+companyRecordTypeId+'"}';
+			   else
+				   body=body+',{"attributes":{"type":"Account","url":"/services/data/v41.0/sobjects/Account/'+companyacc[i]+'"},"Id":"'+companyacc[i]+'","RecordTypeId":"'+companyRecordTypeId+'"}';
+		   }
+		    body=body+']';
+             res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,60000,headerCDM,null,body);
+         
          }
         
      

@@ -21,7 +21,7 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
         dealerGCCodeList.add('GC0011434');
         dealerGCCodeList.add('GC0011430');
         dealerGCCodeList.add('GC0011422');
-		dealerGCCodeList.add('GC0037969');
+        dealerGCCodeList.add('GC0037969');
         Set<string> ndCodeList = New Set<String>();
         
         List<Account> accntList = [select Id, Dealer_ND_Code__c, Dealer_GC_Code__c, Dealer_Type__c from Account where Recordtype.Name = 'Dealer' and Dealer_GC_Code__c =:dealerGCCodeList and MD__c = 'KR'];
@@ -40,7 +40,7 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
                 {
                     if(acc.Dealer_Type__c == 'Company' && gr.Name == acc.Dealer_ND_Code__c)
                     {
-                        groupGcCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
+                        groupGcCodeMap.put(acc.Dealer_GC_Code__c,gr.Id);
                     }
                     
                     if(acc.Dealer_Type__c == 'outlet' &&gr.Name == acc.Dealer_ND_Code__c)
@@ -72,7 +72,7 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
             {
             Account_Link__Share aclnkshare = new Account_Link__Share();
             aclnkshare.ParentId = acclnk.Id;
-            aclnkshare.UserOrGroupId = groupGcCodeMap.get(acclnk.fromRole__r.Dealer_ND_Code__c);
+            aclnkshare.UserOrGroupId = groupGcCodeMap.get(acclnk.fromRole__r.Dealer_GC_Code__c);
             aclnkshare.AccessLevel = 'Edit';
             updateaclnkShareList.add(aclnkshare);
             

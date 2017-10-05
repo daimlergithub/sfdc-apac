@@ -779,8 +779,8 @@ public class AccountHelperTH{
             }
             CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
 			}Catch(exception e){
-				CustomLogUtil.DebugException(e);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
+				 CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
+				
 			}
     }
     /*	  

@@ -95,7 +95,7 @@
         <label>Vehicle Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Euro_Vin__c</field>
             </layoutItems>
             <layoutItems>
@@ -105,6 +105,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Vehicle_Class__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>UsVIN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

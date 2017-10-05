@@ -8,7 +8,7 @@ public class CaseTriggerHandlerMY implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        CaseHelperBase caseHelperBased = new CaseHelperBase();
+        CaseHelperMY caseHelperBased = new CaseHelperMY();
         string market = System.Label.MarketMY;
         
         if(trigger.isinsert && trigger.isbefore){
