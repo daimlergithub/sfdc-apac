@@ -2849,7 +2849,7 @@
         <name>Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes Eメールを入力してください。</label>
+        <label>Mercedes me Eメールを入力してください。</label>
         <name>Please_enter_My_Merc_Email_Id_for_Selected_Account</name>
     </customLabels>
     <customLabels>
@@ -5202,7 +5202,7 @@
         <name>please_enter_valid_Email</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes Eメールを入力してください。</label>
+        <label>Mercedes me Eメールを入力してください。</label>
         <name>please_input_My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
