@@ -11692,7 +11692,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>edit</editable>
+        <editable>true</editable>
         <field>Case.Vehicle_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
