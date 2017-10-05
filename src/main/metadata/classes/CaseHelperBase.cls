@@ -34,36 +34,42 @@ public class CaseHelperBase {
     }
     //This method is used to return date to deadline amount method
     public void updatedeadine(case Caserec,Integer hours){
-        Integer daystoadd=0;
-        DateTime dt=System.now();
-    
-        Integer hourscount=0;
-        While(hourscount<hours){
-            string dayOfWeek = dt.format('E');
-            system.debug('dayOfWeek'+dayOfWeek);
-            if(dayOfWeek =='Sat'||dayOfWeek =='Sun'){
-                hourscount=hourscount+24;
-            }
-            else{
-                hourscount=hourscount+24;
-            }
-            dt=dt+1;
-            daystoadd=daystoadd+1;
+        
+        if(hours < 24){
+            caserec.deadline__c=System.now().addHours(hours);
         }
-    
-       //if(caserec.deadline__c==null){
-            Datetime dow = System.now()+daystoadd;
-            string dayOfWeek = dow.format('E');
-            if(dayOfWeek =='Sat'){
-                caserec.deadline__c=System.now()+daystoadd+2;
+        else{
+            Integer daystoadd=0;
+            DateTime dt=System.now();
+        
+            Integer hourscount=0;
+            While(hourscount<hours){
+                string dayOfWeek = dt.format('E');
+                system.debug('dayOfWeek'+dayOfWeek);
+                if(dayOfWeek =='Sat'||dayOfWeek =='Sun'){
+                    hourscount=hourscount+24;
+                }
+                else{
+                    hourscount=hourscount+24;
+                }
+                dt=dt+1;
+                daystoadd=daystoadd+1;
             }
-            else if(dayOfWeek =='Sun'){
-                caserec.deadline__c=System.now()+daystoadd+1;
-            }
-            else
-                caserec.deadline__c=System.now()+daystoadd;
-            
-        //}
+        
+           //if(caserec.deadline__c==null){
+                Datetime dow = System.now()+daystoadd;
+                string dayOfWeek = dow.format('E');
+                if(dayOfWeek =='Sat'){
+                    caserec.deadline__c=System.now()+daystoadd+2;
+                }
+                else if(dayOfWeek =='Sun'){
+                    caserec.deadline__c=System.now()+daystoadd+1;
+                }
+                else
+                    caserec.deadline__c=System.now()+daystoadd;
+                
+            //}
+        }
     }
     
     //Calculate total number of repeated MB complaints per account
