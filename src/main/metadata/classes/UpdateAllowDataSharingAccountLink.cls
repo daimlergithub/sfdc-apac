@@ -18,7 +18,7 @@ global class UpdateAllowDataSharingAccountLink implements Database.Batchable<sOb
         return Database.getQueryLocator([SELECT Id, Retail_Allow_Data_Sharing__c, fromRole__r.Allow_Data_Sharing2__c, 
                                          toRole__r.Allow_Data_Sharing2__c, fromRole__r.MB_Customer_Info_Remove__c, 
                                          toRole__r.MB_Customer_Info_Remove__c 
-                                         FROM Account_Link__c where MD__c = 'JP' 
+                                         FROM Account_Link__c where (fromRole__r.SystemModStamp >= last_n_days:7 OR toRole__r.SystemModStamp >= last_n_days:7) AND MD__c = 'JP' 
                                          and (((fromRole__r.Allow_Data_Sharing2__c = 'No' or 
                                          toRole__r.Allow_Data_Sharing2__c = 'No' or 
                                          fromRole__r.MB_Customer_Info_Remove__c = true or 
@@ -44,10 +44,20 @@ global class UpdateAllowDataSharingAccountLink implements Database.Batchable<sOb
             updateAccountLinkMap.put(al.id,al);
         }
         
+        List<Database.SaveResult> SRList = new List<Database.SaveResult>();
+        
         if(updateAccountLinkMap.size() > 0){
-            update updateAccountLinkMap.values();
+            SRList = Database.update(updateAccountLinkMap.values(), false);
         }
         
+        for (Database.SaveResult sr : SRList) {
+            if(!sr.isSuccess()){
+                for(Database.Error err : sr.getErrors()) {
+                    System.debug('The following error has occurred:' + err.getStatusCode() + ': ' + err.getMessage());
+                    System.debug('Fields that affected this error: ' + err.getFields());
+                }
+            }
+        }
     } 
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){

@@ -1074,7 +1074,9 @@ public with sharing class UserHelper {
     public static void grpCreationandUsergrpAlign(List<User> usrInList){
         List<Id> usrIds = new List<Id>();
         for(user usr: usrInList){
-            usrIds.add(usr.id);
+            if(userinfo.getUserType() == 'PowerPartner'){
+                usrIds.add(usr.id);
+            }
         }
         List<user> usrLst = new List<user>([select id, name, contact.Accountid, contact.Account.Dealer_ND_Code__c from user where (IsPortalEnabled  = true and Market__c = 'KR' and isActive = true and contact.Account.Dealer_ND_Code__c != null and contact.Account.RecordType.Name = 'Dealer') or (id in:usrIds)]);
 

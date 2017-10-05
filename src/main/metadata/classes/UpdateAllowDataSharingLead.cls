@@ -16,7 +16,7 @@ global class UpdateAllowDataSharingLead implements Database.Batchable<sObject>,S
     //START METHOD 
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id, Allow_Data_Sharing__c, Contact__r.Allow_Data_Sharing2__c, Contact__r.MB_Customer_Info_Remove__c 
-                                         FROM Lead__c where MD__c = 'JP' 
+                                         FROM Lead__c where Contact__r.SystemModStamp >= last_n_days:7 AND MD__c = 'JP' 
                                          and (((Contact__r.Allow_Data_Sharing2__c = 'No' or Contact__r.MB_Customer_Info_Remove__c = true) and Allow_Data_Sharing__c = true) 
                                          or ((Contact__r.Allow_Data_Sharing2__c != 'No' and Contact__r.MB_Customer_Info_Remove__c = false) and Allow_Data_Sharing__c = false))]);
     }
@@ -36,17 +36,25 @@ global class UpdateAllowDataSharingLead implements Database.Batchable<sObject>,S
             updateLeadMap.put(ld.id,ld);
         }
         
+        List<Database.SaveResult> SRList = new List<Database.SaveResult>();
+
         if(updateLeadMap.size() > 0){
-            update updateLeadMap.values();
+            SRList = Database.update(updateLeadMap.values(), false);
         }
         
+        for (Database.SaveResult sr : SRList) {
+            if(!sr.isSuccess()){
+                for(Database.Error err : sr.getErrors()) {
+                    System.debug('The following error has occurred:' + err.getStatusCode() + ': ' + err.getMessage());
+                    System.debug('Fields that affected this error: ' + err.getFields());
+                }
+            }
+        }
     } 
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){
        
     }
-   
-   
    
     global void execute(SchedulableContext ctx) {
         Database.executeBatch(new UpdateAllowDataSharingLead());

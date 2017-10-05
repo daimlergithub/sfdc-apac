@@ -5277,7 +5277,7 @@
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Bahasa</fullName>
+                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5314,10 +5314,6 @@
             </values>
             <values>
                 <fullName>Korean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25773,6 +25769,10 @@
             </values>
             <values>
                 <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
             <values>

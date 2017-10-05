@@ -13582,11 +13582,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <default>false</default>
               </picklistValues>
             <picklistValues>
-                <fullName>Bahasa</fullName>
-                <default>false</default>
-              </picklistValues>
-            <picklistValues>
-                <fullName>Malaysia</fullName>
+                <fullName>Malay</fullName>
                 <default>false</default>
               </picklistValues>
             <picklistValues>
@@ -21945,6 +21941,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Thai</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Phone__c</picklist>
@@ -28004,6 +28004,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39996,6 +40000,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Phone__c</picklist>
@@ -45881,6 +45889,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Phone__c</picklist>
@@ -51261,6 +51273,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

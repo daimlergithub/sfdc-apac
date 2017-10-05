@@ -195,7 +195,7 @@
     <fieldUpdates>
         <fullName>Update_Preferred_Language_Field_MY</fullName>
         <field>Preferred_Language__c</field>
-        <literalValue>Malaysia</literalValue>
+        <literalValue>English</literalValue>
         <name>Update Preferred Language Field MY</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
