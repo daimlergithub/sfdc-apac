@@ -766,6 +766,24 @@ public class AccountHelperTH{
         
     }
     /*
+	SN20170929- Added code for create and update of data for ucid.
+    
+    */
+    
+    public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist)
+    {		try{
+	
+            set<ID> accids=new set<ID>();
+            for(Account accrec:accountlist){
+                accids.add(accrec.id);
+            }
+            CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+			}Catch(exception e){
+				 CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
+				
+			}
+    }
+    /*	  
 It is a temporary code fix for the phone format issue following these 3 rules
 1) If it contains '+ ' or if the number < 9 do nothing.
 2) If there is any '0' in the starting remove it and Prefix '+66' to the number.

@@ -1,4 +1,4 @@
-<messaging:emailTemplate subject="Notify to Dealer" recipientType="User" relatedToType="Case">
+<messaging:emailTemplate subject="{!$Label.Email_Case}" recipientType="User" relatedToType="Case" language="{!recipient.LanguageLocaleKey}">
 <messaging:htmlEmailBody > 
 
    <html>
@@ -17,9 +17,11 @@
     
     <p>{!$Label.Email_LeadDealerAssign5} <apex:outputText value="{0, date, MM/dd}"><apex:Param value="{!TODAY()}" /></apex:OutputText> {!$Label.Email_Case_information}</p>
     
-    <p>{!$Label.Email_Case}</p>
+    <p>{!$Label.Email_Case_Respond}</p>
     
-    <apex:outputLink value="{!$Label.Dealer_login_Url}/{!relatedTo.Id}" id="theLink"> Direct link URL to the Cases detail pag</apex:outputLink>
+    <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
+     {!$Label.Dealer_login_Url}/{!relatedTo.Id}
+    </a>
     
     <p> {!$Label.Email_salesforcelogin}</p>
     

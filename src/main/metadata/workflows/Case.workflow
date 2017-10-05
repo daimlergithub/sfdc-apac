@@ -277,6 +277,71 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/SupportCaseAssignmentNotification</template>
     </alerts>
+	<alerts>
+        <fullName>Deadline_Notification_to_Owner_before_1_hour</fullName>
+        <description>Deadline Notification to Owner before 1 hour</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification_MY</template>
+    </alerts>
+	<alerts>
+        <fullName>Case_escalation_Inquiry_after_48_hours_MY</fullName>
+        <description>Case escalation_Inquiry after 48 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_48_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_Inquiry_after_72_hours_MY</fullName>
+        <description>Case escalation_Inquiry after 72 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_72_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_MB_Complaint_after_120_hours_MY</fullName>
+        <description>Case escalation_MB Complaint after 120 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_120_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_MB_Complaint_after_24_hours_MY</fullName>
+        <description>Case escalation_MB Complaint after 24 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_24_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_for_Inquiry_after_120_hours_MY</fullName>
+        <description>Case escalation for Inquiry after 120 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_120_hours_MY</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Approval_Update</fullName>
         <field>Status</field>
@@ -2181,6 +2246,228 @@
         <workflowTimeTriggers>
             <offsetFromField>Case.LastModifiedDate</offsetFromField>
             <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+	<rules>
+        <fullName>Case Deadline Notification MY</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners an hour before the deadline</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Deadline_Notification_to_Owner_before_1_hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_Inquiry after 120 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>C</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_for_Inquiry_after_120_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>120</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_Inquiry after 48 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>A</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <description>This is used to send email notification after 48 hours for MY</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_48_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_Inquiry after 72 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2  AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>B</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_72_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_MB Complaint after 120 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Green &lt;= 2</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <description>This is used for MY market to escalate case after 120 hours</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_MB_Complaint_after_120_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>120</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_MB Complaint after 24 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Red &gt;= 4</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <description>This is used for MY market to escalate case after 24 hours</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_MB_Complaint_after_24_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_MB Complaint after 72 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Yellow = 3</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_72_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>72</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>

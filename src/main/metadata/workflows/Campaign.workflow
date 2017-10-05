@@ -188,6 +188,15 @@ RecordType.Name,
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Status</fullName>
+        <field>Status</field>
+        <literalValue>Published</literalValue>
+        <name>Update Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>campaign_status_change</fullName>
         <field>Child_Campaign_Status__c</field>
         <literalValue>Segmentation</literalValue>
@@ -398,6 +407,29 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>MBTH_Update status Published</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Publish_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Status</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.Publish_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Record Close Date</fullName>
         <actions>
             <name>record_Close_Date</name>
@@ -439,7 +471,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND 2 AND (3 OR 4 )</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -459,11 +491,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Campaign.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -625,5 +652,3 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
-
-

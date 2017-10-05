@@ -10679,6 +10679,11 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
             <picklistValues>
                 <fullName>others</fullName>
                 <default>false</default>
+				<controllingFieldValues>AS - Service</controllingFieldValues>
+                <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
+                <controllingFieldValues>AS – Event &amp; Campaign</controllingFieldValues>
+                <controllingFieldValues>AS – Others</controllingFieldValues>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
                 <controllingFieldValues>Activities</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
             </picklistValues>
@@ -10691,6 +10696,86 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>collection</fullName>
                 <default>false</default>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Accessories &amp; Collection Warranty</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accident repair</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compact package / Compact plus package</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event related inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Event &amp; Campaign</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Exchange &amp; refund</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ISP</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lifestyle accessories</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintenance reservation</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Service reservation &amp; inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other service reservation</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick-up &amp; delivery</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle accessories</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle noise</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty &amp; recall</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS - Service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty plus</fullName>
+                <default>false</default>
+                <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10735,6 +10820,26 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
             </picklistValues>
             <picklistValues>
                 <fullName>No Need Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>AS - Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS – Package Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS – Accessories &amp; Collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS – Event &amp; Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS – Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -40858,6 +40963,70 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Sub_Type__c</picklist>
             <values>
+                <fullName>Accessories %26 Collection Warranty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accident repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Compact package %2F Compact plus package</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event related inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exchange %26 refund</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ISP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lifestyle accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Service reservation %26 inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other service reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pick-up %26 delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle noise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty %26 recall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty plus</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>car care</fullName>
                 <default>false</default>
             </values>
@@ -40893,6 +41062,26 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Type__c</picklist>
             <values>
+                <fullName>AS %E2%80%93 Accessories %26 Collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS %E2%80%93 Event %26 Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS %E2%80%93 Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS %E2%80%93 Package Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Service</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Activities</fullName>
                 <default>false</default>
             </values>
@@ -111647,7 +111836,7 @@ ISNULL(Visited_Showroom_Date__c)
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 
 if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Manager' || prName == 'Japan Dealer Company Manager' || prName == 'System Administrator'||prName == 'Campaign Japan Dealer Company Manager'){ 
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes","scrollbars=yes,width = 800, height = 600"); 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","scrollbars=yes,width = 800, height = 600"); 
 } 
 else{ 
 alert("{!$Label.Authorization}"); 
