@@ -17,15 +17,17 @@ public class CaseHelperBase {
     public static final String NOT_PRIMARY_REMINDER = 'This Complaint is not a primary complaint, please find the primary complaint.';
     
     // This method is used to calculate deadline amount for complain case
-    public void updateCaseDeadLineAmount(List<case> caselist, string market){
+    public void updateCaseDeadLineAmount(List<case> caselist, string market, Map<Id,Case> oldValcase){
         Case_Escalation_Matrix__mdt[] ceMatrix = [SELECT MasterLabel, DeveloperName, Escalation_Hours__c,Priority__c,Record_Type__c 
                                                     FROM Case_Escalation_Matrix__mdt];
         for(Case caserec:Caselist){
             for(Case_Escalation_Matrix__mdt cem : ceMatrix){
                 system.debug('inside for'+caserec.RecordTypeId+caserec.RecordTypeID+caserec.RecordType.DeveloperName+'=record type'+UtilRecordType.getRecordTypeIdByName('Case',cem.Record_Type__c)+'priorty'+caserec.priority+'---'+cem.Priority__C+'market'+caserec.md__c+'----'+cem.MasterLabel);
                 if(caserec.RecordTypeID==UtilRecordType.getRecordTypeIdByName('Case',cem.Record_Type__c) && caserec.priority== cem.Priority__C && caserec.md__c==cem.MasterLabel){
-                    system.debug('inside if'+caserec+Integer.ValueOf(cem.Escalation_Hours__c));
-                    updatedeadine(caserec,Integer.ValueOf(cem.Escalation_Hours__c));
+                    if(oldValCase == NULL)
+                        updatedeadine(caserec,Integer.ValueOf(cem.Escalation_Hours__c));
+                    else if(caserec.priority !=oldValcase.get(caserec.id).priority)
+                        updatedeadine(caserec,Integer.ValueOf(cem.Escalation_Hours__c));
                 }
             }
         }                                            
@@ -49,7 +51,7 @@ public class CaseHelperBase {
             daystoadd=daystoadd+1;
         }
     
-        if(caserec.deadline__c==null){
+       //if(caserec.deadline__c==null){
             Datetime dow = System.now()+daystoadd;
             string dayOfWeek = dow.format('E');
             if(dayOfWeek =='Sat'){
@@ -61,7 +63,7 @@ public class CaseHelperBase {
             else
                 caserec.deadline__c=System.now()+daystoadd;
             
-        }
+        //}
     }
     
     //Calculate total number of repeated MB complaints per account
