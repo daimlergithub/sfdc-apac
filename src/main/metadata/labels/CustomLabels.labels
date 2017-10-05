@@ -10107,7 +10107,8 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>updateRetailCopy</value>
-	   <labels>
+	</labels>
+	<labels>
         <fullName>Contact_Id</fullName>
         <language>en_US</language>
         <protected>false</protected>
