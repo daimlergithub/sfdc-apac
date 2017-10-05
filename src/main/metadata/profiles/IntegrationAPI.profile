@@ -976,6 +976,10 @@
         <apexClass>LeadcustomClone_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>LoyalityManger</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_Inquiry_Controller</apexClass>
         <enabled>true</enabled>
@@ -2295,6 +2299,14 @@
     <classAccesses>
         <apexClass>crmasiaDaimlerComSarinotificatio_Test</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>customerVehiceStatus</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>customerVehicleStatusTest</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>dealerViewForContract</apexClass>
