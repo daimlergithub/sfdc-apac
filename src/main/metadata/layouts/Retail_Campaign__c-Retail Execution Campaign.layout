@@ -46,6 +46,10 @@
                 <behavior>Edit</behavior>
                 <field>IsAutoSegmentationExecuted__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Campaign_Code__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

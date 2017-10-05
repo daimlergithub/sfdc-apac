@@ -10776,6 +10776,11 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Warranty plus</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+            <picklistValues>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -92526,6 +92531,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>wear and tear</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Type__c</picklist>
@@ -104112,6 +104121,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Gift Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
