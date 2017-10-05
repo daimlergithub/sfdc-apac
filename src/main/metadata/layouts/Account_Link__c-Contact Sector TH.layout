@@ -85,6 +85,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Market__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
@@ -156,9 +160,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_List_of_Events__c</field>
-                <behavior>Readonly</behavior>
-                <field>Market__c</field>
-            </layoutItems>
+			</layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
