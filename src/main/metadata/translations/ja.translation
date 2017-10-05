@@ -5297,6 +5297,26 @@
         <label>SPOに送信</label>
         <name>send_to_spo_active</name>
     </customLabels>
+	 <customLabels>
+        <label>契約番号</label>
+        <name>Contract_Number</name>
+    </customLabels>
+	<customLabels>
+        <label>車台番号</label>
+        <name>UsVIN</name>
+    </customLabels>
+	<customLabels>
+        <label>販売店キャンペーン名</label>
+        <name>Retail_Campaign_Id</name>
+    </customLabels>
+	<customLabels>
+        <label>キャンペーン名</label>
+        <name>Campaign_Id</name>
+    </customLabels>
+	<customLabels>
+        <label>顧客名</label>
+        <name>Contact_Id</name>
+    </customLabels>
     <customLabels>
         <label><!-- servletfile --></label>
         <name>servletfile</name>
