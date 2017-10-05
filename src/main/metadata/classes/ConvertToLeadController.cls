@@ -218,7 +218,7 @@ public class ConvertToLeadController
     
         Lead__c leadRec = new Lead__c();
         system.debug('CM!11'+campaignMember.Campaign_ID__r.parent.Campaign_Type__c);
-        leadRec.CAC_Lead_Status__c = 'Approved';
+        //leadRec.CAC_Lead_Status__c = 'Approved';
         if(objectAPIName == 'Campaign') {
             leadRec.Source_Campaign__c = campaignId;
             leadRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId;
@@ -232,6 +232,15 @@ public class ConvertToLeadController
             leadRec.Source_Campaign__c = campaignMember.Campaign_ID__c;
             
         } 
+        
+        If (userinfo.getUserType() != 'PowerPartner'){
+         leadRec.CAC_Lead_Status__c = 'Approved';
+         leadRec.Lead_DataSource__c='Campaign';
+         } else {
+        leadRec.CAC_Lead_Status__c = 'New';
+       leadRec.Lead_DataSource__c='Dealer Outlet';
+        }
+
        
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
@@ -249,7 +258,7 @@ public class ConvertToLeadController
         leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
         leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
         
-        leadRec.Lead_DataSource__c='Campaign';
+        //leadRec.Lead_DataSource__c='Campaign';
         leadRec.UsVIN__c=campaignMember.UsVIN__c;
         System.debug('rval<><>'+recordtypevalue);
         if(recordtypevalue!= null && recordtypevalue == 'Aftersales_leads' ) {

@@ -177,6 +177,14 @@ public  with sharing class coverttolead1controller
             leadRec.Retail_Campaign_Name__c = campaignMember.Retail_Campaign_Id__c;
             leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
         } 
+        
+        If (userinfo.getUserType() != 'PowerPartner'){
+         leadRec.CAC_Lead_Status__c = 'Approved';
+         leadRec.Lead_DataSource__c='Campaign';
+         } else {
+        leadRec.CAC_Lead_Status__c = 'New';
+       leadRec.Lead_DataSource__c='Dealer Outlet';
+        }
        
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
