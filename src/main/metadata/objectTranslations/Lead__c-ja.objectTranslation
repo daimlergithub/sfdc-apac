@@ -6990,6 +6990,10 @@
             <masterLabel>wear and tear</masterLabel>
             <translation><!-- wear and tear --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>MBJ Online Sales</masterLabel>
+            <translation>MBJオンラインセールス</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>車両タイプ</label>
