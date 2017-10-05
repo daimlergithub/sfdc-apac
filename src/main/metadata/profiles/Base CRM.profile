@@ -11722,7 +11722,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>edit</editable>
         <field>Case.Vehicle_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
