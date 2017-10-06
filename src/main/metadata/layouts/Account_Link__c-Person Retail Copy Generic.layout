@@ -325,7 +325,7 @@
                 <field>Last_Modified_User_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
