@@ -771,7 +771,8 @@ public class ContactTableController
             if(ParAcc != null && ParAcc.Md__c =='KR')
             {
                 refreshPage = true;
-                update ParAcc;         
+                   if(parAcc.MD__c=='JP'){parAcc.Individual_Home_Phone_Status__c=selectedHomePhoneStatus;}
+                   update ParAcc;         
                 }   
                 
         }
@@ -925,5 +926,47 @@ public class ContactTableController
              
            
     }
+    
+ /* MD Changes - Added By Santosh Mohanty to display dependent picklist values  */
+    public String selectedHomePhoneStatus{get;set;}
+    public List<SelectOption> homePhoneStatusList{get;set;}
+  
+  public void getDependenciesValues(){
+         List<User> MarketDescriminator= [Select id,Market__c From User Where Id =:UserInfo.getUserId()];
+         homePhoneStatusList=new List<SelectOption>();
+         List<MD_Dependency__mdt> dependencyList=[select id, MasterLabel,Controlling_Field__c,Dependency_Values__c,
+                                                 Dependent__c,MarketName__c,Object_APIName__c from MD_Dependency__mdt];
+         MAP<string,MD_Dependency__mdt> allDependencies=new MAP<string,MD_Dependency__mdt>();
+         for(MD_Dependency__mdt mdDepnd : dependencyList){
+             allDependencies.put(mdDepnd.Dependent__c+mdDepnd.MarketName__c,mdDepnd);
+         }        
+         homePhoneStatusList=findAddDependancy('Individual_Home_Phone_Status__c',MarketDescriminator[0].Market__c,allDependencies);       
+     }
+  public List<SelectOption> findAddDependancy(string fieldAPIName,String marketAPIName , Map<String,MD_Dependency__mdt> allDependencies){  
+        
+      List<String> dependentList1=new List<String>();
+      List<SelectOption> dependentListFinal=new List<SelectOption>();
+      String findFromCustomSetting='';
+            MD_Dependency__mdt  fieldSpecificDependentRec = allDependencies.get(fieldAPIName+marketAPIName);
+            system.debug('**************'+fieldSpecificDependentRec);
+                  if(marketAPIName=='JP'){
+                     findFromCustomSetting= findFromCustomSetting+string.valueOf(fieldSpecificDependentRec.Dependency_Values__c);
+                  }
+            findFromCustomSetting.trim();
+            if(findFromCustomSetting!=null && findFromCustomSetting!='' && findFromCustomSetting.contains(';')){
+               dependentList1 = findFromCustomSetting.split(';');
+               for(Integer i=0;i<dependentList1.size();i++){
+                  dependentListFinal.add(new SelectOption(dependentList1[i],dependentList1[i]));
+               }
+            }
+            else if(findFromCustomSetting!=null && findFromCustomSetting!='' && !findFromCustomSetting.contains(';')){
+                dependentList1.add(findFromCustomSetting);
+                for(Integer i=0;i<dependentList1.size();i++){
+                  dependentListFinal.add(new SelectOption(dependentList1[i],dependentList1[i]));
+                } 
+            }
+         return dependentListFinal;
+       }   
+     
      
 }

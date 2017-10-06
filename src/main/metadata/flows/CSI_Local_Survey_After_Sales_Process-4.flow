@@ -115,7 +115,7 @@
         <name>Start_CSI_Local_Survey_After_Sales_Process</name>
         <label>Start CSI Local Survey After Sales Process</label>
         <locationX>85</locationX>
-        <locationY>32</locationY>
+        <locationY>41</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>Start_Survey</name>
@@ -388,8 +388,8 @@
     <recordCreates>
         <name>Create_Survey_Question_Response3</name>
         <label>Create_Survey_Question_Response3</label>
-        <locationX>409</locationX>
-        <locationY>274</locationY>
+        <locationX>427</locationX>
+        <locationY>276</locationY>
         <assignRecordIdToReference>ResponseID</assignRecordIdToReference>
         <connector>
             <targetReference>Create_Survey_Question_Response4</targetReference>
@@ -680,8 +680,8 @@
     <screens>
         <name>Q1</name>
         <label>Q1</label>
-        <locationX>260</locationX>
-        <locationY>39</locationY>
+        <locationX>269</locationX>
+        <locationY>40</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -721,10 +721,11 @@
         </fields>
         <fields>
             <name>Q1_reason</name>
+            <dataType>String</dataType>
             <defaultValue>
                 <stringValue></stringValue>
             </defaultValue>
-            <fieldType>LargeTextArea</fieldType>
+            <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
     </screens>
@@ -809,10 +810,11 @@
         </fields>
         <fields>
             <name>Q2_reason</name>
+            <dataType>String</dataType>
             <defaultValue>
                 <stringValue></stringValue>
             </defaultValue>
-            <fieldType>LargeTextArea</fieldType>
+            <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
     </screens>
@@ -860,10 +862,11 @@
         </fields>
         <fields>
             <name>Q3_reason</name>
+            <dataType>String</dataType>
             <defaultValue>
                 <stringValue></stringValue>
             </defaultValue>
-            <fieldType>LargeTextArea</fieldType>
+            <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
     </screens>
@@ -911,10 +914,11 @@
         </fields>
         <fields>
             <name>Q4_reason</name>
+            <dataType>String</dataType>
             <defaultValue>
                 <stringValue></stringValue>
             </defaultValue>
-            <fieldType>LargeTextArea</fieldType>
+            <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
     </screens>
@@ -962,10 +966,11 @@
         </fields>
         <fields>
             <name>Q5_reason</name>
+            <dataType>String</dataType>
             <defaultValue>
                 <stringValue></stringValue>
             </defaultValue>
-            <fieldType>LargeTextArea</fieldType>
+            <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
     </screens>
@@ -1013,10 +1018,11 @@
         </fields>
         <fields>
             <name>Q6_reason</name>
+            <dataType>String</dataType>
             <defaultValue>
                 <stringValue></stringValue>
             </defaultValue>
-            <fieldType>LargeTextArea</fieldType>
+            <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
     </screens>
@@ -1064,10 +1070,11 @@
         </fields>
         <fields>
             <name>Q7_reason</name>
+            <dataType>String</dataType>
             <defaultValue>
                 <stringValue></stringValue>
             </defaultValue>
-            <fieldType>LargeTextArea</fieldType>
+            <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
     </screens>
@@ -1075,7 +1082,7 @@
         <name>Q8</name>
         <label>Q8</label>
         <locationX>628</locationX>
-        <locationY>145</locationY>
+        <locationY>150</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -1161,11 +1168,11 @@
     <startElementReference>Start_CSI_Local_Survey_After_Sales_Process</startElementReference>
     <textTemplates>
         <name>Q10_res</name>
-        <text>{!Q10_Radio}{!Q10_sugg}</text>
+        <text>{!Q10_Radio} {!Q10_sugg}</text>
     </textTemplates>
     <textTemplates>
         <name>Q1_res</name>
-        <text>{!Label_for_Rating1} - {!Q1_Radio}</text>
+        <text>{!Label_for_Rating1} - {!Q1_Radio} {!Q1_reason}</text>
     </textTemplates>
     <textTemplates>
         <name>Q2_res</name>
@@ -1197,7 +1204,7 @@
     </textTemplates>
     <textTemplates>
         <name>Q9_res</name>
-        <text>{!Q9_Radio} {!Q9_sugg} {!Q9_sugg}</text>
+        <text>{!Q9_Radio} {!Q9_sugg}</text>
     </textTemplates>
     <variables>
         <name>CampaignID</name>
