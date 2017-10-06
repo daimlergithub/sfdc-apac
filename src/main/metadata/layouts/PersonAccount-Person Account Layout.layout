@@ -317,6 +317,10 @@
                 <behavior>Edit</behavior>
                 <field>Loyalty_Card_No__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Loyalty_Credit_Card_Member__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>MBC_USERID__c</field>
@@ -973,6 +977,17 @@
         <relatedList>SurveyTaker__c.Account__c</relatedList>
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
+    </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>Loyalty_Card_Number__c</fields>
+        <fields>Loyalty_Card_End_Date__c</fields>
+        <fields>Loyalty_Card_Start_Date__c</fields>
+        <fields>Vehicle__c</fields>
+        <fields>Hobby__c</fields>
+        <fields>Interest__c</fields>
+        <fields>Job__c</fields>
+        <relatedList>Loyalty_Card__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
