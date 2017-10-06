@@ -59,6 +59,11 @@ JIRA NO             :    SFDCJP-1036 & 1041
                     <apex:inputCheckbox value="{!cMember.isSelected}"  id="checkedone" />
                 </apex:column>
                 <apex:column value="{!cMember.campaignMember.Name}" headerValue="{!$Label.CL_Member_Name}"/>
+                <apex:column value="{!cMember.campaignMember.Contact_Id__r.Name}" headerValue="{!$Label.Contact_Id}"/>
+                  <apex:column value="{!cMember.campaignMember.Campaign_ID__r.Name}" headerValue="{!$Label.Campaign_Id}"/>
+                   <apex:column value="{!cMember.campaignMember.Retail_Campaign_Id__c}" headerValue="{!$Label.Retail_Campaign_Id}"/>
+                    <apex:column value="{!cMember.campaignMember.UsVIN__c}" headerValue="{!$Label.UsVIN}"/>
+                     <apex:column value="{!cMember.campaignMember.Contract_Number__c}" headerValue="{!$Label.Contract_Number}"/>
             </apex:pageBlockTable>
             <apex:pageBlockButtons location="bottom">
                 <apex:commandButton action="{!showPopup}" value="{!$Label.Convert_To_Lead}" rerender="tstpopup"/>
