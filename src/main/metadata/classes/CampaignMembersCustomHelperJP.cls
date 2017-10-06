@@ -113,11 +113,14 @@ UserMap.put(u.id,u.Dealer_GC_Code__c);
 dealerCode.add(u.Dealer_GC_Code__c);
 }   
 }
-List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode];
+if(dealerCode.size()>0 && dealerCode != null){
+List<Account> dealerAccList = [select Name,MD__c,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND MD__c ='JP'];
 For(Account acc :dealerAccList){
     accountName.add(acc.Name);
 }
+}
 List<Group>grList = [select Id, Name, Type from Group where Name =: accountName];
+
 if(recordIds.size()>0 && accountName != null){
     
    For(Campaign_Member__c camMem : newList){
@@ -161,6 +164,7 @@ insert campMemShare;
         {
            if( vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c == null && vc.contact_Id__c != null)
             {
+             
                     if(!mapCheckingType.containsKey(vc.contact_Id__c))
                     {
                         mapCheckingType.put(vc.contact_Id__c, new List<Id>());
@@ -170,6 +174,7 @@ insert campMemShare;
                     set_CustomerId.add(vc.contact_Id__c);
             }else if(vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c != null  )
             {
+               
                 if(!mapCamapignMember.containsKey(vc.Preferred_Dealer__c)){
                       mapCamapignMember.put(vc.Preferred_Dealer__c, new List<Id>());
                   }
@@ -179,6 +184,7 @@ insert campMemShare;
         }  
             if(set_AccountId.size() > 0)
             {
+               
                 List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_AccountId];
                 for(Account acc : accName)
                 {
@@ -231,6 +237,7 @@ insert campMemShare;
         
         
         if(mapCamapignMember.size() > 0){
+            
             list_SharingRecord.addAll(createDealerAccountSharing(mapCamapignMember));
         }
         
