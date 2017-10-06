@@ -3,7 +3,7 @@ public  class AccountLinkController
       public Account_LInk__c acclnkdealer{get;set;}
       public Account acc{get;set;}
        public Account Dealeracc{get;set;}
-      public Account_LInk__c acclnkrellist{get;set;}
+      public list<Account_Link__c> acclnkrellist{get;set;}
       public List<Account_LInk__c> listalk{get;set;}
        public List<Account_LInk__c> listdupalk{get;set;}
        public String redirectUrl {public get; private set;}
@@ -31,7 +31,7 @@ public  class AccountLinkController
         us=new User();
         Dealeracc=new Account();
         acclnkdealer=new Account_LInk__c();
-        acclnkrellist=new Account_LInk__c();
+        acclnkrellist=new list<Account_LInk__c>();
         listdupalk=new List<Account_LInk__c> ();
         aid = ApexPages.currentPage().getParameters().get('id');
         //sarath added market field in the query 
@@ -103,10 +103,13 @@ public  class AccountLinkController
                 }
        }
                 if(acc.recordtypeid ==accPerson_RecordTypeId || acc.recordtypeid ==accPersonAccountSoftDeleted_RecordTypeId){
-                    try{
+                    
+                        
                         acclnkrellist=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,fromRole__c,Retail_Sales_Consultant__c,Selling_Dealer__c,toRole__c,Retail_Comments__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and recordtypeID=:alkPerson_RecordTypeId and Retail_Delete_Flag__c=false];
-                    }
-                    catch(Exception e){}
+                        
+                   
+                    
+                   
                 }
                 if(acc.recordtypeid ==accCompany_RecordTypeId){
                     try{
