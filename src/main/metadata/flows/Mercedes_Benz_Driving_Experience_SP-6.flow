@@ -219,8 +219,8 @@
     <decisions>
         <name>Decision_Q12</name>
         <label>Decision_Q12</label>
-        <locationX>411</locationX>
-        <locationY>244</locationY>
+        <locationX>414</locationX>
+        <locationY>245</locationY>
         <defaultConnector>
             <targetReference>Q13</targetReference>
         </defaultConnector>
@@ -244,8 +244,8 @@
     <decisions>
         <name>Start_MBDE_Sales_Process_Survey</name>
         <label>Start MBDE Sales Process Survey</label>
-        <locationX>13</locationX>
-        <locationY>17</locationY>
+        <locationX>14</locationX>
+        <locationY>22</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>Start_Survey</name>
@@ -536,7 +536,7 @@
     <recordCreates>
         <name>Create_Survey_Question_Response11</name>
         <label>Create_Survey_Question_Response11</label>
-        <locationX>675</locationX>
+        <locationX>677</locationX>
         <locationY>563</locationY>
         <connector>
             <targetReference>Create_Survey_Question_Response12</targetReference>
@@ -1053,10 +1053,11 @@
         </fields>
         <fields>
             <name>Q10_others</name>
+            <dataType>String</dataType>
             <defaultValue>
                 <stringValue></stringValue>
             </defaultValue>
-            <fieldType>LargeTextArea</fieldType>
+            <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
     </screens>
@@ -1135,8 +1136,8 @@
     <screens>
         <name>Q12_why_not</name>
         <label>Q12_why_not</label>
-        <locationX>408</locationX>
-        <locationY>344</locationY>
+        <locationX>416</locationX>
+        <locationY>346</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -1460,7 +1461,7 @@
     </textTemplates>
     <textTemplates>
         <name>Q12_res</name>
-        <text>{!Q12_Radio} {!Q12_fav_model} {!Q12_why}</text>
+        <text>{!Q12_Radio} {!Q12_fav_model}{!Q12_why}</text>
     </textTemplates>
     <textTemplates>
         <name>Ques3_1</name>
