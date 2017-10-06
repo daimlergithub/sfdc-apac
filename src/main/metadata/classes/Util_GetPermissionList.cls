@@ -79,11 +79,13 @@ public class Util_GetPermissionList {
             UpermissionSetIDs=maj.Functionality_Access__r.PermissionSet_Ids__c.split(';');
             List<CustomPermission> Ucustompermissions=new List<CustomPermission>();
             Ucustompermissions=[SELECT  DeveloperName FROM CustomPermission where id IN (SELECT SetupEntityId from SetupEntityAccess WHERE SetupEntityType='CustomPermission' AND ParentId In : UpermissionSetIDs ) ];
-            
-               for(CustomPermission cp:Ucustompermissions)
+            if(Ucustompermissions.size()>0)
             {
+                for(CustomPermission cp:Ucustompermissions)
+              {
                 UserPermissions.add(cp.DeveloperName);
-            }
+              } 
+            }    
           }
         }
          if(UserPermissions.size()>0) UserPermissionMap.put(u.id, UserPermissions);
@@ -119,10 +121,14 @@ public class Util_GetPermissionList {
             UpermissionSetIDs=maj.Functionality_Access__r.PermissionSet_Ids__c.split(';');
             List<CustomPermission> Ucustompermissions=new List<CustomPermission>();
             Ucustompermissions=[SELECT  DeveloperName FROM CustomPermission where id IN (SELECT SetupEntityId from SetupEntityAccess WHERE SetupEntityType='CustomPermission' AND ParentId In : UpermissionSetIDs ) ];
-            for(CustomPermission cp:Ucustompermissions)
+            if(Ucustompermissions.size()>0)
             {
+                 for(CustomPermission cp:Ucustompermissions)
+               {
                 MarketPermissions.add(cp.DeveloperName);
+               }
             }
+              
           }
         }
        if(MarketPermissions.size()>0) MarketPermissionMap.put(MD, MarketPermissions);
