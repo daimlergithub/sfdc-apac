@@ -27,7 +27,7 @@
         <apex:outputPanel layout="block" style="overflow:auto;height:330px" >
          <apex:includeScript value="/support/console/32.0/integration.js"/>
         <apex:pageBlock id="Block">
-           <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c=='JP',true,false)}">
+            <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c=='JP',true,false)}">
            
                 <table style="width:100%" rules="rows">               
                    <tr>        
@@ -40,7 +40,7 @@
                   <!--Sarath added extra row to display market over page-->     
                    <tr>             
                        <th style="text-align: Right;">Market</th>               
-                       <td><apex:outputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
                        </td>                                
                        <td></td>        
@@ -58,7 +58,12 @@
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile__c} </a> </apex:outputPanel>
                           
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
+                           <!--<apex:selectList size="1" value="{!selectedMobile}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!mobileStatusList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!!editMode}"/>
                        </td>     
                        <td>  
@@ -76,7 +81,12 @@
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile2__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile2__c} </a> </apex:outputPanel> 
                            
                        </td>  
-                       <td><apex:inputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!editMode}"/>
+                       <td>
+                           <!--MD changes - Added by Santosh Mohanty -->
+                           <apex:inputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!editMode}"/>
+                            <!--<apex:selectList size="1" value="{!selectedSMSMMSIMStatus2}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!smsMMSIMStatus2List}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!!editMode}"/>
                        </td>        
                        <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_By2__c}" />
@@ -91,7 +101,12 @@
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c} </a> </apex:outputPanel>   
                            
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <!--<apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>-->
+                            <apex:selectList size="1" value="{!selectedHomePhoneStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!homePhoneStatusList}"/>
+                           </apex:selectList>
                            <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By__c}" />
@@ -108,7 +123,12 @@
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Home_Phone_2__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Home_Phone_2__c} </a> </apex:outputPanel>    
                            
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Home_Phone_Status_2__c}" rendered="{!editMode}" />
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Home_Phone_Status_2__c}" rendered="{!editMode}" />
+                           <!--<apex:selectList size="1" value="{!selectedHomePhoneStatus2}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!homePhoneStatus2List}"/>
+                           </apex:selectList>  -->
                            <apex:outputField value="{!ParAcc.Home_Phone_Status_2__c}"  rendered="{!!editMode}" />
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By2__c}" />
@@ -124,7 +144,12 @@
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a> </apex:outputPanel>     
                            
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
+                           <!--<apex:selectList size="1" value="{!selectedWorkPhoneStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!workPhoneStatusList}"/>
+                           </apex:selectList> -->
                            <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />
@@ -140,7 +165,12 @@
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Phone}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Phone} </a> </apex:outputPanel>    
                        
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!editMode}" />
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!editMode}" />
+                           <!--<apex:selectList size="1" value="{!selectedWorkPhoneStatus2}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!workPhoneStatus2List}"/>
+                           </apex:selectList> -->
                            <apex:outputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!!editMode}" />
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By2__c}" />
@@ -154,7 +184,12 @@
                        <td><apex:inputField value="{!ParAcc.Email__c}" rendered="{!editMode}" />
                            <apex:outputField value="{!ParAcc.Email__c}" rendered="{!!editMode}" />
                        </td>           
-                       <td><apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedEmailStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!emailStatusList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Email_Status__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By__c}" />
@@ -168,7 +203,12 @@
                        <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Email2__c}"  rendered="{!!editMode}"/>
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedEmailStatus2}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!emailStatus2List}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />
@@ -182,7 +222,12 @@
                        <td><apex:inputField value="{!ParAcc.Email3__c}" rendered="{!editMode2}"/>
                            <apex:outputField value="{!ParAcc.Email3__c}" rendered="{!!editMode2}"/>
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Email_Status_3__c}"  rendered="{!editMode}"/>
+                       <td>
+                          <!--MD changes - Added by Santosh Mohanty -->
+                          <apex:inputField value="{!ParAcc.Email_Status_3__c}"  rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedEmailStatus3}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!emailStatus3List}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Email_Status_3__c}"  rendered="{!!editMode}"/>
                        </td>   
                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By3__c}" />
@@ -196,7 +241,12 @@
                        <td><apex:inputField value="{!ParAcc.Fax}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Fax}" rendered="{!!editMode}"/>
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
+                           <!--<apex:selectList size="1" value="{!selectedFaxvalidity}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!faxvalidityList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Fax_Last_Modified_By__c}" /></td>
@@ -211,7 +261,12 @@
                        <td><apex:inputField value="{!ParAcc.Fax2__c}" rendered="{!editMode}" />
                            <apex:outputField value="{!ParAcc.Fax2__c}" rendered="{!!editMode}" />
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!editMode}"/>
+                       <td>
+                          <!--MD changes - Added by Santosh Mohanty -->
+                          <apex:inputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedFaxvalidity2}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!faxvalidity2List}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Work_Fax_Last_Modified_By__c}" /></td>
@@ -219,7 +274,7 @@
                    </tr> 
                    
                </table>    
-            </apex:pageBlock> 
+            </apex:pageBlock>
             <apex:pageBlock id="myTableKR" rendered="{!If(ParAcc.MD__c=='KR',true,false)}">
                 
                 <table style="width:100%" border="1">               
@@ -234,7 +289,7 @@
                    <!--Sarath added extra row to display market over page-->        
                    <tr>             
                        <th style="text-align: Right;">Market</th>               
-                       <td><apex:outputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
                        </td>                                
                        <td></td>        
@@ -257,8 +312,13 @@
                          </a>                         
                        </apex:outputPanel>    
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
+                           <!--<apex:selectList size="1" value="{!selectedMobile}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!mobileStatusList}"/>
+                           </apex:selectList>-->
+                          <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!!editMode}"/>
                        </td>     
                        <td>  
                        <apex:outputField value="{!ParAcc.SMS_Last_Modified_By__c}"/>           
@@ -298,7 +358,12 @@
                          </a>
                    </apex:outputPanel>    
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedHomePhoneStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!homePhoneStatusList}"/>
+                           </apex:selectList> -->
                            <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By__c}" />
@@ -338,7 +403,12 @@
                        </apex:outputPanel>     
                            
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
+                           <!--<apex:selectList size="1" value="{!selectedWorkPhoneStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!workPhoneStatusList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />
@@ -408,7 +478,12 @@
                        <td><apex:inputField value="{!ParAcc.Email__c}"  rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Email__c}"  rendered="{!!editMode}"/>
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
+                       <td>
+                          <!--MD changes - Added by Santosh Mohanty -->
+                          <apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedEmailStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!emailStatusList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Email_Status__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By__c}" />
@@ -421,7 +496,12 @@
                        <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Email2__c}"  rendered="{!!editMode}"/>
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>
+                       <td>
+                          <!--MD changes - Added by Santosh Mohanty -->
+                          <apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedEmailStatus2}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!emailStatus2List}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />
@@ -434,7 +514,12 @@
                        <td><apex:inputField value="{!ParAcc.Fax}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Fax}" rendered="{!!editMode}"/>
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
+                           <!--<apex:selectList size="1" value="{!selectedFaxvalidity}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!faxvalidityList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td></td>
@@ -466,7 +551,7 @@
                    <!--Sarath added extra row to display market over page-->        
                    <tr>             
                        <th style="text-align: Right;">Market</th>               
-                       <td><apex:outputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
                        </td>                                
                        <td></td>        
@@ -485,7 +570,12 @@
                              javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile__c} </a> 
                        </apex:outputPanel>    
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
+                           <!--<apex:selectList size="1" value="{!selectedMobile}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!mobileStatusList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!NOT(editMode)}"/>
                        </td>     
                        <td>  
@@ -503,7 +593,12 @@
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c}</a>
                    </apex:outputPanel>    
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedHomePhoneStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!homePhoneStatusList}"/>
+                           </apex:selectList>--> 
                            <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By__c}" />
@@ -515,7 +610,7 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                
                        <td>
-                          <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!editMode}" style="width:30px"/>
+                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!editMode}" style="width:30px"/>
                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" rendered="{!editMode}" style="width:120px"/>  
                           
                        <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
@@ -523,7 +618,12 @@
                        </apex:outputPanel>     
                            
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
+                           <!--<apex:selectList size="1" value="{!selectedWorkPhoneStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!workPhoneStatusList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />
@@ -536,7 +636,12 @@
                        <td><apex:inputField value="{!ParAcc.Email__c}"  rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Email__c}"  rendered="{!!editMode}"/>
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                          <apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedEmailStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!emailStatusList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Email_Status__c}" rendered="{!!editMode}"/>
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By__c}" />
@@ -549,8 +654,13 @@
                        <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Email2__c}"  rendered="{!!editMode}"/>
                        </td>                           
-                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedEmailStatus2}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!emailStatus2List}"/>
+                           </apex:selectList> 
+                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>-->
                        </td>   
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />
                                                
@@ -586,7 +696,12 @@
                              javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.fax}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.fax} </a> 
                        </apex:outputPanel>    
                        </td> 
-                       <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
+                           <!--<apex:selectList size="1" value="{!selectedFaxvalidity}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!faxvalidityList}"/>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!NOT(editMode)}"/>
                        </td>     
                        <td>  
@@ -610,7 +725,7 @@
                    <!--Sarath added extra row to display market over page-->        
                    <tr>        
                        <th style="text-align: Right;">Market</th>        
-                       <td><apex:outputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>
                        </td>                           
                        <td></td>
