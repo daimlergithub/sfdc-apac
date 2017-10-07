@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>New_Case</customButtons>
-    <customButtons>New_Lead</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -23,6 +21,14 @@
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
+				<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Status__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Data_Source__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing__c</field>
@@ -33,10 +39,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Preferred_Contact_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -44,21 +46,18 @@
                 <field>Preferred_Contact_Method__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Special_Mark_on_Account__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Status__c</field>
-            </layoutItems>
+           
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Newspaper__c</field>
@@ -84,10 +83,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>UCID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -152,6 +147,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Commercial_Reg_No__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vat_No__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
