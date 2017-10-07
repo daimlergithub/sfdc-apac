@@ -105,8 +105,13 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
-        <application>MBTH_Catalogue_Operation</application>
+	<applicationVisibilities>
+        <application>MBTH_Call_Center_New</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+	<applicationVisibilities>
+        <application>Access_Management</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>

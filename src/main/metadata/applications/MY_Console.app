@@ -5,7 +5,7 @@
         <customApplicationComponent>Console.BuiltInComponent.knowledgeOne</customApplicationComponent>
     </customApplicationComponents>
     <defaultLandingTab>standard-home</defaultLandingTab>
-    <description>MBTH Call center for giving call center agents a console kind of access by using the Service Console.</description>
+    <description>MBMY Call center for giving call center agents a console kind of access by using the Service Console.</description>
     <detailPageRefreshMethod>none</detailPageRefreshMethod>
     <enableKeyboardShortcuts>true</enableKeyboardShortcuts>
     <enableMultiMonitorComponents>true</enableMultiMonitorComponents>
@@ -108,21 +108,21 @@
         </defaultShortcut>
         <defaultShortcut>
             <action>CONSOLE_LINK_DIALOG</action>
-            <active>false</active>
+            <active>true</active>
             <keyCommand>U</keyCommand>
         </defaultShortcut>
         <defaultShortcut>
             <action>HOTKEYS_PANEL</action>
-            <active>false</active>
+            <active>true</active>
             <keyCommand>SHIFT+K</keyCommand>
         </defaultShortcut>
         <defaultShortcut>
             <action>FOCUS_MACRO</action>
-            <active>false</active>
+            <active>true</active>
             <keyCommand>M</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
-    <label>MY Console</label>
+    <label>MBMY Customer Contact Center</label>
     <listPlacement>
         <location>full</location>
     </listPlacement>
@@ -1324,10 +1324,13 @@
     <tab>Account_Link__c</tab>
     <tab>standard-Case</tab>
     <tab>Lead__c</tab>
-    <tab>standard-Campaign</tab>
+	<tab>standard-Campaign</tab>
+    <tab>standard-report</tab>
     <tab>Vehicle_Relationship__c</tab>
     <tab>Vehicle__c</tab>
     <tab>Tasks</tab>
+	<tab>standard-Knowledge</tab>
+    <tab>standard-KnowledgePublishing</tab>
     <workspaceMappings>
         <mapping>
             <fieldName>fromRole__c</fieldName>
@@ -1359,5 +1362,14 @@
             <fieldName>AccountId</fieldName>
             <tab>standard-Case</tab>
         </mapping>
+		 <mapping>
+            <tab>standard-Knowledge</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-KnowledgePublishing</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
+        </mapping>		 
     </workspaceMappings>
 </CustomApplication>

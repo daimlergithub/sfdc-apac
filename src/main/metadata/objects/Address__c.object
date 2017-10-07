@@ -455,7 +455,17 @@
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
+			<picklistValues>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1214,6 +1224,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Singapore</fullName>
                 <default>false</default>
@@ -1224,6 +1238,22 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>New Zealand</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1518,6 +1548,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Singapore</fullName>
                 <default>false</default>
@@ -1528,6 +1562,22 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>New Zealand</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1832,6 +1882,26 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>    
+				<values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>New Zealand</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
