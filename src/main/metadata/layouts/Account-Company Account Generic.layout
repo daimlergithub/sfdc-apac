@@ -21,6 +21,14 @@
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
+				<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Status__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Data_Source__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing__c</field>
@@ -38,21 +46,18 @@
                 <field>Preferred_Contact_Method__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Special_Mark_on_Account__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Status__c</field>
-            </layoutItems>
+           
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Newspaper__c</field>
@@ -78,10 +83,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>UCID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -146,6 +147,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Commercial_Reg_No__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vat_No__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
