@@ -455,7 +455,12 @@
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
+			<picklistValues>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1214,6 +1219,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Singapore</fullName>
                 <default>false</default>
@@ -1516,6 +1525,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Brunei</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1834,6 +1847,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>        	
         </picklistValues>
         <picklistValues>
             <picklist>Market__c</picklist>

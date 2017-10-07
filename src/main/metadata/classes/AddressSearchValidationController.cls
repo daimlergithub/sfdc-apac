@@ -200,6 +200,7 @@ public class AddressSearchValidationController
         //MT20170913
         if(market==Label.MY){        
             AddressObj.Country__c='Malaysia';
+			objAccount.Market__c=market; 
             LoadProvince();     
             
         }        
@@ -932,8 +933,10 @@ public class AddressSearchValidationController
     } 
     //SN20170907        
       displayAccList.clear(); 
-	  if(Market==Label.MY) objAccount= new account();
-        
+	  if(Market==Label.MY){
+		objAccount= new account();
+		objAccount.Market__c=Market;
+      }  
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
