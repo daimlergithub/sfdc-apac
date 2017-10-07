@@ -22,6 +22,10 @@
                 <behavior>Edit</behavior>
                 <field>Priority</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Case_Class__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBTH_Case_Type__c</field>
@@ -55,10 +59,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_Case_Class__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -109,6 +109,10 @@
                 <behavior>Edit</behavior>
                 <field>CarClassOne__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>CarClassTwo__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CarClassThree__c</field>
@@ -138,10 +142,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CarModelThree__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CarClassTwo__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
