@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>New_Case</customButtons>
-    <customButtons>New_Lead</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -30,10 +28,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Lifecycle_Phase__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
