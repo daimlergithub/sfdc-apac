@@ -10143,4 +10143,18 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Contract Number</shortDescription>
         <value>Contract Number</value>
     </labels>
+	<labels>
+        <fullName>limitsize</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>search query limit for address search validation</shortDescription>
+        <value>100</value>
+    </labels>
+	<labels>
+        <fullName>SearchKey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>search key</shortDescription>
+        <value>UCID__c</value>
+    </labels>
 </CustomLabels>
