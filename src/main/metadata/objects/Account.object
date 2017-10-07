@@ -13748,6 +13748,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Invalid</fullName>
@@ -13755,6 +13756,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>

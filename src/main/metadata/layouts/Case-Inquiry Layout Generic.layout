@@ -52,6 +52,10 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Origin</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status</field>
@@ -59,7 +63,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
-            </layoutItems>
+            </layoutItems>			
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
@@ -221,10 +225,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Care_Owner__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Origin</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
