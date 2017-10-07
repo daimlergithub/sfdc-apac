@@ -460,6 +460,11 @@
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
 			<sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1235,6 +1240,22 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Market__c</picklist>
@@ -1541,6 +1562,22 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>New Zealand</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1850,7 +1887,23 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
 			<values>
                 <fullName>Brunei</fullName>
                 <default>false</default>
-            </values>        	
+            </values>    
+				<values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Market__c</picklist>

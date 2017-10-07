@@ -2320,7 +2320,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         else
         {
             custSearch=JSON2ApexCustomerCDM.parse(res.getbody());
-            Set<string> set_accounts= new set<string>();
+            list<string> set_accounts= new list<string>();
             For(JSON2ApexCustomerCDM.cls_OP_UCID cust : custSearch.OP_UCID){
                 Map<String, Object> m = (Map<String, Object>)JSON.deserializeUntyped(JSON.serialize(cust));
                 if(string.valueof(m.get(Label.AdminClientNum))!=null)
@@ -2328,9 +2328,24 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
-                    DedupAccountList.add(acc);
-                }
+				string querytxt='select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
+				querytxt=querytxt.replace('<Search>',label.SearchKey); 
+				set<String> valueSet = new set<String>();
+				for(Integer i=0; i<set_accounts.size(); i++){
+					valueSet.add('\'' + String.escapeSingleQuotes(set_accounts[i]) + '\'');
+				}
+				if (valueSet.isEmpty()){
+					valueSet.add('\'\'');
+				}
+				querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
+				for(account acc :database.query(querytxt)){
+						DedupAccountList.add(acc);
+					} 
+				
+		
+                //for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
+                //    DedupAccountList.add(acc);
+                //}
                 
                 last=false;     
                 previous=false;     

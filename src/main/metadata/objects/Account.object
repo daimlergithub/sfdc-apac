@@ -10312,6 +10312,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Collecting (Other)</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Collecting (antiques)</fullName>
@@ -10606,6 +10607,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Art Collecting</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
