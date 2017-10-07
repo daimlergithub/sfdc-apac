@@ -327,10 +327,19 @@ public class AddressSearchValidationController
         }
         else if(market == System.Label.MY)
         {
-            if(AddressObj.Country__c!=Label.MYCountry)            
-                IsForeignNational=true;
-            else
+            if(AddressObj.Country__c!=Label.MYCountry){
+				
+				IsForeignNational=true;
+				province='';
+                district='';
+				
+			}
+            else{
                 IsForeignNational=false;
+				//SN20171006- Added code to default value
+                province='--Select--';
+                district='--Select--';
+			}
          }
        }
     //Introduced for TH market - End
@@ -922,7 +931,8 @@ public class AddressSearchValidationController
         }  
     } 
     //SN20170907        
-      displayAccList.clear();    
+      displayAccList.clear(); 
+	  if(Market==Label.MY) objAccount= new account();
         
     }
     /**  Address Search based on Zip code.

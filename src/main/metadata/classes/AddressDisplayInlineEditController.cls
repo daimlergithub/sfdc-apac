@@ -148,10 +148,18 @@ public class AddressDisplayInlineEditController {
         }
         else if(market == System.Label.MY)
         {
-            if(AddressObj.Country__c!=Label.MYCountry)            
+            if(AddressObj.Country__c!=Label.MYCountry){            
                 IsForeignNational=true;
-            else
+				province='';
+                district='';
+			}
+            else{
                 IsForeignNational=false;
+				//SN20171006- Added code to default value
+                province='--Select--';
+                district='--Select--';
+
+			}
         }
       }
       
