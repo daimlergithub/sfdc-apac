@@ -4381,6 +4381,11 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -13804,32 +13809,32 @@ Function: After a suspect account is rejected or merged, master account id shoul
             <picklistValues>
                 <fullName>&lt; 10,000 MYR</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>10,001 - 20,000 MYR</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>20,001 - 30,000 MYR</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>30,001 - 40,000 MYR</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>40,001 - 50,000 MYR</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>&gt; 50,001 MYR</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
@@ -15255,18 +15260,21 @@ Modify Reason:
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>No</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
