@@ -200,6 +200,7 @@ public class AddressSearchValidationController
         //MT20170913
         if(market==Label.MY){        
             AddressObj.Country__c='Malaysia';
+			objAccount.Market__c=market; 
             LoadProvince();     
             
         }        
@@ -327,10 +328,19 @@ public class AddressSearchValidationController
         }
         else if(market == System.Label.MY)
         {
-            if(AddressObj.Country__c!=Label.MYCountry)            
-                IsForeignNational=true;
-            else
+            if(AddressObj.Country__c!=Label.MYCountry){
+				
+				IsForeignNational=true;
+				province='';
+                district='';
+				
+			}
+            else{
                 IsForeignNational=false;
+				//SN20171006- Added code to default value
+                province='--Select--';
+                district='--Select--';
+			}
          }
        }
     //Introduced for TH market - End
@@ -922,8 +932,11 @@ public class AddressSearchValidationController
         }  
     } 
     //SN20170907        
-      displayAccList.clear();    
-        
+      displayAccList.clear(); 
+	  if(Market==Label.MY){
+		objAccount= new account();
+		objAccount.Market__c=Market;
+      }  
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -2307,7 +2320,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         else
         {
             custSearch=JSON2ApexCustomerCDM.parse(res.getbody());
-            Set<string> set_accounts= new set<string>();
+            list<string> set_accounts= new list<string>();
             For(JSON2ApexCustomerCDM.cls_OP_UCID cust : custSearch.OP_UCID){
                 Map<String, Object> m = (Map<String, Object>)JSON.deserializeUntyped(JSON.serialize(cust));
                 if(string.valueof(m.get(Label.AdminClientNum))!=null)
@@ -2315,9 +2328,24 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
-                    DedupAccountList.add(acc);
-                }
+				string querytxt='select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
+				querytxt=querytxt.replace('<Search>',label.SearchKey); 
+				set<String> valueSet = new set<String>();
+				for(Integer i=0; i<set_accounts.size(); i++){
+					valueSet.add('\'' + String.escapeSingleQuotes(set_accounts[i]) + '\'');
+				}
+				if (valueSet.isEmpty()){
+					valueSet.add('\'\'');
+				}
+				querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
+				for(account acc :database.query(querytxt)){
+						DedupAccountList.add(acc);
+					} 
+				
+		
+                //for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
+                //    DedupAccountList.add(acc);
+                //}
                 
                 last=false;     
                 previous=false;     
