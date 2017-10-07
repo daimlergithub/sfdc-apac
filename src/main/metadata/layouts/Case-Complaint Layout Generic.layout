@@ -32,6 +32,10 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Case_Type__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Case_Subtype__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
@@ -117,10 +121,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Complaint_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_Case_Subtype__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
