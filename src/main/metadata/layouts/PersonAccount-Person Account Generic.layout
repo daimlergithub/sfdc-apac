@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>New_Case</customButtons>
-    <customButtons>New_Lead</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
@@ -180,11 +178,11 @@
                 <field>Loyalty_Card_No__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
@@ -225,6 +223,14 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Language__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Newspaper__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Radio_Station__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>VIP__c</field>
@@ -246,6 +252,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Occupation__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Job__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

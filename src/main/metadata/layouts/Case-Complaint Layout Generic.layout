@@ -110,6 +110,10 @@
                 <behavior>Edit</behavior>
                 <field>AccountId</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Origin</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status</field>
@@ -272,11 +276,11 @@
         <label>Repeat Complaint</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>ParentId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Repeat_Complaint_Times__c</field>
             </layoutItems>
         </layoutColumns>
@@ -294,10 +298,6 @@
         <editHeading>true</editHeading>
         <label>System Info</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Origin</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SuppliedEmail</field>
