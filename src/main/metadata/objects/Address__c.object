@@ -460,11 +460,7 @@
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<values>
-                <fullName>Brunei</fullName>
-                <default>false</default>
-            </values>  
-            <sorted>false</sorted>
+			<sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
