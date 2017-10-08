@@ -121,10 +121,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Home_Phone_Status_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Mobile_Status__c</field>
             </layoutItems>
             <layoutItems>
@@ -144,20 +140,12 @@
                 <field>System_Data_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Work_Phone_Status_2__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Email_Sent_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Active_Contracts__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -197,10 +185,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ID_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>First_Consent_User__c</field>
             </layoutItems>
             <layoutItems>
@@ -209,6 +193,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Market__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
@@ -263,14 +251,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email_Status_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Fax2__c</field>
             </layoutItems>
             <layoutItems>
@@ -308,14 +288,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Opt_In_Home_Phone2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Opt_In_SMS2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Opt_In_Work_Phone2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -379,10 +351,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Marital_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Newspaper__c</field>
             </layoutItems>
             <layoutItems>
@@ -397,19 +365,30 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Phone__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ID_Number__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>false</editHeading>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
         <label>Contact Infromation</label>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <height>370</height>
+                <page>ContactTable</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>500</height>
+                <page>AddressDisplayInlineEdit</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>1400</width>
+            </layoutItems>
+        </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
@@ -440,39 +419,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Special_Needs_Class__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Trucks_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Unimog_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vans_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Western_Star_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Business_Unit__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Alliance_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allmakes_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bus_Offered_Service__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -502,10 +449,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Website</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Sales_Sanction__c</field>
             </layoutItems>
             <layoutItems>
@@ -526,70 +469,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Annual_Mileage__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AnnualRevenue</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Buy_Cycle__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Corporate_Program__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Country__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Fleet_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Fleet_Sub_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>UpsellOpportunity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vat_No__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Telematics Related Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TSP_Account_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TSP_Closed_Reason__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TSP_Address__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TSP_Account_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TSP_Esa_Flg__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -606,43 +490,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Customer_LastUpdatedDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Online_Dedup_Hidden__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Warranty_Apply_User__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Warranty_Apply_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Created_By_EP_Transaction__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Last_Modified_By__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Last_Modified_By3__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Last_Modified_Date2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SMS_Last_Modified_By__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SMS_Last_Modified_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -651,66 +499,8 @@
                 <field>LastModifiedById</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Last_Modified_User_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Warranty_Apply_Date__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Last_Modified_By2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Last_Modified_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Last_Modified_Date3__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Home_Phone_Last_Modified_By2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Home_Phone_Last_Modified_Date2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SMS_Last_Modified_By2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SMS_Last_Modified_Date2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Work_Phone_Last_Modified_By2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Work_Phone_Last_Modified_Date2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Old_UCID__c</field>
-            </layoutItems>
-			<layoutItems>
-                <behavior>Edit</behavior>
-                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -803,21 +593,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>
-        <fields>Product_Name__c</fields>
-        <fields>Type__c</fields>
-        <fields>Status__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>VIN__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <relatedList>Retail_Task__c.Account__c</relatedList>
-        <sortField>StartDate__c</sortField>
-        <sortOrder>Desc</sortOrder>
-    </relatedLists>
-    <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>
@@ -835,9 +610,6 @@
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedEntityHistoryList</relatedList>
-    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
@@ -845,7 +617,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000ItFa</masterLabel>
+        <masterLabel>00h0l000000NBZw</masterLabel>
         <sizeX>1</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
