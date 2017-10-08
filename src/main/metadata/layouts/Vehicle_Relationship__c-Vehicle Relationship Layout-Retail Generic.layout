@@ -213,6 +213,10 @@
                 <behavior>Edit</behavior>
                 <field>End_Setting_User__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Additional_Offer_Others__c</field>
+            </layoutItems>	
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

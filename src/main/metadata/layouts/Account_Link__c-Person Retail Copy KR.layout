@@ -350,6 +350,7 @@
     </layoutSections>
     <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>
+		<fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -357,6 +358,7 @@
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
+		<fields>TASK.SUBJECT</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
