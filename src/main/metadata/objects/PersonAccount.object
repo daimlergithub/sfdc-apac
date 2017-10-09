@@ -6969,7 +6969,7 @@
             <values>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
-            </values>							  
+            </values>		
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>

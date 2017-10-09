@@ -46,8 +46,9 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <enableActivities>false</enableActivities>
+    <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+	<enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -56,10 +57,12 @@
     <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Active__c</fullName>
-        <defaultValue>false</defaultValue>
+		<defaultValue>false</defaultValue>		
+		<description>Shows this is the Activate Flag in use</description>        
         <externalId>false</externalId>
+		<inlineHelpText>Activate Flag</inlineHelpText>
         <label>Active</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -134,7 +137,7 @@
         <fullName>CreatedById__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>CreatedById</label>
+        <label>User</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Account_Link4</relationshipName>
         <required>false</required>
@@ -293,7 +296,7 @@
         <fullName>LastModifiedById__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>LastModifiedById</label>
+        <label>User</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Account_Link5</relationshipName>
         <required>false</required>
@@ -371,7 +374,7 @@
         <label>MB Connection</label>
         <length>20</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -475,7 +478,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <label>Origin</label>
         <length>20</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -484,7 +487,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <fullName>OwnerId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>OwnerId</label>
+        <label>User</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Account_Link3</relationshipName>
         <required>false</required>
@@ -522,9 +525,9 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
     <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
-        <label>Portal Mail Address</label>
+        <label>Portal E-Mail</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
@@ -545,7 +548,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Portal Message Mail Opt Out</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -554,7 +557,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Portal Message Opt Out</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -622,7 +625,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -642,7 +645,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Primary</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -751,6 +754,15 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <description>Read Only</description>
         <externalId>false</externalId>
         <label>Retail Address Reference</label>
+		<lookupFilter>		
+            <active>true</active>		
+            <filterItems>		
+                <field>Address__c.Customer__c</field>		
+                <operation>equals</operation>		
+                <valueField>$Source.toRole__c</valueField>		
+            </filterItems>		
+            <isOptional>false</isOptional>		
+        </lookupFilter>
         <referenceTo>Address__c</referenceTo>
         <relationshipLabel>Account Link</relationshipLabel>
         <relationshipName>Account_Link</relationshipName>
