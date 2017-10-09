@@ -176,6 +176,17 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
         system.debug('@@@@@@ addressupdatelst'+addressupdatelst);
     }
     
+	  /******/
+    public static void updateAllowDataShareBasedonDocFields(list<Account> listNewAccounts)
+    {
+     for(Account acc: listNewAccounts)
+        { 
+           if(acc.MD__c == 'KR' && ((acc.Personal_Info_Third_Party_Release_CC_Old__c == 'Yes' && acc.Personal_Agreement_CC_Old__c == 'Yes' && acc.Agreement_to_commit_info_proces_CC_Old__c == 'Yes')||(acc.Personal_Agreement__c == 'Yes' && acc.Personal_Information_Third_Party_Release__c == 'Yes' && acc.Agreement_to_commit_info_processing__c == 'Yes')))
+            {
+              acc.Allow_Data_Sharing2__c = 'Yes';
+            }
+        }
+    }
     
     /**
 * Use Email Opt Out (PersonHasOptedOutOfEmail) to automate opt-out from email options.

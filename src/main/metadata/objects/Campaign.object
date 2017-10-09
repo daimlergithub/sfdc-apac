@@ -13417,6 +13417,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>MMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
@@ -13425,7 +13429,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18015,7 +18027,23 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18024,6 +18052,18 @@
             </values>
             <values>
                 <fullName>Ongoing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21809,7 +21849,7 @@
     <validationRules>
         <fullName>CAC_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAC_Campaign',ISNEW(),IsActive = True,(UPPER(MD__c) = 'KR' || UPPER(MD__c) = 'TH'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>OR(AND(RecordType.DeveloperName = 'CAC_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'KR' ,$Profile.Name != 'IntegrationAPI'),AND(RecordType.DeveloperName = 'Planning_Design_Campaign',ISNEW(),IsActive = True, UPPER(MD__c) = 'TH',$Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAC Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
@@ -21887,8 +21927,8 @@ OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Prof
         <active>true</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
-        <errorConditionFormula>(ISPICKVAL( Status , 'Planned')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
-OR(UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( Status , 'Planned') &amp;&amp; IsActive &amp;&amp; RecordType.DeveloperName = "Planning_Design_Campaign"&amp;&amp;
+UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
@@ -21955,6 +21995,37 @@ OR(UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondi
  ),
  $Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'KR' , UPPER(MD__c) = 'TH')
 )</errorConditionFormula>
+        <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Locked_for_Central_when_Published_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+RecordType.Name =='Planning_Design_Campaign',
+
+OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
+OR( ISCHANGED( Campaign_Code__c ),
+ISCHANGED( Name ),
+ISCHANGED( Description ), 
+ISCHANGED( Brand__c ), 
+ISCHANGED( Plan_Start_Date__c ), 
+ISCHANGED( Plan_End_Date__c ), 
+ISCHANGED( Region__c ), 
+ISCHANGED( Actual_Region_Expense__c ), 
+ISCHANGED( Region_Budget__c ), 
+ISCHANGED( Media_Type__c ), 
+ISCHANGED( Event_Type__c ), 
+ISCHANGED( CBU_PbP__c ), 
+ISCHANGED( Other_Media_Type__c ), 
+ISCHANGED( Other_Event_Type__c ), 
+ISCHANGED( Car_Model__c ), 
+ISCHANGED( Campaign_Type__c ), 
+ISCHANGED( Driven__c ), 
+ISCHANGED( Min_Car_Age__c ), 
+ISCHANGED( Max_Car_Age__c ),
+ISCHANGED( Purpose__c )
+),
+$Profile.Name != 'IntegrationAPI', UPPER(MD__c) = 'TH')</errorConditionFormula>
         <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
