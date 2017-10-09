@@ -10511,47 +10511,6 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
 	<fields>
-        <fullName>Personal_Abroad_Agreement_Date__c</fullName>
-        <defaultValue>Today()</defaultValue>
-        <externalId>false</externalId>
-        <label>Personal Abroad Agreement Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>Personal_Abroad_Agreement__c</fullName>
-        <externalId>false</externalId>
-        <label>Personal Abroad Agreement</label>
-        <picklist>
-            <controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-	<fields>
         <fullName>Personal_Agreement_CC_Old__c</fullName>
         <externalId>false</externalId>
         <label>Personal Agreement</label>
