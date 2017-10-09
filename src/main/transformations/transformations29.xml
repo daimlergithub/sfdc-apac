@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformations>
+<!--added by dhanamjaya-->
+	<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE</token>
+    </changetext>
+		<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH</token>
+    </changetext>
+		<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID</token>
+    </changetext>
+		<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID</token>
+    </changetext>
+		<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID</token>
+    </changetext>
+		<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH</token>
+    </changetext>
+		<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH</token>
+    </changetext>
+		<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID</token>
+    </changetext>
+<!--end of -->
 	<changetext>
       <filename>objects\DM_Request__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request_Lead']/url/text()</xpath>
