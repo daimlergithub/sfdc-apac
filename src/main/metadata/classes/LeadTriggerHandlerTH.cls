@@ -7,6 +7,7 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf
 { 
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+    user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
     boolean flag=true;
         LeadHelperTH leadRS= new LeadHelperTH();
                 
@@ -21,8 +22,9 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf
             leadRS.leadValidation(trigger.new);
             leadRS.updateOwnerwithDealer(Trigger.new);   
         }
-        if(Trigger.isafter && Trigger.isinsert){
+        if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)&& usr.Profile.Name != 'IntegrationAPI'){
      leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);  
+     leadRS.CreateRetailCopy(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
         }
   
     }
