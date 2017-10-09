@@ -200,7 +200,7 @@ public class AddressSearchValidationController
         //MT20170913
         if(market==Label.MY){        
             AddressObj.Country__c='Malaysia';
-			objAccount.Market__c=market; 
+            objAccount.Market__c=market; 
             LoadProvince();     
             
         }        
@@ -329,18 +329,18 @@ public class AddressSearchValidationController
         else if(market == System.Label.MY)
         {
             if(AddressObj.Country__c!=Label.MYCountry){
-				
-				IsForeignNational=true;
-				province='';
+                
+                IsForeignNational=true;
+                province='';
                 district='';
-				
-			}
+                
+            }
             else{
                 IsForeignNational=false;
-				//SN20171006- Added code to default value
+                //SN20171006- Added code to default value
                 province='--Select--';
                 district='--Select--';
-			}
+            }
          }
        }
     //Introduced for TH market - End
@@ -933,9 +933,9 @@ public class AddressSearchValidationController
     } 
     //SN20170907        
       displayAccList.clear(); 
-	  if(Market==Label.MY){
-		objAccount= new account();
-		objAccount.Market__c=Market;
+      if(Market==Label.MY){
+        objAccount= new account();
+        objAccount.Market__c=Market;
       }  
     }
     /**  Address Search based on Zip code.
@@ -2008,7 +2008,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                           PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,PersonDoNotCall,Postal_Opt_Out__c,
                           Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
                           Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
-                          UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
+                          UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,Preferred_Phone__c,
                           PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
                           From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
                  
@@ -2186,7 +2186,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                           Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
                           Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
                           UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
-                          PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,
+                          PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,Preferred_Phone__c,
                           Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
                           From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
                 cResult = lstAcc;                 
@@ -2328,21 +2328,21 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-				string querytxt='select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
-				querytxt=querytxt.replace('<Search>',label.SearchKey); 
-				set<String> valueSet = new set<String>();
-				for(Integer i=0; i<set_accounts.size(); i++){
-					valueSet.add('\'' + String.escapeSingleQuotes(set_accounts[i]) + '\'');
-				}
-				if (valueSet.isEmpty()){
-					valueSet.add('\'\'');
-				}
-				querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
-				for(account acc :database.query(querytxt)){
-						DedupAccountList.add(acc);
-					} 
-				
-		
+                string querytxt='select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
+                querytxt=querytxt.replace('<Search>',label.SearchKey); 
+                set<String> valueSet = new set<String>();
+                for(Integer i=0; i<set_accounts.size(); i++){
+                    valueSet.add('\'' + String.escapeSingleQuotes(set_accounts[i]) + '\'');
+                }
+                if (valueSet.isEmpty()){
+                    valueSet.add('\'\'');
+                }
+                querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
+                for(account acc :database.query(querytxt)){
+                        DedupAccountList.add(acc);
+                    } 
+                
+        
                 //for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
                 //    DedupAccountList.add(acc);
                 //}
