@@ -25788,15 +25788,15 @@
             <picklist>Preferred_Phone__c</picklist>
             <values>
                 <fullName>Home phone</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Mobile phone</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Office phone</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
