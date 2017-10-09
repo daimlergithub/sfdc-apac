@@ -15936,7 +15936,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Mobile phone</fullName>
-                <default>false</default>
+                <default>true</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -15946,12 +15946,12 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <picklistValues>
                 <fullName>Home phone</fullName>
-                <default>false</default>
+                <default>true</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Office phone</fullName>
-                <default>false</default>
+                <default>true</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
@@ -24565,15 +24565,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Preferred_Phone__c</picklist>
             <values>
                 <fullName>Home phone</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Mobile phone</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Office phone</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
