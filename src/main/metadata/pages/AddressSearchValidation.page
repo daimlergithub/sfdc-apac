@@ -1138,7 +1138,7 @@
                 <!--    <apex:Column headerValue="{!$ObjectType.Account.fields.Primary_Address_Display__c.Label}">                            
                         <apex:outputField value="{!cr.Primary_Address_Display__c}"/>      
                     </apex:Column>-->
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                           
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Mobile__c.Label}">                           
                         <apex:outputField value="{!cr.Mobile__c}"/>     
                     </apex:Column>      
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
@@ -1165,8 +1165,8 @@
                         <apex:outputField value="{!cr.VIN__c}"/>        
                     </apex:Column>      
                      -->        
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                            
-                        <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Work_Phone__c.Label}">                            
+                        <apex:outputField value="{!cr.Work_Phone__c}"/>      
                     </apex:Column>      
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
                         <apex:outputField value="{!cr.Email__c}"/>
