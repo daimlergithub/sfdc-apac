@@ -13190,22 +13190,27 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
 			<picklistValues>
                 <fullName>Legal</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Real Estate</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Delivery</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Home</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Broadcasting, Media</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
@@ -14903,45 +14908,56 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Owner Relation</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Child</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Employee</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Grand Child</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Husband Wife</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Manager</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Parent</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Relative</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Same</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
