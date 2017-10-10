@@ -1,0 +1,9 @@
+Hi {!Retail_Campaign__c.CreatedBy},
+
+The Campaign {!Retail_Campaign__c.Name} is Approved by the Approver {!Campaign.Approver__c}, 
+
+Please find the Record Link: 
+{!Retail_Campaign__c.Link}
+For Communities: 
+https://asiadevth4-daimlerasia.cs58.force.com/MBThailand/{!Retail_Campaign__c.Id}
+Thanks!
