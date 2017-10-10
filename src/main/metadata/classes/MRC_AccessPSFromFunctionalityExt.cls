@@ -13,26 +13,23 @@ public class MRC_AccessPSFromFunctionalityExt {
      public Map<String, String>PermSMap{get;set;}
      public Boolean PSpresent{get;set;}
      public MRC_AccessPSFromFunctionalityExt(ApexPages.StandardController controller) 
-     {if (!Test.isRunningTest()){controller.addFields(new String[]{'PermissionSet_Ids__c','Permission_Sets__c','Module_Name__c','Description__c','Id'});}
+     {
+	 if (!Test.isRunningTest()){controller.addFields(new String[]{'PermissionSet_Ids__c','Permission_Sets__c','Module_Name__c','Description__c','Id'});}
        func=(Functionality_Access_Master__c)controller.getRecord();
       try{
          PSpresent=false; 
          PermSIDList= new List<String>();
          if(func.PermissionSet_Ids__c != null) PermSIDList= func.PermissionSet_Ids__c.split(';');
-      //PermSList.add(func.Permission_Sets__c.split(';') );
-      system.debug('list'+PermSIDList);
+      
       if(PermSIDList.size()>0 )
       {   PSpresent=true;
           displayPSMap();
       }
-      /*else{
-          system.debug('empty');
-          //ApexPages.Message myMsg = new ApexPages.Message(ApexPages.Severity.INFO ,'No Permissions sets are attached with functionality.');
-          //ApexPages.addMessage(myMsg);
-      }*/
+      
+     
       }catch(Exception e)
       {
-          system.debug(e.getMessage()+e.getStackTraceString());
+          CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
       }
        
         
@@ -40,12 +37,12 @@ public class MRC_AccessPSFromFunctionalityExt {
    public void displayPSMap()
    {
          PermSMap=new Map<String, String>();
-         for(String PS : PermSIDList)
-         {  System.debug(PS);
-            PermissionSet pset=[SELECT name,Id,IsOwnedByProfile,Label FROM PermissionSet where id=: PS];
-            PermSmap.put('/'+pset.id,pset.Name); 
-}
-       system.debug('map'+ PermSmap);
+		 List<permissionset> Permissionlist= new list<permissionset>([SELECT name,Id,IsOwnedByProfile,Label FROM PermissionSet where id in :PermSIDList]);
+         for(permissionset PS : Permissionlist)
+         {  
+            PermSmap.put('/'+ps.id,ps.Name); 
+		}
+      
    }
     
 }

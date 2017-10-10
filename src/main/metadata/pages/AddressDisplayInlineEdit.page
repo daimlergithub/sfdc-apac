@@ -251,8 +251,8 @@
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
-					
-					<apex:column headerValue="City" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
+                    
+                    <apex:column headerValue="City" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
@@ -266,7 +266,11 @@
                         <apex:outputField value="{!row.ZipCode__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>
-                                     
+                    
+					<apex:column headerValue="Country" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
+                        <apex:outputField value="{!row.Country__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>					
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
                         <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
@@ -341,8 +345,8 @@
                         <apex:inputField value="{!AddressObj.Block__c}"/>           
                     </apex:pageBlockSectionItem>
                     
-                
-                    <apex:outputField value="{!addressobj.Market__c }" />
+                    <!--MD added - commented santosh mohanty -->
+                    <!--<apex:outputField value="{!addressobj.Market__c }" />-->
                     <!-- <apex:inputField value="{!addressobj.Block__c}"/> -->
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>
                    
@@ -368,6 +372,11 @@
                      <apex:inputField value="{!addressobj.Address_Line_1_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/>
                      <apex:inputField value="{!addressobj.Address_Line_2_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/> 
                      <apex:inputField value="{!addressobj.Company_Name_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/>
+                     <!--MD Changes - Added by Santosh Mohanty-->
+                     <apex:pageBlockSectionItem >
+                       <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>   
+                       <apex:inputField value="{!addressobj.Market__c }" />
+                     </apex:pageBlockSectionItem>   
                 </apex:pageBlockSection>
                 
                  <apex:pageBlockSection title="Address Information" columns="2" id="pbsTH" rendered="{!IF(market=='TH',true,false)}">
@@ -456,10 +465,11 @@
                  <apex:pageblockSectionItem >
                     <apex:outputLabel value="Preferred"/>
                     <apex:inputField value="{!addressobj.Preferred__c}"/>
-                 </apex:pageblockSectionItem>  
+                 </apex:pageblockSectionItem>
+                 <!--MD changes by santosh Mohanty-->                   
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="Market"/>
-                        <apex:outputField value="{!addressObj.Market__c}"/>
+                        <apex:inputField value="{!addressobj.Market__c }" />  
                  </apex:pageBlockSectionItem>
                      
                 </apex:pageBlockSection>
@@ -473,18 +483,18 @@
                             <apex:selectOptions value="{!AddressOptions}"/>     
                         </apex:selectList>      
                     </apex:pageBlockSectionItem>        
-                    <!--Added Picklist Redesign Market Field-->     
-                    <apex:outputField value="{!addressobj.Market__c }" />        
+                    <!--Added Picklist Redesign Market Field-->
+                    <!--MD Changes - Added by Santosh Mohanty-->     
+                    <apex:inputField value="{!addressobj.Market__c }" />        
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>                          
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>          
                     <apex:inputField value="{!addressobj.Address_Line_3__c}"/>          
-                        
-                    <apex:pageBlockSectionItem >        
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>     
-                        <apex:inputField value="{!AddressObj.Foreign_Nationals__c}" id="chkForeignNational"     
-                            onclick="ForeignNationalFields(this.value)"/>       
-                    </apex:pageBlockSectionItem>        
                             
+                 <apex:pageblockSectionItem >       
+                    <apex:outputLabel value="Country"/>     
+                    <apex:inputField value="{!addressobj.Country__c}" onchange="ForeignNationalFields(this.value)"/>     
+                 </apex:pageblockSectionItem>  
+                 
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
                         <apex:outputLabel value="State/Province"/>      
                          <apex:selectList size="1" value="{!province}" id="slDistrict" onchange="loadDistrict(this.value)">     
@@ -516,10 +526,7 @@
                          <apex:inputText id="inpZip" value="{!zip}"/>       
                 </apex:pageBlockSectionItem>        
                         
-                 <apex:pageblockSectionItem >       
-                    <apex:outputLabel value="Country"/>     
-                    <apex:inputField value="{!addressobj.Country__c}"/>     
-                 </apex:pageblockSectionItem>       
+                      
                         
                  <apex:pageblockSectionItem >       
                     <apex:outputLabel value="Status"/>      

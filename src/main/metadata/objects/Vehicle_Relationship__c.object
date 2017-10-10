@@ -7082,7 +7082,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <active>true</active>
         <description>"End date is not null
 AND End reason is null"</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c)=='MY',$Permission.MYGeneric)))</errorConditionFormula>
         <errorDisplayField>End_Reason__c</errorDisplayField>
         <errorMessage>Once end date has been set for the vehicle relationship, the end reason must be entered.</errorMessage>
     </validationRules>

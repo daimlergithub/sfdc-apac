@@ -21,10 +21,10 @@ private class Util_GetPermissionList_Test{
     setupTestData();
     test.startTest();
     Util_GetPermissionList obj01 = new Util_GetPermissionList();
-    Util_GetPermissionList.UserPermissionMap = new Map<String,List<String>>();
-    Util_GetPermissionList.MarketPermissionMap = new Map<String,List<String>>();
-    system.debug('harshit+++'+user_Obj.Persona_Assigned__c); 
-    system.debug('harshit'+user_Obj+user_Obj.Persona_Assigned__c);
+    Util_GetPermissionList.UserPermissionMap = new Map<String,Set<String>>();
+    Util_GetPermissionList.MarketPermissionMap = new Map<String,Set<String>>();
+    //system.debug('harshit+++'+user_Obj.Persona_Assigned__c); 
+    //system.debug('harshit'+user_Obj+user_Obj.Persona_Assigned__c);
     List<User>Userl=new List<User>();  
     Userl.add(user_Obj);  
     Util_GetPermissionList.getUserPermissions(Userl);
@@ -38,4 +38,12 @@ private class Util_GetPermissionList_Test{
     Util_GetPermissionList.getPermissionsForMarket(MDList);
     test.stopTest();
   }
+  static testMethod void test_getPermissionsForMarket_UseCase3(){
+    setupTestData();
+    test.startTest();
+    Util_GetPermissionList.checkAccessForMarket('MY','abcd');
+    Util_GetPermissionList.checkAccessOnUser('abcd');
+    test.stopTest();
+  }  
+    
 }

@@ -24,17 +24,15 @@ public class MRC_PermissionHandler
 @InvocableMethod(label='updateProfile' description='This will update profile of user according to persona')
 public static void updateProfile(List<ID> ids )
 {   
-    //system.debug('inside method');
     List<User>userToUpdate = new List<User>();
     List<User> u= [Select id,Persona_Assigned__c,ChangesMadeInAssignedPersona__c from user where id in: ids];
     for(User ud: u){
-       //system.debug('hk'+ ud);
+       
         String uPersona=ud.Persona_Assigned__c;
         List <Persona__c> selectedMaj = new List<Persona__c>();
         selectedMaj=[Select name,id,PersonaName__c,ProfileId__c from Persona__c where PersonaName__c=: uPersona ];
-         if(selectedMaj != null && selectedMaj.size() > 0 )  
-         {ud.ProfileId=selectedMaj[0].ProfileId__c;
-        //ud.ChangesMadeInAssignedPersona__c=false;
+         if(selectedMaj != null && selectedMaj.size() > 0){
+		  ud.ProfileId=selectedMaj[0].ProfileId__c;       
           userToUpdate.add(ud);
          }
        }
@@ -49,9 +47,9 @@ public static void updateProfile(List<ID> ids )
       try{
           
     List<UserDetails> listUserDetails=new List<UserDetails>();
-    system.debug('//////////////////////');
+    
     for(SObject obj:Trigger.new)
-    {   system.debug('&&&&&&&&&&&&&&&&&&&');
+    {   
         User newu=(User)obj;
         User oldu=(User)trigger.oldmap.get(newu.id);
        
@@ -68,7 +66,7 @@ public static void updateProfile(List<ID> ids )
         
          List<PermissionSetAssignment> currentUserPerSetAssgmt =    [SELECT Id, PermissionSet.Name,AssigneeId FROM PermissionSetAssignment WHERE AssigneeId =:newu.id and PermissionSetId IN (SELECT Id FROM PermissionSet WHERE IsOwnedByProfile =false)];
          //remove already existing PS 
-         system.debug('currentUserPerSetAssgmt'+currentUserPerSetAssgmt.size());
+        
             try{
                  if(currentUserPerSetAssgmt.size() > 0)
                   {
@@ -76,7 +74,7 @@ public static void updateProfile(List<ID> ids )
                   }
                 }catch(Exception e)
                 {
-                 system.debug(e.getMessage());
+                 CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
                 }
          listUserDetails.add(ud);
         }
@@ -92,7 +90,7 @@ public static void updateProfile(List<ID> ids )
       }
       catch(Exception e)
       {
-          system.debug('!!!ERROR'+e.getMessage());
+          CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
       }
   }
   

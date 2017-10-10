@@ -158,10 +158,6 @@
                 <behavior>Edit</behavior>
                 <field>Share_to_Regional_Office__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allow_Data_Sharing__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

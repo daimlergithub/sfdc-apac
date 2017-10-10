@@ -2651,6 +2651,10 @@
         <name>Notify_To_Dealer2</name>
     </customLabels>
     <customLabels>
+        <label>&quot;販売店展開許諾&quot;が&quot;了承済み&quot;になっていない為、販売店への通知は出来ません。</label>
+        <name>Notify_To_Dealer3</name>
+    </customLabels>
+    <customLabels>
         <label>職業</label>
         <name>Occupation</name>
     </customLabels>
@@ -2845,7 +2849,7 @@
         <name>Please_enter_Mandatory_Fields_on_Account_BirthDate_Last_Name_Native_Gender</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes Eメールを入力してください。</label>
+        <label>Mercedes me Eメールを入力してください。</label>
         <name>Please_enter_My_Merc_Email_Id_for_Selected_Account</name>
     </customLabels>
     <customLabels>
@@ -5198,7 +5202,7 @@
         <name>please_enter_valid_Email</name>
     </customLabels>
     <customLabels>
-        <label>My Mercedes Eメールを入力してください。</label>
+        <label>Mercedes me Eメールを入力してください。</label>
         <name>please_input_My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
@@ -5292,6 +5296,26 @@
     <customLabels>
         <label>SPOに送信</label>
         <name>send_to_spo_active</name>
+    </customLabels>
+	 <customLabels>
+        <label>契約番号</label>
+        <name>Contract_Number</name>
+    </customLabels>
+	<customLabels>
+        <label>車台番号</label>
+        <name>UsVIN</name>
+    </customLabels>
+	<customLabels>
+        <label>販売店キャンペーン名</label>
+        <name>Retail_Campaign_Id</name>
+    </customLabels>
+	<customLabels>
+        <label>キャンペーン名</label>
+        <name>Campaign_Id</name>
+    </customLabels>
+	<customLabels>
+        <label>顧客名</label>
+        <name>Contact_Id</name>
     </customLabels>
     <customLabels>
         <label><!-- servletfile --></label>

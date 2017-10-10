@@ -74,7 +74,7 @@ public class AddressDisplayInlineEditController {
         lstProvince=new List<SelectOption>();
         Set<string> setProvinces = new set<string>();
         lstProvince.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected order by Province__c asc])
+        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected  and Market__c=:market order by Province__c asc])
         {
             if(!setProvinces.contains(lsttempProvince.Province__c))
             {
@@ -94,7 +94,7 @@ public class AddressDisplayInlineEditController {
         lstDistrict=new List<SelectOption>();
         Set<string> setDistricts = new set<string>();
         lstDistrict.add(new SelectOption('--Select--','--Select--'));        
-        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province order by District__c asc])
+        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province  and Market__c=:market order by District__c asc])
         {
             if(!setDistricts.contains(lsttempDistrict.District__c))
             {
@@ -139,14 +139,52 @@ public class AddressDisplayInlineEditController {
       
        public void ShowHideFields()
       {
-        if(AddressObj.Foreign_Nationals__c==true)
-            IsForeignNational=true;
-        else
-            IsForeignNational=false;
+       if(market == System.Label.TH)
+       {  
+            if(AddressObj.Foreign_Nationals__c==true)
+                IsForeignNational=true;
+            else
+                IsForeignNational=false;
+        }
+        else if(market == System.Label.MY)
+        {
+            if(AddressObj.Country__c!=Label.MYCountry){            
+                IsForeignNational=true;
+				province='';
+                district='';
+			}
+            else{
+                IsForeignNational=false;
+				//SN20171006- Added code to default value
+                province='--Select--';
+                district='--Select--';
+
+			}
+        }
       }
       
-    
-    
+	public void updateHidefields(){
+		if(market == System.Label.TH)
+       {  
+            if(AddressObj.Foreign_Nationals__c==true)
+                IsForeignNational=true;
+            else
+                IsForeignNational=false;
+        }
+        else if(market == System.Label.MY)
+        {
+            if(AddressObj.Country__c!=Label.MYCountry){            
+                IsForeignNational=true;
+              
+            }
+            else{
+                IsForeignNational=false;
+               
+            }
+        }
+		
+	}							   
+        
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
         if(market=='KR'){           
@@ -232,7 +270,9 @@ public class AddressDisplayInlineEditController {
         }
         else 
             ShowpageBlockFlag = true;
-            
+            if(Market==label.MY)
+				addressobj.Country__c=Label.MYCountry;
+		
             LoadProvince();
     }
     
@@ -288,18 +328,26 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
-            if(market=='TH' || market=='MY')
+            if(market=='TH' || market==Label.MY)
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
-                   region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+                   
+                    if(market=='TH')
+                       region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+                    else  if(addressobj.Country__c==label.MYCountry && market==Label.MY)
+                       region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+                    else
+                        LanguageSelected='English';
+                       
                    if(region!=null)
                    {
                        if(region.Language__c!='' || region.Language__c!=null)
                            LanguageSelected=region.Language__c;
                    }
                 }
-                ShowHideFields();
+                // ShowHideFields();
+			    updateHidefields();
                 LoadProvince();
                 LoadDistrict();
                 if(market=='TH')                         
@@ -540,77 +588,59 @@ public class AddressDisplayInlineEditController {
             {                       
                 if(add.id!=addressobj.id && addressobj.preferred__c==true)      
                 {                       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'There must be only one Preferred address.'));         
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.OnePreferredError));         
                     Validation = true;          
                 }  
                 
                 if(add.id!=addressobj.id && addressobj.Address_Type__c==add.Address_Type__c)      
                 {                       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'This address type already exist.'));         
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeError));         
                     Validation = true;          
                 }                       
             }       
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 or 6 digits and ONLY Numbers.'));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));        
                  Validation = true;                             
             }       
-           
-		  /* if(addressobj.ZipCode__c == null)       
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));         
-                Validation = true;                              
-            }  */    
             if(addressobj.Address_Line_1__c == null)        
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline1Mandatory));       
                 Validation = true;                              
             }       
             else        
             {                   
                 if(addressobj.Address_Line_1__c.length()>100)       
                 {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 should be less than or equal to 100 characters.'));        
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddressline1Length));        
                     Validation = true;                              
                 }       
             }       
             if(addressobj.Province__c == null)      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.StateProvError));        
             }       
             if(addressobj.District__c == null )     
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.'));         
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CityError));         
                 Validation = TRUE;                              
             }       
                     
             if(addressobj.Address_Line_2__c == null )       
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline2));       
                 Validation = TRUE;                              
             }       
             else        
             {                   
                 if(addressobj.Address_Line_2__c.length()>100)       
                 {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));        
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddresslinelen2Length));        
                     Validation = true;                              
                 }       
             }       
                     
-            if(addressobj.Address_Line_3__c == null )       
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_3__c is Mandatory.'));       
-                Validation = TRUE;                              
-            }       
-            else        
-            {                   
-                if(addressobj.Address_Line_3__c.length()>100)       
-                {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 3 should be less than or equal to 100 characters.'));        
-                    Validation = true;                              
-                }       
-            }       
+                  
             if(Validation == False){                
                 refreshPage = true;         
                 Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];     
@@ -630,12 +660,13 @@ public class AddressDisplayInlineEditController {
                 }       
             }       
         }       
-        catch (DmlException e)      
+        catch (Exception e)      
         {       
             refreshPage = false;        
-            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                           
-                   
-        }       
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getMessage()));                           
+            CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());       
+        }
+		
     }       
     
     

@@ -10,8 +10,11 @@ public  with sharing class coverttolead1controller
     private String leadRTId {get; set;}
     private String leadRTId1 {get; set;}
     List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
+    List<Campaign_Member__c> CamMemMapToUpdate = new List<Campaign_Member__c>();
     @testvisible private String objectAPIName;
-    public boolean displayPopup {get; set;}     
+    public boolean displayPopup {get; set;} 
+    Public static Boolean CampaingCheck = true ;  
+    Public static Boolean RetailCheck = true ;  
     
     public void closePopup() {        
         displayPopup = false;    
@@ -39,8 +42,8 @@ public  with sharing class coverttolead1controller
         if(String.isNotBlank(campaignMemberId)) 
         {
             objectAPIName = (Id.valueOf(campaignMemberId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT  Id, Name, Campaign_ID__r.OwnerId,UsVIN__c,Model__c,Vehicle__c,Campaign_ID__c ,Retail_Campaign_Id__c ,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
-            query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Id =: campaignMemberId ';
+            String query = 'SELECT  Id, Name,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,Campaign_ID__r.OwnerId,UsVIN__c,Model__c,Vehicle__c,Campaign_ID__c ,Retail_Campaign_Id__c ,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Id =: campaignMemberId  AND Convert_To_Lead_Flag__c = false';
             List<Campaign_Member__c> campaignMemberList = Database.query(query);
             campaignMembers = new List<Campaign_Member__c>();
             for(Campaign_Member__c campaignMemberRec : campaignMemberList) 
@@ -63,23 +66,28 @@ public  with sharing class coverttolead1controller
          List<Lead__c> leadList = new List<Lead__c>();
         List<Lead__c> leadListToInsert = new List<Lead__c>();
         id campaignid;
+        
         List<Lead__c> existingLeadList;
+        system.debug('++++Working++++++++++');
         for(Campaign_Member__c campaignMemberObj : campaignMembers)
         {
              if(campaignMemberObj.Campaign_ID__c != null)
              {
+                 
                  existingLeadList = [Select Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
-                                        from Lead__c where Source_Campaign__c =: campaignMemberObj.Campaign_ID__c];            
+                                        from Lead__c where Source_Campaign__c =: campaignMemberObj.Campaign_ID__c]; 
+                  CampaingCheck =false;           
              }
              else if(campaignMemberObj.Retail_Campaign_Id__c != null)
              {
                  existingLeadList = [Select Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
                                         from Lead__c where Source_Campaign__c =: campaignMemberObj.Retail_Campaign_Id__c];
+               RetailCheck = false;
              }
         }
         for(Campaign_Member__c campaignMemberObj : campaignMembers) 
         {
-           
+           system.debug('++++Working++++++++++');
             Lead__c duplicateLeadRec = checkDuplicate(campaignMemberObj , existingLeadList);
             system.debug('duprecord'+duplicateLeadRec);
             if(duplicateLeadRec.Id == null)
@@ -99,11 +107,23 @@ public  with sharing class coverttolead1controller
                     leadList.add(duplicateLeadRec);
             }
                
-            
+           campaignMemberObj.Convert_To_Lead_Flag__c = true; 
+           CamMemMapToUpdate.add(campaignMemberObj);
         }
+         
+         
+         
+         
+         
          if((leadListToInsert.size()) > 0) 
+         
         {
+        
+            
+                                 
             insert leadListToInsert;
+            
+            Update CamMemMapToUpdate;
             system.debug('leadListToInsert'+leadListToInsert);
             for(lead__c leadlst:leadListToInsert)
             {
@@ -116,6 +136,7 @@ public  with sharing class coverttolead1controller
             }
              system.debug('afterrrrrrrrrrrrrrrrrrrrrrr');
             insertCampaignLeadRecords(leadListToInsert, leadList);
+            
          }
             return new PageReference('/' +leadListToInsert[0].id );
         
@@ -156,6 +177,14 @@ public  with sharing class coverttolead1controller
             leadRec.Retail_Campaign_Name__c = campaignMember.Retail_Campaign_Id__c;
             leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
         } 
+        
+        If (userinfo.getUserType() != 'PowerPartner'){
+         leadRec.CAC_Lead_Status__c = 'Approved';
+         leadRec.Lead_DataSource__c='Campaign';
+         } else {
+        leadRec.CAC_Lead_Status__c = 'New';
+       leadRec.Lead_DataSource__c='Dealer Outlet';
+        }
        
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
@@ -202,7 +231,7 @@ public  with sharing class coverttolead1controller
         for(Lead__c leadRec : insertedLeadList)
         {
             cLeadList.add(setCampaignRec(leadRec));
-        }
+        }  
         
         for(Lead__c leadRec : leadList)
         {
@@ -219,11 +248,13 @@ public  with sharing class coverttolead1controller
     {
         Campaign_Lead__c cLeadRec = new Campaign_Lead__c(); 
         cLeadRec.Lead__c = leadRec.Id;
-        if(objectAPIName == 'Campaign') 
+        if(CampaingCheck  == false) 
         {
             cLeadRec.Campaign__c = leadRec.Source_Campaign__c;
-        } else if(objectAPIName == 'Retail_Campaign__c')
+        } else if(RetailCheck  == false)
         {
+        
+               system.debug('++++++++Working retail+++++++');
             cLeadRec.Retail_Campaign__c = leadRec.Retail_Campaign_Name__c;
         } 
         return cLeadRec;

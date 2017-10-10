@@ -1946,6 +1946,17 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Expected_Cars_Sale__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Cars Sale</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Expected_Lead__c</fullName>
         <externalId>false</externalId>
         <label>Expected Leads (%)</label>
@@ -2414,6 +2425,17 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Noof_Car_display__c</fullName>
+        <externalId>false</externalId>
+        <label>No Of Cars  Display</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>NumberOfContacts</fullName>
@@ -3942,6 +3964,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Space__c</fullName>
+        <externalId>false</externalId>
+        <label>Space</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>StartDate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -4227,6 +4259,17 @@
         <label>Use Segmentation Criteria</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Venue__c</fullName>
+        <description>Venue of the Campaign</description>
+        <externalId>false</externalId>
+        <label>Venue</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>parentcampaign__c</fullName>
@@ -13374,6 +13417,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>MMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
@@ -13382,7 +13429,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17972,7 +18027,23 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17981,6 +18052,18 @@
             </values>
             <values>
                 <fullName>Ongoing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21766,7 +21849,7 @@
     <validationRules>
         <fullName>CAC_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAC_Campaign',ISNEW(),IsActive = True,(UPPER(MD__c) = 'KR' || UPPER(MD__c) = 'TH'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>OR(AND(RecordType.DeveloperName = 'CAC_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'KR' ,$Profile.Name != 'IntegrationAPI'),AND(RecordType.DeveloperName = 'Planning_Design_Campaign',ISNEW(),IsActive = True, UPPER(MD__c) = 'TH',$Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAC Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
@@ -21844,8 +21927,8 @@ OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Prof
         <active>true</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
-        <errorConditionFormula>(ISPICKVAL( Status , 'Planned')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
-OR(UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( Status , 'Planned') &amp;&amp; IsActive &amp;&amp; RecordType.DeveloperName = "Planning_Design_Campaign"&amp;&amp;
+UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
@@ -21912,6 +21995,37 @@ OR(UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondi
  ),
  $Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'KR' , UPPER(MD__c) = 'TH')
 )</errorConditionFormula>
+        <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Locked_for_Central_when_Published_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+RecordType.Name =='Planning_Design_Campaign',
+
+OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
+OR( ISCHANGED( Campaign_Code__c ),
+ISCHANGED( Name ),
+ISCHANGED( Description ), 
+ISCHANGED( Brand__c ), 
+ISCHANGED( Plan_Start_Date__c ), 
+ISCHANGED( Plan_End_Date__c ), 
+ISCHANGED( Region__c ), 
+ISCHANGED( Actual_Region_Expense__c ), 
+ISCHANGED( Region_Budget__c ), 
+ISCHANGED( Media_Type__c ), 
+ISCHANGED( Event_Type__c ), 
+ISCHANGED( CBU_PbP__c ), 
+ISCHANGED( Other_Media_Type__c ), 
+ISCHANGED( Other_Event_Type__c ), 
+ISCHANGED( Car_Model__c ), 
+ISCHANGED( Campaign_Type__c ), 
+ISCHANGED( Driven__c ), 
+ISCHANGED( Min_Car_Age__c ), 
+ISCHANGED( Max_Car_Age__c ),
+ISCHANGED( Purpose__c )
+),
+$Profile.Name != 'IntegrationAPI', UPPER(MD__c) = 'TH')</errorConditionFormula>
         <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
@@ -22447,20 +22561,20 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
 var tpArray = (function () {
 var dmmaterial_type = '{!Campaign.DM_Material__c}';
 switch(dmmaterial_type){
-case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
 case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
-case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
 case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
-case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
 case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
-case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
 case 'Company Account': return 'p04_CompanyAccount';brak;
-case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
 case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
-case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
-case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
-case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting';brak;
 default:return 'p07_CustomerAddressOnlyPrinting';brak;
 }
 }());
@@ -22523,20 +22637,20 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 var tpArray = (function () {
 var dmmaterial_type = '{!Campaign.DM_Material__c}';
 switch(dmmaterial_type){
-case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
 case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
-case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
 case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
-case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
 case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
-case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
 case 'Company Account': return 'p04_CompanyAccount';brak;
-case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
 case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
-case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
-case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
-case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting';brak;
 default:return 'p07_CustomerAddressOnlyPrinting';brak;
 }
 }());

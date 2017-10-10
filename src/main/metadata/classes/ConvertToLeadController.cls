@@ -19,6 +19,8 @@ public class ConvertToLeadController
     private String leadRTId1 {get; set;}
     List<Campaign_Member__c> camIdCamMemMap = new List<Campaign_Member__c>();
     List<Campaign_Member__c> camListToUpdate = new List<Campaign_Member__c>();
+    Public Static Boolean Campaigncheck = true;
+    Public Static Boolean RetailCampaignid = true;
     @testvisible private String objectAPIName;
      public boolean displayPopup {get; set;}     
     
@@ -40,7 +42,7 @@ public class ConvertToLeadController
         if(String.isNotBlank(campaignId)) 
         {
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT Name, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            String query = 'SELECT Name,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,Retail_Campaign_Id__c, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
             query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Convert_To_Lead_Flag__c = false AND';
             
             if(objectAPIName == 'Campaign') {
@@ -51,12 +53,15 @@ public class ConvertToLeadController
                 query += ' Contact_Id__c =: campaignId ';
             }
             
+            
+            
             List<Campaign_Member__c> campaignMemberList = Database.query(query);
             System.debug('clist<<<<'+campaignMemberList);
             campaignMembers = new List<CampaignMemberInfo>();
             for(Campaign_Member__c campaignMemberRec : campaignMemberList) {
                 System.debug('crec>>>>'+campaignMemberRec);
                 campaignMembers.add(new CampaignMemberInfo(campaignMemberRec));
+                
             }
         }
     }
@@ -97,6 +102,9 @@ public class ConvertToLeadController
             existingLeadList = [Select Retail_Campaign_Name__c, Contact__c  from Lead__c where Retail_Campaign_Name__c =: campaignId];
         } else if(objectAPIName == 'Account') {
             existingLeadList = [Select Retail_Campaign_Name__c,Source_Campaign__c, Contact__c  from Lead__c where Contact__c =: campaignId];
+            
+             
+            
         }
 
         
@@ -210,7 +218,7 @@ public class ConvertToLeadController
     
         Lead__c leadRec = new Lead__c();
         system.debug('CM!11'+campaignMember.Campaign_ID__r.parent.Campaign_Type__c);
-        leadRec.CAC_Lead_Status__c = 'Approved';
+        //leadRec.CAC_Lead_Status__c = 'Approved';
         if(objectAPIName == 'Campaign') {
             leadRec.Source_Campaign__c = campaignId;
             leadRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId;
@@ -220,7 +228,19 @@ public class ConvertToLeadController
         } else if(objectAPIName == 'Account') {
             leadRec.Contact__c = campaignId;
             leadRec.OwnerId = campaignMember.Contact_Id__r.OwnerId;
+            leadRec.Retail_Campaign_Name__c = campaignMember.Retail_Campaign_Id__c;
+            leadRec.Source_Campaign__c = campaignMember.Campaign_ID__c;
+            
         } 
+        
+        If (userinfo.getUserType() != 'PowerPartner'){
+         leadRec.CAC_Lead_Status__c = 'Approved';
+         leadRec.Lead_DataSource__c='Campaign';
+         } else {
+        leadRec.CAC_Lead_Status__c = 'New';
+       leadRec.Lead_DataSource__c='Dealer Outlet';
+        }
+
        
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
@@ -238,7 +258,7 @@ public class ConvertToLeadController
         leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
         leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
         
-        leadRec.Lead_DataSource__c='Campaign';
+        //leadRec.Lead_DataSource__c='Campaign';
         leadRec.UsVIN__c=campaignMember.UsVIN__c;
         System.debug('rval<><>'+recordtypevalue);
         if(recordtypevalue!= null && recordtypevalue == 'Aftersales_leads' ) {
@@ -263,9 +283,9 @@ public class ConvertToLeadController
     @testvisible
     private void insertCampaignLeadRecords(List<Lead__c> insertedLeadList, List<Lead__c> leadList) {
         List<Campaign_Lead__c> cLeadList = new List<Campaign_Lead__c>();
-      /*  for(Lead__c leadRec : insertedLeadList){
+        for(Lead__c leadRec : insertedLeadList){
             cLeadList.add(setCampaignRec(leadRec));
-        }*/
+        }
         
         for(Lead__c leadRec : leadList){
             cLeadList.add(setCampaignRec(leadRec));
@@ -284,7 +304,15 @@ public class ConvertToLeadController
         } else if(objectAPIName == 'Retail_Campaign__c') {
             cLeadRec.Retail_Campaign__c = leadRec.Retail_Campaign_Name__c;
         } else if(objectAPIName == 'Account') {
+             system.debug('++++In Loop One+++++++++');
             cLeadRec.Contact__c = leadRec.Contact__c;
+            if(leadRec.Source_Campaign__c != null){
+             cLeadRec.Campaign__c = leadRec.Source_Campaign__c;
+            }else if (leadRec.Retail_Campaign_Name__c != null){
+               system.debug('++++In Loop+++++++++');
+               system.debug('++++In Loop+++++++++'+leadRec.Retail_Campaign_Name__c);
+            cLeadRec.Retail_Campaign__c = leadRec.Retail_Campaign_Name__c;
+            }
         }
          
         return cLeadRec;
