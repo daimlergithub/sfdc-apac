@@ -834,8 +834,10 @@
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_DM_Request_Lead</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>Delivery_Type__c</fields>
+        <fields>Contact__c</fields>
         <fields>Status__c</fields>
         <fields>Expected_DM_Material1__c</fields>
         <fields>Status1__c</fields>
@@ -843,7 +845,7 @@
         <fields>Status2__c</fields>
         <fields>Expected_DM_Material3__c</fields>
         <fields>Status3__c</fields>
-        <fields>CREATED_DATE</fields>
+        <fields>Sent_Date__c</fields>
         <relatedList>DM_Request__c.Lead__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -864,7 +866,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0k000000Ecf6</masterLabel>
+        <masterLabel>00h28000006X7X3</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
