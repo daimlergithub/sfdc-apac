@@ -7292,7 +7292,7 @@
         <field>Campaign.Department__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Venue__c</field>
         <readable>false</readable>
