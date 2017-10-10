@@ -1,0 +1,11 @@
+Dear 
+
+The Campaign {!Retail_Campaign__c.Name} Rejected by the Approver 
+
+Please find the Record Link: 
+
+{!Retail_Campaign__c.Link}
+For Communities: 
+https://asiadevth4-daimlerasia.cs58.force.com/MBThailand/{!Retail_Campaign__c.Id}
+
+Thanks!
