@@ -123,6 +123,9 @@ public class LeadHelperAccountLinkCreateJP
                 else if(led.MD__c == Label.MarketJP){
                     acclnk.Retail_Country__c = 'Japan';
                 }
+                else if(led.MD__c == 'TH'){
+                acclnk.Retail_Country__c = 'Thai';
+                }
                 if(led.Contact__r.Primary_Address_Reference__c != null){
                     acclnk.Retail_Address_Reference__c = led.Contact__r.Primary_Address_Reference__c;
                     
@@ -319,6 +322,7 @@ public Static boolean isCreated =false;
             }
                 if(!AccounliunkUpdate.isEmpty()){
                     insert AccounliunkUpdate;
+    
                 for(Account_Link__c acc1:AcclkLst){
                     system.debug('updared_______>');
                     acc1.Retail_Related_Company__c  = AccounliunkUpdate[0].id;

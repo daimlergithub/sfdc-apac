@@ -227,6 +227,14 @@
                 <behavior>Edit</behavior>
                 <field>End_Setting_DateTime__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Additional_Offer__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Additional_Offer_Others__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -236,6 +244,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>End_Setting_User__c</field>
+            </layoutItems>	
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Warranty_Apply_Status__c</field>
+            </layoutItems>			
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Warranty_Apply_User__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

@@ -7,7 +7,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Vehicle information</label>
+        <label>Vehicle information </label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -285,7 +285,7 @@
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <relatedLists>
-        <fields>NAME</fields>
+		<fields>NAME</fields>
         <fields>Contact__c</fields>
         <fields>Car_Relation__c</fields>
         <fields>Owner_Relation__c</fields>

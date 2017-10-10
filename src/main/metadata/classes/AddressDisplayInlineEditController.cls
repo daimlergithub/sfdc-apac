@@ -148,15 +148,43 @@ public class AddressDisplayInlineEditController {
         }
         else if(market == System.Label.MY)
         {
-            if(AddressObj.Country__c!=Label.MYCountry)            
+            if(AddressObj.Country__c!=Label.MYCountry){            
+                IsForeignNational=true;
+				province='';
+                district='';
+			}
+            else{
+                IsForeignNational=false;
+				//SN20171006- Added code to default value
+                province='--Select--';
+                district='--Select--';
+
+			}
+        }
+      }
+      
+	public void updateHidefields(){
+		if(market == System.Label.TH)
+       {  
+            if(AddressObj.Foreign_Nationals__c==true)
                 IsForeignNational=true;
             else
                 IsForeignNational=false;
         }
-      }
-      
-    
-    
+        else if(market == System.Label.MY)
+        {
+            if(AddressObj.Country__c!=Label.MYCountry){            
+                IsForeignNational=true;
+              
+            }
+            else{
+                IsForeignNational=false;
+               
+            }
+        }
+		
+	}							   
+        
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
         if(market=='KR'){           
@@ -318,7 +346,8 @@ public class AddressDisplayInlineEditController {
                            LanguageSelected=region.Language__c;
                    }
                 }
-                ShowHideFields();
+                // ShowHideFields();
+			    updateHidefields();
                 LoadProvince();
                 LoadDistrict();
                 if(market=='TH')                         

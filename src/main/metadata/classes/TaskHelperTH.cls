@@ -156,20 +156,30 @@ public class TaskHelperTH {
             
         }
         if(accId != Null && !accId.isEmpty()){
-            lstAccount = [Select Id,Mobile__c,Email__c from Account where Id =:accId];
+            lstAccount = [Select Id,Mobile__c,Email__c, Preferred_Phone__c,individual_Home_Phone__c,Work_Phone__c from Account where Id =:accId];
         }        
         
         if(leadId != Null && !leadId.isEmpty()){
-            lstLead = [Select Id,Contact__r.Mobile__c,Contact__r.Email__c,Company_Account__r.Mobile__c,Company_Account__r.Email__c from Lead__c where Id =:leadId];
+            lstLead = [Select Id,Contact__r.Mobile__c,Contact__r.Email__c, Contact__r.Preferred_Phone__c,Contact__r.individual_Home_Phone__c,Contact__r.Work_Phone__c,Company_Account__r.Mobile__c,Company_Account__r.Email__c from Lead__c where Id =:leadId];
         }
         
         if(dmRequestId != Null && dmRequestId.isEmpty()){
-           lstDMRequest = [Select Id,Customer_Name__r.Mobile__c,Customer_Name__r.Email__c from DM_Request__c where Id =:dmRequestId]; 
+           lstDMRequest = [Select Id,Customer_Name__r.Mobile__c,Customer_Name__r.Preferred_Phone__c,Customer_Name__r.individual_Home_Phone__c,Customer_Name__r.Work_Phone__c,Customer_Name__r.Email__c from DM_Request__c where Id =:dmRequestId]; 
         }
         
         
         for(Account acc : lstAccount){
-          mapTask.put(acc.id, acc.Mobile__c);  
+            if(acc.Preferred_Phone__c!=null){
+                if(acc.Preferred_Phone__c=='Mobile phone'){
+                mapTask.put(acc.id, acc.Mobile__c);
+                }
+                else if(acc.Preferred_Phone__c=='Home phone'){
+                mapTask.put(acc.id, acc.individual_Home_Phone__c);
+                }
+                else if(acc.Preferred_Phone__c=='Office phone'){
+                    mapTask.put(acc.id, acc.Work_Phone__c);
+                }
+        }         
             mapEMailTask.put(acc.id, acc.Email__c);
         }
         
@@ -178,13 +188,40 @@ public class TaskHelperTH {
                     mapLead.put(led.id, led.Company_Account__r.Mobile__c);
                     mapEMailLead.put(led.id, led.Company_Account__r.Email__c);
                 }else{
-                    mapLead.put(led.id, led.Contact__r.Mobile__c);
-                    mapEMailLead.put(led.id, led.Contact__r.Email__c);
+            if(led.contact__c!=null && led.Contact__r.Preferred_Phone__c!=null){
+                
+                        if(led.Contact__r.Preferred_Phone__c=='Mobile phone'){
+                            mapLead.put(led.id, led.Contact__r.Mobile__c);
+                        }
+                        else if(led.Contact__r.Preferred_Phone__c=='Home phone'){
+                            mapLead.put(led.id,led.Contact__r.individual_Home_Phone__c);
+                        }
+                        else if(led.Contact__r.Preferred_Phone__c=='Office phone'){
+                                mapLead.put(led.id, led.Contact__r.Work_Phone__c);
+                        }
+            
+                            //mapLead.put(led.id, led.Contact__r.Mobile__c);
+                            
                 }
+                mapEMailLead.put(led.id, led.Contact__r.Email__c);
+    }
         }
         
-        for(DM_Request__c dmr : lstDMRequest){            
-            mapDMRequestPhone.put(dmr.id, dmr.Customer_Name__r.Mobile__c);
+        for(DM_Request__c dmr : lstDMRequest){   
+        
+        if(dmr.Customer_Name__c!=null && dmr.Customer_Name__r.Preferred_Phone__c!=null){
+                
+                        if(dmr.Customer_Name__r.Preferred_Phone__c=='Mobile phone'){
+                            mapDMRequestPhone.put(dmr.id, dmr.Customer_Name__r.Mobile__c);
+                        }
+                        else if(dmr.Customer_Name__r.Preferred_Phone__c=='Home phone'){
+                            mapDMRequestPhone.put(dmr.id,dmr.Customer_Name__r.individual_Home_Phone__c);
+                        }
+                        else if(dmr.Customer_Name__r.Preferred_Phone__c=='Office phone'){
+                                mapDMRequestPhone.put(dmr.id, dmr.Customer_Name__r.Work_Phone__c);
+                        }
+                }         
+            //mapDMRequestPhone.put(dmr.id, dmr.Customer_Name__r.Mobile__c);
             mapDMRequestEmail.put(dmr.id, dmr.Customer_Name__r.Email__c);
         }
                 
@@ -198,6 +235,9 @@ public class TaskHelperTH {
                 }
                 if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( '001' )){
                      t.Phone__c = mapTask.get(t.WhatId); 
+                }
+                if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( 'a13' )){
+                    t.Phone__c = mapLead.get(t.WhoId);   
                 }
                 if(t.WhatId != Null){                    
                     if(String.valueOf( t.WhatId ).startsWith(leadTabId)){
