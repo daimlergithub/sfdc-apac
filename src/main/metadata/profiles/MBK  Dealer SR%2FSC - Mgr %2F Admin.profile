@@ -25030,11 +25030,7 @@
         <layout>Account_Link__c-Person Retail Copy_Dealer_KR</layout>
         <recordType>Account_Link__c.Retail_Person</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Link__c-Person Retail Copy</layout>
-        <recordType>Account_Link__c.Retail_Person</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
+   <layoutAssignments>
         <layout>Account_Link__c-Vehicle External Link</layout>
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
