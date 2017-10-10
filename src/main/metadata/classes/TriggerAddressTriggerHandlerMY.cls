@@ -43,7 +43,7 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf
 			if(isAfter && isinsert){
 				if(TriggerRecursiveCheck.run){
 					TriggerRecursiveCheck.runOnce();
-					AddressHelperTH.updateAddressCDM(trigger.new,Label.MY,Label.InsertContext);
+					AddressHelperTH.updateAddressCDM(trigger.new,Label.MY,Label.UpdateContext);
 				}
 			}
 			if(isafter && isupdate){

@@ -58,7 +58,7 @@ public class MRC_ListOfFeaturesExt
      getFeatureList();
              
      }
-      // system.debug('hk'+FeatureList);  
+      
   public void getFeatureList()
   {  
    try{
@@ -72,12 +72,11 @@ public class MRC_ListOfFeaturesExt
       list<Persona__c>majList1=new List<Persona__c>();
       majList1= database.query(query1);
       totalno = majList1.size();
-      system.debug('total'+totalno); 
+      
       query1+=' LIMIT '+LimitSize +' OFFSET '+OffsetSize;
-      system.debug('hk'+query1); 
+       
       majList=database.query(query1);
-      for(Persona__c mj : majList)
-      {
+      for(Persona__c mj : majList){
         FeatureDetails fd=new FeatureDetails();
         fd.persona=mj.PersonaName__c;
         fd.functionality=mj.Functionality_Access__r.Module_Name__c;
@@ -103,11 +102,11 @@ public class MRC_ListOfFeaturesExt
         {flag=true;}
         else
         flag=false;
-   system.debug('check'+FeatureList.size()+flag);    
+   
    }
       catch(Exception e)
       {
-          system.debug('error'+e.getMessage());
+         CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
       }
  
  }

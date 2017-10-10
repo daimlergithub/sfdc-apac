@@ -7,12 +7,13 @@
 ** Date: 2016-1-20
 ** Modified By : Mohammed Touseef Ahmed
 ** Modified date :2017-03-12
+** HN20171008- to set status for person account as Prospect 
 
 History:
     Author                         Date                    Description
     Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
     Sanjay Nandi(SN20170907)    2017/09/09            //SN20170907- Pagination Logic
-	Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
+    Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
     Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in
     CDM   
 **/
@@ -199,8 +200,9 @@ public class AddressSearchValidationController
         //MT20170913
         if(market==Label.MY){        
             AddressObj.Country__c='Malaysia';
-			LoadProvince();     
-			
+            objAccount.Market__c=market; 
+            LoadProvince();     
+            
         }        
         //SN20170907 -added Pagination Variable initialization      
         DedupAccountList= new List<account>();      
@@ -326,10 +328,19 @@ public class AddressSearchValidationController
         }
         else if(market == System.Label.MY)
         {
-            if(AddressObj.Country__c!=Label.MYCountry)            
+            if(AddressObj.Country__c!=Label.MYCountry){
+                
                 IsForeignNational=true;
-            else
+                province='';
+                district='';
+                
+            }
+            else{
                 IsForeignNational=false;
+                //SN20171006- Added code to default value
+                province='--Select--';
+                district='--Select--';
+            }
          }
        }
     //Introduced for TH market - End
@@ -921,8 +932,11 @@ public class AddressSearchValidationController
         }  
     } 
     //SN20170907        
-      displayAccList.clear();    
-        
+      displayAccList.clear(); 
+      if(Market==Label.MY){
+        objAccount= new account();
+        objAccount.Market__c=Market;
+      }  
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -1994,7 +2008,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                           PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,PersonDoNotCall,Postal_Opt_Out__c,
                           Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
                           Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
-                          UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
+                          UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,Preferred_Phone__c,
                           PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
                           From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
                  
@@ -2172,7 +2186,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                           Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
                           Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
                           UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
-                          PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,
+                          PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,Preferred_Phone__c,
                           Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
                           From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
                 cResult = lstAcc;                 
@@ -2189,29 +2203,29 @@ If the user is Saving  same address which matches the fields returned by toleran
     public String generateCDMEndPointURL(){
         String endUrl='';
             map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
-			For(string str: mapURLs.keyset()){
+            For(string str: mapURLs.keyset()){
                 if(mapURLs.get(str).Country__c == Market && mapURLs.get(str).Type__c==RecordType){
                     endUrl+=mapURLs.get(str).Informatica_URL__c;
                 }
             }
-			//endUrl+= recordType == 'Person Account'?mapURLs.get('SearchPersonAccount').Informatica_URL__c:mapURLs.get('SearchCompanyAccount').Informatica_URL__c;
+            //endUrl+= recordType == 'Person Account'?mapURLs.get('SearchPersonAccount').Informatica_URL__c:mapURLs.get('SearchCompanyAccount').Informatica_URL__c;
             if(recordType == 'Person Account')
             {
                     //sss = mapURLs.get('SearchPersonAccount').Informatica_URL__c;
                     endUrl+='ip_Firstname='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
                     endUrl+='&ip_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
-                    endUrl+='&ip_MobileTelephone='+((string.isnotblank(objAccount.Mobile__c))?+objAccount.Mobile__c:'');
-                    endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?objAccount.Individual_Home_Phone__c:'');
-                    endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?objAccount.Work_Phone__c:'');
+                    endUrl+='&ip_MobileTelephone='+((string.isnotblank(objAccount.Mobile__c))?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                    endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                    endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
                     endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-                    endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?objAccount.ID_Number__c:''); 
+                    endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):''); 
             }
             else if(recordType == 'Company'){
                          endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
-                         endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?objAccount.Mobile__c:'');
-                         endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?objAccount.Individual_Home_Phone__c:'');
-						 endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-                         endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?objAccount.Work_Phone__c:'');
+                         endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                         endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                         endUrl+='&ip_BusinessEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+                         endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
                          
             }
        
@@ -2289,22 +2303,24 @@ If the user is Saving  same address which matches the fields returned by toleran
         HttpResponse res = Continuation.getResponse(this.requestLabel);
       // Set the result variable that is displayed on the Visualforce page
       try{
-	  this.requestLabel = res.getBody();
-	  CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + res.getBody());
+      this.requestLabel = res.getBody();
+      CustomLogUtil.CustomLoggingEntry('Continuation Response Body' + res.getBody());
       //this.responsedisp = res.getBody();
         if(res.getbody()=='{}'){
             showCDM=false;
+            CustomLogUtil.CustomLoggingEntry('Error Occured will calling ' + 'Response Body' +res.getbody());
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
         }
         else if(res.getStatusCode()==500)
         {
             showCDM=false;
+            CustomLogUtil.CustomLoggingEntry('Error Occured ' + res.getstatuscode() +'-- '+res.getStatusCode());
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.The_request_could_not_reach_server));
         }
         else
         {
             custSearch=JSON2ApexCustomerCDM.parse(res.getbody());
-            Set<string> set_accounts= new set<string>();
+            list<string> set_accounts= new list<string>();
             For(JSON2ApexCustomerCDM.cls_OP_UCID cust : custSearch.OP_UCID){
                 Map<String, Object> m = (Map<String, Object>)JSON.deserializeUntyped(JSON.serialize(cust));
                 if(string.valueof(m.get(Label.AdminClientNum))!=null)
@@ -2312,9 +2328,24 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
-                    DedupAccountList.add(acc);
+                string querytxt='select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
+                querytxt=querytxt.replace('<Search>',label.SearchKey); 
+                set<String> valueSet = new set<String>();
+                for(Integer i=0; i<set_accounts.size(); i++){
+                    valueSet.add('\'' + String.escapeSingleQuotes(set_accounts[i]) + '\'');
                 }
+                if (valueSet.isEmpty()){
+                    valueSet.add('\'\'');
+                }
+                querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
+                for(account acc :database.query(querytxt)){
+                        DedupAccountList.add(acc);
+                    } 
+                
+        
+                //for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
+                //    DedupAccountList.add(acc);
+                //}
                 
                 last=false;     
                 previous=false;     
@@ -2329,12 +2360,11 @@ If the user is Saving  same address which matches the fields returned by toleran
                 else if(displayAccList.size()>1)
                     one = false;
             }
-		}
-		}
-		catch (Exception e){
+        }
+        }
+        catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
-         CustomLogUtil.DebugException(e);
-		 CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
+         CustomLogUtil.CustomLoggingEntry('Error Occured ' + e +'-- '+e.getMessage());
          
     }
       // Return null to re-render the original Visualforce page
@@ -2348,10 +2378,11 @@ If the user is Saving  same address which matches the fields returned by toleran
     */   
     public object onLineDeduplicationMY(){ 
     displayAccList.clear();     
+    DedupAccountList.clear();
     Boolean errorFlag=true;
     boolean mandatoryFlag=True;
     boolean recordCheck=true;
-	Continuation con=null;					  
+    Continuation con=null;                    
     if(Recordtype!=Label.PersonAccount && Recordtype!=Label.Company){
                 recordCheck=false;
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.RecordTypeError));       
@@ -2387,19 +2418,19 @@ If the user is Saving  same address which matches the fields returned by toleran
     next=false;     
     //SN20170907 this list will share all the data      
             
-	phoneFieldConcatMY();
+    phoneFieldConcatMY();
     String EndUrl=generateCDMEndPointURL();
-	try{	
-		con = new Continuation(120);            
-		con.continuationMethod='processResponse';
-		this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
-	} catch (Exception e){
+    CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
+    try{    
+        con = new Continuation(120);            
+        con.continuationMethod='processResponse';
+        this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+    } catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
-         CustomLogUtil.DebugException(e);
-		 CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e); 
-		
-    }  					
+         CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
+        
+    }                   
       }
       return con;
     }
@@ -2563,7 +2594,7 @@ public pagereference saveAccountTH()
                     if(Validation == False)     
                     {       
                         refreshPage = true; 
-						if(SaveAccountDetailsMY())      
+                        if(SaveAccountDetailsMY())      
                         {           
                             AddressObj.Customer__c = objAccount.id; 
                             AddressObj.Preferred__c=true; 
@@ -2579,8 +2610,7 @@ public pagereference saveAccountTH()
                     
                 refreshPage = false;        
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));       
-				CustomLogUtil.DebugException(e);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);				
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' +e.getDMlMessage(0));              
             }               
         }       
      return null;       
@@ -2718,7 +2748,7 @@ public pagereference saveAccountTH()
             return false;
     }    
     
-	public void phoneFieldConcatMY(){
+    public void phoneFieldConcatMY(){
         
          if(String.isBlank(hmphoneNumber))  objAccount.Individual_Home_Phone__c='';       
          else if(hmCountryCode!='' && hmphoneNumber!='' && hmCountryCode==label.MYPhoneCountryCode)  objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
@@ -2737,7 +2767,7 @@ public pagereference saveAccountTH()
          else objAccount.fax=faxCountryCode+faxphoneNumber;      
          
     }
-	
+    
 //Saves the Account relaed details for Malaysia Market      
 //Created By : Mohammed Touseef AHmed       
 //Date: 03/09/2017      MT20170903
@@ -2750,10 +2780,15 @@ public pagereference saveAccountTH()
                     if(recordType == label.Company)                     
                         recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
                     else        
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount);       
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount);     
+                       
+                       //HN20171008- to set status for person account as Prospect 
+                       if(recordType == Label.PersonAccount){
+                            objAccount.status__C = Label.ProspectStatus;
+                        }   //end code here modification by Honey     
                             
                     objAccount.RecordTypeId = recordTypeId;         
-					phoneFieldConcatMY(); 							
+                    phoneFieldConcatMY();                           
                         
                   if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));       
@@ -2772,13 +2807,11 @@ public pagereference saveAccountTH()
                 refreshPage = false;   
                 if(e.getdmlMessage(0).contains('bad field') ){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please remove the firstname , lastname  for saving company account and account name for person account'));
-				CustomLogUtil.DebugException(e);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
-			   }
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
+               }
                 else{               
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0))); 
-				CustomLogUtil.DebugException(e);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
                 }               
                 return false;       
             }       
@@ -2967,8 +3000,8 @@ public pagereference saveAccountTH()
             {       
                  
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));   
-				CustomLogUtil.DebugException(e);
-				CustomLogUtil.CustomLoggingEntry('Updated'+'Logginf' + e);				 
+                
+                CustomLogUtil.CustomLoggingEntry('error' + e);               
             }       
     }       
             
@@ -2978,7 +3011,7 @@ public pagereference saveAccountTH()
       
     SN20170907      
      Method to help us move to next page and setting the boolean for the respective buttons   
-            and are used to give paginated data after the search in CDM  														 
+            and are used to give paginated data after the search in CDM                                                          
     */      
     public void next(){     
         displayAccList.clear();     
@@ -3066,8 +3099,8 @@ public pagereference saveAccountTH()
                             
     }
     /*SN20170912 
-	Description: This code is added for rerendering the areacode
-    */												
+    Description: This code is added for rerendering the areacode
+    */                                              
     public void checkcountrycode(){
             wAreaBoolean=false;
             fAreaBoolean=false;

@@ -13,11 +13,11 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
         
         if(trigger.isinsert && trigger.isbefore){
             caseHelperBased.countRepeatComplaintCase(trigger.new,true,market);
-            caseHelperBased.updateCaseDeadLineAmount(trigger.new,market);
+            caseHelperBased.updateCaseDeadLineAmount(trigger.new,market,null);
             
            }
            else if(trigger.isupdate &&trigger.isbefore){
-           caseHelperBased.updateCaseDeadLineAmount(trigger.new,market);
+               caseHelperBased.updateCaseDeadLineAmount(trigger.new,market,(Map<Id,Case>)trigger.oldMap);
            
            }
           

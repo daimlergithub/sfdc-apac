@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>MBTH_Approval_Given</fullName>
+        <description>MBTH_Approval Given</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Approval_Mail</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_Email_Notification_to_Dealers</fullName>
+        <description>MBTH_Email Notification to Dealers</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Dealer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Email_Notification_to_the_Dealer</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_Intial_Submission_Action_Retail_campaign</fullName>
+        <description>MBTH_Intial Submission Action_Retail_campaign</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Approver__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Approval_Email_to_Approver</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_rejection_Action</fullName>
+        <description>MBTH_rejection Action</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Rejectd_Mail</template>
+    </alerts>
+    <alerts>
         <fullName>Retail_Execution_Email_Notification</fullName>
         <description>Retail Execution Email Notification</description>
         <protected>false</protected>
@@ -167,8 +209,19 @@
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>MBTH_Update_Retail Campaign_ApproverEmail</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Retail_Campaign__c.Approver__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Retail Execution Start Date Notification To Owner</fullName>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.Record_Type_Name__c</field>
             <operation>equals</operation>
@@ -184,6 +237,11 @@
             <operation>equals</operation>
             <value>JP</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -198,6 +256,7 @@
     <rules>
         <fullName>Segmentation start date Notification to Retail Users</fullName>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.Segmentation_Date__c</field>
             <operation>equals</operation>
@@ -212,6 +271,11 @@
             <field>Retail_Campaign__c.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -253,8 +317,19 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>TH_send Email Notification to the Dealer</fullName>
+        <actions>
+            <name>MBTH_Email_Notification_to_Dealers</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>Dealer_Email__c !=null&amp;&amp; MD__c ==&apos;TH&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Time Based Workflow on Retail Campaign</fullName>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -264,6 +339,11 @@
             <field>Retail_Campaign__c.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>

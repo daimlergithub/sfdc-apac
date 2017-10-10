@@ -33,6 +33,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             AccounthelperKR.updateOnDoNotCall(Trigger.new);
             AccountHelperKR.updateOnPostalOptout(Trigger.new);
             system.debug('@@@@@@ listNewAccounts update trigger');
+			AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
             AccountHelperKR.updateOnEmailOptout(Trigger.new);
             AccountHelperKR.updateAgeRange(Trigger.new);
         }
@@ -90,6 +91,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
 				
 				AccounthelperKR.updateOnDoNotCall(Trigger.new);
 				AccountHelperKR.updateOnPostalOptout(Trigger.new);
+				AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
 				AccountHelperKR.updateOnEmailOptout(Trigger.new);
 				AccountHelperKR.updateAgeRange(Trigger.new);
 			}

@@ -36,9 +36,9 @@ public class Util_GetPermissionList {
        { flag=false;
          u =[Select id, market__c from user where id=:UserInfo.getUserId()] ;
          UserPermissionMapFinal=Util_GetPermissionList.getUserPermissions(new List<User>{u});
-         system.debug('@@@@@user query executed@@@@');
+         
        }
-     //if(UserPermissionMapFinal!= null && UserPermissionMapFinal.size()>0 &&  UserPermissionMapFinal.get(u.id).contains(permissionToCheck)) return true; 
+     
      if((UserPermissionMapFinal!= null && UserPermissionMapFinal.size()>0 &&  UserPermissionMapFinal.get(u.id).contains(permissionToCheck)) || profileName.equals('IntegrationAPI') || profileName.equals('System Administrator')) return true;
      return false;
     }
@@ -63,7 +63,7 @@ public class Util_GetPermissionList {
         {  Set<String>UserPermissions=new Set<String>();
            User u1= [Select Persona_Assigned__c from User where id=:u.id ];
            String personaAssigned=u1.Persona_Assigned__c;
-         system.debug(personaAssigned);
+         
            if(personaAssigned != null )
            {
             List<Persona__c> personaList = new List<Persona__c>();
@@ -72,18 +72,20 @@ public class Util_GetPermissionList {
             if(personaList.size()>0)
            {
            Persona__c maj=personaList[0];
-           //system.debug(maj);    
+              
            List<String> UpermissionSetIDs= new List<String>();
            if(maj.Functionality_Access__r.PermissionSet_Ids__c != null)
            {
             UpermissionSetIDs=maj.Functionality_Access__r.PermissionSet_Ids__c.split(';');
             List<CustomPermission> Ucustompermissions=new List<CustomPermission>();
             Ucustompermissions=[SELECT  DeveloperName FROM CustomPermission where id IN (SELECT SetupEntityId from SetupEntityAccess WHERE SetupEntityType='CustomPermission' AND ParentId In : UpermissionSetIDs ) ];
-            system.debug(Ucustompermissions);
-               for(CustomPermission cp:Ucustompermissions)
+            if(Ucustompermissions.size()>0)
             {
+                for(CustomPermission cp:Ucustompermissions)
+              {
                 UserPermissions.add(cp.DeveloperName);
-            }
+              } 
+            }    
           }
         }
          if(UserPermissions.size()>0) UserPermissionMap.put(u.id, UserPermissions);
@@ -91,7 +93,7 @@ public class Util_GetPermissionList {
      }
      }catch(Exception e)
      {
-         System.debug(e.getMessage()+e.getLineNumber() );
+         CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
      }
      
            
@@ -112,17 +114,21 @@ public class Util_GetPermissionList {
        if(personaList.size()>0)
        {
           Persona__c maj=personaList[0];
-          //system.debug('hk'+ maj);
+         
           List<String> UpermissionSetIDs= new List<String>();
           if(maj.Functionality_Access__r.PermissionSet_Ids__c != null)
            {
             UpermissionSetIDs=maj.Functionality_Access__r.PermissionSet_Ids__c.split(';');
             List<CustomPermission> Ucustompermissions=new List<CustomPermission>();
             Ucustompermissions=[SELECT  DeveloperName FROM CustomPermission where id IN (SELECT SetupEntityId from SetupEntityAccess WHERE SetupEntityType='CustomPermission' AND ParentId In : UpermissionSetIDs ) ];
-            for(CustomPermission cp:Ucustompermissions)
+            if(Ucustompermissions.size()>0)
             {
+                 for(CustomPermission cp:Ucustompermissions)
+               {
                 MarketPermissions.add(cp.DeveloperName);
+               }
             }
+              
           }
         }
        if(MarketPermissions.size()>0) MarketPermissionMap.put(MD, MarketPermissions);

@@ -9,8 +9,8 @@ public class CaseHelperMY {
     CaseHelperBase caseHelperBased = new CaseHelperBase();
     string market = System.Label.MarketMY;
     
-    public void updateCaseDeadLineAmount(List<case> caselist, string market){
-        caseHelperBased.updateCaseDeadLineAmount(caselist,market);
+    public void updateCaseDeadLineAmount(List<case> caselist, string market,Map<Id,Case> oldValcase){
+            caseHelperBased.updateCaseDeadLineAmount(caselist,market,oldValCase);    
     }
     
     public void calculateComplaintAmount(List<Case> cases, string market){

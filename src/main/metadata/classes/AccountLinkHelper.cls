@@ -778,8 +778,8 @@ public class AccountLinkHelper
         }
         
         Map<Id, List<Id>> map_AccountIdListUser = new Map<Id, List<Id>>();
-        List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
-        
+       
+        set<Vehicle_Relationship__Share> set_SharingRecord = new set<Vehicle_Relationship__Share>();
         List<Vehicle_Relationship__c> list_VehicleRelationRecord = new List<Vehicle_Relationship__c>([SELECT Id, Contact__c 
                                                                                                         FROM Vehicle_Relationship__c 
                                                                                                         WHERE Contact__c IN: map_FromAccountIdAndListToAccountId.keySet()]);
@@ -796,14 +796,15 @@ public class AccountLinkHelper
                                     vehicleRelationShare.UserOrGroupId = groupRec.id;
                                     vehicleRelationShare.ParentId = vehicleR.Id;
                                     vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
-                                    list_SharingRecord.add(vehicleRelationShare);                                
+                                    set_SharingRecord.add(vehicleRelationShare);                                
                              
                        // }
                     }
                 }
             }
             
-            if(list_SharingRecord.size() > 0){
+            if(set_SharingRecord.size() > 0){
+                 list<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>(set_SharingRecord);
                 Database.insert(list_SharingRecord, false);
             }
         }

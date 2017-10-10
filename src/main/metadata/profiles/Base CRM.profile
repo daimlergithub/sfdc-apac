@@ -4189,7 +4189,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Industry</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10154,7 +10154,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Escalation_to_Department__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11129,7 +11129,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Recall_ID__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11722,7 +11722,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Vehicle_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -24414,7 +24414,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.UsVIN__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -24719,7 +24719,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.EuroVIN__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25019,7 +25019,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.UsVIN__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

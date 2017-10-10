@@ -33,12 +33,13 @@ public class MRC_UpdateAccessOnUserExt {
             UListToUpdate.add(us);
         }
      
-     system.debug('hk'+UListToUpdate);
-    // if(UListToUpdate.size()>0) //updateUser(UListToUpdate) ;  
+    
+	 CustomLogUtil.CustomLoggingEntry('Error Occured' + UListToUpdate);
+    
            
      }catch(Exception e)
      {
-         system.debug('error'+e.getMessage()+ e.getStackTraceString());
+         CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
      }
     
     }
@@ -49,7 +50,7 @@ public class MRC_UpdateAccessOnUserExt {
             update Ulist ;
         }catch(Exception e)
         {
-            system.debug('Error'+e.getMessage());
+           CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
         }
         
     }
