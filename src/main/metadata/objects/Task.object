@@ -11236,13 +11236,13 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR'))</errorConditionF
         <errorDisplayField>Activity_Status__c</errorDisplayField>
         <errorMessage>" Fail-Blacklist" is Not applicable for Thailand Users.please select other than "" Fail-Blacklist"</errorMessage>
     </validationRules>
-    <validationRules>
+    <!--<validationRules>
         <fullName>Template_ID_is_required</fullName>
         <active>false</active>
         <description>For "SMS Response Required" task,Template ID is required</description>
         <errorConditionFormula>AND(00N2800000A9Ct4=TRUE, ISBLANK(SMSTemplateID__c) )</errorConditionFormula>
         <errorMessage>Sorry, for "SMS Response Required" task,Template ID is required</errorMessage>
-    </validationRules>
+    </validationRules>-->
     <webLinks>
         <fullName>After_Sales_Lead</fullName>
         <availability>online</availability>
