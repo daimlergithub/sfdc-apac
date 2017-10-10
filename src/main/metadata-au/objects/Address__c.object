@@ -106,6 +106,17 @@
         <unique>false</unique>
     </fields>
 	<fields>
+        <fullName>Address_Line_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
         <fullName>Address_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
         <externalId>false</externalId>
@@ -130,73 +141,51 @@
         <externalId>false</externalId>
         <label>Address Type</label>
         <picklist>
-            <picklistValues>
-                <fullName>Mailing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prev Mailing</fullName>
-                <default>false</default>
-            </picklistValues>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Home</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Business</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Company</fullName>
+                <fullName>Other Address 1</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Site address</fullName>
+                <fullName>Other Address 2</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Postal address</fullName>
+                <fullName>Other Address 3</fullName>
                 <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 1 -Main Location Sales, Service &amp; Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 2 -Main Location Sales Only</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 3 -Main Location Service &amp; Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 6 -Additional Sales, Service &amp; Parts location not within Site 1 or Site 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 7 -Service &amp; Parts ONLY Location</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 8 -Only Parts Location</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 9 -Auto Body</fullName>
-                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -388,17 +377,64 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
-IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+	IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+	IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+        IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+        IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+	IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
+	)))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -591,12 +627,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <label>Company</label>
         <picklistValues>
             <picklist>Address_Type__c</picklist>
-            <values>
+           <values>
                 <fullName>Business</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -604,55 +636,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mailing</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Postal address</fullName>
+                <fullName>Other Address 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prev Mailing</fullName>
+                <fullName>Other Address 2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 2 -Main Location Sales Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 8 -Only Parts Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 9 -Auto Body</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site address</fullName>
+                <fullName>Other Address 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -733,63 +725,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Home</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mailing</fullName>
+                <fullName>Other Address 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Postal address</fullName>
+                <fullName>Other Address 2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prev Mailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 2 -Main Location Sales Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 8 -Only Parts Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 9 -Auto Body</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site address</fullName>
+                <fullName>Other Address 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -870,63 +818,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Home</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mailing</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Postal address</fullName>
+                <fullName>Other Address 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prev Mailing</fullName>
+                <fullName>Other Address 2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 2 -Main Location Sales Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 8 -Only Parts Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 9 -Auto Body</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site address</fullName>
+                <fullName>Other Address 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
