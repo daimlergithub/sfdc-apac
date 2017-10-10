@@ -6014,7 +6014,27 @@
         <picklistValues>
             <picklist>Activity_Status__c</picklist>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Verification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>busy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>invalid call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6022,7 +6042,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>busy</fullName>
+                <fullName>no answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no such person</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6031,30 +6055,6 @@
             </values>
             <values>
                 <fullName>wrong number</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>no such person</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>invalid call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Need Verification</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Failed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Success</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pending</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11227,7 +11227,22 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR'))</errorConditionF
         <description>During QC execution, QC user should only able to edit fields"Generate QC" &amp; "QC Quantity".</description>
         <errorConditionFormula>(( $Profile.Name = "CAC IB QC") || ($Profile.Name = "CAC OB QC"))&amp;&amp; NOT(ISCHANGED( Generate_QC__c )) &amp;&amp; NOT((ISCHANGED( QC_Quantity__c )))</errorConditionFormula>
         <errorMessage>QC User can only edit "QC Quantity" and "Generate QC" field on this record</errorMessage>
-    </validationRules> 
+    </validationRules>
+    <validationRules>
+        <fullName>TH_Block_List_Activity_Status</fullName>
+        <active>true</active>
+        <description>This status picklist value is to be removed or not to be used by CCC.</description>
+        <errorConditionFormula>AND( MD__c ='TH',  ISPICKVAL( Activity_Status__c,"Fail-Blacklist"))</errorConditionFormula>
+        <errorDisplayField>Activity_Status__c</errorDisplayField>
+        <errorMessage>" Fail-Blacklist" is Not applicable for Thailand Users.please select other than "" Fail-Blacklist"</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Template_ID_is_required</fullName>
+        <active>false</active>
+        <description>For "SMS Response Required" task,Template ID is required</description>
+        <errorConditionFormula>AND(00N2800000A9Ct4=TRUE, ISBLANK(SMSTemplateID__c) )</errorConditionFormula>
+        <errorMessage>Sorry, for "SMS Response Required" task,Template ID is required</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>After_Sales_Lead</fullName>
         <availability>online</availability>
