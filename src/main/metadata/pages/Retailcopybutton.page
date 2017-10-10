@@ -134,6 +134,9 @@ window.location.href="/{!AccId}";
                         <apex:column headerValue="{!$ObjectType.Address__c.fields.District_Native__c.Label}">
                         <apex:outputField value="{!ad.District_Native__c }"/>
                         </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Sub_District__c.Label}">
+                        <apex:outputField value="{!ad.Sub_District__c }"/>
+                        </apex:column>
                         <apex:column headerValue="{!$ObjectType.Address__c.fields.Block__c.Label}">
                         <apex:outputField value="{!ad.Block__c  }"/>
                         </apex:column>

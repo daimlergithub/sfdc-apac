@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Email_to_Owner</fullName>
+        <description>Email to Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Appeal_QC</template>
+    </alerts>
+    <alerts>
         <fullName>Execution_Start_Date_Notification_To_Owner</fullName>
         <description>Execution Start Date Notification To Owner</description>
         <protected>false</protected>
@@ -9,6 +19,47 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Campaign_notification_on_Execution</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_Approval_Given</fullName>
+        <description>MBTH_Approval Given</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Approval_Mail</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_Intial_Submission_Action</fullName>
+        <description>MBTH_Intial Submission Action</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Approver__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Approval_Submitted</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_rejection_Action</fullName>
+        <description>MBTH_rejection Action</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Appeal_QC</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_rejections_Action</fullName>
+        <description>MBTH_rejection Action</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Rejectd_Mail</template>
     </alerts>
     <alerts>
         <fullName>Segmentation_Email_Notifications_For_WS_Users</fullName>
@@ -288,7 +339,7 @@ RecordType.Name,
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND ( 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3 AND ( 4 OR 5)) OR (1 AND 3 AND 6 AND 7)</booleanFilter>
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>
@@ -318,6 +369,11 @@ RecordType.Name,
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
         </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
@@ -409,6 +465,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
     <rules>
         <fullName>MBTH_Update status Published</fullName>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
@@ -416,7 +473,12 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <criteriaItems>
             <field>Campaign.Publish_Date__c</field>
-            <operation>notEqual</operation>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -436,7 +498,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4 )) OR (2 AND 5 AND 6)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -461,6 +523,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -599,7 +666,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND  3 ) OR (2 AND 4 AND 5)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -619,6 +686,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>

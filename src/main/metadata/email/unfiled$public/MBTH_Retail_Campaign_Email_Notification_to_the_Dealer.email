@@ -1,0 +1,6 @@
+Hi  {!Retail_Campaign__c.Dealer_Name__c},
+
+The  Retail Campaign {!Retail_Campaign__c.Campaign_Name__c} is  created for you kindly follow up with this record
+
+For Record find the below URL:
+{!Retail_Campaign__c.Link}

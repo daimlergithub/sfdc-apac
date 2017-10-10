@@ -684,10 +684,12 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Temp_Address__c}"/>                        
                     </apex:pageBlockSectionItem>
-                     <apex:pageBlockSectionItem >       
+                     <!--
+					 <apex:pageBlockSectionItem>       
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:outputField value="{!AddressObj.Market__c}"/>                              
                     </apex:pageBlockSectionItem>
+					-->
                      <apex:pageBlockSectionItem rendered="{!If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province_Native__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Province_Native__c}"/>                        
@@ -731,10 +733,12 @@
                      
                     </apex:pageBlockSectionItem>   
       
-               <apex:pageBlockSectionItem >       
+				   <!--
+				   <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:outputField value="{!AddressObj.Market__c}"/>                              
                     </apex:pageBlockSectionItem>
+					-->
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>
@@ -845,10 +849,12 @@
                             
                     </apex:pageBlockSectionItem>        
      
-                    <apex:pageBlockSectionItem >       
+                    <!--
+					<apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:outputField value="{!AddressObj.Market__c}"/>                              
                     </apex:pageBlockSectionItem>
+					-->
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>      

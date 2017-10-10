@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEMPersonAccount</compactLayoutAssignment>
     <enableHistory>true</enableHistory>
@@ -4184,6 +4184,10 @@
                 <fullName>Automotive related</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Broadcasting%2C Media</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Computer%2FIT</fullName>
                 <default>false</default>
@@ -4194,6 +4198,10 @@
             </values>
             <values>
                 <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Delivery</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4228,6 +4236,10 @@
                 <fullName>Government employees</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Housewife</fullName>
                 <default>false</default>
@@ -4242,6 +4254,10 @@
             </values>
             <values>
                 <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Legal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4310,6 +4326,10 @@
             </values>
             <values>
                 <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Real Estate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5011,6 +5031,49 @@
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Owner_Relation__c</picklist>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband Wife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
