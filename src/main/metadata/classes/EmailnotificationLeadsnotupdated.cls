@@ -36,7 +36,8 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
                                                 AND (CAC_Lead_Status__c = 'Allocated')) 
                                          OR (MD__c = 'JP' AND 
                                              Assigned_Dealer__c != null AND Assigned_Dealer__r.Lead_No_Update_Notification_Disable__c != true 
-                                             AND LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Aftersales Leads') AND Appointment_DateTime__c !=null)  ]);          
+                                             AND LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Aftersales Leads') AND Appointment_DateTime__c !=null 
+                                             AND Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' AND Dealer_Lead_Status__c !='Lost')]);          
     }
     
     //EXECUTE METHOD

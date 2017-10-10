@@ -10692,6 +10692,12 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <default>false</default>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -92337,6 +92343,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>wear and tear</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Type__c</picklist>
@@ -103925,6 +103935,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Gift Car</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Type__c</picklist>
@@ -111647,7 +111661,7 @@ ISNULL(Visited_Showroom_Date__c)
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 
 if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Manager' || prName == 'Japan Dealer Company Manager' || prName == 'System Administrator'||prName == 'Campaign Japan Dealer Company Manager'){ 
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes","scrollbars=yes,width = 800, height = 600"); 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","scrollbars=yes,width = 800, height = 600"); 
 } 
 else{ 
 alert("{!$Label.Authorization}"); 

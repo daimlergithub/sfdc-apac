@@ -5016,6 +5016,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Have you checked with supervisor to notify the dealer?</value>
     </labels>
     <labels>
+        <fullName>Notify_To_Dealer3</fullName>
+        <categories>Case, Button, Alert, Error, Message</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Notify_To_Dealer3</shortDescription>
+        <value>You cannot notify to the dealer because Dealer Contact is not &apos;Yes&apos;.</value>
+    </labels>
+    <labels>
         <fullName>Occupation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9922,5 +9930,40 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
+    </labels>
+	   <labels>
+        <fullName>Contact_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Id</shortDescription>
+        <value>Contact Id</value>
+    </labels>
+	<labels>
+        <fullName>Campaign_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Id</shortDescription>
+        <value>Campaign Id</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Campaign_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Campaign Id</shortDescription>
+        <value>Retail Campaign Id</value>
+    </labels>
+	<labels>
+        <fullName>UsVIN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UsVIN </shortDescription>
+        <value>UsVIN </value>
+    </labels>
+	<labels>
+        <fullName>Contract_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract Number</shortDescription>
+        <value>Contract Number</value>
     </labels>
 </CustomLabels>

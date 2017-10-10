@@ -22447,20 +22447,20 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
 var tpArray = (function () {
 var dmmaterial_type = '{!Campaign.DM_Material__c}';
 switch(dmmaterial_type){
-case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
 case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
-case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
 case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
-case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
 case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
-case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
 case 'Company Account': return 'p04_CompanyAccount';brak;
-case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
 case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
-case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
-case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
-case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting';brak;
 default:return 'p07_CustomerAddressOnlyPrinting';brak;
 }
 }());
@@ -22523,20 +22523,20 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 var tpArray = (function () {
 var dmmaterial_type = '{!Campaign.DM_Material__c}';
 switch(dmmaterial_type){
-case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
 case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
-case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
 case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
-case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
 case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
-case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
 case 'Company Account': return 'p04_CompanyAccount';brak;
-case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
 case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
-case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
-case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
-case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting';brak;
 default:return 'p07_CustomerAddressOnlyPrinting';brak;
 }
 }());
