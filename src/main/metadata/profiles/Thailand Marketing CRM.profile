@@ -112,7 +112,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_Data_Management</application>
-        <default>true</default>
+        <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -122,7 +122,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_Master_Data_Management</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -24882,7 +24882,7 @@
     <layoutAssignments>
         <layout>Batch_Job__c-Batch Job Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
+  <layoutAssignments>
         <layout>Campaign-Campaign Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -24898,7 +24898,7 @@
         <recordType>Campaign.CAS_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Master Layout</layout>
+        <layout>Campaign-MBTH_Campaign Execution Complex layout</layout>
         <recordType>Campaign.Campaign_Execution</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -24906,15 +24906,15 @@
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Master Layout</layout>
+        <layout>Campaign-MBTH_Campaign Execution Complex layout</layout>
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Master Layout</layout>
+       <layout>Campaign-Campaign Master Layout</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Master Layout</layout>
+       <layout>Campaign-MBTH_Central Campaign Layout</layout>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -26792,7 +26792,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.CAC_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -26802,12 +26802,12 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Execution</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -26820,10 +26820,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
+        <default>false</default>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -26831,9 +26830,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -26850,6 +26849,7 @@
         <recordType>Campaign.smart_Best_Practice</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Chrysler_Complaint</recordType>
