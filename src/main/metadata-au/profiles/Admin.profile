@@ -24852,4 +24852,4 @@
         <enabled>true</enabled>
         <name>ViewSetup</name>
     </userPermissions>
-</Profile> 
+</Profile>
