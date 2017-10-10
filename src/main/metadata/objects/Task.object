@@ -11229,7 +11229,7 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR'))</errorConditionF
         <errorMessage>QC User can only edit "QC Quantity" and "Generate QC" field on this record</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>TH_Block_List_Activity_Status</fullName>
+        <fullName>THAILAND_Block_List_Activity_Status</fullName>
         <active>true</active>
         <description>This status picklist value is to be removed or not to be used by CCC.</description>
         <errorConditionFormula>AND( MD__c ='TH',  ISPICKVAL( Activity_Status__c,"Fail-Blacklist"))</errorConditionFormula>
