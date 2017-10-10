@@ -10129,7 +10129,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Escalation_to_Department__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
