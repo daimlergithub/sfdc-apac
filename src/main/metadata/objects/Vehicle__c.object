@@ -2162,6 +2162,15 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Grey_Vehicle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Grey Vehicle</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Height__c</fullName>
         <externalId>false</externalId>
         <label>Height</label>
