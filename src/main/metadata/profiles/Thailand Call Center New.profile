@@ -1036,10 +1036,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadRecordsUpdate</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadShareBatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
