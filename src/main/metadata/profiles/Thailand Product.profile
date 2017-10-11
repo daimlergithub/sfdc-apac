@@ -26610,10 +26610,6 @@
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout TH</layout>
-        <recordType>PersonAccount.PersonAccount</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Persona__c-Persona Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
