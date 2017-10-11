@@ -22001,7 +22001,7 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
         <fullName>Locked_for_Central_when_Published_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-RecordType.Name =='Planning_Design_Campaign',
+RecordType.Name =='Planning &amp; Design Campaign',
 
 OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
 OR( ISCHANGED( Campaign_Code__c ),
@@ -22528,7 +22528,7 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
         <masterLabel>Create_Child_Campaign</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>MBTH_Create_Complex_Execution</fullName>
