@@ -24076,6 +24076,7 @@
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Mileage_start__c</field>
         <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.New_Used__c</field>
