@@ -27179,10 +27179,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	 <tabVisibilities>
-        <tab>Reports</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	 <tabVisibilities>
         <tab>Retail_Campaign__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
