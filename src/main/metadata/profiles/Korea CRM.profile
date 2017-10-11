@@ -24125,7 +24125,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Status_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
