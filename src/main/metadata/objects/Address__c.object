@@ -460,12 +460,12 @@
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Indonesia</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<sorted>false</sorted>
+            <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -718,21 +718,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Hokkaido</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aomori</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Iwate</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -745,7 +742,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Akita</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -758,14 +754,12 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Fukushima</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ibaraki</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -778,7 +772,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Gunma</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -791,7 +784,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Chiba</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -822,14 +814,12 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Ishikawa</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fukui</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -848,7 +838,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Gifu</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -861,7 +850,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Aichi</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -892,7 +880,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Hyogo</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -929,7 +916,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Hiroshima</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -948,14 +934,12 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Kagawa</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ehime</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -968,7 +952,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>Fukuoka</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -1012,6 +995,91 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incheon</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gyeongsangnam-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chungcheongnam-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gyeonggi-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Busan</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jeollabuk-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sejong-si</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gyeongsangbuk-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jeju-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daegu</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seoul</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gangwon-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jeollanam-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ulsan</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chungcheongbuk-do</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gwangju</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daejeon</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1299,7 +1367,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Busan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Chiba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongnam-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daegu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daejeon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1319,11 +1407,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Gangwon-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gifu</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gwangju</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeonggi-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangnam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1343,11 +1451,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Incheon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ishikawa</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeju-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollabuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollanam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1427,6 +1551,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sejong-si</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seoul</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Shiga</fullName>
                 <default>false</default>
             </values>
@@ -1456,6 +1588,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ulsan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1623,7 +1759,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Busan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Chiba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongnam-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daegu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daejeon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1643,11 +1799,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Gangwon-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gifu</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gwangju</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeonggi-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangnam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1667,11 +1843,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Incheon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ishikawa</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeju-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollabuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollanam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1751,6 +1943,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sejong-si</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seoul</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Shiga</fullName>
                 <default>false</default>
             </values>
@@ -1780,6 +1980,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ulsan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1947,7 +2151,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Busan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Chiba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongnam-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daegu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daejeon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1967,11 +2191,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Gangwon-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gifu</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gwangju</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeonggi-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangnam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1991,11 +2235,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Incheon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ishikawa</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeju-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollabuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollanam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2075,6 +2335,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sejong-si</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seoul</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Shiga</fullName>
                 <default>false</default>
             </values>
@@ -2104,6 +2372,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ulsan</fullName>
                 <default>false</default>
             </values>
             <values>
