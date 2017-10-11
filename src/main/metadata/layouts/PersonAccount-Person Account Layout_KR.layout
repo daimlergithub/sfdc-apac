@@ -891,7 +891,7 @@
         <fields>Last_Service_Dealer__c</fields>
         <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
-        <sortField>Start_Date__c</sortField>
+        <sortField>Vehicle_Model__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
