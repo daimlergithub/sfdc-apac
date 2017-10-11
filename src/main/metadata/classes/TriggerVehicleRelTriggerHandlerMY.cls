@@ -41,12 +41,10 @@ public class TriggerVehicleRelTriggerHandlerMY
     {
       
     List<Vehicle_Relationship__c> vehicleNewList = Trigger.new;
-        if(!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0 && vehicleNewList[0].MD__c == 'TH')
-        {
-       if(trigger.isAfter && (trigger.isInsert))
-      {
-        VehicleRelationshipHelperBase.OnAfterInsert(Trigger.new);
-      }
+        if(!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0 && vehicleNewList[0].MD__c == Label.MY){
+		  if(trigger.isAfter && (trigger.isInsert)){
+			VehicleRelationshipHelperBase.OnAfterInsert(Trigger.new);
+		  }
         if(trigger.isAfter && Trigger.isUpdate) {
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
         VehicleRelationshipHelperBase.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
