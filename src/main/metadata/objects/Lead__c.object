@@ -10776,6 +10776,12 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Warranty plus</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
+			</picklistValues>
+            <picklistValues>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -74154,6 +74160,14 @@ Company_Account__r.Work_Phone__c  ,
         <label>Retail Sales Leads</label>
         <picklistValues>
             <picklist>Assigned_Dealer_by_Rule__c</picklist>
+			<values>
+                <fullName>No Preference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nominated</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -92017,6 +92031,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Book-in</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
@@ -92027,6 +92045,34 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Service Information</fullName>
+                <default>false</default>		                
+            </values>
+             <values>
+                <fullName>Used Car</fullName>
+                <default>false</default>
+            </values>	
+             <values>
+                <fullName>Trade-In</fullName>
+                <default>false</default>
+            </values>			
+            <values>
+                <fullName>Product Information</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92524,6 +92570,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>wear and tear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -104112,6 +104162,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Gift Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

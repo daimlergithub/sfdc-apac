@@ -301,6 +301,94 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>ROADSTER</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Limousine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Convertible</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hatch</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Pullman</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Two-door family sedan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Truck</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUVs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sports car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saloon</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Default</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Panel Van</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tipper</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rigid</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Prime Mover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick up</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Van</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Window Van</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2160,6 +2248,15 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Grey_Vehicle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Grey Vehicle</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Height__c</fullName>
@@ -5433,6 +5530,38 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_Transmi
                 <fullName>Stepless automatic one hand transmission</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>6 speed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8 speed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9 speed</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>MB Powershift (Automatic)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telligent Gear/Shift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manual</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>SprintShift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Semi-automatic</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -5601,6 +5730,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </picklistValues>
             <picklistValues>
                 <fullName>Eternal scrap</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Repossessed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -5853,7 +5986,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMC</fullName>
@@ -7767,7 +7900,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
-            </values>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Valid__c</picklist>
@@ -18466,6 +18599,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Vehicle to be ordered</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Repossessed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

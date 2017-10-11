@@ -57,6 +57,15 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>Activated_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Activated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Add_Date__c</fullName>
         <externalId>false</externalId>
         <label>Add Date</label>
@@ -127,7 +136,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Allow_Data_Sharing__c</fullName>
         <defaultValue>true</defaultValue>
         <description>The flag to identify if this record can be shared with MBJ</description>
@@ -136,6 +145,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Branch_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Brand__c</fullName>
@@ -189,6 +209,15 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancellation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Car_Model__c</fullName>
@@ -1412,6 +1441,28 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Contract_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Description</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contractor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1533,6 +1584,17 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Dealer_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Delivery_Date__c</fullName>
         <externalId>false</externalId>
         <label>Delivery Date</label>
@@ -1606,6 +1668,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>End_Date_1__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>End_Date__c</fullName>
         <description>/* 
 Created by: Amy Liang 
@@ -1661,7 +1732,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Updated EndDate</fullName>
                 <default>false</default>
@@ -1949,6 +2020,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Grey_Vehicle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Grey Vehicle</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Handover_Date__c</fullName>
         <externalId>false</externalId>
         <label>Handover Date</label>
@@ -2024,21 +2104,21 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
         <externalId>false</externalId>
         <inlineHelpText>Name of last service dealer</inlineHelpText>
         <label>Last Service Dealer</label>
-         <lookupFilter>
+        <lookupFilter>
             <active>true</active>
-			<booleanFilter>1 OR 2</booleanFilter>
+            <booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
-             <filterItems>
+            <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
-            </filterItems>			
+            </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
                 <operation>equals</operation>
                 <value>IntegrationAPI</value>
             </filterItems>
-			<infoMessage>Search and select the Dealer.</infoMessage>
+            <infoMessage>Search and select the Dealer.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
@@ -2336,6 +2416,28 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_MainUsage
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Mileage_End__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Vehicle_ID__r.CurrentMileage__c)</formula>
+        <label>Mileage(End)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mileage_start__c</fullName>
+        <externalId>false</externalId>
+        <label>Mileage(start)</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>New_Used__c</fullName>
@@ -3331,6 +3433,17 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Price_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Price</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Price__c</fullName>
         <description>Survey Information
 What factors were influential in your purchase decision?
@@ -3786,16 +3899,16 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Provided
         <externalId>false</externalId>
         <inlineHelpText>Name of the last dealer who sold the vehicle</inlineHelpText>
         <label>Selling Dealer</label>
-       <lookupFilter>
+        <lookupFilter>
             <active>true</active>
-			<booleanFilter>1 OR 2</booleanFilter>
+            <booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
             </filterItems>
-			 <filterItems>
+            <filterItems>
                 <field>$Profile.Name</field>
                 <operation>equals</operation>
                 <value>IntegrationAPI</value>
@@ -3846,6 +3959,15 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Provided
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Start_Date_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Start_Date__c</fullName>
         <description>/* 
 Created by: Amy Liang 
@@ -3864,6 +3986,46 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_StartDat
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>O</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
@@ -4312,6 +4474,17 @@ This field is visible for Wholesale and Retail.</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>VIN_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>VIN Number</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>VIN_Search__c</fullName>
         <externalId>false</externalId>
         <label>VIN</label>
@@ -4679,6 +4852,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Write_off_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Write-off Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Year_Of_Manufacture__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT( Vehicle_ID__r.ModelYear__c )</formula>
@@ -4829,18 +5011,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Picklist</type>
     </fields>
     <label>Vehicle Relationship</label>
-    <listViews>
-        <fullName>All_Vehicle_Relationships</fullName>
-        <columns>NAME</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>OWNER.FIRST_NAME</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <label>All Vehicle Relationships</label>
-        <language>en_US</language>
-        <sharedTo>
-        </sharedTo>
-    </listViews>
     <listViews>
         <fullName>MBK_New_Vehicle_Relationship</fullName>
         <columns>NAME</columns>
@@ -5337,6 +5507,37 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Y</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_1__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5959,6 +6160,37 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Y</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_1__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6610,6 +6842,37 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status_1__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Currently Owned</fullName>
@@ -6773,7 +7036,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-         <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UsVIN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Car_Relation__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Vehicle_Model__c</customTabListAdditionalFields>
@@ -6791,8 +7054,8 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <lookupDialogsAdditionalFields>Selling_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Last_Service_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Vehicle_ID__c</lookupDialogsAdditionalFields>
-		<lookupFilterFields>Contact__c</lookupFilterFields>
-       <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <lookupFilterFields>Contact__c</lookupFilterFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>UsVIN__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Car_Relation__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Vehicle_Model__c</searchResultsAdditionalFields>
@@ -6807,7 +7070,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
-	<validationRules>
+    <validationRules>
         <fullName>End_Date_Cannot_be_deleted</fullName>
         <active>true</active>
         <errorConditionFormula>AND(!ISNEW(), ISCHANGED( End_Date__c ), ISNULL( End_Date__c ), MD__c = 'JP' , $Profile.Name != 'IntegrationAPI', $Profile.Name != 'Japan IT Department', $Profile.Name != 'Japan Data Management')</errorConditionFormula>
@@ -6819,7 +7082,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <active>true</active>
         <description>"End date is not null
 AND End reason is null"</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c)=='MY',$Permission.MYGeneric)))</errorConditionFormula>
         <errorDisplayField>End_Reason__c</errorDisplayField>
         <errorMessage>Once end date has been set for the vehicle relationship, the end reason must be entered.</errorMessage>
     </validationRules>
