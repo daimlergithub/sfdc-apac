@@ -597,7 +597,7 @@ public class AccountLinkHelper
     private static void ShareehicleALK(Set<Id> set_ToAccountId,Set<Id> VehiclealkId)
     {
         List<Account_Link__C> Vehiclelist_AccountLink = new List<Account_Link__C>();
-        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
         List<User> portaluser=new List<User>();
         if(VehiclealkId !=null && set_ToAccountId!=null)
         {
@@ -623,7 +623,7 @@ public class AccountLinkHelper
                             accountLinkShare.UserOrGroupId = usr.Id;
                             accountLinkShare.ParentId = alk.id;
                             accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                            list_SharingRecord.add(accountLinkShare);
+                            set_SharingRecord.add(accountLinkShare);
                         }
                         
                     }
@@ -632,14 +632,15 @@ public class AccountLinkHelper
         }
         
         
-        system.debug('list_SharingRecord@@@@'+list_SharingRecord);
-        if(list_SharingRecord.size() > 0){
+        system.debug('set_SharingRecord@@@@'+set_SharingRecord);
+        if(set_SharingRecord.size() > 0){
+            List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
             Database.insert(list_SharingRecord, false);
         }
     }
     //If Alk record type is person or company or vehicle external share alk records to Dealer user
     private static void SharePersonCompanyVehicleALK(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId,Set<Id> set_ToAccountId){
-        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
          List<Account_Link__C> list_AccountLink = new List<Account_Link__C>([SELECT Id,Retail_Delete_Flag__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE toRole__c IN: map_AccountIdAndListAccountLinkId.keySet() and fromRole__c=:set_ToAccountId] );
          //for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
             
@@ -655,15 +656,16 @@ public class AccountLinkHelper
                             accountLinkShare.UserOrGroupId = usr.Id;
                             accountLinkShare.ParentId = alk.id;
                             accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                            list_SharingRecord.add(accountLinkShare);
+                            set_SharingRecord.add(accountLinkShare);
                         }
                     }
                 }
             }
         }
         
-        system.debug('list_SharingRecord@@@@'+list_SharingRecord);
-        if(list_SharingRecord.size() > 0){
+        system.debug('set_SharingRecord@@@@'+set_SharingRecord);
+        if(set_SharingRecord.size() > 0){
+            List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
             Database.insert(list_SharingRecord, false);
         }
     }
@@ -683,7 +685,7 @@ public class AccountLinkHelper
             accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
         }
         
-        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
         for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
             if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
@@ -692,11 +694,12 @@ public class AccountLinkHelper
                     accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    list_SharingRecord.add(accountLinkShare);
+                    set_SharingRecord.add(accountLinkShare);
                 }
             }
         }
-        if(list_SharingRecord.size() > 0){
+        if(set_SharingRecord.size() > 0){
+            List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
             Database.insert(list_SharingRecord, false);
         }
         }
@@ -715,7 +718,7 @@ public class AccountLinkHelper
             accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
         }
         
-        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
         for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
             if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
@@ -724,11 +727,12 @@ public class AccountLinkHelper
                     accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    list_SharingRecord.add(accountLinkShare);
+                    set_SharingRecord.add(accountLinkShare);
                 }
             }
         }
-        if(list_SharingRecord.size() > 0){
+        if(set_SharingRecord.size() > 0){
+            List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
             Database.insert(list_SharingRecord, false);
         }
         }
@@ -742,13 +746,14 @@ public class AccountLinkHelper
         // Changing Sharing from User to Public Group
         List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         Set<String> dealerAccNameSet = new Set<String>();
+        set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
         for(Account dealerRec : dealerAccList) {
             dealerAccNameSet.add(dealerRec.Name);
             accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
         }
         
-        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        
         for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
             if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
@@ -757,11 +762,12 @@ public class AccountLinkHelper
                     accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    list_SharingRecord.add(accountLinkShare);
+                    set_SharingRecord.add(accountLinkShare);
                 }
             }
         }
-        if(list_SharingRecord.size() > 0){
+        if(set_SharingRecord.size() > 0){
+            List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
             Database.insert(list_SharingRecord, false);
         }
     }
