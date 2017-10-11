@@ -24994,22 +24994,7 @@
     </fieldPermissions>	
 	<fieldPermissions>
         <editable>true</editable>
-        <field>Market__c.market__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Market__c.Market_Code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
         <field>Functionality_Access_Master__c.Description__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Functionality_Access_Master__c.Module_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
@@ -25039,22 +25024,7 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
-        <field>Persona__c.Functionality_Access__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
         <field>Persona__c.Market__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Persona__c.Market_Access__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Persona__c.PersonaName__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
