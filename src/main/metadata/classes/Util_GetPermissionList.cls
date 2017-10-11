@@ -7,7 +7,7 @@
 * 25/9/2017     Harshit Kabra           Created  
 
 ===========================================================================================*/
-public class Util_GetPermissionList {
+public without sharing class Util_GetPermissionList {
 
     public static Map<String,Set<String>> UserPermissionMap;
     public static Map<String,Set<String>> MarketPermissionMap;
@@ -49,13 +49,13 @@ public class Util_GetPermissionList {
       if(flag1)
       {flag1=false;
        if(RecordMarket!= null) MarketPermissionMapFinal=Util_GetPermissionList.getPermissionsForMarket(new List<String>{RecordMarket}); 
-       system.debug('@@@@@market query executed@@@@');
+       
       }
       if(MarketPermissionMapFinal!=null && MarketPermissionMapFinal.size()>0 &&  MarketPermissionMapFinal.get(RecordMarket).contains(permissionsToCheck)) return true;
       return false;
     }
     
-    
+    //get all custompermissions assigned to user
     Public static Map<String,Set<String>> getUserPermissions(List<User> ulist)
     {   UserPermissionMap=new Map<String,Set<String>>();
      try{
@@ -100,6 +100,7 @@ public class Util_GetPermissionList {
         return UserPermissionMap;
     }
     
+    //return all custom permissions assigned to market integration persona
     Public static Map<String,Set<String>> getPermissionsForMarket(List<String> MDList)
     {
       MarketPermissionMap=new Map<String,Set<String>>();
