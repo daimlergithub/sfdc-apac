@@ -10157,4 +10157,11 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>search key</shortDescription>
         <value>UCID__c</value>
     </labels>
+	<labels>
+        <fullName>MYGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYGeneric (This is used by MY Market for access check)</shortDescription>
+        <value>MYGeneric</value>
+    </labels>
 </CustomLabels>

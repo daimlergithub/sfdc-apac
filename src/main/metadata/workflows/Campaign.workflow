@@ -473,7 +473,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <criteriaItems>
             <field>Campaign.Publish_Date__c</field>
-            <operation>equals</operation>
+            <operation>notEqual</operation>
         </criteriaItems>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>

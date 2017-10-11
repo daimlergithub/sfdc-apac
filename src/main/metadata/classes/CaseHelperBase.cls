@@ -5,7 +5,6 @@
 */
 
 public class CaseHelperBase {
-    Date myDate =date.newinstance(1900, 1, 7);
     public Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY); // To get inquiry record type id
     public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT); // to get market record type id
     public List<Id> tmpCaseIds = new List<Id>();
@@ -22,7 +21,7 @@ public class CaseHelperBase {
                                                     FROM Case_Escalation_Matrix__mdt];
         for(Case caserec:Caselist){
             for(Case_Escalation_Matrix__mdt cem : ceMatrix){
-                system.debug('inside for'+caserec.RecordTypeId+caserec.RecordTypeID+caserec.RecordType.DeveloperName+'=record type'+UtilRecordType.getRecordTypeIdByName('Case',cem.Record_Type__c)+'priorty'+caserec.priority+'---'+cem.Priority__C+'market'+caserec.md__c+'----'+cem.MasterLabel);
+                //system.debug('inside for'+caserec.RecordTypeId+caserec.RecordTypeID+caserec.RecordType.DeveloperName+'=record type'+UtilRecordType.getRecordTypeIdByName('Case',cem.Record_Type__c)+'priorty'+caserec.priority+'---'+cem.Priority__C+'market'+caserec.md__c+'----'+cem.MasterLabel);
                 if(caserec.RecordTypeID==UtilRecordType.getRecordTypeIdByName('Case',cem.Record_Type__c) && caserec.priority== cem.Priority__C && caserec.md__c==cem.MasterLabel){
                     if(oldValCase == NULL)
                         updatedeadine(caserec,Integer.ValueOf(cem.Escalation_Hours__c));
@@ -56,7 +55,6 @@ public class CaseHelperBase {
                 daystoadd=daystoadd+1;
             }
         
-           //if(caserec.deadline__c==null){
                 Datetime dow = System.now()+daystoadd;
                 string dayOfWeek = dow.format('E');
                 if(dayOfWeek =='Sat'){
@@ -67,8 +65,7 @@ public class CaseHelperBase {
                 }
                 else
                     caserec.deadline__c=System.now()+daystoadd;
-                
-            //}
+        
         }
     }
     
@@ -83,7 +80,7 @@ public class CaseHelperBase {
         }                       
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                      Where (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id and MD__c =: market) LIMIT 50000]; 
+                              Where (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id and MD__c =: market) LIMIT 50000]; 
         if (case_acc != null && !case_acc.isEmpty()){                                         
             for(Case c : case_acc){
                 tmpCaseIds = accountCaseMap.get(c.AccountId);
@@ -115,7 +112,7 @@ public class CaseHelperBase {
                updateAccount.add(acc);
             } 
         }
-        update updateAccount;                                                                                                                 
+        DMLManagerService.updateAsSystem(updateAccount);                                                                                        
     }
     
     //Calculate the number of Repeated Case for an account 
@@ -153,13 +150,11 @@ public class CaseHelperBase {
                             caseNew.addError(NOT_PRIMARY_REMINDER );
                         }
                         else
-                        {
-                            //system.debug('in else condition'+parentIdChildIds.get(caseNew.ParentId).size());
+                        {   
                             if(parentIdChildIds.containsKey(caseNew.ParentId))
                                 caseNew.Repeat_Complaint_Times__c = parentIdChildIds.get(caseNew.ParentId).size() + 1;
                             else
                                 caseNew.Repeat_Complaint_Times__c = 1;
-                           system.debug('after execution '+caseNew.Repeat_Complaint_Times__c);     
                         }
                     }
                 }
