@@ -2452,10 +2452,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>VehiclePickerRetailCampaignTHController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>VehicleRelLookingController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -27888,10 +27884,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>VehiclePicker</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>VehiclePickerRetailCampaignTH</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
