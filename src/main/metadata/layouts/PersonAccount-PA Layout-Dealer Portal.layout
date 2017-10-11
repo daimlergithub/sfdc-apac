@@ -714,9 +714,9 @@
         <fields>NAME</fields>
         <fields>Vehicle_Model__c</fields>
         <fields>UsVIN__c</fields>
-        <fields>Car_Relation__c</fields>
+        <fields>Grey_Vehicle__c</fields>
         <fields>New_Used__c</fields>
-        <fields>Finance_Method__c</fields>
+        <fields>Car_Relation__c</fields>
         <fields>End_Date__c</fields>
         <fields>Selling_Dealer__c</fields>
         <fields>Last_Service_Dealer__c</fields>
