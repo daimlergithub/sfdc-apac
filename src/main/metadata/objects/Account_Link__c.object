@@ -69,7 +69,7 @@
 	<fields>
         <fullName>Agreement_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
-        <formula>fromRole__r.Agreement_Date_for_CC_New__c</formula>
+        <formula>toRole__r.Agreement_Date_for_CC_New__c</formula>
         <label>Agreement Date for CC New</label>
         <required>false</required>
 		<trackHistory>false</trackHistory>
@@ -79,7 +79,7 @@
 	<fields>
         <fullName>Agreement_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>fromRole__r.Agreement_Date_for_Marketing_Consent__c</formula>
+        <formula>toRole__r.Agreement_Date_for_Marketing_Consent__c</formula>
         <label>Agreement Date for Marketing Consent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -89,7 +89,7 @@
     <fields>
         <fullName>Agreement_Date_on_Contact_Method__c</fullName>
         <externalId>false</externalId>
-        <formula>fromRole__r.Agreement_Date_for_Contact_Method__c</formula>
+        <formula>toRole__r.Agreement_Date_for_Contact_Method__c</formula>
         <label>Agreement Date on Contact Method</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -212,7 +212,7 @@
 	<fields>
         <fullName>Expiration_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
-        <formula>fromRole__r.Expiration_Date_for_CC_New__c</formula>
+        <formula>toRole__r.Expiration_Date_for_CC_New__c</formula>
         <label>Expiration Date for CC New</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -222,7 +222,7 @@
     <fields>
         <fullName>General_Personal_InfoThirdParty_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(fromRole__r.General_Personal_InfoThirdParty_Optional__c)</formula>
+        <formula>TEXT(toRole__r.General_Personal_InfoThirdParty_Optional__c)</formula>
         <label>General Personal InfoThirdParty-Optional</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -233,7 +233,7 @@
     <fields>
         <fullName>General_Personal_Info_Sales_Marketing__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT( fromRole__r.General_Personal_Info_Sales_Marketing__c)</formula>
+        <formula>TEXT( toRole__r.General_Personal_Info_Sales_Marketing__c)</formula>
         <label>General Personal Info(Sales/Marketing)</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -244,7 +244,7 @@
     <fields>
         <fullName>General_Personal_Information_Mandatory__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(fromRole__r.General_Personal_Information_Mandatory__c)</formula>
+        <formula>TEXT(toRole__r.General_Personal_Information_Mandatory__c)</formula>
         <label>General Personal Information (Mandatory)</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -255,7 +255,7 @@
     <fields>
         <fullName>General_Personal_Information_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(fromRole__r.General_Personal_Information_Optional__c)</formula>
+        <formula>TEXT(toRole__r.General_Personal_Information_Optional__c)</formula>
         <label>General Personal Information (Optional)</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3479,7 +3479,7 @@ Holds National ID or Passport No. of wholesale Account</description>
 	<fields>
         <fullName>Targeted_Advertising_Info_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(fromRole__r.Targeted_Advertising_Info_Optional__c)</formula>
+        <formula>TEXT(toRole__r.Targeted_Advertising_Info_Optional__c)</formula>
         <label>Targeted Advertising Info (Optional)</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3500,7 +3500,7 @@ Holds National ID or Passport No. of wholesale Account</description>
 	<fields>
         <fullName>Unique_Identification_Info_Mandatory__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(fromRole__r.Unique_Identification_Info_Mandatory__c)</formula>
+        <formula>TEXT(toRole__r.Unique_Identification_Info_Mandatory__c)</formula>
         <label>Unique Identification Info(Mandatory)</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3511,7 +3511,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Unique_Identity_Info_ThirdParty_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(fromRole__r.Unique_Identity_Info_ThirdParty_Optional__c)</formula>
+        <formula>TEXT(toRole__r.Unique_Identity_Info_ThirdParty_Optional__c)</formula>
         <label>Unique Identity Info ThirdParty-Optional</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
