@@ -1916,18 +1916,43 @@ window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Case
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
-
+var userMarket = sforce.connection.query("Select Id, UserType,Market__c from User where Id =" + "'{!$User.Id}'"); 
+records = userMarket.getArray("records");
+var accid = records[0].Market__c; 
+var usrty=records[0].UserType;
+alert(usrty);
+ if(accid=='TH'){
+var acccount=sforce.connection.query("select Id from DM_Request__c where Customer_Name__c ='{!Lead__c.ContactId__c}' and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success') and Sent_Date__c &lt;= LAST_N_DAYS:90");
+reco = acccount.getArray("records");
+if(reco.length&gt;0){
+alert('DM request for this User has been created in last 90 days with status Success');
+} 
+}
+if(usrty=='PowerPartner'&amp;&amp; accid=='TH'){
+alert('hello');
+if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
+{	
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
+} 
+else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
+{ 
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
+} 
+else if('{!Lead__c.RecordTypeId}' == '012280000006I7r'){
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}');
+}
+}
+else{
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
 if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
 {	
-sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
 } 
 else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
 { 
-sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
 } 
 
 } 
@@ -1936,12 +1961,38 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQ
 else { 
 if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
 {	
-window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
 { 
-window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_DM_Request_TH_Account</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New DM Request TH</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
+records = userMarket.getArray("records"); 
+var accid = records[0].Market__c; 
+if(accid=='TH'){ 
+var acccount=sforce.connection.query("select Id from DM_Request__c where Customer_Name__c ='{!Account.Id}' and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success') and Sent_Date__c &lt;= LAST_N_DAYS:90"); 
+reco = acccount.getArray("records"); 
+if(reco.length&gt;0){ 
+alert('DM request for this User has been created in last 90 days with status Success'); 
+} 
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'/a12/e?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_LKID={!Account.Id}&amp;saveURL=%2f{!Account.Id}&amp;cancelURL=%2f{!Account.Id}&amp;retURL=%2f{!Account.Id}');
+
 }</url>
     </webLinks>
 </CustomObject>

@@ -11,9 +11,7 @@ public class CampaignHelperTH {
     private static String pending ='Pending';
     public static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();    // Campaign Record Type MAP
     public static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
-    public static string CacCampaign ='CAC Campaign';
-    
-  
+    public static string CacCampaign ='Planning & Design Campaign';  
     
     public static void afterInsertUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap, boolean isUpdate)
     {
@@ -41,8 +39,7 @@ public class CampaignHelperTH {
             // All Activated Campaign Execution
         
             if(cp.Create_Task__c && (isUpdate && !campaignOldMap.get(cp.Id).Create_Task__c) && 
-                (cp.RecordTypeId == cpRecordTypeMap.get('Campaign Execution - Complex').getRecordTypeId() || 
-                cp.RecordTypeId == cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId())) {
+                (cp.RecordTypeId == cpRecordTypeMap.get('Campaign Execution').getRecordTypeId())) {
                 
                 if(cp.Task_Created_By__c == 'Contact') {
                     // Campaign Exection List by Contact 
@@ -139,8 +136,8 @@ public class CampaignHelperTH {
     public static void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
       
-        Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId();
-        Id cmpExeReTpIdC = cpRecordTypeMap.get('Campaign Execution - Complex').getRecordTypeId();
+        Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution').getRecordTypeId();
+        Id cmpExeReTpIdC = cpRecordTypeMap.get('Campaign Execution').getRecordTypeId();
         Set<Id> campaignIds = new Set<Id>();
         for(Campaign cp : campaignNew) {
             if (cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId())
@@ -166,7 +163,7 @@ public class CampaignHelperTH {
             if ((cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId()) && (CampaignCMPExes.get(cp.Id) < 1 ))
             {
                 
-                    cp.addError('You can not activate a campaign without any execution.');
+                  cp.addError('You can not activate a campaign without any execution.');
                                 
             }
         }
