@@ -190,6 +190,16 @@
         <template>MBK_Email_Templates/Lead_owner_is_updated</template>
     </alerts>
     <alerts>
+        <fullName>Send_Mail_to_Lead_Owner_Dealer</fullName>
+        <description>Send Mail to Lead Owner Dealer</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Lead_owner_is_updated_Dealer</template>
+    </alerts>	
+    <alerts>
         <fullName>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</fullName>
         <description>Send email if the after sales or sales lead is not closed in 3 weeks or 3 months</description>
         <protected>false</protected>
@@ -1248,7 +1258,18 @@ Purchased_Date_Time__c
         </actions>
         <active>true</active>
         <description>If Lead Owner is changed, Need to send email to Lead Owner</description>
-        <formula>MD__c = 'KR' &amp;&amp;  ISCHANGED( OwnerId )</formula>
+        <formula>MD__c = 'KR' &amp;&amp;  ISCHANGED ( OwnerId ) &amp;&amp; NOT(ISPICKVAL( $User.User_Type__c , 'Dealer'))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Owner is Changed Dealer</fullName>
+        <actions>
+            <name>Send_Mail_to_Lead_Owner_Dealer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>If Lead Owner is changed, Need to send email to Lead Owner</description>
+        <formula>MD__c = 'KR' &amp;&amp;  ISCHANGED( OwnerId ) &amp;&amp; ISPICKVAL( $User.User_Type__c , 'Dealer')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
