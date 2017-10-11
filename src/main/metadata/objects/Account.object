@@ -18359,7 +18359,7 @@ Modify Reason:
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -18687,7 +18687,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -18712,7 +18712,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -19176,7 +19176,7 @@ Invisible on UI."</description>
 	<fields>
         <fullName>Withdrawal_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(NOT(ISPICKVAL(General_Personal_Info_Sales_Marketing__c,'Withdrawn'))),TODAY(),null)</formula>
+        <formula>IF(ISPICKVAL(General_Personal_Info_Sales_Marketing__c,'Withdrawn'),TODAY(),null)</formula>
         <label>Withdrawal Date for Marketing Consent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

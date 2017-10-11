@@ -25026,8 +25026,8 @@
         <layout>Account_Link__c-Individual Customer External Link</layout>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Link__c-Person Retail Copy</layout>
+	<layoutAssignments>
+        <layout>Account_Link__c-Person Retail Copy_Dealer_KR</layout>
         <recordType>Account_Link__c.Retail_Person</recordType>
     </layoutAssignments>
     <layoutAssignments>
