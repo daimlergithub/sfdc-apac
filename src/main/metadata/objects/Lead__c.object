@@ -110974,6 +110974,21 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>Assigned_Dealer__c</fullName>
         <label>Assigned Dealer</label>
     </sharingReasons>
+	<validationRules>
+        <fullName>Dealer_lost_reason_not_blank</fullName>
+        <active>true</active>
+        <description>/* 
+to both Sales Leads and Aftersales Leads in both Wholesale and Retail (Dealer Community) 
+If ‘Dealer Lead Status’ is changed to ‘Lost (Dealer)’, ‘Dealer Lost Reason’ field should be mandatory
+*/</description>
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c, 'Lost(Dealer)'), 
+ISPICKVAL(Dealer_Lost_Reason__c,''), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR', 
+OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'))</errorConditionFormula>
+        <errorDisplayField>Dealer_Lost_Reason__c</errorDisplayField>
+        <errorMessage>Dealer Lost Reason Should not be balnk.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>CAC_Lead_Status_Check_After_Assigned</fullName>
         <active>true</active>
