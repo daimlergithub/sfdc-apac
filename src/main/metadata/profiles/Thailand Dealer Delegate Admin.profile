@@ -7058,11 +7058,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.Unit_No__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
@@ -10330,11 +10325,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Created_by_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Creator_Role__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23435,11 +23425,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Survey_Question__c.Total_Responses__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
