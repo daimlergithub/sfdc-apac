@@ -10,8 +10,10 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
     {
         CaseHelperMY caseHelperBased = new CaseHelperMY();
         string market = System.Label.MarketMY;
+        //Harshit added to check for User permission-Access Management- on 09-10-2017
+        if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
         
-        if(trigger.isinsert && trigger.isbefore){
+            if(trigger.isinsert && trigger.isbefore){
             caseHelperBased.countRepeatComplaintCase(trigger.new,true,market);
             caseHelperBased.updateCaseDeadLineAmount(trigger.new,market,null);
             
@@ -34,6 +36,7 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
             }
            
         }
+       }     
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
