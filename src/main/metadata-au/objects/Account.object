@@ -9803,6 +9803,16 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
 	<fields>
+        <fullName>Personal_Info_Third_Party_Release_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Info Third Party Release Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+	<fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
         <externalId>false</externalId>
         <label>Personal Information Third Party Release</label>
@@ -9867,31 +9877,6 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Personal_Information_Third_Party_Release__c</fullName>
-        <externalId>false</externalId>
-        <label>Personal Information Third Party Release</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
