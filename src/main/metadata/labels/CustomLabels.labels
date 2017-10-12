@@ -1236,6 +1236,20 @@
         <value>Response Date Error</value>
     </labels>
     <labels>
+        <fullName>Campaign_Execution_Simple</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Execution - Simple</shortDescription>
+        <value>Campaign Execution - Simple</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Id</shortDescription>
+        <value>Campaign Id</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Notification1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1619,6 +1633,21 @@
         <value>Case Type</value>
     </labels>
     <labels>
+        <fullName>Case_Record_Type_Complaint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Record Type Complaint</shortDescription>
+        <value>MB Complaint</value>
+    </labels>
+    <labels>
+        <fullName>Case_Record_Type_Inquiry</fullName>
+        <categories>MBMY</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Record Type Inquiry</shortDescription>
+        <value>Inquiry</value>
+    </labels>
+    <labels>
         <fullName>Case_Records</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1887,6 +1916,20 @@
         <protected>false</protected>
         <shortDescription>Error! Please contact the admin</shortDescription>
         <value>Error, Please contact the admin.</value>
+    </labels>
+    <labels>
+        <fullName>Contact_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Id</shortDescription>
+        <value>Contact Id</value>
+    </labels>
+    <labels>
+        <fullName>Contract_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract Number</shortDescription>
+        <value>Contract Number</value>
     </labels>
     <labels>
         <fullName>Contract_related</fullName>
@@ -4382,6 +4425,13 @@ please contact the number below.</value>
         <value>Malaysia</value>
     </labels>
     <labels>
+        <fullName>MYGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYGeneric (This is used by MY Market for access check)</shortDescription>
+        <value>MYGeneric</value>
+    </labels>
+    <labels>
         <fullName>MYPhoneCountryCode</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5385,6 +5435,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Planned Purchase Time</shortDescription>
         <value>Planned Purchase Time</value>
+    </labels>
+    <labels>
+        <fullName>Planning_Design_Campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Planning &amp; Design Campaign</shortDescription>
+        <value>Planning &amp; Design Campaign</value>
     </labels>
     <labels>
         <fullName>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</fullName>
@@ -6523,6 +6580,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Retail Campaign Canlender Page SM Media</shortDescription>
         <value>S&amp;M Media Retail Campaign</value>
+    </labels>
+    <labels>
+        <fullName>Retail_Campaign_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Campaign Id</shortDescription>
+        <value>Retail Campaign Id</value>
     </labels>
     <labels>
         <fullName>Retail_Copy_Only_Related_List</fullName>
@@ -7975,6 +8039,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Search</value>
     </labels>
     <labels>
+        <fullName>SearchKey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>search key</shortDescription>
+        <value>UCID__c</value>
+    </labels>
+    <labels>
         <fullName>Search_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9037,6 +9108,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Update Address</value>
     </labels>
     <labels>
+        <fullName>UsVIN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UsVIN</shortDescription>
+        <value>UsVIN</value>
+    </labels>
+    <labels>
         <fullName>Used_car_buy_back_trade_in</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -9845,6 +9923,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Spare Tire</value>
     </labels>
     <labels>
+        <fullName>limitsize</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>search query limit for address search validation</shortDescription>
+        <value>100</value>
+    </labels>
+    <labels>
         <fullName>master</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -10107,61 +10192,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>updateRetailCopy</value>
-	</labels>
-	<labels>
-        <fullName>Contact_Id</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Contact Id</shortDescription>
-        <value>Contact Id</value>
     </labels>
 	<labels>
-        <fullName>Campaign_Id</fullName>
+        <fullName>Customer_Cust</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Campaign Id</shortDescription>
-        <value>Campaign Id</value>
-    </labels>
-	<labels>
-        <fullName>Retail_Campaign_Id</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Retail Campaign Id</shortDescription>
-        <value>Retail Campaign Id</value>
-    </labels>
-	<labels>
-        <fullName>UsVIN</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>UsVIN </shortDescription>
-        <value>UsVIN </value>
-    </labels>
-	<labels>
-        <fullName>Contract_Number</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Contract Number</shortDescription>
-        <value>Contract Number</value>
-    </labels>
-	<labels>
-        <fullName>limitsize</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>search query limit for address search validation</shortDescription>
-        <value>100</value>
-    </labels>
-	<labels>
-        <fullName>SearchKey</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>search key</shortDescription>
-        <value>UCID__c</value>
-    </labels>
-	<labels>
-        <fullName>MYGeneric</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>MYGeneric (This is used by MY Market for access check)</shortDescription>
-        <value>MYGeneric</value>
+        <shortDescription>Customer</shortDescription>
+        <value>Customer</value>
     </labels>
 </CustomLabels>
