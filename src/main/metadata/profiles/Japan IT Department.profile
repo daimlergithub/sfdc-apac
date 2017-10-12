@@ -14039,6 +14039,11 @@
         <field>Lead__c.Aftersales_Vehicle_Brand__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Aftersales_Vehicle_Relationship__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Allow_Data_Sharing__c</field>
