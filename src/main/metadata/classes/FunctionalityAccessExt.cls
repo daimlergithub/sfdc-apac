@@ -75,7 +75,8 @@ public with sharing class FunctionalityAccessExt {
                 }
               }
          
-              upsert oFAM;
+              //upsert oFAM;
+              DMLManagerService.upsertAsSystem(oFAM);
               return new Pagereference('/'+oFAM.id);
            }
            catch(Exception ex)

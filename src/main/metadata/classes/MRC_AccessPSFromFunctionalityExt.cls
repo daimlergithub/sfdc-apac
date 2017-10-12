@@ -14,7 +14,7 @@ public class MRC_AccessPSFromFunctionalityExt {
      public Boolean PSpresent{get;set;}
      public MRC_AccessPSFromFunctionalityExt(ApexPages.StandardController controller) 
      {
-	 if (!Test.isRunningTest()){controller.addFields(new String[]{'PermissionSet_Ids__c','Permission_Sets__c','Module_Name__c','Description__c','Id'});}
+   if (!Test.isRunningTest()){controller.addFields(new String[]{'PermissionSet_Ids__c','Permission_Sets__c','Module_Name__c','Description__c','Id'});}
        func=(Functionality_Access_Master__c)controller.getRecord();
       try{
          PSpresent=false; 
@@ -37,11 +37,11 @@ public class MRC_AccessPSFromFunctionalityExt {
    public void displayPSMap()
    {
          PermSMap=new Map<String, String>();
-		 List<permissionset> Permissionlist= new list<permissionset>([SELECT name,Id,IsOwnedByProfile,Label FROM PermissionSet where id in :PermSIDList]);
+     List<permissionset> Permissionlist= new list<permissionset>([SELECT name,Id,IsOwnedByProfile,Label FROM PermissionSet where id in :PermSIDList]);
          for(permissionset PS : Permissionlist)
          {  
             PermSmap.put('/'+ps.id,ps.Name); 
-		}
+    }
       
    }
     

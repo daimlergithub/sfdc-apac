@@ -41,16 +41,16 @@ public with sharing class VehicleRelationshipHelperBase
             {              
                 ContactIds.add(vr.Contact__c);                          
             } 
-           if((vr.Car_Relation__c=='Sales Contact Target' || vr.Car_Relation__c=='Aftersales Contact Target 1'|| vr.Car_Relation__c=='Aftersales Contact Target 2') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+           if(vr.Car_Relation__c==Label.Sales_Contact_Target || (string.isnotblank(vr.Car_Relation__c)?vr.Car_Relation__c.containsIgnoreCase(Label.After_Sales_Contact_Target):False) && (!setIgnoredAccounts.contains(vr.Contact__c))){
                    
-              if((!vr.Owner_Relation__c.equals('Same')) && (!vr.Owner_Relation__c.equals('Unknown')) && (!vr.Owner_Relation__c.equals('Others'))){  
+              if((!vr.Owner_Relation__c.equalsIgnoreCase(Label.Same)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Unknown)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Others))){  
                     VehicleIds.add(vr.Vehicle_ID__c);
                     VehicleRelationshipIds.add(vr.Id);
                     contactIdofVehicleRelationship.add(vr.Contact__c);
                 }
             } 
            
-            if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+            if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase(Label.Yes) && (!setIgnoredAccounts.contains(vr.Contact__c))){
                 ContactIdsforValidity.add(vr.Contact__c); 
           }
         }  
@@ -79,9 +79,9 @@ public with sharing class VehicleRelationshipHelperBase
                 }
             } 
                   
-           if((vr.Car_Relation__c=='Sales Contact Target' || vr.Car_Relation__c=='Aftersales Contact Target 1'|| vr.Car_Relation__c=='Aftersales Contact Target 2') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+           if(vr.Car_Relation__c==Label.Sales_Contact_Target || (string.isnotblank(vr.Car_Relation__c)?vr.Car_Relation__c.containsIgnoreCase(Label.After_Sales_Contact_Target):False) && (!setIgnoredAccounts.contains(vr.Contact__c))){
                     if(oldMapVR.get(vr.id).Owner_Relation__c!=vr.Owner_Relation__c){
-                        if((!vr.Owner_Relation__c.equals('Same')) && (!vr.Owner_Relation__c.equals('Unknown')) && (!vr.Owner_Relation__c.equals('Others'))){  
+                        if((!vr.Owner_Relation__c.equalsIgnoreCase(Label.Same)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Unknown)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Others))){  
                            VehicleIds.add(vr.Vehicle_ID__c);
                             VehicleRelationshipIds.add(vr.Id);
                             contactIdofVehicleRelationship.add(vr.Contact__c);
@@ -89,7 +89,7 @@ public with sharing class VehicleRelationshipHelperBase
                     }
                 }   
            
-            if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+            if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase(Label.Yes) && (!setIgnoredAccounts.contains(vr.Contact__c))){
                ContactIdsforValidity.add(vr.Contact__c); 
             }  
         }                          
@@ -126,11 +126,12 @@ public with sharing class VehicleRelationshipHelperBase
         List<Account> lstAccount=new List<Account>();
         IgnoredAccounts();                    
         for(Account acct:[Select Id,status__c from Account Where Id IN:ContactIds AND (NOT Id IN : setIgnoredAccounts) Limit 50000]){            
-            acct.status__c='Customer';
+            acct.status__c=Label.Customer_Cust;
             lstAccount.add(acct);
         }         
         if(!lstAccount.isEmpty())
-            update lstAccount;
+            DMLManagerService.updateAsSystem(lstAccount);
+            //update lstAccount;
     }
     
     
@@ -163,18 +164,20 @@ public with sharing class VehicleRelationshipHelperBase
                 }
                 else{       
                 acc.vehicle_amount__c=setVehicleIds.size();
-                acc.Status__c='Customer'; 
+                acc.Status__c=Label.Customer_Cust; 
                 }
                  vehicleAmountToUpdate.add(acc);
             }  
             else{
                 acc.vehicle_amount__c=0;
-                acc.Status__c='Prospect';   
+                acc.Status__c=Label.ProspectStatus;   
                 vehicleAmountToUpdate.add(acc);
             } 
-        }    
+        }
+        
         if(!vehicleAmountToUpdate.isEmpty())
-            update vehicleAmountToUpdate;         
+            DMLManagerService.updateAsSystem(vehicleAmountToUpdate);
+            //update vehicleAmountToUpdate;         
     }  
     
         /*
@@ -197,7 +200,8 @@ public with sharing class VehicleRelationshipHelperBase
         for(Vehicle_Relationship__c vr:listVehicleRelationship){       
                 Account_Link__c accLink=new Account_Link__c();
                 accLink.Active__c=true;
-                accLink.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+               //accLink.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+                accLink.RecordTypeId=RecordTypeAccessService.getRecordTypeId('Account_Link__c','Contact2Contact');
                                  
                 if(vr.Vehicle_ID__c != null && (!mapOfContact.isEmpty()) && mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null) 
                 {
@@ -206,23 +210,23 @@ public with sharing class VehicleRelationshipHelperBase
                 accLink.toRole__c=vr.Contact__c;           
                 accLink.Role2__c=vr.Owner_Relation__c;
                 
-                if(vr.Owner_Relation__c=='Grand Parent'){
-                    accLink.Role__c='Grand Child';
+                if(vr.Owner_Relation__c == Label.GrandParent){
+                    accLink.Role__c=Label.GrandChild;
                 }
-                else if(vr.Owner_Relation__c=='Parent'){
-                    accLink.Role__c='Child';
+                else if(vr.Owner_Relation__c == Label.Parent){
+                    accLink.Role__c=Label.Child;
                 }
-                else if(vr.Owner_Relation__c=='Child'){
-                    accLink.Role__c='Parent';
+                else if(vr.Owner_Relation__c==Label.Child){
+                    accLink.Role__c=Label.Parent;
                 }
-                else if(vr.Owner_Relation__c=='Grand Child'){
-                    accLink.Role__c='Grand Parent';
+                else if(vr.Owner_Relation__c==Label.GrandChild){
+                    accLink.Role__c=Label.GrandParent;
                 }    
-                else if(vr.Owner_Relation__c=='Employee'){
-                    accLink.Role__c='Manager';
+                else if(vr.Owner_Relation__c == Label.Employee){
+                    accLink.Role__c=Label.Manager;
                 } 
-                else if(vr.Owner_Relation__c=='Manager'){
-                    accLink.Role__c='Employee';
+                else if(vr.Owner_Relation__c == Label.Manager){
+                    accLink.Role__c=Label.Employee;
                 } 
                 else{
                     accLink.Role__c=vr.Owner_Relation__c;
@@ -231,6 +235,7 @@ public with sharing class VehicleRelationshipHelperBase
                 lstAccLink.add(accLink);
             }
           if(!lstAccLink.isEmpty())
-            insert lstAccLink;
+             DMLManagerService.insertAsSystem(lstAccLink);    
+           // insert lstAccLink;
     }    
 }

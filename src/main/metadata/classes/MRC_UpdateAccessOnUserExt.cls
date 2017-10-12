@@ -7,7 +7,7 @@
 
 ===========================================================================================*/
 
-public class MRC_UpdateAccessOnUserExt {
+public with sharing class MRC_UpdateAccessOnUserExt {
     
     public Functionality_Access_Master__c func{get;set;}
     public List<User>UListToUpdate{get;set;}
@@ -34,7 +34,7 @@ public class MRC_UpdateAccessOnUserExt {
         }
      
     
-	 CustomLogUtil.CustomLoggingEntry('Error Occured' + UListToUpdate);
+   CustomLogUtil.CustomLoggingEntry('Error Occured' + UListToUpdate);
     
            
      }catch(Exception e)
@@ -47,7 +47,8 @@ public class MRC_UpdateAccessOnUserExt {
     public void updateUser(List<User> Ulist)
     {
         try{
-            update Ulist ;
+            DMLManagerService.updateAsSystem(Ulist);
+            //update Ulist ;
         }catch(Exception e)
         {
            CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
@@ -55,9 +56,8 @@ public class MRC_UpdateAccessOnUserExt {
         
     }
     public pagereference redirect()
-    {   system.debug('inside redirect');
-        if(UListToUpdate.size()>0) update UListToUpdate;
-        system.debug('before return');
+    {   
+        if(UListToUpdate.size()>0) DMLManagerService.updateAsSystem(UListToUpdate);    //update UListToUpdate;
         return new Pagereference('/'+func.id);
     
     }
