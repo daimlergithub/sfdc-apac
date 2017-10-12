@@ -23,7 +23,11 @@
 private class MultiselectControllerForPersonaTest {
     static testMethod void testMultiselectController() {
         MultiselectControllerForPersona c = new MultiselectControllerForPersona();
-        
+        Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+        User usr111 = new User(Username = 'john@acme.com142'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+        Insert usr111;
+        System.runAs (usr111) { 
+        test.startTest();
         c.leftOptions = new List<SelectOption>();
         c.rightOptions = new List<SelectOption>();
 
@@ -32,5 +36,7 @@ private class MultiselectControllerForPersonaTest {
         
         System.assertEquals(c.leftOptions.size(), 3);
         System.assertEquals(c.rightOptions.size(), 0);
+       test.stopTest(); 
+        }     
     }
 }
