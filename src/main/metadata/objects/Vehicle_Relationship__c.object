@@ -65,6 +65,15 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>Activated_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Activated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Add_User__c</fullName>
         <externalId>false</externalId>
@@ -141,6 +150,17 @@
         <type>Text</type>	
 		<unique>false</unique>		
     </fields>
+	<fields>
+        <fullName>Branch_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Brand__c</fullName>
         <externalId>false</externalId>
@@ -176,6 +196,15 @@
         <fullName>CP_Expiry_Date__c</fullName>
         <externalId>false</externalId>
         <label>CP Expiry Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Cancellation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancellation Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1425,6 +1454,28 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Contract_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Contract_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Description</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Contractor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1492,6 +1543,17 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <formula>Owner_Dealer__r.SF_Dealer_ID__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>SF Dealer ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Dealer_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Code</label>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1568,6 +1630,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>End_Date_1__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>End_Date__c</fullName>
@@ -1889,6 +1960,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Fleet</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Grey_Vehicle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Grey Vehicle</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -2275,6 +2355,28 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_MainUsage
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Mileage_End__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Vehicle_ID__r.CurrentMileage__c)</formula>
+        <label>Mileage(End)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mileage_start__c</fullName>
+        <externalId>false</externalId>
+        <label>Mileage(start)</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>New_Used__c</fullName>
@@ -3224,6 +3326,17 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Price_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Price</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Price__c</fullName>
         <description>Survey Information
@@ -3663,6 +3776,15 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Provided
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Start_Date_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Start_Date__c</fullName>
@@ -4126,6 +4248,17 @@ This field is visible for Wholesale and Retail.</description>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>VIN_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>VIN Number</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>VIN_Search__c</fullName>
         <externalId>false</externalId>
@@ -4464,6 +4597,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Write_off_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Write-off Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
 	<fields>
         <fullName>Year_Of_Manufacture__c</fullName>
