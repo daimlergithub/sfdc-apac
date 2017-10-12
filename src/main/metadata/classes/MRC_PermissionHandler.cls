@@ -7,7 +7,7 @@
 * 20/4/2017     Harshit Kabra           Modified  
 
 ===========================================================================================*/
-public class MRC_PermissionHandler
+public with sharing class MRC_PermissionHandler
 {
 
   //public List<User>UserProfileUpdate= new List<User>();
@@ -32,11 +32,12 @@ public static void updateProfile(List<ID> ids )
         List <Persona__c> selectedMaj = new List<Persona__c>();
         selectedMaj=[Select name,id,PersonaName__c,ProfileId__c from Persona__c where PersonaName__c=: uPersona ];
          if(selectedMaj != null && selectedMaj.size() > 0){
-		  ud.ProfileId=selectedMaj[0].ProfileId__c;       
+      ud.ProfileId=selectedMaj[0].ProfileId__c;       
           userToUpdate.add(ud);
          }
        }
-    update userToUpdate;
+    DMLManagerService.updateAsSystem(userToUpdate);
+    //update userToUpdate;
 }
     
     
@@ -70,7 +71,8 @@ public static void updateProfile(List<ID> ids )
             try{
                  if(currentUserPerSetAssgmt.size() > 0)
                   {
-                    delete currentUserPerSetAssgmt;
+                    //delete currentUserPerSetAssgmt;
+                    DMLManagerService.deleteAsSystem(currentUserPerSetAssgmt);
                   }
                 }catch(Exception e)
                 {
@@ -164,7 +166,8 @@ public static void updateProfile(List<ID> ids )
              removePermissionSetsfromUsers(maj.PersonaName__c,listPermissionSetIds);
          }
          maj.Active__c=false;
-         update maj;
+         DMLManagerService.updateAsSystem(maj);
+         //update maj;
          return 'OK';
         
      }
@@ -189,11 +192,13 @@ public static void updateProfile(List<ID> ids )
         userIds.add(oUser.id);
        UserListToUpdatePersona.add(oUser);
        }
-      update UserListToUpdatePersona;
+      DMLManagerService.updateAsSystem(UserListToUpdatePersona);
+      //update UserListToUpdatePersona;
     }
     List<PermissionSetAssignment> psaFromQuery=[Select id,PermissionSetId,AssigneeId from PermissionSetAssignment where AssigneeId in :userIds
                                                 And PermissionSetId In: listPermissionSetIds];
-   delete psaFromQuery;
+   DMLManagerService.deleteAsSystem(psaFromQuery);
+      //delete psaFromQuery;
   }
   
 

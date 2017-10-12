@@ -10193,4 +10193,11 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>updateRetailCopy</value>
     </labels>
+	<labels>
+        <fullName>Customer_Cust</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer</shortDescription>
+        <value>Customer</value>
+    </labels>
 </CustomLabels>
