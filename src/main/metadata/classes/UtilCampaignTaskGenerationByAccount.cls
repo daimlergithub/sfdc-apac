@@ -14,17 +14,19 @@
 */
 
 global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<sObject>{
-    global List<ID> cpIdList = new List<ID>();
-    
+    global List<ID> cpIdList = new List<ID>();    
     private static String mms ='MMS';
     private MisunderstoodTaskGeneration mis;
     public List<Campaign> cpUpdateList = new List<Campaign>(); 
     public List<User> genericUserQueryList = new List<User>(); 
     public List<GroupMember> obuserList = new List<GroupMember>();
+    
     public Group CCCQueue;
     public User intUser;
     public User fulfillmentSpUser;
     public User usr ;
+    public List<User> usr_th;
+    public User loggedinUser;
     public string alias=System.Label.Task_Assigned_User;
     
     private ID taskRecordTypeId;
@@ -48,6 +50,8 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     global UtilCampaignTaskGenerationByAccount(List<Campaign> cpList) 
     {    
         usr = [select id, Name,userRole.Name from user  where userRole.Name =: CallCenterSupervisor limit 1];
+        usr_th = [select id, Name,userRole.Name from user where Username like'%siripan.chantanawilas@daimler.com%'];
+        loggedinUser=[select id,Market__c from user where Id= :userinfo.getUserId()];
         //usr = [Select Id, Name,Alias from user where Alias =:alias limit 1]; 
         CCCQueue = [Select Id from Group where Name = 'CCC Manager KR' and Type = 'Queue'];
         obuserList = [select UserOrGroupId from GroupMember where GroupId =:CCCQueue.Id];
@@ -67,6 +71,7 @@ system.debug('&******************'+cpList);
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
+    system.debug('hello naren');
       return Database.getQueryLocator(
             [select id, ContactId, Contact.AccountId, Contact.MobilePhone, Contact.Email, LeadId, Task_Generated__c, CampaignId, Campaign.Content_Preview__c,
                     Campaign.Execution_Type__c, Campaign.Name, Contact.DUP_Number__c, Campaign.Template_Name__c, Campaign.DM_Material__c, Campaign.Flow_URL__c,
@@ -164,11 +169,17 @@ system.debug('&******************'+cpList);
                 tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
                 if(userinfo.getUserType()=='PowerPartner')
                 {
-                	tsk.OwnerId = cpm.Campaign.OwnerId;
+                    tsk.OwnerId = cpm.Campaign.OwnerId;
                 }
                 else
                 {
-                	tsk.OwnerId = usr.Id;
+                    if(loggedinUser.Market__c=='TH'){
+                   
+                       tsk.OwnerId =usr_th[0].Id;
+                    }
+                    else{
+                    tsk.OwnerId = usr.Id;
+                    }
                 }
                 taskList.add(tsk);
                 system.debug(tsk.OwnerId + '   *$*$*$*$* Task Creation   ' + tsk);
@@ -181,11 +192,11 @@ system.debug('&******************'+cpList);
             tsk.RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
-            	tsk.OwnerId = cpm.Campaign.OwnerId;
+                tsk.OwnerId = cpm.Campaign.OwnerId;
             }
             else
             {
-            	tsk.OwnerId = usr.Id;
+                tsk.OwnerId = usr.Id;
             }
             tsk.Activity_Status__c = strVeriStatus;
             tsk.Phone__c = cpm.Contact.MobilePhone;
@@ -204,11 +215,11 @@ system.debug('&******************'+cpList);
             tsk.RecordTypeId = taskRecordTypeMap.get(mms).getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
-            	tsk.OwnerId = cpm.Campaign.OwnerId;
+                tsk.OwnerId = cpm.Campaign.OwnerId;
             }
             else
             {
-            	tsk.OwnerId = usr.Id;
+                tsk.OwnerId = usr.Id;
             }
             tsk.Activity_Status__c = strVeriStatus;
             tsk.Phone__c = cpm.Contact.MobilePhone;
@@ -228,11 +239,11 @@ system.debug('&******************'+cpList);
             tsk.RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
-            	tsk.OwnerId = cpm.Campaign.OwnerId;
+                tsk.OwnerId = cpm.Campaign.OwnerId;
             }
             else
             {
-            	tsk.OwnerId = usr.Id;
+                tsk.OwnerId = usr.Id;
             }
             tsk.Status = strCloseStatus;
             tsk.Campaign_eDM_Template_Subject__c = cpm.Campaign.Template__r.Subject__c;
@@ -256,11 +267,11 @@ system.debug('&******************'+cpList);
             tsk.RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
-            	tsk.OwnerId = cpm.Campaign.OwnerId;
+                tsk.OwnerId = cpm.Campaign.OwnerId;
             }
             else
             {
-            	tsk.OwnerId = usr.Id;
+                tsk.OwnerId = usr.Id;
             }
             tsk.Status = strOpenStatus;
             tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
