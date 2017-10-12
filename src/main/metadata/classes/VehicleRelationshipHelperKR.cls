@@ -311,7 +311,7 @@ public without sharing class VehicleRelationshipHelperKR
             List<Vehicle_Relationship__c> chuckHandlerLst = accIdsToVrsmap.get(accIds);
             if(chuckHandlerLst.size()>0){
                 for(Vehicle_Relationship__c ver: chuckHandlerLst){
-                    if(ver.End_Date__c != null && ver.End_Date__c > system.today()){
+                    if(ver.End_Date__c == null){
                         accIdsToVrsmap.remove(accIds);
                         break;
                     }

@@ -5,8 +5,8 @@
 */
 
 public class CaseHelperBase {
-    public Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY); // To get inquiry record type id
-    public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT); // to get market record type id
+    public Id caseINquiryId = RecordTypeAccessService.getRecordTypeId('Case',Label.Case_Record_Type_Inquiry); 
+    public Id caseMBComplaintRec_Id = RecordTypeAccessService.getRecordTypeId('Case',Label.Case_Record_Type_Complaint); // to get market record type id
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();

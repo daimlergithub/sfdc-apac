@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Repeated_Complaint</customButtons>
-    <customButtons>Escalation</customButtons>
-    <customButtons>CloneForIB</customButtons>
+    <excludeButtons>ChangeOwnerOne</excludeButtons>
+    <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>CloseCase</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
-        <customLabel>false</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Case Information</label>
+        <customLabel>true</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Fields</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -36,11 +37,11 @@
                 <field>Share_to_Regional_Office__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Customer_Care_Owner__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>DeadLine__c</field>
             </layoutItems>
             <layoutItems>
@@ -81,6 +82,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>EuroVIN__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Notice_CRM__c</field>
             </layoutItems>
             <layoutItems>
@@ -96,40 +101,8 @@
                 <field>Technical_Comments__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Subject</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Complaint_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Origin</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Primary_Case_Dealer_Branch_name__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ParentId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Description</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>DescriptionOne__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Case_RepeatCause__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MPC_Internal_Notes__c</field>
+                <field>Vehicle_In_Workshop__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -137,7 +110,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBTH_official_emailId__c</field>
+                <field>MBTH_Related_Department__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MD__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MBTH_Turnaround_time__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -207,19 +188,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Resolved_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CaseNumber</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>MBTH_Case_Department__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Overdue_Reason__c</field>
+                <field>Resolved_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -231,15 +204,39 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SendEmailToGateKeeper__c</field>
+                <field>Overdue_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Repeat_Complaint_Times__c</field>
+                <field>Complaint_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Escalate_Date_to_CO__c</field>
+                <field>Customer_Background_Info__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MPC_Internal_Notes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>General_Manager__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Notice_GM__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Notice_Others__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Sales_Manager__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Transport_Car_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -247,41 +244,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBTH_Related_Department__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MD__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Complainant Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Sensitive_Person__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Famous_Person__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SuppliedEmail</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>PR_Related__c</field>
+                <field>MBTH_official_emailId__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -290,7 +253,36 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Vehicle Details</label>
+        <label>Case Detail</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CaseNumber</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Subject</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DescriptionOne__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SendEmailToGateKeeper__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Vehicle Info</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -305,7 +297,7 @@
                 <field>VIN_Code__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Vehicle_Source__c</field>
             </layoutItems>
             <layoutItems>
@@ -326,19 +318,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Date_of_Warranty_Expiry__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Engine_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Transport_Car_Model__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Other_Brand__c</field>
+                <field>Date_of_Warranty_Expiry__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -356,7 +340,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>EuroVIN__c</field>
+                <field>Last_Known_Sales_Person__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Last_Known_Mileage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Details_for_customer_owned_MB_vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>US_VIN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -364,11 +360,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Last_Known_Sales_Person__c</field>
+                <field>Defective_SubItem__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Mileage__c</field>
+                <field>Car_Model__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -393,11 +389,27 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Dealer Information</label>
+        <label>Dealer Info</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Case_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Feedback_to_CAC_New__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Support_Dealer_1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Support_Dealer_2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Support_Dealer_3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -405,21 +417,45 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Gender__c</field>
+                <field>Dealer_Case_Category__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Details_for_customer_owned_MB_vehicle__c</field>
+                <field>Dealer_Case_SubType__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Date_of_Birth__c</field>
+                <behavior>Readonly</behavior>
+                <field>Primary_Case_Dealer_Branch_name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Address__c</field>
+                <field>Dealer_Contact__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Support_Dealer_1_Branch_name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Support_Dealer_2_Branch_name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Support_Dealer_3_Branch_name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Feedback_Read__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Case_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Escalate_Date_to_CO__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -428,101 +464,21 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Complaint Details (All mandatory in case of escalation)</label>
+        <label>Repeat Complaint</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Owner_Tele__c</field>
+                <field>ParentId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Date_of_1st_Registration__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Owned_MB_Vehicle_PL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Case_Source__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_In_Workshop__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Customer_Requests_Transport__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Case_Department__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Case_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Case_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Case_SubType__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RO_CO_Case_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Customer_Background_Info__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CLB__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>CLB_Used__c</field>
+                <field>Case_RepeatCause__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Occupation__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Region__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Provides_Transport__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Last_Known_Mileage__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Order_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Contact__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>US_VIN__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Car_Model__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Defective_SubItem__c</field>
+                <behavior>Readonly</behavior>
+                <field>Repeat_Complaint_Times__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -530,8 +486,78 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
-        <editHeading>false</editHeading>
-        <label>System Information</label>
+        <editHeading>true</editHeading>
+        <label>Other Info</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lead__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SSI__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Follow_Up_Inquiry__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>On-site Manager</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Results_Response__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Final__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SuppliedEmail</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Result__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>On_Site_Manager_Confirmed__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Origin</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>System Info</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
+            <layoutItems>
+                <page>CaseConsoleRefresh</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>0</width>
+            </layoutItems>
+        </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -541,8 +567,6 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedDate</field>
@@ -551,26 +575,8 @@
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
-        <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Description Information</label>
-        <layoutColumns/>
-        <layoutColumns/>
-        <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Web Information</label>
-        <layoutColumns/>
-        <layoutColumns/>
-        <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
         <label>Custom Links</label>
         <layoutColumns/>
@@ -578,26 +584,36 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedContent>
+        <relatedContentItems>
+            <layoutItem>
+                <behavior>Readonly</behavior>
+                <field>ContactId</field>
+            </layoutItem>
+        </relatedContentItems>
+        <relatedContentItems>
+            <layoutItem>
+                <behavior>Readonly</behavior>
+                <field>AccountId</field>
+            </layoutItem>
+        </relatedContentItems>
+    </relatedContent>
     <relatedLists>
-        <excludeButtons>ChangeOwner</excludeButtons>
-        <excludeButtons>NewCase</excludeButtons>
-        <fields>CASES.CASE_NUMBER</fields>
-        <fields>CASES.SUBJECT</fields>
-        <fields>CASES.PRIORITY</fields>
-        <fields>CASES.CREATED_DATE</fields>
-        <fields>CASES.STATUS</fields>
-        <fields>OWNER_NAME</fields>
-        <relatedList>RelatedChildCaseList</relatedList>
+        <relatedList>RelatedAttachmentList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Description__c</fields>
-        <fields>Action__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <fields>Date_Time__c</fields>
-        <fields>NAME</fields>
-        <relatedList>Complaint_Description__c.Case__c</relatedList>
-        <sortField>Date_Time__c</sortField>
-        <sortOrder>Desc</sortOrder>
+        <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>SMS_Content__c</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
@@ -610,37 +626,35 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>TASK.LAST_UPDATE</fields>
-        <relatedList>RelatedHistoryList</relatedList>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>Case_Dealer__c</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>Vehicle_Brand__c</fields>
+        <fields>Vehicle_Model__c</fields>
+        <fields>Vehicle_Class__c</fields>
+        <fields>Repeat_Complaint_Times__c</fields>
+        <relatedList>RelatedChildCaseList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Settlement_Type__c</fields>
-        <fields>MB_Settlement_Amount__c</fields>
-        <fields>Dealer_Settlement_Amount__c</fields>
-        <fields>Customer_Settlement_Amount__c</fields>
-        <fields>Total_Settlement_Amount__c</fields>
-        <relatedList>Settlement_Management__c.Case__c</relatedList>
-        <sortField>Settlement_Type__c</sortField>
-        <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedAttachmentList</relatedList>
+        <excludeButtons>New</excludeButtons>
+        <fields>Date__c</fields>
+        <fields>User__c</fields>
+        <fields>Action__c</fields>
+        <relatedList>Complaint_Tracking__c.Case__c</relatedList>
+        <sortField>Date__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showHighlightsPanel>false</showHighlightsPanel>
-    <showInteractionLogPanel>false</showInteractionLogPanel>
-    <showKnowledgeComponent>false</showKnowledgeComponent>
+    <showHighlightsPanel>true</showHighlightsPanel>
+    <showInteractionLogPanel>true</showInteractionLogPanel>
+    <showKnowledgeComponent>true</showKnowledgeComponent>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
-    <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+    <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h28000006X7Wl</masterLabel>
+        <masterLabel>00h0l000000NDwT</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>View_Hierarchy</customButtons>
-    <customButtons>Send_to_MyMercedes</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
+    <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
+    <excludeButtons>EnableCustomerPortalUser</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
+    <excludeButtons>SendEmail</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
+    <excludeButtons>ViewCustomerPortalUser</excludeButtons>
+    <excludeButtons>XClean</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
@@ -18,6 +20,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>LastName_Native_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -37,47 +43,23 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Sales_Sanction__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Type</field>
+                <field>Finance_Sanction__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Age_Range__c</field>
+                <field>Cars_Offered_Service__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PersonEmail</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_AS_Default_Flag__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Inactive__pc</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Primary__pc</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Comment__pc</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Business_Phone__pc</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Company__pc</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Shareholder_Percentage__pc</field>
+                <field>Credit_License__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -85,109 +67,79 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Dealership_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Dealer_DMS__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Financial_Service_Region__c</field>
+                <field>MBFS_Car_Offered_Service__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Fleet_Category__c</field>
+                <field>Salutation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Fuso_Offered_Service__c</field>
+                <field>MBFS_Reason_for_Inactivation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Reason_for_Inactivation__c</field>
+                <field>PC_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Partner_Title__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RecordTypeId</field>
+                <field>SelecTrucks_Offered_Service__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>LastName_Native_1__c</field>
+                <field>Is_Blacklist__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>UCID__c</field>
+                <field>Special_Vehicle_Offered_Service__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Customer_Lifecycle_Phase__c</field>
+                <field>Dealer_Trucks_Dlr_Class_Sales__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preferred_Phone__c</field>
+                <field>Dealer_Trucks_Service_Region__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Special_Mark_on_Account__c</field>
+                <field>Dealer_Vans_Sales_Region__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>COS_Flag__c</field>
+                <field>VAN_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Mobile__c</field>
+                <field>Latest_Sales_Dealer__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Individual_Home_Phone__c</field>
+                <field>Opt_In_Email__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Work_Phone__c</field>
+                <field>Opt_In_Home_Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Extension_Number__c</field>
+                <field>Opt_In_Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Fax</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Loyalty_Card_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Active_Contracts__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allow_Data_Sharing__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Vehicle_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Mobile_Status__c</field>
+                <behavior>Readonly</behavior>
+                <field>Age__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Email_Sent_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Active_Contracts__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -209,8 +161,229 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Nationality__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Field_Force_Manager__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Field_Force_Manager_Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Consent_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_Consent_User__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OwnerId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>UCID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customer_Lifecycle_Phase__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Special_Mark_on_Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Sanction_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mobile__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Work_Phone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Individual_Home_Phone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>COS_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Sanction_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Car_Sales_Region__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Car_Service_Region__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CV_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Dealership_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Last_Campaign_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Financial_Service_Region__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fuso_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PersonEmail</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBFS_Truck_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Partner_Title__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Vehicle_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Smarts_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Suffix__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Trucks_Sales_Region__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Vans_Dlr_Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Vans_Service_Region__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Corporate_Program__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Latest_Service_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Main_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SMS_Last_Modified_By__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SMS_Last_Modified_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DUPNumber__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DUP_Number__pc</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>R_Dup_Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Dupe_Merge__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Dupe_Reject__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dup_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Master_Record__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ID_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ID_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Contact Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>ContactTable</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>500</height>
+                <page>AddressDisplayInlineEdit</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -232,7 +405,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Do_Not_Call_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Postal_Opt_Out__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Postal_Opt_Out_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -268,7 +449,23 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Description</field>
+                <field>Education__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Newspaper__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Magazine__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Website</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Information_Third_Party_Release__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -282,11 +479,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PersonHasOptedOutOfFax</field>
+                <field>Email_Opt_Out_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Main_Dealer__c</field>
+                <field>PersonHasOptedOutOfFax</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -298,15 +495,55 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Primary_Address_Display__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Primary_Phone_Display__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Primary_Email_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax_Validity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Last_Modified_By__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Last_Modified_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Status_2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Last_Modified_By2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Primary_Fax_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Last_Modified_Date2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Agreement_to_commit_info_processing__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Loyalty_Card_No__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -327,7 +564,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Household_Children__c</field>
+                <field>MBK_Occupation__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Job__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -363,7 +604,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Special_Care__c</field>
+                <field>Special_Needs_Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Car_Owner_Club__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -371,6 +616,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Age_Range__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Gender__c</field>
@@ -382,10 +631,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Marital_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Household_Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -405,11 +650,27 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Special_Care__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Annual_Mileage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Driver_License_Validity_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Primary_Fax_Display__c</field>
+                <field>Buy_Cycle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>UpsellOpportunity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Interested_Event__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -420,6 +681,10 @@
         <editHeading>true</editHeading>
         <label>System Information</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_LastUpdatedDate__c</field>
@@ -434,10 +699,22 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Portal_Apply_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Warranty_Apply_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Created_By_EP_Transaction__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastModifiedById</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Last_Modified_User_Type__c</field>
@@ -451,8 +728,16 @@
                 <field>Warranty_Apply_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Old_UCID__c</field>
+                <behavior>Edit</behavior>
+                <field>System_Data_Source__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Warranty_Apply_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -471,81 +756,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Other information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Province__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>City__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Primary_Address__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ZipCode__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Company_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Job__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Education__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Driver_License__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Whole activities</label>
-        <layoutColumns>
-            <layoutItems>
-                <height>200</height>
-                <page>ViewTask</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Trucks_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Unimog_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vans_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Western_Star_Offered_Service__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
-    </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
@@ -557,6 +767,18 @@
         <fields>Portal_Mail_Opt_Out__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>System__c</fields>
+        <fields>fromRole__c</fields>
+        <fields>Role__c</fields>
+        <fields>Role2__c</fields>
+        <fields>Portal_Email__c</fields>
+        <fields>Retail_Email_OptOut__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
+        <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -573,16 +795,16 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>
-        <fields>Product_Name__c</fields>
         <fields>Type__c</fields>
+        <fields>Product_Name__c</fields>
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
         <fields>VIN_Link__c</fields>
         <fields>Related_Vehicle__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
+        <fields>ApplicationDate__c</fields>
+        <fields>ContractNumber__c</fields>
+        <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Competitor_Brand__c</fields>
@@ -595,6 +817,42 @@
         <fields>FirstRegistrationDate__c</fields>
         <fields>NAME</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <customButtons>New_Inquiry</customButtons>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>Case_Type__c</fields>
+        <fields>Case_Class__c</fields>
+        <fields>Data_Source__c</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>Case_Dealer__c</fields>
+        <fields>Customer_Request__c</fields>
+        <fields>PARENT.CASE_NUMBER</fields>
+        <fields>Customer_Type__c</fields>
+        <relatedList>RelatedCaseList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>CAMPAIGN.NAME</fields>
+        <fields>CAMPAIGN.START_DATE</fields>
+        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
+        <fields>CM.STATUS</fields>
+        <fields>Campaign_Channels__c</fields>
+        <fields>CM.RESPONDED</fields>
+        <fields>CM.LAST_UPDATE</fields>
+        <relatedList>RelatedCampaignList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -610,28 +868,6 @@
         <relatedList>Lead__c.Contact__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Desc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>CAMPAIGN.NAME</fields>
-        <fields>CAMPAIGN.START_DATE</fields>
-        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
-        <fields>CM.STATUS</fields>
-        <fields>Campaign_Channels__c</fields>
-        <fields>CM.RESPONDED</fields>
-        <fields>CM.LAST_UPDATE</fields>
-        <relatedList>RelatedCampaignList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <excludeButtons>RequestUpdate</excludeButtons>
-        <excludeButtons>ViewAll</excludeButtons>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>TASK.WHAT_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>TASK.LAST_UPDATE</fields>
-        <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -657,21 +893,21 @@
         <relatedList>SurveyTaker__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Inquiry</customButtons>
-        <fields>CASES.CASE_NUMBER</fields>
-        <fields>Case_Type__c</fields>
-        <fields>Case_Class__c</fields>
-        <fields>Data_Source__c</fields>
-        <fields>CASES.SUBJECT</fields>
-        <fields>CASES.STATUS</fields>
-        <fields>Case_Dealer__c</fields>
-        <fields>Customer_Request__c</fields>
-        <fields>PARENT.CASE_NUMBER</fields>
-        <fields>Customer_Type__c</fields>
-        <relatedList>RelatedCaseList</relatedList>
+        <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
