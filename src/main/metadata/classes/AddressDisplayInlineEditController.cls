@@ -150,21 +150,21 @@ public class AddressDisplayInlineEditController {
         {
             if(AddressObj.Country__c!=Label.MYCountry){            
                 IsForeignNational=true;
-				province='';
+                province='';
                 district='';
-			}
+            }
             else{
                 IsForeignNational=false;
-				//SN20171006- Added code to default value
+                //SN20171006- Added code to default value
                 province='--Select--';
                 district='--Select--';
 
-			}
+            }
         }
       }
       
-	public void updateHidefields(){
-		if(market == System.Label.TH)
+    public void updateHidefields(){
+        if(market == System.Label.TH)
        {  
             if(AddressObj.Foreign_Nationals__c==true)
                 IsForeignNational=true;
@@ -182,8 +182,8 @@ public class AddressDisplayInlineEditController {
                
             }
         }
-		
-	}							   
+        
+    }                              
         
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
@@ -271,8 +271,8 @@ public class AddressDisplayInlineEditController {
         else 
             ShowpageBlockFlag = true;
             if(Market==label.MY)
-				addressobj.Country__c=Label.MYCountry;
-		
+                addressobj.Country__c=Label.MYCountry;
+        
             LoadProvince();
     }
     
@@ -347,7 +347,7 @@ public class AddressDisplayInlineEditController {
                    }
                 }
                 // ShowHideFields();
-			    updateHidefields();
+                updateHidefields();
                 LoadProvince();
                 LoadDistrict();
                 if(market=='TH')                         
@@ -666,7 +666,7 @@ public class AddressDisplayInlineEditController {
             ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getMessage()));                           
             CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());       
         }
-		
+        
     }       
     
     
@@ -952,18 +952,18 @@ public class AddressDisplayInlineEditController {
                     if(addtrmapUpdate.containsKey(addressobj.Province__c)){
                         province = addtrmapUpdate.get(addressobj.Province__c);
                     }
-                    addressobj.Province__c =  province;
+                    //addressobj.Province__c =  province;
                     addressobj.Temp_ZipCode__c = addressobj.ZipCode__C;
                     addressobj.Temp_Address__c = ((addressobj.Province__c != null) ? addressobj.Province__c : '' ) + ((addressobj.City__c != null) ? addressobj.City__c : '' ) +
                         ((addressobj.District__c != null) ? addressobj.District__c : '' ) + ((addressobj.Block__c != null) ? addressobj.Block__c  : '' ) +
                         ((addressobj.Address_Line_1__c != null) ? addressobj.Address_Line_1__c  : '' ) + ((addressobj.Address_Line_2__c != null) ? addressobj.Address_Line_2__c  : '' );
-                    addressobj.Address_Code__c = '';
+                    /*addressobj.Address_Code__c = '';
                     addressobj.Address_Line_1__c = '';
                     addressobj.Address_Line_2__c = '';
                     addressobj.Block__c = '';
                     addressobj.City__c = '';
                     addressobj.District__c = '';
-                    addressobj.Province__c = '';
+                    addressobj.Province__c = '';*/
                     //mapAddressResponse.add(new addressSelectionWrapper(addressobj)); 
                 }
             }

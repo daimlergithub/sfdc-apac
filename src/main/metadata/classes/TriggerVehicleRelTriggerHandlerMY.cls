@@ -21,6 +21,9 @@ public class TriggerVehicleRelTriggerHandlerMY
         * Desc: trigger hanler code for sharing record creation for after insert and after update event
         * Updated: march 4th, 2017
         */
+       //Harshit added to check for User permission-Access Management- on 09-10-2017
+      if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+          
        if(trigger.isAfter && (trigger.isInsert))
         {
           VehicleRelationshipHelperBase.OnAfterInsert(Trigger.new);          
@@ -32,18 +35,16 @@ public class TriggerVehicleRelTriggerHandlerMY
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperBase.OnAfterDelete(Trigger.old);
         } 
-    
+      }
      }
    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       
     List<Vehicle_Relationship__c> vehicleNewList = Trigger.new;
-        if(!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0 && vehicleNewList[0].MD__c == 'TH')
-        {
-       if(trigger.isAfter && (trigger.isInsert))
-      {
-        VehicleRelationshipHelperBase.OnAfterInsert(Trigger.new);
-      }
+        if(!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0 && vehicleNewList[0].MD__c == Label.MY){
+		  if(trigger.isAfter && (trigger.isInsert)){
+			VehicleRelationshipHelperBase.OnAfterInsert(Trigger.new);
+		  }
         if(trigger.isAfter && Trigger.isUpdate) {
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
         VehicleRelationshipHelperBase.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
