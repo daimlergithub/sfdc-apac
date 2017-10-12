@@ -531,6 +531,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Aftersales_Vehicle_Relationship__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Requested_Service_Hour__c</field>
             </layoutItems>
             <layoutItems>
