@@ -18,7 +18,11 @@ public class TestFunctionalityAccessExtDFW {
      
   static testmethod void testAssignPermissionSetToFunctionalityAccessMaster()
     {
-             
+       Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+       User usr111 = new User(Username = 'john@acme.com1'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+       Insert usr111;
+       System.runAs (usr111) { 
+       test.starttest();      
        List<PermissionSet> psList=new List<PermissionSet>();
        psList=[SELECT Id,IsOwnedByProfile,Label FROM PermissionSet limit 1];
        List<SelectOption> selectedPermissionSets=new List<SelectOption>();
@@ -34,6 +38,9 @@ public class TestFunctionalityAccessExtDFW {
         ApexPages.StandardController objSc = new ApexPages.StandardController(functionalityAaccessMasterObj[0]);
         FunctionalityAccessExt extFA= new FunctionalityAccessExt(objSc);
         extFA.selectedPermissionSets=selectedPermissionSets;
-        extFA.saveRecord();        
+        extFA.saveRecord();
+        System.assertEquals(true,functionalityAaccessMasterObj[0].Permission_Sets__c !=null ); 
+        test.stoptest();
+       }   
      }   
 }

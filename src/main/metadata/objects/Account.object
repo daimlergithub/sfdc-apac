@@ -244,6 +244,11 @@
     <fieldSets>
         <fullName>AccountMergeFieldsCompany</fullName>
         <description>AccountMerge</description>
+		        <displayedFields>
+            <field>UCID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Salutation</field>
             <isFieldManaged>false</isFieldManaged>
@@ -684,6 +689,7 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+		
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
@@ -914,7 +920,12 @@
     <fieldSets>
         <fullName>AccountMergeFieldsPerson</fullName>
         <description>AccountMerge.page (Contact Portfolio)</description>
-        <displayedFields>
+                <displayedFields>
+            <field>UCID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
