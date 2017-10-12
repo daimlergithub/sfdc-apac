@@ -26,6 +26,11 @@ public class TestMRCListOfFeaturesExtDFW{
   
   }
   static testMethod void testGetItems(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com2'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();  
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -52,8 +57,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.OffsetSize = 10;
     obj01.LimitSize = 10;
     obj01.getItems();
+    test.stoptest();  
+    }    
   }
   static testMethod void testGetfeatureTypes(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com11'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();  
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -80,8 +92,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.OffsetSize = 10;
     obj01.LimitSize = 10;
     obj01.getfeatureTypes();
+    test.stoptest();
+    }    
   }
   static testMethod void testGetFeatureList(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com111'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -108,8 +127,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.OffsetSize = 10;
     obj01.LimitSize = 10;
     obj01.getFeatureList();
+    test.stoptest();  
+    }
   }
   static testMethod void testSearchFeatures(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com22'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();  
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -136,8 +162,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.OffsetSize = 10;
     obj01.LimitSize = 10;
     obj01.searchFeatures();
+    test.stoptest();  
+    }    
   }
   static testMethod void testGetPageNumber(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com222'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -165,9 +198,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.LimitSize = 10;
     obj01.getPageNumber();
     MRC_ListOfFeaturesExt.FeatureDetails obj241 = new MRC_ListOfFeaturesExt.FeatureDetails();
-   
+    test.stoptest();
+    }     
   }
   static testMethod void testGetTotalPages(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com2222'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -194,9 +233,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.OffsetSize = 10;
     obj01.LimitSize = 10;
     obj01.getTotalPages();
-   
+    test.stoptest();
+    }
   }
   static testMethod void testFirstPage(){
+   Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+   User usr111 = new User(Username = 'john@acme.com12'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+   Insert usr111;
+   System.runAs (usr111) {    
+    test.starttest();
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -223,9 +268,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.OffsetSize = 10;
     obj01.LimitSize = 10;
     obj01.FirstPage();
-    
+    test.stoptest();
+   }    
   }
   static testMethod void testPrevious(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com121'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -252,9 +303,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.OffsetSize = 10;
     obj01.LimitSize = 10;
     obj01.previous();
-   
+   test.stoptest();
+    }     
   }
   static testMethod void testGetPrev(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com122'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -281,9 +338,15 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.OffsetSize = 10;
     obj01.LimitSize = 10;
     obj01.getprev();
-    
+    test.stoptest();
+    }    
   }
   static testMethod void testGetNxt(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com213'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.starttest();
     List<Persona__c> market_access_junction_Obj  =  [SELECT Market_Access__c,Functionality_Access__c,Market__c,Functionality__c,Active__c,Profiles__c,ProfileId__c,PersonaName__c from Persona__c];
     System.assertEquals(true,market_access_junction_Obj.size()>0);
     List<Market__c> market_Obj  =  [SELECT Market__c,Market_Code__c from Market__c];
@@ -312,6 +375,7 @@ public class TestMRCListOfFeaturesExtDFW{
     obj01.getnxt();
     obj01.LastPage();
     obj01.next();
-    
+    test.stoptest();
+    }     
   }
 }

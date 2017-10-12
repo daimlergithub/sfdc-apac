@@ -52,25 +52,26 @@ public class TestMRCAssignPersonaToUserExtDFW{
        Insert usr;
      }     
     static testmethod void testMRCAssignPersonaToUser()
-    {
+    {  Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+       User usr111 = new User(Username = 'john@acme.com565'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+       Insert usr111;
+       System.runAs (usr111) { 
        user usr=[select id,name,profileid,Persona_Assigned__c from user LIMIT 1];
        List<Functionality_Access_Master__c> functionality_access_master_Obj  =  [SELECT Module_Name__c,Permission_Sets__c from Functionality_Access_Master__c];
        list<Persona__c> personaFinalList=[select id,PersonaName__c,Functionality_Access__c,Market_Access__c from persona__c];
        User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];       
        test.starttest();
-       System.runAs (thisUser) {
-           ApexPages.currentPage().getParameters().put('id',usr.id);
-           ApexPages.StandardController objSc = new ApexPages.StandardController(usr);
-           MRC_AssignPersonaToUserExt MAPext= new MRC_AssignPersonaToUserExt(objSc);
-           MAPext.selMajID=personaFinalList[0].id;
-           try{
-             MAPext.selectPersona();
-           }
-           catch(Exception e){
-             
-           }
-        }
-       test.stoptest();
+       ApexPages.currentPage().getParameters().put('id',usr.id);
+       ApexPages.StandardController objSc = new ApexPages.StandardController(usr);
+       MRC_AssignPersonaToUserExt MAPext= new MRC_AssignPersonaToUserExt(objSc);
+       MAPext.selMajID=personaFinalList[0].id;
+       try{
+            MAPext.selectPersona();
+          }
+           catch(Exception e){}
+       
        system.assertEquals(null,usr.Persona_Assigned__c);
+       test.stoptest();    
+       }     
      }  
 }
