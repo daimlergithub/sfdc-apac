@@ -24,6 +24,9 @@ public class LeadHelperJP
     static boolean isNotificationSendtosalesmanager = false;
     private static  final profile p = [select Name from profile where id =:userinfo.getprofileId()]; //JP-1942
     private static  final User assigneduser=[select id,Market__c,profile.name,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+    private static final EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];
+    private static final EmailTemplate salesAdvisorNotification =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to Service Advisor' limit 1]; 
+       
     
     
     public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
@@ -169,6 +172,44 @@ public class LeadHelperJP
         LeadUtil.updateCustomerStageMethod = false;
         }//
     }
+	     /** 
+       Created By: Dinesh Govindaswamy
+	   SFDCjp-2915
+       **/
+	
+	
+	          public static void InsertAssignedDealer(List<Lead__c> dealerLeadList )
+    {
+        List<User> userList = new List<User>();
+        set<id> userid = new set<id>();
+       // map<id, id> mapsalesConandUsrId = new map<id, id>();
+        userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+        
+         if(!userList.isEmpty() && userList != null)
+            {
+      
+               for(Lead__c dellead: dealerLeadList)
+               
+                {
+                
+  
+        
+                  for(User u : userList)
+                {
+                
+                    if(u.Market__c == 'JP' && u.ContactId != null)
+                    {
+                        dellead.Service_Advisor__c = u.Id;
+                        system.debug('+++++++++ u.Contact.AccountId' + u.Contact.AccountId);
+                                             
+                    }
+                }
+          }            
+          }
+       
+       
+        }
+    
     
      /** Create AccountLink with reocrdtype contact2contact wherever lead is created with contact and company account field is not null
        Created By: Sivaramakrishna Aduri
@@ -474,11 +515,12 @@ public class LeadHelperJP
 //Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
 
     
-    public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate)
+     public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate)
     {   
         set<id> dealerleadIds = new set<id>();
         set<id> DealerAccid = new set<id>();
         set<string> DealerGcCode = new set<string>();
+        set<string> AfterSalesDealerGcCode = new set<string>();
         List<Lead__C> Leadlist =new List<Lead__C>();
         Set<id> serusrIds = new Set<id>();
         List<User> serviceAdvisorList = new List<User>();
@@ -486,6 +528,9 @@ public class LeadHelperJP
         map<string,List<User>> dealerUserMap = new map<string,List<User>>();
         List<Lead__c> updateLeadLists = new List<Lead__c>();
         List<Messaging.SingleEmailMessage > mails  = new  List<Messaging.SingleEmailMessage >();
+        List<String> assignedList = new List<String>();
+        List<User> userGCCode = new List<User>();
+        
         
         if(!listNewLeads.isEmpty() && listNewLeads != null)
         {
@@ -503,8 +548,8 @@ public class LeadHelperJP
         {
             Leadlist = [Select id,MD__c,Assigned_Dealer__r.id,Lead_DataSource__c,ownerid,contact__c,Assigned_Dealer__r.Dealer_GC_Code__c,
                         Service_Advisor__r.Email,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,
-                        RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,
-                        Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,
+                        RecordTypeId,CAC_Lead_Status__c ,Assigned_Dealer__r.Name,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,
+                        Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,RecordType.developerName,
                         Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :dealerleadIds];
         }
         system.debug('Leadlist><><><' + Leadlist);
@@ -516,23 +561,60 @@ public class LeadHelperJP
                   && lsds.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
                 { 
                     DealerAccid.add(lsds.Assigned_Dealer__c);
-                    DealerGcCode.add(lsds.Assigned_Dealer__r.Dealer_GC_Code__c);
+                    if(lsds.RecordType.DeveloperName == 'Sales_Leads'){
+                        DealerGcCode.add(lsds.Assigned_Dealer__r.Dealer_GC_Code__c);
+                    }else if(lsds.RecordType.DeveloperName == 'Aftersales_Leads'){
+                        AfterSalesDealerGcCode.add(lsds.Assigned_Dealer__r.Dealer_GC_Code__c);
+                    }
                 }
             }
         }
+        if(!DealerGcCode.isEmpty()){
+            userGCCode = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User where Dealer_GC_Code__c IN:DealerGcCode and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Sales Representative')) ];
+        }else if(!AfterSalesDealerGcCode.isEmpty()){
+            userGCCode = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User where Dealer_GC_Code__c IN:DealerGcCode and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Service Advisor')) ];
+        }
+        
+        set<String> usrlst = New set<String>();
+        for(Lead__c led : Leadlist){
+        for(User usr : userGCCode){
+            if(usr.Notification_Lead_Dealer_Assignment__c != null){
+              List<string> LeadAssignement = (usr.Notification_Lead_Dealer_Assignment__c.split(';')); 
+               for(String leadAssinstr: LeadAssignement ){
+                   if(leadAssinstr == led.Assigned_Dealer__r.Name){
+                       usrlst.add(usr.id);    
+                   }
+               }
+            }
+            
+        }
+        }
+        List<User> ChangeList =[Select id From User Where id =: usrlst];
+        
+        //List<User> LeadAssignedusers = [select Id,Name from User WHERE Name IN:assignedList];
+        
+        
         system.debug('DealerAccid ><><><>' + DealerAccid);
         if(!DealerAccid.isEmpty() && DealerAccid != null)
         {
-            dealerUserList = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c from User
-                             where contact.AccountId =: DealerAccid  and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
+            if(!DealerGcCode.isEmpty()){
+            dealerUserList = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User
+                             where contact.AccountId =: DealerAccid  and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
+            }else if(!AfterSalesDealerGcCode.isEmpty()){
+                dealerUserList = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User
+                             where contact.AccountId =: DealerAccid  and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Service Advisor'))];
+            }            
+        }
+        
+        for(User Us : ChangeList ){
+            dealerUserList.add(Us);
         }
         system.debug('dealerUserList ><><><>' + dealerUserList);
         
-        EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];
-        EmailTemplate salesAdvisorNotification =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to Service Advisor' limit 1]; 
         
         if(!Leadlist.isEmpty() && Leadlist != null)
         {
+            
             for(Lead__c emaLeds : Leadlist)
             {
                 // System.debug('$$$$$$$$&^&^&^'+dealerUserList);
@@ -607,7 +689,7 @@ public class LeadHelperJP
                 
             }                     
         }
-    }   
+    }     
          public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)
     {
         List<User> userList = new List<User>();
@@ -632,6 +714,10 @@ public class LeadHelperJP
                     if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
                     {
                         dellead.Assigned_Dealer__c = u.Contact.AccountId;
+                        if(dellead.Dealer_Lead_Status__c != null && dellead.Dealer_Lead_Status__c != '')
+                        {
+                            // dellead.Dealer_Assigned_Date_Time__c = system.now();
+                        }                       
                     }
                 }
             }

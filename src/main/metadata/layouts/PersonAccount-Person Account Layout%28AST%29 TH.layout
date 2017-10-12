@@ -5,6 +5,9 @@
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -186,6 +189,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Updated_Consent_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Old_UCID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -726,6 +733,10 @@
                 <behavior>Edit</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -921,7 +932,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0k000000Na3x</masterLabel>
+        <masterLabel>00h28000006XRVP</masterLabel>
         <sizeX>1</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

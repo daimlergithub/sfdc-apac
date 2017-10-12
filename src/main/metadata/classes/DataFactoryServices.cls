@@ -28,13 +28,13 @@ public class DataFactoryServices {
         // Check for any org-specific field requirements by dynamically querying custom metadata
         //if (ConfigService.ObjectByKeyPrefix.containsKey('fieldrequirement__mdt'))
         //{
-            for ( SObject fieldRequirement : Database.query('SELECT DeveloperName, SObject__c, Field__c, RequiredValue__c FROM FieldRequirement__mdt WHERE SObject__c = \'' + objectName.toLowerCase() + '\'') )
+           /* for ( SObject fieldRequirement : Database.query('SELECT DeveloperName, SObject__c, Field__c, RequiredValue__c FROM FieldRequirement__mdt WHERE SObject__c = \'' + objectName.toLowerCase() + '\'') )
             {
                 for (SObject record : records)
                 {
                     record.put( String.valueOf( fieldRequirement.get('Field__c') ) , String.valueOf( fieldRequirement.get('RequiredValue__c') ) );
                 }
-            }
+            }*/
         //}
         return records;
     }

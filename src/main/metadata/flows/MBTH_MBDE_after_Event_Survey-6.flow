@@ -429,7 +429,7 @@
     <recordCreates>
         <name>Create_Survey_Question_Response9</name>
         <label>Create_Survey_Question_Response9</label>
-        <locationX>791</locationX>
+        <locationX>790</locationX>
         <locationY>261</locationY>
         <connector>
             <targetReference>ThankYou</targetReference>
@@ -740,8 +740,11 @@
         </fields>
         <fields>
             <name>Q9_Radio</name>
+            <defaultValue>
+                <stringValue></stringValue>
+            </defaultValue>
             <fieldType>LargeTextArea</fieldType>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
         </fields>
     </screens>
     <screens>

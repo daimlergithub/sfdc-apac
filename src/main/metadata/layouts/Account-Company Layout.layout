@@ -60,7 +60,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name_Native_1__c</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Legal_Form__c</field>
@@ -200,10 +200,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vat_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CDM_UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -367,6 +363,14 @@
                 <behavior>Edit</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -417,8 +421,8 @@
         <fields>Role__c</fields>
         <fields>Role2__c</fields>
         <fields>Portal_Email__c</fields>
-        <fields>Portal_Mail_Opt_Out__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
+        <fields>Primary__c</fields>
+        <fields>Retail_Duplicate_Flag__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
         <sortField>RECORDTYPE</sortField>
@@ -470,7 +474,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Inquiry</customButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>

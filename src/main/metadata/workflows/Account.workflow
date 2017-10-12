@@ -12,6 +12,15 @@
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Allow_Data_Sharing_to_NO_for_KR</fullName>
+        <field>Allow_Data_Sharing2__c</field>
+        <literalValue>No</literalValue>
+        <name>Allow Data Sharing to NO for KR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Change_Preferred_Phone</fullName>
         <field>Preferred_Phone__c</field>
         <name>Change Preferred Phone</name>
@@ -138,6 +147,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Country_Field_MY</fullName>
+        <field>Country__c</field>
+        <literalValue>Malaysia</literalValue>
+        <name>Update Country Field MY</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Country_Field_TH</fullName>
         <field>Country__c</field>
         <literalValue>Thailand</literalValue>
@@ -170,6 +188,15 @@
         <field>Preferred_Language__c</field>
         <literalValue>Korean</literalValue>
         <name>Update Preferred Language Field KR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Preferred_Language_Field_MY</fullName>
+        <field>Preferred_Language__c</field>
+        <literalValue>English</literalValue>
+        <name>Update Preferred Language Field MY</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -360,6 +387,21 @@ Modify Reason:
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Update Allow data sharing to %27No%27</fullName>
+        <actions>
+            <name>Allow_Data_Sharing_to_NO_for_KR</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update Allow data sharing to &apos;No&apos; for KR Market</description>
+        <formula>AND(MD__c=&quot;KR&quot;,
+OR
+(NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c,&quot;Yes&quot;))
+,NOT(ISPICKVAL(Personal_Agreement__c,&quot;Yes&quot;))
+,NOT(ISPICKVAL(Agreement_to_commit_info_processing__c,&quot;Yes&quot;))))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Customer LastUpdatedDate when I%2FF fields changed</fullName>
         <actions>
             <name>Update_Customer_LastUpdatedDate</name>
@@ -398,6 +440,21 @@ Modify Reason:
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for KR</description>
         <formula>ISPICKVAL($User.Market__c,&apos;KR&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Preferred Language and Country MY</fullName>
+        <actions>
+            <name>Update_Country_Field_MY</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Preferred_Language_Field_MY</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for MY</description>
+        <formula>ISPICKVAL($User.Market__c,&apos;MY&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Preferred Language and Country TH</fullName>

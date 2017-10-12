@@ -213,10 +213,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Quotation_Print_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Quotation_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -282,9 +278,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Quotation_No_History__c</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -589,6 +582,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+		    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>New_Contract_No__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Purchased_VIN__c</field>
@@ -691,6 +688,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Campaign__c</fields>
+		<fields>Retail_Campaign__c</fields>
         <fields>Central_Campaign_Name__c</fields>
         <fields>Participate__c</fields>
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>

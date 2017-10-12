@@ -3,11 +3,13 @@ public  class AccountLinkController
       public Account_LInk__c acclnkdealer{get;set;}
       public Account acc{get;set;}
        public Account Dealeracc{get;set;}
-      public Account_LInk__c acclnkrellist{get;set;}
+      public list<Account_Link__c> acclnkrellist{get;set;}
       public List<Account_LInk__c> listalk{get;set;}
        public List<Account_LInk__c> listdupalk{get;set;}
        public String redirectUrl {public get; private set;}
       public Boolean shouldRedirect {public get; private set;}
+      //sarath created market variable
+      public String market{get;set;}
       //public Account ab{get;set;}
       private ApexPages.StandardController stdController;   
        public static String aid;
@@ -29,11 +31,15 @@ public  class AccountLinkController
         us=new User();
         Dealeracc=new Account();
         acclnkdealer=new Account_LInk__c();
-        acclnkrellist=new Account_LInk__c();
+        acclnkrellist=new list<Account_LInk__c>();
         listdupalk=new List<Account_LInk__c> ();
         aid = ApexPages.currentPage().getParameters().get('id');
-         us=[Select id,ContactId,contact.AccountId,Dealer_GC_Code__c  from User where id=:userInfo.getuserId()];
-         CommGcCode=us.Dealer_GC_Code__c;
+        //sarath added market field in the query 
+         us=[Select id,ContactId,contact.AccountId,Dealer_GC_Code__c,Market__c from User where id=:userInfo.getuserId()];
+        //sarath added below 2 lines
+        market= us.Market__c;
+        acclnkdealer.Market__c=market;
+        CommGcCode=us.Dealer_GC_Code__c;
         system.debug('######'+ CommGcCode); 
         
         if(ApexPages.currentPage().getParameters().get('id')!=Null){
@@ -42,7 +48,7 @@ public  class AccountLinkController
             {
             Dealeracc=[select id,recordtypeid,Dealer_GC_Code__c from account where id=:us.contact.AccountId];
             }
-            listalk=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,Retail_Comments__c,Retail_Sales_Consultant__c,Selling_Dealer__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid];
+            listalk=[Select id,market__c,Name,Retail_FirstName__c,Retail_LastName__c,Retail_Comments__c,Retail_Sales_Consultant__c,Selling_Dealer__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid];
            System.debug('&*&*&&*&&VENky'+listalk.size());
             if(listalk !=null && !listalk.isempty()){
                 if(us.contact.AccountId !=null){
@@ -52,7 +58,7 @@ public  class AccountLinkController
                 //     listdupalk=[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and ((toRole__c=:aid and fromRole__c=:Dealeracc.id) )];
                           
                       
-                acclnkdealer =[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__c=:Dealeracc.id and toRole__c=:aid limit 1];
+                acclnkdealer =[Select id,market__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__c=:Dealeracc.id and toRole__c=:aid limit 1];
             
                  System.debug('&&& venky acclnkdealer %%%'+acclnkdealer);
                    
@@ -69,7 +75,7 @@ public  class AccountLinkController
                     {
                      try{
                      
-                    acclnkdealer  =[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid limit 1];
+                    acclnkdealer  =[Select id,market__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid limit 1];
                     }catch(Exception e1){
                     }
                      }
@@ -81,7 +87,7 @@ public  class AccountLinkController
                 if(acc.recordtypeid ==accCompany_RecordTypeId){
                     try{
                       //  acclnkdealer =[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId and ((toRole__c=:aid and fromRole__c=:Dealeracc.id)  OR (fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid)) limit 1];
-                     acclnkdealer =[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId  and fromRole__c=:Dealeracc.id and toRole__c=:aid limit 1];
+                     acclnkdealer =[Select id,market__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId  and fromRole__c=:Dealeracc.id and toRole__c=:aid limit 1];
             
                  System.debug('&&& venky acclnkdealer %%%'+acclnkdealer);
                     }
@@ -89,7 +95,7 @@ public  class AccountLinkController
                     {
                      if(e.getmessage() !=null)
                     {
-                     acclnkdealer =[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid limit 1];
+                     acclnkdealer =[Select id,market__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid limit 1];
                  }
                     
                     }
@@ -97,14 +103,17 @@ public  class AccountLinkController
                 }
        }
                 if(acc.recordtypeid ==accPerson_RecordTypeId || acc.recordtypeid ==accPersonAccountSoftDeleted_RecordTypeId){
-                    try{
-                        acclnkrellist=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,fromRole__c,Retail_Sales_Consultant__c,Selling_Dealer__c,toRole__c,Retail_Comments__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and recordtypeID=:alkPerson_RecordTypeId and Retail_Delete_Flag__c=false limit 1];
-                    }
-                    catch(Exception e){}
+                    
+                        
+                        acclnkrellist=[Select id,market__c,Name,Retail_FirstName__c,Retail_LastName__c,fromRole__c,Retail_Sales_Consultant__c,Selling_Dealer__c,toRole__c,Retail_Comments__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and recordtypeID=:alkPerson_RecordTypeId and Retail_Delete_Flag__c=false];
+                        
+                   
+                    
+                   
                 }
                 if(acc.recordtypeid ==accCompany_RecordTypeId){
                     try{
-                        acclnkrellist=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,fromRole__c,toRole__c,Retail_Sales_Consultant__c,Selling_Dealer__c,Retail_Comments__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and recordtypeID=:alkCompany_RecordTypeId and Retail_Delete_Flag__c=false limit 1];
+                        acclnkrellist=[Select id,market__c,Name,Retail_FirstName__c,Retail_LastName__c,fromRole__c,toRole__c,Retail_Sales_Consultant__c,Selling_Dealer__c,Retail_Comments__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and recordtypeID=:alkCompany_RecordTypeId and Retail_Delete_Flag__c=false];
                     }
                     catch(Exception e){}
                 }
@@ -113,7 +122,7 @@ public  class AccountLinkController
             if(listalk.size()==0)
             {
                  if(acc.recordtypeid ==accPerson_RecordTypeId){
-                    acclnkdealer =[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode limit 1];
+                    acclnkdealer =[Select id,market__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode limit 1];
                     
                     }
             }

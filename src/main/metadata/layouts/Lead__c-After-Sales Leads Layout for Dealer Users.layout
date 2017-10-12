@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Assign_to_Leads</customButtons>
-    <customButtons>Convert_Lead</customButtons> 
+    <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
@@ -45,6 +45,10 @@
                 <behavior>Edit</behavior>
                 <field>AfterSales_VIN__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Aftersales_Vehicle_Relationship__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -65,6 +69,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_DataSource__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Next_Contact_Customer_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -93,6 +101,10 @@
                 <field>Lead_Latest_Phase__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Next_Contact_Contents__c</field>
+            </layoutItems>
+            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
@@ -114,10 +126,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Contact_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Next_Contact_Contents__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -171,10 +179,6 @@
         <layoutColumns>
             <layoutItems>
                 <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Next_Contact_Customer_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -305,8 +309,8 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Questionnair__c</field>
-            </layoutItems> 
-			<layoutItems>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Items__c</field>
             </layoutItems>
@@ -384,8 +388,8 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Name</field>
-            </layoutItems>			
-			<layoutItems>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Related_Leads__c</field>
             </layoutItems>
@@ -405,6 +409,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Campaign__c</fields>
+        <fields>Retail_Campaign__c</fields>
         <fields>Central_Campaign_Name__c</fields>
         <fields>Participate__c</fields>
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
@@ -441,7 +446,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hO0000000dm2K</masterLabel>
+        <masterLabel>00h28000006jLOz</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

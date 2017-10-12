@@ -170,4 +170,84 @@ public class contactTableControllerTest {
              system.assertEquals(objAccount.MD__c,'KR');
         }
     }
+    
+   //SB2017
+    /*
+      Name:Sushma Bharti
+      Description:Added to setup test data for MY
+      Modified Date: 2017-09-13
+  */
+  
+    @testSetup
+    static void setupTestData(){
+    List<String> PhoneAreaCodes=new List<String>();
+    PhoneAreaCodes.add('Name');
+    PhoneAreaCodes.add('Country_Code__c');
+    PhoneAreaCodes.add('Mobile_Area_Code__c');
+    PhoneAreaCodes.add('Phone_Area_Code__c');
+    List<PhoneAreaCode__c> PhoneAreaCodesList=DataFactoryServices.createRecords('PhoneAreaCode__c',PhoneAreaCodes,'',2);
+    PhoneAreaCodesList[0].name='Area1';
+    PhoneAreaCodesList[0].Country_Code__c='+60';
+    PhoneAreaCodesList[0].Mobile_Area_Code__c='32';
+    PhoneAreaCodesList[0].Phone_Area_Code__c='89';
+    PhoneAreaCodesList[1].name='Area2';
+    PhoneAreaCodesList[1].Country_Code__c='+65';
+    PhoneAreaCodesList[1].Mobile_Area_Code__c='12';
+    PhoneAreaCodesList[1].Phone_Area_Code__c='80';
+    insert PhoneAreaCodesList;
+    List<String> AccountFields=new List<String>();
+    AccountFields.add('Lastname');
+    AccountFields.add('Individual_Home_Phone__c');
+    AccountFields.add('Work_Phone__c');
+    AccountFields.add('fax');
+    AccountFields.add('Mobile__c');
+    AccountFields.add('MD__c');
+    List<Account> AccountFieldsList=DataFactoryServices.createRecords('Account',AccountFields,'',3);
+    AccountFieldsList[0].Lastname='Lastname1';
+    AccountFieldsList[0].Individual_Home_Phone__c='+6003123654789';
+    AccountFieldsList[0].Work_Phone__c='+60825634789541';
+    AccountFieldsList[0].fax='+60827896541';
+    AccountFieldsList[0].Mobile__c='+609856321478';
+    AccountFieldsList[0].MD__c='MY';
+    AccountFieldsList[1].Lastname='Lastname2';
+    AccountFieldsList[1].Individual_Home_Phone__c='';
+    AccountFieldsList[1].Work_Phone__c='';
+    AccountFieldsList[1].fax='';
+    AccountFieldsList[1].Mobile__c='';
+    AccountFieldsList[1].MD__c='MY';
+    AccountFieldsList[2].Lastname='Lastname3';
+    AccountFieldsList[2].Individual_Home_Phone__c='+601236547895';
+    AccountFieldsList[2].Work_Phone__c='+601234857612';
+    AccountFieldsList[2].fax='+601024563075';
+    AccountFieldsList[2].Mobile__c='+601798456321';
+    AccountFieldsList[2].MD__c='MY';
+    insert AccountFieldsList;
+   } 
+   
+     //SB2017
+    /*
+      Name:Sushma Bharti
+      Description:Added to update the code coverage of the method for MY
+      Modified Date: 2017-09-13
+  */
+  static testmethod void testContactTableController()
+    {                  
+        List<Account> AccountObj  =  [SELECT Lastname,Individual_Home_Phone__c,Work_Phone__c,fax,Mobile__c,MD__c from Account];
+        ApexPages.StandardController objSc1 = new ApexPages.StandardController(AccountObj[0]);
+        ContactTableController c1=new ContactTableController(objSc1);
+        c1.PhoneNumberFormatMY();
+        c1.EditAccount();
+        c1.UpdateAccountMY();
+        ApexPages.StandardController objSc2 = new ApexPages.StandardController(AccountObj[1]);
+        ContactTableController c2=new ContactTableController(objSc2);
+        c2.PhoneNumberFormatMY();
+        c2.EditAccount();
+        c2.UpdateAccountMY();
+        ApexPages.StandardController objSc3 = new ApexPages.StandardController(AccountObj[2]);
+        ContactTableController c3=new ContactTableController(objSc3);
+        c3.PhoneNumberFormatMY();
+        c3.EditAccount();
+        c3.UpdateAccountMY();
+     }  
+    
 }

@@ -12,7 +12,7 @@
 
 
         var filterNames = '';
-        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;';
+        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;LastWorkDate__c;LastInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
@@ -575,7 +575,8 @@
                             <td>{!$Label.Customer}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <option value="Occupation__c">{!$ObjectType.Account.Fields.Occupation__c.Label}</option> 
+                                  <!--  <option value="Market__c">{!$ObjectType.Account.Fields.Market__c.Label}</option> -->
+                                   <option value="Occupation__c">{!$ObjectType.Account.Fields.Occupation__c.Label}</option> 
                                     <option value="Special_Mark_on_Account__c">{!$ObjectType.Account.Fields.Special_Mark_on_Account__c.Label}</option>
                                     <option value="PersonBirthdate">{!$ObjectType.Account.Fields.PersonBirthdate.Label}</option>
                                     <option value="Interest_Model__c">{!$ObjectType.Account.Fields.Interest_Model__c.Label}</option>
@@ -596,9 +597,16 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
-                                 <apex:inputField value="{!account.Occupation__c}" styleClass="Occupation__c" style="display:block;"/> 
-                                 <apex:inputField value="{!account.Interest_Model__c}" styleClass="Interest_Model__c" style="display:block;"/>
-                                
+                                 
+                                <!-- <apex:inputField value="{!account.Occupation__c}" styleClass="Occupation__c" style="display:block;"/> -->
+                                 <!--<apex:inputField value="{!account.Interest_Model__c}" styleClass="Interest_Model__c" style="display:block;"/> -->
+                                  <apex:selectList styleClass="Occupation__c" size="1" multiselect="false" style="display:block;">
+                                    <apex:selectOptions value="{!Occupation}"></apex:selectOptions>
+                                </apex:selectList>
+                                <apex:selectList styleClass="Interest_Model__c" size="1" multiselect="false" >
+                                    <apex:selectOptions value="{!InterestModel}"></apex:selectOptions>
+                                </apex:selectList> 
+
                                  <apex:selectList styleClass="Status__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!status}"></apex:selectOptions>
                                 </apex:selectList>
@@ -608,6 +616,7 @@
                                 <apex:selectList styleClass="Special_Mark_on_Account__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!SpecialMarkonAccount}"></apex:selectOptions>
                                 </apex:selectList>
+                                 
                                 <input class="dateInput" id="customerTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                </td>
@@ -646,6 +655,7 @@
                                 <select onchange="showCriteria(this);"> 
                                     <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
                                     <option value="Retail_Sales_Consultant__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}</option>
+                                    <option value="Selling_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}</option>
                                     <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
                                     <option value="Retail_Sales_Sanction__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Sanction__c.Label}</option>
                                     <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
@@ -898,6 +908,8 @@
                                     <option value="NextInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}</option>
                                     <option value="CurrentMileage__c">{!$ObjectType.Account_Link__c.Fields.CurrentMileage__c.Label}</option> 
                                     <option value="Service_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}</option> 
+                                    <option value="LastWorkDate__c">{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}</option>
+                                    <option value="LastInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}</option>
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -1072,6 +1084,7 @@
                             <td>{!$ObjectType.Address__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
+                                   
                                    <option value="ZipCode__c">{!$ObjectType.Address__c.Fields.ZipCode__c.Label}</option>                                                                     
                                     <option value="Province__c">{!$ObjectType.Address__c.Fields.Province__c.Label}</option>                                  
                                 </select>
@@ -1088,8 +1101,12 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text" />
+                                
+                               <apex:selectList styleClass="Province__c" size="1" multiselect="false" >
+                                    <apex:selectOptions value="{!provincemodel}"></apex:selectOptions>
+                                </apex:selectList> 
                                 <apex:inputField value="{!address.ZipCode__c}" styleClass="ZipCode__c" style="display:block;"/> 
-                                  <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/>  
+                                 <!-- <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/> -->  
                                   
                             </td>
                             <td></td>
@@ -1217,6 +1234,12 @@
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.accLink.Service_Dealer__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.accLink.LastWorkDate__c}" rendered="{wrapAcc.accLink != null}"/> 
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                                <apex:outputField value="{!wrapAcc.accLink.LastInspectionDate__c}" rendered="{wrapAcc.accLink != null}"/> 
                             </apex:column>
                             
                             <!-----------------------------vehicleBase Ends---------------------------------->

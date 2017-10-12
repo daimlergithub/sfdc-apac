@@ -30,7 +30,10 @@ public class ContactTableController
     public String wkPhonepart2{get;set;}
     public String faxCountryCode{get;set;}
     public String faxphoneNumber{get;set;}
-    
+    public String wkAreaCode{get;set;}          
+    public String hmAreaCode{get;set;}      
+    public String mbAreaCode{get;set;}      
+     public String faxAreaCode{get;set;} 
     public String homePhoneAreaCodePart1{get;set;}
     public String homePhoneAreaCodePart2{get;set;}
     public String homePhoneAreaCodePart3{get;set;}
@@ -44,6 +47,15 @@ public class ContactTableController
     Public Boolean profilename{get;set;}
     public boolean editMode1 {get; set;}
     public boolean editMode2 {get; set;}
+    public List<SelectOption> lstCountryCode{get; set;}        
+    public List<SelectOption> lstMobileAreaCode{get; set;}      
+    public List<SelectOption> lstPhoneAreaCode{get; set;}       
+    /*SN20171709 - Added rendered condition*/
+    public boolean hAreaBoolean{get;set;}
+    Public boolean wAreaBoolean{get;set;}
+    Public boolean fAreaBoolean{get;set;}
+    /*Sn20171709 - end*/
+    
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
     /**
     *@Description : Constructor.
@@ -60,11 +72,34 @@ public class ContactTableController
         editMode = false;
         editMode1 = false;
         editMode2 = false;
+        hAreaBoolean=false;
+        wAreaBoolean=false;
+        fAreaBoolean=false;
+        //MT20170909 - Added  code to get the area code from the custom settings
+          //Fill in CountryCodes
+        //lstMobileAreaCode=new List<SelectOption>();
+        lstCountryCode=new List<SelectOption>();
+        lstPhoneAreaCode=new List<SelectOption>();
+        for(PhoneAreaCode__c pac : [select Country_Code__c,Mobile_Area_Code__c,Phone_Area_Code__c from PhoneAreaCode__c where Phone_Area_Code__c!=''])
+        {
+             lstPhoneAreaCode.add(new SelectOption(pac.Phone_Area_Code__c,pac.Phone_Area_Code__c));
+        }
+        
+        
+        AggregateResult[] pac = [SELECT Country_Code__c FROM PhoneAreaCode__c GROUP BY Country_Code__c];
+         for(AggregateResult p : pac)
+        {
+            string code=string.valueof(p.get('Country_Code__c'));
+             lstCountryCode.add(new SelectOption(code,code));
+        }
+        //MT20170909
+        
         AccId = stdController.getId();
         if(!test.isRunningTest()){  
+        //sarath added Market__c field to retrieve in query
         stdController.addFields(new List<String> {'Id','Fax_Last_Modified_By__c','Work_Fax_Last_Modified_By__c','Fax_Last_Modified_Date__c','Fax2_Last_Modified_Date__c','Mobile__c','Mobile2__c','Individual_Home_Phone__c','Home_Phone_2__c','Work_Phone__c','Phone','Email__c','Email2__c','Email3__c','Fax2__c','Fax','Fax_Validity2__c','Fax_Validity__c','Email_Status__c','Email_Status_2__c','Work_Phone_Last_Modified_Date__c','Work_Phone_Last_Modified_Date2__c',
             'Email_Status_3__c','Work_Phone_Status__c','Work_Phone_Status_2__c','Individual_Home_Phone_Status__c', 'Home_Phone_Status_2__c' ,'Mobile_Status__c','SMS_MMS_IM_Status_2__c','Email_Last_Modified_By__c','Email_Last_Modified_By2__c','Email_Last_Modified_By3__c','Email_Last_Modified_Date__c','Email_Last_Modified_Date2__c',
-           'Work_Phone_Last_Modified_By__c','Work_Phone_Last_Modified_By2__c','Home_Phone_Last_Modified_By__c','Home_Phone_Last_Modified_By2__c','SMS_Last_Modified_By__c','SMS_Last_Modified_By2__c','SMS_Last_Modified_Date__c','SMS_Last_Modified_Date2__c','Home_Phone_Last_Modified_Date__c','Home_Phone_Last_Modified_Date2__c','Email_Last_Modified_Date3__c','MD__c'});
+           'Work_Phone_Last_Modified_By__c','Work_Phone_Last_Modified_By2__c','Home_Phone_Last_Modified_By__c','Home_Phone_Last_Modified_By2__c','SMS_Last_Modified_By__c','SMS_Last_Modified_By2__c','SMS_Last_Modified_Date__c','SMS_Last_Modified_Date2__c','Home_Phone_Last_Modified_Date__c','Home_Phone_Last_Modified_Date2__c','Email_Last_Modified_Date3__c','MD__c','Market__c'});
              
             } 
         ParAcc = (Account)stdController.getRecord(); 
@@ -102,6 +137,7 @@ public class ContactTableController
             firstsave = false;  
             secondsave = true; 
         }
+        
      }
      
     /**
@@ -301,7 +337,7 @@ public class ContactTableController
                 hmCountryCode=localhmPhone.substring(0,3); 
                 hmphoneNumber=localhmPhone.length()>3?localhmPhone.substring(3,localhmPhone.length()):hmCountryCode;
             }else
-            {system.debug('im here');ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Cannot save too short'));}
+            {ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Cannot save too short'));}
             if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3))
            {
                
@@ -324,6 +360,111 @@ public class ContactTableController
 
            }
     }
+    
+    /* This Method is written for Malaysia Phone Validation         
+    Author: Mohd Tuseef (MT20170909)        
+     Description: this methold helps us to split the phone fields      
+            
+    */      
+            
+    public void PhoneNumberFormatMY()       
+    {           
+            string localhmPhone,localwkPhone,localMBPhone,localFaxPhone;        
+            localhmPhone=string.valueOf(ParAcc.Individual_Home_Phone__c);       
+            localwkPhone=string.valueOf(ParAcc.Work_Phone__c);     
+            localMBPhone=string.valueOf(ParAcc.Mobile__c);     
+            localFaxPhone=string.valueOf(ParAcc.fax);     
+            if ((!String.IsBlank(localhmPhone))&&(localhmPhone.length()>3))     
+            {       
+                hmCountryCode=localhmPhone.substring(0,3);      
+                if(hmCountryCode==label.MYPhoneCountryCode)
+                {
+                    if(localhmPhone.substring(3,4)!='8')
+                    {
+                        hmAreaCode=localhmPhone.substring(3,4);
+                        hmphoneNumber=localhmPhone.substring(4,localhmPhone.length());
+                    }
+                    else
+                    {
+                        hmAreaCode=localhmPhone.substring(3,5);
+                        hmphoneNumber=localhmPhone.substring(5,localhmPhone.length());
+                    }
+                }
+                else
+                {
+                        hmphoneNumber=localhmPhone.substring(3,localhmPhone.length());
+                }
+                
+                
+            }
+            else       
+            {               
+               hmCountryCode='+65';
+            }       
+            if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3))        
+            {        
+                    
+                wkCountryCode=localwkPhone.substring(0,3);  
+                
+                if(wkCountryCode==label.MYPhoneCountryCode)
+                {
+                    if(localwkPhone.substring(3,4)!='8')
+                    {
+                        wkAreaCode=localwkPhone.substring(3,4);
+                        wkphoneNumber=localwkPhone.substring(4,localwkPhone.length());
+                    }
+                    else
+                    {
+                        wkAreaCode=localwkPhone.substring(3,5);
+                         wkphoneNumber=localwkPhone.substring(5,localwkPhone.length());
+                    }    
+                }
+                else
+                {
+                    wkphoneNumber=localwkPhone.substring(3,localwkPhone.length());
+                }           
+            }
+            else
+            {
+                wkCountryCode=label.MYPhoneCountryCode;
+            }       
+            if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3))       
+            {        
+                        
+                mbCountryCode=localMBPhone.substring(0,3);              
+                mbphoneNumber=localMBPhone.length()>3?localMBPhone.substring(3,localMBPhone.length()):mbCountryCode;        
+            }        
+            if ((!String.IsBlank(localFaxPhone)) && (localFaxPhone.length()>3))     
+            {        
+                        
+                faxCountryCode=localFaxPhone.substring(0,3);            
+                
+                if(faxCountryCode==label.MYPhoneCountryCode)
+                {
+                    if(localFaxPhone.substring(3,4)!='8')
+                    {
+                        faxAreaCode=localFaxPhone.substring(3,4);
+                        faxphoneNumber=localFaxPhone.substring(4,localFaxPhone.length());
+                    }
+                    else
+                    {
+                        faxAreaCode=localFaxPhone.substring(3,5);
+                        faxphoneNumber=localFaxPhone.substring(5,localFaxPhone.length());
+                    }
+                }
+                else
+                {
+                    faxphoneNumber=localFaxPhone.substring(3,localFaxPhone.length());
+                }
+                
+                            
+            } 
+            else
+            {
+                faxCountryCode=label.MYPhoneCountryCode;
+            }       
+    }
+    
      // pavan end
     public void EditAccount()    
     {
@@ -344,6 +485,12 @@ public class ContactTableController
         else if (ParAcc.MD__c==Label.TH)
         {
             PhoneNumberFormatTH();
+        }
+         //MT20170909       
+        else if (ParAcc.MD__c == Label.MY)      
+        {   
+            PhoneNumberFormatMY(); 
+            checkcountrycode();     
         }
     }
  public void UpdateAccountTH()  
@@ -455,6 +602,97 @@ public class ContactTableController
         }
     }
     
+    
+     /*         
+ Added code to update the phone number for Malaysia     
+ MT20170909     
+        
+ */     
+ public void UpdateAccountMY()          
+    {           
+                        if(String.isBlank(hmphoneNumber))       
+                            
+                      {                     
+                               ParAcc.Individual_Home_Phone__c='';      
+                      }     
+                       else if(hmCountryCode!='' && hmphoneNumber!='' && hmCountryCode==label.MYPhoneCountryCode)      
+                      {             
+                        ParAcc.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;     
+                      }                                 
+                      else      
+                      {                     
+                                    
+                               ParAcc.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;     
+                      }                     
+                            
+                       if(String.isBlank(wkphoneNumber))                            
+                      {                     
+                               ParAcc.Work_Phone__c='';     
+                      }     
+                      else if(wkCountryCode!='' && wkphoneNumber!='' && wkCountryCode==label.MYPhoneCountryCode)       
+                      {         
+                        ParAcc.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                                                
+                      }             
+                      else      
+                      {                     
+                             ParAcc.Work_Phone__c=wkCountryCode+wkphoneNumber;          
+                      }         
+                            
+                     if((String.isBlank(mbphoneNumber)))        
+                      {                     
+                               ParAcc.Mobile__c='';     
+                      }     
+                      else if(mbCountryCode!='' && mbphoneNumber!='')       
+                      {     
+                               ParAcc.Mobile__c=mbCountryCode+mbphoneNumber;        
+                      }             
+                      else      
+                      {                     
+                             ParAcc.Mobile__c='';       
+                      }         
+                           if((String.isBlank(faxphoneNumber)))     
+                      {                     
+                               ParAcc.fax='';       
+                      }     
+                      else if(faxCountryCode!='' && faxphoneNumber!='' && faxCountryCode==label.MYPhoneCountryCode)        
+                      {         
+                               ParAcc.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
+                      }             
+                      else      
+                      {                     
+                             ParAcc.fax=faxCountryCode+faxphoneNumber;      
+                      }     
+            try     
+        {       
+            if      
+            (       
+            ParAcc.Individual_Home_Phone__c == '' &&        
+            ParAcc.Mobile__c == '' &&       
+            ParAcc.Work_Phone__c == '' &&       
+            ParAcc.Email__c == null     
+            )       
+            {       
+                   refreshPage = false;              
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));        
+            }       
+            else        
+            {       
+                            
+                if(ParAcc != null)      
+                    refreshPage = true;     
+                       DMLManagerService.updateAsSystem(ParAcc); 
+                    //update ParAcc;      
+            }                   
+        }               
+        catch(DMLException de)      
+        {       
+            refreshPage = false;        
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));      
+                    
+        }       
+    }       
+ 
+ 
     /**
     *@Description : This method updates the Account with the values entered by user to phone number and email fields.
     *@Date : 26/10/2015
@@ -522,13 +760,19 @@ public class ContactTableController
       {
         UpdateAccountTH();
       }
+      //MT20170909
+      else if (ParAcc != null && ParAcc.Md__c ==Label.MY)       
+      {     
+        UpdateAccountMY();      
+      }
 
         try
         {
-            if(ParAcc != null)
+            if(ParAcc != null && ParAcc.Md__c =='KR')
             {
                 refreshPage = true;
-                update ParAcc;         
+                   if(parAcc.MD__c=='JP'){parAcc.Individual_Home_Phone_Status__c=selectedHomePhoneStatus;}
+                   update ParAcc;         
                 }   
                 
         }
@@ -656,5 +900,73 @@ public class ContactTableController
         PageReference page = new PageReference('/apex/ContactTable?Id='+ParAcc.Id);
         page.setRedirect(true);
         return page;
-    }    
+    }   
+    
+      /*SN20171209 */
+    public void checkcountrycode(){
+            wAreaBoolean=false;
+            fAreaBoolean=false;
+            hAreaBoolean=false;
+            
+            if(hmCountryCode==label.MYPhoneCountryCode)
+                hAreaBoolean=true;
+            else
+                hAreaBoolean=false;
+                
+            if(wkCountryCode==label.MYPhoneCountryCode || wkCountryCode=='')
+                wAreaBoolean=true;
+            else
+                wAreaBoolean=false;
+                
+            if(faxCountryCode==label.MYPhoneCountryCode )
+                fAreaBoolean=true;
+            else
+                fAreaBoolean=false;
+                       
+             
+           
+    }
+    
+ /* MD Changes - Added By Santosh Mohanty to display dependent picklist values  */
+    public String selectedHomePhoneStatus{get;set;}
+    public List<SelectOption> homePhoneStatusList{get;set;}
+  
+  public void getDependenciesValues(){
+         List<User> MarketDescriminator= [Select id,Market__c From User Where Id =:UserInfo.getUserId()];
+         homePhoneStatusList=new List<SelectOption>();
+         List<MD_Dependency__mdt> dependencyList=[select id, MasterLabel,Controlling_Field__c,Dependency_Values__c,
+                                                 Dependent__c,MarketName__c,Object_APIName__c from MD_Dependency__mdt];
+         MAP<string,MD_Dependency__mdt> allDependencies=new MAP<string,MD_Dependency__mdt>();
+         for(MD_Dependency__mdt mdDepnd : dependencyList){
+             allDependencies.put(mdDepnd.Dependent__c+mdDepnd.MarketName__c,mdDepnd);
+         }        
+         homePhoneStatusList=findAddDependancy('Individual_Home_Phone_Status__c',MarketDescriminator[0].Market__c,allDependencies);       
+     }
+  public List<SelectOption> findAddDependancy(string fieldAPIName,String marketAPIName , Map<String,MD_Dependency__mdt> allDependencies){  
+        
+      List<String> dependentList1=new List<String>();
+      List<SelectOption> dependentListFinal=new List<SelectOption>();
+      String findFromCustomSetting='';
+            MD_Dependency__mdt  fieldSpecificDependentRec = allDependencies.get(fieldAPIName+marketAPIName);
+            system.debug('**************'+fieldSpecificDependentRec);
+                  if(marketAPIName=='JP'){
+                     findFromCustomSetting= findFromCustomSetting+string.valueOf(fieldSpecificDependentRec.Dependency_Values__c);
+                  }
+            findFromCustomSetting.trim();
+            if(findFromCustomSetting!=null && findFromCustomSetting!='' && findFromCustomSetting.contains(';')){
+               dependentList1 = findFromCustomSetting.split(';');
+               for(Integer i=0;i<dependentList1.size();i++){
+                  dependentListFinal.add(new SelectOption(dependentList1[i],dependentList1[i]));
+               }
+            }
+            else if(findFromCustomSetting!=null && findFromCustomSetting!='' && !findFromCustomSetting.contains(';')){
+                dependentList1.add(findFromCustomSetting);
+                for(Integer i=0;i<dependentList1.size();i++){
+                  dependentListFinal.add(new SelectOption(dependentList1[i],dependentList1[i]));
+                } 
+            }
+         return dependentListFinal;
+       }   
+     
+     
 }

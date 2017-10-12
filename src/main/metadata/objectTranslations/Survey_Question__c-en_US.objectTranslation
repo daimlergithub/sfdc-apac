@@ -9,6 +9,11 @@
         <value>Survey Questions</value>
     </caseValues>
     <fields>
+        <label><!-- Question Ref --></label>
+        <name>Campaign_Question_Ref__c</name>
+        <relationshipLabel><!-- Survey Questions --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Choices --></label>
         <name>Choices__c</name>
     </fields>
@@ -51,10 +56,6 @@
         <label><!-- Survey --></label>
         <name>Survey__c</name>
         <relationshipLabel><!-- SurveyQuestions --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Total Responses --></label>
-        <name>Total_Responses__c</name>
     </fields>
     <fields>
         <label><!-- Type --></label>

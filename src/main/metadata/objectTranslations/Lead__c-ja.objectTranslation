@@ -6919,6 +6919,10 @@
             <translation>MBJ/MBF従業員リース</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Dealer Car Rental</masterLabel>
+            <translation>販売店レンタカー</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Daimler Employee Rental Car</masterLabel>
             <translation>販売店レンタカー</translation>
         </picklistValues>
@@ -6985,6 +6989,10 @@
         <picklistValues>
             <masterLabel>wear and tear</masterLabel>
             <translation><!-- wear and tear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBJ Online Sales</masterLabel>
+            <translation>MBJオンラインセールス</translation>
         </picklistValues>
     </fields>
     <fields>

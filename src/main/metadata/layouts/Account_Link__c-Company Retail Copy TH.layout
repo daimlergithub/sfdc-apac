@@ -40,6 +40,10 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contract_Count__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -66,7 +70,8 @@
                 <field>Retail_Visit_OptOut__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Retail_Opt_In_Mobile__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -132,6 +137,18 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Vat_No__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Updated_Consent_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Updated_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Agreement__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -157,7 +174,8 @@
                 <field>Retail_Address_Line_1__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Retail_Address_Line_3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -170,6 +188,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_WebSite__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_First_Consent_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_First_Consent_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Race__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_List_of_Events__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -214,6 +248,10 @@
                 <behavior>Readonly</behavior>
                 <field>Last_Modified_User_Type__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -233,7 +271,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hO0000000TD4v</masterLabel>
+        <masterLabel>00h28000006X7Wb</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

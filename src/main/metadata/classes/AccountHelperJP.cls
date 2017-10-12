@@ -916,25 +916,25 @@ public class AccountHelperJP
             System.debug('Line Numer'+e.getLineNumber());
         }
     }
-	/*Changes as part of SFDCJP-2802*/
+    /*Changes as part of SFDCJP-2802*/
     public static void UpdateVRonAccount(list<Account> accMainList,map<id,Account> accountOldMap)
     {
         Id VehicleRelRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
-		Set<Id> sid = New Set<Id>();
+        Set<Id> sid = New Set<Id>();
         List<Account> accList=new List<Account>();
         list<Account> updateacclist = new list<Account>(); 
         List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
                 
              if(LeadUtil.Acctrigger )
             {    
-				if(accMainList !=null)
-				{
+                if(accMainList !=null)
+                {
                 for(Account abc: accMainList)                
                 {
                //f(abc.Customer_LastUpdatedDate__c!= accountOldMap.get(abc.Id).Customer_LastUpdatedDate__c && abc.Customer_LastUpdatedDate__c !=null)
                      sid.add(abc.Id);   
                 }
-				}
+                }
                 
             }    
                 
@@ -1065,7 +1065,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
                 {
                     insrtaccids.add(acc.id);
                 } 
-                if(oldAccountmap.get(acc.id).Primary_Phone__c != acc.Primary_Phone__c)
+                if(oldAccountmap.get(acc.id).Primary_Phone__c != acc.Primary_Phone__c || oldAccountmap.get(acc.id).Preferred_Contact_Method__c!= acc.Preferred_Contact_Method__c)
                 {
                     insrtaccids.add(acc.id);
                 } 
@@ -1082,6 +1082,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
                 {
                     insrtaccids.add(acc.id);
                 }
+                
             }
             system.debug('insrtaccids>>>>' + insrtaccids);
         }
@@ -1091,9 +1092,9 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids,corelnId);
         }
     }
-	public static void deletesharingforSoftDeletedRecords(List<Account> softAccountList)
+    public static void deletesharingforSoftDeletedRecords(List<Account> softAccountList)
     {
-     	set<id> deletedAccId = new set<id>();
+        set<id> deletedAccId = new set<id>();
         for(Account acct : softAccountList)
         {
             if(acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
@@ -1103,7 +1104,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         }
         if(!deletedAccId.isEmpty() && deletedAccId != null)
         {
-            delete [select id from AccountShare where AccountId =:deletedAccId];
+            delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual'];
         }
     }
 }

@@ -23,10 +23,6 @@
                 <field>Campaign_Code__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ParentId</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Type</field>
             </layoutItems>
@@ -43,6 +39,10 @@
                 <field>Campaign_Objectives__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Approver__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Description</field>
             </layoutItems>
@@ -53,6 +53,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Questionnaire__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Venue__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Space__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Noof_Car_display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Expected_Cars_Sale__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -92,6 +108,38 @@
                 <behavior>Edit</behavior>
                 <field>Other_Media_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CAC_Campaign_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CAC_Frequency_Category__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Content_Preview__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Execution_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Department__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FS_Budget__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Channels__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MPC_Budget__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -122,7 +170,7 @@
                 <field>Closed_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Publish_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -344,15 +392,6 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>MEMBER_TYPE</fields>
-        <fields>STATUS</fields>
-        <fields>FIRST_NAME</fields>
-        <fields>LAST_NAME</fields>
-        <fields>TITLE</fields>
-        <fields>COMPANY</fields>
-        <relatedList>RelatedCampaignMemberList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.TOTAL_NUM_LEADS</fields>
         <fields>CAMPAIGN.TOT_CONVERTED_LEADS</fields>
@@ -371,6 +410,24 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Campaign_Lead__c.Campaign__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <customButtons>New_Retail_Campaign_TH</customButtons>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Record_Type_Name__c</fields>
+        <fields>Status__c</fields>
+        <fields>Child_Campaign_Status__c</fields>
+        <fields>Start_Date__c</fields>
+        <fields>Close_Date__c</fields>
+        <fields>Campaign_Type__c</fields>
+        <relatedList>Retail_Campaign__c.Relevant_Central_Campaign__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedContentNoteList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedAttachmentList</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>
@@ -397,6 +454,14 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Audit_Trail__c.Campaign__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>CreatedDate</fields>
+        <fields>StepStatus</fields>
+        <fields>OriginalActor</fields>
+        <fields>Actor</fields>
+        <fields>Comments</fields>
+        <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

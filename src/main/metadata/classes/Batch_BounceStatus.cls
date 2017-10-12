@@ -8,7 +8,7 @@ global class Batch_BounceStatus implements Database.Batchable<SObject>, Database
         
        // String query = 'Select Id,Name,(Select id,Campaign_ID__c From Campaign_Members1__r) from Campaign Where Child_Campaign_Status__c =:Response';
          //system.debug('+++++++ Query'+query);
-            return Database.getQueryLocator([Select Id,Name,(Select id,Campaign_ID__c From Campaign_Members1__r Where Status__c ='Bounced') from Campaign Where Response_Date__c=:today]);
+            return Database.getQueryLocator([Select Id,Name,Execution_Type__c,Execution_Start_Date__c,(Select id,Contact_Id__c,Status__c,Campaign_ID__c From Campaign_Members1__r Where Status__c ='Bounced') from Campaign Where Response_Date__c=:today]);
          
        // return Database.getQueryLocator(query); 
         }
@@ -45,7 +45,7 @@ global class Batch_BounceStatus implements Database.Batchable<SObject>, Database
          
          if(camOBcall.size()>0){
          
-         List<Account> addList = [Select Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Address_Last_Modified_Date__c,Status__c ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: camOBcall];
+         List<Account> addList = [Select Id,FirstName,LastName,Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Address_Last_Modified_Date__c,Status__c ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: camOBcall];
                for(Campaign campCheck : scope)
                 {
                 For(Account acc : addList )
@@ -55,18 +55,20 @@ global class Batch_BounceStatus implements Database.Batchable<SObject>, Database
                                                 acc.Mobile_Status__c = 'Invalid';
              
                                             }else {
-                                                String Recordmain= acc.id+','+acc.Name+'\n';
+                                                String Recordmain= acc.id+','+acc.LastName+'\n';
                                                 MainString = MainString +Recordmain ;
                                 
                                             }
                                             
                         accMainList.add(acc); 
+                        system.debug('+++++++++++++accMainList'+accMainList);
+                        system.debug('+++++++++++++accMainList'+acc.Mobile_Status__c);
                 }
          }
          }
          if(cameMail.size()>0){
          
-         List<Account> addListTwo = [Select Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Address_Last_Modified_Date__c,Status__c ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: cameMail];
+         List<Account> addListTwo = [Select Id,FirstName,LastName, Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Address_Last_Modified_Date__c,Status__c ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: cameMail];
              for(Campaign campCheck : scope)
                 {
                 For(Account acc : addListTwo )
@@ -78,8 +80,8 @@ global class Batch_BounceStatus implements Database.Batchable<SObject>, Database
                 
                                             } else {
                                                 
-                                                String Recordmain= acc.id+','+acc.Name+'\n';
-                                                MainString = MainString +Recordmain ;
+                                               // String Recordmain= acc.id+','+acc.Name+'\n';
+                                                //MainString = MainString +Recordmain ;
                                 
                                             }
                             accMainList.add(acc);           
@@ -89,7 +91,7 @@ global class Batch_BounceStatus implements Database.Batchable<SObject>, Database
                  if(camDM.size()>0){
              for(Campaign camp : scope)
                 {
-         List<Account> addListOne = [Select Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Address_Last_Modified_Date__c,Status__c ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: cameMail];
+         List<Account> addListOne = [Select Id,FirstName,LastName,Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Address_Last_Modified_Date__c,Status__c ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: cameMail];
         
                 For(Account acc : addListOne )
                 {
@@ -133,7 +135,7 @@ global class Batch_BounceStatus implements Database.Batchable<SObject>, Database
                             attach.Name = 'test.csv';
                             //attach.ContentType = 'csv';
                             attach.IsPrivate = false;
-                            //attach.ParentId = cam.Id;
+                            attach.ParentId = cam.Id;
                             //attach.ParentId = 
        
                             Accbnclist.add(attach);

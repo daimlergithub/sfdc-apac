@@ -110,10 +110,17 @@
 					<sf:typeset name="roles"/>
 					<sf:typeset name="documents"/>
 					<sf:typeset name="callCenters"/>
+					<sf:typeset name="objects">
+						<sf:include name="CDM_EP_Switch__c"/>
+						<sf:include name="CDM_Integration_URLs__c"/>
+					</sf:typeset>
 				</deploy>
 			</target>
 			<target name="deploy05">
 				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
+				<!--SN20170914 Added Custom Permissions-->
+					<sf:typeset name="customPermissions" force="true"/>	
+					<!--SN20170914-->
 					<sf:typeset name="objects"/> 	
 					<sf:typeset name="queues"/>
 					<sf:typeset name="email"/>
@@ -181,15 +188,13 @@
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
 					</sf:typeset> -->
-					
 					<sf:typeset name="translations"/>
 				</deploy>
 			</target>
 			<target name="deploy09">
 				<deploy>    
-				<!--SN20170912 Added Custom Permissions-->
-					<sf:typeset name="customPermissions" force="true"/>				
-					<sf:typeset name="profiles" force="true"/>
+					<sf:typeset name="profiles" force="true">								
+					</sf:typeset>
 				</deploy>
 			</target>           
 

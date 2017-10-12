@@ -83,6 +83,40 @@ public class CalloutHandlerService {
         
        return response;     
     }
+	/** Added by Dhanamjaya & Narendra to Handle Call outs Through Post method*/
+	public static HttpResponse sendCalloutForPost(String method, String endpoint, Integer timeout, Map<String,String> headerKeyByValue, String Status,String Body)
+    {
+        // Perform HTTP Callout
+        String responseString = null;
+        HttpResponse response = new HttpResponse();
+        HttpRequest request;
+        Long start = System.now().getTime();
+        try {
+            Http h = new Http();
+            request = new HttpRequest();
+            request.setMethod(method);
+            request.setEndpoint(endpoint);
+            request.setTimeout(calculateTimeout(timeout));        
+            request.setBody(Body);
+            if(headerKeyByValue!=null){
+				for (String headerKey : headerKeyByValue.keySet())
+					{
+						request.setHeader(headerKey, headerKeyByValue.get(headerKey));
+					}	
+			}
+			CustomLogUtil.CustomLoggingEntry('Call for post' + request.getbody() +'-- '+endpoint);
+			response = h.send(request);            
+            //responseString = processCalloutResponse(response, status);  
+           
+        }
+        catch (Exception ex){
+            processFailure(status, ex, request, response);                     
+        }
+        
+       return response;     
+    }	
+
+
 
   /**  
     * @date 08/07/2017
@@ -104,7 +138,26 @@ public class CalloutHandlerService {
         }
         else return Integer.valueOf(timeout*1000);
     }
+    /* added by dhanamjaya and narendra to handle callouts from VF pages i.e Continuation call outs*/
+    public Static String onLineDeduplicationCDMTHCallout(String sss,Continuation con){
+        HttpRequest req = new HttpRequest();
+        HttpResponse res = new HttpResponse();
+        req.setEndpoint(sss); 
+        req.setMethod('GET');
+		return con.addHttpRequest(req);
+    	}
 
+	 /* added by dhanamjaya and narendra to handle callouts from VF pages i.e Continuation call outs*/
+    public Static String onLineDeduplicationCDMCallout(String endURL,Continuation con){
+        HttpRequest req = new HttpRequest();
+        HttpResponse res = new HttpResponse();
+        req.setEndpoint(endURL); 
+        req.setMethod('GET');
+		req.setHeader('Content-Type','application/json');
+        req.setHeader('Accept-Language','application/json');
+		CustomLogUtil.CustomLoggingEntry('Online Dedup Request' + endUrl);
+        return con.addHttpRequest(req);
+        }
     /**
     
     * @date 08/07/2017

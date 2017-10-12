@@ -1,8 +1,10 @@
 /**
 * Utility for Trigger on Account for TH(Thailand)
-* Author: Mohammed Touseef Ahmed - TH5
+* Author: Mohammed Touseef Ahmed
 * Created Date : 2017-01-23
-*
+*History:
+    Author                         Date                    Description
+    Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
 */
 
 public class AccountHelperTH{
@@ -11,10 +13,10 @@ public class AccountHelperTH{
     **  Created By: Mohammed Touseef Ahmed
     **  Date: 2017-20-02
     **/
-        public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-    public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-       public static Id retailPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-    public static Id retailCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+    public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
+    public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+    public static Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
+    public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
@@ -121,7 +123,8 @@ public class AccountHelperTH{
     public static void updateOnDoNotCall(list<Account> listNewAccounts){        
         
         for(Account acc : listNewAccounts){
-           if(acc.MD__c == Label.TH){
+        //MT20170913- Added market Descrminator MY
+           if(acc.MD__c == Label.TH || acc.MD__c == Label.MY){
                if(acc.PersonDoNotCall){
                    if(acc.Opt_In_Home_Phone__c){ acc.Opt_In_Home_Phone__c = FALSE;}
                    if(acc.Opt_In_Home_Phone2__c){ acc.Opt_In_Home_Phone2__c = FALSE;}
@@ -153,8 +156,9 @@ public class AccountHelperTH{
     addressList =[select id,Opt_In_Hardcopy__c from Address__c where id=:Addd];
     for(Account acc: listNewAccounts)
     {
-    for(Address__c add: addressList)
-    if(acc.MD__c == Label.TH){
+    //MT20170913- Added market Descrminator MY
+    for(Address__c add: addressList)    
+    if(acc.MD__c == Label.TH || acc.MD__c == Label.MY){
                if(acc.Postal_Opt_Out__c){
                    if(add.Opt_In_Hardcopy__c== true){ 
                         add.Opt_In_Hardcopy__c = false;
@@ -173,7 +177,8 @@ public class AccountHelperTH{
     */
     public static void updateOnEmailOptout(list<Account> listNewAccounts){        
         for(Account acc: listNewAccounts){
-            if(acc.MD__c == Label.TH){
+        //MT20170913- Added market Descrminator MY
+            if(acc.MD__c == Label.TH || acc.MD__c == Label.MY){
                 if(acc.PersonHasOptedOutOfEmail){
                     if(acc.Opt_In_Email__c){ acc.Opt_In_Email__c = FALSE;}
                     if(acc.Opt_In_Email2__c){ acc.Opt_In_Email2__c = FALSE;}
@@ -189,7 +194,8 @@ public class AccountHelperTH{
     public static void updateAgeRange(list<Account> listNewAccounts){
         for(Account acc:  listNewAccounts){
             if(acc.PersonBirthdate != NULL){
-                if(acc.MD__c == Label.TH){
+            //MT20170913- Added market Descrminator MY
+                if(acc.MD__c == Label.TH || acc.MD__c == Label.MY){
                    Integer ageInt = (Integer.valueOf(System.today().year())-Integer.valueof(acc.PersonBirthdate.year()) );
                    acc.Age_Range__c = AccountHelperTH.calculateAgeRange(ageInt); 
                 }
@@ -328,8 +334,8 @@ public class AccountHelperTH{
             String province;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
             For(Account a:listNewAccounts)
-            {      
-                if(a.MD__c == Label.TH)
+            {   //MT20170913- Added market Descrminator MY   
+                if(a.MD__c == Label.TH || a.MD__c == Label.MY)
                 {                    
                     addressid.add(a.Primary_Address_Reference__c);
                 }
@@ -339,8 +345,8 @@ public class AccountHelperTH{
                 addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
             }
             For(Account acc:listNewAccounts)
-            {      
-                if( acc.MD__c == Label.TH)
+            {      //MT20170913- Added market Descrminator MY
+                if( acc.MD__c == Label.TH || acc.MD__c == Label.MY)
                 {   
                     If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
                     {              
@@ -386,7 +392,8 @@ public class AccountHelperTH{
             for(Account acc : accLst)
             {
                 system.debug('accountLanguage>>>' + acc.Preferred_Language__c);
-                if(acc.MD__c == 'TH')
+                //MT20170913- Added market Descrminator MY
+                if(acc.MD__c == 'TH' || acc.MD__c == Label.MY)
                 {
                     accid.add(acc.Id);
                 }
@@ -527,7 +534,7 @@ public class AccountHelperTH{
             {
                 dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:usr.Contact.Account.Dealer_ND_Code__c];
             }
-            system.debug('dealergrpList>>>>' + dealergrpList);
+            
             if(!dealergrpList.isEmpty() && dealergrpList != null)
             {
                 for(Group g : dealergrpList)
@@ -535,7 +542,7 @@ public class AccountHelperTH{
                    dealerGroupMap.put(g.Name, g.Id);
                 }
             }
-            system.debug('dealerGroupMap>>>' + dealerGroupMap);
+            
             for(Account shareacc : accLst)
             {
                 if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c) != null && shareacc.OwnerId != usr.Id)
@@ -549,7 +556,7 @@ public class AccountHelperTH{
                     insertAccshList.add(accshr);
                 }
             }
-            system.debug('insertAccshList>>>>' + insertAccshList);
+             
             if(!insertAccshList.isEmpty() && insertAccshList != null)
             {
                 insert insertAccshList;
@@ -575,10 +582,10 @@ public class AccountHelperTH{
         }
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
-        List<Account_Link__c> Accountlinklist = [select id,Name,toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
+        List<Account_Link__c> Accountlinklist = [select id,toRole__r.Agreement_to_commit_info_processing__c,toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.UCID__c,toRole__r.CDM_UCID__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.DMS_Retailer_ID__c,Name,toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
                                                 toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, 
                                                 toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,
-                                                toRole__r.Allow_Data_Sharing2__c, toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax,
+                                                toRole__r.Allow_Data_Sharing2__c,toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax,
                                                 toRole__r.Email__c,toRole__r.Primary_Address_Reference__r.Address_Type__c, toRole__r.Primary_Address_Reference__r.Province__c,
                                                 toRole__r.Primary_Address_Reference__r.City__c, toRole__r.Primary_Address_Reference__r.District__c, toRole__r.Primary_Address_Reference__r.Block__c,
                                                 toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
@@ -587,10 +594,15 @@ public class AccountHelperTH{
                                                 toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,toRole__r.MBTH_Mercede__c,
                                                 toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
-
         //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
+			acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;		
+                acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;		
+                acclnk.Retail_UCID__c=acclnk.toRole__r.CDM_UCID__c;		
+                acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;		
+                acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;		
+                acclnk.Retail_Agreement_Info_Processing__c=acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
                 //acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
@@ -681,7 +693,8 @@ public class AccountHelperTH{
             list<Account> acclist = new list<Account>();
             list<Account_Link__c> acclinklist = new list<Account_Link__c>();
             set<id> AccIds = new set<id>();
-            Id accountinkIndividualCustomerExternalLinkId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
+            Id accountinkIndividualCustomerExternalLinkId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Individual Customer External Link');
+            
             for(Account acc : TriggerNew)
             {
                 AccIds.add(acc.id);              
@@ -758,6 +771,24 @@ public class AccountHelperTH{
         
     }
     /*
+	SN20170929- Added code for create and update of data for ucid.
+    
+    */
+    
+    public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist)
+    {		try{
+	
+            set<ID> accids=new set<ID>();
+            for(Account accrec:accountlist){
+                accids.add(accrec.id);
+            }
+            CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+			}Catch(exception e){
+				 CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
+				
+			}
+    }
+    /*	  
 It is a temporary code fix for the phone format issue following these 3 rules
 1) If it contains '+ ' or if the number < 9 do nothing.
 2) If there is any '0' in the starting remove it and Prefix '+66' to the number.

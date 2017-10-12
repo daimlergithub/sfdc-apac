@@ -287,4 +287,46 @@ public without sharing class VehicleRelationshipHelperKR
         //system.assert(false, dealerIdToSimilarGCCodeDealerAccountIdsMap);
         return dealerIdToSimilarGCCodeDealerAccountIdsMap;
     }
+	
+	  /*
+             CR: SFDCKR-213, JIRA ITEM(https://crmasia.atlassian.net/browse/SFDCKR-213)
+             DESCRIPTION: This class will pull all the VR's and check for end date, If end date less than today
+             then the code will update the customer account realted to that VR as "PROSPECT"
+             else does nothing.
+    */
+    
+    public static void updateCustomerbasedonVRs(List<Vehicle_Relationship__c> vrsInLst){
+        map<Id, List<Vehicle_Relationship__c>> accIdsToVrsmap = new map<Id, List<Vehicle_Relationship__c>>();
+        List<Account> accUpdLst = new List<Account>();
+        List<Vehicle_Relationship__c> vrsLst = new List<Vehicle_Relationship__c>([select id, End_Date__c, Contact__c from Vehicle_Relationship__c where Recordtype.Name = 'Vehicle Relationship' and Contact__c != null and id in:vrsInLst and End_Date__c != null]);
+        
+        for(Vehicle_Relationship__c ver: vrsLst){
+            if(!accIdsToVrsmap.containsKey(ver.Contact__c)){
+                accIdsToVrsmap.put(ver.Contact__c, new List<Vehicle_Relationship__c>());
+            }
+                accIdsToVrsmap.get(ver.Contact__c).add(ver);
+        }
+        
+        for(string accIds: accIdsToVrsmap.keySet()){
+            List<Vehicle_Relationship__c> chuckHandlerLst = accIdsToVrsmap.get(accIds);
+            if(chuckHandlerLst.size()>0){
+                for(Vehicle_Relationship__c ver: chuckHandlerLst){
+                    if(ver.End_Date__c == null){
+                        accIdsToVrsmap.remove(accIds);
+                        break;
+                    }
+                }
+            }
+            
+        }
+        
+        for(Account acc: [select id, status__c from account where id in: accIdsToVrsmap.keyset()]){
+            acc.Status__c = 'Prospect';
+            accUpdLst.add(acc);
+        }
+              
+        if(accUpdLst.size()>0){
+            update accUpdLst;
+        }
+    }
 }

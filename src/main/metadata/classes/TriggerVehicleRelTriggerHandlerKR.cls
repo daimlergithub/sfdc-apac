@@ -28,6 +28,7 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
                 VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
                 VehicleRelationshipHelperKR.afterUpdateEvent(Trigger.new,oldmapVehicleRelship);
 				VehicleRelationshipHelper.updateRecall(trigger.new);
+				 VehicleRelationshipHelperKR.updateCustomerbasedonVRs(trigger.new);
             } 
            if(trigger.isAfter && Trigger.isDelete) {
               VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);

@@ -129,6 +129,8 @@
         String vehRetCopyRecType;
         String dealerAccntRecTypId;
         String retailPesonRecType;
+        String retailTaskcontractType;
+        
         //String retailCompanyRecType;
         
         //Segmentation_Base__c
@@ -143,6 +145,7 @@
             retailTaskLeaseRecType = Schema.SobjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
             retailTaskLoanRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Loan Contract').getRecordTypeId();
             retailTaskInsRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Insurance Contract').getRecordTypeId();
+            retailTaskcontractType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
             retailPesonRecType = Schema.sObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
             //retailCompanyRecType = Schema.sObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
             dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -157,6 +160,10 @@
                     parCampType = AfterSalesOrFinance;
                 }
             }
+           
+            
+           
+            
             setFieldType();
         }
         
@@ -164,6 +171,51 @@
         public String selectedValueService {set;get;}
         public String selectedValue {set;get;}// holding the value which they selected either 'company' or 'outlet'
       
+       
+        public List<SelectOption> InterestModel{
+            get{
+                InterestModel= new List<SelectOption>();
+                InterestModel.add(new SelectOption('', '--None--'));
+      Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Interest_Model__c;
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+          for( Schema.PicklistEntry f : ple)
+         {
+             InterestModel.add(new SelectOption(f.getValue(), f.getLabel()));
+           }
+                return InterestModel;
+            }
+            set;
+        }  
+        public List<SelectOption> Occupation{
+            get{
+                Occupation= new List<SelectOption>();
+                Occupation.add(new SelectOption('', '--None--'));
+      Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Occupation__c;
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+          for( Schema.PicklistEntry f : ple)
+         {
+             Occupation.add(new SelectOption(f.getValue(), f.getLabel()));
+           }
+                return Occupation;
+            }
+            set;
+        }
+     
+        public List<SelectOption> provincemodel{
+            get{
+                provincemodel= new List<SelectOption>();
+                provincemodel.add(new SelectOption('', '--None--'));
+                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Address__c.fields.Province__c;
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+          for( Schema.PicklistEntry f : ple)
+         {
+             provincemodel.add(new SelectOption(f.getValue(), f.getLabel()));
+           }
+                return provincemodel;
+            }
+            set;
+        }
+        
         public List<SelectOption> getItems() {
             List<SelectOption> options = new List<SelectOption>();
             options.add(new SelectOption('None','--None--'));
@@ -239,6 +291,8 @@
             }
             set;
         }
+        
+        
         
         public List<SelectOption> Customerphase{
             get{
@@ -372,7 +426,7 @@
             }
             
             if(AccountLinkSoql.length()>accLinkLength){
-                AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name');
+                AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
                 //saveQuery += 'AND Id IN('+AccountLinkSoql+')';
                 system.debug('FianlAccountLinkSoql '+AccountLinkSoql);
                 List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
@@ -460,10 +514,12 @@
                     vehicleRelCopyMain.add(ac.toRole__c);
                 }
                  system.debug('++++++vehIdSet1 ++++++'+vehIdSet1 );
+                 system.debug('++++++vehIdSet2 ++++++'+vehicleRelCopyMain );
+                 system.debug('++++++vehIdSet1 ++++++'+vehRetialList );
                 vehicleRelSoql+= 'AND Vehicle_Id__c IN: vehIdSet1 ';
                 //saveQuery += 'AND Vehicle_Id__c IN : vehIdSet1 ';
                 if(segmentationBase == 'customer' ){
-                saveQuery += ' AND Id IN :vehicleRelCopyMain ';
+                //saveQuery += ' AND Id IN :vehicleRelCopyMain ';
                 }
                 if(segmentationBase == 'Vehicle' ){
                 saveQuery += ' AND Vehicle_Id__c IN: vehIdSet1 ';
@@ -481,7 +537,7 @@
                     if(segmentationBase == 'Customer'){
                     accountIdSet.add(vr.Contact__c);
                     vehicleRetailCustomer.add(vr.Contact__c);
-                    
+                  system.debug('++vehicleRetailCustomer+++++'+vehicleRetailCustomer);
                     }
                     else if(segmentationBase == 'Contract'){
                         vehIdSetForContract.add(vr.Contact__c);
@@ -625,6 +681,14 @@
                         RetailTaskSoql += ' AND Related_Vehicle__c IN : vehIdSetForContract';
                     } 
                 } */
+                saveQuery = saveQuery.replace('AND  AND','AND');
+               system.debug('++++++++++++'+saveQuery );
+               saveQuery = saveQuery.replace('AND AND','AND');
+               if(saveQuery.endsWith('AND     ')){
+                saveQuery = saveQuery.replace('AND     ','');
+                }
+                
+                 system.debug('++++++++++++'+saveQuery );
                 system.debug('finalRetailTaskSoql>>>>'+RetailTaskSoql);
                 system.debug('+++++++++++'+saveQuery );
                 //List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ ' limit 10000'); 
@@ -640,20 +704,20 @@
         }
         
         public void setSoql(){
-            accountSoql = 'SELECT Id, Name, PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
+            accountSoql = 'SELECT Id, Name, Market__c,PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
             vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Car_Model__r.Model_Name__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';
             if(selectedValueService=='Outlet'){
                 vehicleRelSoql += 'Last_Service_Dealer__c =\''+ u.Contact.AccountId+'\' AND ';
             }
             recallSoql = 'SELECT Vehicle_Id__c,Recall_No__c,Status__c From Recall__c Where';
-            VehRetCopySoql = 'SELECT Vehicle__c,NextInspectionDate__c,toRole__c,NextServiceDate__c,Service_Advisor__c,Service_Dealer__c FROM Account_Link__c WHERE RecordTypeId = \'' + vehRetCopyRecType + '\' AND ';
+            VehRetCopySoql = 'SELECT Vehicle__c,NextInspectionDate__c,toRole__c,LastInspectionDate__c,LastWorkDate__c,NextServiceDate__c,Service_Advisor__c,Service_Dealer__c FROM Account_Link__c WHERE RecordTypeId = \'' + vehRetCopyRecType + '\' AND ';
             leadSoql = 'SELECT Contact__c from Lead__c where ';
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
-            AccountLinkSoql = 'SELECT toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
+            AccountLinkSoql = 'SELECT toRole__c,LastWorkDate__c,LastInspectionDate__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
             AddressSoql = 'SELECT Customer__c From Address__c where ';
-            RetailTaskSoql = 'SELECT Account__c,Product_Name__c,EndDate__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
+            RetailTaskSoql = 'SELECT Account__c,Account__r.RecordTypeId,Finance_Product_Name__c,Product_Name__c,EndDate__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\'or RecordTypeId = \''+ retailTaskcontractType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
             if(u.contactId != NULL){
-                RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND ';
+                RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND     ';
             }
             
             if(segmentationBase == 'Customer')
@@ -967,6 +1031,8 @@
             public Boolean isSelected {set;get;}
             public Recall__c recall{set;get;}
             public Account_Link__c accLink{set;get;}
+            
+            
         }
         
         
@@ -1062,18 +1128,30 @@
             operation = operation.replace('Greater Than', '>');
             operation = operation.replace('Less Than', '<');
             //For from and to date filter this will give '>' symbol for from and gives '=' for null operaions
-            if(dateFields.contains(field)){
-                if(criteria == 'null'){
+            system.debug('+++++criteria++++ ++++op'+criteria);
+            if(dateFields.contains(field))
+            {
+               if(criteria == 'null')
+                {
                     operation = '=';    
-                } else {
-                    operation = '>';
                 }
+                 else if(criteria.startsWith(';'))
+                  {
+                    operation = '<=';
+                  }
+
+                  else{
+                   operation = '>';
+                  }
             } 
             getop = operation;
+            system.debug('getop--'+getop);
             return operation;
         }
         
         private String getCriteria(String field, String criteria){
+        system.debug('+++++criteria++++++++'+criteria);
+
             if(textFields.contains(field) || pickListFields.contains(field) || multiplePickListFields.contains(field)){
               if(getop.equalsIgnoreCase('Like'))
                 {
@@ -1085,17 +1163,24 @@
                 return criteria;
             }
             else if(dateFields.contains(field)){
+            
                 if(criteria == 'null'){
                 criteria = null;
+            }
+         else if(criteria.startsWith(';'))
+            {
+            criteria  = criteria.replace(';','');
+            criteria = (Date.parse(criteria) + ' ').left(10);
+            system.debug('+++++criteria++++++++'+criteria);
             }
             else if(criteria.contains(';')){
                String[] arrCriteia = criteria.split(';');
                System.debug('Before changing the criteria'+criteria );
                if(vehicleFields.contains(field)){
-                   criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND Vehicle_Id__r.'+field+'<'+(Date.parse(arrCriteia[1]) + ' ').left(10);
+                   criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND Vehicle_Id__r.'+field+'<='+(Date.parse(arrCriteia[1]) + ' ').left(10);
                }
                else{
-                   criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND '+field+'<'+(Date.parse(arrCriteia[1]) + ' ').left(10);
+                   criteria = (Date.parse(arrCriteia[0]) + ' ').left(10)+' AND '+field+'<='+(Date.parse(arrCriteia[1]) + ' ').left(10);
                }
                System.debug('After changing the criteria'+criteria);
             }
@@ -1107,13 +1192,13 @@
        
         private void setFieldType(){
             numberFields = new Set<String>{'Vehicle_Amount__c', 'CurrentMileage__c'};
-            dateFields = new Set<String>{'PersonBirthdate', 'LastServiceDate__c', 'End_Date__c','LastServiceDate__c', 'NextServiceDate__c','FirstRegistrationDate__c', 'Registration_Date__c', 'Expected_Close_Date__c','Expected_Registration_Date__c','NextInspectionDate__c'};
+            dateFields = new Set<String>{'PersonBirthdate', 'LastServiceDate__c', 'End_Date__c','LastServiceDate__c', 'NextServiceDate__c','FirstRegistrationDate__c', 'Registration_Date__c', 'Expected_Close_Date__c','Expected_Registration_Date__c','NextInspectionDate__c','LastWorkDate__c','LastInspectionDate__c','EndDate__c'};
             textFields = new Set<String>{'Recall_No__c','Retail_Sales_Consultant__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'ZipCode__c', 'Selling_Dealer__c','Name','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c','Service_Dealer__c'};
-            pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c','Car_Model__r.Model_Name__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
+            pickListFields = new Set<String>{'Market__c','Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c','Car_Model__r.Model_Name__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
             multiplePickListFields = new Set<String>{'Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
             vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','FirstRegistrationDate__c', 'Class__c','Car_Model__r.Model_Name__c'};
             vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
-            AccountLinkFields =new Set<String>{'Sales_Representative__c','Retail_Sales_Consultant__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c' };  
+            AccountLinkFields =new Set<String>{'Sales_Representative__c','Selling_Dealer__c','Retail_Sales_Consultant__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c','LastWorkDate__c','LastInspectionDate__c'};  
             recallFields = new Set<String>{'Recall_No__c','Status__c'};
             retialCampaignFields =new Set<String>{'Name'};
             RetailTaskFields =new Set<String>{ 'Product_Name__c','Finance_Product_Name__c', 'Type__c', 'Duration__c', 'Status__c','EndDate__c'};

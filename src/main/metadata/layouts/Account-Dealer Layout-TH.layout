@@ -656,7 +656,16 @@
         <editHeading>true</editHeading>
         <label>System Information</label>
         <layoutColumns/>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+        </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
@@ -727,6 +736,20 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <customButtons>New_DM_Request_TH_Account</customButtons>
+        <fields>NAME</fields>
+        <fields>Contact__c</fields>
+        <fields>Status__c</fields>
+        <fields>Expected_DM_Material1__c</fields>
+        <fields>Status1__c</fields>
+        <fields>Expected_DM_Material2__c</fields>
+        <fields>Status2__c</fields>
+        <fields>Expected_DM_Material3__c</fields>
+        <fields>Status3__c</fields>
+        <fields>Sent_Date__c</fields>
+        <relatedList>DM_Request__c.Customer_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

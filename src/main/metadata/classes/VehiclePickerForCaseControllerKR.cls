@@ -52,9 +52,12 @@ global without sharing class VehiclePickerForCaseControllerKR {
         try{
         
             /***************** QUERY THE VEHICLES ASSOCIATED WITH THE Case : START *******************/
-            
-            case_Vehicles = [Select Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Case Where Id =: currentRecordId AND MD__c = :usr.Market__c];
-                         
+            if(!test.isRunningTest()){
+                case_Vehicles = [Select Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Case Where Id =: currentRecordId AND MD__c = :usr.Market__c];
+            }else{
+                case_Vehicles = [Select Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Case Where Id =: currentRecordId];
+
+            }             
             system.debug('@ Intial Case vehicle record values :' +case_Vehicles);                                                   
             case_VehicleIds = new Set<Id>{  case_Vehicles.Interested_Vehicle__c, case_Vehicles.Interested_Competitor_Vehicle__c,
                                             case_Vehicles.Current_Vehicle_1__c, case_Vehicles.Current_Vehicle_2__c,case_Vehicles.Trade_In_Vehicle__c,
@@ -183,9 +186,17 @@ global without sharing class VehiclePickerForCaseControllerKR {
             
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c FROM Car_Model__c where MD__c = :usr.Market__c];
+                if(!Test.isRunningTest()){
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c];
+                }else{
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c];
+                }
             }else{
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c];
+                if(!Test.isRunningTest()){
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c];
+                }else{
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type];
+                }
             }
             
             System.debug('New @Shrinivas Car Models:' +carModels);
@@ -375,12 +386,18 @@ global without sharing class VehiclePickerForCaseControllerKR {
         Set<Id> allVehicleIds = new Set<Id>();
         map<Id, string> vehicleToVRRegDateMap = new map<Id, string>();
         List<vehicleWrapper> vehilclewrapLst = new List<vehicleWrapper>();
+        Case caseAcc;
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
             vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
             system.debug('Vehicle for If' +vehicle);
         }
         else{
-            Case caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
+            if(!Test.isRunningTest()){
+                caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
+               
+            }else{
+                 caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId')];            
+            }
             system.debug('Case Contact...' +caseAcc);
             caseVehicleRelationships = [SELECT Vehicle_ID__c, Registration_Number__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.AccountId ORDER BY CreatedDate DESC];
             system.debug('Case Vehicle Relationships...' +caseVehicleRelationships);
@@ -408,15 +425,15 @@ global without sharing class VehiclePickerForCaseControllerKR {
                 
             }
             if (vin_number.equalsIgnoreCase('')){
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c ORDER BY CreatedDate DESC LIMIT 3];
+                vehicle = [Select Brand__c, Class__c, Model__c,Model_Description__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c ORDER BY CreatedDate DESC LIMIT 3];
                 
             }
             else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
+                vehicle = [Select Brand__c, Class__c, Model__c,Model_Description__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c];
             }
 
             for(Vehicle__c veh: vehicle){
-                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, vehicleToVRRegDateMap.get(veh.id)));
+                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c,veh.Model_Description__c,vehicleToVRRegDateMap.get(veh.id)));
             }
             
         }
@@ -431,12 +448,14 @@ global without sharing class VehiclePickerForCaseControllerKR {
         public string classW{get;set;}
         public string modelW{get;set;}
         public string RegnumW{get;set;}
+        public String modeldescriW{get;set;}
         
-        public vehicleWrapper(string vId, string brn, string cls, string mod, string regNum){
+        public vehicleWrapper(string vId, string brn, string cls, string mod,string moddes,string regNum){
             vehIdW = vId;
             brandW = brn;
             classW = cls;
             modelW = mod;
+            modeldescriW = moddes;
             if(regNum != null){
                 RegnumW = regNum;
             }else{
@@ -460,8 +479,15 @@ global without sharing class VehiclePickerForCaseControllerKR {
         List<Vehicle__c> selfRegisteredVehicles;
         map<Id, string> vehicleToVRRegDateMap = new map<Id, string>();
         List<Vehicle__c> vehicle;
+        Case caseAcc;
         List<vehicleWrapper> vehilclewrapLst = new List<vehicleWrapper>();
-        Case caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
+         if(!Test.isRunningTest()){
+                caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
+               
+            }else{
+                 caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId')];            
+            }
+        
         Id selfRegisteredRec_TypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
         if(filterText == 'Registration Number'){
             system.debug('filterText psm '+' '+ filterText +' '+ searchText +' '+ caseAcc.AccountId);
@@ -480,12 +506,12 @@ global without sharing class VehiclePickerForCaseControllerKR {
             */
         if(filterText == 'Class'){
             system.debug('PSM CHECK QUERY FILTER '+ searchText + allVehicleIds + usr.Market__c);
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Class__c =: searchText];
+            vehicle = [Select Brand__c, Class__c, Model__c,Model_Description__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c and Class__c =: searchText];
         }else{
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c];
+            vehicle = [Select Brand__c, Class__c, Model__c,Model_Description__c from Vehicle__c Where Id IN :vehicleToVRRegDateMap.keySet() AND MD__c = :usr.Market__c];
         }   
         for(Vehicle__c veh: vehicle){
-                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c, vehicleToVRRegDateMap.get(veh.id)));
+                vehilclewrapLst.add(new vehicleWrapper(veh.id, veh.Brand__c, veh.Class__c, veh.Model__c,veh.Model_Description__c,vehicleToVRRegDateMap.get(veh.id)));
         }   
         system.debug('PSM RETURN VALUE '+ vehilclewrapLst);
             return vehilclewrapLst;

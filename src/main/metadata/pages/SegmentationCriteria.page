@@ -675,6 +675,9 @@
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                </td>
                             <td class="logic"></td>
+                            <!--MD changes - added by santosh mohanty-->
+                            <td><apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/></td>
+                            <td><apex:inputField value="{!account.Market__c}" styleClass="Occupation__c" style="display:block;"/></td>
                             <td></td>
                         </tr>
                     </table>
@@ -1100,11 +1103,12 @@
                             <td class="criteria">
                                 <input class="inputText" type="text" />
                                 <apex:inputField value="{!address.ZipCode__c}" styleClass="ZipCode__c" style="display:block;"/> 
-                                  <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/>  
-                                  
-                                 
+                                  <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/>
                             </td>
                             <td class="logic"></td>
+                            <!--MD Changes Santosh Mohanty-->
+                            <td><apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/></td>
+                            <td><apex:inputField value="{!address.Market__c}" styleClass="Address__c"/></td>
                             <td></td>
                         </tr>
                     </table>

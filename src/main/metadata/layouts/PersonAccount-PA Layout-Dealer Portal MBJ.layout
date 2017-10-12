@@ -10,9 +10,6 @@
     <customButtons>Create_Vehicle</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -76,6 +73,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Old_UCID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -141,10 +142,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>FS_SMS_Last_Modified_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CDM_UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -532,6 +529,10 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -594,8 +595,8 @@
         <fields>Role__c</fields>
         <fields>Role2__c</fields>
         <fields>Portal_Email__c</fields>
-        <fields>Retail_Email_OptOut__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
+        <fields>Primary__c</fields>
+        <fields>Retail_Duplicate_Flag__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -649,11 +650,15 @@
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_Task</customButtons>
         <fields>Campaign_ID__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>Contract__c</fields>
-        <fields>Preferred_Dealer__c</fields>
+        <fields>Retail_Campaign_Id__c</fields>
+        <fields>Campaign_Member_ID__c</fields>
         <fields>Status__c</fields>
         <fields>RespondedDate__c</fields>
+        <fields>Preferred_Dealer__c</fields>
+        <fields>Sales_Consultant__c</fields>
+        <fields>Service_Advisor__c</fields>
+        <fields>Contract_Responsible_Person__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>Campaign_Member__c.Contact_Id__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -704,7 +709,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h28000003kTN0</masterLabel>
+        <masterLabel>00h28000006XJWU</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

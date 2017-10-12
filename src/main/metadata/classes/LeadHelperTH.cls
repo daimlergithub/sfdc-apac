@@ -149,7 +149,20 @@ public without sharing class  LeadHelperTH{
         }
     
 }
-
+Public void CreateRetailCopy(List<Lead__c> leadlist,map<id,Lead__c> leadOldMap, boolean isInsert, boolean isUpdate){
+set<String> contactId = new set<String>();
+    for(Lead__c le:leadlist){
+        if(le.Assigned_Dealer__c != null && le.MD__c =='TH'){
+            if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c))
+                    {  
+                        contactId.add(le.id);
+                    }
+            }
+      }
+      if(contactId.size()>0){
+      LeadHelperAccountLinkCreateJP.createAccountLinkRecord(contactId);
+      }
+}
     
  //this method is common for before update and before insert of leadreassigning functionality   
  public Static void updateOwnership(set<id> acc,List<Lead__c> leadlist){
