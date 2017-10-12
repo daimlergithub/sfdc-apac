@@ -8466,7 +8466,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign.Task_Created_By__c</field>
         <readable>true</readable>
     </fieldPermissions>
