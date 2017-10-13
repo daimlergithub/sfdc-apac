@@ -228,9 +228,6 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Phone_OptOut__c</field>
             </layoutItems>
@@ -253,9 +250,6 @@
 			<layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Agreement_Date_on_Contact_Method__c</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
             </layoutItems>
 			<layoutItems>
                 <behavior>Edit</behavior>
