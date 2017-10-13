@@ -27,13 +27,15 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
         }
         
         if(isBefore && isUpdate){
+            /* Data Update MD Fix - Santosh Mohanty*/
+            AccountHelperTH.updatemarket(Trigger.New);
             AccountHelperKR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             
             AccounthelperKR.updateOnDoNotCall(Trigger.new);
             AccountHelperKR.updateOnPostalOptout(Trigger.new);
             system.debug('@@@@@@ listNewAccounts update trigger');
-			AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
+            AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
             AccountHelperKR.updateOnEmailOptout(Trigger.new);
             AccountHelperKR.updateAgeRange(Trigger.new);
         }
@@ -49,8 +51,8 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             system.debug('createSharingRecord :');
             //#SFDCKR-1015
             AccountHelperKR.createSharingRecord ((Map<Id,Account>)Trigger.NewMap);
-			//SFDCKR-1207
-			AccountHelperKR.shareDealeroutletsWithDealerCompany(trigger.new);
+            //SFDCKR-1207
+            AccountHelperKR.shareDealeroutletsWithDealerCompany(trigger.new);
             
         } 
         if(isAfter && isUpdate && !System.isFuture())
@@ -74,27 +76,27 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-	{
-		List<Account> accountNewList = Trigger.new;
+    {
+        List<Account> accountNewList = Trigger.new;
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'KR')
         {
 
-		   if(isBefore && isInsert)
-			{
-				AccountHelperKR.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
-		    }
-			
-			if(isBefore && isUpdate)
-			{
-				AccountHelperKR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-				AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-				
-				AccounthelperKR.updateOnDoNotCall(Trigger.new);
-				AccountHelperKR.updateOnPostalOptout(Trigger.new);
-				AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
-				AccountHelperKR.updateOnEmailOptout(Trigger.new);
-				AccountHelperKR.updateAgeRange(Trigger.new);
-			}
-		}
+           if(isBefore && isInsert)
+            {
+                AccountHelperKR.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+            }
+            
+            if(isBefore && isUpdate)
+            {
+                AccountHelperKR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
+                AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
+                
+                AccounthelperKR.updateOnDoNotCall(Trigger.new);
+                AccountHelperKR.updateOnPostalOptout(Trigger.new);
+                AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
+                AccountHelperKR.updateOnEmailOptout(Trigger.new);
+                AccountHelperKR.updateAgeRange(Trigger.new);
+            }
+        }
     }
 }
