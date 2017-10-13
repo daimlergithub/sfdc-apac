@@ -16,6 +16,8 @@ public class TriggerAddressTriggerHandlerKR implements TriggerHandlerIf
         
         if ((isBefore && isUpdate)||(isBefore && isInsert))
         {            
+            /* Data Update MD Fix - Santosh Mohanty*/
+            AddressHelperTH.updatemarket(Trigger.New);
             AddressHelperJP.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
         }
         
@@ -36,7 +38,7 @@ public class TriggerAddressTriggerHandlerKR implements TriggerHandlerIf
         } 
         if(isAfter && isInsert)
         {
-        	AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+            AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
             serializedObject=json.serialize(ListAddNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');            
             AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
