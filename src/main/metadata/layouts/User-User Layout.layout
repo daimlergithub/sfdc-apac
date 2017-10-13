@@ -19,7 +19,11 @@
                 <customLink>Change_Notification_Settings</customLink>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
+		<layoutColumns>
+            <layoutItems>
+                <customLink>AssignPersona</customLink>
+            </layoutItems>
+        </layoutColumns>
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
