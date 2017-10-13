@@ -191,10 +191,6 @@
                 <behavior>Edit</behavior>
                 <field>Old_UCID__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Number_of_Children__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
