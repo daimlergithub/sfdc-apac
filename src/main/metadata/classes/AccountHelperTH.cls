@@ -23,7 +23,6 @@ public class AccountHelperTH{
         {
             for(Account Acc : listNewAccounts)
             {
-                
                 if(Acc.Mobile__c != Null && Acc.Mobile__c != '')
                 {
                     Acc.SMS_Last_Modified_By__c = UserInfo.getName();
@@ -229,7 +228,7 @@ public class AccountHelperTH{
          integer actContract=0;
          Set<Id> AccIdSet = new Set<Id>();
          for(Account acc : listNewAccounts)
-         {                                  
+         {       
                   AccIdSet.add(acc.id);          
          }
           List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id 
@@ -391,6 +390,7 @@ public class AccountHelperTH{
             UtilAddressTranslation.gettranslatedvalues('TH');
             for(Account acc : accLst)
             {
+                
                 system.debug('accountLanguage>>>' + acc.Preferred_Language__c);
                 //MT20170913- Added market Descrminator MY
                 if(acc.MD__c == 'TH' || acc.MD__c == Label.MY)
@@ -575,6 +575,7 @@ public class AccountHelperTH{
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
         for(Account acc : accLst){
+            
             if(isUpdate && acc.MD__c == label.MarketTH){ //Checking Market for updated account
                 AccountIds.add(acc.id); //Adding accountId's to set        
             }
@@ -597,11 +598,11 @@ public class AccountHelperTH{
         //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
-			acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;		
-                acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;		
-                acclnk.Retail_UCID__c=acclnk.toRole__r.CDM_UCID__c;		
-                acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;		
-                acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;		
+            acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;       
+                acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;     
+                acclnk.Retail_UCID__c=acclnk.toRole__r.CDM_UCID__c;     
+                acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;        
+                acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;       
                 acclnk.Retail_Agreement_Info_Processing__c=acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
@@ -697,11 +698,12 @@ public class AccountHelperTH{
             
             for(Account acc : TriggerNew)
             {
-                AccIds.add(acc.id);              
+                AccIds.add(acc.id);
+                              
             }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
-                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c from account where id in :AccIds];
+                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c,market__c from account where id in :AccIds];
                 if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
@@ -771,24 +773,25 @@ public class AccountHelperTH{
         
     }
     /*
-	SN20170929- Added code for create and update of data for ucid.
+    SN20170929- Added code for create and update of data for ucid.
     
     */
     
     public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist)
-    {		try{
-	
+    {       try{
+    
             set<ID> accids=new set<ID>();
-            for(Account accrec:accountlist){
+            for(Account accrec : accountlist){
+                
                 accids.add(accrec.id);
             }
             CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
-			}Catch(exception e){
-				 CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
-				
-			}
+            }Catch(exception e){
+                 CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
+                
+            }
     }
-    /*	  
+    /*    
 It is a temporary code fix for the phone format issue following these 3 rules
 1) If it contains '+ ' or if the number < 9 do nothing.
 2) If there is any '0' in the starting remove it and Prefix '+66' to the number.
@@ -863,4 +866,13 @@ It would be replaced by Informatica/Middleware  */
             
             }
     } */
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Account> accList){        
+        
+               for(Account acc : accList){
+                   if(Acc.Market__c =='' || Acc.Market__c==NULL){
+                     Acc.Market__c=Acc.MD__c;
+                  }  
+              }       
+    }
 }
