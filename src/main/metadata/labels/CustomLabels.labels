@@ -2144,6 +2144,13 @@
         <value>Customer Type</value>
     </labels>
     <labels>
+        <fullName>Customer_Cust</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer</shortDescription>
+        <value>Customer</value>
+    </labels>
+    <labels>
         <fullName>Customer_Filter</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6715,14 +6722,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Block</shortDescription>
-        <value>Block /  ปิดกั้น</value>
+        <value>District / ตำบล</value>
     </labels>
     <labels>
         <fullName>S5_City</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 City</shortDescription>
-        <value>City / เมือง</value>
+        <value>State / Province</value>
     </labels>
     <labels>
         <fullName>S5_Company_Name</fullName>
@@ -6737,6 +6744,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>S5 Date of Birth</shortDescription>
         <value>Date of Birth / วันเกิด</value>
+    </labels>
+    <labels>
+        <fullName>S5_Fax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Fax</shortDescription>
+        <value>Fax / เบอร์แฟลกซ์</value>
     </labels>
     <labels>
         <fullName>S5_First_name</fullName>
@@ -7754,7 +7768,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Town</shortDescription>
-        <value>Town / เมือง</value>
+        <value>Sub District / ตำบล</value>
     </labels>
     <labels>
         <fullName>S5_Work_Phone</fullName>
@@ -10192,12 +10206,5 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>updateRetailCopy</value>
-    </labels>
-	<labels>
-        <fullName>Customer_Cust</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Customer</shortDescription>
-        <value>Customer</value>
     </labels>
 </CustomLabels>

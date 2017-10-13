@@ -1958,11 +1958,12 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
-            <field>Case.Priority</field>
+            <field>Case.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Yellow = 3</value>
+            <value>Inquiry</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
@@ -1980,7 +1981,8 @@
                 <name>Case_escalation_for_MB_Complaint_TH</name>
                 <type>Alert</type>
             </actions>
-            <timeLength>72</timeLength>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
