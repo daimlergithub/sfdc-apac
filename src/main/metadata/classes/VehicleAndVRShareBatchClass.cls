@@ -43,7 +43,7 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
                 {
                     if(acc.Dealer_Type__c == 'Company' && gr.Name == acc.Dealer_ND_Code__c)
                     {
-                        groupGcCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
+                        groupGcCodeMap.put(acc.Dealer_GC_Code__c,gr.Id);
                     }
                     
                     if(acc.Dealer_Type__c == 'outlet' && gr.Name == acc.Dealer_ND_Code__c)
@@ -76,13 +76,13 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
                 
                 Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                 vehicleRelationShare.AccessLevel = 'Edit';
-                vehicleRelationShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
+                vehicleRelationShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c);
                 vehicleRelationShare.ParentId = vehRel.Id;
                 updateVRShareList.add(vehicleRelationShare);   
     
                 Vehicle__Share vehicleShare = new Vehicle__Share();
                 vehicleShare.AccessLevel = 'Edit';
-                vehicleShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
+                vehicleShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c);
                 vehicleShare.ParentId = vehRel.Vehicle_ID__c;
                 updateVehShareList.add(vehicleShare);
             }

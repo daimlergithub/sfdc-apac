@@ -44,7 +44,7 @@ global class caseShareBatch implements Database.Batchable<sobject>,database.stat
                 {
                     if(acc.Dealer_Type__c == 'Company' && gr.Name == acc.Dealer_ND_Code__c)
                     {
-                        groupGcCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
+                        groupGcCodeMap.put(acc.Dealer_GC_Code__c,gr.Id);
                     }
                     
                     if(acc.Dealer_Type__c == 'outlet' &&gr.Name == acc.Dealer_ND_Code__c)
@@ -57,11 +57,23 @@ global class caseShareBatch implements Database.Batchable<sobject>,database.stat
         
                 For(Case cas : scope)
                 {
+                if((groupNdCodeMap.get(cas.Case_Dealer__r.Dealer_ND_Code__c))!=null && groupNdCodeMap!=null)
+            {
                                 CaseShare casShre = new CaseShare();
                                 casShre.CaseAccessLevel = 'Edit';
                                 casShre.CaseId = cas.Id;
                                 casShre.UserOrGroupId = groupGcCodeMap.get(cas.Case_Dealer__r.Dealer_ND_Code__c);
                                 caseShareList.add(casShre);
+                }
+                
+                if((groupGcCodeMap.get(cas.Case_Dealer__r.Dealer_GC_Code__c))!=null && groupGcCodeMap!=null )
+            {
+            CaseShare casShre = new CaseShare();
+                                casShre.CaseAccessLevel = 'Edit';
+                                casShre.CaseId = cas.Id;
+                                casShre.UserOrGroupId = groupGcCodeMap.get(cas.Case_Dealer__r.Dealer_GC_Code__c);
+                                caseShareList.add(casShre);
+                }
                 }
 
 if(!caseShareList.isEmpty() && caseShareList != null)
