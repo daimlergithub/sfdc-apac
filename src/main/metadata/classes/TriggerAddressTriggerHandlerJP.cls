@@ -16,6 +16,8 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         
         if ((Trigger.isBefore && Trigger.isUpdate)||(Trigger.isBefore && Trigger.isInsert)){
             
+            /* Data Update MD Fix - Santosh Mohanty*/
+            AddressHelperTH.updatemarket(Trigger.New);
             AddressHelperJP.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
         }
         
@@ -41,7 +43,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
             
             AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
              AddressHelperJP.updateAccountlinks((Map<Id,Address__c>)Trigger.newMap);
-			 //added by lokesh M
+             //added by lokesh M
              AddressHelperJP.afterInsetAddressUpdateRetailPerson(trigger.new);
         } 
         if(isAfter && isUpdate)
@@ -63,13 +65,13 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
     {
-	  // Added  as  part of SFDCJP-2730
-		if(isAfter && isUpdate)
-		{
-			AddressHelperJP.afterUpdateVehicleRelationship(Trigger.new,(Map<Id,Address__c>)Trigger.OldMap);
-			AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
-		}
-		 if(Trigger.isbefore && isDelete)
+      // Added  as  part of SFDCJP-2730
+        if(isAfter && isUpdate)
+        {
+            AddressHelperJP.afterUpdateVehicleRelationship(Trigger.new,(Map<Id,Address__c>)Trigger.OldMap);
+            AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+        }
+         if(Trigger.isbefore && isDelete)
         {
          AddressHelperJP.ClearVRValues(Trigger.Old);
         }
@@ -92,7 +94,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         if(isAfter && isDelete)
         {
             serializedObject=json.serialize(ListAddOld);
-			serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
         }
         */

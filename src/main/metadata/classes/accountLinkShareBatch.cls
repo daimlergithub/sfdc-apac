@@ -44,7 +44,7 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
                 {
                     if(acc.Dealer_Type__c == 'Company' && gr.Name == acc.Dealer_ND_Code__c)
                     {
-                        groupGcCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
+                        groupGcCodeMap.put(acc.Dealer_GC_Code__c,gr.Id);
                     }
                     
                     if(acc.Dealer_Type__c == 'outlet' &&gr.Name == acc.Dealer_ND_Code__c)
@@ -72,17 +72,17 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
             achsare.OpportunityAccessLevel ='none';
             updateAccShareList.add(achsare);  
             }
-            if((groupGcCodeMap.get(acclnk.fromRole__r.Dealer_ND_Code__c))!=null && groupGcCodeMap!=null )
+            if((groupGcCodeMap.get(acclnk.fromRole__r.Dealer_GC_Code__c))!=null && groupGcCodeMap!=null )
             {
             Account_Link__Share aclnkshare = new Account_Link__Share();
             aclnkshare.ParentId = acclnk.Id;
-            aclnkshare.UserOrGroupId = groupGcCodeMap.get(acclnk.fromRole__r.Dealer_ND_Code__c);
+            aclnkshare.UserOrGroupId = groupGcCodeMap.get(acclnk.fromRole__r.Dealer_GC_Code__c);
             aclnkshare.AccessLevel = 'Edit';
             updateaclnkShareList.add(aclnkshare);
             
             AccountShare achsare = new Accountshare();
             achsare.Accountid=acclnk.toRole__c;
-            achsare.UserOrGroupId = groupGcCodeMap.get(acclnk.fromRole__r.Dealer_ND_Code__c);
+            achsare.UserOrGroupId = groupGcCodeMap.get(acclnk.fromRole__r.Dealer_GC_Code__c);
             achsare.AccountAccessLevel='edit';
             achsare.OpportunityAccessLevel ='none';
             updateAccShareList.add(achsare);    

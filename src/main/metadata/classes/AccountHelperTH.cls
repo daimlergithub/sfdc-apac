@@ -23,7 +23,6 @@ public class AccountHelperTH{
         {
             for(Account Acc : listNewAccounts)
             {
-                
                 if(Acc.Mobile__c != Null && Acc.Mobile__c != '')
                 {
                     Acc.SMS_Last_Modified_By__c = UserInfo.getName();
@@ -229,7 +228,7 @@ public class AccountHelperTH{
          integer actContract=0;
          Set<Id> AccIdSet = new Set<Id>();
          for(Account acc : listNewAccounts)
-         {                                  
+         {       
                   AccIdSet.add(acc.id);          
          }
           List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id 
@@ -391,6 +390,7 @@ public class AccountHelperTH{
             UtilAddressTranslation.gettranslatedvalues('TH');
             for(Account acc : accLst)
             {
+                
                 system.debug('accountLanguage>>>' + acc.Preferred_Language__c);
                 //MT20170913- Added market Descrminator MY
                 if(acc.MD__c == 'TH' || acc.MD__c == Label.MY)
@@ -575,6 +575,7 @@ public class AccountHelperTH{
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
         for(Account acc : accLst){
+            
             if(isUpdate && acc.MD__c == label.MarketTH){ //Checking Market for updated account
                 AccountIds.add(acc.id); //Adding accountId's to set        
             }
@@ -697,11 +698,12 @@ public class AccountHelperTH{
             
             for(Account acc : TriggerNew)
             {
-                AccIds.add(acc.id);              
+                AccIds.add(acc.id);
+                              
             }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
-                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c from account where id in :AccIds];
+                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c,market__c from account where id in :AccIds];
                 if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
@@ -779,7 +781,8 @@ public class AccountHelperTH{
     {       try{
     
             set<ID> accids=new set<ID>();
-            for(Account accrec:accountlist){
+            for(Account accrec : accountlist){
+                
                 accids.add(accrec.id);
             }
             CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
@@ -863,4 +866,13 @@ It would be replaced by Informatica/Middleware  */
             
             }
     } */
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Account> accList){        
+        
+               for(Account acc : accList){
+                   if(Acc.Market__c =='' || Acc.Market__c==NULL){
+                     Acc.Market__c=Acc.MD__c;
+                  }  
+              }       
+    }
 }
