@@ -193,27 +193,36 @@ public with sharing class AddressHelperTH {
         * @return     : void
         * @see:       : AddressHelperTH
         */
-		 public static void updateAddressCDM(List<Address__c> Address, string MarketDiscriminator, string updateType){         
+         public static void updateAddressCDM(List<Address__c> Address, string MarketDiscriminator, string updateType){         
                  set<id> accountId = new set<id>();  
                  list<Account> accountList = new list<Account>();                  
                  //get the related accountIds
                  for(Address__c add:Address){
                         accountId.add(add.Customer__c);                       
                   } 
-				if(accountId.size()>0){
+                if(accountId.size()>0){
                  for(Account acc:[select id,recordtypeid from Account where id IN:accountId]){
                         accountList.add(acc);
                  } 
                  try{
-	
-					set<ID> accids=new set<ID>();
-					for(Account accrec:accountlist){
-						accids.add(accrec.id);
-					}
-					CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
-					}Catch(exception e){
-						CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
-					}
-				}
+    
+                    set<ID> accids=new set<ID>();
+                    for(Account accrec:accountlist){
+                        accids.add(accrec.id);
+                    }
+                    CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+                    }Catch(exception e){
+                        CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
+                    }
+                }
           }
+      /* Data Migration Explicit Fix - Santosh Mohanty */
+        public static void updatemarket(List<Address__c> addList){        
+            
+                   for(Address__c addr : addList){
+                       if(addr.Market__c =='' || addr.Market__c==NULL){
+                         addr.Market__c=addr.MD__c;
+                      }  
+                  }       
+        }
 }

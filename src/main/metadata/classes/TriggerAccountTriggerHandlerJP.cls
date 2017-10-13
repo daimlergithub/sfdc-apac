@@ -22,6 +22,7 @@ implements TriggerHandlerIf
         
         if(isBefore && isInsert )
         {
+            
             system.debug('Entered before insert TRIGGER');
             AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
             AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
@@ -29,6 +30,8 @@ implements TriggerHandlerIf
         }
         if(isBefore && isUpdate)
         {
+            /* Data Update MD Fix - Santosh Mohanty*/
+            AccountHelperTH.updatemarket(Trigger.New);
             system.debug('Entered before update TRIGGER');
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
@@ -78,11 +81,13 @@ implements TriggerHandlerIf
         {   
             if(isBefore && isInsert )
             {   
+                
                 AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
                 AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
             }
             if(isBefore && isUpdate)
             {
+                
                 //Commented as part of SFDCJP-2305
                 // AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
                 AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
