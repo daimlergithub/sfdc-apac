@@ -17,7 +17,8 @@ public class TriggerAddressTriggerHandlerTH implements TriggerHandlerIf
         /* any code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */
         
           if ((Trigger.isBefore && Trigger.isUpdate)||(Trigger.isBefore && Trigger.isInsert)){
-            
+            /* Data Update MD Fix - Santosh Mohanty*/
+            AddressHelperTH.updatemarket(Trigger.New);
             AddressHelperTH.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
             }
             
@@ -37,7 +38,9 @@ public class TriggerAddressTriggerHandlerTH implements TriggerHandlerIf
             }
             
             if(trigger.isBefore && trigger.isUpdate)
-            {            
+            {   
+                /* Data Update MD Fix - Santosh Mohanty*/
+                AddressHelperTH.updatemarket(Trigger.New);         
                 AddressHelperTH.updateAddressOnAccount(trigger.new);
             }
         
