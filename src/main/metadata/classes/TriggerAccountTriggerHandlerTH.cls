@@ -33,7 +33,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
 
         if(isBefore && isInsert){
-            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+           AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
         }
         
          if(isAfter && isInsert )
@@ -42,7 +42,9 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         }
         
         if(isBefore && isUpdate){
-        AccountHelperTH.ValidateNationalid(Trigger.new);
+            /* Data Update MD Fix - Santosh Mohanty*/
+            AccountHelperTH.updatemarket(Trigger.New);
+            AccountHelperTH.ValidateNationalid(Trigger.new);
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
@@ -69,7 +71,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                     accids.add(accrec.id);
                 }
                 //CDMInformatica_Services.createCustomerCDM(accids);
-				CDMInformatica_Services.createCustomerCDM(accids,'TH','insert');
+                CDMInformatica_Services.createCustomerCDM(accids,'TH','insert');
             }
         } 
         if(isAfter && isUpdate && !System.isFuture())
@@ -87,7 +89,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             }
             if(firstRun==true){
             //CDMInformatica_Services.createCustomerCDM(accids);
-			CDMInformatica_Services.createCustomerCDM(accids,'TH','update');
+            CDMInformatica_Services.createCustomerCDM(accids,'TH','update');
             firstRun=false;
             }
             }
@@ -123,17 +125,17 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'TH')
         {
             if(isBefore && isInsert){
-            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+               AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
             }
         
         if(isBefore && isUpdate){
-            AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-            AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
-            AccounthelperTH.updateOnDoNotCall(Trigger.new);
-            AccountHelperTH.updateOnPostalOptout(Trigger.new);
-            AccountHelperTH.updateOnEmailOptout(Trigger.new);
-            AccountHelperTH.updateAgeRange(Trigger.new);
-            AccountHelperTH.activeContracts(Trigger.new);
+                AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
+                AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+                AccounthelperTH.updateOnDoNotCall(Trigger.new);
+                AccountHelperTH.updateOnPostalOptout(Trigger.new);
+                AccountHelperTH.updateOnEmailOptout(Trigger.new);
+                AccountHelperTH.updateAgeRange(Trigger.new);
+                AccountHelperTH.activeContracts(Trigger.new);
             }
         }
     }
