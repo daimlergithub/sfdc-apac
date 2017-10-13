@@ -44,20 +44,34 @@ private class TestMRCUpdateAccessOnUserExtDFW{
     test.stopTest();
   }
   static testMethod void testUpdateUser(){
+    Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+    User usr111 = new User(Username = 'john@acme.com142'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+    Insert usr111;
+    System.runAs (usr111) {   
+    test.startTest();  
     List<Functionality_Access_Master__c> functionality_access_master_Obj  =  [SELECT Module_Name__c,Permission_Sets__c from Functionality_Access_Master__c];
     System.assertEquals(true,functionality_access_master_Obj.size()>0);
         MRC_UpdateAccessOnUserExt obj01 = new MRC_UpdateAccessOnUserExt(new ApexPages.StandardController(functionality_access_master_Obj[0]));
         obj01.func = functionality_access_master_Obj[0];
         obj01.UListToUpdate = new List<User>();
         obj01.updateUser(new List<User>());
+    test.stopTest();  
+    }    
   }
   static testMethod void testRedirect(){
-    List<Functionality_Access_Master__c> functionality_access_master_Obj  =  [SELECT Module_Name__c,Permission_Sets__c from Functionality_Access_Master__c];
-    System.assertEquals(true,functionality_access_master_Obj.size()>0);
+     Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+     User usr111 = new User(Username = 'john@acme.com114'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+     Insert usr111;
+     System.runAs (usr111) {  
+     test.startTest();
+     List<Functionality_Access_Master__c> functionality_access_master_Obj  =  [SELECT Module_Name__c,Permission_Sets__c from Functionality_Access_Master__c];
+     System.assertEquals(true,functionality_access_master_Obj.size()>0);
         MRC_UpdateAccessOnUserExt obj01 = new MRC_UpdateAccessOnUserExt(new ApexPages.StandardController(functionality_access_master_Obj[0]));
         obj01.func = functionality_access_master_Obj[0];
         obj01.UListToUpdate = new List<User>();
-        obj01.redirect();   
+        obj01.redirect();
+       test.stopTest();
+     }   
   }
   
 }

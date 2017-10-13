@@ -40,12 +40,14 @@ public class customerVehicleStatusTest {
         vr1.Contact__c=acc.Id;
         vr1.Vehicle_ID__c=v1.Id;
         vr1.Car_Relation__c='Purchaser';
+        vr1.Status_1__c='A';
         insert vr1;
         
         Vehicle_Relationship__c vr2= new Vehicle_Relationship__c();
         vr2.Contact__c=acc.Id;
         vr2.Vehicle_ID__c=v2.Id;
         vr2.Car_Relation__c='Purchaser';
+        vr2.Status_1__c='A';
         insert vr2;
     }
     @isTest static void testValidateNewCustomer() {
@@ -60,31 +62,31 @@ public class customerVehicleStatusTest {
         RestContext.request = request;
         customerVehiceStatus.findUCID();
         Map<String,String> res1 = customerVehiceStatus.findUCID();
-        System.assertEquals(res1.get('Vehicle Exists') , 'True');
-        System.assertEquals(res1.get('Vehicle Relationship') , '987654321');
-        System.assertEquals(res1.get('Loyality Card Number') , '987654321');
+        System.assertEquals(res1.get('VehicleExists') , 'True');
+        System.assertEquals(res1.get('VehicleRelationship') , '987654321');
+        System.assertEquals(res1.get('LoyalityCardNumber') , '987654321');
         
         request.requestBody = Blob.valueOf('{"data":{"FirstName" : "Narendra","LastName" : "Nimmana","Email" : "nari.nimm","Mobile" : "010-1456-2156","RegistrationNumber" : "74864"}}');
         RestContext.request = request;
         customerVehiceStatus.findUCID();
         Map<String,String> res2 = customerVehiceStatus.findUCID();
-        System.assertEquals(res1.get('Vehicle Exists') , 'True');
-        System.assertEquals(res1.get('Vehicle Relationship') , '987654321');
-        System.assertEquals(res1.get('Loyality Card Number') , '987654321');
+        System.assertEquals(res1.get('VehicleExists') , 'True');
+        System.assertEquals(res1.get('VehicleRelationship') , '987654321');
+        System.assertEquals(res1.get('LoyalityCardNumber') , '987654321');
         
         request.requestBody = Blob.valueOf('{"data":{"FirstName" : "Nar","LastName" : "","Email" : "nari.nimm","Mobile" : "010-1456-256","RegistrationNumber" : "74864"}}');
         RestContext.request = request;
         customerVehiceStatus.findUCID();
         Map<String,String> res3 = customerVehiceStatus.findUCID();
-        System.assertEquals(res3.get('Vehicle Relationship') , 'Owner');
+        System.assertEquals(res3.get('VehicleRelationship') , 'Owner');
         
         request.requestBody = Blob.valueOf('{"data":{"FirstName" : "dfg","LastName" : "dgdf","Email" : "nari.nimm","Mobile" : "","RegistrationNumber" : "3542"}}');
         RestContext.request = request;
         customerVehiceStatus.findUCID();
         Map<String,String> res4 = customerVehiceStatus.findUCID();
-        System.assertEquals(res4.get('Vehicle Exists') , 'False');
-        System.assertEquals(res4.get('Vehicle Relationship') , 'Nil');
-        System.assertEquals(res4.get('Loyality Card Number') , 'Nil');
+        System.assertEquals(res4.get('VehicleExists') , 'False');
+        System.assertEquals(res4.get('VehicleRelationship') , 'Nil');
+        System.assertEquals(res4.get('LoyalityCardNumber') , 'Nil');
     }  
     @isTest static void testUcid() {
         createTestRecord();
