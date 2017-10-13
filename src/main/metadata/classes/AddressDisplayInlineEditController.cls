@@ -34,7 +34,7 @@ public class AddressDisplayInlineEditController {
     public String province {get;set;}
     public String LanguageSelected{get; set;}
     public boolean IsForeignNational{get; set;}
-    
+    public User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
@@ -49,7 +49,7 @@ public class AddressDisplayInlineEditController {
         }                     
         /*Intitializing address object*/
         addressobj = new Address__c();
-        User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
+        
         market = u.Market__c;
         AddressObj.Market__c=market; 
         openPanal = true;
@@ -315,8 +315,11 @@ public class AddressDisplayInlineEditController {
             addressobj.Preferred__c = editadds.Preferred__c;
             addressobj.Temp_ZipCode__c = editadds.Temp_ZipCode__c ;
             addressobj.Temp_Address__c = editadds.Temp_Address__c ;
-            addressobj.Block_Native__c = editadds.Block_Native__c;      
-            addressobj.City_Native__c = editadds.City_Native__c;        
+            addressobj.Block_Native__c = editadds.Block_Native__c;
+			if(u.profile.name != 'Japan Marketing'){
+				addressobj.City_Native__c = editadds.City_Native__c;
+			}
+                    
             addressobj.Province_Native__c = editadds.Province_Native__c;        
             addressobj.District_Native__c = editadds.District_Native__c;        
             addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
