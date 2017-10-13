@@ -24339,6 +24339,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Vehicle_Relationship__c.Status_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -27538,6 +27543,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>usernotificationsetting</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>MRCAccessPermissionSetFromFunctionality</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
