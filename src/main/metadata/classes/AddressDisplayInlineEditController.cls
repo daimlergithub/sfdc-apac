@@ -316,10 +316,11 @@ public class AddressDisplayInlineEditController {
             addressobj.Temp_ZipCode__c = editadds.Temp_ZipCode__c ;
             addressobj.Temp_Address__c = editadds.Temp_Address__c ;
             addressobj.Block_Native__c = editadds.Block_Native__c;
+			// Added by Rakesh CISM # 0039983804 
 			if(u.profile.name != 'Japan Marketing'){
 				addressobj.City_Native__c = editadds.City_Native__c;
 			}
-                    
+            // end        
             addressobj.Province_Native__c = editadds.Province_Native__c;        
             addressobj.District_Native__c = editadds.District_Native__c;        
             addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
