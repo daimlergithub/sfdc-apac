@@ -1904,6 +1904,18 @@
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>IB call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8507,6 +8519,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
+                <fullName>IB call</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lead</fullName>
                 <default>false</default>
             </values>
@@ -8516,6 +8532,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social media</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14575,6 +14599,12 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Delay Reason is mandatory when Plan Start Date is earlier than today.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>End_date_cant_be_past_date</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(Close_Date__c &lt;=TODAY()&amp;&amp;MD__c='TH',TRUE,IF(Close_Date__c&lt;Start_Date__c&amp;&amp;MD__c='TH',TRUE,FALSE))</errorConditionFormula>
+        <errorMessage>Campaign End date can't past date and can't be less than start date</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Feedback_Mandatory_Actual_End_Date</fullName>
         <active>true</active>
         <errorConditionFormula>AND(  
@@ -14649,7 +14679,7 @@ $Profile.Name != 'IntegrationAPI'
         <fullName>P_Start_Date_is_less_than_the_P_End_Date</fullName>
         <active>true</active>
         <description>Plan Start Date later than Plan Start Date</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>OR(AND( 
 OR( 
 RecordType.Name =='AS Retail Campaign',
 RecordType.Name =='S&amp;M Event Retail Campaign',
@@ -14657,7 +14687,8 @@ RecordType.Name =='S&amp;M Media Retail Campaign'
 ), 
 Plan_Start_Date__c &gt;  Plan_End_Date__c,
 $Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
+),AND(Plan_Start_Date__c &gt;  Plan_End_Date__c,
+$Profile.Name != 'IntegrationAPI',MD__c='TH'))</errorConditionFormula>
         <errorMessage>Plan Start Date must be less than or equal to Plan End Dat</errorMessage>
     </validationRules>
     <validationRules>
