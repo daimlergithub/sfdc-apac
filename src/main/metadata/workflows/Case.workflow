@@ -1958,7 +1958,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
