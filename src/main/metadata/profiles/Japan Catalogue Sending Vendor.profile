@@ -14025,6 +14025,11 @@
         <field>Lead__c.Aftersales_Vehicle_Brand__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Aftersales_Vehicle_Relationship__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Allow_Data_Sharing__c</field>
@@ -25529,7 +25534,7 @@
         <object>Campaign</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-		    <objectPermissions>
+		<objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
@@ -25545,6 +25550,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Campaign_Member__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+	    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Campaign_Lead__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
 	    <objectPermissions>

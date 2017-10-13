@@ -17,7 +17,9 @@ public class TestMRCPermissionHandlerDFW{
          }  
         }
     insert funAccessMasterList;
-    
+    Trigger__c UserTriggerMY=new Trigger__c(Name='UserTriggerMY',Trigger_Name__c='UserTrigger',Trigger_Handler__c='UserTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
+    insert UserTriggerMY;
+      
     List<String> marketFields=new List<String>();
     marketFields.add('Market__c');
     marketFields.add('Market_Code__c');
@@ -54,7 +56,10 @@ public class TestMRCPermissionHandlerDFW{
   }
   
   static testmethod void testMRCPermissionHandler()
-    {
+    {  Profile p=[Select id,name from profile where Name = 'System Administrator' limit 1];
+       User usr111 = new User(Username = 'john@acme.com141'+System.now().millisecond(),Market__c='MY',ProfileId = p.Id,Alias = 'test123',Email = 'test12345@test.com',LastName = 'McTesty',TimeZoneSidKey = 'America/Los_Angeles',LocaleSidKey = 'en_US',LanguageLocaleKey = 'en_US',EmailEncodingKey='UTF-8');
+       Insert usr111;
+       System.runAs (usr111) { 
        List<user> usr=[select id,name,profileid,Persona_Assigned__c from user];
        List<Functionality_Access_Master__c> functionality_access_master_Obj  =  [SELECT id,Module_Name__c,Permission_Sets__c,PermissionSet_Ids__c from Functionality_Access_Master__c];
        List<market__c> marketList=[select id,Market__c,Market_Code__c from market__c];
@@ -64,11 +69,10 @@ public class TestMRCPermissionHandlerDFW{
        try{update usr[0];}
        catch(exception e){}
        test.startTest();
-       User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
-       System.runAs (thisUser) {
-           mph.assignMarketBasedPermisionSetsToUsers(usr);
-           mph.revokePermissions(personaList[0]);
-        }   
-       test.stopTest();       
+       mph.assignMarketBasedPermisionSetsToUsers(usr);
+       mph.revokePermissions(personaList[0]);
+       System.assertEquals(true,usr[0].Persona_Assigned__c !=null );  
+       test.stopTest();  
+       }        
     }
 }

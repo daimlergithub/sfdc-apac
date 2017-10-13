@@ -1256,12 +1256,12 @@ EP/Tolerant for Validation.
                     {
                         province = addtrmapUpdate.get(AddressObj.Province__c);
                     }
-                    AddressObj.Province__c =  province;
+                    //AddressObj.Province__c =  province;
                     AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
                     AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
                         ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
                         ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
-                    AddressObj.Address_Code__c = '';
+                    /*AddressObj.Address_Code__c = '';
                     AddressObj.Address_Line_1__c = '';
                     AddressObj.Address_Line_2__c = '';
                     AddressObj.Block__c = '';
@@ -1274,7 +1274,7 @@ EP/Tolerant for Validation.
                     AddressObj.Province_Native__c ='';        
                     AddressObj.District_Native__c = '';        
                     AddressObj.Address_Line_1_Native__c = '';        
-                    AddressObj.Address_Line_2_Native__c = '';
+                    AddressObj.Address_Line_2_Native__c = '';*/
                     //mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));                  
                 }
             }           
@@ -2729,7 +2729,10 @@ public pagereference saveAccountTH()
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Type is mandatory in order to insert an address'));
                     }
                     //PR20170926-(End) Address Type Null check if other Address fields are populated
-                                      
+                    else if(objAccount.Preferred_Phone__c == null)
+					{
+						ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Preferred Phone is mandatory'));
+					}						
                     else
                     {
                         refreshPage = true;

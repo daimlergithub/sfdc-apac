@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <excludeButtons>Submit</excludeButtons>
-    <feedLayout>
-        <autocollapsePublisher>true</autocollapsePublisher>
-        <compactFeed>true</compactFeed>
-        <feedFilterPosition>CenterDropDown</feedFilterPosition>
-        <feedFilters>
-            <feedFilterType>AllUpdates</feedFilterType>
-        </feedFilters>
-        <feedFilters>
-            <feedFilterType>FeedItemType</feedFilterType>
-            <feedItemType>TextPost</feedItemType>
-        </feedFilters>
-        <fullWidthFeed>true</fullWidthFeed>
-        <hideSidebar>false</hideSidebar>
-        <rightComponents>
-            <componentType>Following</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>Followers</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>Topics</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>CustomLinks</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>CustomButtons</componentType>
-        </rightComponents>
-    </feedLayout>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -66,6 +37,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Dealer_Lead_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -78,15 +53,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_Interested_Vehicle_Class__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Lead_DataSubSource__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CAC_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -94,23 +61,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Body_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Contact_Failed_For_3_Days_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>CAC_Lost_Reason__c</field>
+                <behavior>Edit</behavior>
+                <field>Dealer_Comments__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Re_visit__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_FnI_Consultant__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -121,12 +80,32 @@
                 <field>Next_Contact__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contact__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>CAC_Lost_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lead_Possibility__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Latest_Phase__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Qualified_Date_Time__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Wholesale_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>CAC_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -220,22 +199,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Wholesale_Comment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Current_Vehicle__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MD__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Interested_Vehicle_Colour__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Next_Contact_Customer_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -260,11 +223,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Bought_Vehicle_Model__c</field>
+                <field>Bought_Vehicle_Class__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Bought_Vehicle_Class__c</field>
+                <field>Bought_Vehicle_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -309,10 +272,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Comments__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Assigned_Dealer__c</field>
             </layoutItems>
             <layoutItems>
@@ -325,14 +284,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Assigned_Date_Time__c</field>
+                <field>MD__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Dealer_Untouched_In_72H__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Lead_Status__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Visit_Dealer__c</field>
@@ -346,16 +305,12 @@
                 <field>X72H_Untouched__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Dealer_Untouched_In_72H__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Purchase_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBTH_Assigned_Dealer_Name__c</field>
+                <field>Dealer_Assigned_Date_Time__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -486,11 +441,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Order_Placed_Date__c</field>
+                <field>Invoice_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Invoice_Date__c</field>
+                <field>Order_Print_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -504,10 +459,6 @@
                 <behavior>Edit</behavior>
                 <field>Purchased_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>First_Contact_Customer_Date_Time__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -516,15 +467,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Purchased_CAC_Date_Time__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Purchased_CAC_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lost_Dealer_Date_Time__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Service_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -532,7 +479,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Service_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Needs_Check_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Purchased_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -540,11 +495,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Purchased_CAC_Date_Time__c</field>
+                <field>Lost_Dealer_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Qualified_Date_Time__c</field>
+                <field>Order_Placed_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Contact_Customer_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -755,7 +714,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h28000006X7Wy</masterLabel>
+        <masterLabel>00h0l000000NE2b</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
