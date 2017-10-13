@@ -14906,6 +14906,16 @@
         <field>Retail_Campaign_Member__c.Unique_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Retail_Campaign_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Convert_To_Lead_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.AS_Marketing_Current_Planned_Budget__c</field>
