@@ -714,10 +714,10 @@ public class LeadHelperJP
                     if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
                     {
                         dellead.Assigned_Dealer__c = u.Contact.AccountId;
-                        if(dellead.Dealer_Lead_Status__c != null && dellead.Dealer_Lead_Status__c != '')
-                        {
-                            // dellead.Dealer_Assigned_Date_Time__c = system.now();
-                        }                       
+						if(dellead.Dealer_Lead_Status__c != null && dellead.Dealer_Lead_Status__c != '')
+						{
+							dellead.Dealer_Assigned_Date_Time__c = system.now();
+						}
                     }
                 }
             }
