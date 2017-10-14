@@ -21917,7 +21917,7 @@ PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
         <active>true</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
-        <errorConditionFormula>(OR(ISPICKVAL( Status , 'Planned'),ISPICKVAL( Status , 'Draft'))) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
+        <errorConditionFormula>ISPICKVAL( Status , 'Planned') &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
 OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
@@ -21927,7 +21927,7 @@ OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Prof
         <active>true</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Planned') &amp;&amp; IsActive &amp;&amp; RecordType.DeveloperName = "Planning_Design_Campaign"&amp;&amp;
+        <errorConditionFormula>(OR(ISPICKVAL( Status , 'Planned'),ISPICKVAL( Status , 'Draft'))) &amp;&amp; IsActive &amp;&amp; RecordType.DeveloperName = "Planning_Design_Campaign"&amp;&amp;
 UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
