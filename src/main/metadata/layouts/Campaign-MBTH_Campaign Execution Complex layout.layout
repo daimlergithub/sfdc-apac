@@ -44,6 +44,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Brand__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
@@ -102,10 +106,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MBTH_Campaign_Channels__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
@@ -119,6 +119,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CAC_Campaign_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Channels__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -380,14 +384,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Audit_Trail__c.Campaign__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>CreatedDate</fields>
-        <fields>StepStatus</fields>
-        <fields>OriginalActor</fields>
-        <fields>Actor</fields>
-        <fields>Comments</fields>
-        <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
