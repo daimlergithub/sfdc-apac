@@ -16233,7 +16233,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Second Mobile Phone</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Home phone</fullName>
