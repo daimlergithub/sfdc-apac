@@ -28015,7 +28015,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Campaign.AS_Central_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
