@@ -6378,6 +6378,11 @@
         <field>Campaign_Lead__c.Participate__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Lead__c.R_Call_Successful__c</field>
@@ -15503,6 +15508,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.migr_sourceid__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
