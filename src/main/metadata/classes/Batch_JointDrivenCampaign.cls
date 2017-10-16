@@ -1,237 +1,133 @@
-@isTest
-public class Batch_BounceStatusretailretailTest   {
-
-    public static Id camIdExec= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
-      public static Id camIdPlan= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
-      //public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-       public static Id personaccRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>{
+    global final String campaignId;
+    global final Set<Id> campid;
+    global final List<Campaign> NewCamList;
+    global final List<Campaign> ParentCamList;
     
-   static testmethod void batchBounceStatus()
-   {
-   
-   
-       account objMaster= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = true,lastname = '雄志',DUPNumber__c='110',
-                               Last_Successful_Call_Office_Phone__c = System.today() - 10,SMS_Last_Modified_Date__c= date.today(),MBK_Data_Source__c='Email',Mobile__c = '00000009642',DMS_Address__c = 'dmsaddress1');  
+    global Batch_JointDrivenCampaign (set<id> exeId, List<Campaign> camList,List<Campaign> parentList){
     
-    insert objMaster;
-    
-   Retail_Campaign__c camobj = new Retail_Campaign__c();
-    camobj.RecordTypeId = camIdPlan;
-    camobj.Name = 'camptest1';
-    camobj.Campaign_Sub_Type__c= 'Sales';
-    camobj.Status__c= 'Draft';
-    camobj.Response_Date__c = date.today();
-    camobj.Start_Date__c= System.today();
-    camobj.Close_Date__c= System.today()+30;
-    //camobj.Campaign_Executer__c='Retail';
-    camobj.Child_Campaign_Status__c='Response collection';
-   // camobj.Campaign_Objectives__c = 'camobjectives';
-    camobj.Description__c= 'testdescrip';
-    camobj.Campaign_Execution_Channels__c='eMail';
-    camobj.Campaign_Type__c = 'After Sales';
-    insert camobj;
-  
-  
-    
-        Retail_Campaign__c camobj1 = new Retail_Campaign__c();
-        camobj1.RecordTypeId = camIdExec;
-        camobj1.Parent_Campaign1__c=camobj.id;
-        camobj1.Child_Campaign_Status__c='Planning';
-         camobj1.Response_Date__c = date.today();
+      campid = exeId;
       
-        camobj1.MD__c='JP';
-        camobj1.Name = 'camptest1';
-        camobj1.Campaign_Type__c='After Sales';
-      //  camobj1.Type = 'Other';
-        camobj1.Segmentation_Date__c= System.today()+4;
-        camobj1.Execution_Start_Date__c = System.today()+10;
-        camobj1.Execution_Type__c= 'eMail';
-       // camobj1.Description = 'testdescrip';
-        insert camobj1;
-   
-    Campaign_Member__c camMem = New Campaign_Member__c();
-     camMem.Retail_Campaign_Id__c = camobj1.id;
-     camMem.Status__c = 'Bounced';
-     camMem.Contact_Id__c = objMaster.id;
-
-      insert camMem;
-      //camMem.Status__c = 'Bounced';
-      //update camMem;
-     Campaign_Member__c camMem1 = New Campaign_Member__c();
-     camMem1.Retail_Campaign_Id__c = camobj1.id;
-     camMem1.Status__c = 'Bounced';
-     camMem1.Contact_Id__c = objMaster.id;
-
-      insert camMem1;
-      //camMem1.Status__c = 'Bounced';
-     // update camMem1;
+      NewCamList = camList; 
+      ParentCamList = parentList;
+        
+    }
+    
+    global Database.QueryLocator start(Database.BatchableContext BC){
+        return Database.getQueryLocator([Select id,Campaign__c,Campaign__r.Parent.Campaign_Type__c,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c From Participating_Dealer__c Where Campaign__c =: campid  ]);
+    }
+    
+    global void execute(Database.BatchableContext BC, List<Participating_Dealer__c> scope){
+    
+    List<Retail_Campaign__c> retailCamParentList = New List<Retail_Campaign__c>();
+    List<Retail_Campaign__c> ret   = New List<Retail_Campaign__c>();
+    List<Retail_Campaign__c> tail    = New List<Retail_Campaign__c>();
+    Id executionRetailRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordRetailId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+    
+     For(Participating_Dealer__c par : scope ){
       
-      system.debug('+++++++++'+camMem1);
-      system.debug('+++++++++'+camobj1);
-      system.debug('+++++++++'+camobj);
-  
     
+    for(Campaign cam : NewCamList  ){
+    For(Campaign campNew : ParentCamList ){    
     
-    //Batch_BounceStatusretail batchSch = New Batch_BounceStatusretail();
-            Test.startTest(); 
-       
-        Database.executeBatch(new Batch_BounceStatusretail(),200);
-    
-
-         Test.stopTest();
-         
-
-}
-
-
-static testmethod void batchBounceStatus1()
-   {
-   
-   
-      //String mainQuery = ;
-    
-    
-   Retail_Campaign__c camobj = new Retail_Campaign__c();
-    camobj.RecordTypeId = camIdPlan;
-    camobj.Name = 'camptest1';
-    camobj.Campaign_Sub_Type__c= 'Sales';
-    camobj.Status__c= 'Draft';
-    camobj.Response_Date__c = date.today();
-    camobj.Start_Date__c= System.today();
-    camobj.Close_Date__c= System.today()+30;
-    //camobj.Campaign_Executer__c='Retail';
-    camobj.Child_Campaign_Status__c='Response collection';
-   // camobj.Campaign_Objectives__c = 'camobjectives';
-    camobj.Description__c= 'testdescrip';
-    camobj.Campaign_Execution_Channels__c='eMail';
-    camobj.Campaign_Type__c = 'After Sales';
-    insert camobj;
-  
-  
-    
-        Retail_Campaign__c camobj1 = new Retail_Campaign__c();
-        camobj1.RecordTypeId = camIdExec;
-        camobj1.Parent_Campaign1__c=camobj.id;
-        camobj1.Child_Campaign_Status__c='Planning';
-         camobj1.Response_Date__c = date.today();
+               
+        
+       if(Cam.Campaign_Executer__c == 'Retail'){
+       Retail_Campaign__c newChildRetail = new Retail_Campaign__c();
+            newChildRetail.Name = campNew.Name;
+            //newChildRetail.OwnerId = u.Id;
+            newChildRetail.Dealer_Name__c = par.Dealer__c;
+           newChildRetail.Parent_Campaign__c = campNew.Id;
+            newChildRetail.Execution_Start_Date__c = campNew.Execution_Start_Date__c;
+            newChildRetail.Execution_End_Date__c = campNew.Execution_End_Date__c;
+            newChildRetail.Segmentation_Date__c = campNew.Segmentation_Date__c;
+            newChildRetail.Child_Campaign_Status__c = campNew.Child_Campaign_Status__c;
+            newChildRetail.Response_Date__c = campNew.Response_Date__c;
+            newChildRetail.Execution_Type__c = campNew.Execution_Type__c;
+            newChildRetail.Segmentation_Base__c = campNew.Segmentation_Base__c;
+            newChildRetail.DM_Template__c = campNew.DM_Material__c;
+            newChildRetail.Final_List_Approved__c = campNew.Final_List_Approved__c;
+            newChildRetail.Survey__c = campNew.Survey__c;
+            newChildRetail.Add_Sales_Staff__c = campNew.Add_Sales_Staff__c;
+            newChildRetail.Add_Service_Staff__c = campNew.Add_Service_Staff__c;
+            newChildRetail.Add_Campaign_Member_ID__c = campNew.Add_Campaign_Member_ID__c;
+            newChildRetail.Campaign_Member_Sharing_Rule__c = campNew.Campaign_Member_Sharing_Rule__c;
+            newChildRetail.RecordTypeId = executionRetailRecordId;
+            newChildRetail.Campaign_Execution_Channels__c = 'DM';
+            
+            ret.add(newChildRetail);
+            
+         }
+         } 
+         }
+         }
+         if(ret.size() > 0){
+         insert ret;
+         }
+         For(Participating_Dealer__c par : scope ){
+         for(Campaign cam : NewCamList   ){
+        if(Cam.Campaign_Executer__c == 'Retail'){          
+       Retail_Campaign__c newRetail = new Retail_Campaign__c(); 
+        newRetail.Name = cam.Name; 
+        //newRetail.Campaign_Code__c = cam.Campaign_Code__c; 
+        newRetail.Campaign_Type__c  = cam.Campaign_Type__c ;
+        newRetail.Parent_Campaign__c = cam.Id;
+        //newRetail.OwnerId = u.Id;
+        newRetail.Dealer_Name__c = par.Dealer__c;
+        newRetail.Start_Date__c = cam.StartDate; 
+        newRetail.Close_Date__c = cam.EndDate;  
+        newRetail.Status__c = cam.Status ; 
+        newRetail.Event_Type__c = cam.Event_Type__c  ;
+        newRetail.Description__c  = cam.Description ;
+        newRetail.Campaign_Execution_Channels__c = cam.Campaign_Execution_Channels__c ; 
+        newRetail.Actual_Cost__c = cam.ActualCost;  
+        newRetail.Brand__c  = cam.Brand__c ;
+        newRetail.Class__c = cam.Class__c ;
+        newRetail.Budgeted_Cost__c = cam.BudgetedCost;      
+        newRetail.RecordTypeId = planningRecordRetailId;
       
-        camobj1.MD__c='JP';
-        camobj1.Name = 'camptest1';
-        camobj1.Campaign_Type__c='After Sales';
-      //  camobj1.Type = 'Other';
-        camobj1.Segmentation_Date__c= System.today()+4;
-        camobj1.Execution_Start_Date__c = System.today()+10;
-        camobj1.Execution_Type__c= 'OB Call';
-       // camobj1.Description = 'testdescrip';
-        insert camobj1;
-   
-    Campaign_Member__c camMem = New Campaign_Member__c();
-     camMem.Retail_Campaign_Id__c = camobj1.id;
-     camMem.Status__c = 'Bounced';
+        retailCamParentList.add(newRetail);
+        }
+        }
+        }
+        
+        
+        
+        
+        system.debug('++++++++++'+retailCamParentList);
      
-
-      insert camMem;
-      //camMem.Status__c = 'Bounced';
-      //update camMem;
-     Campaign_Member__c camMem1 = New Campaign_Member__c();
-     camMem1.Retail_Campaign_Id__c = camobj1.id;
-     camMem1.Status__c = 'Bounced';
-
-      insert camMem1;
-      //camMem1.Status__c = 'Bounced';
-     // update camMem1;
-      
-      system.debug('+++++++++'+camMem1);
-      system.debug('+++++++++'+camobj1);
-      system.debug('+++++++++'+camobj);
-  
-    
-    
-    //Batch_BounceStatusretail batchSch = New Batch_BounceStatusretail();
-            Test.startTest(); 
-       
-        Database.executeBatch(new Batch_BounceStatusretail(),200);
-    
-
-         Test.stopTest();
-         
-
-}
-static testmethod void batchBounceStatus2()
-   {
-   
-   
-      DM_Material__c dm = new DM_Material__c(Name = 'test');
-      insert dm;
-    
-    
-   Retail_Campaign__c camobj = new Retail_Campaign__c();
-    camobj.RecordTypeId = camIdPlan;
-    camobj.Name = 'camptest1';
-    camobj.Campaign_Sub_Type__c= 'Sales';
-    camobj.Status__c= 'Draft';
-    camobj.Response_Date__c = date.today();
-    camobj.Start_Date__c= System.today();
-    camobj.Close_Date__c= System.today()+30;
-    //camobj.Campaign_Executer__c='Retail';
-    camobj.Child_Campaign_Status__c='Response collection';
-   // camobj.Campaign_Objectives__c = 'camobjectives';
-    camobj.Description__c= 'testdescrip';
-    camobj.Campaign_Execution_Channels__c='eMail';
-    camobj.Campaign_Type__c = 'After Sales';
-    insert camobj;
-  
-  
-    
-        Retail_Campaign__c camobj1 = new Retail_Campaign__c();
-        camobj1.RecordTypeId = camIdExec;
-        camobj1.Parent_Campaign1__c=camobj.id;
-        camobj1.Child_Campaign_Status__c='Planning';
-         camobj1.Response_Date__c = date.today();
-      
-        camobj1.MD__c='JP';
-        camobj1.Name = 'camptest1';
-        camobj1.Campaign_Type__c='After Sales';
-      //  camobj1.Type = 'Other';
-        camobj1.Segmentation_Date__c= System.today()+4;
-        camobj1.Execution_Start_Date__c = System.today()+10;
-        camobj1.Execution_Type__c= 'DM';
-        camobj1.DM_Template__c = dm.id;
-       // camobj1.Description = 'testdescrip';
-        insert camobj1;
-   
-    Campaign_Member__c camMem = New Campaign_Member__c();
-     camMem.Retail_Campaign_Id__c = camobj1.id;
-     camMem.Status__c = 'Bounced';
+     //insert retailCamParentList; 
+     Database.SaveResult[] srList = Database.insert(retailCamParentList, false);
+     integer i=0;
+     for(Database.SaveResult sr :srList){
+     if(sr.isSuccess()){
      
-
-      insert camMem;
-      //camMem.Status__c = 'Bounced';
-      //update camMem;
-     Campaign_Member__c camMem1 = New Campaign_Member__c();
-     camMem1.Retail_Campaign_Id__c = camobj1.id;
-     camMem1.Status__c = 'Bounced';
-
-      insert camMem1;
-      //camMem1.Status__c = 'Bounced';
-     // update camMem1;
-      
-      system.debug('+++++++++'+camMem1);
-      system.debug('+++++++++'+camobj1);
-      system.debug('+++++++++'+camobj);
-  
+     ret[i].Parent_Campaign1__c = sr.getId();
+     i++;
+     } 
+     
+     
+     }
+    system.debug('++++++++++++'+srList );
+     
+    integer k=0;
+    for(Retail_Campaign__c  cam : ret){
+    
+    cam.Parent_Campaign1__c = ret[k].Parent_Campaign1__c ;
+    k++;
+    system.debug('++++++++++++'+cam.Parent_Campaign1__c );
+    update cam;
+    
+    }
     
     
-    //Batch_BounceStatusretail batchSch = New Batch_BounceStatusretail();
-            Test.startTest(); 
-       
-        Database.executeBatch(new Batch_BounceStatusretail(),200);
     
-
-         Test.stopTest();
-         
-
-}
-
+        
+    }
+    
+    global void finish(Database.BatchableContext BC){
+    
+    }
 
 }
