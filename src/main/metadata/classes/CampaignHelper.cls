@@ -178,7 +178,7 @@ JIRA NO             :    SFDCJP-1044
 List<Retail_Campaign__c> retailCamParentList = New List<Retail_Campaign__c>();
 List<Retail_Campaign__c> ret   = New List<Retail_Campaign__c>();
 List<Retail_Campaign__c> tail    = New List<Retail_Campaign__c>();
-
+List<Campaign> parentCampaignList = New List<Campaign>();
            
 Set<id> sid = New Set<id>();
 Set<id> aid = New Set<id>();
@@ -193,11 +193,13 @@ Set<id> aid = New Set<id>();
             
                  sid.add(campNew.ParentId);
                  aid.add(campNew.Id);  
+                 parentCampaignList.add(campNew);
             
         }else if (campNew.RecordTypeId==executionRecordId && campNew.Consolidated_List_Completed__c == true){
         
           sid.add(campNew.ParentId);
                  aid.add(campNew.Id); 
+                 parentCampaignList.add(campNew);
         
         } 
         
@@ -215,118 +217,15 @@ Set<id> aid = New Set<id>();
         system.debug('++++++++++++'+ parDeal);
      
      If(camList.size() >0 && !camList.isEmpty()){ 
-     For(Campaign camVar : camList ){   
-    
-    For(Participating_Dealer__c par : parDeal ){
      
-      if(camVar.Campaign_Type__c == 'sales'){ 
- 
-          if(!String.isBlank(par.Dealer__r.Dealer_Sales_Manager_Email__c)){
-                mailSales.add(par.Dealer__r.Dealer_Sales_Manager_Email__c);    
-          }
-          } else if (camVar.Campaign_Type__c == 'After Sales'){
- 
-          if(!String.isBlank(par.Dealer__r.Dealer_Aftersales_Manager_Email__c)){
-                mailSales.add(par.Dealer__r.Dealer_Aftersales_Manager_Email__c);    
-          }
-          }
-          }
-          }
           
-          
-      For(User u :[Select id,Email From User Where Email =: mailSales] ){
-      
+        Batch_JointDrivenCampaign  batcher = new Batch_JointDrivenCampaign(aid, camList,parentCampaignList);
+            Database.executeBatch(batcher, 200);  
+     
+     
+     
+   
     
-    for(Campaign cam : camList ){
-    For(Campaign campNew : campaignIds){    
-    
-                system.debug('+++++++++++++++++++++'+u.Id);
-        
-       if(Cam.Campaign_Executer__c == 'Retail'){
-       Retail_Campaign__c newChildRetail = new Retail_Campaign__c();
-            newChildRetail.Name = campNew.Name;
-            newChildRetail.OwnerId = u.Id;
-           newChildRetail.Parent_Campaign__c = campNew.Id;
-            newChildRetail.Execution_Start_Date__c = campNew.Execution_Start_Date__c;
-            newChildRetail.Execution_End_Date__c = campNew.Execution_End_Date__c;
-            newChildRetail.Segmentation_Date__c = campNew.Segmentation_Date__c;
-            newChildRetail.Child_Campaign_Status__c = campNew.Child_Campaign_Status__c;
-            newChildRetail.Response_Date__c = campNew.Response_Date__c;
-            newChildRetail.Execution_Type__c = campNew.Execution_Type__c;
-            newChildRetail.Segmentation_Base__c = campNew.Segmentation_Base__c;
-            newChildRetail.DM_Template__c = campNew.DM_Material__c;
-            newChildRetail.Final_List_Approved__c = campNew.Final_List_Approved__c;
-            newChildRetail.Survey__c = campNew.Survey__c;
-            newChildRetail.Add_Sales_Staff__c = campNew.Add_Sales_Staff__c;
-            newChildRetail.Add_Service_Staff__c = campNew.Add_Service_Staff__c;
-            newChildRetail.Add_Campaign_Member_ID__c = campNew.Add_Campaign_Member_ID__c;
-            newChildRetail.Campaign_Member_Sharing_Rule__c = campNew.Campaign_Member_Sharing_Rule__c;
-            newChildRetail.RecordTypeId = executionRetailRecordId;
-            newChildRetail.Campaign_Execution_Channels__c = 'DM';
-            
-            ret.add(newChildRetail);
-            
-         }
-         } 
-         }
-         }
-         if(ret.size() > 0){
-         insert ret;
-         }
-         For(User u :[Select id,Email From User Where Email =: mailSales] ){
-         for(Campaign cam : camList ){
-        if(Cam.Campaign_Executer__c == 'Retail'){          
-       Retail_Campaign__c newRetail = new Retail_Campaign__c(); 
-        newRetail.Name = cam.Name; 
-        //newRetail.Campaign_Code__c = cam.Campaign_Code__c; 
-        newRetail.Campaign_Type__c  = cam.Campaign_Type__c ;
-        newRetail.Parent_Campaign__c = cam.Id;
-        newRetail.OwnerId = u.Id;
-        newRetail.Start_Date__c = cam.StartDate; 
-        newRetail.Close_Date__c = cam.EndDate;  
-        newRetail.Status__c = cam.Status ; 
-        newRetail.Event_Type__c = cam.Event_Type__c  ;
-        newRetail.Description__c  = cam.Description ;
-        newRetail.Campaign_Execution_Channels__c = cam.Campaign_Execution_Channels__c ; 
-        newRetail.Actual_Cost__c = cam.ActualCost;  
-        newRetail.Brand__c  = cam.Brand__c ;
-        newRetail.Class__c = cam.Class__c ;
-        newRetail.Budgeted_Cost__c = cam.BudgetedCost;      
-        newRetail.RecordTypeId = planningRecordRetailId;
-      
-        retailCamParentList.add(newRetail);
-        }
-        }
-        }
-        
-        
-        
-        
-        system.debug('++++++++++'+retailCamParentList);
-     
-     //insert retailCamParentList; 
-     Database.SaveResult[] srList = Database.insert(retailCamParentList, false);
-     integer i=0;
-     for(Database.SaveResult sr :srList){
-     if(sr.isSuccess()){
-     
-     ret[i].Parent_Campaign1__c = sr.getId();
-     i++;
-     } 
-     
-     
-     }
-    system.debug('++++++++++++'+srList );
-     
-    integer k=0;
-    for(Retail_Campaign__c  cam : ret){
-    
-    cam.Parent_Campaign1__c = ret[k].Parent_Campaign1__c ;
-    k++;
-    system.debug('++++++++++++'+cam.Parent_Campaign1__c );
-    update cam;
-    
-    }
    
    
    
