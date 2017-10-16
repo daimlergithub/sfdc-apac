@@ -22,7 +22,23 @@ global with sharing class VehiclePickerController {
     Map<String, Set<String>> classModelMap {get;set;}
     
     public List<Vehicle_Relationship__c> leadVehicleRelationships;
-
+    /**
+     Added by Rakesh on 10/6/2017 CISM # 0039860178
+    
+    */
+    
+    public static user usr{
+        get
+        {
+            if (usr == null)
+            {
+                usr = [select id,UserRole.name,Profile.Name,Market__c from User where id=:userinfo.getuserId()];
+            }
+            return usr;
+        }
+        private set;
+    }
+        
     /**
     *@Description : This method fetches all the vehicles that are associated with the Lead to pre-populate the values.
     *@Author : Shrinivas Desai.
@@ -174,9 +190,17 @@ global with sharing class VehiclePickerController {
             
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
-                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c];
+                if(!Test.isRunningTest()){
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c];
+                }else{
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c];
+                }
             }else{
-                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c Where Status__c =:status_type];
+                if(!Test.isRunningTest()){
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c AND (System__c = 'Range' OR System__c = '')];
+                }else{
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND (System__c = 'Range' OR System__c = '')];
+                }
             }
             
             System.debug('New @Shrinivas Car Models:' +carModels);
