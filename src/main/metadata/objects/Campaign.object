@@ -22207,7 +22207,7 @@ IsActive = True
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 
-var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
+var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=1000");</url>
     </webLinks>
     <webLinks>
         <fullName>Consolidate_List_Maintenance</fullName>
