@@ -365,6 +365,17 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+		<fullName>Dealer_ND_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer ND Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Dealer_No__c</fullName>
         <externalId>false</externalId>
@@ -1287,6 +1298,56 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Retail_ID_Number__c</fullName>
+        <description>Used by Thailand.
+Holds National ID or Passport No. of wholesale Account</description>
+        <externalId>false</externalId>
+        <label>Retail ID Number</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+		<fullName>Retail_ID_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail ID Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ID Card/Driving Card</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Officer Card</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Passport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>National ID</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Retail_Individual_Home_Phone__c</fullName>
         <description>Readonly</description>
@@ -1655,6 +1716,17 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Retail_Sub_District__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Sub District</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_UCID__c</fullName>
