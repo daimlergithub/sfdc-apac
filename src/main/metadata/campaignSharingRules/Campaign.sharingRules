@@ -172,6 +172,42 @@
         <name>Central Campaign share to CAC</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>JP_Campaign_Readable_to_MBJ_Dealers_Central</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Share_Campaign_Participation_Flag__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>JP Campaign Readable to MBJ Dealers Central</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_Campaign_Readable_to_MBJ_Dealers_IT</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Share_Campaign_Participation_Flag__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>JP Campaign Readable to MBJ Dealers IT</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_MarketCampaign_Readable_to_MBJ_IT_Dept</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
