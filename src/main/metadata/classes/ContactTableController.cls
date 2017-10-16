@@ -768,7 +768,7 @@ public class ContactTableController
 
         try
         {
-            if(ParAcc != null && ParAcc.Md__c =='KR')
+            if(ParAcc != null && (parAcc.MD__c=='JP' || parAcc.MD__c=='KR' ))
             {
                 refreshPage = true;
                    if(parAcc.MD__c=='JP'){parAcc.Individual_Home_Phone_Status__c=selectedHomePhoneStatus;}

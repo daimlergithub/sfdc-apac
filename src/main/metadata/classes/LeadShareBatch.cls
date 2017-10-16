@@ -44,7 +44,7 @@ global class LeadShareBatch implements Database.Batchable<sobject>,database.stat
                 {
                     if(acc.Dealer_Type__c == 'Company' && gr.Name == acc.Dealer_ND_Code__c)
                     {
-                        groupGcCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
+                        groupGcCodeMap.put(acc.Dealer_GC_Code__c,gr.Id);
                     }
                     
                     if(acc.Dealer_Type__c == 'outlet' &&gr.Name == acc.Dealer_ND_Code__c)
@@ -57,6 +57,9 @@ global class LeadShareBatch implements Database.Batchable<sobject>,database.stat
         
                 For(Lead__c lead : scope)
                 {
+                if((groupNdCodeMap.get(lead.assigned_Dealer__r.Dealer_ND_Code__c))!=null && groupNdCodeMap!=null)
+            {
+            
                                 Lead__Share ledShre = new Lead__Share();
                                 ledShre.AccessLevel = 'Edit';
                                 ledShre.ParentId = lead.Id;
@@ -64,6 +67,17 @@ global class LeadShareBatch implements Database.Batchable<sobject>,database.stat
                                 leadShareList.add(ledShre);
                 }
 
+if((groupGcCodeMap.get(lead.assigned_Dealer__r.Dealer_GC_Code__c))!=null && groupGcCodeMap!=null )
+            {
+            
+            Lead__Share ledShre = new Lead__Share();
+                                ledShre.AccessLevel = 'Edit';
+                                ledShre.ParentId = lead.Id;
+                                ledShre.UserOrGroupId = groupGcCodeMap.get(lead.assigned_Dealer__r.Dealer_GC_Code__c);
+                                leadShareList.add(ledShre);
+                                }
+
+}
 if(!leadShareList.isEmpty() && leadShareList != null)
 {
                 insert leadShareList;
