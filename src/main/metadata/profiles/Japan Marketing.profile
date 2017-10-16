@@ -2671,9 +2671,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Company_Name_Native_1__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8298,6 +8298,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Delinquency_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Duplicate_Campaign_Member__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
