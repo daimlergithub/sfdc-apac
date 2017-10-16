@@ -13276,7 +13276,8 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
+        <visibleLines>7</visibleLines>
     </fields>
     <fields>
         <fullName>MBTH_Nationality__c</fullName>
@@ -14120,6 +14121,18 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Number_of_Children__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Children</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
