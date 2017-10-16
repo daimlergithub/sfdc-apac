@@ -85,21 +85,9 @@ public class MBJ_FS_Case_Inquiry_Controller{
         PayerSameAsRequestor();
         return null;
     }
-     public PageReference save() 
-    {
-        system.debug('+++working++++++++++');
-        insert inquiryCase;
-        
-        return new PageReference('/'+inquiryCase.id);
-    }
+     
     
-    public PageReference cancel() 
-    {
-        
-        retailTask = [Select id,Related_Dealer__c,Supporting_Dealer__c from Retail_Task__c where id =:inquiryCase.Retail_Task__c];
-        
-        return new PageReference('/'+retailTask.id);
-    } 
+    
     
     /*
     Used in MBJ_FS_Case_Quotation_Page
