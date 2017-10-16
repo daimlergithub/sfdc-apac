@@ -87,7 +87,7 @@
                 <field>Add_User__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Recall__c</field>
             </layoutItems>
         </layoutColumns>

@@ -5588,6 +5588,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+		<editable>true</editable>
+        <field>Account_Link__c.Dealer_ND_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>			  
         <editable>true</editable>
         <field>Account_Link__c.Dealer_No__c</field>
         <readable>true</readable>
@@ -5951,6 +5956,11 @@
         <editable>true</editable>
         <field>Account_Link__c.Retail_ID_Number__c</field>
         <readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_ID_Type__c</field>
+        <readable>true</readable>							  
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -18674,6 +18684,36 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Recall__c.Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Campaign_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Completion_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Damage_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Estimated_Working_Hours__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Recall__c.Vehicle_Registration_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Recall__c.EP_Parent_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -25744,6 +25784,14 @@
         <layout>Recall__c-Recall Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Recall__c-Campaign Vehicle Layout</layout>
+        <recordType>Recall__c.Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Recall__c-Recall Vehicle Layout</layout>
+        <recordType>Recall__c.Recall</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>RegionMasterInfo__c-RegionMasterInfo Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -27941,6 +27989,16 @@
         <default>false</default>
         <recordType>Question.Record_type_for_community_09ai00000004deKAAQ_entity_Question</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Recall__c.Campaign</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Recall__c.Recall</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
