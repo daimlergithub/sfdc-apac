@@ -29,7 +29,7 @@
 				<apex:actionSupport event="onchange" action="{!nullifyRequestPageSection}" reRender="WOCAid,DocReqid,WCAid"/>
 				</apex:inputField>
 				<apex:outputField value="{!Case.RecordTypeid}"/>
-				<!-<apex:inputField value="{!Case.Case_Complainant__c}"/>->
+				<!--<apex:inputField value="{!Case.Case_Complainant__c}"/>-->
 				<apex:outputLabel ></apex:outputLabel>
 				<apex:inputField value="{!Case.Case_Class__c}"/>
 				<apex:inputField value="{!Case.Lead__c}"/>

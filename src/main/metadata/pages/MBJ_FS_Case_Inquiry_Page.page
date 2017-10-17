@@ -23,7 +23,7 @@
 				</apex:pageBlockSectionItem>
 				<apex:inputField value="{!Case.Case_Type__c}"/>
 				<apex:outputField value="{!Case.RecordTypeid}"/>
-				<!-<apex:inputField value="{!Case.Case_Complainant__c}"/>->
+				<!--<apex:inputField value="{!Case.Case_Complainant__c}"/>-->
 				<apex:inputField value="{!Case.Case_SubType__c}"/>
 				<apex:inputField value="{!Case.Case_Class__c}"/>
 				<apex:inputField value="{!Case.Lead__c}"/>
