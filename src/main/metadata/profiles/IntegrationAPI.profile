@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
         <application>Central_CRM</application>
@@ -2334,6 +2334,18 @@
     </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecordTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>stouchUtilForAccountLink</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>stouchUtilForLead</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>stouchUtilForLeadandAccntLnkTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
