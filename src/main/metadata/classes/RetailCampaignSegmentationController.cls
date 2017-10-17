@@ -1034,7 +1034,27 @@
             
             
         }
+            public PageReference selectall() 
+    {
+    
+        list<Account> accfinalist = new list<Account>();
+        list<Campaign_Member__c> camlist = new  list<Campaign_Member__c>();
+      
+       for (Account acc : accfinalist  )
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
         
+        cam.Status__c = 'Ready';
+        cam.Contact_Id__c= acc.Id;
+		 cam.Retail_Campaign_Id__c = retailCampaignId;
+        camlist.add(cam);
+        }   
+        insert(camlist);
+            return new PageReference('/' + retailCampaignId);
+            
+    
+    }
+
         
         //Add campaign members to Retail campiang
         public PageReference addToCampaign(){
