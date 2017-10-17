@@ -2786,6 +2786,10 @@
                 <fullName>Movies</fullName>
                 <default>false</default>
             </values>
+			 <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Music %28classical%29</fullName>
                 <default>false</default>
@@ -2800,6 +2804,10 @@
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2876,6 +2884,10 @@
             </values>
             <values>
                 <fullName>Travel%28Domestic%29</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Travelling</fullName>
                 <default>false</default>
             </values>
             <values>
