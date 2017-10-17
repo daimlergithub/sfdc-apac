@@ -196,7 +196,8 @@
                 <field>Primary_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Readonly</behavior>
+                <field>Recall__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
