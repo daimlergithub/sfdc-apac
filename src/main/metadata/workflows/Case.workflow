@@ -1499,7 +1499,7 @@
         </actions>
         <active>true</active>
         <description>If Case Owner changed, email need to send to case owner.</description>
-        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos;</formula>
+        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos; &amp;&amp; NOT(ISCHANGED(Case_Dealer__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

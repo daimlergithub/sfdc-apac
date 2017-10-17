@@ -14,6 +14,13 @@
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
     </labels>
+	<labels>
+        <fullName>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</shortDescription>
+        <value>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</value>
+    </labels>
     <labels>
         <fullName>A6_Invitation_to_an_event_event_at_the_car_dealership</fullName>
         <language>en_US</language>
