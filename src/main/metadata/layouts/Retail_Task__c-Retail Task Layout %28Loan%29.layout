@@ -85,9 +85,6 @@
                 <behavior>Readonly</behavior>
                 <field>Model__c</field>
             </layoutItems>
-			<layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Interface_Valid_Flag__c</field>
