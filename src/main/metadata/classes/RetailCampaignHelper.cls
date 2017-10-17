@@ -1271,7 +1271,7 @@ system.debug('++++++'+camUpdateList);
       public static void jointDrivenRetailCampaignSharing(List<Retail_Campaign__c> newList){
     Set<Id> ownerIds = New Set<id>();
     Map<Id,String> accountMap = New Map<Id,String>();
-    Map<Id,list<String>> dealeraccntMap = New Map<Id,list<String>>();
+    Map<String,list<String>> dealeraccntMap = New Map<String,list<String>>();
     map<string,id> assgroupMap = new map<string,id>();
     Set<String> dealerCode = New Set<String>();
     Set<String> accountName = New Set<String>();
@@ -1319,7 +1319,7 @@ system.debug('++++++'+camUpdateList);
                 AccountNAme.add(acc.Name);
             }
         }
-        system.debug('dealeraccntMap><><><' + dealeraccntMap);
+        
         list<Group> grplist=new list<Group>();
          if(AccountNAme !=null)
         {
@@ -1328,6 +1328,7 @@ system.debug('++++++'+camUpdateList);
         
         if(grplist!=null)
         {
+            
             for(Group assg:grplist)
             {
                 
@@ -1338,17 +1339,20 @@ system.debug('++++++'+camUpdateList);
         }
         system.debug('assgroupMap><><><>'+assgroupMap);
         For(Account acc :dealerAccList)
-        {
+        {   
+             
             accountName.add(acc.Name);
         }
    
        
         For(Retail_Campaign__c RetMem : newList)
         {
+            
             for(integer i=0 ; i < dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c)).size();i++)
             {
                 if(assgroupMap.get(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c))[i]) != null)
                 {
+                    
                     Retail_Campaign__Share RetShare = new Retail_Campaign__Share();
                     RetShare.AccessLevel = 'Edit';
                     RetShare.UserOrGroupId = assgroupMap.get(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c))[i]);
