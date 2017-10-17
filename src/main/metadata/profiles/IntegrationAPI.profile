@@ -2371,6 +2371,21 @@
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Account.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Account.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
