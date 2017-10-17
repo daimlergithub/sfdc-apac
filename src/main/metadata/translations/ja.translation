@@ -1008,6 +1008,10 @@
         <label>閉じる</label>
         <name>Close</name>
     </customLabels>
+	    <customLabels>
+        <label>成約済</label>
+        <name>Close2</name>
+    </customLabels>
     <customLabels>
         <label>閉じる</label>
         <name>CloseMym</name>
