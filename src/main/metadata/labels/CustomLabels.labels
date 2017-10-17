@@ -6696,6 +6696,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>S5 A3.4 I don’t know (yet)</shortDescription>
         <value>I don’t know (yet)</value>
     </labels>
+		    <labels>
+        <fullName>Select_All_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All Records</shortDescription>
+        <value>Select All Records</value>
+    </labels>
     <labels>
         <fullName>S5_A3_4_I_will_primarily_use_the_car_for_business</fullName>
         <language>en_US</language>
