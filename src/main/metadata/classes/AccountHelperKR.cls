@@ -192,21 +192,19 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
     public static void updateVehicleCustomerCheckStatus(list<Account> listNewAccounts)
     {
        Set<Id> Accid=new Set<Id>();
-       List<Account> AccountList= new list<Account>();
+       List<Vehicle_Relationship__c> VRList= new list<Vehicle_Relationship__c>();
        for(Account acc: listNewAccounts)
         { 
            Accid.add(acc.id);
         }
-        AccountList=[Select Id,(Select Id from Vehicle_Relationships2__r) from Account where Id = :Accid];
-        for(Account acls : AccountList)
+        VRList=[Select Id,Contact__r.Status__c,Contact__r.MD__c from Vehicle_Relationship__c where Contact__c = :Accid];
+        
+        for(Vehicle_Relationship__c vrls : VRList)
+        { 
+        if(VRList.size()<0 && VRList.isEmpty() && VRList == null && vrls.Contact__r.MD__c == 'KR' && vrls.Contact__r.Status__c == 'Customer')
         {
-          for(Vehicle_Relationship__c vrlist : acls.Vehicle_Relationships2__r)
-          {
-            if(acls.Vehicle_Relationships2__r.size()<0 && acls.Vehicle_Relationships2__r.isEmpty() && acls.Vehicle_Relationships2__r == null && acls.MD__c == 'KR' && acls.Status__c == 'Customer')
-            {
-             acls.Status__c.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer);
-            }
-          }
+          vrls.Contact__r.Status__c.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer);
+        }
         }
     }
     
