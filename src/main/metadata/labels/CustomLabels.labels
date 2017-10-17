@@ -14,6 +14,13 @@
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
     </labels>
+	<labels>
+        <fullName>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</shortDescription>
+        <value>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</value>
+    </labels>
     <labels>
         <fullName>A6_Invitation_to_an_event_event_at_the_car_dealership</fullName>
         <language>en_US</language>
@@ -3446,6 +3453,13 @@ please contact the number below.</value>
         <value>Information sharing to Dealer/ Internal related department</value>
     </labels>
     <labels>
+        <fullName>Inquiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Inquiry record type for case</shortDescription>
+        <value>Inquiry</value>
+    </labels>
+    <labels>
         <fullName>InsertContext</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4408,6 +4422,20 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>MBJ support</shortDescription>
         <value>MBJ support</value>
+    </labels>
+    <labels>
+        <fullName>MB_Complaint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MB Complaint record type for case</shortDescription>
+        <value>MB Complaint</value>
+    </labels>
+    <labels>
+        <fullName>MB_Vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MB recordtype for Vehicle</shortDescription>
+        <value>MB</value>
     </labels>
     <labels>
         <fullName>MY</fullName>
@@ -8080,6 +8108,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Search Duplicates</shortDescription>
         <value>Check Dedup</value>
+    </labels>
+    <labels>
+        <fullName>SelectPicklist</fullName>
+        <categories>MBMY</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SelectPicklist</shortDescription>
+        <value>--Select--</value>
     </labels>
     <labels>
         <fullName>Select_Address_Msg</fullName>

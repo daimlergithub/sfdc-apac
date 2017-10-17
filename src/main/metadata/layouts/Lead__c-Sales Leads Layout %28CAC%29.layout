@@ -804,6 +804,12 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
 			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>New_Contract__c</field>
             </layoutItems>
