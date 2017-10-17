@@ -341,7 +341,18 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	
+	<fields>
+        <fullName>Duplicate_Campaign_Member__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>This field is hidden and it will avoid duplicate campaign member for particular campaign/Retailcampaign</description>
+        <externalId>false</externalId>
+        <label>Duplicate Campaign Member</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
     <fields>
         <fullName>NextInspectionDate__c</fullName>
         <externalId>false</externalId>
