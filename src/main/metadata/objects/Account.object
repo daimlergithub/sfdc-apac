@@ -10357,6 +10357,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Driving</fullName>
@@ -10396,6 +10397,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Spa</fullName>
