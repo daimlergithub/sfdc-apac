@@ -24611,7 +24611,7 @@
         <recordType>Account_Link__c.CompanyExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Company Retail Copy</layout>
+        <layout>Account_Link__c-Company Retail Copy for Dealer</layout>
         <recordType>Account_Link__c.Retail_Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -24630,7 +24630,7 @@
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Person Retail Copy</layout>
+        <layout>Account_Link__c-Person Retail Copy for Dealer</layout>
         <recordType>Account_Link__c.Retail_Person</recordType>
     </layoutAssignments>
     <layoutAssignments>
