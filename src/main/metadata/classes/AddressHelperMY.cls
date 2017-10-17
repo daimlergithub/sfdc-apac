@@ -25,4 +25,9 @@ public with sharing class AddressHelperMY {
     public static void updateAddressCDM(List<Address__c> Address, string MarketDiscriminator, string updateType){
         AddressHelperBase.updateAddressCDM(Address,MarketDiscriminator,updateType);
     }
+    
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Address__c> addList){                   
+        AddressHelperBase.updatemarket(addList);                    
+    }
 }

@@ -2028,6 +2028,10 @@
         <label>최종 수정한 사람</label>
         <name>Last_Modified_By</name>
     </customLabels>
+	<customLabels>
+        <label>고객이 차량 연결을 갖지 않으면 '고객' 자격 상태가 아닙니다</label>
+        <name>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</name>
+    </customLabels>
     <customLabels>
         <label>최종 수정일</label>
         <name>Last_Modified_Date</name>
