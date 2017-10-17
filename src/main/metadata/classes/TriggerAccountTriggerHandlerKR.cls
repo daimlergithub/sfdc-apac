@@ -24,6 +24,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
     
         if(isBefore && isInsert){
             AccountHelperKR.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+			AccounthelperKR.updateVehicleCustomerCheckStatus(Trigger.new);
         }
         
         if(isBefore && isUpdate){
