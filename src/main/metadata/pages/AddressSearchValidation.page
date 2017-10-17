@@ -50,6 +50,10 @@
       //callControllerMethod();
       return false;
     }
+    
+    function hideTable(){
+        $("table[id*='addressIds']").hide();
+    }
     </script>     
     <apex:form id="form">
         <div>
@@ -957,7 +961,7 @@
                      <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'MY') ,true,false)}" reRender="form,msgs"/>      
                     <!--MT20170909-->
                     
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'MY'))) ,true,false)}"/>
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'MY'))) ,true,false)}" oncomplete="hideTable();"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     
                     <apex:outputPanel rendered="{!firstsave}" >
@@ -1000,7 +1004,7 @@
         
         <br/>
         <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>    
-        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR' || AutoFill == true, true, false)}">    
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR' || (AutoFill == true), true, false)}">    
             <apex:column >
                 <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
             </apex:column>        
