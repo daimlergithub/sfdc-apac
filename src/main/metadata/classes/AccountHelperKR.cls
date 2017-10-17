@@ -201,7 +201,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
           
           for (AggregateResult ar : results) 
           {
-          if(results.size()<0 && results.isEmpty() && results == null)
+          if(results.size()==0 && results.isEmpty() && results == null)
           {
             ar.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer);
           }
