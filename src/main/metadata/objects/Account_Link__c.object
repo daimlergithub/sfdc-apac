@@ -4553,8 +4553,16 @@ Holds National ID or Passport No. of wholesale Account</description>
         </picklistValues>
         <picklistValues>
             <picklist>Role2__c</picklist>
+			<values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Boyfriend</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4613,6 +4621,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>Relative</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Son</fullName>
                 <default>false</default>
@@ -4624,6 +4636,10 @@ Holds National ID or Passport No. of wholesale Account</description>
         </picklistValues>
         <picklistValues>
             <picklist>Role__c</picklist>
+			<values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
@@ -4674,6 +4690,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
