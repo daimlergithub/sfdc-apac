@@ -51,6 +51,7 @@ public class TriggerAddressTriggerHandlerMYTest{
     AddressFieldsList[0].MD__c='MY';
     AddressFieldsList[0].ZipCode__c='12345';
     AddressFieldsList[0].Customer__c=AccountFieldsList[0].id;  
+    AddressFieldsList[0].Market__c= 'MY';
     //AddressFieldsList[0].preferred__c=True; 
     insert AddressFieldsList;
     //AddressFieldsList[0].Address_Type__c='business';
@@ -66,14 +67,12 @@ public class TriggerAddressTriggerHandlerMYTest{
     static testMethod void testAccAssignment() {
     
         try{                        
-              AddressHelperTH ad=new AddressHelperTH(); 
               TriggerAddressTriggerHandlerMY td=new TriggerAddressTriggerHandlerMY(); 
-              system.debug('@@');
               td.handleTrigger(True,false,True,false,false);
-              system.debug('##');
            }    
          catch(Exception e)
          {
+             //System.debug('Testing failed due to ' + e.getMessage());
          }
      }
 
