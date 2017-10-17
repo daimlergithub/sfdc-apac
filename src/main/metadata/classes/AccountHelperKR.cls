@@ -189,7 +189,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
     }
     /** deactivation validation rule Customer_Status_Check and handling it via trigger for MBK9.2 UAT Issues**/
     
-    public static void updateVehicleCustomerCheckStatus(list<Account> listNewAccounts)
+     public static void updateVehicleCustomerCheckStatus(list<Account> listNewAccounts)
     {
        Set<Id> Accid=new Set<Id>();
        List<Vehicle_Relationship__c> VRList= new list<Vehicle_Relationship__c>();
@@ -197,15 +197,16 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
         { 
            Accid.add(acc.id);
         }
-        VRList=[Select Id,Contact__r.Status__c,Contact__r.MD__c from Vehicle_Relationship__c where Contact__c = :Accid];
-        
-        for(Vehicle_Relationship__c vrls : VRList)
-        { 
-        if(VRList.size()<0 && VRList.isEmpty() && VRList == null && vrls.Contact__r.MD__c == 'KR' && vrls.Contact__r.Status__c == 'Customer')
-        {
-          vrls.Contact__r.Status__c.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer);
-        }
-        }
+        List<aggregateResult> results = [select count(Id) from Vehicle_Relationship__c where Contact__c = :Accid AND Contact__r.MD__c ='KR' AND Contact__r.Status__c ='Customer'];
+          
+          for (AggregateResult ar : results) 
+          {
+          if(results.size()<0 && results.isEmpty() && results == null)
+          {
+            ar.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer);
+          }
+          }
+
     }
     
     /**
