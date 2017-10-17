@@ -1046,6 +1046,7 @@
         
         cam.Status__c = 'Ready';
         cam.Contact_Id__c= acc.Id;
+		 cam.Retail_Campaign_Id__c = retailCampaignId;
         camlist.add(cam);
         }   
         insert(camlist);
