@@ -26,6 +26,7 @@
 				<apex:actionSupport event="onchange" action="{!nullifyCaseQuotationPageSection}" reRender="panelFirstid,panelSecondid,panelThirdid,panelFourthid,panelFifthid,WOCA1id,WOCA2id,docReqid,panelLastid"/>
 				</apex:inputField>
 				<apex:outputField value="{!Case.RecordTypeid}"/>
+				<apex:outputLabel ></apex:outputLabel>
 				<apex:inputField value="{!Case.Case_Class__c}"/>
 				<apex:inputField value="{!Case.Lead__c}"/>
 				<apex:inputField value="{!Case.Parentid}"/>
