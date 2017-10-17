@@ -33,6 +33,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             
             AccounthelperKR.updateOnDoNotCall(Trigger.new);
+            AccounthelperKR.updateVehicleCustomerCheckStatus(Trigger.new);
             AccountHelperKR.updateOnPostalOptout(Trigger.new);
             system.debug('@@@@@@ listNewAccounts update trigger');
             AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
