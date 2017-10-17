@@ -24,7 +24,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
     
         if(isBefore && isInsert){
             AccountHelperKR.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
-        }
+		 }
         
         if(isBefore && isUpdate){
             /* Data Update MD Fix - Santosh Mohanty*/
@@ -33,6 +33,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             
             AccounthelperKR.updateOnDoNotCall(Trigger.new);
+            AccounthelperKR.updateVehicleCustomerCheckStatus(Trigger.new);
             AccountHelperKR.updateOnPostalOptout(Trigger.new);
             system.debug('@@@@@@ listNewAccounts update trigger');
             AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);

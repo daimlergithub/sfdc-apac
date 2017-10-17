@@ -176,7 +176,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
         system.debug('@@@@@@ addressupdatelst'+addressupdatelst);
     }
     
-	  /******/
+      /******/
     public static void updateAllowDataShareBasedonDocFields(list<Account> listNewAccounts)
     {
      for(Account acc: listNewAccounts)
@@ -186,6 +186,27 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
               acc.Allow_Data_Sharing2__c = 'Yes';
             }
         }
+    }
+    /** deactivation validation rule Customer_Status_Check and handling it via trigger for MBK9.2 UAT Issues**/
+    
+     public static void updateVehicleCustomerCheckStatus(list<Account> listNewAccounts)
+    {
+       Set<Id> Accid=new Set<Id>();
+       List<Vehicle_Relationship__c> VRList= new list<Vehicle_Relationship__c>();
+       for(Account acc: listNewAccounts)
+        { 
+           Accid.add(acc.id);
+        }
+        List<aggregateResult> results = [select count(Id) from Vehicle_Relationship__c where Contact__c = :Accid AND Contact__r.MD__c ='KR' AND Contact__r.Status__c ='Customer'];
+          
+          for (AggregateResult ar : results) 
+          {
+          if(results.size()==0 && results.isEmpty() && results == null)
+          {
+            ar.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer);
+          }
+          }
+
     }
     
     /**
@@ -607,8 +628,8 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Industry__c = acclnk.toRole__r.Industry;                  
                 acclnk.Retail_Special_Care__c = acclnk.toRole__r.Special_Care__c;
                 acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
-				acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.LastModifiedDate);
-				acclnk.Retail_Address_CreatedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.CreatedDate);
+                acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.LastModifiedDate);
+                acclnk.Retail_Address_CreatedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.CreatedDate);
                 //}
                 //if(persongroup3 == true){
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing__c;  
@@ -701,8 +722,8 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Agreement_Info_Processing__c = acclnk.toRole__r.Agreement_to_commit_info_processing__c;
                 //acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
                 //acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate); 
-				acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.LastModifiedDate);
-				acclnk.Retail_Address_CreatedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.CreatedDate);
+                acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.LastModifiedDate);
+                acclnk.Retail_Address_CreatedDate__c = Date.valueOf(acclnk.Retail_Address_Reference__r.CreatedDate);
             
             //End if for Company record type
             acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;

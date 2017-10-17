@@ -150,4 +150,14 @@ public without sharing class AddressHelperBase {
             }
         }
     }
+    
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+        public static void updatemarket(List<Address__c> addList){        
+            
+                   for(Address__c addr : addList){
+                       if(addr.Market__c =='' || addr.Market__c==NULL){
+                         addr.Market__c=addr.MD__c;
+                      }  
+                  }       
+        }
 }
