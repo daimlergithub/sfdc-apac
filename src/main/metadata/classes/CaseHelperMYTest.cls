@@ -26,7 +26,7 @@ public class CaseHelperMYTest {
     AccountFields.add('Mobile__c');
     AccountFields.add('MD__c');
     List<Account> AccountFieldsList=DataFactoryServices.createRecords('Account',AccountFields,'',1);
-    AccountFieldsList[0].RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    AccountFieldsList[0].RecordTypeId=RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount);
     AccountFieldsList[0].Lastname='Lastname1';
     AccountFieldsList[0].Individual_Home_Phone__c='+6003123654789';
     AccountFieldsList[0].Work_Phone__c='+60825634789541';
@@ -42,13 +42,13 @@ public class CaseHelperMYTest {
     CaseFields.add('MD__c');
     CaseFields.add('priority');
     List<Case> CaseFieldsList=DataFactoryServices.createRecords('Case',CaseFields,'',2);
-    CaseFieldsList[0].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+    CaseFieldsList[0].RecordTypeId=RecordTypeAccessService.getRecordTypeId('Case',Label.Inquiry);
     CaseFieldsList[0].accountid=AccountFieldsList[0].id;
     CaseFieldsList[0].MD__c='MY';
     CaseFieldsList[0].status='Open';
     CaseFieldsList[0].Case_RepeatCause__c='';
     CaseFieldsList[0].priority='A';
-    CaseFieldsList[1].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+    CaseFieldsList[1].RecordTypeId=RecordTypeAccessService.getRecordTypeId('Case',Label.MB_Complaint);
     CaseFieldsList[1].accountid=AccountFieldsList[0].id;
     CaseFieldsList[1].MD__c='MY';
     CaseFieldsList[1].status='Open';
@@ -64,6 +64,7 @@ public class CaseHelperMYTest {
       Modified Date: 2017-10-09
   */
     static testmethod void testCaseHelperMY1(){
+     test.startTest();
      List<Case> CaseList  =  [SELECT RecordTypeid,accountid,parentid,status,Case_RepeatCause__c,priority,MD__c from Case];
      CaseHelperMY ch = new CaseHelperMY();
      ch.updateCaseDeadLineAmount(caselist,'MY',null);
@@ -73,11 +74,12 @@ public class CaseHelperMYTest {
      Case child=new Case();
      child.parentid=caselist[1].id;
      child.MD__c='MY';
-     child.recordtypeid=Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+     child.recordtypeid=RecordTypeAccessService.getRecordTypeId('Case',Label.MB_Complaint);
      child.Case_RepeatCause__c='2=Others';
      childCaseList.add(child);
      insert childCaseList;
      List<Case> childCaseList1=[SELECT recordtypeid,parentid,Case_RepeatCause__c,MD__c from Case];
      ch.countRepeatComplaintCase(childCaseList1,true,'MY');
+     test.stopTest();
     }
 }

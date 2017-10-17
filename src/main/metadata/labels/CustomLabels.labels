@@ -641,6 +641,13 @@
         <value>you do not have the proper authorization</value>
     </labels>
     <labels>
+        <fullName>Auto_fill</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Auto fill</shortDescription>
+        <value>Auto fill</value>
+    </labels>
+    <labels>
         <fullName>AutolineCreate_Retail_Copy</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1753,6 +1760,13 @@
         <protected>false</protected>
         <shortDescription>Close</shortDescription>
         <value>Close</value>
+    </labels>
+		    <labels>
+        <fullName>Close2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close2</shortDescription>
+        <value>Close2</value>
     </labels>
     <labels>
         <fullName>CloseMym</fullName>
@@ -3446,6 +3460,13 @@ please contact the number below.</value>
         <value>Information sharing to Dealer/ Internal related department</value>
     </labels>
     <labels>
+        <fullName>Inquiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Inquiry record type for case</shortDescription>
+        <value>Inquiry</value>
+    </labels>
+    <labels>
         <fullName>InsertContext</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4408,6 +4429,20 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>MBJ support</shortDescription>
         <value>MBJ support</value>
+    </labels>
+    <labels>
+        <fullName>MB_Complaint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MB Complaint record type for case</shortDescription>
+        <value>MB Complaint</value>
+    </labels>
+    <labels>
+        <fullName>MB_Vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MB recordtype for Vehicle</shortDescription>
+        <value>MB</value>
     </labels>
     <labels>
         <fullName>MY</fullName>
@@ -8080,6 +8115,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Search Duplicates</shortDescription>
         <value>Check Dedup</value>
+    </labels>
+    <labels>
+        <fullName>SelectPicklist</fullName>
+        <categories>MBMY</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SelectPicklist</shortDescription>
+        <value>--Select--</value>
     </labels>
     <labels>
         <fullName>Select_Address_Msg</fullName>
