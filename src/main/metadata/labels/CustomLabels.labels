@@ -1747,6 +1747,13 @@
         <shortDescription>Close</shortDescription>
         <value>Close</value>
     </labels>
+		    <labels>
+        <fullName>Close2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close2</shortDescription>
+        <value>Close2</value>
+    </labels>
     <labels>
         <fullName>CloseMym</fullName>
         <language>en_US</language>
