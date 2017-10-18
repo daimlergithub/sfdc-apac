@@ -172,13 +172,13 @@ public class LeadHelperJP
         LeadUtil.updateCustomerStageMethod = false;
         }//
     }
-	     /** 
+       /** 
        Created By: Dinesh Govindaswamy
-	   SFDCjp-2915
+     SFDCjp-2915
        **/
-	
-	
-	          public static void InsertAssignedDealer(List<Lead__c> dealerLeadList )
+  
+  
+            public static void InsertAssignedDealer(List<Lead__c> dealerLeadList )
     {
         List<User> userList = new List<User>();
         set<id> userid = new set<id>();
@@ -381,10 +381,12 @@ public class LeadHelperJP
                     if(lead.CAC_Lead_Status__c=='approved' && ( Trigger.isinsert || (Trigger.Isupdate && (lead.CAC_Lead_Status__c!=leadOldMap.get(lead.id).CAC_Lead_Status__c)))&& lead .Assigned_Dealer__c!=null)
                     { 
                         leadIds.add(lead.id);
+            system.debug('******************************************Lead No.:' + lead.Name + ' had been added to the target list leadIds as the status was approved*************************************');
                     }
                     else if(lead.CAC_Lead_Status__c == 'Allocated' && trigger.isUpdate && lead.OwnerId != leadOldMap.get(lead.id).OwnerId)
                     {
                         leadIds.add(lead.id);
+            system.debug('******************************************Lead No.:' + lead.Name + ' had been added to the target list leadIds as the status was Allocated*************************************');
                     }
                 }
             }
@@ -393,17 +395,24 @@ public class LeadHelperJP
         if(leadIds !=null)
         {
             leadlist = [Select id,recordtypeId,Assigned_Dealer__r.name,CAC_Lead_Status__c,Assigned_Dealer__r.Dealer_GC_Code__c,Assigned_Dealer__c from Lead__c where Id IN:leadIds];
+            for (Lead__c lead: leadlist){
+            system.debug('******************************************leadlist : Lead Id.:' + lead.Id + ' had been added to the target list leadlist*************************************');                
+            }
         }
         if(leadlist !=null)
         {
             for(lead__c le:leadlist)
             {
                 if(le.Assigned_Dealer__c != null){dealerAccountIds.add(le.Assigned_Dealer__c);}
+            system.debug('******************************************dealerAccountIds : AssignedDealer:' + le.Assigned_Dealer__c + ' had been added to the target list dealerAccountIds*************************************');                
             }
         }
         if(dealerAccountIds.size()>0)
         {
             dealerAccountList = [select id,name,Dealer_Rollout_Status__c from account where ID IN:dealerAccountIds];
+            for (Account a: dealerAccountList){
+            system.debug('******************************************dealerAccountList : Name:' + a.Name + ' had been added to the target list dealerAccountList*************************************');                
+                }
         }
         if(dealerAccountList.size()>0)
         {
@@ -412,6 +421,7 @@ public class LeadHelperJP
                 if(a.Dealer_Rollout_Status__c == 'Done')
                 {
                     accountMap.put(a.name,a);
+            system.debug('******************************************accountMap : Name:' + a.Name + ' had been added to the target Map accountMap*************************************');                
                     
                 }
             }
@@ -439,6 +449,9 @@ public class LeadHelperJP
                 GCCode.add(l.Assigned_Dealer__r.Dealer_GC_Code__c );
                 leadIdsSet.add(l.id);          
                 
+            system.debug('******************************************asslist : Name:' + l.Assigned_Dealer__r.name + ' had been added to the target list asslist*************************************');                
+            system.debug('******************************************GCCode : GC_Code:' + l.Assigned_Dealer__r.Dealer_GC_Code__c + ' had been added to the target list GCCode*************************************');                
+            system.debug('******************************************leadIdsSet : Lead Id:' + l.id + ' had been added to the target list leadIdsSet*************************************');                
             }
             
             
@@ -446,6 +459,9 @@ public class LeadHelperJP
         if(GCCode !=null)
         {
             acl=[select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
+            for (Account a: acl){
+            system.debug('******************************************asslist : Name:' + a.Name + ' had been added to the target list acl*************************************');                                
+            }
         }
         
         if(acl!=null)
@@ -456,9 +472,12 @@ public class LeadHelperJP
                 if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
                 {
                     dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
+            system.debug('******************************************dealeraccntMap : GC Code:' + acc.Dealer_GC_Code__c + ' had been added to the target list dealeraccntMap*************************************');                                
                 }
                 dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
+            system.debug('******************************************dealeraccntMap : Name:' + acc.Name + ' had been added to the target Map dealeraccntMap in the position of ' + dealeraccntMap.get(acc.Dealer_GC_Code__c) + '*************************************');                                
                 AccountNAme.add(acc.Name);
+            system.debug('******************************************AccountNAme : Name:' + acc.Name + ' had been added to the target list AccountNAme*************************************');                                
             }
         }
         system.debug('dealeraccntMap><><><' + dealeraccntMap);
@@ -466,6 +485,9 @@ public class LeadHelperJP
         if(AccountNAme !=null)
         {
             grplist=[select id ,Name ,Type from Group where Name IN: AccountNAme];
+            for (Group g: grplist){
+            system.debug('******************************************grplist : Name:' + g.Name + ' had been added to the target list grplist*************************************');                                                
+            }
         }
         
         if(grplist!=null)
@@ -475,6 +497,7 @@ public class LeadHelperJP
                 
                 assgroupMap.put(assg.Name, assg.id);
                 
+            system.debug('******************************************assgroupMap : Name:' + assg.Name + ' had been added to the target list assgroupMap*************************************');                                                
                 
             }
         }
@@ -495,6 +518,7 @@ public class LeadHelperJP
                         l.rowcause = Schema.Lead__Share.rowcause.Assigned_Dealer__c ;  
                         l.AccessLevel='edit';
                         leadshare.add(l);
+            system.debug('******************************************leadshare : Lead Id:' + lead.id + ' Group Id: ' + assgroupMap.get(dealeraccntMap.get(lead.Assigned_Dealer__r.Dealer_GC_Code__c)[i]) +' had been added to the target list leadshare*************************************');                                                
                     }
                 }
             }
@@ -502,6 +526,7 @@ public class LeadHelperJP
         if(!leadshare.isEmpty() && leadshare != null)
         {
             insert leadshare;
+            system.debug('*******************************************leadshare Inserted*****************************************');
         }
         //  }
         // LeadUtil.handleAfterInsert=false;
@@ -714,10 +739,10 @@ public class LeadHelperJP
                     if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
                     {
                         dellead.Assigned_Dealer__c = u.Contact.AccountId;
-                        if(dellead.Dealer_Lead_Status__c != null && dellead.Dealer_Lead_Status__c != '')
-                        {
-                            // dellead.Dealer_Assigned_Date_Time__c = system.now();
-                        }                       
+            if(dellead.Dealer_Lead_Status__c != null && dellead.Dealer_Lead_Status__c != '')
+            {
+              dellead.Dealer_Assigned_Date_Time__c = system.now();
+            }
                     }
                 }
             }
@@ -747,5 +772,39 @@ public class LeadHelperJP
                 
                 delete lstShare;
             }
-      }   
+      }  
+      
+     public static void sharingTOJapanDataManagement(list<Lead__C> leadList,Map<Id,Lead__C> oldMap){
+         
+            set<id> leadID=new set<id>();
+            list<User> shareUser=new list<User>();
+            list<Lead__Share> lstShare=new  list<Lead__Share>(); 
+             for(Lead__C les:leadList)
+             {
+                 if(les.MD__c=='JP' && (les.RecordTypeId!=oldMap.get(les.id).RecordTypeId && (les.RecordTypeId ==SalesLeadSoftDeletedRecordTypeId || les.RecordTypeId ==afterSalesLeadSoftDeletedRecordTypeId)))
+                     leadID.add(les.id);
+                 
+             }
+             
+            if(!leadID.isEmpty() && leadID != null)
+            {
+                 shareUser=[SELECT id,UserRole.Name,Profile.Name,IsActive,Market__c FROM User where IsActive =true and Profile.Name='Japan Data Management' and Market__c='JP' ];
+                 for(id ldID:leadID){
+                     for(user u:shareUser){
+                         Lead__share l=new Lead__share();
+                        l.ParentId=ldID;
+                        l.UserOrGroupId =u.id;
+                        
+                        l.rowcause = Schema.Lead__share.RowCause.Manual;  
+                        l.AccessLevel='edit';
+                        lstShare.add(l);
+                     }
+                 }
+            }
+            if(!lstShare.isEmpty() && lstShare != null)
+            {
+                
+                insert lstShare;
+            }
+     }    
    }

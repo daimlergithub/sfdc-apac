@@ -6358,6 +6358,10 @@
             <masterLabel>Waiting for final approval</masterLabel>
             <translation>最終承認依頼（CM対応完了承認依頼）</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>CM Inputting</masterLabel>
+            <translation>0（CM起票中）</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>申出内容(詳細)</label>

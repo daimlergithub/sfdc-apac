@@ -44,6 +44,10 @@
                 <behavior>Readonly</behavior>
                 <field>Contract_Update_Date__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Related_Lead__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -74,15 +78,8 @@
                 <field>Model__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Interface_Valid_Flag__c</field>
-            </layoutItems>
-			<layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Related_Lead__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

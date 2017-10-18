@@ -34,7 +34,7 @@ public class AddressDisplayInlineEditController {
     public String province {get;set;}
     public String LanguageSelected{get; set;}
     public boolean IsForeignNational{get; set;}
-    
+    public User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
@@ -49,7 +49,7 @@ public class AddressDisplayInlineEditController {
         }                     
         /*Intitializing address object*/
         addressobj = new Address__c();
-        User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
+        
         market = u.Market__c;
         AddressObj.Market__c=market; 
         openPanal = true;
@@ -73,7 +73,7 @@ public class AddressDisplayInlineEditController {
               LanguageSelected ='English';     
         lstProvince=new List<SelectOption>();
         Set<string> setProvinces = new set<string>();
-        lstProvince.add(new SelectOption('--Select--','--Select--'));
+        lstProvince.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
         for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected  and Market__c=:market order by Province__c asc])
         {
             if(!setProvinces.contains(lsttempProvince.Province__c))
@@ -93,7 +93,7 @@ public class AddressDisplayInlineEditController {
               LanguageSelected ='English';   
         lstDistrict=new List<SelectOption>();
         Set<string> setDistricts = new set<string>();
-        lstDistrict.add(new SelectOption('--Select--','--Select--'));        
+        lstDistrict.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));        
         for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province  and Market__c=:market order by District__c asc])
         {
             if(!setDistricts.contains(lsttempDistrict.District__c))
@@ -110,7 +110,7 @@ public class AddressDisplayInlineEditController {
       {
         lstSubDistrict=new List<SelectOption>();
         Set<string> setSubDistricts = new set<string>();
-        lstSubDistrict.add(new SelectOption('--Select--','--Select--'));
+        lstSubDistrict.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
         for(RegionMasterInfo__c lsttempSubDistrict : [select id,Sub_DIstrict__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district order by Sub_DIstrict__c asc])
         {
             if(!setSubDistricts.contains(lsttempSubDistrict.Sub_DIstrict__c))
@@ -126,7 +126,7 @@ public class AddressDisplayInlineEditController {
       {
         lstZip=new List<SelectOption>();
         Set<string> setZip = new set<string>();
-        lstZip.add(new SelectOption('--Select--','--Select--'));
+        lstZip.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
         for(RegionMasterInfo__c lsttempSubDistrict : [select id,ZipCode__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district and Sub_DIstrict__c=:subdistrict order by ZipCode__c asc])
         {
             if(!setZip.contains(lsttempSubDistrict.ZipCode__c))
@@ -156,8 +156,8 @@ public class AddressDisplayInlineEditController {
             else{
                 IsForeignNational=false;
                 //SN20171006- Added code to default value
-                province='--Select--';
-                district='--Select--';
+                province=System.Label.SelectPicklist;
+                district=System.Label.SelectPicklist;
 
             }
         }
@@ -287,7 +287,7 @@ public class AddressDisplayInlineEditController {
         //SN20170911 -- Added address Line 3 in the query 
         if (editaddressId != null){
             editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-                        Address_Line_2__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Country__c,Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c from Address__c where Id =: editaddressId Limit 10];
+                        Address_Line_2__c,Market__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Country__c,Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c from Address__c where Id =: editaddressId Limit 10];
             // if for any reason we are missing the reference           
         }
         
@@ -295,6 +295,7 @@ public class AddressDisplayInlineEditController {
         If(editadds!=null)
         {                     
             addressobj.id=editadds.id;
+			addressobj.Market__c=editadds.Market__c;
             addressobj.Address_Type__c = editadds.Address_Type__c;
             addresspicklist=editadds.Address_Type__c;
             
@@ -315,8 +316,12 @@ public class AddressDisplayInlineEditController {
             addressobj.Preferred__c = editadds.Preferred__c;
             addressobj.Temp_ZipCode__c = editadds.Temp_ZipCode__c ;
             addressobj.Temp_Address__c = editadds.Temp_Address__c ;
-            addressobj.Block_Native__c = editadds.Block_Native__c;      
-            addressobj.City_Native__c = editadds.City_Native__c;        
+            addressobj.Block_Native__c = editadds.Block_Native__c;
+            // Added by Rakesh CISM # 0039983804 
+            if(u.profile.name != 'Japan Marketing'){
+                addressobj.City_Native__c = editadds.City_Native__c;
+            }
+            // end        
             addressobj.Province_Native__c = editadds.Province_Native__c;        
             addressobj.District_Native__c = editadds.District_Native__c;        
             addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
@@ -402,7 +407,8 @@ public class AddressDisplayInlineEditController {
             addressObj.Id = null;
             //Thailand market not to have address valdation button
             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
-            insert addressobj;
+            DMLManagerService.insertAsSystem(addressobj); 
+            
           }
                 }
                 catch (DmlException e){
@@ -437,7 +443,8 @@ public class AddressDisplayInlineEditController {
                             refreshPage= true;
                             
                             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
-                            update addressobj;
+                            DMLManagerService.updateAsSystem(addressobj);
+                            
                         }
                     }
                 }
@@ -463,13 +470,13 @@ public class AddressDisplayInlineEditController {
         try
         {
             Validation=false;
-            if(province!='' && province!='--Select--')
+            if(province!='' && province!=System.Label.SelectPicklist)
                 addressobj.Province__c=province;
-            if(district!='' && district!='--Select--')
+            if(district!='' && district!=System.Label.SelectPicklist)
                 addressobj.District__c=district;
-            if(subdistrict!='' && subdistrict!='--Select--')
+            if(subdistrict!='' && subdistrict!=System.Label.SelectPicklist)
                 addressobj.Sub_District__c=subdistrict;
-            if(zip!='' && zip!='--Select--')
+            if(zip!='' && zip!=System.Label.SelectPicklist)
                 addressobj.ZipCode__c=zip;
             if(addresspicklist!=null)
                 addressobj.Address_Type__c = addresspicklist;   
@@ -542,14 +549,17 @@ public class AddressDisplayInlineEditController {
                     
                     addressobj.Customer__c = acc.id;  
                     addressobj.Language__c =LanguageSelected;
-                    insert addressobj;
+                    
+                    DMLManagerService.insertAsSystem(addressobj);
+                    
                 }
                 else
                 {
                     addressobj.id = editaddressId;
                     addressobj.Customer__c = acc.id;
                     addressobj.Language__c =LanguageSelected;
-                    update addressobj;
+                    DMLManagerService.updateAsSystem(addressobj);
+                   
                 }
             }
         }
@@ -573,9 +583,9 @@ public class AddressDisplayInlineEditController {
         try     
         {       
             Validation=false;       
-            if(province!='' && province!='--Select--')      
+            if(province!='' && province!=System.Label.SelectPicklist)      
                 addressobj.Province__c=province;        
-            if(district!='' && district!='--Select--')      
+            if(district!='' && district!=System.Label.SelectPicklist)      
                 addressobj.District__c=district;        
             if(zip!=null || zip!='')        
                 addressobj.ZipCode__c=zip;      

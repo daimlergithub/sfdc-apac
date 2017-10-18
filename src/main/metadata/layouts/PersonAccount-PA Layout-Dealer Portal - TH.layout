@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
-    <excludeButtons>SendEmail</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <excludeButtons>ViewCustomerPortalUser</excludeButtons>
-    <excludeButtons>XClean</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
@@ -34,7 +31,7 @@
                 <field>Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Vehicle_Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -46,7 +43,7 @@
                 <field>Sales_Sanction__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -185,6 +182,10 @@
                 <behavior>Edit</behavior>
                 <field>Updated_Consent_User__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Old_UCID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -196,7 +197,7 @@
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>UCID__c</field>
             </layoutItems>
             <layoutItems>
@@ -369,10 +370,10 @@
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>370</height>
                 <page>ContactTable</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
@@ -380,7 +381,7 @@
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
-                <width>100%</width>
+                <width>1000</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -766,6 +767,7 @@
         <fields>Portal_Email__c</fields>
         <fields>Portal_Mail_Opt_Out__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -782,28 +784,25 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Vehicle_Model__c</fields>
-        <fields>UsVIN__c</fields>
-        <fields>Car_Relation__c</fields>
-        <fields>New_Used__c</fields>
-        <fields>Finance_Method__c</fields>
-        <fields>End_Date__c</fields>
-        <fields>Selling_Dealer__c</fields>
-        <fields>Last_Service_Dealer__c</fields>
         <fields>Vehicle_ID__c</fields>
+        <fields>Registration_Number__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>Vehicle_Range__c</fields>
+        <fields>Handover_Date__c</fields>
+        <fields>Owner_Dealer__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Type__c</fields>
+        <fields>ContractNumber__c</fields>
         <fields>Product_Name__c</fields>
+        <fields>Type__c</fields>
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
         <fields>VIN_Link__c</fields>
         <fields>Related_Vehicle__c</fields>
-        <fields>ApplicationDate__c</fields>
-        <fields>ContractNumber__c</fields>
+        <fields>Related_Dealer__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -816,12 +815,13 @@
         <fields>Related_To__c</fields>
         <fields>FirstRegistrationDate__c</fields>
         <fields>NAME</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
         <fields>CASES.CASE_NUMBER</fields>
-        <fields>Case_Type__c</fields>
+        <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
         <fields>CASES.SUBJECT</fields>
@@ -833,14 +833,16 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
+        <fields>TASK.TYPE</fields>
+        <fields>Activity_Status__c</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Start_Call_Time__c</fields>
+        <fields>TASK.CALLDURATION</fields>
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
@@ -858,13 +860,13 @@
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Lead_Desired_Service__c</fields>
-        <fields>CREATED_DATE</fields>
+        <fields>Drop_off_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
-        <fields>Lead_Latest_Phase__c</fields>
+        <fields>CAC_Lead_Status__c</fields>
+        <fields>Dealer_Lead_Status__c</fields>
+        <fields>Source_Campaign__c</fields>
         <fields>Lead_DataSource__c</fields>
-        <fields>AfterSales_VIN__c</fields>
-        <fields>Expected_Close_Date__c</fields>
-        <fields>Expected_Registration_Date__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Desc</sortOrder>
@@ -879,7 +881,7 @@
         <fields>Status2__c</fields>
         <fields>Expected_DM_Material3__c</fields>
         <fields>Status3__c</fields>
-        <fields>Sent_Date__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>DM_Request__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -889,7 +891,7 @@
         <fields>Lead__c</fields>
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
-        <fields>Account__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>SurveyTaker__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -921,3 +923,4 @@
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
+

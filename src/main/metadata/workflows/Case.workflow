@@ -1499,7 +1499,7 @@
         </actions>
         <active>true</active>
         <description>If Case Owner changed, email need to send to case owner.</description>
-        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos;</formula>
+        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos; &amp;&amp; NOT(ISCHANGED(Case_Dealer__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1959,10 +1959,11 @@
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
-            <field>Case.Priority</field>
+            <field>Case.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Yellow = 3</value>
+            <value>Inquiry</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
@@ -1980,7 +1981,8 @@
                 <name>Case_escalation_for_MB_Complaint_TH</name>
                 <type>Alert</type>
             </actions>
-            <timeLength>72</timeLength>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>

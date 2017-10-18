@@ -232,6 +232,10 @@ public class contactTableControllerTest {
   */
   static testmethod void testContactTableController()
     {                  
+		 profile = [Select Id from Profile where Name = 'System Administrator'];
+         usr = TestClassHelper.createUser('User1MYAcode1',profile,'MY');
+        insert usr;
+        system.runAs(usr){				
         List<Account> AccountObj  =  [SELECT Lastname,Individual_Home_Phone__c,Work_Phone__c,fax,Mobile__c,MD__c from Account];
         ApexPages.StandardController objSc1 = new ApexPages.StandardController(AccountObj[0]);
         ContactTableController c1=new ContactTableController(objSc1);
@@ -248,6 +252,7 @@ public class contactTableControllerTest {
         c3.PhoneNumberFormatMY();
         c3.EditAccount();
         c3.UpdateAccountMY();
+		}
      }  
     
 }

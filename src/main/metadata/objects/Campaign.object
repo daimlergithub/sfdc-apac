@@ -13417,10 +13417,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
@@ -13429,15 +13425,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21917,7 +21905,7 @@ PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
         <active>true</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
-        <errorConditionFormula>(OR(ISPICKVAL( Status , 'Planned'),ISPICKVAL( Status , 'Draft'))) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
+        <errorConditionFormula>ISPICKVAL( Status , 'Planned') &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
 OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
@@ -21927,7 +21915,7 @@ OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Prof
         <active>true</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Planned') &amp;&amp; IsActive &amp;&amp; RecordType.DeveloperName = "Planning_Design_Campaign"&amp;&amp;
+        <errorConditionFormula>(OR(ISPICKVAL( Status , 'Planned'),ISPICKVAL( Status , 'Draft'))) &amp;&amp; IsActive &amp;&amp; RecordType.DeveloperName = "Planning_Design_Campaign"&amp;&amp;
 UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
@@ -22207,7 +22195,7 @@ IsActive = True
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 
-var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
+var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=1000");</url>
     </webLinks>
     <webLinks>
         <fullName>Consolidate_List_Maintenance</fullName>

@@ -19,6 +19,7 @@ public class RetailCampaignTriggerHandlerJP
       if(Trigger.isAfter && Trigger.isUpdate)
         {
         RetailCampaignHelper.parentRetailCampaignSatusChange(Trigger.New,(Map<ID,Retail_Campaign__c>)trigger.oldMap);
+		RetailCampaignHelper.blankUpdateCM(Trigger.New,(Map<ID,Retail_Campaign__c>)trigger.oldMap);
             
         } 
        
@@ -36,7 +37,7 @@ public class RetailCampaignTriggerHandlerJP
            RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
             RetailCampaignHelper.updateLogic(Trigger.New); 
             RetailCampaignHelper.afterInsertRetailCampaignSharing(Trigger.New);
-            
+            RetailCampaignHelper.jointDrivenRetailCampaignSharing(Trigger.New);
         } 
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

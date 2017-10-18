@@ -23,7 +23,7 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
     //START METHOD 
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id,Name,CAC_Lead_Status__c,Last_Nonassign_Notification_Date__c, Assigned_Dealer__r.Dealer_GC_Code__c, 
-                                         Assigned_Dealer__r.Dealer_ND_Code__c, Assigned_Dealer__r.Name 
+                                         Assigned_Dealer__r.Dealer_ND_Code__c, Assigned_Dealer__r.Name, RecordType.Name 
                                          FROM Lead__c where MD__c = 'JP' and Lead_Assignment_Notification_Done__c =: false
                     					 and Assigned_Dealer__c !=: NULL and CAC_Lead_Status__c = 'Allocated' and Lead_DataSource__c !='Dealer Outlet' and 
                                          ((RecordType.Name IN('Sales Leads') and Assigned_Dealer__r.SalesLead_Notification_Timing__c = '3 times a day') 
@@ -46,12 +46,12 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
 			led.Lead_Assignment_Notification_Done__c = true;
             updateLeadMap.put(led.id,led);
         }
-        List<User> userNdcodeRecords = [Select id,Name,email,Market__c,Dealer_GC_Code__c,Dealer_ND_Code__c from User where IsActive = True and Profile.Name IN ('Japan Dealer Sales Manager','Japan Dealer Sales Representative','Japan Dealer Service Advisor','Japan Dealer Service Manager') and Dealer_ND_Code__c IN :assignedDealerNDCodes];
+        List<User> userNdcodeRecords = [Select id,Name,email,Market__c,Dealer_GC_Code__c,Dealer_ND_Code__c, Profile.Name from User where IsActive = True and Profile.Name IN ('Japan Dealer Sales Manager','Japan Dealer Sales Representative','Japan Dealer Service Advisor','Japan Dealer Service Manager') and Dealer_ND_Code__c IN :assignedDealerNDCodes];
         
         for (Lead__c led : Scope){
             List<User> userList = new List<User>();
             for (User u: userNdcodeRecords){
-                if (led.Assigned_Dealer__r.Dealer_ND_Code__c == u.Dealer_ND_Code__c){
+                if (led.Assigned_Dealer__r.Dealer_ND_Code__c == u.Dealer_ND_Code__c && ((u.Profile.Name != 'Japan Dealer Sales Representative' && led.RecordType.Name == 'Aftersales Leads') || (u.Profile.Name != 'Japan Dealer Service Advisor' && led.RecordType.Name == 'Sales Leads'))){
                     userList.add(u);
                 }
             }

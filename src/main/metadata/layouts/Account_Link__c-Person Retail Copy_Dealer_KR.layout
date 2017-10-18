@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Delete_retail_copy</customButtons>
     <customButtons>Send_To_AutoLine</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
@@ -228,6 +227,10 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Agreement_Info_Processing__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Consent_Form_Serial_No__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -257,6 +260,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Agreement_Date_on_Contact_Method__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_First_Consent_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

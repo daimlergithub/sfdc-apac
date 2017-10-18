@@ -3582,6 +3582,15 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>CV_No_Brand_Purchases__c</fullName>
         <externalId>false</externalId>
@@ -4209,6 +4218,28 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <fullName>Consent_Form_Serial_No__c</fullName>
         <externalId>false</externalId>
         <label>Consent Form Serial No</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consent_Form_Serial_No_for_CC_New__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No for CC New</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consent_Form_Serial_No_for_Marketing__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No for Marketing</label>
         <length>30</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -5001,7 +5032,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -5073,14 +5103,12 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Inbound</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
@@ -8839,7 +8867,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             <picklistValues>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -8847,7 +8874,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             <picklistValues>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -8923,7 +8949,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             <picklistValues>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -8931,7 +8956,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             <picklistValues>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -9395,7 +9419,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             <picklistValues>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -9797,14 +9820,12 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
             <picklistValues>
                 <fullName>IFA</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>NFA</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -10056,7 +10077,6 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -10207,190 +10227,160 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Snowboarding</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Football</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Swimming</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Surfin</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Diving</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Weight Training</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Tennis</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Baseball</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Running</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Bicycle</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Climbing</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Yogi</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Tri-athlon</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Marathon</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Racing</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Volleyball</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gardening</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Camping</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Photography</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fishing</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Tea</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cooking</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cinema</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Art(painting)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Playing musical instruments</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Music (jazz)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Music (popular)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Music (classical)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Japanese tradicional opera</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Reading</fullName>
@@ -10398,25 +10388,22 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Driving</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Motorcycle</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Travel(Domestic)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Travel</fullName>
@@ -10424,19 +10411,16 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Food</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Collecting (wine/gin)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Shopping</fullName>
@@ -10444,197 +10428,162 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Spa</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Video games</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Pets(Dogs)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Pets(others)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Personal finance</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DIY</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Humanity</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Bowling</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fish</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sailing</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Drama</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Chinese traditional opera</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Art(photography)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Collecting (Other)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Collecting (antiques)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Collecting (watches)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Collecting (Cigars)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fashion</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Current events</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Bridge</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Martial Arts</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>TV</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Social</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Basketball</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Beauty Salon</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Badminton</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Art(design)</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Music (General)</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Equestrian</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Riding horse</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fashion(Fashion)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Politics</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dinner</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Flying</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Music</fullName>
@@ -10645,12 +10594,10 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Fine art</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Car racing</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Travelling</fullName>
@@ -10662,71 +10609,58 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Tea culture</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Shopping mall</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Private clubs</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Yoga</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Bar</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Slimming Beauty</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sports</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Movies&amp;Plays</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Concerts&amp;Exhibition</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interior</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wine/Cuisine</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Well-being</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hiking</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
@@ -10738,92 +10672,77 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Beauty&amp;Skincare</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Health Training</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Childcare</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Art &amp; Theatre</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dining</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Internet Surfing</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Movies</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Home &amp; Gardening</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Arts &amp; Crafts</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Beauty &amp; Fashion</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wine</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Diet</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Movie/Drama</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interior Design</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Art Collecting</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
@@ -11032,14 +10951,12 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>National ID</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -12239,49 +12156,42 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>Upper Management</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Middle Management</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Executive</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Non-Executive</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Professional</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Retiree</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Homemaker</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -13304,7 +13214,8 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
+        <visibleLines>7</visibleLines>
     </fields>
     <fields>
         <fullName>MBTH_Nationality__c</fullName>
@@ -13890,7 +13801,7 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -13922,7 +13833,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>NA</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -14148,6 +14059,18 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Number_of_Children__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Children</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -14471,56 +14394,48 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Employee</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Architect</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Artist/Entertainer/Celebrity</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Building Contractor</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Doctor/Pharmacist/Nurse</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Engineer/Technician</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Legal Expert</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Politician</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -14528,21 +14443,18 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>State Enterprise Employee</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Royalty</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance Agent/Property Agent/Direct Sales</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -15900,7 +15812,6 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Anytime</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -16185,7 +16096,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Bahasa</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -16196,7 +16106,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Tamil</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -16275,7 +16184,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Second Mobile Phone</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Home phone</fullName>
@@ -17822,19 +17730,16 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>GLC-Class Coupe</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLE-Class</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Media</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -17923,76 +17828,65 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>MBK</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Government</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Authority</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Diplomat</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Army</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Royal Family</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hotel</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Rental Company</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>National Framework (NFA)</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>International Framework (IFA)</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MPC</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -18143,6 +18037,7 @@ Modify By:
 Modify Reason: 
 */
 Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</description>
+ <defaultValue>IF(ISPICKVAL($User.Market__c,'KR'),'Prospect','')</defaultValue>
         <externalId>false</externalId>
         <label>Status</label>
         <picklist>
@@ -60298,7 +60193,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Account_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Account should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
@@ -60528,7 +60423,7 @@ NOT(Dealer_Active__c)
     </validationRules>
     <validationRules>
         <fullName>Customer_Status_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
 &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Status__c , 'Customer') &amp;&amp;(MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>

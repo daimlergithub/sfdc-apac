@@ -449,7 +449,7 @@ public class AccountLinkHelperKR
             }
            
              // Added for Retail Person - Account Link issue
-               if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
+             /*  if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
                 if(accountLink.fromRole__c !=null && accountLink.toRole__c != null) {
                     set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
                     list_SharingToDelete.add(accountLink.Id);
@@ -473,10 +473,10 @@ public class AccountLinkHelperKR
                     }
                    
                 }
-            }
+            }*/
         }
         }
-        if(set_accountId.size() > 0){
+       /* if(set_accountId.size() > 0){
             List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_accountId AND IsPortalEnabled = true]);
             List<Account> dealerAccList = [select Name from Account where Id IN: set_accountId];
             Set<String> dealerAccNameSet = new Set<String>();
@@ -492,15 +492,15 @@ public class AccountLinkHelperKR
             if(list_SharingDele.size() > 0){
                 Database.delete(list_SharingDele, false);
             }
-        }
+        }*/
        
         if(map_AccountIdAndListAccountLinkId.size() > 0){
             createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
        
-        if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
+        /*if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
             createPCSharingRecord(map_PersonCompanyAccountIdAndListAccountLinkId);
-        }
+        }*/
        
         
         
