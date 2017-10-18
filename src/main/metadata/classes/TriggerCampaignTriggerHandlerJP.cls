@@ -52,6 +52,7 @@ public class TriggerCampaignTriggerHandlerJP
             CampaignHelper.copyCampaignToRetailCampaign(Trigger.New);
             CampaignHelper.parentCampaignSatus(Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
             CampaignHelper.updateLogic(Trigger.New);
+            CampaignHelper.blankUpdateCM(Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

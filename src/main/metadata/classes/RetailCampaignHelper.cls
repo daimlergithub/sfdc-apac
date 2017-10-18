@@ -969,6 +969,38 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
             }
         }
     }
+	
+	/**
+  *@Description : Avoiding Duplication of Campaign Members 
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. 
+  *@return:This mehtod does not return any value.
+  */
+    public static void blankUpdateCM(list<Retail_Campaign__c> retcampaignNew,map<id,Retail_Campaign__c> retcampaignOldMap)
+    {
+        
+       Set<Id> Campid=new Set<Id>();
+       List<Campaign_Member__c> campmemlist =new List<Campaign_Member__c>();
+       
+        for(Retail_Campaign__c campp: retcampaignNew)
+        { 
+            System.debug('campp.Segmentation_Base__c+++'+campp.Segmentation_Base__c);
+            System.debug('campp.Segmentation_Base__c+++'+retcampaignOldMap.get(campp.Id).Segmentation_Base__c);
+          if(campp.MD__c == 'JP' && campp.Segmentation_Base__c != retcampaignOldMap.get(campp.Id).Segmentation_Base__c)
+           {
+             Campid.add(campp.id);
+           }
+        }
+        
+         campmemlist = [Select id,Campaign_ID__c,Retail_Campaign_Id__c from Campaign_Member__c where Retail_Campaign_Id__c = :Campid];
+         try{
+         update campmemlist;
+         }catch(Exception Ex){
+         System.debug('Duplicte Error Message'+Ex.getMessage());
+         }
+        
+
+    }
       /**
   *@Description :custom clone in campaign
   

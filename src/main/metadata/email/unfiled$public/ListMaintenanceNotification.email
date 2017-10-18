@@ -1,10 +1,10 @@
-<messaging:emailTemplate subject="{!$Label.List_Ready_Maintenance}" recipientType="User" relatedToType="Participating_Dealer__c">
+<messaging:emailTemplate subject="{!$Label.List_Ready_Maintenance}" recipientType="User" relatedToType="Participating_Dealer__c"  language="{!recipient.LanguageLocaleKey}">
 <messaging:htmlEmailBody >
 <html>
    <style type="text/css">
    </style>
    <body>
-   <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Dealer__r.Name} {!$Label.Store}</p>
+   <p>{!relatedTo.Dealer__r.Name} {!$Label.Store}</p>
    <p> {!$Label.Campaign_Notification1}</p>
    
    <p> {!$Label.Campaign_Notification10}</p>
@@ -20,19 +20,12 @@
    
    <p> {!$Label.Campaign_Notification6}</p>
    
-   <p> {!$Label.Campaign_Notification7}</p>
-   
-   <p> {!$Label.Campaign_Notification8}</p>
-   
-   <p> {!$Label.Campaign_Notification9}</p>
-   
-   -------------------------------------------
-   
-    <p> {!$Label.Email_LeadDealerAssign15}</p>
-    <p> {!$Label.Email_LeadDealerAssign16}</p>
-    <p> {!$Label.Email_LeadDealerAssign17}</p>
-    <p> {!$Label.Email_LeadDealerAssign18}</p>
-   -----------------------------------------------
+     <p> {!$Label.Email_LeadDealerAssign13}<br></br>{!$Label.Email_LeadDealerAssign23}</p>
+     
+     <p> {!$Label.Email_LeadDealerAssign26}<br></br>**********************************************************</p>     
+     <p> {!$Label.Email_LeadDealerAssign14}<br></br>{!$Label.Email_LeadDealerAssign15}<br></br>{!$Label.Email_LeadDealerAssign27}<br></br>{!$Label.Email_LeadDealerAssign16}</p>
+     <p> {!$Label.Email_LeadDealerAssign17}<br></br>{!$Label.Email_LeadDealerAssign28}<br></br>{!$Label.Email_LeadDealerAssign18}<br></br>{!$Label.Email_LeadDealerAssign29}</p>
+     <p>**********************************************************</p>
    
    </body>
    </html>

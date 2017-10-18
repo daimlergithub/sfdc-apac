@@ -19,6 +19,7 @@ public class RetailCampaignTriggerHandlerJP
       if(Trigger.isAfter && Trigger.isUpdate)
         {
         RetailCampaignHelper.parentRetailCampaignSatusChange(Trigger.New,(Map<ID,Retail_Campaign__c>)trigger.oldMap);
+		RetailCampaignHelper.blankUpdateCM(Trigger.New,(Map<ID,Retail_Campaign__c>)trigger.oldMap);
             
         } 
        
