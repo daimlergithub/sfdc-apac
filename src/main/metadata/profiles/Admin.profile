@@ -6247,6 +6247,21 @@
         <field>Account_Link__c.toRole__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.RetailDealer_ND_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.RetailID_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.RetailID_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Object__mdt.Cooperative_society_TL__c</field>
