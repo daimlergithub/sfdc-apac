@@ -98,12 +98,12 @@ public class TriggerLeadTriggerHandlerJP
         {
         System.debug('*******************************isAfterisInsert part initiated****************************************');           
             //LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
-            if(LeadUtil.handleAfterInsert)
-            {
+            //if(LeadUtil.handleAfterInsert)
+            //{
         System.debug('*******************************handleAfterInsertOrUpdate part initiated****************************************');           
                 System.debug('welcome');
                 LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            }
+            //}
         System.debug('*******************************afterInsertUpdateEvent part initiated****************************************');           
              LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
          // LeadUtil.handleAfterInsert = false;
@@ -113,13 +113,13 @@ public class TriggerLeadTriggerHandlerJP
         {
         System.debug('*******************************isAfterisUpdate part initiated****************************************');           
       
-            if(LeadUtil.handleAfterInsert)
-            {
+            //if(LeadUtil.handleAfterInsert)
+            //{
         System.debug('*******************************handleAfterInsertOrUpdate part initiated****************************************');           
                 System.debug('welcome');
                 LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            }
-          LeadUtil.handleAfterInsert = false;
+            //}
+          //LeadUtil.handleAfterInsert = false;
         System.debug('*******************************afterInsertUpdateEvent part initiated****************************************');           
             LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
         }
