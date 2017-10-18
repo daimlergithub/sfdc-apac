@@ -24,7 +24,7 @@ public class TriggerLeadTriggerHandlerJP
             // LeadHelperAccountLinkCreateJP.updatingleadcontactDetails(trigger.new,isInsert, isUpdate);
              LeadHelperJP.createContactToContactAccounlink(trigger.new);  
              LeadHelperJP.deleteSharingTODealers((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap); 
-             LeadHelperJP.sharingTOJapanDataManagement((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap);          
+             //LeadHelperJP.sharingTOJapanDataManagement((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap);          
         }
         System.debug('Handletrigger----->');
         
@@ -53,6 +53,7 @@ public class TriggerLeadTriggerHandlerJP
             LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             
                 LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+				LeadHelperJP.sharingTOJapanDataManagement((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap);
             
         }
         
