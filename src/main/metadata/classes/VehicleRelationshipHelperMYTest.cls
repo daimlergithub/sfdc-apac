@@ -18,6 +18,11 @@ public class VehicleRelationshipHelperMYTest{
   
     @testSetup
     static void setupTestData(){    
+    
+    Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
+       insert user1;
+       System.runAs (user1) {  
         List<String> AccountFields=new List<String>();
         AccountFields.add('name');
         AccountFields.add('Mobile__c');
@@ -80,6 +85,8 @@ public class VehicleRelationshipHelperMYTest{
         VehicleRelFieldsList[1].Validity__c='Yes';
         VehicleRelFieldsList[0].Owner_Relation__c='Colleague';
         insert VehicleRelFieldsList;
+        
+        }
                 
     }
     
@@ -90,6 +97,11 @@ public class VehicleRelationshipHelperMYTest{
       Modified Date: 2017-10-09
   */
     static testmethod void testVehicleRelationshipHelperMY1(){
+    
+    Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral1.com.dev01');
+       insert user1;
+       System.runAs (user1) {  
       test.startTest();
       List<Account> AccountList  =  [SELECT RecordTypeid, Lastname, Mobile__c, MD__c from Account];
       List<Contact> ContactList  =  [SELECT accountid,lastname,email,phone,Federation_ID__c from Contact];
@@ -114,6 +126,8 @@ public class VehicleRelationshipHelperMYTest{
       VehicleRelationshipHelperMY.updateAccountstatus(ContactIds);
       VehicleRelationshipHelperMY.updateVehicleAmount(ContactIds);
       //VehicleRelationshipHelperMY.createAccountLink(VehicleIds, VehicleRelationshipIds,contactIdofVehicleRelationship);
-      test.stopTest();    
+      test.stopTest(); 
+      
+      }   
     }
 }
