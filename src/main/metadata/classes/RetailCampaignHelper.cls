@@ -49,6 +49,7 @@ Set<String> dealerCode = New Set<String>();
 Set<String> accountName = New Set<String>();
 List<Retail_Campaign__Share> RetailCampaignShare = New List<Retail_Campaign__Share>();
 List<User> UserList;
+Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
 For(Retail_Campaign__c RetMem : newList){
     If( RetMem.dealer_name__c == null){
      
@@ -67,7 +68,7 @@ UserMap.put(u.id,u.Dealer_GC_Code__c);
 dealerCode.add(u.Dealer_GC_Code__c);
 }   
 }
-List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode];
+List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
 For(Account acc :dealerAccList){
     accountName.add(acc.Name);
 }
@@ -1354,7 +1355,7 @@ system.debug('++++++'+camUpdateList);
        
         For(Retail_Campaign__c RetMem : newList)
         {
-            
+          if(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c)) != null){  
             for(integer i=0 ; i < dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c)).size();i++)
             {
                 if(assgroupMap.get(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c))[i]) != null)
@@ -1368,7 +1369,7 @@ system.debug('++++++'+camUpdateList);
                     RetailCampaignShare.add(RetShare);
                 }
             }   
-    
+           }
         }
     
     If(RetailCampaignShare.size()>0)

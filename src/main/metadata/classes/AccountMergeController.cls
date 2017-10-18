@@ -209,7 +209,7 @@ public with sharing class AccountMergeController{
             selectedSlaveAccount.DUPNumber__c='';
             selectedSlaveAccount.Dup_Reason__c ='';
             selectedSlaveAccount.Master_Account_Id__c=selectedMasterAccount.Id;
-			//Commented as part of changes related to SFDCJP-3067
+            //Commented as part of changes related to SFDCJP-3067
             //selectedMasterAccount.DUPNumber__c='';
             selectedMasterAccount.Master_Record__c=false;
             
@@ -281,7 +281,7 @@ public with sharing class AccountMergeController{
             slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
             slave.OwnerId = usr.Id;       
             slave.Master_Account_Id__c = master.Id;
-            master.DUPNumber__c='';
+          //  master.DUPNumber__c='';
             master.Master_Record__c=false;
           }
             else if
@@ -290,7 +290,7 @@ public with sharing class AccountMergeController{
              slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_Company_ACCOUNT_SOFT_DELETED); 
              slave.OwnerId = usr.Id;       
              slave.Master_Account_Id__c = master.Id; 
-             master.DUPNumber__c='';
+            // master.DUPNumber__c='';
              master.Master_Record__c=false;                
          }
         
