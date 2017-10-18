@@ -1037,11 +1037,13 @@
         }
             public PageReference selectall() 
     {
-    
-        list<Account> accfinalist = new list<Account>();
+    if(segmentationBase == 'Customer'){
+       list<Account> accfinalist =  Database.query(saveQuery);
+       system.debug('++++++accfinalist '+accfinalist );
         list<Campaign_Member__c> camlist = new  list<Campaign_Member__c>();
+        
       
-       for (Account acc : accfinalist  )
+       for (Account acc : accfinalist )
         {
         Campaign_Member__c cam = new Campaign_Member__c ();
         
@@ -1049,12 +1051,57 @@
         cam.Contact_Id__c= acc.Id;
          cam.Retail_Campaign_Id__c = retailCampaignId;
         camlist.add(cam);
-        }   
+        } 
         insert(camlist);
+        }
+        
+        
+        
+              else if(segmentationBase == 'Vehicle'){ 
+               list<Vehicle_Relationship__c> accfinalist1 =  Database.query(saveQuery);                 
+       
+        list<Campaign_Member__c> camlist1 = new  list<Campaign_Member__c>();
+      
+       for (Vehicle_Relationship__c acc : accfinalist1 )
+       
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
+        
+        cam.Status__c = 'Ready';
+       // cam.Vehicle__c =acc.id;
+         cam.Retail_Campaign_Id__c = retailCampaignId;
+        camlist1.add(cam);
+        } 
+       insert(camlist1); 
+}
+                   else if(segmentationBase == 'Contract'){ 
+               list<Retail_Task__c> accfinalist1 =  Database.query(saveQuery);                 
+       
+        list<Campaign_Member__c> camlist2 = new  list<Campaign_Member__c>();
+      
+       for (Retail_Task__c acc : accfinalist1 )
+       
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
+        
+        cam.Status__c = 'Ready';
+        cam.Retail_Task__c = acc.Id;
+         cam.Retail_Campaign_Id__c = retailCampaignId;
+        camlist2.add(cam);
+        } 
+       insert(camlist2); 
+}
+      
+     
+        
             return new PageReference('/' + retailCampaignId);
             
     
     }
+
+
+
+
 
         
         //Add campaign members to Retail campiang
