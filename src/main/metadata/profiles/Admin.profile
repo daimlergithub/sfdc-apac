@@ -2854,7 +2854,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Consent_Form_Serial_No_for_Marketing_Con__c</field>
+        <field>Account.Consent_Form_Serial_No_for_Marketing__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
