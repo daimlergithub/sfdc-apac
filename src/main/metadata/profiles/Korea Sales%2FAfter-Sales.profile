@@ -2818,6 +2818,7 @@
         <editable>false</editable>
         <field>Account.Consent_Form_Serial_No__c</field>
         <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Consent_Form_Serial_No_for_CC_New__c</field>
@@ -2827,7 +2828,6 @@
         <editable>false</editable>
         <field>Account.Consent_Form_Serial_No_for_Marketing__c</field>
         <readable>true</readable>
-    </fieldPermissions>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
