@@ -4226,6 +4226,28 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Consent_Form_Serial_No_for_CC_New__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No for CC New</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consent_Form_Serial_No_for_Marketing__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No for Marketing</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contact_Background__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -13779,7 +13801,7 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -13811,7 +13833,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>NA</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
