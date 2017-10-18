@@ -1530,7 +1530,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
 	    <validationRules>
         <fullName>Campaign_lead_validation_check</fullName>
         <active>true</active>
-        <errorConditionFormula>AND (NOT( ISPICKVAL(CreatedBy.User_Type__c, "Dealer "))&amp;&amp; ISCHANGED(Campaign__c) &amp;&amp; ISPICKVAL($User.User_Type__c, "Dealer"),MD__c = 'JP')</errorConditionFormula>
+        <errorConditionFormula>AND (NOT( ISPICKVAL(CreatedBy.User_Type__c,"Dealer"))&amp;&amp; ISCHANGED(Campaign__c) &amp;&amp; ISPICKVAL($User.User_Type__c,"Dealer"),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Cannot change associated Campaign if this was created by wholesale</errorMessage>
     </validationRules>
     <validationRules>
