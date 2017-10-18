@@ -18,12 +18,27 @@ public class TestUtils {
         insert u;
         return u;
     }
- 
+ 	
+    public static User createMYAdminUser(){               
+        Profile p = [select id from profile where Name='System Administrator' limit 1];
+        User u = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'MY');
+        insert u;
+        return u;
+    }
+    
     // After Sales Manager User Creation
     public static User createAfterSalesManager(){       
         Profile p = [select id from profile where Name='System Administrator' limit 1];
         UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH_Manager'];
         User user1 = new User(LastName='User',UserRoleId = role.id,country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersales@test.com');
+        insert user1;
+        return user1;
+    }
+    
+    public static User createAfterSalesManagerMY(){       
+        Profile p = [select id from profile where Name='System Administrator' limit 1];
+        UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH_Manager'];
+        User user1 = new User(LastName='User',UserRoleId = role.id,country='Australia', market__c = 'MY', firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersales@test.com');
         insert user1;
         return user1;
     }
@@ -71,7 +86,7 @@ public class TestUtils {
         a.Phone                    = '0802101110';
         a.Individual_Home_Phone__c = '+6612323789';
         a.Area_code__c             = '0101';
-        a.MD__c                    = 'TH';
+        a.MD__c                    = u.market__c;  // Modified by Laqshay Arora
         a.Postal_Opt_Out__c        = True;
         a.Province__c              = 'Shanghai';
         a.ZipCode__c               = '32703';
@@ -82,9 +97,10 @@ public class TestUtils {
         a.ownerid                  = u.id;
         a.PersonHasOptedOutOfEmail = true;
         a.Opt_In_Email__c          = true;
-       
-        a.PersonBirthdate          = date.today();
-        a.Foundation_Date__c       = date.today()+1;
+        a.ID_Number__c			   = '1234567891011';   // Added by Laqshay Arora
+        a.ID_Type__c = 'National ID';
+        a.PersonBirthdate          = date.newInstance(1991,03,18); // Modified By laqshay Arora
+        a.Foundation_Date__c       = date.today();
         a.RecordTypeId             = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         insert a;
         return a;
@@ -110,7 +126,7 @@ public class TestUtils {
         a.Phone = '0802101110';
         a.Individual_Home_Phone__c='+6612323789';
         a.Area_code__c = '0101';
-        a.MD__c = 'TH';
+        a.MD__c = u.Market__c; // Modified by Laqshay Arora
         a.Postal_Opt_Out__c=True;  
         a.Province__c = 'Shanghai';
         a.ZipCode__c= '32703';
@@ -121,8 +137,9 @@ public class TestUtils {
         a.ownerid=u.id;
         a.PersonHasOptedOutOfEmail=false;
         a.Opt_In_Email__c=true;
-        a.Foundation_Date__c=date.today()+1;
+        a.Foundation_Date__c=date.today();
         a.RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+        a.ID_Type__c = 'National ID';
         insert a;
         return a;
     }
@@ -177,6 +194,25 @@ public class TestUtils {
         address.preferred__c=True;
         address.Opt_In_Hardcopy__c=True;
         address.MD__c='TH';
+        insert address;
+        return address;
+    }
+    
+    public static Address__c createAddressMY(Id AccId){                   
+        Address__c address=new Address__c();
+        address.Address_Type__c='Home';
+        address.Province__c='Fukuoka';
+        address.City__c='bangalore';
+        address.District__c='test2';
+        address.Block__c='test3';
+        address.Address_Line_1__c='testaddress1';
+        address.Address_Line_2__c='testaddress2';
+        address.ZipCode__c = '32703';
+        address.Customer__c=AccId;
+        address.TitleOfHonor__c ='To Person';  
+        address.preferred__c=True;
+        address.Opt_In_Hardcopy__c=True;
+        address.MD__c='MY';
         insert address;
         return address;
     }
