@@ -753,19 +753,27 @@
         <name>Campaign_Date_5</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Notification1 --></label>
+        <label><!-- Campaign Execution - Simple --></label>
+        <name>Campaign_Execution_Simple</name>
+    </customLabels>
+    <customLabels>
+        <label>キャンペーン名</label>
+        <name>Campaign_Id</name>
+    </customLabels>
+    <customLabels>
+        <label>管理者様、ご担当者様</label>
         <name>Campaign_Notification1</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Notification10 --></label>
+        <label>以下のキャンペーンの対象顧客リストを展開しました。</label>
         <name>Campaign_Notification10</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Notification11 --></label>
+        <label>期日までにリスト確認を終え、提出してください。</label>
         <name>Campaign_Notification11</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Notification2 --></label>
+        <label>以下のキャンペーンの実施日がきました。</label>
         <name>Campaign_Notification2</name>
     </customLabels>
     <customLabels>
@@ -773,15 +781,15 @@
         <name>Campaign_Notification3</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Notification4 --></label>
+        <label>お客様へのコンタクトを開始してください。</label>
         <name>Campaign_Notification4</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Notification5 --></label>
+        <label>※リスト確認にはセールスフォースへのログインが必要となります。</label>
         <name>Campaign_Notification5</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Notification6 --></label>
+        <label>よろしくお願いいたします。</label>
         <name>Campaign_Notification6</name>
     </customLabels>
     <customLabels>
@@ -853,11 +861,11 @@
         <name>Campaign_Planning_Page_Subtitle</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Segmentation1 --></label>
+        <label>本日以下の販売店キャンペーンの対象顧客を抽出します。</label>
         <name>Campaign_Segmentation1</name>
     </customLabels>
     <customLabels>
-        <label><!-- Campaign Segmentation2 --></label>
+        <label>対象顧客を精査の上、キャンペーンのスケジュールに従って、実施してください。</label>
         <name>Campaign_Segmentation2</name>
     </customLabels>
     <customLabels>
@@ -2286,7 +2294,7 @@
         <name>LimitQueries</name>
     </customLabels>
     <customLabels>
-        <label><!-- List Ready Maintenance --></label>
+        <label>【ご確認ください】　リスト確認実施のご依頼</label>
         <name>List_Ready_Maintenance</name>
     </customLabels>
     <customLabels>
@@ -4409,7 +4417,7 @@
         <name>Stocks_for_interested_vehicle</name>
     </customLabels>
     <customLabels>
-        <label><!-- Store --></label>
+        <label>店</label>
         <name>Store</name>
     </customLabels>
     <customLabels>
@@ -5312,10 +5320,6 @@
 	<customLabels>
         <label>販売店キャンペーン名</label>
         <name>Retail_Campaign_Id</name>
-    </customLabels>
-	<customLabels>
-        <label>キャンペーン名</label>
-        <name>Campaign_Id</name>
     </customLabels>
 	<customLabels>
         <label>顧客名</label>
