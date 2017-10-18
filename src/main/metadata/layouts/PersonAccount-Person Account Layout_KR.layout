@@ -548,6 +548,10 @@
                 <behavior>Readonly</behavior>
                 <field>Expiration_Date_for_CC_Old__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Consent_Form_Serial_No__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -591,6 +595,10 @@
                 <behavior>Readonly</behavior>
                 <field>Expiration_Date_for_CC_New__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Consent_Form_Serial_No_for_CC_New__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -613,6 +621,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Withdrawal_Date_for_Marketing_Consent__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Consent_Form_Serial_No_for_Marketing__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
