@@ -12,7 +12,7 @@ public class TriggerLeadTriggerHandlerJP
         
         if(isBefore && isInsert)
         {         
-				LeadHelperJP.InsertAssignedDealer(trigger.new);		
+                LeadHelperJP.InsertAssignedDealer(trigger.new);     
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate); 
               LeadHelperJP.createContactToContactAccounlink(trigger.new);               
         }
@@ -91,11 +91,11 @@ public class TriggerLeadTriggerHandlerJP
         {
            
             //LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
-            if(LeadUtil.handleAfterInsert)
-            {
+            //if(LeadUtil.handleAfterInsert)
+            //{
                 System.debug('welcome');
                 LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            }
+            //}
              LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
          // LeadUtil.handleAfterInsert = false;
         }
@@ -103,11 +103,11 @@ public class TriggerLeadTriggerHandlerJP
          if(isAfter && isUpdate )
         {
       
-            if(LeadUtil.handleAfterInsert)
-            {
+            //if(LeadUtil.handleAfterInsert)
+            //{
                 System.debug('welcome');
                 LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
-            }
+           // }
           LeadUtil.handleAfterInsert = false;
             LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
         }
