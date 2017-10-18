@@ -84,7 +84,7 @@ Public With Sharing class AccountTable{
         else if(regionValue == 'aid' ){
             panelStopper = false;
             //SearchLogic();
-        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_Active__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP' AND Dealer_Active__c=True ])); 
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_Active__c,Dealer_Type__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP' AND Dealer_Active__c=True AND Dealer_Type__c='Outlet' ])); 
         setCon.setpagesize(10);
         }
     }
