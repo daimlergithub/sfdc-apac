@@ -17,6 +17,12 @@ public class TriggerAddressTriggerHandlerMYTest{
   
 @testSetup
     static void setupTestData(){
+    
+    Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
+       insert user1;
+       System.runAs (user1) {  
+       
     List<String> AccountFields=new List<String>();
     AccountFields.add('Lastname');
     AccountFields.add('Individual_Home_Phone__c');
@@ -56,6 +62,7 @@ public class TriggerAddressTriggerHandlerMYTest{
     insert AddressFieldsList;
     //AddressFieldsList[0].Address_Type__c='business';
     //update AddressFieldsList;
+    }
    } 
 
  //SB2017
@@ -83,7 +90,10 @@ public class TriggerAddressTriggerHandlerMYTest{
       Modified Date: 2017-09-13
   */     
      static testMethod void testAccAssignment2() {
-    
+    Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sa1m@usgboral.com.dev01');
+       insert user1;
+       System.runAs (user1) {  
         try{          
               List<Address__c> Addressobj  =  [SELECT Address_Type__c from Address__c];
               Addressobj[0].Address_Type__c='business';
@@ -98,6 +108,7 @@ public class TriggerAddressTriggerHandlerMYTest{
            }    
          catch(Exception e)
          {
+         }
          }
      }
 

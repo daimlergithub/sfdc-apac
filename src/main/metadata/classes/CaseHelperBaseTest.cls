@@ -16,8 +16,14 @@ public class CaseHelperBaseTest {
       Modified Date: 2017-09-13
   */
   
+  
     @testSetup
     static void setupTestData(){    
+     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
+    
+    User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
+    insert user1;
+    system.runas(user1){
     List<String> AccountFields=new List<String>();
     AccountFields.add('Lastname');
     AccountFields.add('Individual_Home_Phone__c');
@@ -33,6 +39,7 @@ public class CaseHelperBaseTest {
     AccountFieldsList[0].fax='+60827896541';
     AccountFieldsList[0].Mobile__c='+609856321478';
     AccountFieldsList[0].MD__c='MY';
+     AccountFieldsList[0].Market__C='MY';
     insert AccountFieldsList;
     List<String> CaseFields=new List<String>();
     CaseFields.add('Status');
@@ -56,7 +63,7 @@ public class CaseHelperBaseTest {
     CaseFieldsList[1].priority='Green <= 2';
     insert CaseFieldsList;
     }
-    
+    }
     //SB2017
     /*
       Name:Sushma Bharti
@@ -64,6 +71,13 @@ public class CaseHelperBaseTest {
       Modified Date: 2017-10-09
   */
     static testmethod void testCaseHelperBase1(){
+    
+     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
+    
+    User user2 = new User(LastName='User2'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='user2@infosys.com',UserName='user2@infosys.com');
+    insert user2;
+    
+      System.runAs (user2) {   
      test.startTest();
      List<Case> CaseList  =  [SELECT RecordTypeid,accountid,parentid,status,Case_RepeatCause__c,priority,MD__c from Case];
      CaseHelperBase chb = new CaseHelperBase();
@@ -82,5 +96,6 @@ public class CaseHelperBaseTest {
      List<Case> childCaseList1=[SELECT recordtypeid,parentid,Case_RepeatCause__c,MD__c from Case];
      chb.countRepeatComplaintCase(childCaseList1,true,'MY');
      test.stopTest();
+     }
     }
 }
