@@ -9606,6 +9606,18 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Number_of_Children__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Children</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Newspaper__c</fullName>
         <externalId>false</externalId>
