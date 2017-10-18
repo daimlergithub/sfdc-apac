@@ -27,10 +27,18 @@ public class CaseHelperJPTest{
            //Create Account
            testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
            testAccount1.Complaint_Amount__c=100;
+           testAccount1.md__c='JP';
+           testAccount1.market__c='JP';
+           testAccount1.isTestRunning__c=true;
+           testAccount1.lastname='롱';
            update testAccount1;
            
            testAccount2 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
            testAccount2.Complaint_Amount__c=50;
+           testAccount1.market__c='JP';
+           testAccount2.md__c='JP';
+           testAccount2.isTestRunning__c=true;
+           testAccount2.lastname='롱';
            update testAccount2;
            
            system.debug('Account 1' +testAccount1);
@@ -76,14 +84,14 @@ public class CaseHelperJPTest{
         createCustomSetting();
         init();
         
-        Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
+        Account acc = [Select Id,market__c,Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account Before Insert:' +acc);
         
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, MD__c = 'JP');
         test.starttest();
         insert testCase1;
         test.stoptest();
-        acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
+        acc = [Select Id,market__c,Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account After Insert:' +acc);
         //system.assertEquals(2, acc.Complaint_Amount__c);
     }
@@ -113,7 +121,6 @@ public class CaseHelperJPTest{
         
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount2.Id, MD__c = 'JP');
         insert testCase1;
-        
         Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account Before Update :' +acc);
         
