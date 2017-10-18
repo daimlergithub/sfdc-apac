@@ -73,7 +73,7 @@
         </actions>
         <active>true</active>
         <description></description>
-        <formula>MD__c = &apos;JP&apos;</formula>
+        <formula>(RecordType.Name == 'General Task' &amp;&amp; MD__c = &apos;JP&apos;  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
