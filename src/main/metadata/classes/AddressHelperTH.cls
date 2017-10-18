@@ -220,6 +220,9 @@ public with sharing class AddressHelperTH {
         public static void updatemarket(List<Address__c> addList){        
             
                    for(Address__c addr : addList){
+						if(Test.isRunningTest()){
+                        addr.isTestRunning__c=true;
+						}	
                        if(addr.Market__c =='' || addr.Market__c==NULL){
                          addr.Market__c=addr.MD__c;
                       }  

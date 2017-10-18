@@ -3582,6 +3582,15 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>CV_No_Brand_Purchases__c</fullName>
         <externalId>false</externalId>
@@ -13792,7 +13801,7 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -13824,7 +13833,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
                 <fullName>NA</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -60184,7 +60193,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Account_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Account should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>

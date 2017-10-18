@@ -97,7 +97,9 @@ JIRA NO             :    SFDCJP-1026
           //if(mailSales.size()>0){
           //string[] toaddress = New String []{mailSales};
          
-          For(User u : [Select id From User Where Email =:mailSales ]){ 
+          //For(User u : [Select id From User Where Email =:mailSales ])
+          For(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:parDealer.Dealer__r.Id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
+          { 
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
          mail.saveAsActivity = false;
          mail.setTargetObjectId(u.Id);

@@ -804,15 +804,17 @@
         </div>
         </td>
         </tr>
+		<!-- Commented by Rakesh JP-945  Start-- >
+		<!--
         <tr>
-        <!----------- CURRENT VEHICLE2 SECTION -------->
+        <!----------- CURRENT VEHICLE2 SECTION --------<
         <td style="vertical-align: top;">
         {!$label.Vehicle_Picker_Current2}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle2Details"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'New' || c2_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle2')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle2Details != ''}}" ng-click="showList('CurrentVehicle2')" class="btn" value="{!$label.Lookup_Button}"/>
-        <!----------- CURRENT VEHICLE2 DETAILS SECTION -------->
+        <!----------- CURRENT VEHICLE2 DETAILS SECTION --------<
         <div ng-if="vehicleDetailCurrent2" style="background-color:#efefef;width:500px"> 
             <br/>
             <table>
@@ -839,7 +841,7 @@
             <input type="button" ng-click="cancelDetail('CurrentVehicle2')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
             <input type="button" ng-click="saveDetail('CurrentVehicle2',vehicleCurrent2DetailText)" class="btn" value="{!$label.Save_Button}"/> 
         </div>
-        <!----------- CURRENT VEHICLE2 LOOKUP SECTION -------->
+        <!----------- CURRENT VEHICLE2 LOOKUP SECTION --------<
         <div ng-if="LookupCurrentVehicle2" style="background-color:#efefef;width:500px">
             {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('CurrentVehicle2',vin_no)" class="btn" value="{!$label.Search}"></input>
             <table class="lookup" ng-table="lookuptable">
@@ -853,15 +855,16 @@
         </div>
         </td>
         </tr>
-        <tr>
-        <!----------- TRADE-IN SECTION -------->
+        
+		<tr>
+        <!----------- TRADE-IN SECTION --------<
         <td style="vertical-align: top;">{!$label.Vehicle_Picker_TradeIn}&nbsp;</td><td>
         <input type="text" ng-model="tradeInVehicleDetails"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetailText == 'Edit'}}" ng-click="showDetail('TradeIn',selectedTradeInBrand,selectedTradeInClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetailText == 'New' || TradeIn_RecType != 'Vehicle Product'}}" ng-click="showDetail('TradeIn',selectedTradeInBrand,selectedTradeInClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('TradeIn')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetails != ''}}" ng-click="showList('TradeIn')" class="btn" value="{!$label.Lookup_Button}"/>
-        <!----------- TRADE-IN DETAILS SECTION -------->
+        <!----------- TRADE-IN DETAILS SECTION --------<
         <div ng-if="vehicleDetailTradeIn" style="background-color:#efefef;width:500px"> 
             <br/>
             <table>
@@ -888,7 +891,7 @@
             <input type="button" ng-click="cancelDetail('TradeIn')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
             <input type="button" ng-click="saveDetail('TradeIn',tradeInVehicleDetailText)" class="btn" value="{!$label.Save_Button}"/> 
         </div>
-        <!----------- TRADE-IN LOOKUP SECTION -------->
+        <!----------- TRADE-IN LOOKUP SECTION --------<
         <div ng-if="TradeInLookup" style="background-color:#efefef;width:500px">
             {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('TradeIn',vin_no)" class="btn" value="{!$label.Search}"></input>
             <table class="lookup" ng-table="lookuptable">
@@ -902,15 +905,22 @@
         </div>
         </td>
         </tr>
+		-->
+		<!-- Commented by Rakesh JP-945  End-- >
         <tr>
         <!----------- PURCHASED VEHICLE SECTION -------->
         <td style="vertical-align: top;">{!$label.Vehicle_Picker_Purchased}&nbsp;</td><td>
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" /> 
-        &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
-        &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
-        &nbsp;<input type="button" ng-click="clearVehicle('Purchased')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetails != ''}}" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
-        <!----------- PURCHASED VEHICLE DETAILS SECTION -------->
+		</td>
+        <!-- Commented by Rakesh JP-945  Start-- >
+		<!--
+			&nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
+			&nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
+			&nbsp;<input type="button" ng-click="clearVehicle('Purchased')" class="btn" value="{!$label.Clear_Button}"/> 
+			&nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetails != ''}}" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
+		
+		
+        <!----------- PURCHASED VEHICLE DETAILS SECTION --------<
         <div ng-if="vehicleDetailPurchased" style="background-color:#efefef;width:500px"> 
             <br/>
             <table>
@@ -938,6 +948,8 @@
             <input type="button" ng-click="saveDetail('Purchased',purchasedVehicleDetailText)" class="btn" value="{!$label.Save_Button}"/> 
         </div>
         <!----------- PURCHASED VEHICLE LOOKUP SECTION -------->
+		<!-- Commented by Rakesh JP-945  End-- >
+		
         <div ng-if="PurchasedLookup" style="background-color:#efefef;width:500px">
             {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('Purchased',vin_no)" class="btn" value="{!$label.Search}"></input>
             <table class="lookup" ng-table="lookuptable">
@@ -949,9 +961,12 @@
             <input type="button" ng-click="cancelItem('Purchased')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
             <input type="button" ng-click="saveItem('Purchased')" class="btn" value="{!$label.Save_Button}"/>
         </div>
+		
         </td>
         </tr>
+		-->
         </table>
+		
     </div>
     
     <!-- For dynamic resizing see here: http://salesforce.stackexchange.com/questions/46200/dynamically-resize-visualforce-section-in-page-layout -->
