@@ -4217,6 +4217,28 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Consent_Form_Serial_No_for_CC_New__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No for CC New</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consent_Form_Serial_No_for_Marketing__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No for Marketing</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contact_Background__c</fullName>
         <description>/* 
 Created by: Tony Li 
