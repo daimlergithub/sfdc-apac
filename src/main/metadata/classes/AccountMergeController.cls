@@ -211,7 +211,7 @@ public with sharing class AccountMergeController{
             selectedSlaveAccount.Master_Account_Id__c=selectedMasterAccount.Id;
             //Commented as part of changes related to SFDCJP-3067
             //selectedMasterAccount.DUPNumber__c='';
-            selectedMasterAccount.Master_Record__c=false;
+            //selectedMasterAccount.Master_Record__c=false;
             
             try {
             insert duplicateLog; 
@@ -282,7 +282,7 @@ public with sharing class AccountMergeController{
             slave.OwnerId = usr.Id;       
             slave.Master_Account_Id__c = master.Id;
           //  master.DUPNumber__c='';
-            master.Master_Record__c=false;
+          //  master.Master_Record__c=false;
           }
             else if
             (slave.RecordType.developerName == 'Company' && master.RecordType.developerName == 'Company')                       
@@ -291,7 +291,7 @@ public with sharing class AccountMergeController{
              slave.OwnerId = usr.Id;       
              slave.Master_Account_Id__c = master.Id; 
             // master.DUPNumber__c='';
-             master.Master_Record__c=false;                
+           //  master.Master_Record__c=false;                
          }
         
         // Set SavePoint, if slave DML failed, master DML should be rollback .
