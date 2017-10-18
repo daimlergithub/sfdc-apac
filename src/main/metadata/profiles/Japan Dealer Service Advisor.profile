@@ -7921,7 +7921,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign_Lead__c.Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -24751,7 +24751,7 @@
         <layout>Campaign_City__c-Campaign City Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign_Lead__c-Campaign Lead Layout</layout>
+        <layout>Campaign_Lead__c-Campaign Lead Layout Dealer</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign_Member__c-Campaign Member Layout</layout>

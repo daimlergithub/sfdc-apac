@@ -49,6 +49,7 @@ Set<String> dealerCode = New Set<String>();
 Set<String> accountName = New Set<String>();
 List<Retail_Campaign__Share> RetailCampaignShare = New List<Retail_Campaign__Share>();
 List<User> UserList;
+Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
 For(Retail_Campaign__c RetMem : newList){
     If( RetMem.dealer_name__c == null){
      
@@ -67,7 +68,7 @@ UserMap.put(u.id,u.Dealer_GC_Code__c);
 dealerCode.add(u.Dealer_GC_Code__c);
 }   
 }
-List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode];
+List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
 For(Account acc :dealerAccList){
     accountName.add(acc.Name);
 }
@@ -285,14 +286,20 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
   }
   EmailTemplate templateId = [Select id from EmailTemplate where name = 'Dealer Campaign Notification'];
   //List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
-     List<Retail_Campaign__c> retList =[Select id,owner.id From Retail_Campaign__c Where Id =: retId];
+     List<Retail_Campaign__c> retList =[Select id,owner.id,Dealer_Name__c,Dealer_Name__r.id From Retail_Campaign__c Where Id =: retId];
   
   For(Retail_Campaign__c reCampaign : retList ){
          if(!Test.isRunningTest()){
           
+          if(reCampaign.Dealer_Name__c !=null)
+          {
+          for(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:reCampaign.Dealer_Name__r.id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
+          
+          {
+          
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
-        mail.setTargetObjectId(reCampaign.owner.Id);
+        mail.setTargetObjectId(u.Id);
         //mail.setToAddresses(toaddress);
         mail.setWhatId(reCampaign.Id);
         
@@ -304,7 +311,8 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                
                
             mails.add(mail);   
-
+         }
+         }
             }
             }
   Messaging.sendEmail(mails);
@@ -1347,7 +1355,7 @@ system.debug('++++++'+camUpdateList);
        
         For(Retail_Campaign__c RetMem : newList)
         {
-            
+          if(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c)) != null){  
             for(integer i=0 ; i < dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c)).size();i++)
             {
                 if(assgroupMap.get(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c))[i]) != null)
@@ -1361,7 +1369,7 @@ system.debug('++++++'+camUpdateList);
                     RetailCampaignShare.add(RetShare);
                 }
             }   
-    
+           }
         }
     
     If(RetailCampaignShare.size()>0)

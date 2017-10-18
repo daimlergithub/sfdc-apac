@@ -23,7 +23,9 @@ public class TriggerAccountLinkTriggerHandlerJP
             }
             if(Trigger.isBefore && Trigger.isUpdate)
             {
-                AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+                /* Data Migration Explicit Fix - Santosh Mohanty */
+	            AccountLinkHelper.updatemarket(Trigger.New);
+				AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
             }
             if(Trigger.isAfter && Trigger.isInsert)
             {

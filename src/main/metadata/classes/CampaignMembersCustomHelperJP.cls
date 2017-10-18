@@ -95,8 +95,8 @@ Set<Id> recordIds = New Set<id>();
 Map<Id,String> UserMap = New Map<Id,String>();
 Set<String> dealerCode = New Set<String>();
 Set<String> accountName = New Set<String>();
-List<Campaign_Member__Share> campMemShare = New List<Campaign_Member__Share>();
-
+set<Campaign_Member__Share> campMemShare = New set<Campaign_Member__Share>();
+Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
 For(Campaign_Member__c camMem : newList){
     If(CamMem.Retail_Campaign_Id__c != null && CamMem.MD__c == 'JP'){
      
@@ -114,7 +114,7 @@ dealerCode.add(u.Dealer_GC_Code__c);
 }   
 }
 if(dealerCode.size()>0 && dealerCode != null){
-List<Account> dealerAccList = [select Name,MD__c,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND MD__c ='JP'];
+List<Account> dealerAccList = [select Name,MD__c,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND MD__c ='JP' AND RecordtypeId=:da];
 For(Account acc :dealerAccList){
     accountName.add(acc.Name);
 }
@@ -139,7 +139,8 @@ if(recordIds.size()>0 && accountName != null){
 }
 }
 If(campMemShare.size()>0){
-insert campMemShare;
+list<Campaign_Member__Share> campMemShareList = new list<Campaign_Member__Share>(campMemShare);
+insert campMemShareList;
 }
 }
 

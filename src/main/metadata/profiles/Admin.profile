@@ -2382,6 +2382,21 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.ASLead_Notification_Timing__c</field>
@@ -2830,6 +2845,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Consent_Form_Serial_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Consent_Form_Serial_No_for_CC_New__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Consent_Form_Serial_No_for_Marketing__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
