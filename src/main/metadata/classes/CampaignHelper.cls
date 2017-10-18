@@ -97,7 +97,9 @@ JIRA NO             :    SFDCJP-1026
           //if(mailSales.size()>0){
           //string[] toaddress = New String []{mailSales};
          
-          For(User u : [Select id From User Where Email =:mailSales ]){ 
+          //For(User u : [Select id From User Where Email =:mailSales ])
+          For(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:parDealer.Dealer__r.Id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
+          { 
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
          mail.saveAsActivity = false;
          mail.setTargetObjectId(u.Id);
@@ -952,6 +954,38 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
         }
         if(campaignIds!=null && !campaignIds.isEmpty())
             copyTopCampaignStatusValueToSavedCampaign(campaignIds);
+    }
+	
+	/**
+  *@Description : Avoiding Duplication of Campaign Members 
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. 
+  *@return:This mehtod does not return any value.
+  */
+    public static void blankUpdateCM(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
+    {
+        
+       Set<Id> Campid=new Set<Id>();
+       List<Campaign_Member__c> campmemlist =new List<Campaign_Member__c>();
+        system.debug('###Update is called');
+        for(Campaign campp: campaignNew)
+        { 
+           
+          if(campp.MD__c == 'JP' && campp.Segmentation_Base__c != campaignOldMap.get(campp.Id).Segmentation_Base__c)
+           {
+             Campid.add(campp.id);
+             system.debug('campp####'+Campid);
+           }
+        }
+        
+         campmemlist = [Select id,Campaign_ID__c from Campaign_Member__c where Campaign_ID__c = :Campid];
+         try{
+         update campmemlist;
+         }catch(Exception Ex){
+             System.debug('Duplicate Campaign Error Exception Message'+Ex.getMessage());
+         }
+        
+
     }
     
  /**

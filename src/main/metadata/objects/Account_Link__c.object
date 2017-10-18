@@ -413,7 +413,7 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
-IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -441,11 +441,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
                 <fullName>CN</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>NA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -511,6 +507,15 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Abroad Agreement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>istestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>istestRunning</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -4553,8 +4558,16 @@ Holds National ID or Passport No. of wholesale Account</description>
         </picklistValues>
         <picklistValues>
             <picklist>Role2__c</picklist>
+			<values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Boyfriend</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4613,6 +4626,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>Relative</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Son</fullName>
                 <default>false</default>
@@ -4624,6 +4641,10 @@ Holds National ID or Passport No. of wholesale Account</description>
         </picklistValues>
         <picklistValues>
             <picklist>Role__c</picklist>
+			<values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
@@ -4674,6 +4695,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7161,7 +7186,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>AccountLink_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of AccountLink should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI',NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>

@@ -641,6 +641,13 @@
         <value>you do not have the proper authorization</value>
     </labels>
     <labels>
+        <fullName>Auto_fill</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Auto fill</shortDescription>
+        <value>Auto fill</value>
+    </labels>
+    <labels>
         <fullName>AutolineCreate_Retail_Copy</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1753,6 +1760,13 @@
         <protected>false</protected>
         <shortDescription>Close</shortDescription>
         <value>Close</value>
+    </labels>
+		    <labels>
+        <fullName>Close2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close2</shortDescription>
+        <value>Close2</value>
     </labels>
     <labels>
         <fullName>CloseMym</fullName>
@@ -6681,6 +6695,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>S5 A3.4 I don’t know (yet)</shortDescription>
         <value>I don’t know (yet)</value>
+    </labels>
+		    <labels>
+        <fullName>Select_All_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All Records</shortDescription>
+        <value>Select All Records</value>
     </labels>
     <labels>
         <fullName>S5_A3_4_I_will_primarily_use_the_car_for_business</fullName>

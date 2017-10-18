@@ -870,8 +870,11 @@ It would be replaced by Informatica/Middleware  */
     public static void updatemarket(List<Account> accList){        
         
                for(Account acc : accList){
-                   if(Acc.Market__c =='' || Acc.Market__c==NULL){
-                     Acc.Market__c=Acc.MD__c;
+					if(Test.isRunningTest()){
+                        acc.isTestRunning__c=true;
+                    }
+                   if(acc.Market__c =='' || acc.Market__c==NULL){
+                     acc.Market__c=acc.MD__c;
                   }  
               }       
     }

@@ -8,6 +8,8 @@
             </apex:pageblockButtons>
             
             <apex:pageblockSection id="pbs1id" title="{!$Label.MBF_General_Information_Section}">
+			    <apex:inputField value="{!Case.Subject}"/>
+                <apex:inputField value="{!Case.Status}"/> 
                 <apex:inputField value="{!Case.Accountid}"/>
 				<apex:inputField value="{!Case.Ownerid}"/>
 				<apex:inputField value="{!Case.Retail_Task__c}">
