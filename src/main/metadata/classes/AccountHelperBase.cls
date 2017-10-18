@@ -62,7 +62,7 @@ public class AccountHelperBase{
         }
     }
 
-    //Added by dhanamjaya to validate the National Id before Update
+    
     public static void ValidateNationalid(List<account> ListAccount){
         for(Account acc:ListAccount){
             if(acc.ID_Type__c=='National ID'){
@@ -97,8 +97,7 @@ public class AccountHelperBase{
     */
     public static void updateOnDoNotCall(list<Account> listNewAccounts,string Market){        
         for(Account acc : listNewAccounts){
-            //MT20170913- Added market Descrminator MY
-            if(acc.MD__c == Market){
+           
                 if(acc.PersonDoNotCall){
                     if(acc.Opt_In_Home_Phone__c){ 
                         acc.Opt_In_Home_Phone__c = FALSE;
@@ -119,7 +118,7 @@ public class AccountHelperBase{
                         acc.Preferred_Mobile_2__c = FALSE;
                     }
                 }
-            } 
+             
         }
     }
 
@@ -138,16 +137,14 @@ public class AccountHelperBase{
         }
         addressList =[select id,Opt_In_Hardcopy__c from Address__c where id=:Addd];
         for(Account acc: listNewAccounts){
-            //MT20170913- Added market Descrminator MY
+           
             for(Address__c add: addressList)    
-                if(acc.MD__c == Market){
-                    if(acc.Postal_Opt_Out__c){
+               if(acc.Postal_Opt_Out__c){
                         if(add.Opt_In_Hardcopy__c== true){ 
                             add.Opt_In_Hardcopy__c = false;
                             addressupdatelst.add(add);
                         }
                     } 
-                } 
             }
             DMLManagerService.updateAsSystem(addressupdatelst);
 
@@ -158,8 +155,7 @@ public class AccountHelperBase{
     */
     public static void updateOnEmailOptout(list<Account> listNewAccounts,string Market){        
         for(Account acc: listNewAccounts){
-            //MT20170913- Added market Descrminator MY
-            if(acc.MD__c == Market){
+            
                 if(acc.PersonHasOptedOutOfEmail){
                     if(acc.Opt_In_Email__c){ 
                         acc.Opt_In_Email__c = FALSE;
@@ -171,7 +167,6 @@ public class AccountHelperBase{
                         acc.Opt_In_Email3__c = FALSE;
                     }
                 }
-            }
         }
     }
 
@@ -181,12 +176,10 @@ public class AccountHelperBase{
     public static void updateAgeRange(list<Account> listNewAccounts,string Market){
         for(Account acc:  listNewAccounts){
             if(acc.PersonBirthdate != NULL){
-                //MT20170913- Added market Descrminator MY
-                if(acc.MD__c == Market){
+              
                     Integer ageInt = (Integer.valueOf(System.today().year())-Integer.valueof(acc.PersonBirthdate.year()) );
                     acc.Age_Range__c = AccountHelperBase.calculateAgeRange(ageInt); 
                 }
-            }
         }
     }
 
@@ -287,16 +280,14 @@ public class AccountHelperBase{
             set<id> addressid = new set<id>();                  
             String province;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            For(Account a:listNewAccounts){
-                if(a.MD__c == Label.TH || a.MD__c == Label.MY){                    
-                    addressid.add(a.Primary_Address_Reference__c);
-                }
+            For(Account a:listNewAccounts){                        
+                   if(string.isnotblank(a.Primary_Address_Reference__c)) addressid.add(a.Primary_Address_Reference__c);
             }
             If(!addressid.isEmpty()){   
                 addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
             }
             For(Account acc:listNewAccounts){     
-                if( acc.MD__c == Market){   
+               
                     If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null){              
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
                         if(addtrmap1.containsKey(add.Province__c)){
@@ -308,7 +299,7 @@ public class AccountHelperBase{
                     else if(acc.Primary_Address_Reference__c ==Null){
                         acc.Primary_Address_Display__c ='';
                     }
-                }
+               
             }     
         }    
     } 
@@ -483,7 +474,7 @@ public class AccountHelperBase{
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
         for(Account acc : accLst){
-            if(isUpdate && acc.MD__c == Market){ //Checking Market for updated account
+            if(isUpdate){ //Checking Market for updated account
                 AccountIds.add(acc.id); //Adding accountId's to set        
             }
         }
@@ -512,7 +503,6 @@ public class AccountHelperBase{
                 acclnk.Retail_Agreement_Info_Processing__c=acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
-                //acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
                 acclnk.Retail_Full_Name__c = ((acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(25); 
                 acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(140);
                 acclnk.Retail_LastName_Native__c = acclnk.toRole__r.LastName_Native_1__c;
@@ -528,7 +518,6 @@ public class AccountHelperBase{
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
                 acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;                
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
-                //acclnk.Position__c= acclnk.toRole__r.Position__c;
                 acclnk.Retail_List_of_Events__c= acclnk.toRole__r.MBTH_Mercede__c;
                 acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
@@ -646,7 +635,7 @@ public class AccountHelperBase{
     }
 
     /*
-    SN20170929- Added code for create and update of data for ucid.
+    Added code for create and update of data for ucid.
     */
 
     public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist){
@@ -659,5 +648,18 @@ public class AccountHelperBase{
         }Catch(exception e){
             CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
         }
+    }
+	
+	 /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Account> addList){        
+            
+                   for(Account addr : addList){
+						if(Test.isRunningTest()){
+							addr.isTestRunning__c=true;
+						}
+                       if(string.isnotblank(addr.market__c)){
+                         addr.Market__c=addr.MD__c;
+                      }  
+                  }       
     }
 }
