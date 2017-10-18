@@ -21,7 +21,7 @@ public  class RetailCampaignHelper
     public static string  RetailSmartBestPractice = 'Retail smart Best Practice';
     public static string parentCampaign ='Parent_Campaign__c';
     public static string expr0 = 'expr0';
-    
+    public static Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
     public static void updateParentCampaignStatus(Set<Id> campaignIds)
     {
         List<Campaign> ParentCampaigns = new List<Campaign>();
@@ -49,7 +49,7 @@ Set<String> dealerCode = New Set<String>();
 Set<String> accountName = New Set<String>();
 List<Retail_Campaign__Share> RetailCampaignShare = New List<Retail_Campaign__Share>();
 List<User> UserList;
-Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
+
 For(Retail_Campaign__c RetMem : newList){
     If( RetMem.dealer_name__c == null){
      
@@ -969,8 +969,8 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
             }
         }
     }
-	
-	/**
+    
+    /**
   *@Description : Avoiding Duplication of Campaign Members 
   *@Date : 3/11/2015
   *@param:List of campaign.New. 
@@ -1330,7 +1330,7 @@ system.debug('++++++'+camUpdateList);
 
     if(ownerIds != null)
     {
-        List<Account> accountList =[select id,Dealer_GC_Code__c From Account Where Id =: ownerIds];
+        List<Account> accountList =[select id,Dealer_GC_Code__c From Account Where Id =: ownerIds AND RecordtypeId=:da];
     
     if(accountList.size()>0){
         For(Account u : accountList)
@@ -1344,7 +1344,7 @@ system.debug('++++++'+camUpdateList);
     }
     if(dealerCode != null)
     {
-     dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode];
+     dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
     }
       if(dealerAccList!=null)
         {

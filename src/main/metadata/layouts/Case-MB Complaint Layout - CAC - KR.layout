@@ -3,7 +3,6 @@
     <customButtons>Repeated_Complaint</customButtons>
     <customButtons>New_Sales_Lead_Wholesale</customButtons>
     <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
-    <customButtons>Escalation</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>CloseCase</excludeButtons>
     <excludeButtons>Share</excludeButtons>
