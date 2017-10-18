@@ -21888,7 +21888,12 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 
-
+if('{!User.Market__c}' != 'JP')
+{
+   alert("{!$Label.Check_DuplicatesErrorMsg}");
+}
+else
+{
 var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
 records = ReferraAccepted.getArray("records"); 
 if(records != ''){
@@ -21903,8 +21908,10 @@ if(records != ''){
 		window.open("{!URLFOR($Site.Prefix)}/apex/ChangeContactTarget?Id={!Vehicle__c.Id}",target = "_self");
 	}
 }
-else
-alert("{!$Label.ChangeContacttarget}");</url>
+else{
+alert("{!$Label.ChangeContacttarget}");
+}
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
@@ -21916,18 +21923,35 @@ alert("{!$Label.ChangeContacttarget}");</url>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-
-window.open('{!URLFOR($Site.Prefix)}/apex/SendVehicleInfoMyMercedes?id={!Vehicle__c.Id}');</url>
+if('{!User.Market__c}' != 'JP')
+{
+   alert("{!$Label.Check_DuplicatesErrorMsg}");
+}
+else
+{
+window.open('{!URLFOR($Site.Prefix)}/apex/SendVehicleInfoMyMercedes?id={!Vehicle__c.Id}');
+}</url>
     </webLinks>
 	<webLinks>
         <fullName>EditVehicle</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Edit Vehicle</masterLabel>
-        <openType>replace</openType>
-        <page>Edit_Vehicle</page>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+
+if('{!User.Market__c}' != 'JP')
+{
+   alert("{!$Label.Check_DuplicatesErrorMsg}");
+}
+else
+{
+window.open("{!URLFOR($Site.Prefix)}/apex/Edit_Vehicle?id={!Vehicle__c.Id}");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
@@ -21940,6 +21964,12 @@ window.open('{!URLFOR($Site.Prefix)}/apex/SendVehicleInfoMyMercedes?id={!Vehicle
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 
+if('{!User.Market__c}' != 'JP')
+{
+   alert("{!$Label.Check_DuplicatesErrorMsg}");
+}
+else
+{
 var qre = sforce.connection.query("SELECT Id,Car_Relation__c,Portal_Apply_Status__c,Contact__c,Source_Lead__c,Source_Lead__r.Lead_Sub_Type__c FROM Vehicle_Relationship__c WHERE (Portal_Apply_Status__c=null AND End_Date__c=null AND (Car_Relation__c='Purchaser' AND Contact__c!=null)) AND Source_Lead__r.Lead_Sub_Type__c=null AND Vehicle_ID__c='{!Vehicle__c.Id}'");
 
 var qrerecords = qre.getArray("records");
@@ -21963,6 +21993,7 @@ window.open("{!URLFOR($Site.Prefix)}/apex/SendVehicleInformationtoSPOJP?Id={!Veh
 else {
 alert('{!$Label.Send_to_spo_translate}');
 }
+}
 }</url>
     </webLinks> 
 	 <webLinks>
@@ -21976,7 +22007,12 @@ alert('{!$Label.Send_to_spo_translate}');
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 
-
+if('{!User.Market__c}' != 'JP')
+{
+   alert("{!$Label.Check_DuplicatesErrorMsg}");
+}
+else
+{
 var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
 records = ReferraAccepted.getArray("records");
 if(records != ''){
@@ -21992,8 +22028,10 @@ if(records != ''){
 			window.open("{!URLFOR($Site.Prefix)}/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}",target = "_self");
 		}
 }
-else
-alert("{!$Label.ChangeContacttarget}");</url>
+else{
+alert("{!$Label.ChangeContacttarget}");
+}
+}</url>
     </webLinks>
 	
 </CustomObject>
