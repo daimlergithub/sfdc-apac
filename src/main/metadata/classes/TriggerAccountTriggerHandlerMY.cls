@@ -29,11 +29,12 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
 
         if(isBefore && isInsert){
             AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+			AccountHelperBase.updatemarket(Trigger.New);
         }
             
         if(isBefore && isUpdate){
             /* Data Update MD Fix - Santosh Mohanty*/
-            AccountHelperTH.updatemarket(Trigger.New);
+            AccountHelperBase.updatemarket(Trigger.New);
             //AccountHelperTH.ValidateNationalid(Trigger.new);
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);

@@ -191,14 +191,6 @@ public class LeadMergeController{
                wraps.add(wrap);
                 continue;
            }
-           else if (masterFieldValue != null &&  slaveFieldValue == null)
-            {
-               wrap.isSame = false;
-               wrap.isMasterChecked = true;
-               wrap.isSlaveChecked = false;
-               wraps.add(wrap);
-                continue;
-           }
            else if (masterFieldValue == null &&  slaveFieldValue == null)
             {
                wrap.isSame = true;
