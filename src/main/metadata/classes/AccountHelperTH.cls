@@ -873,8 +873,8 @@ It would be replaced by Informatica/Middleware  */
 					if(Test.isRunningTest()){
                         acc.isTestRunning__c=true;
                     }
-                   if(Acc.Market__c =='' || Acc.Market__c==NULL){
-                     Acc.Market__c=Acc.MD__c;
+                   if(acc.Market__c =='' || acc.Market__c==NULL){
+                     acc.Market__c=acc.MD__c;
                   }  
               }       
     }
