@@ -1567,4 +1567,16 @@ public class AccountLinkHelper
         }
      }
     }
+	/* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Account_link__c> accLinkList){        
+        
+               for(Account_link__c accLinkRec : accLinkList){
+                   if(Test.isRunningTest()){
+                      accLinkRec.isTestRunning__c=true;
+                    }
+                   if(accLinkRec.Market__c =='' || accLinkRec.Market__c==NULL){
+                     accLinkRec.Market__c=accLinkRec.MD__c;
+                  }  
+              }       
+    }
 }
