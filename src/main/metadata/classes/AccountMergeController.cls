@@ -209,7 +209,8 @@ public with sharing class AccountMergeController{
             selectedSlaveAccount.DUPNumber__c='';
             selectedSlaveAccount.Dup_Reason__c ='';
             selectedSlaveAccount.Master_Account_Id__c=selectedMasterAccount.Id;
-            selectedMasterAccount.DUPNumber__c='';
+			//Commented as part of changes related to SFDCJP-3067
+            //selectedMasterAccount.DUPNumber__c='';
             selectedMasterAccount.Master_Record__c=false;
             
             try {
