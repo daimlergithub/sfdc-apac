@@ -5322,10 +5322,6 @@
         <name>Retail_Campaign_Id</name>
     </customLabels>
 	<customLabels>
-        <label>キャンペーン名</label>
-        <name>Campaign_Id</name>
-    </customLabels>
-	<customLabels>
         <label>顧客名</label>
         <name>Contact_Id</name>
     </customLabels>
