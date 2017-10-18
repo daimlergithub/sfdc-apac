@@ -285,14 +285,20 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
   }
   EmailTemplate templateId = [Select id from EmailTemplate where name = 'Dealer Campaign Notification'];
   //List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
-     List<Retail_Campaign__c> retList =[Select id,owner.id From Retail_Campaign__c Where Id =: retId];
+     List<Retail_Campaign__c> retList =[Select id,owner.id,Dealer_Name__c,Dealer_Name__r.id From Retail_Campaign__c Where Id =: retId];
   
   For(Retail_Campaign__c reCampaign : retList ){
          if(!Test.isRunningTest()){
           
+          if(reCampaign.Dealer_Name__c !=null)
+          {
+          for(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:reCampaign.Dealer_Name__r.id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
+          
+          {
+          
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
-        mail.setTargetObjectId(reCampaign.owner.Id);
+        mail.setTargetObjectId(u.Id);
         //mail.setToAddresses(toaddress);
         mail.setWhatId(reCampaign.Id);
         
@@ -304,7 +310,8 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                
                
             mails.add(mail);   
-
+         }
+         }
             }
             }
   Messaging.sendEmail(mails);
