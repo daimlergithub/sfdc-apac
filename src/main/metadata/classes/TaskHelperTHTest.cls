@@ -74,7 +74,7 @@ public class TaskHelperTHTest {
         insert userTask;
         System.runas(userTask){
     createTestData();
-    taskObj=createTask('Fail-Blacklist');
+    taskObj=createTask('Open');
     Test.startTest(); 
         //8april
         taskObj.recordtypeId = schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();                            
@@ -89,7 +89,7 @@ public class TaskHelperTHTest {
         TaskHelperTH.updateAccountMobile(tasks);
         Test.stopTest();
         list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:taskObj.WhoId limit 1];
-        system.assertEquals(true,lst[0].Is_Blacklist__c);
+        system.assertEquals(false,lst[0].Is_Blacklist__c);
     }    
     }
     
@@ -103,7 +103,7 @@ public class TaskHelperTHTest {
     taskObj=createTask('Sent');
     Test.startTest();                                    
         insert taskObj;
-        Task taskObj2=createTask('Fail-Blacklist');
+        Task taskObj2=createTask('Open');
         insert taskObj2;
         
         List<Task> tasks = new List<Task>();
@@ -113,7 +113,7 @@ public class TaskHelperTHTest {
         TaskHelperTH.TaskFailBlacklist(tasks, taskMap, true, false);
         Test.stopTest();
         list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:taskObj2.WhoId limit 1];
-        system.assertEquals(true,lst[0].Is_Blacklist__c); 
+        system.assertEquals(false,lst[0].Is_Blacklist__c); 
      }   
     }
     
@@ -171,7 +171,7 @@ public class TaskHelperTHTest {
         
         personAccount = new Account(LastName='TEST ACC',
                                     FirstName = 'FirstName',
-                                    Salutation = Unknown,
+                                    Salutation = 'Unknown',
                                       Type='Company',
                                       Status__c='VIP',
                                       Province__c='Shanghai',
@@ -182,6 +182,20 @@ public class TaskHelperTHTest {
                                       RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '0987655413'
                                      ); 
         personAccount.Is_Blacklist__c = false;
+        CDM_EP_Switch__c csm= new CDM_EP_Switch__c();
+            csm.Name='Switch';
+            csm.EP__c=true;
+            csm.CDM__c=true;
+            insert csm;
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+         cs.DEFAULT_CALLOUT_TIME__c='1000';
+         cs.MAX_CALLOUT_TIME__c='5000';
+         cs.Name='CalloutValues';
+         insert cs;
+    SystemSettingsDFW__c ss=new SystemSettingsDFW__c();
+          ss.Log_Purge__c=10;
+             insert ss;
+         
         insert(personAccount);    
         testPersonAccount = [Select Id,RecordTypeId, PersonContactId From Account Where Id = :personAccount.Id]; 
       cmpAs = new Campaign();
