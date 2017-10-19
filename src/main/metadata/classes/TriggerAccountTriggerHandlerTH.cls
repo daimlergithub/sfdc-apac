@@ -59,12 +59,12 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
         {
-            if(switchto.EP__c==true){
+            if(switchto!=null&&switchto.EP__c==true){
             serializedObject=json.serialize(ListAccNew);
             AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);}
-            if(switchto.CDM__c==true){
+            if(switchto!=null && switchto.CDM__c==true){
                 set<ID> accids=new set<ID>();
                 List<Account>acc=[Select Id from Account where id IN:trigger.new];
                 for(Account accrec:acc){
@@ -76,12 +76,12 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-            if(switchto.EP__c==true){
+            if(switchto!=null && switchto.EP__c==true){
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperTH.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
             AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);}
-            if(switchto.CDM__c==true){
+            if(switchto!=null && switchto.CDM__c==true){
             Set<ID> accids=new Set<ID>();
             List<Account>acc=[Select Id from Account where id IN:trigger.new];
             for(Account accrec:acc){
@@ -97,7 +97,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         
         if(isAfter && isDelete && !System.isFuture())
         {
-            if(switchto.EP__c==true){
+            if(switchto!=null && switchto.EP__c==true){
             serializedObject=json.serialize(ListAccOld);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperTH.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);}

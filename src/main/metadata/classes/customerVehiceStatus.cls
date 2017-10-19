@@ -16,13 +16,32 @@ global without sharing class customerVehiceStatus {
         String Email=(String)obj.get('Email');
         String Mobile=(String)obj.get('Mobile');
         String RegistrationNumber=(String)obj.get('RegistrationNumber');
+        String name='';
+        if(LastName!='' && !String.isBlank(LastName) && LastName!=' ' && lastname!=null){
+            if(Pattern.matches('.*[A-Za-z]{1,}.*', lastname)){
+                name+=lastname;
+            }
+            else{
+                name+=lastname;
+            }            
+        }
+        if(FirstName!='' && !String.isBlank(FirstName) && FirstName!=' ' && FirstName!=null){
+            if(Pattern.matches('.*[A-Za-z]{1,}.*', FirstName)){
+               name+=name!='' ? (' '+FirstName) :(FirstName);
+            }
+            else{
+                name+=FirstName;
+            }
+        }
+        system.debug(name);
+        //changes for Frst & lastname
         List<Account> acc= new List<Account>();
         List<Vehicle__c> vehicle=new List<Vehicle__c>();
-        if((mobile==null || mobile=='' || String.isBlank(mobile)) && Email !=null && Email !='' && !String.isBlank(Email) ){
-            acc=[select id,Ucid__c,email__c from Account where LastName LIKE :('%' + LastName + '%') and (FirstName LIKE :('%' + FirstName + '%') or FirstName=null)  and Email__c=:Email and Recordtype.name='Person Account' and Md__c='KR' Order By LastModifiedDate DESC NULLS LAST];
+        if((mobile==null || mobile=='' || String.isBlank(mobile)) && Email !=null && Email !='' && !String.isBlank(Email) && name!=''){
+            acc=[select id,Ucid__c,email__c from Account where (LastName LIKE :('%' + name + '%') or FirstName LIKE :('%' + name + '%'))  and Email__c=:Email and Recordtype.name='Person Account' and Md__c='KR' Order By LastModifiedDate DESC NULLS LAST];
         }
-        else if(mobile !=null && mobile !='' && !String.isBlank(mobile)){
-            acc=[select id,Ucid__c,email__c from Account where LastName LIKE :('%' + LastName + '%') and (FirstName LIKE :('%' + FirstName + '%') or FirstName=null)  and Mobile__c=:Mobile and Recordtype.name='Person Account' and Md__c='KR' Order By LastModifiedDate DESC NULLS LAST];
+        else if(mobile !=null && mobile !='' && !String.isBlank(mobile) && name!=''){
+            acc=[select id,Ucid__c,email__c from Account where (LastName LIKE :('%' + name + '%') or FirstName LIKE :('%' + name + '%'))  and Mobile__c=:Mobile and Recordtype.name='Person Account' and Md__c='KR' Order By LastModifiedDate DESC NULLS LAST];
         }
         if(acc.size()>0){
         response.put('UCID', acc[0].Ucid__c);
@@ -49,11 +68,10 @@ global without sharing class customerVehiceStatus {
         }
         response.put('VehicleExists', 'True');
         response.put('VehicleId', vehicle[0].id);
-        if(response.get('UCID')=='Nil' && ((LastName !=null && LastName !='' && !String.isBlank(LastName)) ||
-                                         (FirstName !=null && FirstName !='' && !String.isBlank(FirstName)))){
+        if(response.get('UCID')=='Nil' && name!=''){
             List<Vehicle_Relationship__c> vr=new List<Vehicle_Relationship__c>();
             vr=[select id,Vehicle_ID__c,Contact__r.UCID__c from Vehicle_Relationship__c where Vehicle_ID__c=:vehicle[0].id and
-                Contact__r.LastName LIKE :('%' + LastName + '%') and Contact__r.FirstName LIKE :('%' + FirstName + '%') and Contact__r.Recordtype.name='Person Account' and Md__c='KR'  Order By LastModifiedDate DESC NULLS LAST];
+                (Contact__r.LastName LIKE :('%' + name + '%') or Contact__r.FirstName LIKE :('%' + name + '%')) and Contact__r.Recordtype.name='Person Account' and Md__c='KR'  Order By LastModifiedDate DESC NULLS LAST];
             if(vr.size()>0){
                 response.put('UCID', vr[0].Contact__r.UCID__c);
                 acc=[select id,Ucid__c,email__c from Account where Ucid__c=:vr[0].Contact__r.UCID__c];                            
