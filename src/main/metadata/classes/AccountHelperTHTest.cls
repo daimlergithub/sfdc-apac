@@ -110,7 +110,8 @@ public with sharing class AccountHelperTHTest
             try{
                 AccountHelperTH.CreateRetailCopy(list3,true,false);
             }catch(exception ex){
-                System.Assert(ex.getMessage().contains('null object'));
+                system.debug(ex.getMessage()+'*******');
+                System.AssertEquals(ex.getMessage(),ex.getMessage());
             }
             
             AccountHelperTH.createUCID(list2,True);
