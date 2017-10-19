@@ -2,8 +2,8 @@
 public class customerVehicleStatusTest {
     public Static void createTestRecord(){
         Account acc =new Account();
-        acc.lastname='Nimmana';
-        acc.Firstname='Narendra';
+        acc.lastname='Narendra Nimmana';
+        acc.Firstname='';
         acc.MBK_Data_Source__c='MB website';
         acc.mobile__c='010-1456-2156';
         insert acc;
@@ -58,7 +58,7 @@ public class customerVehicleStatusTest {
         request.httpMethod = 'POST';
         request.addHeader('Content-Type', 'application/json');
         
-        request.requestBody = Blob.valueOf('{"data":{"FirstName" : "NArendra","LastName" : "Nimmana","Email" : "nari.nimm","Mobile" : "010-1456-2156","RegistrationNumber" : "64864"}}');
+        request.requestBody = Blob.valueOf('{"data":{"FirstName" : "Nimmana","LastName" : "NArendra","Email" : "nari.nimm","Mobile" : "010-1456-2156","RegistrationNumber" : "64864"}}');
         RestContext.request = request;
         customerVehiceStatus.findUCID();
         Map<String,String> res1 = customerVehiceStatus.findUCID();
@@ -80,7 +80,7 @@ public class customerVehicleStatusTest {
         Map<String,String> res3 = customerVehiceStatus.findUCID();
         System.assertEquals(res3.get('VehicleRelationship') , 'Owner');
         
-        request.requestBody = Blob.valueOf('{"data":{"FirstName" : "dfg","LastName" : "dgdf","Email" : "nari.nimm","Mobile" : "","RegistrationNumber" : "3542"}}');
+        request.requestBody = Blob.valueOf('{"data":{"FirstName" : "민철","LastName" : "이","Email" : "nari.nimm","Mobile" : "","RegistrationNumber" : "3542"}}');
         RestContext.request = request;
         customerVehiceStatus.findUCID();
         Map<String,String> res4 = customerVehiceStatus.findUCID();
