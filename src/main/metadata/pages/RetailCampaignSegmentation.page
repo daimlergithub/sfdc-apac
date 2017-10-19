@@ -1126,7 +1126,8 @@
             <apex:outputPanel layout="block" id="searchingResult">
                 <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign,saveCriteria" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
-                    <apex:commandButton value="{!$Label.Select_All_Records}" action="{!selectall}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="selectall"/>                  
+					<!-- commented as per Ogi request -->
+                 <!--   <apex:commandButton value="{!$Label.Select_All_Records}" action="{!selectall}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="selectall"/>  -->                
                 <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="addToCampaign"/>
                 <apex:actionStatus id="loadingStatus">
                     <apex:facet name="start">
