@@ -278,7 +278,9 @@ public class AddressDisplayInlineEditControllerTest
         //objAccount.Mobile__c = '999999999';
         
         
-        insert objAccount;
+        system.runas(sysAdminUser1){
+           insert objAccount;
+        }
         
         
         objAddress= new Address__c();
@@ -296,15 +298,18 @@ public class AddressDisplayInlineEditControllerTest
         objAddress.District__c = 'Test District';
         objAddress.Language__c = 'English';
         objAddress.Sub_District__c = 'Test Sub District';
-    insert objAddress;
+        system.runas(sysAdminUser1){
+          insert objAddress;
+         }
         
         system.debug('objAddress>>>>>'+objAddress.Id);
         
-       editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+       editadds = [Select id,Name,market__c,md__c,isTestrunning__c,Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
                   Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Id =:objAddress.Id];
         system.debug('editadds>>>'+editadds);
         editadds[0].Preferred__c=false;
         editadds[0].Province__c='NSW';
+        editadds[0].isTestrunning__c=true;
         //editadds[0].Address_Type__c ='Company';        
         update editadds;
         

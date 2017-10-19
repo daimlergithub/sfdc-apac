@@ -154,6 +154,8 @@ public class CaseHelperJPTest{
         //system.assertEquals(todayDate,cs.DeadLine__c);
         
         List<Case> insertedCases = [Select DeadLine__c from Case Where DeadLine__c != null AND Id =: testCase1.Id];
+        CaseHelperJP ch=new CaseHelperJP();
+        ch.updateCaseDeadline(insertedCases);
         system.debug('Inserted Cases..' +insertedCases);
         for(Case c : insertedCases){
             system.assertEquals(c.DeadLine__c, deadLineDate);
@@ -270,7 +272,7 @@ system.assertEquals('Magazine','Magazine');
 
         insert testCase2;
         listcampaigns.add(testCase2);
-        Case listCampaign =[select Case_Class__c ,RecordTypeId ,Status,Priority,Case_Dealer__c from Case where id IN:listcampaigns ];
+        Case listCampaign =[select OwnerId,Case_Class__c ,RecordTypeId ,Status,Priority,Case_Dealer__c from Case where id IN:listcampaigns ];
          list<Case> oldList = new  list<Case>();
          oldList.add(listCampaign);
         map<id,Case> oldMap = new map<id,Case>();
@@ -279,7 +281,7 @@ system.assertEquals('Magazine','Magazine');
         testCase2.Status='New';
         update testCase2;
         string isInsert;
-     
+        isInsert ='isUpdate';
 
          CaseHelperJP ch=new CaseHelperJP();    
          ch.updateGateKeaperforApprovedProcess(listcampaigns,oldMap,isInsert);
@@ -310,7 +312,7 @@ system.assertEquals('Magazine','Magazine');
         );
         insert contact;
         
-        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others',Dealer_Contact__c='Yes',RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
         
         insert testCase1;
         testCase1.Case_Dealer__c= dealer1.Id;
@@ -355,7 +357,7 @@ system.assertEquals('Magazine','Magazine');
         );
         insert contact;
         
-        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others',RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
         
         insert testCase1;
         
@@ -363,7 +365,7 @@ system.assertEquals('Magazine','Magazine');
         
       
         
-       Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Accountid= testAccount1.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+       Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others',RecordTypeId = caseInquiryRec_Id, Accountid= testAccount1.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
 
 
         insert testCase2;
