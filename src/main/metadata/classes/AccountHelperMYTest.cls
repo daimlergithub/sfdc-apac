@@ -67,8 +67,8 @@ public class AccountHelperMYTest {
 * calculateAgeRange*/
     
     static testMethod void testAccAssignment1_1() {
-        
-        User user2 = TestUtils.createAfterSalesManagerMY();
+		
+       User user2 = TestUtils.createAfterSalesManagerMY();
         Account acc1;Account acc2;
         contact con ;
         Address__c address;
@@ -101,10 +101,11 @@ public class AccountHelperMYTest {
             try{
                 AccountHelperMY.CreateRetailCopy(list3,true,false);
             }catch(Exception e){}
-            
+           
             AccountHelperMY.createUCID(list2,True);
+           
             AccountHelperMY.updateRetailCopy(True,True,True,list2);
-            AccountHelperMY.entityNotifyUpdate('Account',acc1.id,'TH','Account');
+           
             test.stopTest();
         }
     }
@@ -127,54 +128,54 @@ public class AccountHelperMYTest {
             test.stopTest();
         }
     }
-// Method to test phoneNumber format issue 
-/* Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */  
-  /*  static testMethod void checkWhetherPhoneNumberIsUpdatedOrNot(){    
-        User user4 = TestUtils.IntegrationAPIUser();       
-        System.runAs (user4) {
-            test.starttest();
-            Account acc = TestUtils.createPersonAccountAsUserAsOwner(user4);
-            
-            acc.Mobile__c='0987654532';
-            acc.Work_Phone__c='098576434';
-            acc.Individual_Home_Phone__c='078648434';
-                        
-            List<account> AccList = new List<account>();
-            AccList.add(acc);            
-            AccountHelperTH.updatePhoneFormat(AccList);    
-            
-            system.assertEquals('+66987654532', acc.Mobile__c);
-            system.assertEquals('+6698576434',  acc.Work_Phone__c);
-            system.assertEquals('+6678648434',  acc.Individual_Home_Phone__c);            
-            acc.Mobile__c='987654523';
-            acc.Work_Phone__c='998576443';
-            acc.Individual_Home_Phone__c='978648434';            
-            AccList.add(acc);
-            AccountHelperTH.updatePhoneFormat(AccList);            
-            system.assertEquals('+66987654523', acc.Mobile__c);
-            system.assertEquals('+66998576443',  acc.Work_Phone__c);
-            system.assertEquals('+66978648434',  acc.Individual_Home_Phone__c);
-            test.stopTest();
-        }  
-    }*/
-   /* method Should remove zero from phone number*/
-   /*Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */
-   /* static testMethod void removeZeroFromNumber() {        
-        User user5 = TestUtils.createMYAdminUser();
-        System.runAs (user5) {            
-            Account Acc = TestUtils.createPersonAccountAsUserAsOwner(user5);
-            Acc.Mobile__c='+660987654532';
-            Acc.Work_Phone__c='+66098576434';
-            Acc.Individual_Home_Phone__c='+66078648434';
-            list<Account> removeZero=new list<Account>();
-            removeZero.add(Acc);
-            test.starttest();
-                AccountHelperTH.eliminateZerofrmPhone(removeZero);
-                system.assertEquals('+66987654532', Acc.Mobile__c);
-                system.assertEquals('+6698576434',  Acc.Work_Phone__c);
-                system.assertEquals('+6678648434',  Acc.Individual_Home_Phone__c);
-            test.stopTest();
-                
-        }
-    }*/
+										   
+																																 
+																		 
+														   
+							  
+							 
+																			
+			
+									   
+										  
+													 
+						
+														
+										 
+														   
+
+															   
+																   
+																						  
+									  
+										  
+																 
+							 
+																   
+															   
+																	
+																			   
+							
 }
+	   
+												   
+																																 
+															 
+												   
+										  
+																			
+										  
+											 
+														
+														 
+								
+							 
+																  
+																   
+																	   
+																				  
+							
+				
+		 
+	   
+ 
