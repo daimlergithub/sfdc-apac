@@ -18,7 +18,7 @@ public class TestUtils {
         insert u;
         return u;
     }
- 	
+    
     public static User createMYAdminUser(){               
         Profile p = [select id from profile where Name='System Administrator' limit 1];
         User u = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'MY');
@@ -97,7 +97,7 @@ public class TestUtils {
         a.ownerid                  = u.id;
         a.PersonHasOptedOutOfEmail = true;
         a.Opt_In_Email__c          = true;
-        a.ID_Number__c			   = '1234567891011';   // Added by Laqshay Arora
+        a.ID_Number__c             = '1234567891011';   // Added by Laqshay Arora
         a.ID_Type__c = 'National ID';
         a.PersonBirthdate          = date.newInstance(1991,03,18); // Modified By laqshay Arora
         a.Foundation_Date__c       = date.today();
@@ -137,9 +137,10 @@ public class TestUtils {
         a.ownerid=u.id;
         a.PersonHasOptedOutOfEmail=false;
         a.Opt_In_Email__c=true;
-        a.Foundation_Date__c=date.today();
+        a.Foundation_Date__c=date.today()-1;
         a.RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
         a.ID_Type__c = 'National ID';
+        a.ID_Number__c='9999999993015';
         insert a;
         return a;
     }
