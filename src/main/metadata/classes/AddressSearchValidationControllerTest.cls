@@ -316,7 +316,7 @@ public class AddressSearchValidationControllerTest
         objAccount.Vat_No__c='kdjid';
         objAccount.Preferred_Language__c='telugu';
         objAccount.Province__c='apdff';
-        
+        objAccount.isTestRunning__c=true;
        
 
         insert objAccount;
@@ -346,7 +346,7 @@ public class AddressSearchValidationControllerTest
         personAcc.ZipCode__c = '1004287';
         }
         personAcc.Email__c='test@mbj.com';
-        //personAcc.Mobile__c='4444-4444';
+        personAcc.Mobile__c='4444-4444';
         personAcc.Preferred_Language__c='Engmmm';        
         personAcc.MBK_Data_Source__c ='Email';
         personAcc.Phone = '08022420181';
@@ -354,6 +354,7 @@ public class AddressSearchValidationControllerTest
         personAcc.Commercial_Reg_No__c='adfgrt';
         personAcc.Vat_No__c='kdjid';
         personAcc.Preferred_Language__c='telugu';
+        personAcc.isTestRunning__c=true;
         insert personAcc;
         
         personAcc1 = new Account();
@@ -677,8 +678,8 @@ public class AddressSearchValidationControllerTest
          insert cs;
         personAcc =new Account();
         personAcc.firstname= 'John';
-    	personAcc.lastname= 'Leamos';
-    	personAcc.mobile__c= '+666465';
+        personAcc.lastname= 'Leamos';
+        personAcc.mobile__c= '+666465';
         personAcc.CDM_UCID__c='12345';
         
         ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
