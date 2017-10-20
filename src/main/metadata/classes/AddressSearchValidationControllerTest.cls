@@ -60,6 +60,7 @@ public class AddressSearchValidationControllerTest
         system.runAs(US){
         objAccount.email__c='dhandkkd44@gmail.com';
         objAccount.Email2__c='dhandkkd44@gmail.com';
+        objAccount.Market__c='KR';  
         update objAccount;
         
         ApexPages.currentPage().getParameters().put('recordType','company');
@@ -316,7 +317,7 @@ public class AddressSearchValidationControllerTest
         objAccount.Vat_No__c='kdjid';
         objAccount.Preferred_Language__c='telugu';
         objAccount.Province__c='apdff';
-        objAccount.isTestRunning__c=true;
+        
        
 
         insert objAccount;
@@ -333,7 +334,7 @@ public class AddressSearchValidationControllerTest
         
         personAcc= new Account();
         personAcc.RecordtypeId= strPerson;
-        personAcc.LastName='Test Person 1st';
+        personAcc.LastName='刈乾冠寒刊勘';
         personAcc.Status__c='Active';
         personAcc.Province__c='Province1';
         personAcc.City__c='Test';
@@ -346,7 +347,7 @@ public class AddressSearchValidationControllerTest
         personAcc.ZipCode__c = '1004287';
         }
         personAcc.Email__c='test@mbj.com';
-        personAcc.Mobile__c='4444-4444';
+        //personAcc.Mobile__c='4444-4444';
         personAcc.Preferred_Language__c='Engmmm';        
         personAcc.MBK_Data_Source__c ='Email';
         personAcc.Phone = '08022420181';
@@ -354,7 +355,6 @@ public class AddressSearchValidationControllerTest
         personAcc.Commercial_Reg_No__c='adfgrt';
         personAcc.Vat_No__c='kdjid';
         personAcc.Preferred_Language__c='telugu';
-        personAcc.isTestRunning__c=true;
         insert personAcc;
         
         personAcc1 = new Account();
