@@ -6,6 +6,7 @@ public class customerVehicleStatusTest {
         acc.Firstname='';
         acc.MBK_Data_Source__c='MB website';
         acc.mobile__c='010-1456-2156';
+		acc.MD__c='KR';			   
         insert acc;
         
         Vehicle__c v1= new Vehicle__c();
@@ -17,6 +18,7 @@ public class customerVehicleStatusTest {
         v1.Model__c='E-Class';
         v1.Purchase_Month__c='06';
         v1.Purchase_Year__c='2017';
+		v1.Md__c='KR';			  
         insert v1;
         
         Vehicle__c v2= new Vehicle__c();
@@ -27,6 +29,7 @@ public class customerVehicleStatusTest {
         v2.Model__c='E-Class';
         v2.Purchase_Month__c='06';
         v2.Purchase_Year__c='2017';
+		v2.Md__c='KR';	  
         insert v2;
         
         Loyalty_Card__c lc = new Loyalty_Card__c();
@@ -34,6 +37,7 @@ public class customerVehicleStatusTest {
         lc.Loyalty_Card_Number__c='987654321';
         lc.Loyalty_Card_End_Date__c=system.today()+10;
         lc.Vehicle__c=v1.Id;
+		lc.MD__c='KR';			  
         insert lc;
         
         Vehicle_Relationship__c vr1= new Vehicle_Relationship__c();
@@ -41,6 +45,7 @@ public class customerVehicleStatusTest {
         vr1.Vehicle_ID__c=v1.Id;
         vr1.Car_Relation__c='Purchaser';
         vr1.Status_1__c='A';
+		vr1.MD__c='KR';		   
         insert vr1;
         
         Vehicle_Relationship__c vr2= new Vehicle_Relationship__c();
@@ -48,9 +53,12 @@ public class customerVehicleStatusTest {
         vr2.Vehicle_ID__c=v2.Id;
         vr2.Car_Relation__c='Purchaser';
         vr2.Status_1__c='A';
+		vr2.MD__c='KR';			   
         insert vr2;
     }
     @isTest static void testValidateNewCustomer() {
+		 user u1=TestUtils.IntegrationAPIUser();
+        system.runas(u1){
         createTestRecord();
         RestRequest request = new RestRequest();
         request.requestUri =
@@ -87,8 +95,11 @@ public class customerVehicleStatusTest {
         System.assertEquals(res4.get('VehicleExists') , 'False');
         System.assertEquals(res4.get('VehicleRelationship') , 'Nil');
         System.assertEquals(res4.get('LoyalityCardNumber') , 'Nil');
-    }  
+		}  
+	}   
     @isTest static void testUcid() {
+		user u1=TestUtils.IntegrationAPIUser();
+        system.runas(u1){								   
         createTestRecord();
         RestRequest request = new RestRequest();
         request.requestUri =
@@ -103,6 +114,7 @@ public class customerVehicleStatusTest {
         System.assertEquals(res2.get('Vehicle_exist') , 'True');
         request.requestBody = Blob.valueOf('{"data":{"Loyalty_Card_No":"12345","Vehicle_Registration":"45784"}}');
         LoyalityManger.LAValidateCardHolder();
-        
+       } 
+		
     }
 }
