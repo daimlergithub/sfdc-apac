@@ -384,17 +384,27 @@ insert casetrigger;
             StartDate = System.today(), 
             EndDate = System.today(),
             
-            RecordTypeId = complex
+            RecordTypeId = tesCampaign
         );
         insert testCampaign1;
         campaignList.add(testCampaign1);
+         update campaignList;
         
         Campaign cpn = [Select Id,Create_Task__c,Task_Created_By__c from Campaign Where Name = 'Test Campaign'];
-        cpn.Create_Task__c = false;                
+        cpn.Create_Task__c = false;
+        //cpn.Task_Created_By__c='Lead';
         update cpn;        
         campaignMap.put(cpn.Id, cpn);
         CampaignHelperTH.afterInsertUpdateEvents(campaignList, campaignMap, true);
-        
+        testCampaign1.Task_Created_By__c ='Lead';
+        update campaignList;
+        CampaignHelperTH.afterInsertUpdateEvents(campaignList, campaignMap, true);
+        testCampaign1.Task_Created_By__c ='Vehicle';
+        update campaignList;
+        CampaignHelperTH.afterInsertUpdateEvents(campaignList, campaignMap, true);
+        testCampaign1.Task_Created_By__c ='Case';
+        update campaignList;
+        CampaignHelperTH.afterInsertUpdateEvents(campaignList, campaignMap, true);
      }
      
      @isTest static void afterInsertUpdateEvents2(){
