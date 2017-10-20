@@ -17,7 +17,7 @@ public class TriggerCampaignMembersCustomHandlerJP
                      // CampaignMembersCustomHelperJP.batchbounce(trigger.new);
                       CampaignMembersCustomHelperJP.addSalesCampaignMember(Trigger.new);
                       CampaignMembersCustomHelperJP.afterInsertSharing(Trigger.new);
-                      CampaignMembersCustomHelperJP.wholesaleCampaignSharing(Trigger.new);
+                      CampaignMembersCustomHelperJP.wholesaleCampaignSharing(Trigger.new); 
         }
        if(Trigger.isAfter && Trigger.isUpdate) {
             CampaignMembersCustomHelperJP.afterUpdateOperation((Map<Id, Campaign_Member__c>)trigger.oldMap, (Map<Id, Campaign_Member__c>)trigger.newMap, (List<Campaign_Member__c>)trigger.new);
@@ -33,5 +33,11 @@ public class TriggerCampaignMembersCustomHandlerJP
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       // Implementation to addedd as required in market
+                          
+                           if(isAfter && isInsert){
+                           
+                      CampaignMembersCustomHelperJP.afterInsertSharing(Trigger.new);
+                      CampaignMembersCustomHelperJP.wholesaleCampaignSharing(Trigger.new);
+                      }
     }
 }

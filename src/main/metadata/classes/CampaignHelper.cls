@@ -54,6 +54,8 @@ JIRA NO             :    SFDCJP-1026
  public static void emailNotificationToDealer (List<Campaign > campList,Map<id,Campaign > oldCampList)  {
     
     Set<Id> sid = New Set<Id>();
+    Set<Id> DealerIds = New Set<Id>();
+    Set<Id> ParticipateIds = New Set<Id>();
   List<Id> userIds = new List<Id>();
   List<String> sDealerEmails = New List<String>();
   Set<String> mailSales = New Set<String>() ;
@@ -80,30 +82,24 @@ JIRA NO             :    SFDCJP-1026
      For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
           
           
-         if(c.Parent.Campaign_Type__c == 'sales'){ 
- 
-          if(!String.isBlank(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c)){
-                mailSales.add(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c);    
-          }
-          } else if (c.Parent.Campaign_Type__c == 'After Sales'){
+             DealerIds.add(parDealer.Dealer__c);
+             ParticipateIds.add(ParDealer.Id);
           
-          if(!String.isBlank(parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c)){
-                mailSales.add(parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c);   
-          }
-          
-          }
-          
-            system.debug('+++++++++++++'+mailSales);
-          //if(mailSales.size()>0){
-          //string[] toaddress = New String []{mailSales};
+           }
+           }
          
-          //For(User u : [Select id From User Where Email =:mailSales ])
-          For(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:parDealer.Dealer__r.Id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
+         If(DealerIds.size() >0){
+          List<User> UseList = [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:DealerIds AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ]; 
+          For(Campaign c : CamList){
+          For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
+          For(User u : UseList  )
           { 
+          
+          If(u.contact.AccountId == parDealer.Dealer__c){
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
          mail.saveAsActivity = false;
          mail.setTargetObjectId(u.Id);
-       // mail.setToAddresses(toaddress);
+       
          mail.setWhatId(parDealer.Id);
         
          mail.setTemplateID(templateId.Id); 
@@ -111,14 +107,16 @@ JIRA NO             :    SFDCJP-1026
          mail.setSaveAsActivity(false);
               
        mails.add(mail); 
-           
+      }     
    }
-       mailSales.clear();
+       
          
     }}
      Messaging.sendEmail(mails);
   
-   }  
+   } 
+   
+   } 
    /* End Of SFDCJP-1026 */
    
    
@@ -222,7 +220,7 @@ Set<id> aid = New Set<id>();
      
           
         Batch_JointDrivenCampaign  batcher = new Batch_JointDrivenCampaign(aid, camList,parentCampaignList);
-            Database.executeBatch(batcher, 200);  
+            Database.executeBatch(batcher, 50);  
      
      
      
@@ -955,8 +953,8 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
         if(campaignIds!=null && !campaignIds.isEmpty())
             copyTopCampaignStatusValueToSavedCampaign(campaignIds);
     }
-	
-	/**
+    
+    /**
   *@Description : Avoiding Duplication of Campaign Members 
   *@Date : 3/11/2015
   *@param:List of campaign.New. 
