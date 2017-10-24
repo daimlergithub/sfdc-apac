@@ -215,11 +215,11 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
+    <!--<applicationVisibilities>
         <application>standard__Insights</application>
         <default>false</default>
         <visible>true</visible>
-    </applicationVisibilities>
+    </applicationVisibilities>-->
     <applicationVisibilities>
         <application>standard__LightningSalesConsole</application>
         <default>false</default>
@@ -29358,10 +29358,10 @@
         <tab>Campaign_Lead__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <tabVisibilities>
+    <!--<tabVisibilities>
         <tab>Campaign_Member__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
+    </tabVisibilities>-->
     <tabVisibilities>
         <tab>Campaign_Partner__c</tab>
         <visibility>DefaultOn</visibility>
