@@ -60,6 +60,7 @@ public class AddressSearchValidationControllerTest
         system.runAs(US){
         objAccount.email__c='dhandkkd44@gmail.com';
         objAccount.Email2__c='dhandkkd44@gmail.com';
+        objAccount.Market__c='KR';  
         update objAccount;
         
         ApexPages.currentPage().getParameters().put('recordType','company');
@@ -333,7 +334,7 @@ public class AddressSearchValidationControllerTest
         
         personAcc= new Account();
         personAcc.RecordtypeId= strPerson;
-        personAcc.LastName='Test Person 1st';
+        personAcc.LastName='刈乾冠寒刊勘';
         personAcc.Status__c='Active';
         personAcc.Province__c='Province1';
         personAcc.City__c='Test';
@@ -658,4 +659,69 @@ public class AddressSearchValidationControllerTest
         //system.assertNotEquals(null, objAccount.id);
         
     } 
+     static testmethod void testOnLineDeduplicationCDMTH(){
+        //Person Account
+        CDM_Integration_URLs__c cdm=new CDM_Integration_URLs__c();
+         cdm.Country__c='TH';
+         cdm.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-TH-SARI-SearchPersonAccount?';
+         cdm.Name='SearchPersonAccount';
+         insert cdm;
+         CDM_Integration_URLs__c cdm1=new CDM_Integration_URLs__c();
+         cdm1.Country__c='TH';
+         cdm1.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-TH-SARI-SearchCompanyAccount?';
+         cdm1.Name='SearchCompanyAccount';
+         insert cdm1;
+         CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+         cs.DEFAULT_CALLOUT_TIME__c='1000';
+         cs.MAX_CALLOUT_TIME__c='5000';
+         cs.Name='CalloutValues';
+         insert cs;
+        personAcc =new Account();
+        personAcc.firstname= 'John';
+        personAcc.lastname= 'Leamos';
+        personAcc.mobile__c= '+666465';
+        personAcc.CDM_UCID__c='12345';
+        
+        ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+        AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+        JPAcccontroller.objPersonAccount = personAcc;
+        JPAcccontroller.recordType = 'Person Account';
+        JPAcccontroller.selectedRecordType = 'Person Account';
+        JPAcccontroller.objAccount = personAcc;
+        insert personAcc;
+         
+         
+        Continuation conti = (Continuation)JPAcccontroller.onLineDeduplicationCDMTH();
+        Map<String, HttpRequest> requests = conti.getRequests();
+        system.assert(requests.size() == 1);
+        system.assert(requests.get(JPAcccontroller.requestLabel) != null);
+        HttpResponse response = new HttpResponse();
+        response.setBody('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":'+personAcc.CDM_UCID__c+',"AdminClientNum":"2018-05-87987"}]}');  
+        Test.setContinuationResponse(JPAcccontroller.requestLabel, response);
+         Object result = Test.invokeContinuationMethod(JPAcccontroller, conti);
+         System.assertEquals(null, result);
+         // System.assertEquals('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":'+personAcc.CDM_UCID__c+',"AdminClientNum":"2018-05-87987"}]}', JPAcccontroller.result);
+        //Comapany Acc1
+        personAcc1 = new Account();
+        personAcc1.Name='New Organization';
+        personAcc1.Company_Name__c='New Organization';
+        personAcc1.Work_Phone__c='+6611233132';
+        ApexPages.StandardController objSc1 = new ApexPages.StandardController(personAcc1);
+        AddressSearchValidationController JPAcccontroller1= new AddressSearchValidationController(objSc1);
+        JPAcccontroller1.objPersonAccount = personAcc1;
+        JPAcccontroller1.recordType = 'Company';
+        JPAcccontroller1.selectedRecordType = 'Company';
+        JPAcccontroller1.objAccount = personAcc1;
+        
+       Continuation conti1 = (Continuation)JPAcccontroller1.onLineDeduplicationCDMTH();
+        Map<String, HttpRequest> requests1 = conti1.getRequests();
+        system.assert(requests1.size() == 1);
+        system.assert(requests1.get(JPAcccontroller1.requestLabel) != null);
+        HttpResponse response1 = new HttpResponse();
+        response1.setBody('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":'+personAcc1.CDM_UCID__c+',"AdminClientNum":"2018-05-87987"}]}');  
+        Test.setContinuationResponse(JPAcccontroller1.requestLabel, response1);
+         Object result1 = Test.invokeContinuationMethod(JPAcccontroller1, conti1);
+         System.assertEquals(null, result1);
+        
+    }
 }

@@ -19,6 +19,8 @@ public  class CampaignMembersCustomHelperJP {
         date   : 15th Mar, 2017
         Desc : if campaign members status is 'responded or not responded or bounced' then update the reated execution campaing status to 'Response collection'(if the status is not in 'completed')
         */
+             public static Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
+   
     public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      public static void afterUpdateOperation(Map<Id, Campaign_Member__c> oldMap, Map<Id, Campaign_Member__c> newMap, List<Campaign_Member__c> newList) {
         Set<Id> campaignIdSet = new Set<Id>(); 
@@ -89,20 +91,87 @@ public  class CampaignMembersCustomHelperJP {
              
     }
     
+    
+        /* Added below method as part of changes related to SFDCJP-3089
+    Written below method to share the campaign members records to dealer user in case of campaign members Retail_Campaign_Id__r.Dealer_Name__c ==null*/
+    
+    public static void CmSharingForDealer(List<Campaign_Member__c> newList)
+    {
+        Set<Id> recordIds = New Set<id>();
+        Map<Id,String> UserMap = New Map<Id,String>();
+        Set<String> dealerCode = New Set<String>();
+        Set<String> accountName = New Set<String>();
+        List<Campaign_Member__Share> RetailCampaignShare = New List<Campaign_Member__Share>();
+        List<User> UserList;
+        
+                for(Campaign_Member__c RetMem : newList)
+                {
+                    If( RetMem.Retail_Campaign_Id__r.dealer_name__c != null)
+                    {                     
+                     recordIds.add(RetMem.Id);
+                    }           
+                }
+        
+                 if(recordIds != null)
+                 {
+                    UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
+                 }
+                    
+                    
+                for(User u : UserList){
+                    
+                    If(u.ContactId != null){    
+                        UserMap.put(u.id,u.Dealer_GC_Code__c);  
+                        dealerCode.add(u.Dealer_GC_Code__c);
+                    }   
+                }
+                List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
+                for(Account acc :dealerAccList){
+                    accountName.add(acc.Name);
+                }
+        
+                    List<Group>groupList = [select Id, Name, Type from Group where Name =: accountName];
+                    if(recordIds.size()>0 && accountName != null){
+                        
+                       For(Campaign_Member__c RetMem : newList){
+                      
+                       for(Group groupRec : groupList){
+                        Campaign_Member__Share RetShare = new Campaign_Member__Share();
+                                        RetShare.AccessLevel = 'Edit';
+                                        RetShare.UserOrGroupId = groupRec.Id;
+                                        RetShare.ParentId = RetMem.Id;
+                                        RetShare.RowCause = Schema.Campaign_Member__Share.RowCause.Manual;
+                                        RetailCampaignShare.add(RetShare);
+                                    }               
+                       }
+                    }
+        
+        
+        
+                            If(RetailCampaignShare.size()>0)
+                            {
+                            insert RetailCampaignShare;
+                            }
+    }
+    
     public static void afterInsertSharing(List<Campaign_Member__c> newList){
 
 Set<Id> recordIds = New Set<id>();
 Map<Id,String> UserMap = New Map<Id,String>();
 Set<String> dealerCode = New Set<String>();
 Set<String> accountName = New Set<String>();
-List<Campaign_Member__Share> campMemShare = New List<Campaign_Member__Share>();
-
+set<Campaign_Member__Share> campMemShare = New set<Campaign_Member__Share>();
+Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
 For(Campaign_Member__c camMem : newList){
     If(CamMem.Retail_Campaign_Id__c != null && CamMem.MD__c == 'JP'){
      
      recordIds.add(camMem.Id);
     }
     
+       If( CamMem.Retail_Campaign_Id__r.dealer_name__c != null)
+                    {                     
+                     recordIds.add(CamMem.Id);
+                    }    
 }
 
 List<User> UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
@@ -114,7 +183,7 @@ dealerCode.add(u.Dealer_GC_Code__c);
 }   
 }
 if(dealerCode.size()>0 && dealerCode != null){
-List<Account> dealerAccList = [select Name,MD__c,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND MD__c ='JP'];
+List<Account> dealerAccList = [select Name,MD__c,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND MD__c ='JP' AND RecordtypeId=:da];
 For(Account acc :dealerAccList){
     accountName.add(acc.Name);
 }
@@ -139,13 +208,14 @@ if(recordIds.size()>0 && accountName != null){
 }
 }
 If(campMemShare.size()>0){
-insert campMemShare;
+list<Campaign_Member__Share> campMemShareList = new list<Campaign_Member__Share>(campMemShare);
+insert campMemShareList;
 }
 }
 
      public static void wholesaleCampaignSharing(List<Campaign_Member__c>newlist)
     {
-        List<Campaign_Member__c>campaignmemberlist = [select id,name,Campaign_ID__r.Share_Campaign_Participation_Flag__c,Preferred_Dealer__c,Preferred_Dealer__r.name,Contact_Id__c from Campaign_Member__c where id IN:newlist];
+        List<Campaign_Member__c>campaignmemberlist = [select id,name,Retail_Campaign_Id__r.Dealer_Name__c,Campaign_ID__r.Share_Campaign_Participation_Flag__c,Preferred_Dealer__c,Preferred_Dealer__r.name,Contact_Id__c from Campaign_Member__c where id IN:newlist];
         Map<Id, List<Id>> mapCamapignMember = new Map<Id, List<Id>>();
         Map<Id, List<Id>> mapCheckingType = new Map<Id, List<Id>>();
         List<Campaign_Member__share> list_SharingRecord = new List<Campaign_Member__share>();
@@ -172,7 +242,19 @@ insert campMemShare;
                     mapCheckingType.get(vc.contact_Id__c).add(vc.Id);
                     set_CampaignMemberId.add(vc.id);
                     set_CustomerId.add(vc.contact_Id__c);
-            }else if(vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c != null  )
+            }
+           if( vc.Retail_Campaign_Id__r.dealer_name__c != null && vc.Retail_Campaign_Id__c != null)
+            {
+             
+                    if(!mapCheckingType.containsKey(vc.Retail_Campaign_Id__r.dealer_name__c))
+                    {
+                        mapCheckingType.put(vc.Retail_Campaign_Id__r.dealer_name__c, new List<Id>());
+                    }
+                    mapCheckingType.get(vc.Retail_Campaign_Id__r.dealer_name__c).add(vc.Id);
+                    set_CampaignMemberId.add(vc.id);
+                    set_CustomerId.add(vc.Retail_Campaign_Id__r.dealer_name__c);
+            }
+            if(vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c != null  )
             {
                
                 if(!mapCamapignMember.containsKey(vc.Preferred_Dealer__c)){

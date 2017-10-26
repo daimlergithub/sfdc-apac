@@ -5,6 +5,9 @@
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -190,6 +193,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Old_UCID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number_of_Children__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -745,6 +752,10 @@
                 <behavior>Edit</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -891,6 +902,8 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_DM_Request_TH_Account</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>
         <fields>Status__c</fields>

@@ -5,7 +5,7 @@
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
+	<excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -21,7 +21,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_DMS_Customer_ID__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Salutation__c</field>
             </layoutItems>
@@ -57,16 +57,12 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Contract_Count__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Market__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
@@ -155,7 +151,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Address_Line_2__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Address_Line_3__c</field>
             </layoutItems>
@@ -348,6 +344,10 @@
                 <behavior>Readonly</behavior>
                 <field>Last_Modified_User_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -363,7 +363,7 @@
     </layoutSections>
     <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>
-        <fields>TASK.SUBJECT</fields>
+		<fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -371,7 +371,7 @@
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
-        <fields>TASK.SUBJECT</fields>
+		<fields>TASK.SUBJECT</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

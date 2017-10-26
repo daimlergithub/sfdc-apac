@@ -3,7 +3,7 @@
     <emailDefault>false</emailDefault>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DeleteSeries</excludeButtons>
-    <excludeButtons>Edit</excludeButtons>
+   <!-- <excludeButtons>Edit</excludeButtons> -->
     <excludeButtons>FollowupEvent</excludeButtons>
     <excludeButtons>FollowupTask</excludeButtons>
     <layoutSections>

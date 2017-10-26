@@ -110,6 +110,10 @@
 					<sf:typeset name="roles"/>
 					<sf:typeset name="documents"/>
 					<sf:typeset name="callCenters"/>
+					<sf:typeset name="objects">
+						<sf:include name="CDM_EP_Switch__c"/>
+						<sf:include name="CDM_Integration_URLs__c"/>
+					</sf:typeset>
 				</deploy>
 			</target>
 			<target name="deploy05">
@@ -184,23 +188,12 @@
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
 					</sf:typeset> -->
-					
 					<sf:typeset name="translations"/>
 				</deploy>
 			</target>
 			<target name="deploy09">
 				<deploy>    
-					<!--SN20170912 excluding following profile-->
-					<sf:typeset name="profiles" force="true">
-						<!--<sf:exclude name="Base Call Center"/>
-						<sf:exclude name="Base After-Sales Engineer"/>
-						<sf:exclude name="Base CRM"/>
-						<sf:exclude name="Base Data Management"/>
-						<sf:exclude name="Base IT Department"/>
-						<sf:exclude name="Base Marketing"/>
-						<sf:exclude name="Base Sales/After-Sales"/>-->
-						<!--Sn30170913-->
-						
+					<sf:typeset name="profiles" force="true">								
 					</sf:typeset>
 				</deploy>
 			</target>           

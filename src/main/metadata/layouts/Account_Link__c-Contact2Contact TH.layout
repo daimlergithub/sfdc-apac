@@ -57,7 +57,7 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_LastName__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Salutation__c</field>
             </layoutItems>
@@ -164,7 +164,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Agreement_Info_Processing__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Updated_Consent_User__c</field>
             </layoutItems>
@@ -178,10 +178,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Market__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Active__c</field>
@@ -286,7 +282,7 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_Address_Line_2__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Address_Line_3__c</field>
             </layoutItems>
@@ -316,7 +312,7 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_Company_Other_Phone__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_First_Consent_User__c</field>
             </layoutItems>
@@ -354,6 +350,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Last_Modified_User_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

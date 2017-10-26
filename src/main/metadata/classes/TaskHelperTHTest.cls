@@ -7,7 +7,8 @@
 
 @isTest
 public class TaskHelperTHTest {
-  
+   public static Profile taskprofile;
+    public static User userTask;
   private static Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
     private static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();
     private static Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
@@ -26,14 +27,10 @@ public class TaskHelperTHTest {
     
     @isTest
     public static void testCopyCampaignName() {
-        Profile taskprofile = [select id from profile where Name='System Administrator' limit 1];
-        User userTask = new User(LastName='TaskUser',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='samTask@usgboral.com.dev01',Market__c = 'TH');
-        insert userTask;
+         createTestData();
         System.runas(userTask){
             //Gets Task record type ids
-            String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-            createTestData();
-            
+            String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();           
             Test.startTest();
             //Inserts test data
             Account acc = new Account(LastName = acme,FirstName = 'Firstname2',Salutation = Unknown, Area_Code__c = '0102',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau2.com',Email2__c = 'testemail2@test2.com',Home_Phone_2__c = '0987654132');
@@ -64,17 +61,11 @@ public class TaskHelperTHTest {
             system.assert(cam1.id!=null);
         }
     }
-    
- 
-    
+        
     static testmethod void testTaskFailBlacklistTrigger_Insert()
-    {
-     Profile taskprofile = [select id from profile where Name='System Administrator' limit 1];
-        User userTask = new User(LastName='TaskUser1',country='thailand',firstName='BCII',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest1@infosys.com',UserName='samTask1@usgboral.com.dev01',Market__c = 'TH');
-        insert userTask;
+    {createTestData();
         System.runas(userTask){
-    createTestData();
-    taskObj=createTask('Fail-Blacklist');
+    taskObj=createTask('Open');
     Test.startTest(); 
         //8april
         taskObj.recordtypeId = schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();                            
@@ -89,31 +80,35 @@ public class TaskHelperTHTest {
         TaskHelperTH.updateAccountMobile(tasks);
         Test.stopTest();
         list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:taskObj.WhoId limit 1];
-        system.assertEquals(true,lst[0].Is_Blacklist__c);
+        system.assertEquals(false,lst[0].Is_Blacklist__c);
     }    
     }
     
     static testmethod void testTaskFailBlacklistTrigger_Update()
     {
-     Profile taskprofile = [select id from profile where Name='System Administrator' limit 1];
-        User userTask = new User(LastName='TaskUser2',country='Thailand',firstName='BCIK',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest2@infosys.com',UserName='samTask2@usgboral.com.dev01',Market__c = 'TH');
-        insert userTask;
+      createTestData();
         System.runas(userTask){
-        createTestData();
+       
     taskObj=createTask('Sent');
     Test.startTest();                                    
         insert taskObj;
-        Task taskObj2=createTask('Fail-Blacklist');
+        Task taskObj2=createTask('Open');
         insert taskObj2;
+            taskObj2.Activity_Status__c='Fail-Blacklist';
+            try{
+            update taskObj2;
+            }catch(Exception e){
+                system.assert(e.getmessage().contains('FIELD_CUSTOM'));
+            }
         
-        List<Task> tasks = new List<Task>();
-        tasks.add(taskObj2);
-        Map<Id, Task> taskmap = new Map<Id, Task>();
-        taskmap.put(taskObj.id, taskObj);
-        TaskHelperTH.TaskFailBlacklist(tasks, taskMap, true, false);
+        //List<Task> tasks = new List<Task>();
+        //tasks.add(taskObj2);
+        //Map<Id, Task> taskmap = new Map<Id, Task>();
+       // taskmap.put(taskObj.id, taskObj);
+       // TaskHelperTH.TaskFailBlacklist(tasks, taskMap, true, false);
         Test.stopTest();
-        list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:taskObj2.WhoId limit 1];
-        system.assertEquals(true,lst[0].Is_Blacklist__c); 
+        //list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:taskObj2.WhoId limit 1];
+        //system.assertEquals(false,lst[0].Is_Blacklist__c); 
      }   
     }
     
@@ -122,11 +117,9 @@ public class TaskHelperTHTest {
     
     static testmethod void testcreateSMSTaskAfterIBCall()
     {
-     Profile taskprofile = [select id from profile where Name='System Administrator' limit 1];
-        User userTask = new User(LastName='TaskUser3',country='Australia',firstName='BCIJ',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest3@infosys.com',UserName='samTask@usgboral.com.dev01',Market__c = 'TH');
-        insert userTask;
+      createTestData();
         System.runas(userTask){
-                    
+              Test.startTest();       
         Template__c temp1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                            Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR');
         insert temp1;
@@ -136,8 +129,8 @@ public class TaskHelperTHTest {
         Template__c temp3 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                            Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR MB');
         insert temp3;
-        Test.startTest();
-        createTestData();
+       
+       
         list<task> lstTask= new List<task>();
         Task testSMSTask;
         for(integer i=0;i<5;i++)
@@ -162,8 +155,8 @@ public class TaskHelperTHTest {
         
     static void createTestData()
     {
-    Profile taskprofile = [select id from profile where Name='System Administrator' limit 1];
-        User userTask = new User(LastName='TaskUser4',country='Thailand',firstName='BCIA',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest4@infosys.com',UserName='samTask4@usgboral.com.dev01',Market__c = 'TH');
+    taskprofile = [select id from profile where Name='System Administrator' limit 1];
+       userTask = new User(LastName='TaskUser4',country='Thailand',firstName='BCIA',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest4@infosys.com',UserName='samTask4@usgboral.com.dev01',Market__c = 'TH');
         insert userTask;
         System.runas(userTask){
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingTH.customSettingDetails();
@@ -171,8 +164,10 @@ public class TaskHelperTHTest {
         
         personAccount = new Account(LastName='TEST ACC',
                                     FirstName = 'FirstName',
-                                    Salutation = Unknown,
+                                    Salutation = 'Unknown',
                                       Type='Company',
+                                    	Preferred_Phone__c='Mobile phone',
+                                    Mobile__c='+66-58585858',
                                       Status__c='VIP',
                                       Province__c='Shanghai',
                                       City__c='Baoshan district',
@@ -182,6 +177,20 @@ public class TaskHelperTHTest {
                                       RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '0987655413'
                                      ); 
         personAccount.Is_Blacklist__c = false;
+        CDM_EP_Switch__c csm= new CDM_EP_Switch__c();
+            csm.Name='Switch';
+            csm.EP__c=true;
+            csm.CDM__c=true;
+            insert csm;
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+         cs.DEFAULT_CALLOUT_TIME__c='1000';
+         cs.MAX_CALLOUT_TIME__c='5000';
+         cs.Name='CalloutValues';
+         insert cs;
+		SystemSettingsDFW__c ss=new SystemSettingsDFW__c();
+        	ss.Log_Purge__c=10;
+           	insert ss;
+         
         insert(personAccount);    
         testPersonAccount = [Select Id,RecordTypeId, PersonContactId From Account Where Id = :personAccount.Id]; 
       cmpAs = new Campaign();

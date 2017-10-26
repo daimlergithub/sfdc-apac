@@ -25,7 +25,7 @@ public class MBJ_FS_Case_Inquiry_Controller{
             
             accountId = ApexPages.currentPage().getParameters().get('accountId');
             if(accountId != null)
-                inquiryCase.Case_Complainant__c = accountId;
+                //inquiryCase.Case_Complainant__c = accountId;
                 inquiryCase.accountid=accountId;
                 
             caseOwnerID = ApexPages.currentPage().getParameters().get('ownerid');
@@ -85,6 +85,9 @@ public class MBJ_FS_Case_Inquiry_Controller{
         PayerSameAsRequestor();
         return null;
     }
+     
+    
+    
     
     /*
     Used in MBJ_FS_Case_Quotation_Page

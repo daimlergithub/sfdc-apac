@@ -18,20 +18,19 @@ public class MRC_AssignPersonaToUserExt {
        UserId=ApexPages.currentPage().getParameters().get('id');
        u= [select Market__c,Persona_Assigned__c,ChangesMadeInAssignedPersona__c from User where id =: UserId]; 
        majList=new List<Persona__c>();
-       //majList=[Select Persona__c from Persona__c where Market_Access__r.Market__c =: u.market__c ];
-        majList=[Select PersonaName__c,Functionality_Access__r.Module_Name__c from Persona__c where Active__c= True ];
+       majList=[Select PersonaName__c,Functionality_Access__r.Module_Name__c from Persona__c where Active__c= True ];
       }
     public pagereference selectPersona()
     {
-        system.debug('selected maj ID'+selMajID);
+        
         selectedMaj=[Select name,id,PersonaName__c,ProfileId__c from Persona__c where id=: selMajID];
         u.Persona_Assigned__c=selectedMaj.PersonaName__c;
         u.ProfileId=selectedMaj.ProfileId__c;
         //ChangesMadeInAssignedPersona__c is false:  as we are assigning new persona, not making change in existing.
         u.ChangesMadeInAssignedPersona__c=false;
-        update u;
+        DMLManagerService.updateAsSystem(u); 
         return new Pagereference('/'+u.id+'?noredirect=1&isUserEntityOverride=1');
-        //return null;
+       
     }
 
     

@@ -4,57 +4,29 @@
 * Created Date : 2017-03-02
 */
 
-
-public class TaskHelperTH {
-    // Get Task record type ids
-    private static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-    private static String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-    private static String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-    private static String SMS_TASK_RECORDTYPEID = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-    
-    // Get QC__c record type ids
-    private static String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
-    private static String OBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('OB QC').getRecordTypeId();
-    private static String SSIQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('SSI QC').getRecordTypeId();
-      private static String OBCAllTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-     private static String eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
-    //
-    private static String OBTaskRecordTypeId1 = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
-    private static String WelcomeCallRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
-    private static String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
-    private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
-    private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
+public with sharing class TaskHelperTH {
+  private static String OBCAllTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+  private static String eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
+   
   public static string closedString='closed'; 
   public static string validString='valid';
-   private static string leadTabId = System.Label.LeadId;
-     private static string dmRequestTabId = System.Label.DMRequestTabId;
-    
-    private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
+  public static string leadTabId = System.Label.LeadId;
+  public static string dmRequestTabId = System.Label.DMRequestTabId;
+  public static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
   /**
   *@Description : Updates Accounts if they are blacklisted based on Activity status of Tasks.
   *@param:List of Tasks.new , Task Old Map , Indicators for Insert/Update.
   *@return:This mehtod does not return any value.
-
   */     
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
-   {
-     
-     
+   { 
         set<Id> setTaskIds = new set<Id>();
-        for(Task tk : tasks)
-        {
-            if(isInsert && tk.Activity_Status__c == 'Fail-Blacklist')
-            {
-                system.debug('insert1');
-                setTaskIds.add(tk.Id);
-                
-            }
-            if(isUpdate && tk.Activity_Status__c == 'Fail-Blacklist' && taskOldMap.get(tk.Id).Activity_Status__c != 'Fail-Blacklist')
-            {
-                system.debug('update1');
-                setTaskIds.add(tk.Id);
-            }
-        }
+        for(Task tk : tasks){
+         if(tk.Activity_Status__c == 'Fail-Blacklist' &&  ( isInsert || (isUpdate && taskOldMap.get(tk.Id).Activity_Status__c != 'Fail-Blacklist')))
+         {
+            setTaskIds.add(tk.Id);
+         }
+ } 
         if(setTaskIds!=null && !setTaskIds.Isempty())
         {
             List<Task> lstTask = [SELECT Id, WhoId FROM Task WHERE Id in :setTaskIds];
@@ -71,9 +43,7 @@ public class TaskHelperTH {
                 if (conIds.size() > 0)
                 {
                     List<Account> accs = [SELECT Id, Is_Blacklist__c FROM Account WHERE PersonContactId=:conIds And Is_Blacklist__c != true];
-                    if(accs!=null && !accs.IsEmpty())
-                    {
-                        for(Account acc : accs)
+                       for(Account acc : accs)
                         {
                             acc.Is_Blacklist__c = true;
                         }
@@ -81,7 +51,7 @@ public class TaskHelperTH {
                         {
                             update accs;
                         } 
-                    }
+                    
                 }
             }
         }      
@@ -96,9 +66,6 @@ public class TaskHelperTH {
   */
    public static void updateCampaignMemberStatus(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-     
-       
-     
         if(isInsert)
             UtilTask.updateCampaignMemberStatus(tasks);
         if(isUpdate)
@@ -115,13 +82,13 @@ public class TaskHelperTH {
         }   
    }
    public static void updateAccountMobile(List<Task> lstTask){          
-        Set<ID> accId = new Set<ID>();
+        Set<ID> conId = new Set<ID>();
         Set<ID> leadId = new Set<ID>();
         Set<ID> campId = new Set<ID>();
         set<id> contactId = new set<id>();
         Set<ID> dmRequestId = new Set<ID>();
-        
-        List<Account> lstAccount = new List<Account>();
+        system.debug('IN');
+        List<Contact> lstAccount = new List<Contact>();
         List<Lead__c> lstLead = new List<Lead__c>();
         List<DM_Request__c> lstDMRequest = new List<DM_Request__c>();
         List<Account> lstCampaignAccount = new List<Account>();
@@ -141,9 +108,11 @@ public class TaskHelperTH {
         Map<Id , String> mapCampaign = new Map<Id , String>();
         Map<Id , String> mapEMailCampaign = new Map<Id , String>();
         
-        for(Task tsk : lstTask){            
-                if( tsk.whatId != null && String.valueOf( tsk.whatId ).startsWith( '001' )){
-                    accId.add(tsk.whatId);       
+        for(Task tsk : lstTask){  
+            System.debug('++++++++++++++++++++++++++++'+tsk.AccountId );
+                if( tsk.WhoId  != null && String.valueOf( tsk.WhoId  ).startsWith( '003' )){
+                    System.debug('+++++++++++++++++++++Initializing Accid'+ tsk.WhoId );
+                    conId.add(tsk.WhoId );       
                 }
                 if(tsk.WhatId != null && tsk.WhoId == Null){
                     if(String.valueOf( tsk.WhatId ).startsWith(leadTabId)){
@@ -152,11 +121,10 @@ public class TaskHelperTH {
                       dmRequestId.add(tsk.WhatId);    
                     }
                             
-                }
-            
+                }  
         }
-        if(accId != Null && !accId.isEmpty()){
-            lstAccount = [Select Id,Mobile__c,Email__c from Account where Id =:accId];
+        if(conId != Null && !conId.isEmpty()){
+            lstAccount = [Select Id,Account.Mobile__c,Account.Email__c from Contact where Id =:conId];
         }        
         
         if(leadId != Null && !leadId.isEmpty()){
@@ -168,9 +136,10 @@ public class TaskHelperTH {
         }
         
         
-        for(Account acc : lstAccount){
-          mapTask.put(acc.id, acc.Mobile__c);  
-            mapEMailTask.put(acc.id, acc.Email__c);
+        for(Contact con : lstAccount){
+            System.debug('+++++++++++++++++++++++++++Mobile'+con.Account.Mobile__c);
+          mapTask.put(con.id, con.Account.Mobile__c);  
+            mapEMailTask.put(con.id, con.Account.Email__c);
         }
         
         for(Lead__c led : lstLead){
@@ -188,17 +157,16 @@ public class TaskHelperTH {
             mapDMRequestEmail.put(dmr.id, dmr.Customer_Name__r.Email__c);
         }
                 
-        
-        
-        
         for(Task t : lstTask){
             if(t.RecordTypeId == OBCAllTaskRecordTypeId){
-                if(t.WhoId != Null && String.valueOf( t.whoid ).startsWith( '003' )){
-                    t.Phone__c = mapTask.get(t.WhoId);   
+               if(t.whoId  != Null && String.valueOf( t.whoId  ).startsWith( '003' )){
+                   t.Phone__c = mapTask.get(t.whoId);  
+                   System.debug('++++++++++++++++++++++++++'+mapTask.get(t.whoId));
                 }
-                if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( '001' )){
+              /*  if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( '001' )){
                      t.Phone__c = mapTask.get(t.WhatId); 
-                }
+                   
+                }*/
                 if(t.WhatId != Null){                    
                     if(String.valueOf( t.WhatId ).startsWith(leadTabId)){
                       t.Phone__c = mapLead.get(t.WhatId);    
@@ -225,6 +193,5 @@ public class TaskHelperTH {
       }
     
   }
-
-   
+ 
 }

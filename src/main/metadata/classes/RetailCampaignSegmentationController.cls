@@ -88,7 +88,8 @@
         public Set<String> accStatus = new Set<String>{'Customer', 'Prospect'};
         public Set<String> LeadDealerStatus = new Set<String>{'Not Started','On-going','Order Placed','Purchased(Only Non BDC)','Lost'};
         public Set<String> retTaskType = new Set<String>{'Standard Warranty','Used Car Warranty','Loan','Lease','Service Program'};
-        public Set<String> retProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus) ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
+       public Set<String> retProductName = new Set<String>{'Maintenance Plus','smart Maintenance Pack Start Plan','smart Maintenance Pack Second Plan','smart Maintenance Pack EV Plan','smart touring support 2 years Plan','smart touring support 3 years Plan','smart touring support 6 years Plan','MyMercedes Support','smart Maintenance Pack EV Start Plan','smart Maintenance Pack EV Second Plan','Maintenanec Plus Light','smart Maintenance','smart Maintenane Plus','Warranty Plus','Touring support Plus'};
+        //public Set<String> retProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus) ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
         public Set<String> retFinanceProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus)  ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
 
         public String jsonFilter { get; set; }
@@ -1034,7 +1035,74 @@
             
             
         }
+            public PageReference selectall() 
+    {
+    if(segmentationBase == 'Customer'){
+       list<Account> accfinalist =  Database.query(saveQuery);
+       system.debug('++++++accfinalist '+accfinalist );
+        list<Campaign_Member__c> camlist = new  list<Campaign_Member__c>();
         
+      
+       for (Account acc : accfinalist )
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
+        
+        cam.Status__c = 'Ready';
+        cam.Contact_Id__c= acc.Id;
+         cam.Retail_Campaign_Id__c = retailCampaignId;
+        camlist.add(cam);
+        } 
+        insert(camlist);
+        }
+        
+        
+        
+              else if(segmentationBase == 'Vehicle'){ 
+               list<Vehicle_Relationship__c> accfinalist1 =  Database.query(saveQuery);                 
+       
+        list<Campaign_Member__c> camlist1 = new  list<Campaign_Member__c>();
+      
+       for (Vehicle_Relationship__c acc : accfinalist1 )
+       
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
+        
+        cam.Status__c = 'Ready';
+       // cam.Vehicle__c =acc.id;
+         cam.Retail_Campaign_Id__c = retailCampaignId;
+        camlist1.add(cam);
+        } 
+       insert(camlist1); 
+}
+                   else if(segmentationBase == 'Contract'){ 
+               list<Retail_Task__c> accfinalist1 =  Database.query(saveQuery);                 
+       
+        list<Campaign_Member__c> camlist2 = new  list<Campaign_Member__c>();
+      
+       for (Retail_Task__c acc : accfinalist1 )
+       
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
+        
+        cam.Status__c = 'Ready';
+        cam.Retail_Task__c = acc.Id;
+         cam.Retail_Campaign_Id__c = retailCampaignId;
+        camlist2.add(cam);
+        } 
+       insert(camlist2); 
+}
+      
+     
+        
+            return new PageReference('/' + retailCampaignId);
+            
+    
+    }
+
+
+
+
+
         
         //Add campaign members to Retail campiang
         public PageReference addToCampaign(){

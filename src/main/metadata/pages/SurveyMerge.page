@@ -600,17 +600,17 @@
             
             if(adid.size == 1){
                 
-                add=sforce.connection.query("SELECT Province__c,Address_Line_1__c,Address_Line_2__c,Block__c,ZipCode__c,City__c from Address__c where Customer__c='"+acc+"'");
+                add=sforce.connection.query("SELECT Province__c,Address_Line_1__c,Address_Line_2__c,Block__c,Sub_District__c,District__c,ZipCode__c,City__c from Address__c where Customer__c='"+acc+"'");
             }
             else{ 
-                                add=sforce.connection.query("SELECT Province__c,Address_Line_1__c,Address_Line_2__c,Block__c,ZipCode__c,City__c from Address__c where Customer__c='"+acc+"' and Preferred__c=true") ;
+                                add=sforce.connection.query("SELECT Province__c,Address_Line_1__c,Address_Line_2__c,Block__c,Sub_District__c,District__c,ZipCode__c,City__c from Address__c where Customer__c='"+acc+"' and Preferred__c=true") ;
             }
             
             
             ad1 = add.records.Address_Line_1__c;
             ad2 = add.records.Address_Line_2__c;
-            ad3 = add.records.Block__c;
-            ad4 = add.records.City__c;
+            ad3 = add.records.Sub_District__c;
+            ad4 = add.records.District__c;
             ad5 = add.records.Province__c;
             ad6 = add.records.ZipCode__c;
             

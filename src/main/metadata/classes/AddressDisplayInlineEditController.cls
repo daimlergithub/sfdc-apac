@@ -34,7 +34,7 @@ public class AddressDisplayInlineEditController {
     public String province {get;set;}
     public String LanguageSelected{get; set;}
     public boolean IsForeignNational{get; set;}
-    
+    public User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
@@ -49,7 +49,7 @@ public class AddressDisplayInlineEditController {
         }                     
         /*Intitializing address object*/
         addressobj = new Address__c();
-        User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
+        
         market = u.Market__c;
         AddressObj.Market__c=market; 
         openPanal = true;
@@ -73,8 +73,8 @@ public class AddressDisplayInlineEditController {
               LanguageSelected ='English';     
         lstProvince=new List<SelectOption>();
         Set<string> setProvinces = new set<string>();
-        lstProvince.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected order by Province__c asc])
+        lstProvince.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
+        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected  and Market__c=:market order by Province__c asc])
         {
             if(!setProvinces.contains(lsttempProvince.Province__c))
             {
@@ -93,8 +93,8 @@ public class AddressDisplayInlineEditController {
               LanguageSelected ='English';   
         lstDistrict=new List<SelectOption>();
         Set<string> setDistricts = new set<string>();
-        lstDistrict.add(new SelectOption('--Select--','--Select--'));        
-        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province order by District__c asc])
+        lstDistrict.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));        
+        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province  and Market__c=:market order by District__c asc])
         {
             if(!setDistricts.contains(lsttempDistrict.District__c))
             {
@@ -110,7 +110,7 @@ public class AddressDisplayInlineEditController {
       {
         lstSubDistrict=new List<SelectOption>();
         Set<string> setSubDistricts = new set<string>();
-        lstSubDistrict.add(new SelectOption('--Select--','--Select--'));
+        lstSubDistrict.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
         for(RegionMasterInfo__c lsttempSubDistrict : [select id,Sub_DIstrict__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district order by Sub_DIstrict__c asc])
         {
             if(!setSubDistricts.contains(lsttempSubDistrict.Sub_DIstrict__c))
@@ -126,7 +126,7 @@ public class AddressDisplayInlineEditController {
       {
         lstZip=new List<SelectOption>();
         Set<string> setZip = new set<string>();
-        lstZip.add(new SelectOption('--Select--','--Select--'));
+        lstZip.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
         for(RegionMasterInfo__c lsttempSubDistrict : [select id,ZipCode__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district and Sub_DIstrict__c=:subdistrict order by ZipCode__c asc])
         {
             if(!setZip.contains(lsttempSubDistrict.ZipCode__c))
@@ -139,14 +139,52 @@ public class AddressDisplayInlineEditController {
       
        public void ShowHideFields()
       {
-        if(AddressObj.Foreign_Nationals__c==true)
-            IsForeignNational=true;
-        else
-            IsForeignNational=false;
+       if(market == System.Label.TH)
+       {  
+            if(AddressObj.Foreign_Nationals__c==true)
+                IsForeignNational=true;
+            else
+                IsForeignNational=false;
+        }
+        else if(market == System.Label.MY)
+        {
+            if(AddressObj.Country__c!=Label.MYCountry){            
+                IsForeignNational=true;
+                province='';
+                district='';
+            }
+            else{
+                IsForeignNational=false;
+                //SN20171006- Added code to default value
+                province=System.Label.SelectPicklist;
+                district=System.Label.SelectPicklist;
+
+            }
+        }
       }
       
-    
-    
+    public void updateHidefields(){
+        if(market == System.Label.TH)
+       {  
+            if(AddressObj.Foreign_Nationals__c==true)
+                IsForeignNational=true;
+            else
+                IsForeignNational=false;
+        }
+        else if(market == System.Label.MY)
+        {
+            if(AddressObj.Country__c!=Label.MYCountry){            
+                IsForeignNational=true;
+              
+            }
+            else{
+                IsForeignNational=false;
+               
+            }
+        }
+        
+    }                              
+        
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
         if(market=='KR'){           
@@ -232,7 +270,9 @@ public class AddressDisplayInlineEditController {
         }
         else 
             ShowpageBlockFlag = true;
-            
+            if(Market==label.MY)
+                addressobj.Country__c=Label.MYCountry;
+        
             LoadProvince();
     }
     
@@ -247,7 +287,7 @@ public class AddressDisplayInlineEditController {
         //SN20170911 -- Added address Line 3 in the query 
         if (editaddressId != null){
             editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-                        Address_Line_2__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Country__c,Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c from Address__c where Id =: editaddressId Limit 10];
+                        Address_Line_2__c,Market__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Country__c,Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c from Address__c where Id =: editaddressId Limit 10];
             // if for any reason we are missing the reference           
         }
         
@@ -255,6 +295,7 @@ public class AddressDisplayInlineEditController {
         If(editadds!=null)
         {                     
             addressobj.id=editadds.id;
+			addressobj.Market__c=editadds.Market__c;
             addressobj.Address_Type__c = editadds.Address_Type__c;
             addresspicklist=editadds.Address_Type__c;
             
@@ -275,8 +316,12 @@ public class AddressDisplayInlineEditController {
             addressobj.Preferred__c = editadds.Preferred__c;
             addressobj.Temp_ZipCode__c = editadds.Temp_ZipCode__c ;
             addressobj.Temp_Address__c = editadds.Temp_Address__c ;
-            addressobj.Block_Native__c = editadds.Block_Native__c;      
-            addressobj.City_Native__c = editadds.City_Native__c;        
+            addressobj.Block_Native__c = editadds.Block_Native__c;
+            // Added by Rakesh CISM # 0039983804 
+            if(u.profile.name != 'Japan Marketing'){
+                addressobj.City_Native__c = editadds.City_Native__c;
+            }
+            // end        
             addressobj.Province_Native__c = editadds.Province_Native__c;        
             addressobj.District_Native__c = editadds.District_Native__c;        
             addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
@@ -288,18 +333,26 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
-            if(market=='TH' || market=='MY')
+            if(market=='TH' || market==Label.MY)
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
-                   region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+                   
+                    if(market=='TH')
+                       region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+                    else  if(addressobj.Country__c==label.MYCountry && market==Label.MY)
+                       region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+                    else
+                        LanguageSelected='English';
+                       
                    if(region!=null)
                    {
                        if(region.Language__c!='' || region.Language__c!=null)
                            LanguageSelected=region.Language__c;
                    }
                 }
-                ShowHideFields();
+                // ShowHideFields();
+                updateHidefields();
                 LoadProvince();
                 LoadDistrict();
                 if(market=='TH')                         
@@ -354,7 +407,8 @@ public class AddressDisplayInlineEditController {
             addressObj.Id = null;
             //Thailand market not to have address valdation button
             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
-            insert addressobj;
+            DMLManagerService.insertAsSystem(addressobj); 
+            
           }
                 }
                 catch (DmlException e){
@@ -389,7 +443,8 @@ public class AddressDisplayInlineEditController {
                             refreshPage= true;
                             
                             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
-                            update addressobj;
+                            DMLManagerService.updateAsSystem(addressobj);
+                            
                         }
                     }
                 }
@@ -415,13 +470,13 @@ public class AddressDisplayInlineEditController {
         try
         {
             Validation=false;
-            if(province!='' && province!='--Select--')
+            if(province!='' && province!=System.Label.SelectPicklist)
                 addressobj.Province__c=province;
-            if(district!='' && district!='--Select--')
+            if(district!='' && district!=System.Label.SelectPicklist)
                 addressobj.District__c=district;
-            if(subdistrict!='' && subdistrict!='--Select--')
+            if(subdistrict!='' && subdistrict!=System.Label.SelectPicklist)
                 addressobj.Sub_District__c=subdistrict;
-            if(zip!='' && zip!='--Select--')
+            if(zip!='' && zip!=System.Label.SelectPicklist)
                 addressobj.ZipCode__c=zip;
             if(addresspicklist!=null)
                 addressobj.Address_Type__c = addresspicklist;   
@@ -494,14 +549,17 @@ public class AddressDisplayInlineEditController {
                     
                     addressobj.Customer__c = acc.id;  
                     addressobj.Language__c =LanguageSelected;
-                    insert addressobj;
+                    
+                    DMLManagerService.insertAsSystem(addressobj);
+                    
                 }
                 else
                 {
                     addressobj.id = editaddressId;
                     addressobj.Customer__c = acc.id;
                     addressobj.Language__c =LanguageSelected;
-                    update addressobj;
+                    DMLManagerService.updateAsSystem(addressobj);
+                   
                 }
             }
         }
@@ -525,9 +583,9 @@ public class AddressDisplayInlineEditController {
         try     
         {       
             Validation=false;       
-            if(province!='' && province!='--Select--')      
+            if(province!='' && province!=System.Label.SelectPicklist)      
                 addressobj.Province__c=province;        
-            if(district!='' && district!='--Select--')      
+            if(district!='' && district!=System.Label.SelectPicklist)      
                 addressobj.District__c=district;        
             if(zip!=null || zip!='')        
                 addressobj.ZipCode__c=zip;      
@@ -540,77 +598,59 @@ public class AddressDisplayInlineEditController {
             {                       
                 if(add.id!=addressobj.id && addressobj.preferred__c==true)      
                 {                       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'There must be only one Preferred address.'));         
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.OnePreferredError));         
                     Validation = true;          
                 }  
                 
                 if(add.id!=addressobj.id && addressobj.Address_Type__c==add.Address_Type__c)      
                 {                       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'This address type already exist.'));         
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeError));         
                     Validation = true;          
                 }                       
             }       
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 or 6 digits and ONLY Numbers.'));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));        
                  Validation = true;                             
             }       
-           
-		  /* if(addressobj.ZipCode__c == null)       
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));         
-                Validation = true;                              
-            }  */    
             if(addressobj.Address_Line_1__c == null)        
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline1Mandatory));       
                 Validation = true;                              
             }       
             else        
             {                   
                 if(addressobj.Address_Line_1__c.length()>100)       
                 {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 should be less than or equal to 100 characters.'));        
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddressline1Length));        
                     Validation = true;                              
                 }       
             }       
             if(addressobj.Province__c == null)      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.StateProvError));        
             }       
             if(addressobj.District__c == null )     
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.'));         
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CityError));         
                 Validation = TRUE;                              
             }       
                     
             if(addressobj.Address_Line_2__c == null )       
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline2));       
                 Validation = TRUE;                              
             }       
             else        
             {                   
                 if(addressobj.Address_Line_2__c.length()>100)       
                 {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));        
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddresslinelen2Length));        
                     Validation = true;                              
                 }       
             }       
                     
-            if(addressobj.Address_Line_3__c == null )       
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_3__c is Mandatory.'));       
-                Validation = TRUE;                              
-            }       
-            else        
-            {                   
-                if(addressobj.Address_Line_3__c.length()>100)       
-                {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 3 should be less than or equal to 100 characters.'));        
-                    Validation = true;                              
-                }       
-            }       
+                  
             if(Validation == False){                
                 refreshPage = true;         
                 Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];     
@@ -630,12 +670,13 @@ public class AddressDisplayInlineEditController {
                 }       
             }       
         }       
-        catch (DmlException e)      
+        catch (Exception e)      
         {       
             refreshPage = false;        
-            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                           
-                   
-        }       
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getMessage()));                           
+            CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());       
+        }
+        
     }       
     
     
@@ -921,18 +962,18 @@ public class AddressDisplayInlineEditController {
                     if(addtrmapUpdate.containsKey(addressobj.Province__c)){
                         province = addtrmapUpdate.get(addressobj.Province__c);
                     }
-                    addressobj.Province__c =  province;
+                    //addressobj.Province__c =  province;
                     addressobj.Temp_ZipCode__c = addressobj.ZipCode__C;
                     addressobj.Temp_Address__c = ((addressobj.Province__c != null) ? addressobj.Province__c : '' ) + ((addressobj.City__c != null) ? addressobj.City__c : '' ) +
                         ((addressobj.District__c != null) ? addressobj.District__c : '' ) + ((addressobj.Block__c != null) ? addressobj.Block__c  : '' ) +
                         ((addressobj.Address_Line_1__c != null) ? addressobj.Address_Line_1__c  : '' ) + ((addressobj.Address_Line_2__c != null) ? addressobj.Address_Line_2__c  : '' );
-                    addressobj.Address_Code__c = '';
+                    /*addressobj.Address_Code__c = '';
                     addressobj.Address_Line_1__c = '';
                     addressobj.Address_Line_2__c = '';
                     addressobj.Block__c = '';
                     addressobj.City__c = '';
                     addressobj.District__c = '';
-                    addressobj.Province__c = '';
+                    addressobj.Province__c = '';*/
                     //mapAddressResponse.add(new addressSelectionWrapper(addressobj)); 
                 }
             }

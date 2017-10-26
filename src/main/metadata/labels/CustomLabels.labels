@@ -14,61 +14,12 @@
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
     </labels>
-	 <labels>
-        <fullName>Vin_Number</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Vin_Number</shortDescription>
-        <value>VIN Number</value>
-    </labels>
 	<labels>
-        <fullName>select_criteria</fullName>
+        <fullName>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>select_criteria</shortDescription>
-        <value>select filter criteria</value>
-    </labels>
-	<labels>
-        <fullName>You_cannot_delete_this_record</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>You cannot delete this record</shortDescription>
-        <value>You cannot delete this record</value>
-    </labels>
-	<labels>
-        <fullName>enter_criteria</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>enter_criteria</shortDescription>
-        <value>enter filter text</value>
-    </labels>
-	<labels>
-        <fullName>searchbutton_title</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>searchbutton_title</shortDescription>
-        <value>Please select the filter criteria before entering search text</value>
-    </labels>
-	<labels>
-        <fullName>Registration_Number</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Registration_Number</shortDescription>
-        <value>	Registration Number</value>
-    </labels>
-	<labels>
-        <fullName>User_Msg</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>User_Msg</shortDescription>
-        <value>Please select the filter criteria before searching</value>
-    </labels>
-	<labels>
-        <fullName>User_Msg1</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>User_Msg1</shortDescription>
-        <value>Please enter the search text</value>
+        <shortDescription>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</shortDescription>
+        <value>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</value>
     </labels>
     <labels>
         <fullName>A6_Invitation_to_an_event_event_at_the_car_dealership</fullName>
@@ -125,6 +76,13 @@
         <protected>false</protected>
         <shortDescription>A6 Visit to a car dealership</shortDescription>
         <value>Visit to a car dealership</value>
+    </labels>
+    <labels>
+        <fullName>A_selected_DM_Material_does_not_have_a_sufficient_stock</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>A selected DM Material does not have a sufficient stock</shortDescription>
+        <value>A selected DM Material does not have a sufficient stock</value>
     </labels>
     <labels>
         <fullName>Accepted</fullName>
@@ -298,6 +256,13 @@
         <value>Addresses</value>
     </labels>
     <labels>
+        <fullName>AddressTypeError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This address type already exist.</shortDescription>
+        <value>This address type already exist.</value>
+    </labels>
+    <labels>
         <fullName>AddressType_Validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -412,6 +377,27 @@
         <protected>false</protected>
         <shortDescription>AddressforAddressdata</shortDescription>
         <value>Address for Address data</value>
+    </labels>
+    <labels>
+        <fullName>Addressline1Mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 1 is Mandatory.</shortDescription>
+        <value>Address Line 1 is Mandatory.</value>
+    </labels>
+    <labels>
+        <fullName>Addressline2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 2 is Mandatory.</shortDescription>
+        <value>Address Line 2 is Mandatory.</value>
+    </labels>
+    <labels>
+        <fullName>AdminClientNum</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is used in CDM Context</shortDescription>
+        <value>IdentificationNum</value>
     </labels>
     <labels>
         <fullName>Advisor</fullName>
@@ -655,46 +641,18 @@
         <value>you do not have the proper authorization</value>
     </labels>
     <labels>
+        <fullName>Auto_fill</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Auto fill</shortDescription>
+        <value>Auto fill</value>
+    </labels>
+    <labels>
         <fullName>AutolineCreate_Retail_Copy</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AutolineCreate Retail Copy</shortDescription>
         <value>Create Retail Copy</value>
-    </labels>
-	<labels>
-        <fullName>A_selected_DM_Material_does_not_have_a_sufficient_stock</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>A selected DM Material does not have a sufficient stock</shortDescription>
-        <value>A selected DM Material does not have a sufficient stock</value>
-    </labels>
-	<labels>
-        <fullName>You_don_t_have_permission_to_update_this_record</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>You don't have permission to update this record for case edit for KR roles</shortDescription>
-        <value>You don't have permission to update this record</value>
-    </labels>
-	<labels>
-        <fullName>You_cannot_Delete_CaseComment</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>You cannot Delete CaseComment</shortDescription>
-        <value>You cannot Delete CaseComment</value>
-    </labels>
-	<labels>
-        <fullName>Insufficient_access_to_update</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Insufficient access to update</shortDescription>
-        <value>Insufficient access to update few fields. You can edit only following fields:</value>
-    </labels>
-	<labels>
-        <fullName>Insufficient_access_to_update_this_field</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Insufficient access to update this field</shortDescription>
-        <value>Insufficient access to update this field</value>
     </labels>
     <labels>
         <fullName>Available_Contacts</fullName>
@@ -1292,6 +1250,20 @@
         <value>Response Date Error</value>
     </labels>
     <labels>
+        <fullName>Campaign_Execution_Simple</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Execution - Simple</shortDescription>
+        <value>Campaign Execution - Simple</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Id</shortDescription>
+        <value>Campaign Id</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Notification1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1675,6 +1647,21 @@
         <value>Case Type</value>
     </labels>
     <labels>
+        <fullName>Case_Record_Type_Complaint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Record Type Complaint</shortDescription>
+        <value>MB Complaint</value>
+    </labels>
+    <labels>
+        <fullName>Case_Record_Type_Inquiry</fullName>
+        <categories>MBMY</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Record Type Inquiry</shortDescription>
+        <value>Inquiry</value>
+    </labels>
+    <labels>
         <fullName>Case_Records</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1726,6 +1713,13 @@
         <value>City</value>
     </labels>
     <labels>
+        <fullName>CityError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City is Mandatory.</shortDescription>
+        <value>City is Mandatory.</value>
+    </labels>
+    <labels>
         <fullName>City_native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1766,6 +1760,13 @@
         <protected>false</protected>
         <shortDescription>Close</shortDescription>
         <value>Close</value>
+    </labels>
+		    <labels>
+        <fullName>Close2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close2</shortDescription>
+        <value>Close2</value>
     </labels>
     <labels>
         <fullName>CloseMym</fullName>
@@ -1822,6 +1823,13 @@
         <protected>false</protected>
         <shortDescription>Company</shortDescription>
         <value>Company</value>
+    </labels>
+    <labels>
+        <fullName>CompanyAccountSearchError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>used in MY Address Search Validation Controller</shortDescription>
+        <value>For Company Search Account Name and any of the contact information</value>
     </labels>
     <labels>
         <fullName>Company_Account_Information</fullName>
@@ -1931,6 +1939,20 @@
         <value>Error, Please contact the admin.</value>
     </labels>
     <labels>
+        <fullName>Contact_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Id</shortDescription>
+        <value>Contact Id</value>
+    </labels>
+    <labels>
+        <fullName>Contract_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract Number</shortDescription>
+        <value>Contract Number</value>
+    </labels>
+    <labels>
         <fullName>Contract_related</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2019,7 +2041,7 @@
         <fullName>CreateRetailCopy</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>CreateRetailCopy</shortDescription>
+        <shortDescription>CreateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>CreateRetailCopy</value>
     </labels>
     <labels>
@@ -2141,6 +2163,13 @@
         <protected>false</protected>
         <shortDescription>CustomerType</shortDescription>
         <value>Customer Type</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Cust</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer</shortDescription>
+        <value>Customer</value>
     </labels>
     <labels>
         <fullName>Customer_Filter</fullName>
@@ -3402,7 +3431,7 @@ please contact the number below.</value>
         <shortDescription>If yes, within which period do you plan to purchase</shortDescription>
         <value>If yes, within which period do you plan to purchase</value>
     </labels>
-	    <labels>
+    <labels>
         <fullName>Include</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3417,11 +3446,32 @@ please contact the number below.</value>
         <value>Individual Customer</value>
     </labels>
     <labels>
+        <fullName>InformaticaError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MY Address Search Validation Controller</shortDescription>
+        <value>Exception Occurred while reaching informatica, please contact System Administrator</value>
+    </labels>
+    <labels>
         <fullName>Informationsharing</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Information sharing</shortDescription>
         <value>Information sharing to Dealer/ Internal related department</value>
+    </labels>
+    <labels>
+        <fullName>Inquiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Inquiry record type for case</shortDescription>
+        <value>Inquiry</value>
+    </labels>
+    <labels>
+        <fullName>InsertContext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is user to send the context to CDM in Trigger</shortDescription>
+        <value>insert</value>
     </labels>
     <labels>
         <fullName>Instructor_team</fullName>
@@ -3437,6 +3487,20 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>InsufficientAccessToCreate</shortDescription>
         <value>Insufficient privilege to create new vehicle.</value>
+    </labels>
+    <labels>
+        <fullName>Insufficient_access_to_update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insufficient access to update</shortDescription>
+        <value>Insufficient access to update few fields. You can edit only following fields:</value>
+    </labels>
+    <labels>
+        <fullName>Insufficient_access_to_update_this_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insufficient access to update this field</shortDescription>
+        <value>Insufficient access to update this field</value>
     </labels>
     <labels>
         <fullName>Insufficient_privilege</fullName>
@@ -3459,6 +3523,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Insurance Proposal</shortDescription>
         <value>Insurance Proposal</value>
+    </labels>
+    <labels>
+        <fullName>IntProfileName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is used in Trigger</shortDescription>
+        <value>IntegrationAPI</value>
     </labels>
     <labels>
         <fullName>Interest</fullName>
@@ -4359,13 +4430,69 @@ please contact the number below.</value>
         <shortDescription>MBJ support</shortDescription>
         <value>MBJ support</value>
     </labels>
-	<labels>
+    <labels>
+        <fullName>MB_Complaint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MB Complaint record type for case</shortDescription>
+        <value>MB Complaint</value>
+    </labels>
+    <labels>
+        <fullName>MB_Vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MB recordtype for Vehicle</shortDescription>
+        <value>MB</value>
+    </labels>
+    <labels>
         <fullName>MY</fullName>
         <categories>Malaysia</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>MY</shortDescription>
         <value>MY</value>
+    </labels>
+    <labels>
+        <fullName>MYAddressline1Length</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 1 should be less than or equal to 100 characters.</shortDescription>
+        <value>Address Line 1 should be less than or equal to 100 characters.</value>
+    </labels>
+    <labels>
+        <fullName>MYAddresslinelen2Length</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 2 should be less than or equal to 100 characters.</shortDescription>
+        <value>Address Line 2 should be less than or equal to 100 characters.</value>
+    </labels>
+    <labels>
+        <fullName>MYCountry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Malaysia</shortDescription>
+        <value>Malaysia</value>
+    </labels>
+    <labels>
+        <fullName>MYGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYGeneric (This is used by MY Market for access check)</shortDescription>
+        <value>MYGeneric</value>
+    </labels>
+    <labels>
+        <fullName>MYPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search Validation Controller</shortDescription>
+        <value>+60</value>
+    </labels>
+    <labels>
+        <fullName>MYZipCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIP CODE should be 5 or 6 digits and ONLY Numbers.</shortDescription>
+        <value>ZIP CODE should be 5 or 6 digits and ONLY Numbers.</value>
     </labels>
     <labels>
         <fullName>Maintenance_Promotion</fullName>
@@ -4395,6 +4522,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>MarketKR</shortDescription>
         <value>KR</value>
+    </labels>
+    <labels>
+        <fullName>MarketMY</fullName>
+        <categories>Malaysia</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketMY</shortDescription>
+        <value>MY</value>
     </labels>
     <labels>
         <fullName>MarketTH</fullName>
@@ -5059,6 +5194,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>1</value>
     </labels>
     <labels>
+        <fullName>OnePreferredError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>There must be only one Preferred address.</shortDescription>
+        <value>There must be only one Preferred address.</value>
+    </labels>
+    <labels>
         <fullName>Online_Dedup_callout_failure</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5222,6 +5364,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Parent</value>
     </labels>
     <labels>
+        <fullName>Partial_Match</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partial Match</shortDescription>
+        <value>Partial Match</value>
+    </labels>
+    <labels>
         <fullName>Parts_Cross_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -5249,6 +5398,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>PersonAccount</shortDescription>
         <value>Person Account</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccountSearchError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>used in MY Address Search Validation Controller</shortDescription>
+        <value>For Customer Search First Name, Last Name and any of the contact information or ID number is required</value>
     </labels>
     <labels>
         <fullName>PersonAccount_Record_Type_From_Account</fullName>
@@ -5328,6 +5484,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Planned Purchase Time</shortDescription>
         <value>Planned Purchase Time</value>
+    </labels>
+    <labels>
+        <fullName>Planning_Design_Campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Planning &amp; Design Campaign</shortDescription>
+        <value>Planning &amp; Design Campaign</value>
     </labels>
     <labels>
         <fullName>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</fullName>
@@ -5560,6 +5723,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Proposed Date(3):</shortDescription>
         <value>Proposed Date(3):</value>
+    </labels>
+    <labels>
+        <fullName>ProspectStatus</fullName>
+        <categories>MY</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProspectStatus</shortDescription>
+        <value>Prospect</value>
     </labels>
     <labels>
         <fullName>Province_Native_should_not_be_null</fullName>
@@ -6187,6 +6358,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Record Type</value>
     </labels>
     <labels>
+        <fullName>RecordTypeError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MY Address Search Validation Controller</shortDescription>
+        <value>Please Recordtype for search</value>
+    </labels>
+    <labels>
         <fullName>RecordTypeId</fullName>
         <categories>Address Search</categories>
         <language>en_US</language>
@@ -6256,6 +6434,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Registration Information</shortDescription>
         <value>Registration Information</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration_Number</shortDescription>
+        <value>Registration Number</value>
     </labels>
     <labels>
         <fullName>Registration_Plan_Date</fullName>
@@ -6446,6 +6631,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>S&amp;M Media Retail Campaign</value>
     </labels>
     <labels>
+        <fullName>Retail_Campaign_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Campaign Id</shortDescription>
+        <value>Retail Campaign Id</value>
+    </labels>
+    <labels>
         <fullName>Retail_Copy_Only_Related_List</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6503,6 +6695,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>S5 A3.4 I don’t know (yet)</shortDescription>
         <value>I don’t know (yet)</value>
+    </labels>
+		    <labels>
+        <fullName>Select_All_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All Records</shortDescription>
+        <value>Select All Records</value>
     </labels>
     <labels>
         <fullName>S5_A3_4_I_will_primarily_use_the_car_for_business</fullName>
@@ -6572,14 +6771,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Block</shortDescription>
-        <value>Block /  ปิดกั้น</value>
+        <value>District / ตำบล</value>
     </labels>
     <labels>
         <fullName>S5_City</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 City</shortDescription>
-        <value>City / เมือง</value>
+        <value>State / Province</value>
     </labels>
     <labels>
         <fullName>S5_Company_Name</fullName>
@@ -6594,6 +6793,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>S5 Date of Birth</shortDescription>
         <value>Date of Birth / วันเกิด</value>
+    </labels>
+    <labels>
+        <fullName>S5_Fax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Fax</shortDescription>
+        <value>Fax / เบอร์แฟลกซ์</value>
     </labels>
     <labels>
         <fullName>S5_First_name</fullName>
@@ -7611,7 +7817,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Town</shortDescription>
-        <value>Town / เมือง</value>
+        <value>Sub District / ตำบล</value>
     </labels>
     <labels>
         <fullName>S5_Work_Phone</fullName>
@@ -7896,6 +8102,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Search</value>
     </labels>
     <labels>
+        <fullName>SearchKey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>search key</shortDescription>
+        <value>UCID__c</value>
+    </labels>
+    <labels>
         <fullName>Search_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7909,6 +8122,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Search Duplicates</shortDescription>
         <value>Check Dedup</value>
+    </labels>
+    <labels>
+        <fullName>SelectPicklist</fullName>
+        <categories>MBMY</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SelectPicklist</shortDescription>
+        <value>--Select--</value>
     </labels>
     <labels>
         <fullName>Select_Address_Msg</fullName>
@@ -8178,6 +8399,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Special Filters</shortDescription>
         <value>Special Filters</value>
+    </labels>
+    <labels>
+        <fullName>StateProvError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>State/Province is Mandatory.</shortDescription>
+        <value>State/Province is Mandatory.</value>
     </labels>
     <labels>
         <fullName>Status</fullName>
@@ -8725,6 +8953,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>The filter count is greater than 20</value>
     </labels>
     <labels>
+        <fullName>The_request_could_not_reach_server</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The request could not reach server.</shortDescription>
+        <value>The request could not reach server.</value>
+    </labels>
+    <labels>
         <fullName>This_Lead_cannot_be_send_to_Autoline</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8944,6 +9179,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Update Address</value>
     </labels>
     <labels>
+        <fullName>UsVIN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UsVIN</shortDescription>
+        <value>UsVIN</value>
+    </labels>
+    <labels>
         <fullName>Used_car_buy_back_trade_in</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -8957,6 +9199,20 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>User Details</shortDescription>
         <value>User Details</value>
+    </labels>
+    <labels>
+        <fullName>User_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User_Msg</shortDescription>
+        <value>Please select the filter criteria before searching</value>
+    </labels>
+    <labels>
+        <fullName>User_Msg1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User_Msg1</shortDescription>
+        <value>Please enter the search text</value>
     </labels>
     <labels>
         <fullName>User_Notification_Settings</fullName>
@@ -9243,6 +9499,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>ViewHierarchy</value>
     </labels>
     <labels>
+        <fullName>Vin_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vin_Number</shortDescription>
+        <value>VIN Number</value>
+    </labels>
+    <labels>
         <fullName>Visited</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9486,11 +9749,39 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>ใช่</value>
     </labels>
     <labels>
+        <fullName>You_cannot_Delete_CaseComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You cannot Delete CaseComment</shortDescription>
+        <value>You cannot Delete CaseComment</value>
+    </labels>
+    <labels>
+        <fullName>You_cannot_delete_this_record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You cannot delete this record</shortDescription>
+        <value>You cannot delete this record</value>
+    </labels>
+    <labels>
+        <fullName>You_don_t_have_permission_to_update_this_record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You don&apos;t have permission to update this record for case edit for KR roles</shortDescription>
+        <value>You don&apos;t have permission to update this record</value>
+    </labels>
+    <labels>
         <fullName>Your_Current_car_s</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Q.Your Current car(s)</shortDescription>
         <value>Q.Your Current Car(s)</value>
+    </labels>
+    <labels>
+        <fullName>ZipCodeMandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIPCODE is mandatory.</shortDescription>
+        <value>ZIPCODE is mandatory.</value>
     </labels>
     <labels>
         <fullName>Zipcode</fullName>
@@ -9583,6 +9874,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>displayOnly</shortDescription>
         <value>displayOnly</value>
+    </labels>
+    <labels>
+        <fullName>enter_criteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>enter_criteria</shortDescription>
+        <value>enter filter text</value>
     </labels>
     <labels>
         <fullName>korea_Business_Hours_Id</fullName>
@@ -9694,6 +9992,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>l_Sparetire</shortDescription>
         <value>Spare Tire</value>
+    </labels>
+    <labels>
+        <fullName>limitsize</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>search query limit for address search validation</shortDescription>
+        <value>100</value>
     </labels>
     <labels>
         <fullName>master</fullName>
@@ -9890,11 +10195,25 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Please operate My Mercedes Registration first</value>
     </labels>
     <labels>
+        <fullName>searchbutton_title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>searchbutton_title</shortDescription>
+        <value>Please select the filter criteria before entering search text</value>
+    </labels>
+    <labels>
         <fullName>select</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>select</shortDescription>
         <value>select</value>
+    </labels>
+    <labels>
+        <fullName>select_criteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>select_criteria</shortDescription>
+        <value>select filter criteria</value>
     </labels>
     <labels>
         <fullName>select_dealer</fullName>
@@ -9931,39 +10250,18 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
     </labels>
-	   <labels>
-        <fullName>Contact_Id</fullName>
+    <labels>
+        <fullName>updateContext</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Contact Id</shortDescription>
-        <value>Contact Id</value>
+        <shortDescription>This is user to send the context to CDM in Trigger</shortDescription>
+        <value>update</value>
     </labels>
-	<labels>
-        <fullName>Campaign_Id</fullName>
+    <labels>
+        <fullName>updateRetailCopy</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Campaign Id</shortDescription>
-        <value>Campaign Id</value>
-    </labels>
-	<labels>
-        <fullName>Retail_Campaign_Id</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Retail Campaign Id</shortDescription>
-        <value>Retail Campaign Id</value>
-    </labels>
-	<labels>
-        <fullName>UsVIN</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>UsVIN </shortDescription>
-        <value>UsVIN </value>
-    </labels>
-	<labels>
-        <fullName>Contract_Number</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Contract Number</shortDescription>
-        <value>Contract Number</value>
+        <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
+        <value>updateRetailCopy</value>
     </labels>
 </CustomLabels>

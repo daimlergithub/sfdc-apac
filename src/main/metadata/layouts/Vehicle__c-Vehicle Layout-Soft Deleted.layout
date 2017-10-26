@@ -7,7 +7,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Vehicle information</label>
+        <label>Vehicle information </label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -94,6 +94,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ModelYear__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Grey_Vehicle__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

@@ -325,7 +325,7 @@
                     <name>CompanyOverview_Location_Map</name>
                 </dataCategory>
                 <label>Company Overview</label>
-                <name>MBTh_Company_Overview</name>
+                <name>Company_Overview</name>
             </dataCategory>
             <dataCategory>
                 <dataCategory>

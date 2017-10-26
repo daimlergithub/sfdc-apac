@@ -18,14 +18,22 @@
 */
 
 public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
+    public static boolean firstRun = true;
     User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     list<Account> ListAccOld = (list<Account>)trigger.old;
     list<Account> ListAccNew = (list<Account>)trigger.new;
     string serializedObject;
+    public Static boolean insertcontext=true;
+    public Static boolean updatecontext=true;
+    
+    CDM_EP_Switch__c switchto = CDM_EP_Switch__c.getValues('Switch');
+    public void handleTriggerContextVariables(){
+    
+    }
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
 
         if(isBefore && isInsert){
-            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+           AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
         }
         
          if(isAfter && isInsert )
@@ -34,7 +42,9 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         }
         
         if(isBefore && isUpdate){
-        AccountHelperTH.ValidateNationalid(Trigger.new);
+            /* Data Update MD Fix - Santosh Mohanty*/
+            AccountHelperTH.updatemarket(Trigger.New);
+            AccountHelperTH.ValidateNationalid(Trigger.new);
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
@@ -49,24 +59,49 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
         {
+            if(switchto!=null&&switchto.EP__c==true){
             serializedObject=json.serialize(ListAccNew);
             AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);}
+            if(switchto!=null && switchto.CDM__c==true){
+                set<ID> accids=new set<ID>();
+                List<Account>acc=[Select Id from Account where id IN:trigger.new];
+                for(Account accrec:acc){
+                    accids.add(accrec.id);
+                }
+                //CDMInformatica_Services.createCustomerCDM(accids);
+                CDMInformatica_Services.createCustomerCDM(accids,'TH','insert');
+            }
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
+            if(switchto!=null && switchto.EP__c==true){
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperTH.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-            AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
+            AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);}
+            if(switchto!=null && switchto.CDM__c==true){
+            Set<ID> accids=new Set<ID>();
+            List<Account>acc=[Select Id from Account where id IN:trigger.new];
+            for(Account accrec:acc){
+                accids.add(accrec.id);
+            }
+            if(firstRun==true){
+            //CDMInformatica_Services.createCustomerCDM(accids);
+            CDMInformatica_Services.createCustomerCDM(accids,'TH','update');
+            firstRun=false;
+            }
+            }
         }
         
         if(isAfter && isDelete && !System.isFuture())
         {
+            if(switchto!=null && switchto.EP__c==true){
             serializedObject=json.serialize(ListAccOld);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperTH.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);}
+            if(switchto.CDM__c==true){}
             //AccountHelperTH.activeContracts(Trigger.new);
         }
         //End of the New code Block 9/21/2016
@@ -90,17 +125,17 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'TH')
         {
             if(isBefore && isInsert){
-            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+               AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
             }
         
         if(isBefore && isUpdate){
-            AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-            AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
-            AccounthelperTH.updateOnDoNotCall(Trigger.new);
-            AccountHelperTH.updateOnPostalOptout(Trigger.new);
-            AccountHelperTH.updateOnEmailOptout(Trigger.new);
-            AccountHelperTH.updateAgeRange(Trigger.new);
-            AccountHelperTH.activeContracts(Trigger.new);
+                AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
+                AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+                AccounthelperTH.updateOnDoNotCall(Trigger.new);
+                AccountHelperTH.updateOnPostalOptout(Trigger.new);
+                AccountHelperTH.updateOnEmailOptout(Trigger.new);
+                AccountHelperTH.updateAgeRange(Trigger.new);
+                AccountHelperTH.activeContracts(Trigger.new);
             }
         }
     }

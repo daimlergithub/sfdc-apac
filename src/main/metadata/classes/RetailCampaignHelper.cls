@@ -21,7 +21,7 @@ public  class RetailCampaignHelper
     public static string  RetailSmartBestPractice = 'Retail smart Best Practice';
     public static string parentCampaign ='Parent_Campaign__c';
     public static string expr0 = 'expr0';
-    
+    public static Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
     public static void updateParentCampaignStatus(Set<Id> campaignIds)
     {
         List<Campaign> ParentCampaigns = new List<Campaign>();
@@ -48,16 +48,19 @@ Map<Id,String> UserMap = New Map<Id,String>();
 Set<String> dealerCode = New Set<String>();
 Set<String> accountName = New Set<String>();
 List<Retail_Campaign__Share> RetailCampaignShare = New List<Retail_Campaign__Share>();
+List<User> UserList;
 
 For(Retail_Campaign__c RetMem : newList){
-    If( RetMem.MD__c == 'JP'){
+    If( RetMem.dealer_name__c == null){
      
      recordIds.add(RetMem.Id);
     }
     
 }
-
-List<User> UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
+ if(recordIds != null)
+ {
+    UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
+ }
 
 For(User u : UserList){
 If(u.ContactId != null){    
@@ -65,7 +68,7 @@ UserMap.put(u.id,u.Dealer_GC_Code__c);
 dealerCode.add(u.Dealer_GC_Code__c);
 }   
 }
-List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode];
+List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
 For(Account acc :dealerAccList){
     accountName.add(acc.Name);
 }
@@ -283,14 +286,20 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
   }
   EmailTemplate templateId = [Select id from EmailTemplate where name = 'Dealer Campaign Notification'];
   //List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
-     List<Retail_Campaign__c> retList =[Select id,owner.id From Retail_Campaign__c Where Id =: retId];
+     List<Retail_Campaign__c> retList =[Select id,owner.id,Dealer_Name__c,Dealer_Name__r.id From Retail_Campaign__c Where Id =: retId];
   
   For(Retail_Campaign__c reCampaign : retList ){
          if(!Test.isRunningTest()){
           
+          if(reCampaign.Dealer_Name__c !=null)
+          {
+          for(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:reCampaign.Dealer_Name__r.id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
+          
+          {
+          
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
-        mail.setTargetObjectId(reCampaign.owner.Id);
+        mail.setTargetObjectId(u.Id);
         //mail.setToAddresses(toaddress);
         mail.setWhatId(reCampaign.Id);
         
@@ -302,7 +311,8 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                
                
             mails.add(mail);   
-
+         }
+         }
             }
             }
   Messaging.sendEmail(mails);
@@ -518,7 +528,7 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                 
                     sid.add(retcam.Parent_Campaign__c);
                     retailId.add(retcam.Id);
-                    OwnerSid.add(retcam.Ownerid);
+                    OwnerSid.add(retcam.Dealer_Name__c);
                     
             }
             
@@ -532,11 +542,11 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
       
       List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,Consolidated_List_Completed__c,(Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c    From  Campaign_Members1__r ) From Campaign Where Id =: sid ];
       
-      List<Retail_Campaign__c> retList = [Select id,OwnerId From Retail_Campaign__c Where Id =: retailId];
+      List<Retail_Campaign__c> retList = [Select id,OwnerId,Dealer_Name__c From Retail_Campaign__c Where Id =: retailId];
       
-      List<User> UseList = [Select id,Accountid From User Where id =: OwnerSid];
+      //List<User> UseList = [Select id,Accountid,Dealer_Name__c From User Where id =: OwnerSid];
       
-      system.debug('++++++++++++++'+UseList );
+      //system.debug('++++++++++++++'+UseList );
             
             For(Campaign caMem : caMemList ){
             
@@ -544,12 +554,12 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                 
               For(Retail_Campaign__c retail : retList){
               
-                For(User u : UseList){
-              if(u.id == retail.ownerid){
+                
+              
               For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
                  
-                 if(camo.Status__c !='Removed'&& u.Accountid == camo.Preferred_Dealer__c){ 
-                 system.debug('++++++++++++++'+u.Accountid );
+                 if(camo.Status__c !='Removed'&& retail.Dealer_Name__c == camo.Preferred_Dealer__c){ 
+                 //system.debug('++++++++++++++'+u.Accountid );
                  Campaign_Member__c newCamRetail = new Campaign_Member__c();
                 // newCamRetail.Name = camo.Name;
                  newCamRetail.Retail_Campaign_Id__c = retail.Id;
@@ -560,8 +570,8 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                   
                }   
               }
-                              }
-                              }
+                              
+                              
             }
                                                   
                 
@@ -959,6 +969,38 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
             }
         }
     }
+    
+    /**
+  *@Description : Avoiding Duplication of Campaign Members 
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. 
+  *@return:This mehtod does not return any value.
+  */
+    public static void blankUpdateCM(list<Retail_Campaign__c> retcampaignNew,map<id,Retail_Campaign__c> retcampaignOldMap)
+    {
+        
+       Set<Id> Campid=new Set<Id>();
+       List<Campaign_Member__c> campmemlist =new List<Campaign_Member__c>();
+       
+        for(Retail_Campaign__c campp: retcampaignNew)
+        { 
+            System.debug('campp.Segmentation_Base__c+++'+campp.Segmentation_Base__c);
+            System.debug('campp.Segmentation_Base__c+++'+retcampaignOldMap.get(campp.Id).Segmentation_Base__c);
+          if(campp.MD__c == 'JP' && campp.Segmentation_Base__c != retcampaignOldMap.get(campp.Id).Segmentation_Base__c)
+           {
+             Campid.add(campp.id);
+           }
+        }
+        
+         campmemlist = [Select id,Campaign_ID__c,Retail_Campaign_Id__c from Campaign_Member__c where Retail_Campaign_Id__c = :Campid];
+         try{
+         update campmemlist;
+         }catch(Exception Ex){
+         System.debug('Duplicte Error Message'+Ex.getMessage());
+         }
+        
+
+    }
       /**
   *@Description :custom clone in campaign
   
@@ -1266,4 +1308,106 @@ system.debug('++++++'+camUpdateList);
             }
         }
     }
+      public static void jointDrivenRetailCampaignSharing(List<Retail_Campaign__c> newList){
+    Set<Id> ownerIds = New Set<id>();
+    Map<Id,String> accountMap = New Map<Id,String>();
+    Map<String,list<String>> dealeraccntMap = New Map<String,list<String>>();
+    map<string,id> assgroupMap = new map<string,id>();
+    Set<String> dealerCode = New Set<String>();
+    Set<String> accountName = New Set<String>();
+    List<Retail_Campaign__Share> RetailCampaignShare = New List<Retail_Campaign__Share>();
+    List<Account> dealerAccList;
+    for(Retail_Campaign__c rc :newList)
+    {
+        if(rc.dealer_name__c != null)
+        {
+            ownerIds.add(rc.dealer_name__c);
+            
+        }
+    }
+        System.debug('nlist'+newList);
+
+
+    if(ownerIds != null)
+    {
+        List<Account> accountList =[select id,Dealer_GC_Code__c From Account Where Id =: ownerIds AND RecordtypeId=:da];
+    
+    if(accountList.size()>0){
+        For(Account u : accountList)
+        {
+               
+                accountMap.put(u.id,u.Dealer_GC_Code__c);  
+                dealerCode.add(u.Dealer_GC_Code__c);
+               
+        }
+      }
+    }
+    if(dealerCode != null)
+    {
+     dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
+    }
+      if(dealerAccList!=null)
+        {
+            for(Account acc :dealerAccList)
+            {
+                system.debug('acc.Name'+acc.Name);
+                if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
+                {
+                    dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
+                }
+                dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
+                AccountNAme.add(acc.Name);
+            }
+        }
+        
+        list<Group> grplist=new list<Group>();
+         if(AccountNAme !=null)
+        {
+            grplist=[select id ,Name ,Type from Group where Name IN: AccountNAme];
+        }
+        
+        if(grplist!=null)
+        {
+            
+            for(Group assg:grplist)
+            {
+                
+                assgroupMap.put(assg.Name, assg.id);
+                
+                
+            }
+        }
+        system.debug('assgroupMap><><><>'+assgroupMap);
+        For(Account acc :dealerAccList)
+        {   
+             
+            accountName.add(acc.Name);
+        }
+   
+       
+        For(Retail_Campaign__c RetMem : newList)
+        {
+          if(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c)) != null){  
+            for(integer i=0 ; i < dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c)).size();i++)
+            {
+                if(assgroupMap.get(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c))[i]) != null)
+                {
+                    
+                    Retail_Campaign__Share RetShare = new Retail_Campaign__Share();
+                    RetShare.AccessLevel = 'Edit';
+                    RetShare.UserOrGroupId = assgroupMap.get(dealeraccntMap.get(accountMap.get(RetMem.dealer_name__c))[i]);
+                    RetShare.ParentId = RetMem.Id;
+                    RetShare.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
+                    RetailCampaignShare.add(RetShare);
+                }
+            }   
+           }
+        }
+    
+    If(RetailCampaignShare.size()>0)
+    {
+
+        insert RetailCampaignShare;
+    }
+}
 }

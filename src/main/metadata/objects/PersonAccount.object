@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEMPersonAccount</compactLayoutAssignment>
     <enableHistory>true</enableHistory>
@@ -9,33 +9,6 @@
         <description>Record type for person account</description>
         <label>Person Account</label>
 		<picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -108,6 +81,21 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Agreement_to_commit_info_proces_CC_Old__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -634,6 +622,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Canada</fullName>
                 <default>false</default>
             </values>
@@ -666,10 +658,34 @@
                 <default>true</default>
             </values>
             <values>
+				<fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>						  
                 <fullName>Mexico</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>Other country</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Southeast Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>								  
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -698,6 +714,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>							 
                 <fullName>Turkey</fullName>
                 <default>false</default>
             </values>
@@ -774,6 +794,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>								   
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
@@ -814,6 +838,10 @@
                 <default>false</default>
             </values>
             <values>
+					<fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>						
                 <fullName>Inbound</fullName>
                 <default>false</default>
             </values>
@@ -830,6 +858,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>							
                 <fullName>MB website</fullName>
                 <default>false</default>
             </values>
@@ -855,6 +887,10 @@
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -886,6 +922,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>							
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -894,6 +934,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>							 
                 <fullName>Recall desk</fullName>
                 <default>false</default>
             </values>
@@ -2580,6 +2624,66 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Sales_Marketing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Hobby__c</picklist>
             <values>
@@ -2682,6 +2786,10 @@
                 <fullName>Movies</fullName>
                 <default>false</default>
             </values>
+			 <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Music %28classical%29</fullName>
                 <default>false</default>
@@ -2696,6 +2804,10 @@
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2772,6 +2884,10 @@
             </values>
             <values>
                 <fullName>Travel%28Domestic%29</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Travelling</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2859,6 +2975,18 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Apparel %26 Accessories%2FFashion</fullName>
+                <default>false</default>
+            </values>
+            <values>													  
+				<fullName>Beauty %26 Cosmetic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology%2FChemical</fullName>
+                <default>false</default>
+            </values>
+            <values>						
                 <fullName>Banking</fullName>
                 <default>false</default>
             </values>
@@ -2879,10 +3007,30 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>								   
                 <fullName>Construction and installation industry</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Products</fullName>
+                <default>false</default>
+            </values>
+            <values>							   
                 <fullName>Crafts and other manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -2903,6 +3051,22 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment %26 Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>						
                 <fullName>Ferrous metal mining industry</fullName>
                 <default>false</default>
             </values>
@@ -2915,6 +3079,10 @@
                 <default>false</default>
             </values>
             <values>
+					<fullName>Foods %26 Beverages</fullName>
+                <default>false</default>
+            </values>
+            <values>									
                 <fullName>Forestry</fullName>
                 <default>false</default>
             </values>
@@ -2927,14 +3095,34 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>							   
                 <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
+					<fullName>Information Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>									   
                 <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>Journalism %26 News%2FMedia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Businesses</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>												
                 <fullName>Mass and religious organizations</fullName>
                 <default>false</default>
             </values>
@@ -2947,6 +3135,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Oil %26 Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>								
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -2979,6 +3171,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>									 
                 <fullName>Real Estate</fullName>
                 <default>false</default>
             </values>
@@ -2999,6 +3195,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Services</fullName>
+                <default>false</default>
+            </values>
+            <values>							 
                 <fullName>Ship building</fullName>
                 <default>false</default>
             </values>
@@ -3007,6 +3207,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Sports</fullName>
+                <default>false</default>
+            </values>
+            <values>						   
                 <fullName>State institutions</fullName>
                 <default>false</default>
             </values>
@@ -3015,10 +3219,18 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>							
                 <fullName>Trade</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>Transport%2FLogistics</fullName>
+                <default>false</default>
+            </values>
+            <values>										  
                 <fullName>Transportation Equipment Manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -3031,6 +3243,10 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+            <values>							  
                 <fullName>Warehousing</fullName>
                 <default>false</default>
             </values>
@@ -3980,6 +4196,10 @@
                 <fullName>Automotive related</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Broadcasting%2C Media</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Computer%2FIT</fullName>
                 <default>false</default>
@@ -3990,6 +4210,10 @@
             </values>
             <values>
                 <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Delivery</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4024,6 +4248,10 @@
                 <fullName>Government employees</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Housewife</fullName>
                 <default>false</default>
@@ -4038,6 +4266,10 @@
             </values>
             <values>
                 <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Legal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4106,6 +4338,10 @@
             </values>
             <values>
                 <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Real Estate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4462,6 +4698,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+			<picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>							  
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
@@ -4475,26 +4738,50 @@
         <picklistValues>
             <picklist>Monthly_Income__c</picklist>
             <values>
+				<fullName>%3C 10%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>									 
                 <fullName>%3C 100%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>%3E 50%2C001 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>									 
                 <fullName>%3E 500%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>10%2C001 - 20%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>						
                 <fullName>100%2C001 - 200%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>20%2C001 - 30%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>											
                 <fullName>200%2C001 - 300%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>30%2C001 - 40%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>											
                 <fullName>300%2C001 - 400%2C000 THB</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>40%2C001 - 50%2C000 MYR</fullName>
+                <default>false</default>
+            </values>
+            <values>											
                 <fullName>400%2C001 - 500%2C000 THB</fullName>
                 <default>false</default>
             </values>
@@ -4759,6 +5046,49 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Owner_Relation__c</picklist>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband Wife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Ownership</picklist>
             <values>
@@ -4976,6 +5306,21 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Abroad_Agreement_CC_Old__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Person_Type__pc</picklist>
             <values>
@@ -5004,6 +5349,51 @@
         </picklistValues>
         <picklistValues>
             <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Agreement_CC_Old__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Info_Third_Party_Release_CC_Old__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -5089,11 +5479,15 @@
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>		
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Bahasa</fullName>
+                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5130,10 +5524,6 @@
             </values>
             <values>
                 <fullName>Korean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5255,6 +5645,25 @@
                 <fullName>Province1</fullName>
                 <default>false</default>
             </values>
+			</picklistValues>
+        <picklistValues>
+            <picklist>Race__c</picklist>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>			 
         </picklistValues>
         <picklistValues>
             <picklist>Rating</picklist>
@@ -5954,33 +6363,6 @@
         <description>Person Account record type for merged customer before soft deleted</description>
         <label>Person Account Manual Merge</label>
 		<picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -6591,6 +6973,78 @@
                 <fullName>China</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+			<values>			
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </values>		 
+			<values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+			</values>	
+			<values>							
+                <fullName>Other country</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other country in Southeast Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>	
+			<values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United States</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>		
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
@@ -8452,6 +8906,62 @@
         <picklistValues>
             <picklist>Hobby__c</picklist>
             <values>
+			<fullName>Art %26 Theatre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Art Collecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Art%28design%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Art%28painting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Art%28photography%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arts %26 Crafts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Badminton</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baseball</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Basketball</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beauty %26 Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beauty Salon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beauty%26Skincare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bicycle</fullName>
+                <default>false</default>
+            </values>
+            <values>										
                 <fullName>Bowling</fullName>
                 <default>false</default>
             </values>
@@ -8460,10 +8970,18 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Drama</fullName>
+                <fullName>Dining</fullName>
+                <default>false</default>
+            </values>
+			<values>
+				<fullName>Drama</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+			<values>			
                 <fullName>Fish</fullName>
                 <default>false</default>
             </values>
@@ -8472,6 +8990,22 @@
                 <default>false</default>
             </values>
             <values>
+				<fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home %26 Gardening</fullName>
+                <default>false</default>
+            </values>
+            <values>						 
                 <fullName>Humanity</fullName>
                 <default>false</default>
             </values>
@@ -9608,6 +10142,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+			<picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>							  
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
@@ -10671,6 +11232,21 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Title__c</picklist>
             <values>
@@ -10819,6 +11395,36 @@
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25418,6 +26024,10 @@
             </values>
             <values>
                 <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
             <values>

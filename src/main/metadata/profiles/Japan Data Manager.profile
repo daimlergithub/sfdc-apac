@@ -8300,6 +8300,11 @@
         <field>Campaign_Member__c.Delinquency_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Duplicate_Campaign_Member__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Finance_Address__c</field>
@@ -14004,6 +14009,11 @@
         <editable>false</editable>
         <field>Lead__c.Aftersales_Vehicle_Brand__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Aftersales_Vehicle_Relationship__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

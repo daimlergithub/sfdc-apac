@@ -576,12 +576,20 @@
         <editHeading>true</editHeading>
         <label>Registratin Information</label>
         <layoutColumns>
+		    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>New_Contract__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Registration_Number__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+		    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>New_Contract_No__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Purchased_VIN__c</field>

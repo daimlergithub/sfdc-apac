@@ -81,6 +81,61 @@
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
     <alerts>
+        <fullName>Case_escalation_Inquiry_after_48_hours_MY</fullName>
+        <description>Case escalation_Inquiry after 48 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_48_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_Inquiry_after_72_hours_MY</fullName>
+        <description>Case escalation_Inquiry after 72 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_72_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_MB_Complaint_after_120_hours_MY</fullName>
+        <description>Case escalation_MB Complaint after 120 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_120_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_MB_Complaint_after_24_hours_MY</fullName>
+        <description>Case escalation_MB Complaint after 24 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_24_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_for_Inquiry_after_120_hours_MY</fullName>
+        <description>Case escalation for Inquiry after 120 hours_MY</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_120_hours_MY</template>
+    </alerts>
+    <alerts>
         <fullName>Case_escalation_for_Inquiry_after_24_hours_TH</fullName>
         <description>Case escalation for Inquiry_TH</description>
         <protected>false</protected>
@@ -142,6 +197,17 @@
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
     <alerts>
+        <fullName>Case_re_assigned_to_Supervisor_Team_B</fullName>
+        <description>Case re-assigned to Supervisor Team B</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Supervisor_Team_B</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SupportCaseAssignmentNotification</template>
+    </alerts>
+    <alerts>
         <fullName>Complaint_Update_Notification</fullName>
         <description>Complaint Update Notification</description>
         <protected>false</protected>
@@ -167,6 +233,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Complaint_update_notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Deadline_Notification_to_Owner_before_1_hour</fullName>
+        <description>Deadline Notification to Owner before 1 hour</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification_MY</template>
     </alerts>
     <alerts>
         <fullName>Email_to_Dealer_Gatekeeper_Case</fullName>
@@ -266,17 +342,6 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
-    <alerts>
-        <fullName>Case_re_assigned_to_Supervisor_Team_B</fullName>
-        <description>Case re-assigned to Supervisor Team B</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>Supervisor_Team_B</recipient>
-            <type>role</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/SupportCaseAssignmentNotification</template>
-    </alerts>
     <fieldUpdates>
         <fullName>Approval_Update</fullName>
         <field>Status</field>
@@ -285,6 +350,17 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_to_Supervisor_Team_B</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Supervisor_Team_B</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign to Supervisor Team B</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Case_owner_manager_update</fullName>
@@ -1070,17 +1146,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Assign_to_Supervisor_Team_B</fullName>
-        <field>OwnerId</field>
-        <lookupValue>Supervisor_Team_B</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Assign to Supervisor Team B</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
     <rules>
         <fullName>Case 48%2672H Check Notification</fullName>
         <active>false</active>
@@ -1371,6 +1436,35 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case Deadline Notification MY</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners an hour before the deadline</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Deadline_Notification_to_Owner_before_1_hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Case Deadline%3A Dealer Notification KR After 240 hours</fullName>
         <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
@@ -1405,8 +1499,46 @@
         </actions>
         <active>true</active>
         <description>If Case Owner changed, email need to send to case owner.</description>
-        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos;</formula>
+        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos; &amp;&amp; NOT(ISCHANGED(Case_Dealer__c))</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case escalation_Inquiry after 120 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>C</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_for_Inquiry_after_120_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>120</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Case escalation_Inquiry after 120 hours_TH</fullName>
@@ -1537,6 +1669,81 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case escalation_Inquiry after 48 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>A</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>This is used to send email notification after 48 hours for MY</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_48_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_Inquiry after 72 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>B</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_72_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Case escalation_Inquiry after 72 hours_TH</fullName>
         <actions>
             <name>Case_owner_manager_update</name>
@@ -1565,6 +1772,44 @@
                 <type>Alert</type>
             </actions>
             <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_MB Complaint after 120 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Green &lt;= 2</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>This is used for MY market to escalate case after 120 hours</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_MB_Complaint_after_120_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>120</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -1601,6 +1846,44 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case escalation_MB Complaint after 24 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Red &gt;= 4</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>This is used for MY market to escalate case after 24 hours</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_MB_Complaint_after_24_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Case escalation_MB Complaint after 24 hours_TH</fullName>
         <actions>
             <name>Case_owner_manager_update</name>
@@ -1633,16 +1916,54 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case escalation_MB Complaint after 72 hours_MY</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Yellow = 3</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_72_hours_MY</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Case escalation_MB Complaint after 72 hours_TH</fullName>
         <actions>
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
-            <field>Case.Priority</field>
+            <field>Case.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Yellow = 3</value>
+            <value>Inquiry</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
@@ -1660,7 +1981,8 @@
                 <name>Case_escalation_for_MB_Complaint_TH</name>
                 <type>Alert</type>
             </actions>
-            <timeLength>72</timeLength>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -1944,6 +2266,34 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Inquiry Share to Regional Office</fullName>
+        <actions>
+            <name>Case_re_assigned_to_Supervisor_Team_B</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Assign_to_Supervisor_Team_B</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Share_to_Regional_Office__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Case.LastModifiedDate</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>New Retail Campaign Case Notification for Dealer</fullName>
         <actions>
             <name>Email_to_Dealer_when_Retail_Campaign_Case_is_assigned</name>
@@ -2157,31 +2507,24 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Inquiry Share to Regional Office</fullName>
-        <actions>
-            <name>Case_re_assigned_to_Supervisor_Team_B</name>
-            <type>Alert</type>
-        </actions>
-        <actions>
-            <name>Assign_to_Supervisor_Team_B</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <fullName>Update Complaint Creator Department To Dealer MY</fullName>
+        <active>false</active>
         <criteriaItems>
-            <field>Case.Share_to_Regional_Office__c</field>
+            <field>Case.MD__c</field>
             <operation>equals</operation>
-            <value>True</value>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Inquiry</value>
+            <value>MB Complaint</value>
         </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <offsetFromField>Case.LastModifiedDate</offsetFromField>
-            <timeLength>1</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>startsWith</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

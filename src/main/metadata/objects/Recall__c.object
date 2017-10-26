@@ -56,6 +56,42 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used as part of Recall Vehicle to link Recall with Account and to show it as a related list on Account</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Recall/Campaign</relationshipLabel>
+        <relationshipName>Recall_Campaign</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Type__c</fullName>
+        <description>This field is used as part of Recall Vehicle to capture the Campaign Type details</description>
+        <externalId>false</externalId>
+        <label>Campaign Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Completion_Date__c</fullName>
+        <description>This field is used as part of Recall Vehicle to capture the Completion Date</description>
+        <externalId>false</externalId>
+        <label>Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>Contains the EP transaction ID which created this record</description>
         <externalId>false</externalId>
@@ -68,11 +104,35 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Damage_Code__c</fullName>
+        <description>This field is used as part of Recall vehicle to capture the Damage Code</description>
+        <externalId>false</externalId>
+        <label>Damage Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>EP_Parent_Transaction__c</fullName>
         <description>Used to identify all records updated by a single data load or specific data load</description>
         <externalId>false</externalId>
         <label>EP Parent Transaction</label>
         <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Estimated_Working_Hours__c</fullName>
+        <description>This field is used as part of Recall Vehicle to capture the Estimated Working Hours</description>
+        <externalId>false</externalId>
+        <label>Estimated Working Hours</label>
+        <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -203,6 +263,18 @@
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
+    <fields>
+        <fullName>Vehicle_Registration_Number__c</fullName>
+        <description>This field is used as part of Recall Vehicle to capture the Vehicle registration Number from Vehicle object</description>
+        <externalId>false</externalId>
+        <formula>Vehicle_ID__r.RegistrationNo__c</formula>
+        <label>Vehicle Registration Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Recall</label>
     <listViews>
         <fullName>All</fullName>
@@ -233,6 +305,41 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Recalls</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Campaign</fullName>
+        <active>true</active>
+        <description>This recordtype is used to capture the Campaign Vehicle information</description>
+        <label>Campaign</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Recall</fullName>
+        <active>true</active>
+        <description>This recordtype is used to capture the Recall Vehicle information</description>
+        <label>Recall</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>Recall_Reason__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>

@@ -172,12 +172,12 @@ public class LeadMergeController{
            if (masterFieldValue!=slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null) {
                 wrap.isSame = false;
                 wrap.isMasterChecked = true;
-                wrap.isSlaveChecked = true;
+                wrap.isSlaveChecked = false;
                 wraps.add(wrap);
                 continue;
             }
            else if(masterFieldValue==slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null){
-                wrap.isSame = false;
+                wrap.isSame = true;
                 wrap.isMasterChecked = false;
                 wrap.isSlaveChecked = false;
                 wraps.add(wrap);
@@ -187,13 +187,13 @@ public class LeadMergeController{
             {
                wrap.isSame = false;
                wrap.isMasterChecked = false;
-               wrap.isSlaveChecked = false;
+               wrap.isSlaveChecked = true;
                wraps.add(wrap);
                 continue;
            }
            else if (masterFieldValue == null &&  slaveFieldValue == null)
             {
-               wrap.isSame = false;
+               wrap.isSame = true;
                wrap.isMasterChecked = false;
                wrap.isSlaveChecked = false;
                wraps.add(wrap);
@@ -373,7 +373,9 @@ public class LeadMergeController{
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy)     
      */  
-    public void selectAll() {       
+    public void selectAll() {    
+    
+        system.debug('selectenter'+selectAllParam );   
         if (selectAllParam ==System.Label.master) {
             for (LeadWrapper wrap : wraps) {
                 if (!wrap.isMasterNull) {

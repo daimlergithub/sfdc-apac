@@ -800,6 +800,19 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Contact__c</field>
             </layoutItems>
+			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>New_Contract__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -889,6 +902,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Wholesale_Comment__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>New_Contract_No__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

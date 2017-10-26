@@ -449,7 +449,7 @@ public class AccountLinkHelperKR
             }
            
              // Added for Retail Person - Account Link issue
-               if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
+             /*  if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
                 if(accountLink.fromRole__c !=null && accountLink.toRole__c != null) {
                     set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
                     list_SharingToDelete.add(accountLink.Id);
@@ -473,10 +473,10 @@ public class AccountLinkHelperKR
                     }
                    
                 }
-            }
+            }*/
         }
         }
-        if(set_accountId.size() > 0){
+       /* if(set_accountId.size() > 0){
             List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_accountId AND IsPortalEnabled = true]);
             List<Account> dealerAccList = [select Name from Account where Id IN: set_accountId];
             Set<String> dealerAccNameSet = new Set<String>();
@@ -492,15 +492,15 @@ public class AccountLinkHelperKR
             if(list_SharingDele.size() > 0){
                 Database.delete(list_SharingDele, false);
             }
-        }
+        }*/
        
         if(map_AccountIdAndListAccountLinkId.size() > 0){
             createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
        
-        if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
+        /*if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
             createPCSharingRecord(map_PersonCompanyAccountIdAndListAccountLinkId);
-        }
+        }*/
        
         
         
@@ -892,7 +892,7 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_Industry__c = accountMap.get(acclnk.toRole__c).Industry;                  
                     acclnk.Retail_Special_Care__c = accountMap.get(acclnk.toRole__c).Special_Care__c;
                     acclnk.Retail_Special_Needs_Class__c = accountMap.get(acclnk.toRole__c).Special_Needs_Class__c;
-                    acclnk.Retail_Allow_Data_Sharing__c = accountMap.get(acclnk.toRole__c).Allow_Data_Sharing__c;  
+                    acclnk.Retail_Allow_Data_Sharing__c = accountMap.get(acclnk.toRole__c).Allow_Data_Sharing2__c;  
                     acclnk.Retail_Individual_Home_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
                     acclnk.Retail_Work_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
                     acclnk.Retail_Mobile__c = accountMap.get(acclnk.toRole__c).PersonMobilePhone;   

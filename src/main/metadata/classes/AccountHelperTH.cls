@@ -23,7 +23,6 @@ public class AccountHelperTH{
         {
             for(Account Acc : listNewAccounts)
             {
-                
                 if(Acc.Mobile__c != Null && Acc.Mobile__c != '')
                 {
                     Acc.SMS_Last_Modified_By__c = UserInfo.getName();
@@ -229,7 +228,7 @@ public class AccountHelperTH{
          integer actContract=0;
          Set<Id> AccIdSet = new Set<Id>();
          for(Account acc : listNewAccounts)
-         {                                  
+         {       
                   AccIdSet.add(acc.id);          
          }
           List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id 
@@ -391,6 +390,7 @@ public class AccountHelperTH{
             UtilAddressTranslation.gettranslatedvalues('TH');
             for(Account acc : accLst)
             {
+                
                 system.debug('accountLanguage>>>' + acc.Preferred_Language__c);
                 //MT20170913- Added market Descrminator MY
                 if(acc.MD__c == 'TH' || acc.MD__c == Label.MY)
@@ -575,6 +575,7 @@ public class AccountHelperTH{
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
         for(Account acc : accLst){
+            
             if(isUpdate && acc.MD__c == label.MarketTH){ //Checking Market for updated account
                 AccountIds.add(acc.id); //Adding accountId's to set        
             }
@@ -582,22 +583,27 @@ public class AccountHelperTH{
         }
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
-        List<Account_Link__c> Accountlinklist = [select id,Name,toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
+        List<Account_Link__c> Accountlinklist = [select id,toRole__r.Agreement_to_commit_info_processing__c,toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.UCID__c,toRole__r.CDM_UCID__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.DMS_Retailer_ID__c,Name,toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
                                                 toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, 
                                                 toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,
-                                                toRole__r.Allow_Data_Sharing2__c, toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax,
+                                                toRole__r.Allow_Data_Sharing2__c,toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax,
                                                 toRole__r.Email__c,toRole__r.Primary_Address_Reference__r.Address_Type__c, toRole__r.Primary_Address_Reference__r.Province__c,
                                                 toRole__r.Primary_Address_Reference__r.City__c, toRole__r.Primary_Address_Reference__r.District__c, toRole__r.Primary_Address_Reference__r.Block__c,
                                                 toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
                                                 toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, 
                                                 toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,
-                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,toRole__r.MBTH_Mercede__c,
+                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,/*toRole__r.MBTH_Mercede__c,*/
                                                 toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
-
         //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
+            acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;       
+                acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;     
+                acclnk.Retail_UCID__c=acclnk.toRole__r.CDM_UCID__c;     
+                acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;        
+                acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;       
+                acclnk.Retail_Agreement_Info_Processing__c=acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
                 //acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
@@ -617,7 +623,7 @@ public class AccountHelperTH{
                 acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;                
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
                 //acclnk.Position__c= acclnk.toRole__r.Position__c;
-                acclnk.Retail_List_of_Events__c= acclnk.toRole__r.MBTH_Mercede__c;
+                //acclnk.Retail_List_of_Events__c= acclnk.toRole__r.MBTH_Mercede__c;
                 acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
                 acclnk.Retail_Agreement__c= acclnk.toRole__r.Personal_Agreement__c;
@@ -692,11 +698,12 @@ public class AccountHelperTH{
             
             for(Account acc : TriggerNew)
             {
-                AccIds.add(acc.id);              
+                AccIds.add(acc.id);
+                              
             }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
-                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c from account where id in :AccIds];
+                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c,market__c from account where id in :AccIds];
                 if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
@@ -766,6 +773,25 @@ public class AccountHelperTH{
         
     }
     /*
+    SN20170929- Added code for create and update of data for ucid.
+    
+    */
+    
+    public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist)
+    {       try{
+    
+            set<ID> accids=new set<ID>();
+            for(Account accrec : accountlist){
+                
+                accids.add(accrec.id);
+            }
+            CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+            }Catch(exception e){
+                 CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
+                
+            }
+    }
+    /*    
 It is a temporary code fix for the phone format issue following these 3 rules
 1) If it contains '+ ' or if the number < 9 do nothing.
 2) If there is any '0' in the starting remove it and Prefix '+66' to the number.
@@ -840,4 +866,16 @@ It would be replaced by Informatica/Middleware  */
             
             }
     } */
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Account> accList){        
+        
+               for(Account acc : accList){
+					if(Test.isRunningTest()){
+                        acc.isTestRunning__c=true;
+                    }
+                   if(acc.Market__c =='' || acc.Market__c==NULL){
+                     acc.Market__c=acc.MD__c;
+                  }  
+              }       
+    }
 }

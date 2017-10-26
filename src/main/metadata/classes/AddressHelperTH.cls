@@ -186,5 +186,46 @@ public with sharing class AddressHelperTH {
                  
         
           }
+       /**             
+        * @Description: update Account on delete/insert/update of address       
+        * @Date       : 15/11/2016
+        * @param      : list of old addresses 
+        * @return     : void
+        * @see:       : AddressHelperTH
+        */
+         public static void updateAddressCDM(List<Address__c> Address, string MarketDiscriminator, string updateType){         
+                 set<id> accountId = new set<id>();  
+                 list<Account> accountList = new list<Account>();                  
+                 //get the related accountIds
+                 for(Address__c add:Address){
+                        accountId.add(add.Customer__c);                       
+                  } 
+                if(accountId.size()>0){
+                 for(Account acc:[select id,recordtypeid from Account where id IN:accountId]){
+                        accountList.add(acc);
+                 } 
+                 try{
     
+                    set<ID> accids=new set<ID>();
+                    for(Account accrec:accountlist){
+                        accids.add(accrec.id);
+                    }
+                    CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+                    }Catch(exception e){
+                        CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
+                    }
+                }
+          }
+      /* Data Migration Explicit Fix - Santosh Mohanty */
+        public static void updatemarket(List<Address__c> addList){        
+            
+                   for(Address__c addr : addList){
+						if(Test.isRunningTest()){
+                        addr.isTestRunning__c=true;
+						}	
+                       if(addr.Market__c =='' || addr.Market__c==NULL){
+                         addr.Market__c=addr.MD__c;
+                      }  
+                  }       
+        }
 }

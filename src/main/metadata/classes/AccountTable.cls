@@ -84,7 +84,7 @@ Public With Sharing class AccountTable{
         else if(regionValue == 'aid' ){
             panelStopper = false;
             //SearchLogic();
-        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP'])); 
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_Active__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP' AND Dealer_Active__c=True AND Dealer_Type__c='Outlet' ])); 
         setCon.setpagesize(10);
         }
     }
@@ -227,7 +227,7 @@ Public With Sharing class AccountTable{
 
     public void  clickMe(){
         List<Account> acc = New List<Account>();
-        
+        Set<Id> SetAccounts = New Set<Id>();
         CamId =ApexPages.currentPage().getParameters().get('id');
         getSelectedAccount();
         selectedList = SelectedAccountMap.values();
@@ -248,14 +248,20 @@ Public With Sharing class AccountTable{
         
         
         for(Account pdMain : SelectedAccountMap.values()){
-        Participating_Dealer__c pd = New Participating_Dealer__c();
-        pd.Campaign__c = CamId;
-        pd.Dealer__c = pdMain.Id;
+        //Participating_Dealer__c pd = New Participating_Dealer__c();
+        //pd.Campaign__c = CamId;
+        //pd.Dealer__c = pdMain.Id;
         
-        parDealer.add(pd);
+          SetAccounts.add(pdMain.Id);
+        
+        //parDealer.add(pd);
         }
         
-        Insert parDealer;
+       Batch_insertDealer  batcher = new Batch_insertDealer (SetAccounts, CamId );
+            Database.executeBatch(batcher, 200);
+       
+       
+        //Insert parDealer;
         
         //PageReference nextPage = new PageReference('/' +camId );
        // return nextPage;

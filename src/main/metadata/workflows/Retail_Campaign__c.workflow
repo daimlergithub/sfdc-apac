@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>MBTH_Approval_Given</fullName>
+        <description>MBTH_Approval Given</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Approval_Mail</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_Email_Notification_to_Dealers</fullName>
+        <description>MBTH_Email Notification to Dealers</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Dealer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Email_Notification_to_the_Dealer</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_Intial_Submission_Action_Retail_campaign</fullName>
+        <description>MBTH_Intial Submission Action_Retail_campaign</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Approver__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Approval_Email_to_Approver</template>
+    </alerts>
+    <alerts>
+        <fullName>MBTH_rejection_Action</fullName>
+        <description>MBTH_rejection Action</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Rejectd_Mail</template>
+    </alerts>
+    <alerts>
         <fullName>Retail_Execution_Email_Notification</fullName>
         <description>Retail Execution Email Notification</description>
         <protected>false</protected>
@@ -29,6 +71,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Retail_CampaignNotificationforSegmen</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Notification_to_Dealer</fullName>
+        <description>Send Notification to Dealer</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/TH_SegmentationgEmail_Notification</template>
     </alerts>
     <fieldUpdates>
         <fullName>Apply_Status_Approved</fullName>
@@ -131,6 +183,51 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Status_to_Completed</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Completed</literalValue>
+        <name>Update Status to Completed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_to_Response_collection</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Response collection</literalValue>
+        <name>Update Status to Response collection</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_status_to_Execution</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Execution</literalValue>
+        <name>Update status to Execution</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_status_to_Segmentation</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Segmentation</literalValue>
+        <name>Update status to Segmentation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_status_to_planning</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Planning</literalValue>
+        <name>Update status to planning</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>retail_campaign_status_for_segmentation</fullName>
         <field>Child_Campaign_Status__c</field>
         <literalValue>Segmentation</literalValue>
@@ -167,8 +264,78 @@
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>MBTH_Update_Retail Campaign_ApproverEmail</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Retail_Campaign__c.Approver__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>MBTH_update_Campaign Status</fullName>
+        <actions>
+            <name>Update_status_to_planning</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Retail_Campaign__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_Notification_to_Dealer</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Update_status_to_Segmentation</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Segmentation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_status_to_Execution</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Execution_Start_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Status_to_Response_collection</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Response_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Status_to_Completed</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Close_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Retail Execution Start Date Notification To Owner</fullName>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.Record_Type_Name__c</field>
             <operation>equals</operation>
@@ -198,6 +365,7 @@
     <rules>
         <fullName>Segmentation start date Notification to Retail Users</fullName>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.Segmentation_Date__c</field>
             <operation>equals</operation>
@@ -253,8 +421,19 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>TH_send Email Notification to the Dealer</fullName>
+        <actions>
+            <name>MBTH_Email_Notification_to_Dealers</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>Dealer_Email__c !=null&amp;&amp; MD__c ==&apos;TH&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Time Based Workflow on Retail Campaign</fullName>
         <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
