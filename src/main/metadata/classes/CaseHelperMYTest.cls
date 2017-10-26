@@ -21,7 +21,7 @@ public class CaseHelperMYTest {
     
     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
     
-    User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
+    User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
     insert user1;
    System.runAs (user1) {  
     List<String> AccountFields=new List<String>();
@@ -73,7 +73,7 @@ public class CaseHelperMYTest {
     static testmethod void testCaseHelperMY1(){
     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
     
-    User user2 = new User(LastName='User2'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='user2@infosys.com',UserName='user2@infosys.com');
+    User user2 = new User(LastName='User2'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='user2@infosys.com',UserName='user2@infosys.com'+String.valueof(DateTime.now().getTime()));
     insert user2;
     System.runAs (user2) {   
      test.startTest();
