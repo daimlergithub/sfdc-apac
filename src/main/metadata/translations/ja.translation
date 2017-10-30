@@ -2322,7 +2322,7 @@
         <name>Manager</name>
     </customLabels>
     <customLabels>
-        <label><国設定（編集不可）></label>
+		<label>国設定 編集不可</label>
         <name>Market</name>
     </customLabels>
     <customLabels>
