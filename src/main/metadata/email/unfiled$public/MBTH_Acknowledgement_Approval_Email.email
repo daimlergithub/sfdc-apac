@@ -1,0 +1,6 @@
+Hi,
+Dealer/ WS sent Retail Campaign for Acknowledgement.Kindly Approve Or Reject.
+Retail Campaign Name:{!Retail_Campaign__c.Name}
+ Link:{!Retail_Campaign__c.Link}
+
+Thanks!

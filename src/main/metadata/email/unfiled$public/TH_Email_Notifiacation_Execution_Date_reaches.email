@@ -1,0 +1,7 @@
+Hi,
+The Campaign {!Retail_Campaign__c.Name} 
+  reached execution date.Kindly Start the Execution.
+
+{!Retail_Campaign__c.Link}
+
+Thanks
