@@ -4576,6 +4576,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Account.Outlet_General_GroupID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Account.Owner_Relation__c</field>
         <readable>true</readable>
     </fieldPermissions>
