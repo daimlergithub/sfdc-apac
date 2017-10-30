@@ -4,6 +4,7 @@ public class crmasiaDaimlerApacComValidateaddress {
     public class AddressValidationRequestMessageType {
         public String Organization;
         public crmasiaDaimlerApacComValidateaddress.Address Address;
+        public Boolean AutoFillMode;
         private String[] Organization_type_info = new String[]{'Organization','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] Address_type_info = new String[]{'Address','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/ValidateAddress_1.0','false','false'};
