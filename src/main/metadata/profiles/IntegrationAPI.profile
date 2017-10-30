@@ -24224,6 +24224,11 @@
         <field>Vehicle_Relationship__c.Other_Driver__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>false</editable>
+        <field>Vehicle_Relationship__c.Owner_Dealer_ND_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Owner_Dealer__c</field>
