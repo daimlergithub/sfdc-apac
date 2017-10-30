@@ -4354,6 +4354,11 @@
         <field>Account.Opt_In_Work_Phone2__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Outlet_General_GroupID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Opt_In_Work_Phone__c</field>
