@@ -643,7 +643,6 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    </fields>
     <fields>
         <fullName>Finance_Product__c</fullName>
         <externalId>false</externalId>
