@@ -39,7 +39,7 @@
                    </tr>
                   <!--Sarath added extra row to display market over page-->     
                    <tr>             
-                       <th style="text-align: Right;">Market</th>               
+                       <th style="text-align: Right;">{!$Label.Market}</th>               
                        <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
                        </td>                                
