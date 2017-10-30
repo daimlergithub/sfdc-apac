@@ -8921,18 +8921,18 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
     <fields>
         <fullName>Email_Sent_Status__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(
-		ISPICKVAL(Email_Status__c , 'Incomplete'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),
-		IF(
-		ISPICKVAL(Email_Status__c , 'Invalid'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),
-		IF(
-		ISPICKVAL(Email_Status__c , 'BounceBack'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),"")))</formula>
+           <formula>IF( 
+ISPICKVAL(Email_Status__c , 'Incomplete'), 
+IMAGE("/resource/RedLed","RedLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Invalid'), 
+IMAGE("/resource/RedLed","RedLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Valid'), 
+IMAGE("/resource/GreenLed","GreenLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Bounce-Back'), 
+IMAGE("/resource/RedLed","RedLed"),""))))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Email Sent Status</label>
         <required>false</required>
