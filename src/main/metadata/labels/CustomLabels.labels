@@ -4510,6 +4510,13 @@ please contact the number below.</value>
         <value>Manager</value>
     </labels>
     <labels>
+        <fullName>Market</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Market</shortDescription>
+        <value>JP</value>
+    </labels>
+    <labels>
         <fullName>MarketJP</fullName>
         <language>en_US</language>
         <protected>false</protected>
