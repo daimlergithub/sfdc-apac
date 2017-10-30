@@ -341,7 +341,7 @@ public class AccountHelperTH{
             }
             If(!addressid.isEmpty())
             {   
-                addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
+                addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Sub_District__c,ZipCode__c from Address__c where id In : addressid]);            
             }
             For(Account acc:listNewAccounts)
             {      //MT20170913- Added market Descrminator MY
@@ -354,7 +354,8 @@ public class AccountHelperTH{
                         {
                             province = addtrmap1.get(add.Province__c);
                         }
-                        acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                        // acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                         acc.Primary_Address_Display__c = add.Address_Line_1__c + ' ' + add.Address_Line_2__c+' ' +add.Sub_District__c+' '+add.District__c+' '+add.Province__c+' '+add.ZipCode__c;  // SFDCTH-277
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);                        
                     }
                     else if(acc.Primary_Address_Reference__c ==Null)
@@ -870,7 +871,7 @@ It would be replaced by Informatica/Middleware  */
     public static void updatemarket(List<Account> accList){        
         
                for(Account acc : accList){
-					if(Test.isRunningTest()){
+                    if(Test.isRunningTest()){
                         acc.isTestRunning__c=true;
                     }
                    if(acc.Market__c =='' || acc.Market__c==NULL){

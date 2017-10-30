@@ -294,6 +294,10 @@
                 <behavior>Edit</behavior>
                 <field>Total_Vehicle_Price_without_tax__c</field>
             </layoutItems>
+			            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Product_Name__c</field>
+            </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
