@@ -62009,7 +62009,7 @@ srcUp('/apex/SelectSlaveAccount?Id={!Account.Id}');
 } 
 }
 else if(userMarket[0].Market__c == 'JP'){ 
-window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","scrollbars=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","scrollbars=yes,width = 1200, height = 600"); 
 }
 else if(userMarket[0].Market__c == 'KR'){ 
 window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
