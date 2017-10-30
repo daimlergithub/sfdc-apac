@@ -1464,39 +1464,6 @@
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-	  <rules>
-        <fullName>Case Deadline Notification TH</fullName>
-        <actions>
-            <name>Deadline_Notification_to_Owner</name>
-            <type>Alert</type>
-        </actions>
-        <actions>
-            <name>update_owner_manager</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.DeadLine__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Status</field>
-            <operation>notEqual</operation>
-            <value>Closed</value>
-        </criteriaItems>
-        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <offsetFromField>Case.DeadLine__c</offsetFromField>
-            <timeLength>0</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
     <rules>
         <fullName>Case Deadline%3A Dealer Notification KR After 240 hours</fullName>
         <active>false</active>
