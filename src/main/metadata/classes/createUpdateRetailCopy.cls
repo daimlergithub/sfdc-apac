@@ -494,7 +494,8 @@ public class createUpdateRetailCopy
                     accLinkList.add(exstacclnk);
                 }
             }
-            else
+			  if(existAccLinkList.isEmpty() && existAccLinkList == null)
+            //else
             {
                 if(acc.RecordTypeId == PersonRecordTypeId)
                 {
