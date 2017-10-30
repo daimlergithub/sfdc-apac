@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Acknowledge_Approved</fullName>
+        <description>Acknowledge Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Acknowledgement_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Acknowledge_Email_Notification_to_Approver</fullName>
+        <description>Acknowledge Email Notification to Approver</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Approver__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Acknowledgement_Approval_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Acknowledge_Rejected</fullName>
+        <description>Acknowledge Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Acknowledgement_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_to_submitter_or_owner</fullName>
+        <description>Email to submitter or owner</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Dealer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Approval_Mail</template>
+    </alerts>
+    <alerts>
         <fullName>MBTH_Approval_Given</fullName>
         <description>MBTH_Approval Given</description>
         <protected>false</protected>
@@ -43,6 +88,20 @@
         <template>unfiled$public/MBTH_Retail_Campaign_Rejectd_Mail</template>
     </alerts>
     <alerts>
+        <fullName>Rejection_email_to_the_submitter</fullName>
+        <description>Rejection email to the submitter</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Dealer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Retail_Campaign_Rejectd_Mail</template>
+    </alerts>
+    <alerts>
         <fullName>Retail_Execution_Email_Notification</fullName>
         <description>Retail Execution Email Notification</description>
         <protected>false</protected>
@@ -73,6 +132,20 @@
         <template>unfiled$public/Retail_CampaignNotificationforSegmen</template>
     </alerts>
     <alerts>
+        <fullName>Send_Email_Notification_Owner</fullName>
+        <description>Send Email Notification Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Dealer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/TH_Email_Notifiacation_Execution_Date_reaches</template>
+    </alerts>
+    <alerts>
         <fullName>Send_Notification_to_Dealer</fullName>
         <description>Send Notification to Dealer</description>
         <protected>false</protected>
@@ -81,6 +154,17 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/TH_SegmentationgEmail_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_mail_to_approver</fullName>
+        <description>Send mail to approver</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Approver__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MBTH_Approval_Submitted</template>
     </alerts>
     <fieldUpdates>
         <fullName>Apply_Status_Approved</fullName>
@@ -124,6 +208,24 @@
         <field>Apply_Status__c</field>
         <literalValue>Need Modify</literalValue>
         <name>Apply Status Need Modify</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_status_to_Submitted</fullName>
+        <field>Budget_Approval__c</field>
+        <literalValue>Submitted</literalValue>
+        <name>Change status to Submitted</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_status_to_approved</fullName>
+        <field>Budget_Approval__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Change status to approved</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -201,6 +303,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_field_to_submitted</fullName>
+        <field>MBTH_Approval_Status__c</field>
+        <literalValue>Submitted</literalValue>
+        <name>Update field to submitted</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_status_to_Execution</fullName>
         <field>Child_Campaign_Status__c</field>
         <literalValue>Execution</literalValue>
@@ -219,10 +330,37 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_status_to_approved</fullName>
+        <field>MBTH_Approval_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Update status to approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_status_to_planning</fullName>
         <field>Child_Campaign_Status__c</field>
         <literalValue>Planning</literalValue>
         <name>Update status to planning</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>change_Parent_Campaign_Status_tocomplete</fullName>
+        <field>Status__c</field>
+        <literalValue>Completed</literalValue>
+        <name>change Parent Campaign Status tocomplete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>change_status_to_Rejected</fullName>
+        <field>Budget_Approval__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>change status to Rejected</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -259,6 +397,15 @@
         <field>Child_Campaign_Status__c</field>
         <literalValue>Segmentation</literalValue>
         <name>status change to segmentation in retail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>update_status_to_rejected</fullName>
+        <field>MBTH_Approval_Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>update status to rejected</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -306,11 +453,15 @@
         </workflowTimeTriggers>
         <workflowTimeTriggers>
             <actions>
+                <name>Send_Email_Notification_Owner</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
                 <name>Update_status_to_Execution</name>
                 <type>FieldUpdate</type>
             </actions>
             <offsetFromField>Retail_Campaign__c.Execution_Start_Date__c</offsetFromField>
-            <timeLength>0</timeLength>
+            <timeLength>9</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
         <workflowTimeTriggers>
@@ -319,7 +470,7 @@
                 <type>FieldUpdate</type>
             </actions>
             <offsetFromField>Retail_Campaign__c.Response_Date__c</offsetFromField>
-            <timeLength>0</timeLength>
+            <timeLength>11</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
         <workflowTimeTriggers>
@@ -328,7 +479,7 @@
                 <type>FieldUpdate</type>
             </actions>
             <offsetFromField>Retail_Campaign__c.Close_Date__c</offsetFromField>
-            <timeLength>0</timeLength>
+            <timeLength>15</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -419,6 +570,30 @@
             <value>Confirmed</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>TH_Retail_campaign Status change to completed</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>change_Parent_Campaign_Status_tocomplete</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Close_Date__c</offsetFromField>
+            <timeLength>10</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>TH_send Email Notification to the Dealer</fullName>
