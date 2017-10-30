@@ -3932,6 +3932,11 @@
         <editable>true</editable>
         <field>Account.Other_Hobby__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Outlet_General_GroupID__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
