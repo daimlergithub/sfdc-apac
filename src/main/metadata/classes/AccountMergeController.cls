@@ -73,8 +73,8 @@ public with sharing class AccountMergeController{
                if(Acct.DUPNumber__c!=Null){
                 AccountwrapperList.add(new Accountwrapper(Acct));  
                 for(Account a: [Select Full_Name__c ,Vehicle_Amount__c ,LastModifiedById,firstname,lastname,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,UCID__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
-                      DUPNumber__c,Id,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True and torole__c=:Apexpages.currentPage().getParameters().get('id')) FROM Account
-                      WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
+                      DUPNumber__c,Id,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True) FROM Account
+                      WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id ]) {
                     // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
                     AccountwrapperList.add(new Accountwrapper(a));
                  }  
@@ -98,8 +98,8 @@ public with sharing class AccountMergeController{
                if(Acct.DUPNumber__c!=Null){
                 AccountwrapperList.add(new Accountwrapper(Acct));  
                 for(Account a: [Select name,Partner_First_Name__c ,Vehicle_Amount__c ,LastModifiedById,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,UCID__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
-                      DUPNumber__c,Id,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True and torole__c=:Apexpages.currentPage().getParameters().get('id')) FROM Account
-                      WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
+                      DUPNumber__c,Id,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True ) FROM Account
+                      WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id ]) {
                     // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
                     AccountwrapperList.add(new Accountwrapper(a));
                  }  
