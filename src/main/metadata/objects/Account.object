@@ -250,7 +250,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Salutation</field>
+            <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -926,7 +926,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
 		<displayedFields>
-            <field>Name</field>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>FirstName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2387,9 +2392,15 @@
         </displayedFields>
         <label>SLICK_CTI_ACCOUNT</label>
     </fieldSets>
+	
     <fieldSets>
         <fullName>SuspectAccountFields</fullName>
         <description>SelectSlaveAccount.page (Contact Portfolio)</description>
+		 <displayedFields>
+            <field>UCID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
@@ -2397,6 +2408,11 @@
         </displayedFields>
         <displayedFields>
             <field>Dup_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Vehicle_Amount__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2425,7 +2441,73 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+		<displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>SuspectAccountFields</label>
+    </fieldSets>
+	
+    <fieldSets>
+        <fullName>SuspectedPersonaccountfields</fullName>
+        <description>SelectSlaveAccount.page This is created as part of changes related to SFDCJP-2941</description>
+		 <displayedFields>
+            <field>UCID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>FirstName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>		
+        <displayedFields>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Dup_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Vehicle_Amount__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SuspectedPersonaccountfields</label>
     </fieldSets>
     <fields>
         <fullName>ASLead_Notification_Timing__c</fullName>
@@ -14825,6 +14907,17 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+	 <fields>
+        <fullName>Outlet_General_GroupID__c</fullName>
+        <externalId>false</externalId>
+        <label>Outlet General GroupID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
 	<fields>
         <fullName>Owner_Relation__c</fullName>
@@ -61932,7 +62025,7 @@ srcUp('/apex/SelectSlaveAccount?Id={!Account.Id}');
 } 
 }
 else if(userMarket[0].Market__c == 'JP'){ 
-window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","scrollbars=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","scrollbars=yes,width = 1200, height = 600"); 
 }
 else if(userMarket[0].Market__c == 'KR'){ 
 window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 

@@ -39,7 +39,7 @@
     </script>
 
     <apex:sectionHeader title="{!$Label.Master_Account}" subtitle="{!master.Name}"/>
-    <apex:form id="theForm">
+     <apex:form id="theForm">
         <apex:pageBlock title="{!$Label.Suspected_Duplicates}" id="resultBlock">
             <apex:pageBlockButtons id="pb_btn">
                 <apex:actionRegion >
@@ -52,27 +52,50 @@
             <apex:pageMessages />
             <!--  rendered="{!hasSuspectAccounts}"  -->
             
-            <apex:pageblockTable value="{!AccountwrapperList}" var="accWrap" styleclass="compare_table" id="a">   
+            <apex:pageblockTable value="{!AccountwrapperList}" var="accWrap" styleclass="compare_table" id="a"  rendered="{!recAcc.Recordtype.name=='Person Account'}">   
                   <apex:column headerValue="{!$Label.Master_Record}">
                         <apex:inputCheckbox value="{!accWrap.acc.Master_Record__c}" id="masterId"/>               
                   </apex:column>    
                   <apex:column headerValue="{!$Label.Slave_Record}">
                     <apex:inputCheckbox value="{!accWrap.selected}" id="inputId" />
                   </apex:column>       
-                  <apex:repeat value="{!$ObjectType.Account.FieldSets.SuspectAccountFields}" var="column">
+                <apex:repeat value="{!$ObjectType.Account.FieldSets.SuspectedPersonaccountfields}" var="column">
                     <apex:column value="{!accWrap.acc[column]}" />
-                  </apex:repeat> 
+                  </apex:repeat>     
+              <!-- <apex:repeat value="{!$ObjectType.Account.FieldSets.SuspectAccountFields}" var="column" rendered="{!recAcc.Recordtype.Name =='Company'}">
+                    <apex:column value="{!accWrap.acc[column]}" />
+                  </apex:repeat>-->
                <apex:column headerValue="{!$Label.My_Mercedes_ID}">
                 <apex:repeat value="{!accWrap.acc.Account_Links__r}"  var="acclinks">                       
                           <li> <apex:outputtext style="color:blue;" value="{!acclinks.Name}"/> </li>
                     </apex:repeat>                 
                  </apex:column>
-             </apex:pageblockTable>                   
+             </apex:pageblockTable>     
+             
+              <apex:pageblockTable value="{!AccountwrapperList}" var="accWrap" styleclass="compare_table" id="ab"  rendered="{!recAcc.Recordtype.name=='Company'}">   
+                  <apex:column headerValue="{!$Label.Master_Record}">
+                        <apex:inputCheckbox value="{!accWrap.acc.Master_Record__c}" id="masterId"/>               
+                  </apex:column>    
+                  <apex:column headerValue="{!$Label.Slave_Record}">
+                    <apex:inputCheckbox value="{!accWrap.selected}" id="inputId" />
+                  </apex:column>       
+                    
+              <apex:repeat value="{!$ObjectType.Account.FieldSets.SuspectAccountFields}" var="column" rendered="{!recAcc.Recordtype.Name =='Company'}">
+                    <apex:column value="{!accWrap.acc[column]}" />
+                  </apex:repeat>
+               <apex:column headerValue="{!$Label.My_Mercedes_ID}">
+                <apex:repeat value="{!accWrap.acc.Account_Links__r}"  var="acclinks">                       
+                          <li> <apex:outputtext style="color:blue;" value="{!acclinks.Name}"/> </li>
+                    </apex:repeat>                 
+                 </apex:column>
+             </apex:pageblockTable>               
         </apex:pageBlock>  
     </apex:form>
+ 
      <script>
         function changeValue(input, textid) {
             document.getElementById(textid).value = input.value;
         }
     </script>
 </apex:page>
+                  
