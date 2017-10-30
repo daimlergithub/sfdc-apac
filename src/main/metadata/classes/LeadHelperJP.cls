@@ -312,13 +312,18 @@ public class LeadHelperJP
                     {
                         leadsId.add(les.id);
                     }
+					if(isUpdate && les.Source_Campaign__c!=null && les.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && les.Assigned_Dealer__c != null )
+                    {
+                    System.debug('venky here..........');
+                     leadsId.add(les.id);
+                    }
                 }
             }
         }
         system.debug('leadsId<><><>' + leadsId);
         if(!leadsId.isEmpty() && leadsId != null)
         {
-            ledsList = [select id ,Assigned_Dealer__c ,Service_Advisor__c ,Assigned_Dealer__r.Dealer_Rollout_Status__c ,CAC_Lead_Status__c from Lead__c where id =:leadsId];
+            ledsList = [select id ,Assigned_Dealer__c ,Service_Advisor__c ,Source_Campaign__c,Assigned_Dealer__r.Dealer_Rollout_Status__c ,CAC_Lead_Status__c from Lead__c where id =:leadsId];
         }
         system.debug('ledsList<><><>' + ledsList);
         
@@ -343,6 +348,11 @@ public class LeadHelperJP
                 {
                     lds.OwnerId = lds.Service_Advisor__c;
                 }
+				 if(isUpdate && lds.Source_Campaign__c!=null && lds.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && lds.Assigned_Dealer__c != null )
+                    {
+                    System.debug('venky here..........');
+                    lds.CAC_Lead_Status__c = 'Allocated';
+                    }
                 system.debug('LeadStatus<><><>' + lds.CAC_Lead_Status__c);
                 updateLeadList.add(lds);
             }
@@ -350,7 +360,11 @@ public class LeadHelperJP
         system.debug('updateLeadList<><><>' + updateLeadList);
         if(!updateLeadList.isEmpty() && updateLeadList != null)
         {
+		 if(LeadUtil.convert2leads)
+        {
+		 LeadUtil.convert2leads=false;
             update updateLeadList;
+			}
         }
     }
     /*
