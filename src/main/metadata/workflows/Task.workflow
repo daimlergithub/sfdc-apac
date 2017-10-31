@@ -108,6 +108,11 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
+		 <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
