@@ -84,10 +84,6 @@
                 <field>Ready_for_List_Maintenance__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Final_List_Approved__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Execution_Type__c</field>
             </layoutItems>
