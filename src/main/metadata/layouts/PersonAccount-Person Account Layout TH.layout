@@ -448,6 +448,10 @@
                 <behavior>Readonly</behavior>
                 <field>Sales_Address_Type__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Primary_Address_Display__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Phone__c</field>
