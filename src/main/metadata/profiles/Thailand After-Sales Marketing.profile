@@ -28875,11 +28875,6 @@
         <enabled>true</enabled>
         <name>ManageKnowledge</name>
     </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>MassInlineEdit</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>NewReportBuilder</name>
     </userPermissions>
