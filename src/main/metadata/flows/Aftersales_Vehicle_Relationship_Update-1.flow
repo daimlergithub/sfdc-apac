@@ -69,9 +69,6 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
-            <connector>
-                <targetReference>myRule_3_A1</targetReference>
-            </connector>
             <label>Condition2</label>
         </rules>
     </decisions>
@@ -79,14 +76,13 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>OR(AND( ISNEW() ,  NOT( ISNULL( [Lead__c].VehicleRel_No__c  ) ) ) ,AND( NOT(ISNEW()) ,  NOT( ISNULL( [Lead__c].VehicleRel_No__c  ) ),  ISCHANGED([Lead__c].VehicleRel_No__c ) ))
-
+                <stringValue>OR(AND( ISNEW() , [Lead__c].Aftersales_Vehicle_Relationship__c &lt;&gt; &apos;&apos; ) ,AND( NOT(ISNEW()) , [Lead__c].Aftersales_Vehicle_Relationship__c &lt;&gt; &apos;&apos;, ISCHANGED([Lead__c].Aftersales_Vehicle_Relationship__c ) ))
 </stringValue>
             </value>
         </processMetadataValues>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
-        <expression>OR(AND( ISNEW() ,  NOT( ISNULL( {!myVariable_current.VehicleRel_No__c}  ) ) ) ,AND( NOT(ISNEW()) ,  NOT( ISNULL( {!myVariable_current.VehicleRel_No__c}  ) ),  ISCHANGED({!myVariable_current.VehicleRel_No__c} ) ))</expression>
+        <expression>OR(AND( ISNEW() , {!myVariable_current.Aftersales_Vehicle_Relationship__c} &lt;&gt; &apos;&apos; ) ,AND( NOT(ISNEW()) , {!myVariable_current.Aftersales_Vehicle_Relationship__c} &lt;&gt; &apos;&apos;, ISCHANGED({!myVariable_current.Aftersales_Vehicle_Relationship__c} ) ))</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
@@ -196,77 +192,6 @@
             <value>
                 <elementReference>myVariable_current.Aftersales_Vehicle_Relationship__r.Vehicle_ID__c</elementReference>
             </value>
-        </inputAssignments>
-        <object>Lead__c</object>
-    </recordUpdates>
-    <recordUpdates>
-        <processMetadataValues>
-            <name>evaluationType</name>
-            <value>
-                <stringValue>always</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>isChildRelationship</name>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>reference</name>
-            <value>
-                <stringValue>[Lead__c]</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_3_A1</name>
-        <label>Update action2</label>
-        <locationX>300</locationX>
-        <locationY>200</locationY>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Aftersales Vehicle</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue>Vehicle__c</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>GlobalConstant</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>AfterSales_Vehicle__c</field>
         </inputAssignments>
         <object>Lead__c</object>
     </recordUpdates>
