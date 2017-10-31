@@ -27,4 +27,5 @@ public class LeadUtil {
 	public static boolean CaseWithDealers=true;	
     public static boolean Share2contactInsert=true;
     public static boolean Share2contactUpdate=true;
+	public static boolean convert2leads=true;
 }

@@ -23705,10 +23705,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>MassInlineEdit</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>RunFlow</name>
     </userPermissions>
     <userPermissions>
