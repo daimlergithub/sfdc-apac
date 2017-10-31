@@ -1138,6 +1138,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	 <fieldUpdates>
+        <fullName>update_owner_manager</fullName>
+        <field>Case_Owner_manager__c</field>
+        <formula>Owner:User.Manager.Email</formula>
+        <name>update owner manager</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>update_workflow_order</fullName>
         <field>Workflow_Order__c</field>
