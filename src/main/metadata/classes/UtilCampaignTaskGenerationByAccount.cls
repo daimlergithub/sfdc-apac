@@ -162,7 +162,14 @@ system.debug('&******************'+cpList);
         {        
             //for(GroupMember u : obuserList) {
                 Task tsk = new Task();
-                tsk.Subject= strOBCall; 
+                //SB2017 Sushma Bharti
+                //'IF' condition added for MY for blank subject for auto created tasks
+                if(cpm.Campaign.MD__c!='MY'){
+                tsk.Subject= strOBCall;
+                } 
+                else{
+                tsk.Subject= '';
+                } 
                 tsk.RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId();
                 tsk.Status = strOpenStatus;
                 tsk.DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c); 
@@ -194,7 +201,14 @@ system.debug('&******************'+cpList);
         } 
         else if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
             Task tsk = new Task();
-            tsk.Subject= strSMS; 
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY'){
+            tsk.Subject= strSMS;
+            } 
+                else{
+                tsk.Subject= '';
+                } 
             tsk.RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
@@ -216,8 +230,15 @@ system.debug('&******************'+cpList);
             taskList.add(tsk);
         } 
         else if (cpm.Campaign.Execution_Type__c == mms && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
-            Task tsk = new Task();
-            tsk.Subject= mms; 
+           Task tsk = new Task();
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY'){
+            tsk.Subject= mms;
+            } 
+                else{
+                tsk.Subject= '';
+                }  
             tsk.RecordTypeId = taskRecordTypeMap.get(mms).getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
@@ -241,7 +262,14 @@ system.debug('&******************'+cpList);
         else if (cpm.Campaign.Execution_Type__c == streDM) 
         {
             Task tsk = new Task();
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY'){
             tsk.Subject= streDM; 
+            } 
+                else{
+                tsk.Subject= '';
+                } 
             tsk.RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
@@ -268,8 +296,15 @@ system.debug('&******************'+cpList);
         } 
         else if (cpm.Campaign.Execution_Type__c == strDM) 
         {
-            Task tsk = new Task();
+           Task tsk = new Task();
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY'){
             tsk.Subject = strDM; 
+            } 
+                else{
+                tsk.Subject= '';
+                } 
             tsk.RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
