@@ -24,7 +24,8 @@ global without sharing class LoyalityManger {
         }
         List<Vehicle__c> vehicles=new List<Vehicle__c>();
         vehicles=[select id,RegistrationNo__c from vehicle__c where RegistrationNo__c like :regNumwithwildcards and MD__c='KR'];
-        for(vehicle__c v:vehicles)
+        system.debug(vehicles);
+            for(vehicle__c v:vehicles)
         {
             if(v.RegistrationNo__c.deleteWhitespace()==Vehicle_Registration)
             {
@@ -35,7 +36,7 @@ global without sharing class LoyalityManger {
     {  
     vehlist=[select id,Related_contact__c,RegistrationNo__c from Vehicle__c where RegistrationNo__c =:Vehicle_Registration and MD__c='KR'];
     }
-    
+    system.debug(vehlist);
     if(Loyalty_Card_No!=null && Loyalty_Card_No!='' && !String.isBlank(Loyalty_Card_No))
     {
     Lclist=[select Loyalty_Card_Number__c,Account__c from Loyalty_Card__c where Loyalty_Card_Number__c =:Loyalty_Card_No and Loyalty_Card_End_Date__c>=:system.today() and MD__c='KR'];
@@ -47,18 +48,21 @@ global without sharing class LoyalityManger {
       else
        {
                responsemap.put('Loyalty_Card','Nil');
-               Return responsemap;
+               //Return responsemap;
        }
      if(vehlist.size()>0)
         {
-            vehrel=[select owner_relation__c,Contact__r.ucid__c  from Vehicle_Relationship__c where contact__c=:Lclist[0].Account__c and Vehicle_ID__c=:vehlist[0].id and End_Date__c=null and MD__c='KR'];
+            if(Lclist.size()>0){
+            	vehrel=[select owner_relation__c,Contact__r.ucid__c  from Vehicle_Relationship__c where contact__c=:Lclist[0].Account__c and Vehicle_ID__c=:vehlist[0].id and End_Date__c=null and MD__c='KR'];   
+            }
             responsemap.put('Vehicle_exist','True');
             responsemap.put('Vehicle_ID',vehlist[0].id);
         }
         
       if(vehrel.size()>0)
         {
-          responsemap.put('UCID',vehrel[0].Contact__r.ucid__c);
+          String relation=vehrel[0].Owner_Relation__c=='Same'?'Owner':'Contact';
+          responsemap.put('UCID',vehrel[0].Contact__r.ucid__c+';'+relation);
         }
        return responsemap;  
     }
