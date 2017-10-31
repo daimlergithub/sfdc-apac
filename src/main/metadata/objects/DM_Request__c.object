@@ -1677,13 +1677,13 @@ Modify Reason:
         <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-    <validationRules>
+   <validationRules>
         <fullName>Add_Address_NoOfDigits</fullName>
         <active>true</active>
         <description>Additional Address should be less than or equal to 50 letters.</description>
         <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
-$Profile.Name != 'IntegrationAPI', 
-OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;MY&apos;))</errorConditionFormula>
         <errorDisplayField>Additional_Address__c</errorDisplayField>
         <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
@@ -1710,7 +1710,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <description>Expected DM Material1 has a value, but the Status 1 is null.
 OR Status 1 is selected, but the Expected DM Material1 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp;  OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, &quot;&quot;)) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, &quot;&quot;)))) &amp;&amp;  OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,MD__c = &apos;MY&apos;) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
         <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1719,7 +1719,7 @@ OR Status 1 is selected, but the Expected DM Material1 is null.</description>
         <active>true</active>
         <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
 OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, &quot;&quot;)) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,MD__c = &apos;MY&apos;) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1728,7 +1728,7 @@ OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is nul
         <active>true</active>
         <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
 OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, &quot;&quot;)) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,MD__c = &apos;MY&apos;) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1736,8 +1736,8 @@ OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is nul
         <fullName>Insufficient_Stock</fullName>
         <active>true</active>
         <description>US-DM-003:
-7. If Expected DM material's stock reaches Stock alert level, Data loader will report an error message ""Insufficient Stock"". And this record will not be uploaded successfully."</description>
-        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH') &amp;&amp; 
+7. If Expected DM material&apos;s stock reaches Stock alert level, Data loader will report an error message &quot;&quot;Insufficient Stock&quot;&quot;. And this record will not be uploaded successfully.&quot;</description>
+        <errorConditionFormula>ISPICKVAL(Status__c , &apos;Sent&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,MD__c = &apos;MY&apos;) &amp;&amp; 
 ( 
 Actual_DM_Material1__r.Threshold__c &gt; Actual_DM_Material1__r.Stock__c 
 || 
@@ -1823,7 +1823,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>TitleOfHonor_is_Required</fullName>
         <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , &apos;Null&apos;)|| ISPICKVAL( TitleOfHonor__c , &apos;&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,MD__c = &apos;MY&apos;)</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>
