@@ -98,6 +98,7 @@ system.debug('&******************'+cpList);
             Map<String, Task> upSMSTaskList = new Map<String, Task>();
             Map<String, Task> upMMSTaskList = new Map<String, Task>();
             Map<String, Task> upEDMTaskList = new Map<String, Task>();
+            Map<String, Task> upDMTaskList = new Map<String, Task>();
             List<Task> upOtherTaskList = new List<Task>();
             for(task tk : taskList){
                 if(tk.Subject == strSMS){
@@ -108,6 +109,9 @@ system.debug('&******************'+cpList);
                 }
                 else if(tk.Subject == streDM){
                     upEDMTaskList.put(tk.UniqueCampaignEmail__c, tk);
+                }
+                else if(tk.Subject == strDM){
+                    upDMTaskList.put(tk.UniqueCampaignEmail__c, tk);
                 } else{
                     upOtherTaskList.add(tk);
                 }
@@ -116,6 +120,8 @@ system.debug('&******************'+cpList);
             taskList.addAll(upSMSTaskList.Values());
             taskList.addAll(upMMSTaskList.Values());
             taskList.addAll(upEDMTaskList.Values());
+             taskList.addAll(upDMTaskList.Values());
+             system.debug('Size is'+upDMTaskList.size());
             
             update scope;
             if(dmRequestList.size() > 0) insert dmRequestList;     
@@ -290,6 +296,7 @@ system.debug('&******************'+cpList);
                     )
                 );
         } 
+        system.debug('dhanam123'+taskList);
         return taskList;
     }
     
