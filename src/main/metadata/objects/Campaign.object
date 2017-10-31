@@ -2303,9 +2303,12 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -2345,6 +2348,52 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;) ,&apos;MY&apos;,&apos;&apos;))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
