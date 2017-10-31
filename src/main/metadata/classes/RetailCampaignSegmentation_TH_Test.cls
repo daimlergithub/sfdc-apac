@@ -3,7 +3,7 @@
     Purpose:    RetailCampaignSegmentationController test class
     User Story: Release 1.2 Retail Campaign
     Used By:    RetailCampaignSegmentationController
-    7-Jul-2014 Sinow    Created
+   
 */
 @isTest
 public Without Sharing class RetailCampaignSegmentation_TH_Test 
