@@ -365,6 +365,10 @@
         <name>AlreadyProcessed</name>
     </customLabels>
     <customLabels>
+        <label><!-- AMG --></label>
+        <name>AMG</name>
+    </customLabels>
+    <customLabels>
         <label>保有台数</label>
         <name>Amount</name>
     </customLabels>

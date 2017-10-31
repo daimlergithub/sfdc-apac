@@ -485,6 +485,13 @@
         <value>This record is already processed or This button works only for Retail Company or Retail Person</value>
     </labels>
     <labels>
+        <fullName>AMG</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AMG</shortDescription>
+        <value>AMG</value>
+    </labels>
+    <labels>
         <fullName>Amount</fullName>
         <language>en_US</language>
         <protected>false</protected>
