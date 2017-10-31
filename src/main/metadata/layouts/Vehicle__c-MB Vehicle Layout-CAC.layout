@@ -98,6 +98,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Recall__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AMG__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
