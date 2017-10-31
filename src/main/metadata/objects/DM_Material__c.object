@@ -303,11 +303,12 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
