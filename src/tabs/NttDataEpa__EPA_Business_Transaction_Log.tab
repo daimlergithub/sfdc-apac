@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label>EPA Business Transaction Log</label>
-    <mobileReady>false</mobileReady>
-    <motif>Custom78: Map</motif>
-    <page>NttDataEpa__EPA_Business_Transaction_Log</page>
-</CustomTab>

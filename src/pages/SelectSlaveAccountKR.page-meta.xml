@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>38.0</apiVersion>
-    <availableInTouch>false</availableInTouch>
-    <confirmationTokenRequired>false</confirmationTokenRequired>
-    <description>This is page on verify duplicate button, This page main is to select the slave and master account</description>
-    <label>SelectSlaveAccountKR</label>
-</ApexPage>

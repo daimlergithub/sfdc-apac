@@ -1,9 +1,0 @@
-<apex:page title="{!$Label.oproarts020__application_name} - Help" tabStyle="OPROARTS020__Oproarts__c" showHeader="false" sidebar="false">
-  <script type="text/javascript">
-  window.onload = function () {
-    window.location.href = window.document.getElementById('linkHelp').getAttribute('href') + window.location.hash;
-  };
-  </script>
-  <apex:sectionHeader title="{!$Label.oproarts020__application_name}" subtitle="Help"/>
-  <p><a id="linkHelp" href="https://s.oproarts.com/help/{!CASE($Label.LANGUAGE_CODE,'ja','ja','en')}/connector/">Jump to the Help page.</a></p>
-</apex:page>

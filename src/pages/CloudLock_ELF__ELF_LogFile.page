@@ -1,3 +1,0 @@
-<apex:page controller="CloudLock_ELF.ELF_LogFile_ctrlr" sidebar="false" showHeader="false" cache="true" contentType="application/octet-stream#{!fileName}.csv">
-    {!logBody}
-</apex:page>

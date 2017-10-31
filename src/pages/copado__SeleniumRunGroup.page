@@ -1,3 +1,0 @@
-<apex:page standardController="copado__Selenium_Test_Group__c" extensions="copado.SeleniumTestGroupExtension" action="{!runGroup}">
-    <apex:pageMessages ></apex:pageMessages>
-</apex:page>

@@ -1,2 +1,0 @@
-<apex:page controller="AFSC.FS_UrlCheckPageController" action="{!doCheckAndRedirect}" sidebar="false">
-</apex:page>

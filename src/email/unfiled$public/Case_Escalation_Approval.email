@@ -1,7 +1,0 @@
-"There is a request for Case Escalation Approval.
-Please check the following case and press approve button or decline with comments.
-
-Case: {!Case.CaseNumber} 
-
-Please go to the following URL to login to CRM and view the details of the case.
-https://login.salesforce.com"

@@ -1,8 +1,0 @@
-Notification: This complaint need your support. Please handle it ASAP:
-
-Customer：{!Case.Account}
-Case：{!Case.CaseNumber}
-Subject：{!Case.Subject}
-Describtion：{!Case.Description}
-
-Customer Assistance Center Team

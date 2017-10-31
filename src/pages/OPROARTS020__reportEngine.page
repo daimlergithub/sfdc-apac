@@ -1,5 +1,0 @@
-<!-- reportEngine.page -->
-<apex:page controller="OPROARTS020.RequestController" title="OPROARTS Apps Report Engine" showHeader="false" sidebar="false">
-  <apex:form ><apex:actionFunction name="doActionRE" action="{!doAction}"/></apex:form>
-  <script type="text/javascript">window.setTimeout(doActionRE, 10);</script>
-</apex:page>
