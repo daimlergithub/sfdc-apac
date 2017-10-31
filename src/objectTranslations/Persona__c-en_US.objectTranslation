@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Persona</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Persona</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Combination of Market and Functionality --></label>
+        <name>Combination_of_Market_and_Functionality__c</name>
+    </fields>
+    <fields>
+        <label><!-- Functionality Access --></label>
+        <name>Functionality_Access__c</name>
+        <relationshipLabel><!-- Persona --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Functionality --></label>
+        <name>Functionality__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market Access --></label>
+        <name>Market_Access__c</name>
+        <relationshipLabel><!-- Persona --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Persona Name --></label>
+        <name>PersonaName__c</name>
+    </fields>
+    <fields>
+        <label><!-- ProfileId --></label>
+        <name>ProfileId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profiles --></label>
+        <name>Profiles__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- RevokeAccess --></label>
+        <name>RevokeAccess</name>
+    </webLinks>
+</CustomObjectTranslation>

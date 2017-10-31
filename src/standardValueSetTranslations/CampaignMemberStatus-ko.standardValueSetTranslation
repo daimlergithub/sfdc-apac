@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>A</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>A-ALL</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>A-Purifier&amp;Filter screen</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>A-Voucher</masterLabel>
+        <translation>상품권</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Advisory did not apply</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Again confirm the application successfully</masterLabel>
+        <translation>신청 완료</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Already purchased</masterLabel>
+        <translation>이미 구매함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Attended the event</masterLabel>
+        <translation>이벤트 참석함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>B</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>C</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Communication</masterLabel>
+        <translation>연락함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Confirm attendance</masterLabel>
+        <translation>참석 확인</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Confirmed not to attend</masterLabel>
+        <translation>불참석 확인</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Confirmed not to participate</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Confirmed their attendance</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Confirmed their participation</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Decline</masterLabel>
+        <translation>거절</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Determined not to attend</masterLabel>
+        <translation>불참석으로 확정함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Did not complete the questionnaire</masterLabel>
+        <translation>질문표에 답변 미완료</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Did not pay the deposit</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Did not receive text messages</masterLabel>
+        <translation>문자 수신 안 함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Don&apos;t Participated</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Failed/No Response</masterLabel>
+        <translation>실패/응답 없음</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Has been added</masterLabel>
+        <translation>추가됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Has been verified as the owner and enrolment</masterLabel>
+        <translation>소유주/등록자로 확인됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Initial payment</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Lead</masterLabel>
+        <translation>리드</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>New</masterLabel>
+        <translation>신규</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>No communication</masterLabel>
+        <translation>연락 없음</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>No purchase</masterLabel>
+        <translation>미구매</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>No registration</masterLabel>
+        <translation>미등록</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Not Sent</masterLabel>
+        <translation>발송 안 함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Not Started</masterLabel>
+        <translation>시작 안 함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Not participated</masterLabel>
+        <translation>참가 안 함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Not received</masterLabel>
+        <translation>수신 안 함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Participated</masterLabel>
+        <translation>참가함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pay the deposit</masterLabel>
+        <translation>예치금 납부</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pending</masterLabel>
+        <translation>보류</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Qualified owners</masterLabel>
+        <translation>유자격 소유자</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Questionnaire success</masterLabel>
+        <translation>질의응답 완료</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Receive SMS</masterLabel>
+        <translation>SMS 수령</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Received</masterLabel>
+        <translation>수령함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Registered</masterLabel>
+        <translation>등록함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Registration Success</masterLabel>
+        <translation>등록 완료</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Rejected</masterLabel>
+        <translation>거절함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Replied</masterLabel>
+        <translation>답변함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Responded</masterLabel>
+        <translation>응답함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Sent</masterLabel>
+        <translation>발송함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Sent02</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Sign up</masterLabel>
+        <translation>서명함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Started</masterLabel>
+        <translation>시작함</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Success invitation</masterLabel>
+        <translation>초청 완료</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Successful return visit</masterLabel>
+        <translation>재방문 완료</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>The dealer did not follow up</masterLabel>
+        <translation>딜러가 후속처리하지 않음</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unconfirmed</masterLabel>
+        <translation>확인 안됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unsent</masterLabel>
+        <translation>발송 안됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unsuccessful communication</masterLabel>
+        <translation>연락 실패</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>レスポンスあり</masterLabel>
+        <translation><!-- レスポンスあり --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>送信</masterLabel>
+        <translation><!-- 送信 --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>응답됨</masterLabel>
+        <translation><!-- 응답됨 --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>전송됨</masterLabel>
+        <translation><!-- 전송됨 --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

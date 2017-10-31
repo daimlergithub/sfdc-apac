@@ -1,0 +1,30 @@
+<apex:page controller="NttDataEpa.EpaSystemStatusController">
+    <apex:pageblock title="EPA System Status">
+
+        <apex:form >
+        
+            <apex:commandButton action="{!showVersions}" value="Versions" id="showVersionsCommands"/>
+            <apex:commandButton action="{!showServerStatus}" value="Server Status" id="showServerStatus"/>
+            <apex:commandButton action="{!showThreadList}" value="Thread List" id="showThreadList"/>
+            <apex:commandButton action="{!showThreadDump}" value="Thread Dump" id="showThreadDump"/>
+            <apex:commandButton action="{!showDeadLocks}" value="Dead Locks" id="showDeadLocks"/>
+            <apex:commandButton action="{!showTransactionCosts}" value="Transaction Costs" id="showTransactionCosts"/>
+       
+            <apex:sectionHeader title="Thread Dump"/>
+    
+            <apex:pageBlockTable value="{!Threads}" var="thread">
+         
+                <apex:column headerValue="Server" value="{!thread.Server}"/>
+                <apex:column headerValue="Name" value="{!thread.Name}"/>
+                <apex:column headerValue="Organization" value="{!thread.Organization}"/>
+                
+                <apex:column headerValue="Thread Info" >
+                    <apex:outputText value="{!SUBSTITUTE(JSENCODE(thread.ThreadInfo), '\\n', '<br/>')}" escape="false"/>
+                </apex:column>
+             
+             </apex:pageBlockTable>
+
+        </apex:form>
+            
+    </apex:pageblock>
+ </apex:page>

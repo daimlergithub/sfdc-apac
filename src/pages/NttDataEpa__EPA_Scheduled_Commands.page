@@ -1,0 +1,62 @@
+<apex:page controller="NttDataEpa.EpaAdminCommandController" title="EPA Scheduled Commands">
+    <apex:pageblock title="EPA Scheduled Commands">
+
+        <apex:form >
+ 
+            <apex:commandButton action="{!showServerCommands}" value="Server Commands" id="showServerCommands"/>
+            <apex:commandButton action="{!showClusterCommands}" value="Cluster Commands" id="showClusterCommands"/>
+            <apex:commandButton action="{!showScheduledCommands}" value="Scheduled Commands" id="showScheduledCommands"/>
+            <apex:commandButton action="{!showAllAdminCommands}" value="All Commands" id="showAllAdminCommands"/>
+ 
+           <apex:pageBlock title="Filter" mode="edit" id="filter">
+               <script type="text/javascript">
+                  function doFilter() {
+                    filterCommands(
+                      document.getElementById("organization").options[document.getElementById("organization").selectedIndex].value,
+                      document.getElementById("useCase").options[document.getElementById("useCase").selectedIndex].value
+                    );
+                  }
+                </script> 
+        
+                <apex:actionFunction name="filterCommands" action="{!filterCommands}" rerender="commands" immediate="true" status="status">
+                    <apex:param name="organization" value="" />
+                    <apex:param name="useCase" value="" />
+                </apex:actionFunction>
+
+                <select id="organization" onchange="doFilter();">
+                    <option value=""></option>
+                    <apex:repeat value="{!organizations}" var="organization">
+                        <option value="{!organization}">{!organization}</option>
+                    </apex:repeat>
+                </select>
+ 
+                <select id="useCase" onchange="doFilter();">
+                    <option value=""></option>
+                    <apex:repeat value="{!useCases}" var="useCase">
+                        <option value="{!useCase}">{!useCase}</option>
+                    </apex:repeat>
+                </select>
+      
+                <apex:actionStatus startText="updating..." id="status"/>  
+                       
+            </apex:pageBlock>
+       
+              
+            <apex:pageBlockTable value="{!ScheduledCommands}" var="command" id="commands">
+
+                <apex:column headerValue="EPA Command">
+                    <apex:commandLink action="{!executeAdminCommand}" value="{!command.adminCommandName}" id="epaCommand">
+                        <apex:param name="nameOfAdminCommandToExecute" value="{!command.adminCommandName}" assignTo="{!nameOfAdminCommandToExecute}"/>
+                    </apex:commandLink>
+                </apex:column>
+             
+                <apex:column headerValue="Description" value="{!command.description}"/>
+             
+                <apex:column headerValue="Organization" value="{!command.organization}"/>
+             
+             </apex:pageBlockTable>
+
+        </apex:form>
+            
+    </apex:pageblock>
+ </apex:page>

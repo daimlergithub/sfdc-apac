@@ -1,0 +1,60 @@
+<!--
+
+  This page is shown to the user while a request file is being scanned.
+
+  Copyright (c) 2016 F-Secure Corporation. All rights reserved.
+
+-->
+<apex:page controller="AFSC.FS_ScanProgressPageController" sidebar="false" title="{!$Label.afsc__fs_statusinprogressheader}">
+
+<script type="text/javascript">
+    function getURIParameter(param, asArray) {
+        return document.location.search.substring(1).split('&').reduce(function(p,c) {
+            var parts = c.split('=', 2).map(function(param) { return decodeURIComponent(param); });
+            if(parts.length == 0 || parts[0] != param) return (p instanceof Array) && !asArray ? null : p;
+            return asArray ? p.concat(parts.concat(true)[1]) : parts.concat(true)[1];
+        }, []);
+    }
+
+    window.onload = function() {
+        // setting 'download here' link to the original content, which is
+        // /sfc/servlet.shepherd/version/download/ plus content version id passed
+        // to VF page
+        var dlurl = document.getElementById("download_here");
+        dlurl.href = "/sfc/servlet.shepherd/version/download/" + getURIParameter("id");
+        dlurl.onclick = function() {
+            dlurl.href = "/sfc/servlet.shepherd/version/download/" + getURIParameter("id");
+            return true;
+        }
+
+        checkScanStatus();
+    }
+
+    function checkScanStatus()
+    {
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.FS_ScanProgressPageController.getScanJobStatusUrl}',
+            '{!$CurrentPage.parameters.id}',
+            function(result, event)
+            {
+                console.log("Scan result: " + result);
+                if(result)
+                {
+                    window.location = result;
+                }
+                else
+                {
+                    setTimeout(checkScanStatus, 1000);
+                }
+            }
+        );
+    }
+</script>
+
+    <apex:outputPanel id="downloadPanel">
+    
+		<c:ScanResultInfo state="inprogress" header="{!$Label.afsc__fs_statusinprogressheader}" subHeader="" standardText="{!$Label.afsc__fs_statuscontent1inprogress}" customText="{!$Label.afsc__fs_statuscontent2clickhere}" link="true"/>
+		        
+    </apex:outputPanel>
+
+</apex:page>

@@ -1,0 +1,311 @@
+<apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="PDF" applyBodyTag="false" standardStylesheets="false"> 
+    <!-- Stylesheets -->
+    
+    <head>      
+        <style type="text/css" media="print">
+            body { font-family: 'Arial Unicode MS';    
+            }
+            @page { 
+            size: A4;
+            margin-top:15mm;
+            margin-left:10mm;
+            margin-right:10mm;
+            margin-bottom:15mm;                
+            padding-top: 10px;
+            @top-left {
+            content: element(header_left);
+            }
+            @bottom-right {
+            content: element(footer_right);
+            }      
+            @bottom-center {
+            content: element(footer_center);
+            }      
+            }    
+            .header_left {
+            display: block;
+            text-align: left;
+            position: running(header_left);
+            }     
+            .footer_right {
+            display: block;
+            padding: 5px;
+            text-align: right;
+            position: running(footer_right);
+            }      
+            .footer_center {
+            display: block;
+            padding: 5px;
+            text-align: center;
+            position: running(footer_center);
+            }      
+            .pageNumber:before {
+            content: counter(page); 
+            }
+            
+            .pageCount:after {
+            content: counter(pages);  
+            }
+            table,tr,td {            
+            border-collapse:collapse;
+            }
+            table,td{    
+            border: 1px solid black;  
+            font-size:12px;
+            }
+            td{
+            padding-left:1px;
+            }
+            .TopTd{
+            font-size:14px;
+            }
+            .TopTdLabel{
+            font-size:14px;
+            font-weight: bold;
+            }       
+            td.TdLabel{
+            font-weight: bold;
+            }
+            table{
+            width: 702px;
+            font-family: Arial Unicode MS;          
+            -fs-table-paginate: paginate;  
+            
+            }
+            
+            thead{display: table-header-group;}
+            .Table
+            {
+            display:table;
+            margin-left:8px;
+            width: 702px;
+            padding-top:14px;
+            }
+            .Row
+            {
+            display: table-row;
+            }
+            .Cell
+            {
+            display: table-cell;
+            border: solid;
+            border-width: 3px;
+            padding-left:1px;
+            border-collapse:collapse;
+            font-size:12px; 
+            font-family: Arial Unicode MS;  
+            font-weight: bold;            
+            }                
+            .CellLabel
+            {
+            display: table-cell;
+            border: solid;
+            border-width: 3px;
+            padding-left:1px;
+            border-collapse:collapse;
+            font-size:12px; 
+            font-family: Arial Unicode MS;
+            font-weight: bold;
+            }                
+            .CellTopLeft
+            {
+            display: table-cell;
+            border: solid;
+            border-width: 3px;
+            border-collapse:collapse;
+            font-size:18px; 
+            font-family: Arial Unicode MS;
+            width:180px;
+            text-align:center;
+            }                
+            .CellTopRight
+            {
+            display: table-cell;
+            border: solid;
+            border-width: 3px;
+            border-collapse:collapse;
+            font-size:18px; 
+            font-family: Arial Unicode MS;              
+            width:50px;
+            text-align:center;
+            } 
+            
+            
+        </style>
+    </head>  
+    <body style="padding-top:10px;">
+        <!-- First Page Header -->
+        <c:PDFHeaderFooter type="header" position="left">
+            <div class="header" style="padding-top:2px;">
+                <div class="Table">
+                    
+                </div>
+                <div style="font-size:25px;text-align: center;">{!$Label.Case_received_by_Phone_etc}</div>
+            </div>
+        </c:PDFHeaderFooter>
+        <!-- Content -->     
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr><td class="TopTdLabel" align="left" width="30%" style="border-bottom-style: hidden;border-right-style: hidden;">{!$Label.DealerName}&nbsp;</td>
+                <td class="TopTd" align="left" width="30%" colspan="3" style="border-bottom-style: hidden;">{!Case.Case_Dealer__r.Company_Name__c}&nbsp;{!Case.Case_Dealer__r.Name}
+                </td>
+            </tr>
+            
+            <tr><td class="TopTdLabel" align="left" width="30%" style="border-right-style: hidden;">{!$Label.Sales_Phone}&nbsp;</td>
+                <td class="TopTd" align="left" width="30%" style="border-right-style: hidden;">{!Case.Case_Dealer__r.Phone}&nbsp;</td>
+                <td class="TopTdLabel" align="left" width="30%" style="border-right-style: hidden;">{!$Label.SalesFax}&nbsp;</td>
+                <td class="TopTd" align="left" width="30%">{!Case.Case_Dealer__r.Fax}</td>
+            </tr>
+            <tr><td class="TopTdLabel" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Service_Phone}</td>
+                <td class="TopTd" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;">{!Case.Case_Dealer__r.Dealer_Phone_Service__c}</td>
+                <td class="TopTdLabel" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Service_Fax}</td>
+                <td class="TopTd" align="left" width="30%" style="border-top-style: hidden;">{!Case.Case_Dealer__r.Dealer_Fax_Service__c}</td>  
+            </tr>
+            <tr><td class="TopTdLabel" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Pages}</td>
+                <td class="TopTd" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;"><!--<span class="pageCount"/>-->2&nbsp;{!$Label.Pages}</td>
+                <td class="TopTdLabel" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Parts_Fax}</td>
+                <td class="TopTd" align="left" width="30%" style="border-top-style: hidden;">{!Case.Case_Dealer__r.Dealer_Fax_Parts__c}</td>  
+            </tr>         
+        </table> 
+        <br/>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Subject}</td>
+                <td class="TopTd" align="left">{!Case.Subject}</td>
+            </tr>
+        </table>
+        <br/>
+        
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-width:1px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;">
+            <tr>
+                <td class="TdLabel" align="left" width="30%" style="border-right-style: hidden;border-left-style: hidden;border-top-style: hidden;">{!$Label.Created_Date}</td>
+                <td align="left" width="30%" style="border-right-style:hidden;border-top-style: hidden;"><apex:outputField value="{!Case.CreatedDate}"></apex:outputField></td>
+                <td class="TdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;border-top-style: hidden">{!$Label.UCID}</td>
+                <td align="left" width="30%" height="25" style="border-right-style:hidden;border-top-style: hidden;"><apex:outputField value="{!Case.Account.UCID__c}"></apex:outputField></td>
+            </tr> 
+            <tr>
+                <td class="TdLabel" align="left" width="20%" style="border-top-style:hidden;border-left-style:hidden;border-right-style:hidden;">{!$Label.Kana}</td>
+                <td align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;font-family:Arial Unicode MS">
+                    <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Person Account',true,false)}"> 
+                        <apex:outputText value="{!case.Account.LastName_Native_1__c}"/> &nbsp;
+                        <apex:outputField value="{!case.Account.FirstName_Native_1__c}"/>
+                    </apex:outputlabel>
+                    <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Company',true,false)}">{!Case.Account.Company_Name_Native_1__c}</apex:outputlabel>
+                </td>
+                <td class="TdLabel" align="left" width="30%" style="border-top-style:hidden;border-right-style:hidden;">{!$Label.Case_Number}</td>
+                <td align="left" width="30%" style="border-top-style:hidden;border-right-style: hidden;"><apex:outputField value="{!Case.CaseNumber}"></apex:outputField></td>
+            </tr>             
+            <tr>
+                <td class="TdLabel" align="left" width="30%" height="50" style="border-top-style:hidden;border-left-style: hidden;border-right-style:hidden;">{!$Label.Customer}</td>
+                <td align="left" width="30%" height="25" style="border-top-style:hidden;border-bottom-style:hidden;font-family:Arial Unicode MS">
+                    <apex:outputPanel rendered="{!If(usr.Market__c =='JP',true,false)}">
+                        <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Person Account',true,false)}">{!Case.Account.LastName} &nbsp; {!Case.Account.FirstName}</apex:outputlabel>
+                        <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Company',true,false)}">{!Case.Account.Company_Name__c}</apex:outputlabel>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If(usr.Market__c !='JP',true,false)}">
+                        <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Person Account',true,false)}">{!Case.Account.LastName} &nbsp; {!Case.Account.FirstName} {!$Label.Sama}</apex:outputlabel>
+                        <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Company',true,false)}">{!Case.Account.Company_Name__c} {!$Label.Sama}</apex:outputlabel>
+                    </apex:outputPanel>
+                </td>
+                
+                <td  class="TdLabel" align="left" width="30%" colspan="3" style="border-top-style: hidden;border-left-style: hidden;border-bottom-style:hidden;"></td>
+                
+            </tr>
+            <!--<tr></tr>-->
+            <tr>
+                <td class="TdLabel" align="left" width="30%" height="50" rowspan="2" style="border-top-style:hidden;border-right-width:1px;border-left-style: hidden;">{!$Label.Address}</td>
+                <td align="left" width="30%" height="25" colspan="3" style="border-left-style:hidden;border-right-style:hidden;">
+                    <apex:outputText value="{!LEFT(Case.Account.Primary_Address_Reference__r.ZipCode__c,3)}"></apex:outputText>
+                    <apex:outputLabel rendered="{!If(Case.Account.Primary_Address_Reference__r.ZipCode__c!=Null,true,false)}">-</apex:outputLabel>&nbsp;  
+                    <apex:outputText value="{!RIGHT(Case.Account.Primary_Address_Reference__r.ZipCode__c,4)}"></apex:outputText>
+                </td></tr>
+            <tr> 
+                <td align="left" width="30%" height="25" colspan="3" style="border-top-style:hidden;border-left-style:hidden;font-family:Arial Unicode MS">{!Case.Account.Primary_Address_Display__c}</td>           
+            </tr> 
+            
+            <tr>
+                <td class="TdLabel" align="left" width="20%" style="border-top-style: hidden;border-left-style: hidden;border-right-style:hidden;">{!$Label.SalesTEL}</td>
+                <td align="left" width="30%"  height="25" style="border-top-style: hidden;border-right-style:hidden;" >{!Case.Account.Primary_Phone_Display__c}</td>
+                <td class="TdLabel" align="left" width="20%" style="border-right-style:hidden;border-top-style:hidden;">{!$Label.SalesMail}</td>
+                <td align="left" width="30%" height="25" style="border-right-style:hidden;border-top-style:hidden;">{!Case.Account.Primary_Email_Display__c}</td>  
+            </tr>
+            <tr>
+                <td class="TdLabel" align="left" width="20%" style="border-top-style: hidden;border-left-style: hidden;border-right-style:hidden;">{!$Label.Phone}</td>
+                <td align="left" width="30%"  height="25" style="border-top-style:hidden;border-right-style:hidden;" >{!Case.Account.Individual_Home_Phone__c}</td>
+                <td class="TdLabel" align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Mobile}</td>
+                <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!Case.Account.Mobile__c}</td>  
+            </tr> 
+            <tr>
+                <td class="TdLabel" align="left" width="20%" style="border-top-style: hidden;border-left-style: hidden;border-right-style:hidden;">{!$Label.TargetVIN}</td>
+                <td align="left" width="30%" height="25" style="border-top-style:hidden;border-right-style:hidden;">{!Case.US_VIN__c}</td>
+                <td class="TdLabel" align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Class_Model}</td>
+                <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;">
+                    <apex:outputField value="{!Case.Vehicle_Class__c}"></apex:outputField>
+                    <apex:outputLabel rendered="{!If(Case.Vehicle_Model__c!=Null,true,false)}">(</apex:outputLabel>
+                    <apex:outputField value="{!Case.Vehicle_Model__c}"></apex:outputField>
+                    <apex:outputLabel rendered="{!If(Case.Vehicle_Model__c!=Null,true,false)}">)</apex:outputLabel>
+                    {!Case.Car_Remarks__c}
+                </td>
+            </tr>            
+            <tr>         
+                <td class="TdLabel" align="left" width="20%" height="25" style="border-top-style: hidden;border-left-style: hidden;border-right-style:hidden;">{!$Label.RegistrationNo}</td>
+                <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style:hidden;">{!VehicleRelationshipList.Registration_Number__c}</td>
+                <td class="TdLabel" align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.RegistrationDate}</td>
+                <td align="left" width="30%" height="25" style="border-top-style:hidden;border-right-style: hidden;">
+                    <apex:outputText value="{0,date,yyyy'/'MM'/'dd}"><apex:param value="{!VehicleRelationshipList.Registration_Date__c}" /></apex:outputText>             
+                </td>              
+            </tr> 
+            <tr>
+                <td class="TdLabel" align="left" width="20%" height="25" style="border-top-style:hidden;border-left-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">{!$Label.FinanceMethod}</td>
+                <td align="left" width="30%" height="25" style="border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">{!VehicleRelationshipList.Finance_Method__c}</td>  
+                <td class="TdLabel" align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style:hidden;">{!$Label.Occupation}</td>
+                <td align="left" width="30%" height="25" style="border-top-style:hidden;border-right-style: hidden;border-bottom-style:hidden;"><apex:outputField value="{!Case.Account.Occupation__c}"></apex:outputField></td>
+            </tr>
+            
+        </table><br/>
+        
+        
+        <table border="1" width="86%" height="25" cellpadding="0" cellspacing = "0" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-left-style: hidden;float:right;">
+            <tr>
+                <td align="right" width="160px" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-left-style: hidden;"></td>
+                
+                <td class="TdLabel" align="left" width="75px" height="25" style="border-top-width: 1px;border-left-width: 1px;border-bottom-style: hidden;border-right-style: hidden;">{!$Label.Received_By}</td>
+                <td align="left" width="40px" height="25" style="border-top-width: 1px;border-left-width: 1px;border-bottom-width: 1px;border-right-width: 1px;">{!Case.Case_Dealer_User__r.Name}</td>  
+                
+            </tr>
+            <tr>
+                <td align="right" width="160px" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-left-style: hidden;"></td>
+                
+                <td class="TdLabel" align="left" width="75px" height="25" style="border-top-width: 1px;border-left-width: 1px;border-bottom-width: 1px;border-right-width: 1px;">{!$Label.Copy}</td>
+                <td align="left" width="40px" height="25" style="border-top-style: hidden;border-left-style: hidden;border-bottom-width: 1px;border-right-width: 1px;"></td>  
+            </tr>
+            
+        </table>
+        <br/><br/><br/>
+        <div style="page-break-after:always;"/>
+        <table border="1" width="100%" cellspacing="0" cellpadding="0" style="border-left-width:1px;border-right-width:1px;border-top-width:1px;border-bottom-width:1px;">
+            <tr>
+                <td class="TdLabel" align="left" width="20%" height="25">{!$Label.Subject}</td>
+                <td align="left" width="80%" height="25" colspan="3">{!Case.Subject}</td>
+            </tr>
+            
+            <tr>
+                <td class="TdLabel" align="left" width="20%" height="25">{!$Label.Customer}</td>
+                <td align="left" width="30%" height="25" style ="font-family:Arial Unicode MS"><apex:outputField value="{!Case.Account.Name}"></apex:outputField></td>
+                <td class="TdLabel" align="left" width="20%" height="25">{!$Label.CaseNumber}</td>
+                <td align="left" width="30%" height="25"><apex:outputField value="{!Case.CaseNumber}"></apex:outputfield></td>
+            </tr>
+            <tr>
+                <td class="TdLabel" align="center" width="100%" height="25" colspan="4">{!$Label.Dealer_Internal_Comment}</td>
+            </tr>
+            <tr>
+                <td align="center" width="100%" height="100" colspan="4">{!Case.Case_Follow_Up__c}</td>
+            </tr>
+            <tr>
+                <td class="TdLabel" align="center" width="100%" height="25" colspan="4">{!$Label.Customer_Statement}</td>
+            </tr>
+            <tr>
+                <td align="center" width="100%" height="100" colspan="4" >{!Case.Customer_Statement__c}</td>
+            </tr>
+        </table>
+        
+    </body>  
+</apex:page>

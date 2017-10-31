@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <links>customLink123_JP</links>
+    <links>Inquiry_form_howtouse_for_JP</links>
+    <links>system_manual_for_JP</links>
+    <links>YA_System_restriction_JP</links>
+    <links>ST_ID_system_restriction_JP</links>
+    <links>FAQ_for_JP</links>
+    <links>Guest_card_sales_JP</links>
+    <links>Guest_card_service_JP</links>
+    <links>Guest_card_CCC_JP</links>
+    <links>Mercedesme_regist_support_sales_JP</links>
+    <links>Mercedesme_regist_support_service_JP</links>
+    <links>Mercedesme_regist_support_ccc_JP</links>
+    <links>AfterSales_for_JP</links>
+    <links>MBJ_Autoline_enhanced_point_for_JP</links>
+    <links>system_ID_application_for_JP</links>
+    <links>system_Introduction_brochur_for_JP</links>
+    <links>system_Introduction_movie_for_JP</links>
+    <pageComponentType>links</pageComponentType>
+</HomePageComponent>

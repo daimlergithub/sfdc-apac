@@ -1,0 +1,6 @@
+<apex:page StandardController="CampaignMember" extensions="AddToCampaign" action="{!redirectToCampaign}">
+  
+  Working
+  
+  
+</apex:page>

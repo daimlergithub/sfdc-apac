@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>NttDataEpa__EpAdapterUnitOfWork_List</fullName>
+        <fields>Name</fields>
+        <fields>NttDataEpa__TriggeredDateTime__c</fields>
+        <fields>NttDataEpa__UnitOfWorkId__c</fields>
+        <fields>NttDataEpa__Status__c</fields>
+        <label>EpAdapterUnitOfWork-List</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>A unit of work to be handled by the EP adapter.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>NttDataEpa__Complexity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>NttDataEpa__NumDmlStatements__c + NttDataEpa__NumDmlRecords__c / 100 + NttDataEpa__NumSoqlQueries__c + NttDataEpa__NumSoqlRecords__c / 1000</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Complexity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__CpuTime__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>CPU Time (msec)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__EPA_Transaction_IDs__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Semicolon-separated list of involved EPA transactions (BTL)</description>
+        <externalId>false</externalId>
+        <label>EPA Transaction IDs</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__Error_Message__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Error message in case of failed transaction</description>
+        <externalId>false</externalId>
+        <label>Error Message</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__NumDmlRecords__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of records touched by DML statements.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of records touched by DML statements.</inlineHelpText>
+        <label>Number of DML Records</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__NumDmlStatements__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of DML statements issued</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of DML statements issued</inlineHelpText>
+        <label>Number of DML Statements</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__NumSoqlQueries__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of SOQL Queries</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__NumSoqlRecords__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of records retrieved by SOQL queries.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of records retrieved by SOQL queries.</inlineHelpText>
+        <label>Number of SOQL Records</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__RunTime__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Run Time (msec)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of the Unit of Work</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PENDING</fullName>
+                    <default>true</default>
+                    <label>PENDING</label>
+                </value>
+                <value>
+                    <fullName>PROCESSED</fullName>
+                    <default>false</default>
+                    <label>PROCESSED</label>
+                </value>
+                <value>
+                    <fullName>FAILED</fullName>
+                    <default>false</default>
+                    <label>FAILED</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__TriggeredDateTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The timestamp when the unit of work has been initially triggered</description>
+        <externalId>false</externalId>
+        <label>TriggeredDateTime</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ATOMIC_SINGLE</fullName>
+                    <default>false</default>
+                    <label>ATOMIC_SINGLE</label>
+                </value>
+                <value>
+                    <fullName>ATOMIC_MULTIPLE</fullName>
+                    <default>false</default>
+                    <label>ATOMIC_MULTIPLE</label>
+                </value>
+                <value>
+                    <fullName>COMPOUND_SAME_TYPE</fullName>
+                    <default>false</default>
+                    <label>COMPOUND_SAME_TYPE</label>
+                </value>
+                <value>
+                    <fullName>COMPOUND_MULTIPLE_TYPES</fullName>
+                    <default>false</default>
+                    <label>COMPOUND_MULTIPLE_TYPES</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__UnitOfTransfer__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unit of Transfer</label>
+        <referenceTo>NttDataEpa__EpAdapterUnitOfTransfer__c</referenceTo>
+        <relationshipLabel>Units of Work</relationshipLabel>
+        <relationshipName>Units_of_Work</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__UnitOfWorkId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>UnitOfWorkId</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Unit of Work</label>
+    <listViews>
+        <fullName>NttDataEpa__All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>Alle</label>
+    </listViews>
+    <nameField>
+        <label>Unit of Work Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Units of Work</pluralLabel>
+    <searchLayouts>
+        <listViewButtons>NttDataEpa__Delete_Multiple</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>NttDataEpa__Delete_Multiple</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Delete Multiple</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/9.0/connection.js&quot;)} 
+
+var records = {!GETRECORDIDS( $ObjectType.Event )}; 
+var taskRecords = {!GETRECORDIDS( $ObjectType.Task)}; 
+records = records.concat(taskRecords); 
+
+
+if (records[0] == null) { 
+alert(&quot;Please select at least one record.&quot;) } 
+else { 
+
+var errors = []; 
+var result = sforce.connection.deleteIds(records); 
+if (result &amp;&amp; result.length){ 
+var numFailed = 0; 
+var numSucceeded = 0; 
+for (var i = 0; i &lt; result.length; i++){ 
+var res = result[i]; 
+if (res &amp;&amp; res.success == &apos;true&apos;){ 
+numSucceeded++; 
+} else { 
+var es = res.getArray(&quot;errors&quot;); 
+if (es.length &gt; 0) { 
+errors.push(es[0].message); 
+} 
+numFailed++; 
+} 
+} 
+if (numFailed &gt; 0){ 
+alert(&quot;Failed: &quot; + numFailed + &quot;\nSucceeded: &quot; + numSucceeded + &quot; \n Due to: &quot; + errors.join(&quot;\n&quot;)); 
+} else { 
+alert(&quot;Number of records deleted: &quot; + numSucceeded); 
+} 
+} 
+window.location.reload(); 
+}</url>
+    </webLinks>
+</CustomObject>

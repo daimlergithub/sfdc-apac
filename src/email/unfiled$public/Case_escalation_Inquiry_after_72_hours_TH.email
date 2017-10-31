@@ -1,0 +1,14 @@
+Dear Case owner,
+
+ Since no action is taken by you in last 72 hours and case is still open therefore this case  got escalated to your manager for further action .  Below are the details :
+
+     Case no. : {!Case.CaseNumber}
+     Customer : {!Case.Contact}
+     Chassis no. / Registration Plate no.  : {!Case.Registration_Number__c}
+     Date : {!Case.CreatedDate}
+     Message : {!Case.MPC_Internal_Notes__c}
+
+Best regards,
+Customer Contact Center,  Mercedes-Benz MBTh
+Phone : 1250 
+Email : CCC_mbth@daimler.com

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <filter>
+        <criteriaItems>
+            <column>Lead__c.Source_Campaign__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>メルセデス レーダーセーフティ無料キャンペーン</value>
+        </criteriaItems>
+        <language>ja</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Lead_Desired_Service__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Assigned_Dealer__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>RSP無料CP_リード数</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c.Drop_off_Time__c</dateColumn>
+        <endDate>2017-05-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-09-01</startDate>
+    </timeFrameFilter>
+</Report>

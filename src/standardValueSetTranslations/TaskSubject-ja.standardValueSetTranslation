@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>1st Survey Call</masterLabel>
+        <translation><!-- 1st Survey Call --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>2nd Survey Call</masterLabel>
+        <translation><!-- 2nd Survey Call --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other</masterLabel>
+        <translation>その他</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Phone</masterLabel>
+        <translation>電話</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Send Letter</masterLabel>
+        <translation>手紙</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Send a quotation</masterLabel>
+        <translation>見積</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Welcome Call</masterLabel>
+        <translation><!-- Welcome Call --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Welcome Call + 1st Survey Call</masterLabel>
+        <translation><!-- Welcome Call + 1st Survey Call --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

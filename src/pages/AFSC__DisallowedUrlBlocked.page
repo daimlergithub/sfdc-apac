@@ -1,0 +1,5 @@
+<apex:page controller="AFSC.FS_UrlBlockedPageController" sidebar="false" title="{!$Label.afsc__fs_urlblocked}">
+
+<c:ScanResultInfo state="error" header="{!$Label.afsc__fs_urlblockedheader}" subHeader="{!OriginalLink}" standardText="{!$Label.afsc__fs_statuscontent1urlblocked}" customTextTemplate="{!DisallowedWebsiteTemplate}" />
+
+</apex:page>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Advertising / Marketing</masterLabel>
+        <translation>광고/마케팅</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Agriculture</masterLabel>
+        <translation>농업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Air transport</masterLabel>
+        <translation>항공운송업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Apparel &amp; Accessories/Fashion</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Banking</masterLabel>
+        <translation>은행업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Beauty &amp; Cosmetic</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Biotechnology/Chemical</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Business Services</masterLabel>
+        <translation>비즈니스 서비스업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Chemical fiber manufacturing</masterLabel>
+        <translation>화학섬유 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Chemical materials manufacturing</masterLabel>
+        <translation>화학물질 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Coal mining and washing</masterLabel>
+        <translation>탄광 산업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Communications</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Computer</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Construction</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Construction and installation industry</masterLabel>
+        <translation>건설 및 설치 산업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Consulting</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Consumer Products</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Crafts and other manufacturing</masterLabel>
+        <translation>공예 및 기타 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Distribution</masterLabel>
+        <translation>물류업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Education</masterLabel>
+        <translation>교육</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Electrical equipment manufacturing</masterLabel>
+        <translation>전기장치 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Electricity production and supply</masterLabel>
+        <translation>전기 생산 및 공급업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Electronics</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Employment</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Energy</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Entertainment &amp; Recreation</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Ferrous metal mining industry</masterLabel>
+        <translation>철금속 광업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Fisheries</masterLabel>
+        <translation>어업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Food Manufacturing</masterLabel>
+        <translation>식품 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Foods &amp; Beverages</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Forestry</masterLabel>
+        <translation>임업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Gas Production and Supply</masterLabel>
+        <translation>가스 생산 및 공급업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>General equipment manufacturing</masterLabel>
+        <translation>일반 장비 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Government</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Health</masterLabel>
+        <translation>보건/의료</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Information Technology</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Insurance</masterLabel>
+        <translation>보험</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Journalism &amp; News/Media</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Legal Businesses</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Manufacturing</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Mass and religious organizations</masterLabel>
+        <translation>대중 및 종교 조직</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Media</masterLabel>
+        <translation>미디어</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Nonferrous Metals</masterLabel>
+        <translation>비철금속</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Oil &amp; Gas</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other</masterLabel>
+        <translation>기타</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other Services</masterLabel>
+        <translation>기타 서비스업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other equipment manufacturing</masterLabel>
+        <translation>기타 장비 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other financial activities</masterLabel>
+        <translation>기타 금융 활동</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Paper and paper products industry</masterLabel>
+        <translation>제지 및 종이제품 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Parts</masterLabel>
+        <translation>부품</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Petroleum processing industry</masterLabel>
+        <translation>정유업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pharmaceutical Manufacturing</masterLabel>
+        <translation>제약업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Public Relations</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Real Estate</masterLabel>
+        <translation>부동산</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Retail</masterLabel>
+        <translation>소매업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Road transport</masterLabel>
+        <translation>육상운송업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Rubber</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Securities Industry</masterLabel>
+        <translation>증권업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Services</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Ship building</masterLabel>
+        <translation>조선업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Special equipment manufacturing</masterLabel>
+        <translation>특수 장비 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Sports</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>State institutions</masterLabel>
+        <translation>국가 기관</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Telecommunications Services</masterLabel>
+        <translation>통신 서비스업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Tourism</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trade</masterLabel>
+        <translation>무역업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Transport/Logistics</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Transportation Equipment Manufacturing</masterLabel>
+        <translation>운수 장비 제조업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unknown</masterLabel>
+        <translation>알 수 없음</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Urban public transport sector</masterLabel>
+        <translation>도시 대중교통 분야</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Utilities</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Warehousing</masterLabel>
+        <translation>창고업</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Water Transportation</masterLabel>
+        <translation>수상운송업</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

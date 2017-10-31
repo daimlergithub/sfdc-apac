@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>CEO/ Upper Management</masterLabel>
+        <translation>使用しないでください</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>CSI survey</masterLabel>
+        <translation><!-- CSI survey --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Call</masterLabel>
+        <translation>使用しないでください</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Central CAC</masterLabel>
+        <translation><!-- Central CAC --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>DAG</masterLabel>
+        <translation>使用しないでください</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Dealer</masterLabel>
+        <translation><!-- Dealer --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Dealership Walk-in</masterLabel>
+        <translation><!-- Dealership Walk-in --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>E-Mail</masterLabel>
+        <translation>使用しないでください</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>From CAC</masterLabel>
+        <translation><!-- From CAC --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Government Authority</masterLabel>
+        <translation><!-- Government Authority --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Hotline</masterLabel>
+        <translation><!-- Hotline --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Legal Attested Letter</masterLabel>
+        <translation><!-- Legal Attested Letter --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>MB Website</masterLabel>
+        <translation>使用しないでください</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>OCPB</masterLabel>
+        <translation><!-- OCPB --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Official Letter/Fax</masterLabel>
+        <translation>使用しないでください</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other MPC</masterLabel>
+        <translation>使用しないでください</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Others</masterLabel>
+        <translation><!-- Others --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>SSI survey</masterLabel>
+        <translation><!-- SSI survey --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Social Media</masterLabel>
+        <translation>使用しないでください</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Via Cooperate</masterLabel>
+        <translation><!-- Via Cooperate --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Via MB</masterLabel>
+        <translation><!-- Via MB --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Walk-in</masterLabel>
+        <translation><!-- Walk-in --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>mail/fax/email</masterLabel>
+        <translation><!-- mail/fax/email --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

@@ -1,0 +1,1187 @@
+<!--
+    lastmodifedby : lokesh 
+    jira : SFDCJP 1023,JP-1052,JP-1050,JP-1076,JP-1054
+    modified date : mar 23, 2017
+-->
+
+<apex:page showHeader="true"  tabStyle="Retail_Campaigns__tab" controller="SegmentationCriteriaController" id="page">    
+    <apex:includeScript value="{!$Resource.jquery142}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.RetailCampaignSegmentation)}"/>
+    
+    <script>
+   
+        var filterNames = '';
+        var oldFieldValue = '';
+        var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; Last_Successful_Call__c; LastServiceDate__c; Latest_Contract_Date__c; '
+            + 'NextServiceDate__c; Purchase_Date__c; Registration_Date__c; Warranty_Start_Date__c;Expected_Registration_Date__c;Expected_Close_Date__c;FirstRegistrationDate__c;End_Date__c;MOT_Expired_Date__c;NextInspectionDate__c;';
+
+         $(document).ready(function(){
+            $('#filterSelect option').each(function(){
+                filterNames += this.value + ';';
+            });
+            $('.aaa').children().each(function(){
+                this.style.display = 'none';
+            });
+        });
+        
+        /**
+         * The first level functions, uses for page.
+         */ 
+        // Adds a empty filter item.
+        function addEmptyFilterItem(tableId, logic, bracket){
+            if(!checkFilterItemAdded(tableId, bracket)) return;
+            var filterItem = getFilterItem(tableId, {field:'', operation:'', criteria:'', logic:''});
+            var newRow = $(filterItem).appendTo('#' + tableId);
+
+            if(bracket){
+                var bracketRow = '<tr class="logicRow"><td></td><td></td><td></td><td></td><td class="logic">===' + logic
+                    + '===</td><td><input type="button" value="X" class="btn" style="width:20px;" ' 
+                    + 'onclick="removeFilterItem(this.parentNode.parentNode)"/></td></tr>';
+                newRow.before(bracketRow);
+            }
+            else{
+                newRow.prev().children('.logic').append(logic);
+            }
+        } 
+        
+        // Removes a filter item.
+        function removeFilterItem(row){
+            var jQueryRow = $(row);
+            var jQueryNext = jQueryRow.next();
+            var jQueryPrev = jQueryRow.prev();
+
+            if(jQueryNext.length == 0 || jQueryNext[0].className == 'logicRow'){
+                jQueryPrev.children('.logic').text("");
+            }
+            
+            jQueryRow.prevAll().each(function(){
+                if(this.className == 'logicRow'){
+                    $(this).nextAll().each(function(){
+                        if(this.className == 'logicRow'){
+                            return false;
+                        }
+                        else{
+                            $(this).remove();
+                        }
+                    });
+                    $(this).remove();
+                    return false;
+                }
+            });
+
+            if(row.className == 'logicRow'){
+                jQueryRow.nextAll().each(function(){
+                    $(this).remove();
+                });
+            }
+
+            jQueryRow.remove();
+        }
+
+        // Saves the filter data to database
+        function saveFilter(filterName){
+            if(!checkFilterName(filterName)) return;
+            var st = filterNames.split(";");
+            if(st.length >= 12) {
+                alert('The filter count can\'t greater than 10');
+                return;
+            }
+            var filter = getJsonFilter(filterName);
+            if(filter == null) return;
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.SegmentationCriteriaController.saveFilter}',
+                filter,
+                function(result, event){
+                    if(event.status) {
+                        alert('{!$Label.Sccussful}!');
+                        filterNames += filterName + ';';
+                        window.location.reload();
+                    }
+                    else{
+                        alert('{!$Label.Contact_Admin}');
+                    }
+                },
+                {escape: true}
+            );
+        }
+        // Delete the filter data to database
+        function deleteFilter(deleteFilterName){
+            if(deleteFilterName == null || deleteFilterName == '') return;
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.SegmentationCriteriaController.deleteFilter}',
+                deleteFilterName,
+                function(result, event){
+                    if(event.status) {
+                        alert('{!$Label.Sccussful}!');
+                        window.location.reload();
+                    }
+                    else{
+                        alert('{!$Label.Contact_Admin}');
+                    }
+                },
+                {escape: true}
+            );
+        }
+
+        // Loads a filter from server.
+        function loadFilter(filterName){
+            emptyFilter();
+            var allFilters = '{!contact.SegmentationFilters__c}';
+            if(!allFilters || $.trim(allFilters).length == 0){
+                alert('No filter');
+                return;
+            }
+            
+            $.each($.parseJSON(allFilters), function(){
+                if(this.name == filterName){
+                    if(this.content.Customer){
+                    setFilterItem($('#firstCustomerRow'), this.content.Customer[0]);
+                        this.content.Customer.shift();
+                        $.each(this.content.Customer, function(){
+                            addFilter('customerTable', this);
+                        });
+                    }
+                    if(this.content.Interest){
+                        setFilterItem($('#firstInterestRow'), this.content.Interest[0]);
+                        this.content.Interest.shift();
+                        $.each(this.content.Interest, function(){
+                            addFilter('interestTable', this);
+                        });
+                    }
+                    if(this.content.Vehicle){
+                        setFilterItem($('#firstVehicleRow'), this.content.Vehicle[0]);
+                        this.content.Vehicle.shift();
+                        $.each(this.content.Vehicle, function(){
+                            addFilter('vehicleTable', this);
+                        });
+                    }
+                    if(this.content.AccountLink){
+                                      
+                        setFilterItem($('#firstAccountLinkRow'), this.content.AccountLink[0]);
+                        this.content.AccountLink.shift();
+                        $.each(this.content.AccountLink, function(){
+                            addFilter('AccountRetailCopyTable', this);
+                        });
+                    }
+                    if(this.content.VehicleRelation){
+                        setFilterItem($('#firstVehicleRelationRow'), this.content.AccountLink[0]);
+                        this.content.VehicleRelation.shift();
+                        $.each(this.content.VehicleRelation, function(){
+                            addFilter('VehicleRelationTable', this);
+                        });
+                    }
+                    
+                     if(this.content.Campaign){
+                        setFilterItem($('#firstCampaignRow'), this.content.Campaign[0]);
+                        this.content.Campaign.shift();
+                        $.each(this.content.Campaign, function(){
+                            addFilter('CampaignTable', this);
+                        });
+                    }
+                    
+                     if(this.content.VehicleRetailcopy){
+                        setFilterItem($('#firstVehicleRetailcopyRow'), this.content.VehicleRetailcopy[0]);
+                        this.content.VehicleRetailcopy.shift();
+                        $.each(this.content.VehicleRetailcopy, function(){
+                            addFilter('VehicleRetailcopyTable', this);
+                        });
+                    }
+                    if(this.content.Address){
+                        setFilterItem($('#firstAddressRow'), this.content.Address[0]);
+                        this.content.Address.shift();
+                        $.each(this.content.Address, function(){
+                            addFilter('AddressTable', this);
+                        });
+                    }
+                    if(this.content.Contract){
+                        setFilterItem($('#firstContractrelatedRow'), this.content.Contract[0]);
+                        this.content.Contract.shift();
+                        $.each(this.content.Contract, function(){
+                            addFilter('ContractrelatedTable', this);
+                        });
+                    }
+                    
+                    return false;
+                }
+            });
+        }
+
+        // Sends the json filter to server.
+        function sendFilterToServer(){
+            var filter = getJsonFilter('filterName');
+            if(filter == null) return false;
+            document.getElementById('page:form:jsonFilter').value = filter;
+            return true;
+        }
+
+        // Changes the criteria element for different fields
+        function showCriteria(fieldSelect){
+            var newFieldValue = $(fieldSelect).val();
+            var jQueryFieldRow = $(fieldSelect).parent().parent();
+
+            // Hide the criteria element
+            jQueryFieldRow.find('.criteria').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+        
+            // Show the criteria element
+            var criteriaElement = jQueryFieldRow.find('.' + newFieldValue);
+
+            if(dateInputClass.indexOf(newFieldValue + ';') != -1){
+                criteriaElement = jQueryFieldRow.find('.dateInput');
+            }
+            if(criteriaElement.length == 0){
+                criteriaElement = jQueryFieldRow.find('.inputText');
+            }
+            
+            criteriaElement.val('');
+            criteriaElement.css('display', 'block');
+            
+            jQueryFieldRow.find('.aaa').children().each(function(){
+                this.style.display = 'none';
+            });
+            if(newFieldValue == 'PersonBirthdate' || newFieldValue == 'Buy_Cycle__c' || newFieldValue == 'Household_Amount__c'
+               || newFieldValue == 'Last_Campaign_Date__c' || newFieldValue == 'Last_Successful_Call__c' || newFieldValue == 'Vehicle_Amount__c'
+               || newFieldValue == 'CurrentMileage__c' || newFieldValue == 'LastServiceDate__c' || newFieldValue == 'Latest_Contract_Date__c'
+               || newFieldValue == 'NextMileage__c'|| newFieldValue == 'NextServiceDate__c'|| newFieldValue == 'Purchase_Date__c'
+               || newFieldValue == 'Registration_Date__c'|| newFieldValue == 'Warranty_Start_Date__c'|| newFieldValue == 'Expected_Registration_Date__c'|| newFieldValue == 'Expected_Close_Date__c' 
+               || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Occupation__c' || newFieldValue == 'Special_Mark_on_Account__c' || newFieldValue == 'Interest_Model__c' || newFieldValue == 'Customer_Type__c' 
+               || newFieldValue == 'Sales_Representative__c' || newFieldValue == 'Retail_Visit_OptOut__c' || newFieldValue == 'Retail_Sales_Sanction__c' || newFieldValue == 'Retail_Postal_OptOut__c' || newFieldValue == 'Retail_Phone_OptOut__c'
+               || newFieldValue == 'Retail_Fax_OptOut__c' || newFieldValue == 'Retail_Email_OptOut__c' || newFieldValue == 'Retail_OptOutContact_Reason__c' || newFieldValue == 'Portal_ID__c'
+               || newFieldValue == 'CAC_Lead_Status__c' || newFieldValue == 'Class__c' || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Service_Advisor__c' 
+               || newFieldValue == 'Service_Advisor__c'  || newFieldValue == 'Last_Service_Dealer__c' || newFieldValue == 'MOT_Expired_Date__c' || newFieldValue == 'NextInspectionDate__c' || newFieldValue == 'CurrentMileage__c' 
+               || newFieldValue == 'CurrentMileage__c' || newFieldValue == 'Product_Name__c' || newFieldValue == 'Finance_Product_Name__c' || newFieldValue == 'Re_lease_Prohibit_flag__c' || newFieldValue == 'Duration__c'
+               || newFieldValue == 'Status__c' || newFieldValue == 'ZipCode__c' || newFieldValue == 'Province__c' || newFieldValue == 'Customer_Lifecycle_Phase__c' || newFieldValue == 'Name' || newFieldValue == 'Model__c' || newFieldValue == 'Range__c') {
+                jQueryFieldRow.find('.aaa').children().each(function(){
+                    this.style.display = 'block';
+                });
+            }   
+        }
+
+        /**
+         * The second level functions, serves for the first level functions -->
+         */ 
+        function emptyFilter(){
+            
+             var resultCustomer = $('#firstCustomerRow')
+             var customerCriteriaElement = resultCustomer.find('.' + 'Status__c');
+             customerCriteriaElement.val('');
+             var resultinterest = $('#firstInterestRow')
+             var interestCriteriaElement = resultinterest.find('.' + 'Retail_Interested_Vehicle_Brand__c');
+             interestCriteriaElement.val('');
+             var resultVehicle = $('#firstVehicleRow')
+             var vehicleCriteriaElement = resultVehicle.find('.' + 'inputText');
+             vehicleCriteriaElement.val('');
+             var resultaccountlink = $('#firstAccountLinkRow')
+             var AccountlinkCriteriaElement = resultVehicle.find('.' + 'inputText');
+             AccountlinkCriteriaElement.val('');
+             
+            getTableRows('customerTable').each(function(){
+                if(this.className != 'tableHeader' && this.id != 'firstCustomerRow'){
+                    removeFilterItem(this);
+                }
+
+            });
+            getTableRows('interestTable').each(function(){
+                if(this.className != 'tableHeader' && this.id != 'firstInterestRow'){
+                    removeFilterItem(this);
+                }
+            });
+            getTableRows('vehicleTable').each(function(){
+                if(this.className != 'tableHeader' && this.id != 'firstVehicleRow'){
+                    removeFilterItem(this);
+                }
+            });
+            getTableRows('AccountRetailCopyTable').each(function(){
+                if(this.className != 'tableHeader' && this.id != 'firstAccountLinkRow'){
+                    removeFilterItem(this);
+                }
+            });
+             getTableRows('VehicleRelationTable').each(function(){
+                if(this.className != 'tableHeader' && this.id != 'firstVehicleRelationRow'){
+                    removeFilterItem(this);
+                }
+            });
+            getTableRows('CampaignTable').each(function(){
+                if(this.className != 'tableHeader' && this.id != 'firstCampaignRow'){
+                    removeFilterItem(this);
+                }
+            });
+            
+             getTableRows('VehicleRetailcopyTable').each(function(){
+                    if(this.className != 'tableHeader' && this.id != 'firstVehicleRetailcopyRow'){
+                        removeFilterItem(this);
+                    }
+                    });
+                     getTableRows('AddressTable').each(function(){
+                    if(this.className != 'tableHeader' && this.id != 'firstAddressRow'){
+                        removeFilterItem(this);
+                    }
+                    });
+                     getTableRows('ContractrelatedTable').each(function(){
+                    if(this.className != 'tableHeader' && this.id != 'firstContractrelatedRow'){
+                        removeFilterItem(this);
+                    }
+                    });
+        }
+
+        function addFilter(tableId, filterItem){
+            var addedFilter = getFilterItem(tableId, filterItem);
+            var newRow = $(addedFilter).appendTo('#' + tableId);
+            
+            if(filterItem.bracket){
+                var bracketRow = '<tr class="logicRow"><td></td><td></td><td></td><td></td><td></td><td class="logic">===' + filterItem.logic
+                    + '===</td><td><input type="button" value="X" class="btn" onclick="removeFilter($(this).parent().parent())"/></td></tr>';
+                newRow.append(bracketRow);
+            }
+        }
+
+        function getFilterItem(tableId, filterItem){
+            var result;
+            if(tableId == 'customerTable'){
+                result = $('#firstCustomerRow').clone();
+            }
+            else if(tableId == 'interestTable'){
+                result = $('#firstInterestRow').clone();
+            }
+            else if(tableId == 'vehicleTable'){
+                result = $('#firstVehicleRow').clone();
+            }
+             else if(tableId == 'AccountRetailCopyTable'){
+                result = $('#firstAccountLinkRow').clone();
+            }
+            else if(tableId == 'VehicleRelationTable'){
+                result = $('#firstVehicleRelationRow').clone();
+            }
+            
+            else if(tableId == 'CampaignTable'){
+                result = $('#firstCampaignRow').clone();
+            }
+            
+                    else if(tableId == 'VehicleRetailcopyTable'){
+                     result = $('#firstVehicleRetailcopyRow').clone();
+                    }
+                    else if(tableId == 'AddressTable'){
+                     result = $('#firstAddressRow').clone();
+                    }
+                    else if(tableId == 'ContractrelatedTable'){
+                     result = $('#firstContractrelatedRow').clone();
+                    }
+            
+            var button = '<input type="button" value="X" class="btn" style="width:20px;" onclick="removeFilterItem(this.parentNode.parentNode)"/>';
+            result.children(':last').append(button);
+            result.removeAttr('id');
+            var dateInputId = tableId + 'DateInput' + getTableRows(tableId).length;
+            result.find('.dateInput').attr('id', dateInputId);
+
+            setFilterItem(result, filterItem);
+
+            return result;
+        }
+
+        function setFilterItem(jQueryTableRow, filterItem){
+            var columns = jQueryTableRow.children();
+            var fieldValue;
+            
+            $(columns[1]).find('option').each(function(){
+                if(this.value == filterItem.field){
+                    this.selected = true;
+                    fieldValue = this.value;
+                }
+            });
+            $(columns[2]).find('option').each(function(){
+                if(this.value == filterItem.operation){
+                    this.selected = true;
+                }
+            });
+
+            showCriteria(columns[1].children[0]); 
+            var criteria = $(columns[3]).find('.' + fieldValue);
+            if(dateInputClass.indexOf(fieldValue + ';') != -1){
+                criteria = $(columns[3]).find('.dateInput');
+            }
+            if(criteria.length == 0){
+                criteria = $(columns[3]).find('.inputText');
+            }
+            criteria.val(filterItem.criteria);
+
+            $(columns[4]).text(filterItem.logic);
+        }
+
+        function getJsonFilter(name){
+            
+            if(!checkFilterItems()) return null;
+
+            var filter = '{"name":"' + name + '", "content":{';
+            var customerTableRows = getTableRows('customerTable');
+            var interestTableRows = getTableRows('interestTable');
+            var vehicleTableRows = getTableRows('vehicleTable');
+            var AccountlinkTableRows = getTableRows('AccountRetailCopyTable');
+            var VehicleRelationTableRows = getTableRows('VehicleRelationTable');
+            var CampaignTableRows = getTableRows('CampaignTable');
+            var VehicleRetailcopyTableRows = getTableRows('VehicleRetailcopyTable');
+            var AddressTableRows = getTableRows('AddressTable');
+            var ContractrelatedTableRows = getTableRows('ContractrelatedTable');
+                   
+
+            filter += getSubJsonFilter(customerTableRows, 'Customer');
+            filter += getSubJsonFilter(interestTableRows, 'Interest');
+            filter += getSubJsonFilter(vehicleTableRows, 'Vehicle');
+            filter += getSubJsonFilter(AccountlinkTableRows, 'AccountLink');
+            filter += getSubJsonFilter(VehicleRelationTableRows, 'VehicleRelation');
+            filter += getSubJsonFilter(CampaignTableRows, 'Campaign');
+            filter += getSubJsonFilter(VehicleRetailcopyTableRows, 'VehicleRetailcopy');
+            filter += getSubJsonFilter(AddressTableRows, 'Address');
+            filter += getSubJsonFilter(ContractrelatedTableRows, 'Contract');
+            
+            return filter.substring(0, filter.length - 1) + '}}';
+        }
+
+        function checkFilterItems(){
+            var customerCriteria = $('#customerTable .criteria');
+            var interestCriteria = $('#interestTable .criteria');
+            var vehicleCriteria = $('#vehicleTable .criteria');
+            var AccountlinkCriteria = $('#AccountRetailCopyTable .criteria');
+            var VehicleRelationCriteria = $('#VehicleRelationTable.criteria');
+            var CampaignCriteria = $('#CampaignTable.criteria');
+            var VehicleRetailcopyCriteria = $('#VehicleRetailcopyTable.criteria');
+            var AddressCriteria = $('#AddressTable.criteria');
+            var ContractCriteria = $('#ContractrelatedTable.criteria');
+            
+            // Check if the filterItem is added.
+            
+            if(customerCriteria.length == 1 && interestCriteria.length == 1 && vehicleCriteria.length == 1
+                && getFirstRowCriteriaValue(getTableRows('customerTable')[1]) == '' 
+                && getFirstRowCriteriaValue(getTableRows('interestTable')[1]) == '' 
+                && getFirstRowCriteriaValue(getTableRows('vehicleTable')[1]) == ''
+                && getFirstRowCriteriaValue(getTableRows('AccountRetailCopyTable')[1]) == ''
+                && getFirstRowCriteriaValue(getTableRows('VehicleRelationTable')[1]) == ''
+                && getFirstRowCriteriaValue(getTableRows('CampaignTable')[1]) == ''
+                && getFirstRowCriteriaValue(getTableRows('VehicleRetailcopyTable')[1]) == ''
+                && getFirstRowCriteriaValue(getTableRows('AddressTable')[1]) == ''
+                && getFirstRowCriteriaValue(getTableRows('ContractrelatedTable')[1]) == ''){
+                result = false;
+                alert('{!$Label.Error_Please_enter_your_criteria}');
+                return false;
+            }
+
+            // Check if there is an empty filter.
+            if(!checkCriteriaEmpty(customerCriteria)) return false;
+            if(!checkCriteriaEmpty(interestCriteria)) return false;
+            if(!checkCriteriaEmpty(vehicleCriteria)) return false;
+            if(!checkCriteriaEmpty(AccountlinkCriteria)) return false;
+            if(!checkCriteriaEmpty(VehicleRelationCriteria)) return false;
+            if(!checkCriteriaEmpty(CampaignCriteria)) return false;
+             if(!checkCriteriaEmpty(VehicleRetailcopyCriteria)) return false;
+            if(!checkCriteriaEmpty(VehicleRelationCriteria)) return false;
+            if(!checkCriteriaEmpty(CampaignCriteria)) return false;
+            
+            // Check if the filter logic is right
+            if(!checkCriteriaLogic('customerTable')) return false;
+            if(!checkCriteriaLogic('interestTable')) return false;
+            if(!checkCriteriaLogic('vehicleTable')) return false;
+            if(!checkCriteriaLogic('AccountRetailCopyTable')) return false;
+            if(!checkCriteriaLogic('AddressCriteria')) return false;
+            if(!checkCriteriaLogic('ContractCriteria')) return false;
+
+            return true;
+        }
+
+        function checkFilterItemAdded(tableId, bracket){
+            return checkCriteriaLogic(tableId, bracket);
+        }
+        
+        function checkFilterName(name){
+            if(name == null || $.trim(name).length == 0){
+                alert('{!$Label.Please_enter_the_filter_name}');
+                return false;
+            }
+
+            var index = filterNames.toLowerCase().indexOf(name.toLowerCase() + ';');
+            if(index != -1){
+                alert('{!$Label.Error_This_name_already_exists}');
+                return false;
+            }
+            return true;
+        }
+
+
+        /**
+         * The third level functions, serves for the second level functions -->
+         */ 
+        function getSubJsonFilter(jQueryTableRows, filterItemName){
+            if(jQueryTableRows.length == 2 && getFirstRowCriteriaValue(jQueryTableRows[1]) == ''){
+                return '';
+            }
+
+            var result = '"' + filterItemName + '":[';
+
+            jQueryTableRows.each(function(){
+                if(this.className == 'tableHeader') return true;
+
+                if(this.className == 'logicRow'){
+                    var bracketLogic = $(this).children('.logic').text();
+                    bracketLogic = bracketLogic.replace(/===/g, "");
+                    result = result.substring(0, result.lastIndexOf('"logic":""'));
+                    result += '"logic":"' + bracketLogic + '","bracket":true},';
+                    return true;
+                }
+                
+                var columns = this.children;
+                var fieldValue = columns[1].children[0].value;
+                var criteriaValue = getCriteriaValue(this, fieldValue);
+                 var temp = criteriaValue.toString() ;
+                //temp= temp.replaceAll(",",";");
+                temp = temp.split(',').join(';');
+                criteriaValue = temp;
+            
+                var logicText = $(columns[4]).text();
+                result += '{"field":"' + fieldValue + '",';
+                result += '"operation":"' + columns[2].children[0].value + '",';
+                result += '"criteria":"' + criteriaValue + '",';
+                logicText = logicText == null ? '' : logicText;
+                result += '"logic":"' + logicText + '","bracket":false},';
+            });
+            
+            return result.substring(0, result.length - 1) + '],';
+        }
+
+        function checkCriteriaLogic(tableId, bracket){
+            var tableRows = getTableRows(tableId);
+            if(bracket == null) bracket = true;
+            if(tableRows.length > 2 && tableRows[tableRows.length - 2].className == 'logicRow' && bracket){
+                alert('{!$Label.Logic_Error}');
+                return false;
+            }
+            return true;
+        }
+
+        function checkCriteriaEmpty(jQueryCriteriaCells){
+            var result = true;
+            if(jQueryCriteriaCells.length == 1) return result;
+            jQueryCriteriaCells.each(function(){
+                $(this).children().each(function(){
+                    if(this.style.display == 'block' && this.value == ''){
+                        
+                        alert('{!$Label.Error_Please_enter_your_criteria}');
+                        result = false;
+                        return false; 
+                    }
+                });
+                if(!result) return false; 
+            });
+            return result;
+        }
+
+        function getTableRows(tableId){
+            var children = $('#' + tableId).children();
+            if(children.length == 1){
+                return children.children();
+            }
+            return children;
+        }
+
+        function getFirstRowCriteriaValue(firstTableRow){
+            var fieldValue = firstTableRow.children[1].children[0].value;
+            var criteriaValue = getCriteriaValue(firstTableRow, fieldValue);
+            if(!criteriaValue || criteriaValue == ''){
+                return '';
+            }
+            return criteriaValue;
+        }
+
+        function getCriteriaValue(row, fieldValue){
+            var criteriaNode = $(row).find('.' + fieldValue);
+            
+            if(dateInputClass.indexOf(fieldValue + ';') != -1){
+               
+                criteriaNode = $(row).find('.dateInput')
+            }
+            if(criteriaNode.length == 0){
+               
+                criteriaNode = $(row).find('.inputText')
+            }
+               
+                
+           
+            return criteriaNode.val();
+        }
+    </script>
+    
+    <apex:form id="form">
+        <apex:inputHidden id="jsonFilter" value="{!jsonFilter}"/>
+        <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
+        <apex:pageBlock >
+        
+        Name :<apex:inputText value="{!SegementationName}"/>
+        
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock id="block">
+            <div id="filterBody" style="margin:10px;">
+              
+                
+                <div class="commonFilterItem">
+                    <span class="leftTitle">① {!$Label.Customer_Filter}</span>
+                    <table id="customerTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstCustomerRow">
+                            <td>{!$Label.Customer}</td>
+                            <td>
+                                <select onchange="showCriteria(this);"> 
+                                    <option value="Occupation__c">{!$ObjectType.Account.Fields.Occupation__c.Label}</option> 
+                                    <option value="Special_Mark_on_Account__c">{!$ObjectType.Account.Fields.Special_Mark_on_Account__c.Label}</option>
+                                    <option value="PersonBirthdate">{!$ObjectType.Account.Fields.PersonBirthdate.Label}</option>
+                                    <option value="Interest_Model__c">{!$ObjectType.Account.Fields.Interest_Model__c.Label}</option>
+                                    <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>                                   
+                                    <option value="Status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
+                                    <option value="Customer_Lifecycle_Phase__c">Customer Stage</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                                <input class="inputText" type="text"/>
+                                 <apex:inputField value="{!account.Occupation__c}" styleClass="Occupation__c" style="display:block;"/> 
+                                 <apex:inputField value="{!account.Interest_Model__c}" styleClass="Interest_Model__c" style="display:block;"/>
+                                
+                                 <apex:selectList styleClass="Status__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!status}"></apex:selectOptions>
+                                </apex:selectList>
+                                <apex:selectList styleClass="Customer_Lifecycle_Phase__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!Customerphase}"></apex:selectOptions>
+                                </apex:selectList>
+                                   <apex:selectList styleClass="Special_Mark_on_Account__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!SpecialMarkonAccount}"></apex:selectOptions>
+                                </apex:selectList>
+                                <input class="dateInput" id="customerTableDateInput1" size="12" type="text" 
+                                    onfocus="DatePicker.pickDate(true, this.id, false);"/>
+                               </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('customerTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        
+                    </div>
+                </div>
+                <hr style="margin-left:20px; width:650px;"/>
+                
+                 <div class="commonFilterItem">
+                    <span class="leftTitle">② {!$Label.Account_Retail_Copy_Filter}</span>
+                    <table id="AccountRetailCopyTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstAccountLinkRow">
+                            <td>{!$Label.AccountRetailCopy}</td>
+                            <td>
+                                <select onchange="showCriteria(this);"> 
+                                    <option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option> 
+                                    <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
+                                    <option value="Retail_Sales_Sanction__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Sanction__c.Label}</option>
+                                    <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
+                                    <option value="Retail_Phone_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Phone_OptOut__c.Label}</option>
+                                    <option value="Retail_Fax_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Fax_OptOut__c.Label}</option>
+                                    <option value="Retail_Email_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Email_OptOut__c.Label}</option>
+                                    <option value="Retail_OptOutContact_Reason__c">{!$ObjectType.Account_Link__c.Fields.Retail_OptOutContact_Reason__c.Label}</option>
+                                     <option value="Portal_ID__c">{!$ObjectType.Account_Link__c.Fields.Portal_ID__c.Label}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                               
+                                <input class="inputText" type="text" style="display:block;"/>
+                                                        
+                               <!--<apex:inputField value="{!AlkRec.Retail_OptOutContact_Reason__c}" styleClass="Retail_OptOutContact_Reason__c"/> -->
+                              <apex:selectList styleClass="Retail_Sales_Sanction__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!RetailSalesSanction}"></apex:selectOptions>
+                                </apex:selectList>                                                              
+                             
+                              <apex:inputField value="{!AlkRec.Portal_ID__c}" styleClass="Portal_ID__c" /> 
+                              
+                             <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="5" multiselect="true">
+                                    <apex:selectOptions value="{!RetailOptOutContactReason}"></apex:selectOptions>
+                                </apex:selectList>
+                            </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('AccountRetailCopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                       
+                    </div>
+                                        <div>
+                    <table id="AccountRetailCopyTable" class="" border="0" cellspacing="0" cellpadding="2">
+                            <tr class="tableHeader">
+                                &nbsp;<th width="10%">Sales Dealer</th>
+                                <td>
+                                    <apex:selectList value="{!selectedValue}" multiselect="false" size="1">
+                                            <apex:selectOptions value="{!items}"/>
+                                    </apex:selectList>
+                                </td>
+                            </tr>
+                      </table>
+                    </div>
+                </div>
+                
+                <hr style="margin-left:20px; width:650px;"/>
+                
+                <div class="commonFilterItem">
+                    <span class="leftTitle">③ {!$Label.Lead_Filter}</span>
+                    <table id="interestTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstInterestRow">
+                            <td>{!$Label.Interest}</td>
+                            <td> <select onchange="showCriteria(this);">
+                                    <option value="CAC_Lead_Status__c">
+                                        {!$ObjectType.Lead__c.Fields.CAC_Lead_Status__c.Label}
+                                    </option>
+                                    <option value="Expected_Registration_Date__c">
+                                        {!$ObjectType.Lead__c.Fields.Expected_Registration_Date__c.Label}
+                                    </option>
+                                    <option value="Expected_Close_Date__c">
+                                        {!$ObjectType.Lead__c.Fields.Expected_Close_Date__c.Label}
+                                    </option> 
+                                </select> 
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option>Greater Than</option>
+                                    <option>Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                                <input class="inputText" type="text"/>
+                                <apex:inputField value="{!lead.CAC_Lead_Status__c}" styleClass="CAC_Lead_Status__c" style="display:block;"/>
+                                <input class="dateInput" id="LeadTableDateInput1" size="12" type="text" 
+                                    onfocus="DatePicker.pickDate(true, this.id, false);"/>
+                            </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('interestTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                       
+                    </div>
+                </div>
+                <hr style="margin-left:20px; width:650px;"/>
+                
+                <div class="commonFilterItem">
+                    <span class="leftTitle">④ {!$Label.Vehicle_Filter}</span>
+                    <table id="vehicleTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstVehicleRow">
+                            <td>{!$ObjectType.Vehicle__c.Label}</td>
+                            <td>
+                                <select onchange="showCriteria(this);"> 
+                                   <option value="Class__c">{!$ObjectType.Vehicle__c.Fields.Class__c.Label}</option>                                                                     
+                                   <option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>   
+                                   <option value="Model__c">{!$ObjectType.Vehicle__c.Fields.Model__c.Label}</option>                                                                     
+                                    <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
+                                    <option value="Recall__c">{!$ObjectType.Vehicle__c.Fields.Recall__c.Label}</option> 
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option>Greater Than</option>
+                                    <option>Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                                <input class="inputText" type="text" style="display:block;"/>
+                                                             
+                                 <input class="dateInput" id="vehicleTableDateInput1" size="12" type="text" 
+                                    onfocus="DatePicker.pickDate(true, this.id, false);"/>
+                                
+                            </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('vehicleTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        
+                    </div>
+                </div>
+                
+                  <hr style="margin-left:20px; width:650px;"/>
+           <div class="commonFilterItem">
+                    <span class="leftTitle">⑤ {!$Label.Vehicle_Relation_Filter}</span>
+                    <table id="VehicleRelationTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstVehicleRelationRow">
+                            <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
+                            <td>
+                                <select onchange="showCriteria(this);"> 
+                                    <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
+                                    <option value="End_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}</option>    
+                                    <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->
+                                    <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>                                                                 
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                                <input class="inputText" type="text"/>
+                                  <apex:inputField value="{!vehicleRel.New_Used__c}" styleClass="New_Used__c" style="display:block;"/> 
+                                  <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>
+                                <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
+                                    onfocus="DatePicker.pickDate(true, this.id, false);"/> 
+                            </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRelationTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        
+                    </div>
+                </div>
+                
+                 <hr style="margin-left:20px; width:650px;"/>
+             <div class="commonFilterItem">
+                    <span class="leftTitle">⑥ {!$Label.Vehicle_Retail_copy_Filter}</span>
+                    <table id="VehicleRetailcopyTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstVehicleRetailcopyRow">
+                            <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
+                            <td>
+                                <select onchange="showCriteria(this);"> 
+                                                                                                        
+                                    <option value="Service_Advisor__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Service_Advisor__c.Label}</option>
+                                    <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->                                  
+                                     <option value="MOT_Expired_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.MOT_Expired_Date__c.Label}</option>
+                                     <option value="NextInspectionDate__c">{!$ObjectType.Vehicle__c.Fields.NextInspectionDate__c.Label}</option>
+                                      <option value="CurrentMileage__c">{!$ObjectType.Vehicle__c.Fields.CurrentMileage__c.Label}</option> 
+                                  
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                                  <input class="inputText" type="text" style="display:block;"/>
+                                  
+                                  
+                                  <apex:inputField value="{!vehicle.CurrentMileage__c}" styleClass="CurrentMileage__c"/> 
+                                 <input class="dateInput" id="VrTableDateInput12" size="12" type="text" 
+                                    onfocus="DatePicker.pickDate(true, this.id, false);"/>
+                                 
+                            </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRetailcopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        
+                    </div>
+                    <div>
+                    <table id="VehicleRetailcopyTable" class="" border="0" cellspacing="0" cellpadding="2">
+                            <tr class="tableHeader">
+                                &nbsp;<th width="10%">Service Dealer</th>
+                                <td>
+                                    <apex:selectList value="{!selectedValueService}" multiselect="false" size="1">
+                                            <apex:selectOptions value="{!items}"/>
+                                    </apex:selectList>
+                                </td>
+                            </tr>
+                      </table>
+                    </div>
+                </div>
+              
+              
+              
+                  <hr style="margin-left:20px; width:650px;"/>
+             <div class="commonFilterItem">
+                    <span class="leftTitle">⑦ {!$Label.Campaigns_Filter}</span>
+                    <table id="CampaignTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstCampaignRow">
+                            <td>{!$ObjectType.Campaign.Label}</td>
+                            <td>
+                                <select onchange="showCriteria(this);"> 
+                                  
+                                  <option value="Name">{!$ObjectType.Campaign.Fields.Name.Label}</option>
+                                  <option value="Status__c">Campaign Member Status</option>
+                                  
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                                <input class="inputText" type="text" style="display:block;" />
+                                <apex:inputField value="{!camMem.Status__c}" styleClass="Status__c"/>
+                                
+                            </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('CampaignTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        
+                    </div>
+                </div>
+              
+              
+               <hr style="margin-left:20px; width:650px;"/>
+             <div class="commonFilterItem">
+                    <span class="leftTitle">⑧ {!$Label.Contract_related}</span>
+                    <table id="ContractrelatedTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstContractrelatedRow">
+                            <td>{!$ObjectType.Retail_Task__c.Label}</td>
+                            <td>
+                                <select onchange="showCriteria(this);"> 
+                                   <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>                                                                     
+                                    <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
+                                     <option value="Re_lease_Prohibit_flag__c">{!$ObjectType.Retail_Task__c.Fields.Re_lease_Prohibit_flag__c.Label}</option>
+                                      <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
+                                      <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option> 
+                                  
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                                <input class="inputText" type="text"/>
+                                <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> 
+                                  <apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c"/> 
+                                 
+                                   <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
+                                    <apex:inputField value="{!RatilTask.Status__c}" styleClass="Status__c"/> 
+                                  
+                                 
+                            </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('ContractrelatedTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        
+                    </div>
+                </div>
+              
+               <hr style="margin-left:20px; width:650px;"/>
+             <div class="commonFilterItem">
+                   <span class="leftTitle">⑨ {!$Label.Address_Filter}</span>  
+                    
+                    <table id="AddressTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
+                        <tr class="tableHeader">
+                            <th width="10%">{!$Label.Cluster}</th>
+                            <th width="32%">{!$Label.Field}</th>
+                            <th>{!$Label.Operation}</th>
+                            <th>{!$Label.Criteria}</th>
+                            <th><div style="width:55px;"/></th>
+                            <th><div style="width:20px;"/></th>
+                        </tr>
+                        <tr id="firstAddressRow">
+                            <td>{!$ObjectType.Address__c.Label}</td>
+                            <td>
+                                <select onchange="showCriteria(this);"> 
+                                   <option value="ZipCode__c">{!$ObjectType.Address__c.Fields.ZipCode__c.Label}</option>                                                                     
+                                    <option value="Province__c">{!$ObjectType.Address__c.Fields.Province__c.Label}</option>                                  
+                                     
+                                  
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option value="Equals">Equals</option>
+                                    <option value="Greater Than">Greater Than</option>
+                                    <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
+                                </select>
+                            </td>
+                            <td class="criteria">
+                                <input class="inputText" type="text" />
+                                <apex:inputField value="{!address.ZipCode__c}" styleClass="ZipCode__c" style="display:block;"/> 
+                                  <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/>  
+                                  
+                                 
+                            </td>
+                            <td class="logic"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="criteriaLink">
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('AddressTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        
+                    </div>
+                </div>
+              
+            </div>
+             
+                
+            
+            <hr/>
+            
+            <apex:outputPanel layout="block" id="searchingResult">
+                <apex:commandButton value="Save The Query in Segmentation Criteria" action="{!searchAccount}" onComplete="window.close();" reRender="searchingResult, accounts,noMatches" status="loadingStatus"
+                    onclick="if(!sendFilterToServer()) return false;" />
+              <!--  <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;"/> -->
+                <apex:actionStatus id="loadingStatus">
+                    <apex:facet name="start">
+                        <img src="/img/loading24.gif" style="vertical-align:middle;"/>
+                    </apex:facet>      
+                </apex:actionStatus>
+                <apex:commandButton value="cancel" onclick="window.close();"/>
+               <!-- <apex:outputPanel rendered="{!wrapAccountList.size == 0}" id="noMatches">
+                 <apex:outputText style="color:red"><h1>   Records found : {!noOfRecords} &nbsp;&nbsp;  No Matches Found, Please try with other filters.</h1></apex:outputtext>
+                </apex:outputPanel> -->
+                <!--<apex:outputPanel rendered="{!wrapAccountList!= null && wrapAccountList.size > 0}" id="buttons">
+                    <div style="margin:6px;">Records: {!IF(noOfRecords == null, 0, noOfRecords)}</div>
+                    <apex:commandbutton action="{!first}" value="<<" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!previous}" value="<" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!next}" value=">" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
+                    <apex:commandbutton action="{!last}" value=">>" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
+                    <apex:actionStatus id="loading">
+                        <apex:facet name="start">
+                            <img src="/img/loading24.gif" style="vertical-align:middle;"/>
+                        </apex:facet>
+                    </apex:actionStatus>
+                        <apex:outputText >{!(con.pageNumber * size)+1-size}-{!IF((con.pageNumber * size)>noOfRecords, noOfRecords,
+                         (con.pageNumber * size))} of {!noOfRecords}
+                        </apex:outputText>
+                    </apex:outputPanel> -->
+                        
+               <!-- <apex:outputPanel id="accounts">
+                    <apex:pagemessages ></apex:pagemessages>
+                    <div style="overflow:auto;">  
+                        <apex:pageBlockTable value="{!loadwrapAccountList}" var="wrapAcc" rendered="{!wrapAccountList!= null && wrapAccountList.size > 0}">
+                            <apex:column headerValue="Select">
+                                <apex:facet name="header">
+                                        <c:selectAllChkBox />
+                                </apex:facet>
+                            <apex:inputCheckbox value="{!wrapAcc.isSelected}" />
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
+                                <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonHomePhone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonMobilePhone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.Phone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonEmail}"/> 
+                            </apex:column>
+                            
+                        </apex:pageBlockTable>
+                    </div>
+                </apex:outputPanel> -->
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

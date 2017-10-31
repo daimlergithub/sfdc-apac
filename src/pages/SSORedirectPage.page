@@ -1,0 +1,3 @@
+<apex:page id="SSOPage" controller="SSORedirectController" action="{!forwardToAuthPage}" title="{!$Label.site.site_login}">
+    <apex:param name="id" value="{!$CurrentPage.parameters.id}"/>
+</apex:page>

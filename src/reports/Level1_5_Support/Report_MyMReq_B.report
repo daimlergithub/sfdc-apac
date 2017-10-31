@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Lead__c$Name</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Surveys_Taken__r$Name</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Surveys_Taken__r.Survey_Question_Answers__r$Name</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Lead_Desired_Service__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c$Lead_Desired_Service__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Book-in</value>
+        </criteriaItems>
+        <language>ja</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Report-MyMReq-B</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>MBJ_Lead_and_Survey__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

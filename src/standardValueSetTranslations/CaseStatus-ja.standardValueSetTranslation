@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>2nd Final Position Released</masterLabel>
+        <translation><!-- 2nd Final Position Released --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Approval Request</masterLabel>
+        <translation><!-- Approval Request --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Awaiting MB</masterLabel>
+        <translation><!-- Awaiting MB --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Call waiting</masterLabel>
+        <translation><!-- Call waiting --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Cancel</masterLabel>
+        <translation><!-- Cancel --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closed</masterLabel>
+        <translation>999（完了）</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closed (Final)</masterLabel>
+        <translation><!-- Closed (Final) --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalation Confirmed</masterLabel>
+        <translation>B</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalation Raised</masterLabel>
+        <translation>C</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalation Raised &amp; Confirmed</masterLabel>
+        <translation>D</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalation Request</masterLabel>
+        <translation>A</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Final Position Released</masterLabel>
+        <translation><!-- Final Position Released --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Final approval done</masterLabel>
+        <translation>5（承認済）</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Final approval rejected</masterLabel>
+        <translation>4（承認差戻）</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Finished</masterLabel>
+        <translation><!-- Finished --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Has been upgraded</masterLabel>
+        <translation><!-- Has been upgraded --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Have tracked</masterLabel>
+        <translation><!-- Have tracked --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>In progress</masterLabel>
+        <translation>In progress</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Insufficient Document</masterLabel>
+        <translation><!-- Insufficient Document --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Investigating</masterLabel>
+        <translation><!-- Investigating --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Need track</masterLabel>
+        <translation><!-- Need track --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>New</masterLabel>
+        <translation>New</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>No approval needed</masterLabel>
+        <translation>No approval needed</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Open</masterLabel>
+        <translation>未対応</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Processed</masterLabel>
+        <translation><!-- Processed --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Prospect</masterLabel>
+        <translation>111</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Rejected</masterLabel>
+        <translation><!-- Rejected --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Reopened</masterLabel>
+        <translation><!-- Reopened --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Requires Manager Review</masterLabel>
+        <translation><!-- Requires Manager Review --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Response approved</masterLabel>
+        <translation>2</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Suspended</masterLabel>
+        <translation><!-- Suspended --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>TS transfer</masterLabel>
+        <translation>222</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Uploaded</masterLabel>
+        <translation><!-- Uploaded --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Waiting Process</masterLabel>
+        <translation><!-- Waiting Process --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Waiting for Reply</masterLabel>
+        <translation><!-- Waiting for Reply --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Waiting for Response approval</masterLabel>
+        <translation>1（対応中）</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Waiting for final approval</masterLabel>
+        <translation>3（承認依頼）</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

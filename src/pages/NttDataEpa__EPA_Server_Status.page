@@ -1,0 +1,29 @@
+<apex:page controller="NttDataEpa.EpaSystemStatusController">
+    <apex:pageblock title="EPA System Status">
+
+        <apex:form >
+        
+            <apex:commandButton action="{!showVersions}" value="Versions" id="showVersionsCommands"/>
+            <apex:commandButton action="{!showServerStatus}" value="Server Status" id="showServerStatus"/>
+            <apex:commandButton action="{!showThreadList}" value="Thread List" id="showThreadList"/>
+            <apex:commandButton action="{!showThreadDump}" value="Thread Dump" id="showThreadDump"/>
+            <apex:commandButton action="{!showDeadLocks}" value="Dead Locks" id="showDeadLocks"/>
+            <apex:commandButton action="{!showTransactionCosts}" value="Transaction Costs" id="showTransactionCosts"/>
+       
+            <apex:sectionHeader title="Server Status"/>
+    
+            <apex:pageBlockTable value="{!ServerStatus}" var="status">
+         
+                <apex:column headerValue="Server" value="{!status.Server}"/>
+                <apex:column headerValue="Component" value="{!status.Component}"/>
+                <apex:column headerValue="Last Heart-Beat" value="{!status.LastHeartBeatDate}"/>
+                <apex:column headerValue="Status" value="{!status.Status}" rendered="{!status.Status == 'FAILED'}" style="background:red"/>
+                <apex:column headerValue="Status" value="{!status.Status}" rendered="{!status.Status == 'RUNNING'}" style="background:green"/>
+                <apex:column headerValue="Status" value="{!status.Status}" rendered="{!status.Status != 'FAILED' && status.Status != 'RUNNING'}" style="background:yellow"/>
+             
+             </apex:pageBlockTable>
+
+        </apex:form>
+            
+    </apex:pageblock>
+ </apex:page>

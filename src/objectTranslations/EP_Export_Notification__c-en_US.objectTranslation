@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>EP Export Notification</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>EP Export Notifications</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Info1 --></label>
+        <name>AddInfo1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional Info2 --></label>
+        <name>AddInfo2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional Info3 --></label>
+        <name>AddInfo3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By EP Transaction --></label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market Discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- SFDC Record ID --></label>
+        <name>SFDC_object_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Error</masterLabel>
+            <translation><!-- Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exported</masterLabel>
+            <translation><!-- Exported --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Updated By EP Transaction --></label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Usecase --></label>
+        <name>Usecase__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

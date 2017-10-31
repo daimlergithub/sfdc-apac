@@ -1,0 +1,86 @@
+<apex:page controller="OPROARTS020.OproartsController" tabStyle="OPROARTS020__Oproarts__c"
+    title="{!$ObjectType.OPROARTS020__Oproarts__c.LabelPlural}">
+  <apex:stylesheet value="{!URLFOR($Resource.OPROARTS020__oproarts,'application.css')}"/>
+  <apex:sectionHeader title="{!$Label.oproarts020__label_oproarts_tab_title}" subtitle="{!$Label.oproarts020__label_oproarts_tab_subtitle}"
+      help="{!$Page.OPROARTS020__OproartsHelp}"/>
+  <apex:outputPanel id="op1" layout="block" styleClass="oproartsTab">
+    <p><apex:outputText value="{!$Label.oproarts020__message_oproarts_tab_description}" escape="false"/>
+        &nbsp;<apex:outputPanel rendered="{!NOT(ISBLANK($Label.oproarts020__message_oproarts_tab_description_helplink))}"
+        ><a target="Help" href="{!($Page.OproartsHelp)&'#configuration-license'}"
+        ><apex:outputText value="{!$Label.oproarts020__message_oproarts_tab_description_helplink}" escape="false"
+        /></a></apex:outputPanel></p>
+    <apex:outputText value="{!$Label.oproarts020__message_oproarts_tab_steps_d}" escape="false" rendered="{!isOproartsCreateable}"/>
+    <apex:outputText value="{!$Label.oproarts020__message_oproarts_tab_steps_r}" escape="false" rendered="{!isOproartsCreateable}"/>
+    <p><apex:image value="{!URLFOR($Resource.OPROARTS020__oproarts,'oproartsTabImage.png')}"/></p>
+    <apex:outputPanel id="op11" layout="block" rendered="{!auth.userFound}">
+      <form id="fDesigner" method="post" action="https://designer.oproarts.com/OPROARTSConsole/authentication.do" target="_blank">
+        <p><button class="start" type="submit"
+          onmouseover="this.style.borderColor='#ccc';this.style.backgroundColor='#ccc';"
+           onmouseout="this.style.borderColor='#fff';this.style.backgroundColor='#fff';"
+        ><apex:image styleClass="start" value="{!URLFOR($Resource.OPROARTS020__oproarts,'oproartsTabStartButton.png')}"/></button>
+        <input type="hidden" name="sfdcUrl" value="{!$Api.Partner_Server_URL_220}"/>
+        <input type="hidden" name="sfdcSessionId" value="{!$Api.Session_ID}"/>
+        <input type="hidden" name="nsPrefix" value="{!auth.nsPrefix}"/>
+        <input type="hidden" name="version" value="{!auth.version}"/>
+        <input type="hidden" name="name" value="{!auth.name}"/>
+        <input type="hidden" name="lang" value="{!auth.lang}"/>
+        <apex:outputText value="{!$Label.oproarts020__message_oproarts_tab_startlink}"/></p>
+      </form>
+    </apex:outputPanel>
+    <apex:outputPanel id="op12" layout="block" rendered="{!NOT(auth.userFound)}">
+      <p><apex:outputText value="{!$Label.oproarts020__message_oproarts_tab_no_license}"/></p>
+    </apex:outputPanel>
+  </apex:outputPanel>
+  <apex:pageMessages id="pm1"/>
+  <apex:pageBlock title="{!$ObjectType.OPROARTS020__Oproarts__c.LabelPlural}" rendered="{!isOproartsViewable}">
+    <apex:form id="fOproartsEdit">
+      <apex:pageBlockTable value="{!oproartsEdit}" var="editOne" rendered="{!isOproartsCreateable}">
+        <apex:column headerValue="{!$Label.oproarts020__label_action}" styleClass="actionColumn" style="width: 5em;">
+          <apex:commandButton action="{!insertOproarts}" value="{!$Label.oproarts020__label_add_button}" style="width: 100%;"/>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__Oproarts__c.Fields.Name.Label}" style="width: 16em;">
+          <apex:selectList value="{!editOne.Name}" size="1">
+            <apex:selectOptions value="{!nameOptions}"/>
+          </apex:selectList>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__Oproarts__c.Fields.OPROARTS020__CID__c.Label}">
+          <apex:inputField value="{!editOne.OPROARTS020__CID__c}" required="true"/>
+        </apex:column>
+      </apex:pageBlockTable>
+    </apex:form>
+    <apex:form id="fOproartsList">
+      <apex:pageBlockTable value="{!oproartsList}" var="listOne">
+        <apex:column headerValue="{!$Label.oproarts020__label_action}" styleClass="actionColumn" style="width: 5em;">
+          <apex:commandLink action="{!editOproarts}" value="{!$Label.oproarts020__label_edit_button}"
+              rendered="{!isOproartsUpdateable}" styleClass="actionLink">
+            <apex:param name="targetId" assignTo="{!targetId}" value="{!listOne.Id}"/>
+          </apex:commandLink>
+          <apex:outputText value="&nbsp;|&nbsp;" escape="false"
+              rendered="{!AND(isOproartsUpdateable, isOproartsDeletable)}"/>
+          <apex:commandLink action="{!deleteOproarts}" value="{!$Label.oproarts020__label_delete_button}"
+              onclick="return window.confirm('{!JSINHTMLENCODE($Label.oproarts020__message_confirm_delete)}');"
+              rendered="{!isOproartsDeletable}" styleClass="actionLink">
+            <apex:param name="targetId" assignTo="{!targetId}" value="{!listOne.Id}"/>
+          </apex:commandLink>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__Oproarts__c.Fields.Name.Label}" style="width: 16em;">
+          <apex:outputLink value="/{!listOne.Id}"><apex:outputField value="{!listOne.Name}"/></apex:outputLink>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__Oproarts__c.Fields.OPROARTS020__CID__c.Label}" style="width: 16em;">
+          <apex:outputField value="{!listOne.OPROARTS020__CID__c}"/>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__Oproarts__c.Fields.LastModifiedDate.Label}" style="width: 16em;">
+          <apex:outputField value="{!listOne.LastModifiedDate}"/>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__Oproarts__c.Fields.OPROARTS020__CountUsers__c.Label}"
+            headerClass="numericalColumn" styleClass="numericalColumn">
+          <apex:outputText value="{!listOne.OPROARTS020__CountUsers__c}"/>
+        </apex:column>
+      </apex:pageBlockTable>
+    </apex:form>
+  </apex:pageBlock>
+  <apex:outputPanel styleClass="applicationInformation" layout="block">
+    <p><apex:outputText value="{!$Label.oproarts020__application_name}"/></p>
+    <p><apex:outputText value="{!$Label.oproarts020__application_copyright}"/></p>
+  </apex:outputPanel>
+</apex:page>
