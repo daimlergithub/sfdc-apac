@@ -1092,15 +1092,26 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids,corelnId);
         }
     }
+	/*Updated below method as per changes required for SFDCJP-3104 */
     public static void deletesharingforSoftDeletedRecords(List<Account> softAccountList)
     {
         set<id> deletedAccId = new set<id>();
+		List<Account> UpdateAcc=new List<Account>();
         for(Account acct : softAccountList)
         {
             if(acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
             {
                 deletedAccId.add(acct.Id);
+				 if(acct.Complaint_Amount__c !=0)
+                {
+                  acct.Complaint_Amount__c=0;
+                    UpdateAcc.add(acct);
+                }
             }
+        }
+		if(UpdateAcc !=null)
+        {
+        Database.Update(UpdateAcc,false);
         }
         if(!deletedAccId.isEmpty() && deletedAccId != null)
         {
