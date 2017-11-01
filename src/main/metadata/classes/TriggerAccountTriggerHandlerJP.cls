@@ -63,6 +63,7 @@ implements TriggerHandlerIf
                 LeadUtil.vrTrigger = false;
                 AccountHelperJP.UpdateVRonAccount(trigger.new,(Map<Id,Account>)Trigger.OldMap);
             }
+			 AccountHelperJP.deletesharingforSoftDeletedRecords(trigger.new);
         }
         
         if(isAfter && isDelete && !System.isFuture())
