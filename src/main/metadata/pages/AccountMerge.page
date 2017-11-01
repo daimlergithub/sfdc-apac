@@ -92,7 +92,6 @@
         jquery('input[name*="Primary_Fax__c"]').hide();
         jquery('input[name*="Primary_Fax_Last_Modified_Date__c"]').hide();
         jquery('input[name*="Customer_LastUpdatedDate__c"]').hide();
-        jquery('input[name*="Last_Modified_User_Type__c"]').hide();
         jquery('input[name*="Warranty_Apply_Status__c"]').hide();
         jquery('input[name*="Warranty_Apply_User__c"]').hide();
         jquery('input[name*="Warranty_Apply_Date__c"]').hide();
