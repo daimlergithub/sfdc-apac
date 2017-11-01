@@ -8178,7 +8178,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -50557,7 +50557,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -61903,7 +61903,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
