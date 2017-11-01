@@ -5157,7 +5157,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -20610,7 +20610,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50552,7 +50552,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
