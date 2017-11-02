@@ -485,6 +485,13 @@
         <value>This record is already processed or This button works only for Retail Company or Retail Person</value>
     </labels>
     <labels>
+        <fullName>AMG</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AMG</shortDescription>
+        <value>AMG</value>
+    </labels>
+    <labels>
         <fullName>Amount</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4510,6 +4517,13 @@ please contact the number below.</value>
         <value>Manager</value>
     </labels>
     <labels>
+        <fullName>Market</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Market</shortDescription>
+        <value>JP</value>
+    </labels>
+    <labels>
         <fullName>MarketJP</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5485,7 +5499,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Planned Purchase Time</shortDescription>
         <value>Planned Purchase Time</value>
     </labels>
-    <labels>
+	<labels>
         <fullName>Planning_Design_Campaign</fullName>
         <language>en_US</language>
         <protected>false</protected>

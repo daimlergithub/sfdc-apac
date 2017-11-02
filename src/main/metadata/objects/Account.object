@@ -653,14 +653,19 @@
             <field>CreatedById</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Customer_LastUpdatedDate__c</field>
+        </displayedFields> 
+		<displayedFields>
+            <field>LastModifiedDate</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Last_Modified_User_Type__c</field>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Customer_LastUpdatedDate__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1487,11 +1492,6 @@
         </displayedFields>
         <displayedFields>
             <field>Customer_LastUpdatedDate__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Last_Modified_User_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -5157,7 +5157,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -5192,6 +5192,41 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Inbound</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -8921,18 +8956,18 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
     <fields>
         <fullName>Email_Sent_Status__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(
-		ISPICKVAL(Email_Status__c , 'Incomplete'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),
-		IF(
-		ISPICKVAL(Email_Status__c , 'Invalid'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),
-		IF(
-		ISPICKVAL(Email_Status__c , 'BounceBack'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),"")))</formula>
+           <formula>IF( 
+ISPICKVAL(Email_Status__c , 'Incomplete'), 
+IMAGE("/resource/RedLed","RedLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Invalid'), 
+IMAGE("/resource/RedLed","RedLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Valid'), 
+IMAGE("/resource/GreenLed","GreenLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Bounce-Back'), 
+IMAGE("/resource/RedLed","RedLed"),""))))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Email Sent Status</label>
         <required>false</required>
@@ -20575,7 +20610,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20680,6 +20715,38 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26662,7 +26729,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -32709,7 +32776,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -38600,7 +38667,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -44727,7 +44794,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50485,7 +50552,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50590,6 +50657,38 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55799,7 +55898,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>

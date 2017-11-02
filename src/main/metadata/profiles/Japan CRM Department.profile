@@ -8657,6 +8657,12 @@
         <field>Campaign_Member__c.Zip_Code_Finance__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Finance_Product_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Zip_Code__c</field>
@@ -27353,10 +27359,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageTranslation</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>MassInlineEdit</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

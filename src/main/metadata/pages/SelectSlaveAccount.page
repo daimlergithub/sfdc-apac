@@ -67,7 +67,7 @@
                   </apex:repeat>-->
                <apex:column headerValue="{!$Label.My_Mercedes_ID}">
                 <apex:repeat value="{!accWrap.acc.Account_Links__r}"  var="acclinks">                       
-                          <li> <apex:outputtext style="color:blue;" value="{!acclinks.Name}"/> </li>
+                          <apex:outputtext style="color:blue;" value="{!acclinks.Name}"/> 
                     </apex:repeat>                 
                  </apex:column>
              </apex:pageblockTable>     
@@ -85,7 +85,7 @@
                   </apex:repeat>
                <apex:column headerValue="{!$Label.My_Mercedes_ID}">
                 <apex:repeat value="{!accWrap.acc.Account_Links__r}"  var="acclinks">                       
-                          <li> <apex:outputtext style="color:blue;" value="{!acclinks.Name}"/> </li>
+                           <apex:outputtext style="color:blue;" value="{!acclinks.Name}"/> 
                     </apex:repeat>                 
                  </apex:column>
              </apex:pageblockTable>               

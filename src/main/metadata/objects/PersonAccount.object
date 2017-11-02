@@ -854,7 +854,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -959,6 +959,38 @@
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7142,7 +7174,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7211,6 +7243,38 @@
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17353,7 +17417,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17422,6 +17486,38 @@
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
