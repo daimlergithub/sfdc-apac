@@ -1260,8 +1260,8 @@
         <fullName>Campaign_Execution_Simple</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Campaign Execution - Simple</shortDescription>
-        <value>Campaign Execution - Simple</value>
+        <shortDescription>Campaign Execution</shortDescription>
+        <value>Campaign Execution</value>
     </labels>
     <labels>
         <fullName>Campaign_Id</fullName>
@@ -1836,7 +1836,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>used in MY Address Search Validation Controller</shortDescription>
-        <value>For Company Search Account Name and any of the contact information</value>
+        <value>One of Contact Number/ Email has to be entered</value>
     </labels>
     <labels>
         <fullName>Company_Account_Information</fullName>
