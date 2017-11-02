@@ -1118,3 +1118,5 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
           //  delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual']; 
     }
 }
+
+
