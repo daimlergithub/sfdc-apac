@@ -378,7 +378,7 @@ global with sharing class VehiclePickerController {
         else{
             Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId')];
             system.debug('Lead Contact...' +leadAcc);
-            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC];
+            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC limit 1];
             system.debug('Lead Vehicle Relationships...' +leadVehicleRelationships);
             
             if (!leadVehicleRelationships.isEmpty()){

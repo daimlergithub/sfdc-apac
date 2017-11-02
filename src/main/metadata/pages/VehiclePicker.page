@@ -330,7 +330,7 @@
                    function(result, event) {
                         $scope.refreshLookupData(result);
                         $scope.$apply();
-                        $route.reload();
+                        //$route.reload();
              });
          }
          
