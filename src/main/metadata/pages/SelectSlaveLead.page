@@ -76,6 +76,7 @@
             </apex:pageblockTable> 
              <apex:inputHidden value="{!selectedValue}" id="RadioButtonValue" />                        
              <apex:commandButton value="{!$Label.Merge}" action="{!mergeDup}" rerender="out" rendered="{!!hasMessage}"/> 
+			  <apex:commandButton value="{!$Label.Cancel}" action="{!Cancel}" rerender="out"  /> 
         </apex:pageBlock>
          <apex:outputText value="{!selectedValue}" id="out"/> 
     </apex:form>

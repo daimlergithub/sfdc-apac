@@ -39,7 +39,7 @@
                    </tr>
                   <!--Sarath added extra row to display market over page-->     
                    <tr>             
-                       <th style="text-align: Right;">{!$Label.Market}</th>               
+                       <th style="text-align: Right;">{!$ObjectType.Account.fields.Market__c.label}</th>               
                        <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
                        </td>                                
@@ -61,10 +61,7 @@
                        <td>
                        <!--MD changes - Added by Santosh Mohanty -->
                        <apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
-                           <!--<apex:selectList size="1" value="{!selectedMobile}" rendered="{!editMode}">
-                             <apex:selectOptions value="{!mobileStatusList}"/>
-                           </apex:selectList>-->
-                           <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!!editMode}"/>
+                       <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!!editMode}"/>
                        </td>     
                        <td>  
                        <apex:outputField value="{!ParAcc.SMS_Last_Modified_By__c}"/>           
@@ -103,10 +100,10 @@
                        </td> 
                        <td>
                        <!--MD changes - Added by Santosh Mohanty -->
-                       <!--<apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>-->
-                            <apex:selectList size="1" value="{!selectedHomePhoneStatus}" rendered="{!editMode}">
+                       <apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
+                            <!--<apex:selectList size="1" value="{!selectedHomePhoneStatus}" rendered="{!editMode}">
                              <apex:selectOptions value="{!homePhoneStatusList}"/>
-                           </apex:selectList>
+                           </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By__c}" />
@@ -288,7 +285,7 @@
                    
                    <!--Sarath added extra row to display market over page-->        
                    <tr>             
-                       <th style="text-align: Right;">Market</th>               
+                       <th style="text-align: Right;">{!$ObjectType.Account.fields.Market__c.label}</th>               
                        <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
                        </td>                                
@@ -550,7 +547,7 @@
                    </tr>
                    <!--Sarath added extra row to display market over page-->        
                    <tr>             
-                       <th style="text-align: Right;">Market</th>               
+                       <th style="text-align: Right;">{!$ObjectType.Account.fields.Market__c.label}</th>               
                        <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>        
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>      
                        </td>                                
@@ -724,7 +721,7 @@
                    </tr>        
                    <!--Sarath added extra row to display market over page-->        
                    <tr>        
-                       <th style="text-align: Right;">Market</th>        
+                       <th style="text-align: Right;">{!$ObjectType.Account.fields.Market__c.label}</th>        
                        <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>
                        </td>                           
