@@ -22222,6 +22222,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorDisplayField>StartDate</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
+	    <validationRules>
+        <fullName>TH_publish_Date_Should_be_between_start</fullName>
+        <active>true</active>
+        <errorConditionFormula>MD__c ='TH' &amp;&amp;(StartDate &gt; Publish_Date__c ||Publish_Date__c&gt; EndDate)</errorConditionFormula>
+        <errorDisplayField>Publish_Date__c</errorDisplayField>
+        <errorMessage>Campaign Publish Date Should be Between Start  Date And  End Date</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Use_Segmentation_Criteria</fullName>
         <active>false</active>

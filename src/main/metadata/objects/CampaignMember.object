@@ -384,7 +384,7 @@
     <fields>
         <fullName>MBTH_Status__c</fullName>
         <externalId>false</externalId>
-        <label>MBTH Status</label>
+        <label>Campaign Member Status</label>
         <picklist>
             <picklistValues>
                 <fullName>Sent</fullName>
@@ -410,7 +410,30 @@
                 <fullName>No Show</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <picklistValues>
+                <fullName>Responded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Decline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failed/No response</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Added</fullName>
+                <default>true</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
