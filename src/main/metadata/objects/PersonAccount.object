@@ -2730,6 +2730,10 @@
                 <fullName>Arts %26 Crafts</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Martial Arts</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Baseball</fullName>
                 <default>false</default>
@@ -2738,8 +2742,28 @@
                 <fullName>Beauty %26 Fashion</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Fashion(Fashion)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Beauty Salon</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Bicycle</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Politics</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Dinner</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Badminton</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2756,6 +2780,18 @@
             </values>
             <values>
                 <fullName>Collecting %28wine%2Fgin%29</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Art Collecting</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Wine</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Diet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2786,8 +2822,20 @@
                 <fullName>Football</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Gardening</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Bridge</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Current events</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2834,8 +2882,28 @@
                 <fullName>Music %28popular%29</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Music (General)</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Fine art</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Car racing</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Equestrian</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Riding horse</fullName>
                 <default>false</default>
             </values>
 			 <values>
@@ -2902,6 +2970,10 @@
                 <fullName>Swimming</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Well-being</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Tea</fullName>
                 <default>false</default>
@@ -2940,6 +3012,74 @@
             </values>
             <values>
                 <fullName>Yogi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DIY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Humanity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bowling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drama</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Movie/Drama</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Interior Design</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Social</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Basketball</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Flying</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Tea culture</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Shopping mall</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Private clubs</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Yoga</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Bar</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Slimming Beauty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
