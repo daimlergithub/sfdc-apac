@@ -50,7 +50,7 @@ public class ConvertToLeadController
             } else if(objectAPIName == 'Retail_Campaign__c') {
                 query += ' Retail_Campaign_Id__c =: campaignId and Retail_Campaign_Id__r.Child_Campaign_Status__c !=\'Completed\'';
             }else if(objectAPIName == 'Account') {
-                query += ' (Contact_Id__c =: campaignId) and ( (Campaign_Id__c !=null && Campaign_Id__r.Child_Campaign_Status__c != \'Completed\')OR (Retail_Campaign_Id__c !=null && Retail_Campaign_Id__r.Child_Campaign_Status__c !=\'Completed\')) ';
+                query += ' (Contact_Id__c =: campaignId) and ( (Campaign_Id__c !=null and Campaign_Id__r.Child_Campaign_Status__c != \'Completed\')OR (Retail_Campaign_Id__c !=null and Retail_Campaign_Id__r.Child_Campaign_Status__c !=\'Completed\')) ';
             }
             
             
