@@ -1092,19 +1092,28 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids,corelnId);
         }
     }
+	 
     public static void deletesharingforSoftDeletedRecords(List<Account> softAccountList)
     {
         set<id> deletedAccId = new set<id>();
+		 
         for(Account acct : softAccountList)
         {
             if(acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
             {
                 deletedAccId.add(acct.Id);
+				 
             }
-        }
-        if(!deletedAccId.isEmpty() && deletedAccId != null)
+        } 
+		
+		 if(!deletedAccId.isEmpty() && deletedAccId != null)
         {
-            delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual'];
-        }
+        List<AccountShare> sharesToDelete = [SELECT Id FROM AccountShare WHERE AccountId=:deletedAccId AND RowCause = 'Manual'];
+        if(!sharesToDelete.isEmpty()){
+        system.debug('^&^&^&^&^&^&^&^&^&^&^&^&^&^&^&^'+sharesToDelete);
+          Database.Delete(sharesToDelete, false);
+       }
+        
+          //  delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual']; 
     }
 }
