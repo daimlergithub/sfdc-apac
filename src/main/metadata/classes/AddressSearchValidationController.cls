@@ -16,6 +16,7 @@ History:
     Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
     Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in
     CDM   
+	Sanjay Nandi(SN20171028)    2017/10/28            //SN20171028- Added code to resolve issues related to search of CUstomer without address																																		  																																											   
 **/
 public class AddressSearchValidationController
 {
@@ -1512,6 +1513,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
            Address__c NewAdd=new Address__c();
+			//SN20171028- Online dedup fix
+            newadd.market__c=market;
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
             {
               AddressObj.Address_Type__c = addresspicklist;
@@ -1692,7 +1695,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             System.debug('@@@@@@@@@@ objAccount : '+objAccount);
             System.debug('@@@@@@@@@@ AddressObj : '+AddressObj);
             Address__c NewAdd=new Address__c();
-            
+            //SN20171028- Online dedup fix
+            newadd.market__c=market;		 
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             {   
                 System.debug('@@@@@@@@@@ objAccount 2 :'+objAccount);
@@ -1920,6 +1924,8 @@ If the user is Saving  same address which matches the fields returned by toleran
              system.debug('@@@'+objAccount);
              system.debug('@@@'+AddressObj);             
            Address__c NewAdd=new Address__c();
+			//SN20171028- Online dedup fix
+            newadd.market__c=market;	
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.LastName!=null)
             {              
               system.debug('@@@In');
@@ -2086,7 +2092,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             
             Address__c NewAdd=new Address__c();
-            
+            //SN20171028- Online dedup fix
+            newadd.market__c=market;		 
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             { 
                 response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
