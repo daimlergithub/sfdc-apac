@@ -375,6 +375,11 @@ RecordType.Name,
             <operation>equals</operation>
             <value>Planning &amp; Design Campaign</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
         <triggerType>onAllChanges</triggerType>
@@ -529,6 +534,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>Planning &amp; Design Campaign</value>
         </criteriaItems>
+		 <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -558,6 +568,16 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -692,16 +712,21 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>Campaign Execution</value>
         </criteriaItems>
+		 <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
+     <rules>
         <fullName>Update Campaign Code</fullName>
         <actions>
             <name>Update_Campaign_Code</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(1=1,MD__c='JP' ||MD__c='KR' || MD__c='TH')</formula>
+        <formula>AND(1=1,MD__c=&apos;JP&apos; ||MD__c=&apos;KR&apos; || MD__c=&apos;TH&apos; || MD__c=&apos;MY&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>

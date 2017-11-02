@@ -2303,9 +2303,12 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -2345,6 +2348,52 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;) ,&apos;MY&apos;,&apos;&apos;))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
@@ -21943,7 +21992,7 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !=&apos;IntegrationAPI&apos;,ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,&quot;DM&quot;),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
@@ -21985,13 +22034,13 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
 )</errorConditionFormula>
         <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
     </validationRules>
-    <validationRules>
+   <validationRules>
         <fullName>Locked_for_Central_when_Published_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-RecordType.Name =='Planning &amp; Design Campaign',
+RecordType.Name ==&apos;Planning &amp; Design Campaign&apos;,
 
-OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
+OR(ISPICKVAL(Status,&apos;Published&apos;),ISPICKVAL(Status,&apos;Closed&apos;)),
 OR( ISCHANGED( Campaign_Code__c ),
 ISCHANGED( Name ),
 ISCHANGED( Description ), 
@@ -22013,8 +22062,8 @@ ISCHANGED( Min_Car_Age__c ),
 ISCHANGED( Max_Car_Age__c ),
 ISCHANGED( Purpose__c )
 ),
-$Profile.Name != 'IntegrationAPI', UPPER(MD__c) = 'TH')</errorConditionFormula>
-        <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
+$Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;))</errorConditionFormula>
+        <errorMessage>You cann&apos;t change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Locked_for_MB_BP_when_Published</fullName>
@@ -22104,7 +22153,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
     <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
     </validationRules>
@@ -22113,6 +22162,13 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <active>true</active>
         <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Status),'Completed'),ISCHANGED(Status), MD__c = 'JP', $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'Planning_Design_Campaign' )</errorConditionFormula>
         <errorMessage>You cannot changed the status</errorMessage>
+    </validationRules>
+	 <validationRules>
+        <fullName>Planning_Design_Campaign_Active_MY</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Planning_Design_Campaign&apos;,ISNEW(),IsActive = True, UPPER(MD__c) = &apos;MY&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>Parent Campaign can&apos;t be active if there aren&apos;t any associated campaign execution record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Previous_Campaign_Execution_Parent</fullName>

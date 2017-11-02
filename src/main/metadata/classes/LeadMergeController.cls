@@ -160,7 +160,7 @@ public class LeadMergeController{
             // Populate fieldLabel and fieldAPI
             wrap.fieldAPI = fieldAPI;
             wrap.fieldLabel = fieldNamesMap.get(fieldAPI).getDescribe().getLabel();
-            
+             system.debug('apiname'+fieldAPI);
             // Get the Master Value and Slave Value by fieldAPI
             Object masterFieldValue = master.get(fieldAPI);
             Object slaveFieldValue = slave.get(fieldAPI);
@@ -168,8 +168,16 @@ public class LeadMergeController{
             // Populate isMasterNull and isSlaveNull
             wrap.isMasterNull = (masterFieldValue == null);
             wrap.isSlaveNull = (slaveFieldValue == null);
+               if(fieldAPI=='DMS_Sent_Flag__c'){
+                wrap.isSame = true;
+                wrap.isMasterChecked = false;
+                wrap.isSlaveChecked = false;
+                wraps.add(wrap);
+                continue;
+                   
+               }
             
-           if (masterFieldValue!=slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null) {
+          else if (masterFieldValue!=slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null) {
                 wrap.isSame = false;
                 wrap.isMasterChecked = true;
                 wrap.isSlaveChecked = false;

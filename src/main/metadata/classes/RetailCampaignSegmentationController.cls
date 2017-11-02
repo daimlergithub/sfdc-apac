@@ -1036,31 +1036,52 @@
             
         }
             public PageReference selectall() 
+            
     {
     if(segmentationBase == 'Customer'){
+  
        list<Account> accfinalist =  Database.query(saveQuery);
+       List<Account_Link__c> accLinkRetaiPersonList = [SELECT Id,toRole__c,Selling_Dealer__c FROM Account_Link__c WHERE RecordType.Name = 'Retail Person' AND toRole__c IN : accIdToGetRetailPerson];
+                    Map<Id,Id> toRoleAndSelDelMap = new Map<Id,Id>();
+                    for(Account_Link__c al : accLinkRetaiPersonList){
+                        toRoleAndSelDelMap.put(al.toRole__c,al.Selling_Dealer__c);
+                    }
+
        system.debug('++++++accfinalist '+accfinalist );
         list<Campaign_Member__c> camlist = new  list<Campaign_Member__c>();
-        
-      
+
        for (Account acc : accfinalist )
         {
         Campaign_Member__c cam = new Campaign_Member__c ();
-        
+              
         cam.Status__c = 'Ready';
         cam.Contact_Id__c= acc.Id;
-         cam.Retail_Campaign_Id__c = retailCampaignId;
+         cam.Retail_Campaign_Id__c = retailCampaignId;  
+                            if(toRoleAndSelDelMap.containsKey(acc.Id)){
+            cam.Preferred_Dealer__c = toRoleAndSelDelMap.get(acc.id);                            }
+            
         camlist.add(cam);
-        } 
-        insert(camlist);
-        }
-        
-        
+ }
+                          try {
+                if(camlist != NULL && !camlist.isEmpty())
+                insert camlist;
+            }
+            catch(Exception ex){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getMessage()));
+                return null; 
+            } 
+       // insert(camlist);
+        }              
         
               else if(segmentationBase == 'Vehicle'){ 
-               list<Vehicle_Relationship__c> accfinalist1 =  Database.query(saveQuery);                 
-       
+              List<Account_Link__c> vehExtAccLinkList = [SELECT Id,Vehicle__c,Service_Dealer__c FROM Account_Link__c WHERE RecordType.Name = 'Vehicle External Link' AND Vehicle__c IN : vehIdToGetVehExtLink];
+               list<Vehicle_Relationship__c> accfinalist1 =  Database.query(saveQuery);   
+                                   Map<Id,Id> vehIdAndSerDelMap = new Map<Id,Id>();
+                    for(Account_Link__c al : vehExtAccLinkList){
+                        vehIdAndSerDelMap.put(al.Vehicle__c,al.Service_Dealer__c);
+                    }              
         list<Campaign_Member__c> camlist1 = new  list<Campaign_Member__c>();
+
       
        for (Vehicle_Relationship__c acc : accfinalist1 )
        
@@ -1068,11 +1089,22 @@
         Campaign_Member__c cam = new Campaign_Member__c ();
         
         cam.Status__c = 'Ready';
-       // cam.Vehicle__c =acc.id;
+         cam.Contact_Id__c= acc.Contact__c;
+         cam.Vehicle__c = acc.Vehicle_ID__c;
+         cam.Vehicle_Relationship__c = acc.Id;            
          cam.Retail_Campaign_Id__c = retailCampaignId;
+         cam.Preferred_Dealer__c = vehIdAndSerDelMap.get(acc.Vehicle_ID__c);
         camlist1.add(cam);
         } 
-       insert(camlist1); 
+      // insert(camlist1); 
+                         try {
+                if(camlist1 != NULL && !camlist1.isEmpty())
+                insert camlist1;
+            }
+            catch(Exception ex){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getMessage()));
+                return null;
+            }
 }
                    else if(segmentationBase == 'Contract'){ 
                list<Retail_Task__c> accfinalist1 =  Database.query(saveQuery);                 
@@ -1085,13 +1117,24 @@
         Campaign_Member__c cam = new Campaign_Member__c ();
         
         cam.Status__c = 'Ready';
-        cam.Retail_Task__c = acc.Id;
+        cam.Contract__c = acc.Id;
+        cam.Contact_Id__c= acc.Account__c;
          cam.Retail_Campaign_Id__c = retailCampaignId;
+         cam.Vehicle__c = acc.Related_Vehicle__c;
+         cam.Preferred_Dealer__c = acc.Related_Dealer__c;
         camlist2.add(cam);
         } 
-       insert(camlist2); 
+      // insert(camlist2); 
+                               try {
+                if(camlist2 != NULL && !camlist2.isEmpty())
+                insert camlist2;
+            }
+            catch(Exception ex){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getMessage()));
+                return null;
+            }
 }
-      
+
      
         
             return new PageReference('/' + retailCampaignId);

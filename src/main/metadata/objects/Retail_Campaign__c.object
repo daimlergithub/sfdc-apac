@@ -197,6 +197,49 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Activity_Type_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Type Other</label>
+        <length>240</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Activity_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Media &amp; Advertising</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Actual_Cost__c</fullName>
         <description>This field will be used to capture the actual cost incured</description>
         <externalId>false</externalId>
@@ -340,6 +383,24 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Period_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Period End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Period_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Period Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Actual_Show_up_Customer__c</fullName>
@@ -605,6 +666,30 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Budget_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>Budget Approval Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Budgeted_Cost__c</fullName>
         <description>This field is used to capture the campaign budget information</description>
         <externalId>false</externalId>
@@ -754,6 +839,18 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Finance - &gt; Prematurity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CRM/CSR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1071,6 +1168,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Response</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1485,6 +1586,27 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ContactPerson__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Retail_Campaigns</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Telephone__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Telephone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
     </fields>
     <fields>
         <fullName>DM_Template__c</fullName>
@@ -1924,6 +2046,18 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Expected_Number_Of_Prospects__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Number Of Prospects</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Expected_Revenue__c</fullName>
         <description>This field is used to capture the expected revenue information</description>
         <externalId>false</externalId>
@@ -1934,6 +2068,18 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Expected_Unit_of_Car_Sales__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Unit of Car Sales</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Feedback_Comments__c</fullName>
@@ -2099,6 +2245,34 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MBTH_Approval_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Approval Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs to Modify</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>MD__c</fullName>
@@ -2523,6 +2697,28 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Partner1__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner1</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner2__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner2</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Parts_Turn_over__c</fullName>
@@ -3275,6 +3471,37 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RetailCampaignCarModelText__c</fullName>
+        <externalId>false</externalId>
+        <label>RetailCampaignCarModelText</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Campaign_Car_Model__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Campaign Car Model</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Car_Model__c.MD__c</field>
+                <operation>equals</operation>
+                <value>TH</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>Retail Campaigns</relationshipLabel>
+        <relationshipName>Retail_Campaigns</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Retail_Candidate__c</fullName>
@@ -4377,6 +4604,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>After sales activities</description>
         <label>AS Retail Campaign</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -4453,6 +4703,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5028,6 +5293,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -5237,6 +5517,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Aftermarket annual targets</description>
         <label>Aftersales Yearly TA</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -5313,6 +5616,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5877,6 +6195,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -6089,6 +6422,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Monthly goals</description>
         <label>Monthly TA</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -6165,6 +6521,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6729,6 +7100,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -6941,6 +7327,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Project applications</description>
         <label>S&amp;M Event Retail Campaign</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -7017,6 +7426,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7584,6 +8008,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -7793,6 +8232,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>子キャンペーン作成時に使用</description>
         <label>Campaign Execution</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -7873,6 +8335,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -7928,6 +8405,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
+                <fullName>CRM%2FCSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -7943,11 +8432,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Familiarization workshop for new vehicle owners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7984,6 +8481,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Promotion on Technical accessories and collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8198,6 +8699,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Response</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8515,6 +9020,38 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>eMail</fullName>
                 <default>false</default>
             </values>
@@ -8536,6 +9073,25 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs to Modify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -8748,6 +9304,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Dealer MB Best activities</description>
         <label>Retail MB Best Practice</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -8813,6 +9392,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>MB</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -9387,6 +9981,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -9596,6 +10205,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Media plan application</description>
         <label>S&amp;M Media Retail Campaign</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -9672,6 +10304,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10239,6 +10886,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -10448,6 +11110,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>親キャンペーン作成時に使用</description>
         <label>Planning &amp; Design Campaign</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -10516,6 +11201,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>StarElite</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11353,6 +12053,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -11869,6 +12584,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Dealer smart best activities</description>
         <label>Retail smart Best Practice</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -11934,6 +12672,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>smart</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -12508,6 +13261,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -12717,6 +13485,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Sales annual objectives</description>
         <label>Sales &amp; Marketing Yearly TA</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -12793,6 +13584,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13357,6 +14163,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -13569,6 +14390,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Independent filtering，No application feedback， Not included in our target market appraisal</description>
         <label>Segmentation Only</label>
         <picklistValues>
+            <picklist>Activity_Type__c</picklist>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media %26 Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -13645,6 +14489,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14209,6 +15068,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBTH_Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -14463,7 +15337,7 @@ false)</errorConditionFormula>
         <fullName>Auto_Segmentation_Criteria</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),OR(MD__c = 'JP',MD__c = 'TH'),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
-        <errorMessage>Field Is Mandatory</errorMessage>
+        <errorMessage>If Auto Segmentation Check box is checked then Segmentation Criteria is Required</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_Update_Monthly</fullName>
@@ -14518,7 +15392,7 @@ $Profile.Name !='IntegrationAPI',
 ISBLANK(DM_Template__c),
 ISPICKVAL(Execution_Type__c,"DM"),
 Record_Type_Name__c = 'Campaign Execution',
-MD__c ='JP'
+OR(MD__c ='JP',MD__c ='TH')
 )</errorConditionFormula>
         <errorDisplayField>DM_Template__c</errorDisplayField>
         <errorMessage>DM Material Template is reqired when execution type is DM</errorMessage>
@@ -14569,13 +15443,13 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>End_date_cant_be_past_date</fullName>
         <active>true</active>
-        <errorConditionFormula>IF(Close_Date__c &lt;=TODAY()&amp;&amp;MD__c='TH',TRUE,IF(Close_Date__c&lt;Start_Date__c&amp;&amp;MD__c='TH',TRUE,FALSE))</errorConditionFormula>
+        <errorConditionFormula>IF(Close_Date__c!=null&amp;&amp;Close_Date__c &lt;=TODAY()&amp;&amp;MD__c='TH',TRUE,IF(Start_Date__c!=null &amp;&amp;Close_Date__c&lt;Start_Date__c&amp;&amp;MD__c='TH',TRUE,FALSE))</errorConditionFormula>
         <errorMessage>Campaign End date can't past date and can't be less than start date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Feedback_Mandatory_Actual_End_Date</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(  
+        <errorConditionFormula>AND(
 ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Actual_End_Date__c ),
 $Profile.Name != 'IntegrationAPI'
@@ -14608,7 +15482,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Feedback_Mandatory_Actual_Start_Date</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(  
+        <errorConditionFormula>AND( 
 ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Actual_Start_Date__c ),
 $Profile.Name != 'IntegrationAPI'
@@ -14705,7 +15579,7 @@ OR(MD__c = 'JP',MD__c = 'TH'),
 $Profile.Name != 'IntegrationAPI',
 RecordType.DeveloperName = 'Retail_Execution_Campaign' 
 )</errorConditionFormula>
-        <errorMessage>Status cannot be changed from 'Exection' to 'Planning or Segmentation''</errorMessage>
+        <errorMessage>Status cannot be changed from 'Execution' to 'Planning or Segmentation''</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Cam_Status_From_Response</fullName>
@@ -14722,7 +15596,7 @@ OR(MD__c = 'JP',MD__c = 'TH'),
 $Profile.Name != 'IntegrationAPI',
 RecordType.DeveloperName = 'Retail_Execution_Campaign' 
 )</errorConditionFormula>
-        <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Exection'</errorMessage>
+        <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Execution'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Campaign_Status_Completed</fullName>
@@ -14761,14 +15635,17 @@ $Profile.Name != 'IntegrationAPI'
         <fullName>Start_Date_And_End_date</fullName>
         <active>true</active>
         <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>AND(MD__c='TH',ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt;= Close_Date__c, true,false)))</errorConditionFormula>
-        <errorDisplayField>Start_Date__c</errorDisplayField>
-        <errorMessage>Start Date can not be less than Today</errorMessage>
+        <errorConditionFormula>AND(MD__c='TH',(IF(NOT(Close_Date__c &gt;=Start_Date__c), true,false)))</errorConditionFormula>
+        <errorDisplayField>Close_Date__c</errorDisplayField>
+        <errorMessage>Close  Date should be greater than Start Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(MD__c='TH',ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt;= TODAY(), true,false)))</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c='TH',
+Start_Date__c &lt;=TODAY(),
+if( RecordType.Name='Campaign Execution'&amp;&amp;ischanged(Start_Date__c),true,
+if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISChanged(Start_Date__c),true,false))))</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
@@ -14778,6 +15655,81 @@ $Profile.Name != 'IntegrationAPI'
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c='TH'),(IF( ISCHANGED( Start_Date__c) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Status is ongoing you can not change Start date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_Close_date_should_be_greater_than_seg</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(MD__c='TH',OR(Close_Date__c&lt; Segmentation_Date__c,Close_Date__c&lt; Response_Date__c,Close_Date__c&lt; Execution_Start_Date__c))</errorConditionFormula>
+        <errorMessage>segmentation,Execution,Response collection date should be less  than End date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_Feedback_Mandatory_Actual_End_Date</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(MD__c='TH', 
+ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), 
+OR(ISBLANK(Actual_Period_End_Date__c ),ISBLANK( Actual_Period_Start_Date__c)),$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorMessage>Actual Period End Date&amp; Actual Period Start Date field is mandatory when Submit for Feedback.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_Feedback_Mandatory_Actual_Start_Date</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND( MD__c ='TH', 
+ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), 
+ISBLANK( Actual_Period_Start_Date__c), 
+$Profile.Name != 'IntegrationAPI' 
+)</errorConditionFormula>
+        <errorDisplayField>Actual_Period_Start_Date__c</errorDisplayField>
+        <errorMessage>Actual Period End Date field is mandatory when Submit for Feedback</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_Parent_Campaign_Status_cant_Edit</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(IsNew())&amp;&amp;ISchanged(Status__c) &amp;&amp; MD__c='TH' &amp;&amp;  RecordType.Name ='	Planning &amp; Design Campaign'</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You Can't change Campaign Status.it will change Automatically depends on the start/close date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_Restrict_to_create_child_Campaign</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISPICKVAL(Parent_Campaign1__r.Budget_Approval__c,'Submitted'),ISPICKVAL(Parent_Campaign1__r.Budget_Approval__c,'Rejected')),MD__c='TH')</errorConditionFormula>
+        <errorMessage>You can't create child campaigns if it is submitted for approval or Rejected.kindly check the Budget Approval Status</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_Segmentation_should_be_greater_than</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(MD__c='TH',OR(Start_Date__c&gt; Segmentation_Date__c,Start_Date__c&gt; Response_Date__c,Start_Date__c&gt; Execution_Start_Date__c))</errorConditionFormula>
+        <errorMessage>segmentation,Execution,Response collection date should be greater than start date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_You_Can_not_Change_Campaign_Status</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.Name ='Campaign Execution',ISCHANGED( Child_Campaign_Status__c ),MD__c='TH')</errorConditionFormula>
+        <errorMessage>You Can't Change Campaign Status Manually.it will change according to the Execution,segmentation,start and close date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_You_cant_Create_child_Campaign</fullName>
+        <active>true</active>
+        <errorConditionFormula>( isnew()&amp;&amp;NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp;Parent_Campaign1__r.Close_Date__c &lt;today()&amp;&amp;MD__c='TH')</errorConditionFormula>
+        <errorMessage>Parent campaign already reached close date so You can't create child campaigns</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_actualstart_and_end_should_be_future</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(MD__c='TH',Actual_Period_Start_Date__c&gt; Actual_Period_End_Date__c)</errorConditionFormula>
+        <errorMessage>Actual Period Start Date Should be less than Actual period End Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_child_campaign_should_bw_parent_close</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Parent_Campaign1__c !=null,MD__c='TH',OR(Start_Date__c &lt;Parent_Campaign1__r.Start_Date__c,Close_Date__c &gt; Parent_Campaign1__r.Close_Date__c ))</errorConditionFormula>
+        <errorMessage>child campaign Start and close date should be between parent start and Close Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TH_you_cant_Add_childcampaings_for_close</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(MD__c ='TH', isPickval(Parent_Campaign1__r.Status__c,'Completed'))</errorConditionFormula>
+        <errorMessage>You Can't Create child campaigns for the Completed Campaigns</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application</fullName>
@@ -14849,10 +15801,10 @@ $Profile.Name != 'IntegrationAPI'
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{
+{ 
 
 
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
+window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 
 
 }</url>
@@ -14988,7 +15940,7 @@ alert('The event has yet to be published or has been closed.');
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 if({!Campaign.IsActive}){
 if('{!Campaign.MD__c}' == 'TH') {
-window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!Campaign.Description}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!Campaign.Name}&amp;ent={!Retail_Campaign__c.Id}');
+window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!Campaign.Description}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!Campaign.Name}&amp;ent={!Retail_Campaign__c.Id}');
 
 
 
@@ -15272,7 +16224,28 @@ if(CampStatus != 'Planning' &amp;&amp; CampStatus != 'Segmentation') {
 alert('You cannot create campaign members for this campaign status');
 }else
 {
+var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+if(marketusr) {
+window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation_TH?id={!Retail_Campaign__c.Id}");
+}else{
 window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}");
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>ShareToDealersTH</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ShareToDealers</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+if(marketusr)
+{ 
+window.open("{!URLFOR($Site.Prefix)}/apex/DealerPickerTH?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
 }</url>
     </webLinks>
     <webLinks>

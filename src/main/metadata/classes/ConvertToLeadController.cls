@@ -12,7 +12,9 @@ public class ConvertToLeadController
     private final String campaignId = ApexPages.currentPage().getParameters().get('CampaignId');
     public String recordtypevalue {set; get;}
     public String leadRT {get; set;}
+    public String finacerec{Set;get;}
     public String interstmodel {get; set;}
+    Public User usr{get;set;}
     public String leadRT1 {get; set;}
     public List<CampaignMemberInfo> campaignMembers {get; set;}
     private String leadRTId {get; set;}
@@ -33,24 +35,38 @@ public class ConvertToLeadController
     
     public ConvertToLeadController() 
     {
-       System.debug('HIIII');
         leadRT = 'Sales Leads';
         leadRT1 ='Aftersales Leads';
+        usr=[select market__c from user where id=:userinfo.getuserid()];
         leadRTId = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :leadRT].id;
         leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :leadRT1].id;
         System.debug('cid<<<<<'+campaignId);
         if(String.isNotBlank(campaignId)) 
-        {
+        {String query ;
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT Name,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,Retail_Campaign_Id__c, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            if(usr.market__c =='TH'){
+                query = 'SELECT Name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,Retail_Campaign_Id__c, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Convert_To_Lead_Flag__c = false AND Retail_Campaign_Id__r.Child_Campaign_Status__c!=\'Completed\' AND ';
+            query = 'SELECT Name,Contract_Number__c,Contact_Id__r.Name,Retail_Campaign_Id_r.Child_Campaign_Status__c,Campaign__r.Child_Campaign_Status__c,Campaign_ID__r.Name,Retail_Campaign_Id__c, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Convert_To_Lead_Flag__c = false AND';            
+            if(objectAPIName == 'Campaign') {
+                query += ' (Campaign_ID__c =: campaignId) and Campaign__r.Child_Campaign_Status__c != \'Completed\'';
+            } else if(objectAPIName == 'Retail_Campaign__c') {
+                query += ' Retail_Campaign_Id__c =: campaignId and Retail_Campaign_Id_r.Child_Campaign_Status__c !=\'Completed\'';
+            }else if(objectAPIName == 'Account') {
+                query += ' (Contact_Id__c =: campaignId) and ( (Campaign__c !=null && Campaign__r.Child_Campaign_Status__c != \'Completed\')OR (Retail_Campaign_Id__c !=null && Retail_Campaign_Id_r.Child_Campaign_Status__c !=\'Completed\')) ';
+            }
+            }else{
+             query = 'SELECT Name,Contract_Number__c,Contact_Id__r.Name,Retail_Campaign_Id_r.Child_Campaign_Status__c,Campaign__r.Child_Campaign_Status__c,Campaign_ID__r.Name,Retail_Campaign_Id__c, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
             query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Convert_To_Lead_Flag__c = false AND';
             
             if(objectAPIName == 'Campaign') {
-                query += ' Campaign_ID__c =: campaignId ';
+                query += ' (Campaign_ID__c =: campaignId) and Campaign__r.Child_Campaign_Status__c != \'Completed\'';
             } else if(objectAPIName == 'Retail_Campaign__c') {
-                query += ' Retail_Campaign_Id__c =: campaignId ';
+                query += ' Retail_Campaign_Id__c =: campaignId and Retail_Campaign_Id_r.Child_Campaign_Status__c !=\'Completed\'';
             }else if(objectAPIName == 'Account') {
-                query += ' Contact_Id__c =: campaignId ';
+                query += ' (Contact_Id__c =: campaignId) and ( (Campaign__c !=null && Campaign__r.Child_Campaign_Status__c != \'Completed\')OR (Retail_Campaign_Id__c !=null && Retail_Campaign_Id_r.Child_Campaign_Status__c !=\'Completed\')) ';
+            }
             }
             
             
@@ -166,12 +182,19 @@ public class ConvertToLeadController
             system.debug('interstmodel--'+interstmodel);
              VehiclePickerController.converttoleadMethod(leadlst.id,camIdCamMemMap.get(0).Interested_Model__c);
              camIdCamMemMap.remove(0);
-             }catch(Exception e){}
+             }catch(Exception e){
+                
+             }
              }
              
         }
+        try{
         insertCampaignLeadRecords(leadListToInsert, leadList);
-        return new PageReference('/' + campaignId);
+        }Catch(Exception e){
+        }
+        PageReference p=new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+Site.getPathPrefix()+'/'+campaignId);
+        p.setRedirect(true);
+        return p;
     }
     @testvisible
     private Lead__c checkDuplicate(Campaign_Member__c campaignMemberRec, List<Lead__c> existingLeadList) 
@@ -268,8 +291,16 @@ public class ConvertToLeadController
         {
            leadRec.RecordTypeId = leadRTId ;
         }
+        //IF Finace lead introduce then add FS Lead Record type also
+        if(usr.market__c=='TH'&&campaignMember.Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c!=null){
+        system.debug('***'+campaignMember.Campaign_ID__r.parent.Campaign_Type__c);
+        leadRec.RecordTypeId=campaignMember.Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c == 'Sales'?leadRTId:campaignMember.Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c == 'After Sales'?leadRTId1:leadRTId;
+        leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
+        system.debug('***rectype'+leadRec.RecordTypeId);
+        }
         if(campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
         {
+            
            leadRec.Trade_In_Vehicle__c=campaignMember.Vehicle__c;
         }
         if(campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')

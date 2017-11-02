@@ -365,6 +365,10 @@
         <name>AlreadyProcessed</name>
     </customLabels>
     <customLabels>
+        <label><!-- AMG --></label>
+        <name>AMG</name>
+    </customLabels>
+    <customLabels>
         <label>保有台数</label>
         <name>Amount</name>
     </customLabels>
@@ -2320,6 +2324,10 @@
     <customLabels>
         <label><!-- Manager --></label>
         <name>Manager</name>
+    </customLabels>
+    <customLabels>
+		<label>国設定 編集不可</label>
+        <name>Market</name>
     </customLabels>
     <customLabels>
         <label><!-- MarketJP --></label>

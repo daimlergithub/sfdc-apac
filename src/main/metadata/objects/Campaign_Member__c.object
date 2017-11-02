@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <enableActivities>false</enableActivities>
+    <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -203,12 +203,12 @@
         <label>Campaign ID</label>
         <lookupFilter>
             <active>true</active>
-			<booleanFilter>1 OR 2</booleanFilter>
+            <booleanFilter>1 OR 2</booleanFilter>
             <filterItems>
                 <field>Campaign.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>Campaign_Executiono</value>
-            </filterItems>			
+            </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
                 <operation>equals</operation>
@@ -254,14 +254,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Convert_To_Lead_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Convert To Lead Flag</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Contact_Id__c</fullName>
@@ -310,8 +302,8 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
-	<fields>
+    </fields>
+    <fields>
         <fullName>Contract_Phone1_1__c</fullName>
         <externalId>false</externalId>
         <label>Contract Phone 1</label>
@@ -320,8 +312,8 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
-	<fields>
+    </fields>
+    <fields>
         <fullName>Contract_Phone2_2__c</fullName>
         <externalId>false</externalId>
         <label>Contract Phone 2</label>
@@ -330,8 +322,8 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
-	<fields>
+    </fields>
+    <fields>
         <fullName>Contract_Phone_1__c</fullName>
         <externalId>false</externalId>
         <formula>Contract__r.Contractor_Phone1__c</formula>
@@ -356,7 +348,7 @@
     <fields>
         <fullName>Contract_Responsible_Person__c</fullName>
         <externalId>false</externalId>
-        <formula>Contract__r.Latest_Sales_Person__c </formula>
+        <formula>Contract__r.Latest_Sales_Person__c</formula>
         <label>Contract Responsible Person</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -416,6 +408,14 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Convert_To_Lead_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Convert To Lead Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -533,18 +533,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Duplicate_Campaign_Member__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>This field is hidden and it will avoid duplicate campaign member for particular campaign/Retailcampaign</description>
-        <externalId>false</externalId>
-        <label>Duplicate Campaign Member</label>
-        <length>100</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>Finance_Address__c</fullName>
         <description>This field will be populated from Marketing Cloud</description>
         <externalId>false</externalId>
@@ -564,6 +552,94 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Finance_Product_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Product (Cross Point)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Welcome Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open End Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open End Lease (Select)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open End Lease (Select Plus)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Close End Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Close End Lease (Mileage Plan Select)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Close End Lease (Mileage Plan Select Plus)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Close End Lease (Mileage Plan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-lease (Open End)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-lease (Close End Mileage Plan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-lease (Close End)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Super Welcome Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Super Welcome Plan Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Start Up Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Normal Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dual Auto Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Finance_Vehicle__c</fullName>
@@ -667,6 +743,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>LastInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastInspectionDate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>LastName__c</fullName>
         <externalId>false</externalId>
         <formula>Contact_Id__r.LastName</formula>
@@ -676,6 +760,22 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LastServiceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastServiceDate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LastWorkDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastWorkDate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Lead_Desired_Service__c</fullName>
@@ -740,7 +840,7 @@
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'),'TH','NA')))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -824,6 +924,22 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>NextInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>NextInspectionDate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NextServiceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>NextServiceDate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Next_Inspection_Date__c</fullName>
         <externalId>false</externalId>
         <formula>Text(Vehicle__r.NextInspectionDate__c)</formula>
@@ -843,51 +959,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>		
-    <fields>
-        <fullName>NextInspectionDate__c</fullName>
-        <externalId>false</externalId>
-        <label>NextInspectionDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>LastInspectionDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastInspectionDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>LastWorkDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastWorkDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>LastServiceDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastServiceDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>NextServiceDate__c</fullName>
-        <externalId>false</externalId>
-        <label>NextServiceDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>No_of_Payments__c</fullName>
@@ -1120,7 +1191,7 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Sales_Consultant__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1151,7 +1222,7 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Service_Advisor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1188,11 +1259,9 @@
         <description>This field is used to capture source of CM response</description>
         <externalId>false</externalId>
         <label>Source of CM Response</label>
-        <length>40</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Special_Flag_to_Include__c</fullName>
@@ -1274,8 +1343,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>To Be Deleted</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1410,9 +1478,10 @@ ISPICKVAL( Status__c , "Not Responded")
     </validationRules>
     <validationRules>
         <fullName>retail_campaign_is_locked</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
-        <errorMessage>Retail Campaign is locked</errorMessage>
+        <active>true</active>
+        <errorConditionFormula>AND( OR( NOT(ispickval(Retail_Campaign_Id__r.Child_Campaign_Status__c ,'Segmentation')),NOT(ispickval(Retail_Campaign_Id__r.Child_Campaign_Status__c ,'Execution')))
+,OR(ispickval(Retail_Campaign_Id__r.MBTH_Approval_Status__c,'Submitted'),ispickval(Retail_Campaign_Id__r.MBTH_Approval_Status__c,'Rejected')),MD__c='TH')</errorConditionFormula>
+        <errorMessage>You Can Add Campaign Members in Segmentation or Execution and if it is sent for approval then it should get approval</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Add_Campaign</fullName>
@@ -1429,7 +1498,7 @@ ISPICKVAL( Status__c , "Not Responded")
 var CampStatus = "{!Account.Id}";
 openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enableScopes=1&amp;addToCampaign=1',670,'1','')</url>
     </webLinks>
-   <webLinks>
+    <webLinks>
         <fullName>Convert_To_DM_Request</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -1451,7 +1520,7 @@ else
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}") 
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Convert_To_DM_Request1</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -1476,7 +1545,7 @@ var myWindow = window.open(" {!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest1?Ca
 else 
 {alert('Status should be Responded');}</url>
     </webLinks>
-   <webLinks>
+    <webLinks>
         <fullName>Convert_To_Task</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -1485,9 +1554,12 @@ else
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
- 
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+if(marketusr){ 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}")
+}else{ 
+
  var aid="{!Account.Id}";
 if(aid != '')
 {
@@ -1496,9 +1568,10 @@ if(aid != '')
 else
 {
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}")
+}
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Convert_To_Task1</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -1507,21 +1580,42 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+	{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+	var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+	if(marketusr){ 
+		var campaignMember = sforce.connection.query("SELECT id,Retail_Campaign_Id__r.MBTH_Approval_Status__c from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}' AND (Status__c='Ready' OR Status__c='Executed')"); 
+		var qrerecords = campaignMember.getArray("records"); 
+			if(qrerecords.length&gt;0){
+				var status=qrerecords[0].Retail_Campaign_Id__r.MBTH_Approval_Status__c;
+				if(status=='Rejected' || status=='Submitted'){
+					alert('The Campaign is submitted/Rejected by the Approver kindly check the status');
+				}else{
+				var myWindow = window.open(" {!URLFOR($Site.Prefix)}/apex/ConvertToTask1?CampaignMemberId={! Campaign_Member__c.Id } ") 
+		   }
+		   
+		
+		}else 
+		{
+		alert('Status should be Ready or Executed');
+		}
 
-var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}' AND Status__c='Responded'"); 
+	}
+	 
+	else{
+	var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}' AND Status__c='Responded'"); 
 
 
-var qrerecords = campaignMember.getArray("records"); 
+	var qrerecords = campaignMember.getArray("records"); 
 
-if(qrerecords.length&gt;0){ 
+	if(qrerecords.length&gt;0){ 
 
-var myWindow = window.open(" {!URLFOR($Site.Prefix)}/apex/ConvertToTask1?CampaignMemberId={! Campaign_Member__c.Id } ") 
+	var myWindow = window.open(" {!URLFOR($Site.Prefix)}/apex/ConvertToTask1?CampaignMemberId={! Campaign_Member__c.Id } ") 
 
 
-} 
-else 
-{alert('Status should be Responded');}</url>
+	} 
+	else 
+	{alert('Status should be Responded');}
+	}</url>
     </webLinks>
     <webLinks>
         <fullName>Convert_to_Lead</fullName>
@@ -1532,9 +1626,13 @@ else
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
- 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var marketusr={!ISPICKVAL($User.Market__c , "TH")};
+if(marketusr){
+ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}");
+}else{
  var aid = "{!Account.Id}";
 if(aid != '')
 {
@@ -1543,9 +1641,10 @@ if(aid != '')
 else
 {
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}");
+}
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Convert_to_lead1</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -1593,12 +1692,12 @@ window.open("{!URLFOR($Site.Prefix)}/CAMPAIGN_MEMBER_REPORT_ID?pv0="+campaignNam
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
-if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-window.open("{!URLFOR($Site.Prefix)}/a1H/e?CF00Np00000012fon={!Campaign.Name}&amp;CF00Np00000012fon_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}");
-}else
-{
-alert('You cannot create campaign members for this campaign status');
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}"; 
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) { 
+window.open("{!URLFOR($Site.Prefix)}/a1K/e?CF00N2800000IkqXw={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqXw_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Campaign.Id}"); 
+}else 
+{ 
+alert('You cannot create campaign members for this campaign status'); 
 }</url>
     </webLinks>
     <webLinks>
@@ -1614,7 +1713,7 @@ alert('You cannot create campaign members for this campaign status');
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-window.open("{!URLFOR($Site.Prefix)}/a1H/e?CF00Np0000001FVEr={!Retail_Campaign__c.Name}&amp;CF00Np0000001FVEr_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
+window.open("{!URLFOR($Site.Prefix)}/a1H/e?CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -1634,7 +1733,21 @@ alert('You cannot create campaign members for this campaign status');
 var campaignID = "{!Campaign.Id}";  
 var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID}); 
 location.reload();</url>
-    </webLinks>	
+    </webLinks>
+    <webLinks>
+        <fullName>RetailCampaignExport</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Export</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>var RetailcampaignName = '{!Retail_Campaign__c.Name}'; 
+var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEl?pv0="+RetailcampaignName);
+</url>
+    </webLinks>
     <webLinks>
         <fullName>RetailRefresh</fullName>
         <availability>online</availability>
@@ -1649,18 +1762,6 @@ location.reload();</url>
 var retcampaignid = "{!Retail_Campaign__c.Id}";
 var show1 = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshretcampaignmember",{retcamid:retcampaignid});
 location.reload();</url>
-    </webLinks>
-	<webLinks>
-        <fullName>RetailCampaignExport</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Export</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>var RetailcampaignName = '{!Retail_Campaign__c.Name}'; 
-window.open("{!URLFOR($Site.Prefix)}/RETAIL_CAMPAIGN_MEMBER_REPORT_ID?pv0="+RetailcampaignName);</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Campaign_Member</fullName>
@@ -1713,7 +1814,3 @@ alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
 </CustomObject>
-
-
-
-
