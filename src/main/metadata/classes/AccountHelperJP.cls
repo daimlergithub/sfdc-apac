@@ -1113,6 +1113,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         system.debug('^&^&^&^&^&^&^&^&^&^&^&^&^&^&^&^'+sharesToDelete);
           Database.Delete(sharesToDelete, false);
        }
+	   }
         
           //  delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual']; 
     }
