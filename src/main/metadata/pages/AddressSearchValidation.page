@@ -950,7 +950,7 @@
         
         <!--  Page Buttons Information JP & KR - Start -->
                 <apex:pageBlockButtons location="bottom">
-                    <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>
+                    <!--<apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>-->
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>
                     <!--PR20170918--Start-->
@@ -961,7 +961,7 @@
                      <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'MY') ,true,false)}" reRender="form,msgs"/>      
                     <!--MT20170909-->
                     
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'MY'))) ,true,false)}" oncomplete="hideTable();"/>
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'MY'))) ,true,false)}"/> <!--oncomplete="hideTable();-->
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     
                     <apex:outputPanel rendered="{!firstsave}" >
@@ -1004,7 +1004,7 @@
         
         <br/>
         <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>    
-        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR' || (AutoFill == true), true, false)}">    
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR', true, false)}">    
             <apex:column >
                 <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
             </apex:column>        
