@@ -378,7 +378,7 @@ global with sharing class VehiclePickerController {
         else{
             Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId')];
             system.debug('Lead Contact...' +leadAcc);
-            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC limit 1];
+            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC limit 100];
             system.debug('Lead Vehicle Relationships...' +leadVehicleRelationships);
             
             if (!leadVehicleRelationships.isEmpty()){
@@ -452,11 +452,16 @@ global with sharing class VehiclePickerController {
                 leadVehicle.NextMileage__c = Integer.valueof(vehicleAttributes.get('Mileage'));
             }
             if(vehicleAttributes.get('Operation').equalsIgnoreCase('New')){ 
-             Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];           
+             Lead__c lead = [Select Id,Contact__c from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];           
                 System.debug('New...');
                 if(vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
                 Id rec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
                 leadVehicle.RecordTypeId = rec_Id;
+				if(lead.Contact__c != Null || lead.Contact__c != ''){
+					leadVehicle.Related_Contact__c = lead.Contact__c;
+				}
+				
+
                 System.debug('Rec_Id :' +rec_Id);
                 }else{
                 Id rec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.VEHICLE_PRODUCT);
