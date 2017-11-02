@@ -402,7 +402,7 @@ public class LeadMergeController{
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy)     
      */ 
-    public PageReference cancel() {
+    public PageReference cancel1() {
         return new PageReference('/' + master.Id);
     }
      /** 
