@@ -144,8 +144,8 @@ global with sharing class VehiclePickerController {
                         tmpMap.put('Model',vehicles.Model_Description__c);
                         tmpMap.put('Mileage', String.valueOf(vehicles.NextMileage__c));
                         tmpMap.put('Trim',vehicles.Trim__c);
-						tmpMap.put('AMG',String.valueOf(vehicles.AMG__c));
-							
+            tmpMap.put('AMG',String.valueOf(vehicles.AMG__c));
+              
                         tmpMap.put('RecordType', recType_name);
                         system.debug('Temporary Map...' +tmpMap);
                         mapVehicleTtype_Fields.put(lvt,tmpMap);
@@ -189,7 +189,7 @@ global with sharing class VehiclePickerController {
             List<Map<String, Set<String>>> brand_class_model = new List<Map<String, Set<String>>>();
             Set<String> tempSet = new Set<String>();
             UtilConstant utilConst = new UtilConstant();
-            
+            system.debug('status_type###################################'+status_type);
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
                 if(!Test.isRunningTest()){
@@ -197,11 +197,19 @@ global with sharing class VehiclePickerController {
                 }else{
                     carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c];
                 }
-            }else{
+            }
+            else if(status_type.equalsIgnoreCase('Interested Vehicle')){
+                    if(!Test.isRunningTest()){
+                            carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c AND (System__c = 'Range' OR System__c = '')];
+                        }else{
+                            carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND (System__c = 'Range' OR System__c = '')];
+                        }   
+            }
+            else{
                 if(!Test.isRunningTest()){
-                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c AND (System__c = 'Range' OR System__c = '')];
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c];
                 }else{
-                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND (System__c = 'Range' OR System__c = '')];
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type];
                 }
             }
             
@@ -370,7 +378,7 @@ global with sharing class VehiclePickerController {
         else{
             Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId')];
             system.debug('Lead Contact...' +leadAcc);
-            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC];
+            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC limit 1];
             system.debug('Lead Vehicle Relationships...' +leadVehicleRelationships);
             
             if (!leadVehicleRelationships.isEmpty()){
@@ -429,13 +437,13 @@ global with sharing class VehiclePickerController {
             leadVehicle.Class__c = vehicleAttributes.get('Class');
             leadVehicle.Colour__c = vehicleAttributes.get('Colour');
             leadVehicle.Trim__c = vehicleAttributes.get('Trim');
-			//leadVehicle.AMG__c = Boolean.valueOf(String.valueOf(vehicleAttributes.get('AMG')));
-			if(vehicleAttributes.get('AMG') == '1' || vehicleAttributes.get('AMG') == 'true'){
-				leadVehicle.AMG__c = true;
-			}
-			else
-				leadVehicle.AMG__c = false;
-			 System.debug('AMG##########...' +leadVehicle.AMG__c);
+      //leadVehicle.AMG__c = Boolean.valueOf(String.valueOf(vehicleAttributes.get('AMG')));
+      if(vehicleAttributes.get('AMG') == '1' || vehicleAttributes.get('AMG') == 'true'){
+        leadVehicle.AMG__c = true;
+      }
+      else
+        leadVehicle.AMG__c = false;
+       System.debug('AMG##########...' +leadVehicle.AMG__c);
             leadVehicle.Model_Description__c = vehicleAttributes.get('Model');
             String mileageVal = vehicleAttributes.get('Mileage');
             carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
@@ -443,24 +451,25 @@ global with sharing class VehiclePickerController {
             if (!mileageVal.equals('')){
                 leadVehicle.NextMileage__c = Integer.valueof(vehicleAttributes.get('Mileage'));
             }
-            if(vehicleAttributes.get('Operation').equalsIgnoreCase('New')){
+            if(vehicleAttributes.get('Operation').equalsIgnoreCase('New')){ 
+             Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];           
                 System.debug('New...');
+                if(vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
+                Id rec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
+                leadVehicle.RecordTypeId = rec_Id;
+                System.debug('Rec_Id :' +rec_Id);
+                }else{
                 Id rec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.VEHICLE_PRODUCT);
                 leadVehicle.RecordTypeId = rec_Id;
                 System.debug('Rec_Id :' +rec_Id);
-                leadVehicle.Car_Model__c = carModel[0].Id;
-				System.debug('leadVehicle.Car_Model__c'+leadVehicle.Car_Model__c);
-                insert leadVehicle;
-				System.debug('leadVehicle#########'+leadVehicle);
-				if(vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
-					Id selfrec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
-					leadVehicle.RecordTypeId = selfrec_Id;
-					System.debug('selfrec_Id :' +selfrec_Id);
-					leadVehicle.Car_Model__c = carModel[0].Id;
-					insert leadVehicle;
-				}
+                }
                 
-                Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
+                
+                leadVehicle.Car_Model__c = carModel[0].Id;
+                    System.debug('leadVehicle.Car_Model__c'+leadVehicle.Car_Model__c);
+                insert leadVehicle;
+                    System.debug('leadVehicle#########'+leadVehicle);                
+                
                 if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                      lead.Interested_Vehicle__c = leadVehicle.Id;
                 }else if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){

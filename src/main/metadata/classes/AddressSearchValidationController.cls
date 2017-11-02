@@ -37,7 +37,7 @@ public class AddressSearchValidationController
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}   
     Public Boolean Validation;
-    public Boolean AutoFill {get;set;}
+    //public Boolean AutoFill {get;set;}
     public map<string,string> labelNvalue=new map<string,string>();
     // KOREA related parameters - Start
     public String market{get;set;}
@@ -128,7 +128,7 @@ public class AddressSearchValidationController
         public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
     
         public AddressSearchValidationController(ApexPages.StandardController controller){
-        AutoFill = false;
+        //AutoFill = false;
         objAccount= new Account();
         objPersonAccount= new Account();
         objContact=new contact();
@@ -941,13 +941,11 @@ public class AddressSearchValidationController
       }  
     }
     
-    public void AutoFillAddress(){
+    /*public void AutoFillAddress(){
         AutoFill = true;
-        crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType isAutofill= new  crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType();
-        isAutofill.AutoFillMode = true;
         validateAddressByZipCode();
         
-    }
+    }*/
     
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
