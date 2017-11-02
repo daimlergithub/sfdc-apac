@@ -339,7 +339,7 @@ RecordType.Name,
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND 3 AND ( 4 OR 5)) OR (1 AND 3 AND 6 AND 7)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3 AND ( 4 OR 5)) OR (1 AND 3 AND (6 OR 8) AND 7)</booleanFilter>
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>
@@ -503,7 +503,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND (3 OR 4 )) OR (2 AND 5 AND 6)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4 )) OR (2 AND (5 OR 7) AND 6)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -548,7 +548,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4 )</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4)) OR(5 AND 6 AND 2)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -686,7 +686,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND  3 ) OR (2 AND 4 AND 5)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND  3 ) OR (2 AND 4 AND 5) OR (2 AND 5 AND 6)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
