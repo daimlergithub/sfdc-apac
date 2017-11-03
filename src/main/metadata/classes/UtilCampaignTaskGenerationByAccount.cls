@@ -191,7 +191,11 @@ system.debug('&******************'+cpList);
                        tsk.OwnerId =usr_th[0].Id;
                     }
                     else{
-                    tsk.OwnerId = usr.Id;
+                    if(loggedinUser.Market__c=='MY'){
+                    tsk.OwnerId = cpm.Campaign.OwnerId;
+                    }
+                    else{
+                    tsk.OwnerId = usr.Id;}
                     }
                 }
                 taskList.add(tsk);
