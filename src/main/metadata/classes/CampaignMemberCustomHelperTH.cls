@@ -23,8 +23,8 @@ public void  campaignMemberHelperBeforeInsert(List<Campaign_Member__c> campmembe
         system.debug('****'+camp.Retail_Campaign_Id__c);
         if(camp.Retail_Campaign_Id__c!=null){
             system.debug('$$$$$$'+camp.Retail_Campaign_Id__c+'   '+retcampstatus.get(camp.Retail_Campaign_Id__c));
-            if(/*retcampstatus.get(camp.Retail_Campaign_Id__c)=='Execution'||*/retcampstatus.get(camp.Retail_Campaign_Id__c)=='Response collection'||retcampstatus.get(camp.Retail_Campaign_Id__c)=='Completed'){
-                camp.addError('You Can Not Add Campaign Members with Retail Campaign Status Execution/Response Collection/Completed');
+            if(retcampstatus.get(camp.Retail_Campaign_Id__c)=='Response collection'||retcampstatus.get(camp.Retail_Campaign_Id__c)=='Completed'){
+                camp.addError('You Can Not Add Campaign Members with Retail Campaign Status Response Collection/Completed');
             }
         }
     
@@ -33,7 +33,7 @@ public void  campaignMemberHelperBeforeInsert(List<Campaign_Member__c> campmembe
     }
     //Will allow to delete the campaign members with the campaign status "segmentation 
      public static void beforeDeleteOperation(List<Campaign_Member__c> oldList) {
-        List<String> CHILD_CAMPAIGN_STATUS_LIST = new List<String> {'Execution', 'Response collection', 'Completed'};
+        List<String> CHILD_CAMPAIGN_STATUS_LIST = new List<String> {'Response collection', 'Completed'};//'Execution',
         Map<Id, Campaign_Member__c> campaignMemberMap = 
                     new Map<Id, Campaign_Member__c>([select Id from Campaign_Member__c where Id IN: oldList and Retail_Campaign_Id__r.Child_Campaign_Status__c IN: CHILD_CAMPAIGN_STATUS_LIST ]);
         
