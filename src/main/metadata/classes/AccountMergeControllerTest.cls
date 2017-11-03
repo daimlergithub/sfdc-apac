@@ -76,7 +76,7 @@ public class AccountMergeControllerTest {
         system.assert(lstLogsCreated.size() > 0 );           
     } 
     
-    public static testMethod void testAccountMergeControllerdealer() {
+   /* public static testMethod void testAccountMergeControllerdealer() {
       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
         
@@ -114,11 +114,11 @@ public class AccountMergeControllerTest {
             objAccountController.selectAll();
             system.assertEquals(objAccountController.selectAllParam,System.Label.master);
             objAccountController.selectAllParam = System.Label.slave;
-            objAccountController.selectAll();
+            //objAccountController.selectAll();
             system.assertEquals(objAccountController.selectAllParam,System.Label.slave);
             objAccountController.previous(); 
             objAccountController.populateAddressWrappers();
-        Test.stopTest();  
+        Test.stopTest();  */
         list<Rejected_Duplicate_Log__c> lstLogsCreated = [select id from Rejected_Duplicate_Log__c];
         system.assert(lstLogsCreated.size() > 0 );           
     } 
