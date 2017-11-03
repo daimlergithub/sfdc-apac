@@ -79,7 +79,7 @@ system.debug('&******************'+cpList);
                     Campaign.Parent.Task_De_dup_Range__c,
                     Campaign.Parent.ParentId,
                     Campaign.Previous_Campaign_Execution__c,
-                    Campaign.Template__c, Status, Campaign.OwnerId
+                    Campaign.Template__c, Status, Campaign.OwnerId, Campaign.MD__c
             from CampaignMember
             where CampaignId in :cpIdList and Task_Generated__c = false]);
     } 
