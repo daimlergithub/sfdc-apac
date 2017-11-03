@@ -540,14 +540,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CDMInformatica_Services</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CDMInformatica_Servicestest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CDMServices</apexClass>
         <enabled>false</enabled>
     </classAccesses>
