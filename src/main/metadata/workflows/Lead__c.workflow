@@ -1819,7 +1819,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-		<booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+		<booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
@@ -1829,12 +1829,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
             <value>Aftersales Leads,Sales Leads,Retail Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
+        </criteriaItems>       
 		 <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>

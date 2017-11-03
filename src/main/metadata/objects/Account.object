@@ -10836,7 +10836,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Beauty&amp;Skincare</fullName>
                 <default>false</default>
-                <!-- <controllingFieldValues>MY</controllingFieldValues> -->
             </picklistValues>
             <picklistValues>
                 <fullName>Health Training</fullName>
@@ -10911,7 +10910,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Art Collecting</fullName>
                 <default>false</default>
-				<!-- <controllingFieldValues>MY</controllingFieldValues> -->
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
