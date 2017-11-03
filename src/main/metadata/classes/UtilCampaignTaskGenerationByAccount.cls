@@ -79,7 +79,7 @@ system.debug('&******************'+cpList);
                     Campaign.Parent.Task_De_dup_Range__c,
                     Campaign.Parent.ParentId,
                     Campaign.Previous_Campaign_Execution__c,
-                    Campaign.Template__c, Status, Campaign.OwnerId
+                    Campaign.Template__c, Status, Campaign.OwnerId, Campaign.MD__c
             from CampaignMember
             where CampaignId in :cpIdList and Task_Generated__c = false]);
     } 
@@ -191,7 +191,11 @@ system.debug('&******************'+cpList);
                        tsk.OwnerId =usr_th[0].Id;
                     }
                     else{
-                    tsk.OwnerId = usr.Id;
+                    if(loggedinUser.Market__c=='MY'){
+                    tsk.OwnerId = cpm.Campaign.OwnerId;
+                    }
+                    else{
+                    tsk.OwnerId = usr.Id;}
                     }
                 }
                 taskList.add(tsk);

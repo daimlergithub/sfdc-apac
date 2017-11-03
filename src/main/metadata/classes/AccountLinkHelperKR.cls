@@ -974,8 +974,9 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     {
                          province = addtrmap1.get(accountMap.get(acclnk.toRole__c).Primary_Address_Reference__r.Province__c);
                     }
-                    acclnk.Retail_Province__c = province ; 
-                    acclnk.Retail_Province__c  =acclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
+						acclnk.Retail_Province__c = province ; 
+						
+                    //acclnk.Retail_Province__c  =acclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
                     //acclink.Retail_Province__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c !=null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c: '' );
                     acclnk.Retail_City__c = (accountMap.get(acclnk.toRole__c).Primary_Address_Reference__r.City__c != null ? accountMap.get(acclnk.toRole__c).Primary_Address_Reference__r.City__c:'').left(17);
                     acclnk.Retail_Distinct__c = ((accountMap.get(acclnk.toRole__c).Primary_Address_Reference__r.District__c!=null ? accountMap.get(acclnk.toRole__c).Primary_Address_Reference__r.District__c : '')+(accountMap.get(acclnk.toRole__c).Primary_Address_Reference__r.Block__c!= null ?accountMap.get(acclnk.toRole__c).Primary_Address_Reference__r.Block__c : '')).left(17);
