@@ -8386,11 +8386,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Campaign.Market__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Campaign.Max_Car_Age__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -24395,11 +24390,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.icrt__AeGuide_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Template__c.Active__c</field>
         <readable>false</readable>
@@ -29083,10 +29073,6 @@
     <tabVisibilities>
         <tab>DM_Request__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Duplicate_Merge_Info__c</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Lead__c</tab>
