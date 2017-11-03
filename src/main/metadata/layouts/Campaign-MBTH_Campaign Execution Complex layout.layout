@@ -32,14 +32,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Questionnaire__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Approver__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>SMS_Task_Verified__c</field>
             </layoutItems>
             <layoutItems>
@@ -53,22 +45,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Create_Unique_Code__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Venue__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Space__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Noof_Car_display__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Expected_Cars_Sale__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -336,9 +312,6 @@
         <relatedList>Campaign_Lead__c.Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedContentNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedAttachmentList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -356,6 +329,9 @@
         <fields>Case__c</fields>
         <fields>Lead__c</fields>
         <relatedList>SurveyTaker__c.Campaign__c</relatedList>
+    </relatedLists>
+	 <relatedLists>
+        <relatedList>RelatedContentNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>

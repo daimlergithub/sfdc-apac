@@ -103,7 +103,7 @@
     <applicationVisibilities>
         <application>MBMY_Call_Center</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBMY_Call_Center_Console</application>
@@ -14769,12 +14769,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Dealer_Lead_Status__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Dealer_Lost_Reason__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25228,7 +25228,7 @@
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Master Layout</layout>
+        <layout>Campaign-Campaign Execution Generic</layout>
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25236,7 +25236,7 @@
         <recordType>Campaign.MB_Best_Practice</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Master Layout</layout>
+        <layout>Campaign-Planning &amp; Design Campaign Generic</layout>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25584,34 +25584,30 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-After-Sales Lead Generic</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-After-Sales Lead Generic</layout>
         <recordType>Lead__c.After_Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-After-Sales Lead Generic</layout>
         <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-Sales Lead Generic</layout>
         <recordType>Lead__c.Dealer_Sales_leads_ReadOnly</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-Sales Lead Generic</layout>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-MBTH_Aftersales Lead_Layout%28CAC%29</layout>
+        <layout>Lead__c-After-Sales Lead Generic</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-MBTH_Retail sales Lead_Layout%28CAC%29</layout>
-        <recordType>Lead__c.Retail_Sales_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-MBTH_Sales Leads Layout %28CAC%29</layout>
+        <layout>Lead__c-Sales Lead Generic</layout>
         <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -26070,7 +26066,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26079,7 +26075,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26088,7 +26084,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26097,7 +26093,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26124,7 +26120,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26133,7 +26129,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26151,7 +26147,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26160,7 +26156,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26214,7 +26210,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26223,7 +26219,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -27198,7 +27194,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.CAC_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -27213,7 +27209,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -27223,12 +27219,12 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Executiono</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -27236,9 +27232,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -27788,7 +27784,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Campaign__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Task__c</tab>

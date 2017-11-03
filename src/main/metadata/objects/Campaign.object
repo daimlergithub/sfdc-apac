@@ -2349,52 +2349,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
-	<fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;MY&apos;) ,&apos;MY&apos;,&apos;&apos;))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
         <description>Max Car Age of the campaign</description>
@@ -22221,6 +22175,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;  TODAY() , true, false)))</errorConditionFormula>
         <errorDisplayField>StartDate</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
+	    <validationRules>
+        <fullName>TH_publish_Date_Should_be_between_start</fullName>
+        <active>true</active>
+        <errorConditionFormula>MD__c ='TH' &amp;&amp;(StartDate &gt; Publish_Date__c ||Publish_Date__c&gt; EndDate)</errorConditionFormula>
+        <errorDisplayField>Publish_Date__c</errorDisplayField>
+        <errorMessage>Campaign Publish Date Should be Between Start  Date And  End Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Use_Segmentation_Criteria</fullName>

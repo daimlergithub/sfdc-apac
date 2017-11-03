@@ -40,15 +40,44 @@ public class LeadMergeController{
        // controller = con;
        dmstr =new  List<DM_Request__c>();
      surtake= new List<SurveyTaker__c>();
-        leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,CAC_Lead_Status__c  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
+        leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Existing_Contract__c ,AfterSales_VIN__c ,Dealer_Lead_Status__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,CAC_Lead_Status__c  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
           MasterRecordTypeName = leads.Recordtype.Name;
-           if(leads.Service_Advisor__c != NULL)
+          
+          
+          slaves = new List<LeadWrapperclass>();
+           if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c ==null && (leads.Dealer_Lead_Status__c =='Purchased' || leads.Dealer_Lead_Status__c =='Invoiced' || leads.Dealer_Lead_Status__c =='Order Placed' ))
+        { 
+            
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                And (Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost')]){
+            slaves.add(new LeadWrapperclass(a));
+          }
+        }
+        if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c ==null && (leads.Dealer_Lead_Status__c =='Purchased' || leads.Dealer_Lead_Status__c =='Invoiced' || leads.Dealer_Lead_Status__c =='Order Placed' ))
+        { 
+        
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost')]){
+            slaves.add(new LeadWrapperclass(a));
+          }
+        }
+        
+         if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c !=null && (leads.Dealer_Lead_Status__c =='Purchased' || leads.Dealer_Lead_Status__c =='Invoiced' || leads.Dealer_Lead_Status__c =='Order Placed' ))
+        { 
+         
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and(Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost')]){
+            slaves.add(new LeadWrapperclass(a));
+          }
+        }
+          
+          /* if(leads.Service_Advisor__c != NULL)
         { 
         slaves = new List<LeadWrapperclass>();     
         for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId]){
             slaves.add(new LeadWrapperclass(a));
           }
-        }
+        }*/
            
         SoqlFieldset = new set<string>();
         SoqlFieldset.addAll(this.getFieldsListByFieldSet('LeadMergeFieldsSet'));    
@@ -373,7 +402,7 @@ public class LeadMergeController{
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy)     
      */ 
-    public PageReference cancel() {
+    public PageReference cancel1() {
         return new PageReference('/' + master.Id);
     }
      /** 

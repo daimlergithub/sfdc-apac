@@ -37,10 +37,10 @@
        $scope.CurrentVehicle2Details = "";
        $scope.tradeInVehicleDetails = "";
        $scope.purchasedVehicleDetails = "";
-	   
-	   $scope.interestedamgValue = {	
-		value : true	   
-	   };
+       
+       $scope.interestedamgValue = {    
+        value : true       
+       };
        console.log($scope.interestedamgValue.value);
        $scope.lead_Type = '{!leadType}';
        
@@ -68,7 +68,7 @@
            $scope.vehicleDetail = false;
            $scope.vehicleDetailCompetitor = false;
            $scope.vehicleLookup = false;
-		  // $scope.interestedamgValue.value;
+          // $scope.interestedamgValue.value;
            if($scope.leadVehicles.InterestedVehicle.Brand != ""){
              $scope.vehicleBrand = $scope.leadVehicles.InterestedVehicle.Brand;
              $scope.selectedBrand = $scope.vehicleBrand;
@@ -84,16 +84,16 @@
            if($scope.leadVehicles.InterestedVehicle.Colour)
              $scope.interested_colourValue = $scope.leadVehicles.InterestedVehicle.Colour;
            if($scope.leadVehicles.InterestedVehicle.Trim != "")
-             $scope.interested_trimValue = $scope.leadVehicles.InterestedVehicle.Trim;			 
-			if($scope.leadVehicles.InterestedVehicle.AMG != "")
-				$scope.interestedamgValue.value = $scope.leadVehicles.InterestedVehicle.AMG;
-				console.log($scope.interestedamgValue.value);
-				console.log($scope.leadVehicles.InterestedVehicle.AMG);
+             $scope.interested_trimValue = $scope.leadVehicles.InterestedVehicle.Trim;           
+            if($scope.leadVehicles.InterestedVehicle.AMG != "")
+                $scope.interestedamgValue.value = $scope.leadVehicles.InterestedVehicle.AMG;
+                console.log($scope.interestedamgValue.value);
+                console.log($scope.leadVehicles.InterestedVehicle.AMG);
            if($scope.leadVehicles.InterestedVehicle.Mileage != "")
              $scope.vehicleMilage = $scope.leadVehicles.InterestedVehicle.Mileage;
            if($scope.leadVehicles.InterestedVehicle.RecordType != "")
              $scope.interestedRecType = $scope.leadVehicles.InterestedVehicle.RecordType;
-		}
+        }
        
        /*COMPETITOR VEHICLE : Vehicle Intitialization details*/
        if($scope.leadVehicles.CompetitorVehicle != undefined){
@@ -118,16 +118,17 @@
            if($scope.leadVehicles.CompetitorVehicle.Colour)
              $scope.competitor_colourValue = $scope.leadVehicles.CompetitorVehicle.Colour;
            if($scope.leadVehicles.CompetitorVehicle.Trim != "")
-             $scope.competitor_trimValue = $scope.leadVehicles.CompetitorVehicle.Trim;			 
-			if($scope.leadVehicles.CompetitorVehicle.AMG != "")
-				$scope.interestedamgValue = $scope.leadVehicles.CompetitorVehicle.AMG;
+             $scope.competitor_trimValue = $scope.leadVehicles.CompetitorVehicle.Trim;           
+            if($scope.leadVehicles.CompetitorVehicle.AMG != "")
+                $scope.interestedamgValue = $scope.leadVehicles.CompetitorVehicle.AMG;
            if($scope.leadVehicles.CompetitorVehicle.Mileage != "")
              $scope.c_vehicleMilage = $scope.leadVehicles.CompetitorVehicle.Mileage;
            if($scope.leadVehicles.CompetitorVehicle.RecordType != "")
              $scope.competitorRecType = $scope.leadVehicles.CompetitorVehicle.RecordType;
        }
        
-       /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
+       console.log($scope.leadVehicles.CurrentVehicle1);
+	   /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle1 != undefined){
            $scope.vehicleCurrent1DetailText = "Edit";
            $scope.CurrentVehicle1Details = $scope.leadVehicles.CurrentVehicle1.Brand +' ' +$scope.leadVehicles.CurrentVehicle1.Class + ' ' + $scope.leadVehicles.CurrentVehicle1.Model;
@@ -137,7 +138,7 @@
            $scope.vehicleDetailCompetitor = false;
            $scope.vehicleLookup = false;
            $scope.LookupCurrentVehicle1 = false;
-           
+           console.log($scope.CurrentVehicle1Details);
            if($scope.leadVehicles.CurrentVehicle1.Brand != ""){
              $scope.vehicleBrand = $scope.leadVehicles.CurrentVehicle1.Brand;
              $scope.selectedCurrent1Brand = $scope.vehicleBrand;
@@ -153,9 +154,9 @@
            if($scope.leadVehicles.CurrentVehicle1.Colour)
              $scope.current1_colourValue = $scope.leadVehicles.CurrentVehicle1.Colour;
            if($scope.leadVehicles.CurrentVehicle1.Trim != "")
-             $scope.current1_trimValue = $scope.leadVehicles.CurrentVehicle1.Trim;			 
-			if($scope.leadVehicles.CurrentVehicle1.AMG != "")
-				$scope.interestedamgValue.value = $scope.leadVehicles.CurrentVehicle1.AMG;	
+             $scope.current1_trimValue = $scope.leadVehicles.CurrentVehicle1.Trim;           
+            if($scope.leadVehicles.CurrentVehicle1.AMG != "")
+                $scope.interestedamgValue.value = $scope.leadVehicles.CurrentVehicle1.AMG;  
            if($scope.leadVehicles.CurrentVehicle1.Mileage != "")
              $scope.c1_vehicleMilage = $scope.leadVehicles.CurrentVehicle1.Mileage;
            if($scope.leadVehicles.CurrentVehicle1.RecordType != "")
@@ -188,9 +189,9 @@
            if($scope.leadVehicles.CurrentVehicle2.Colour)
              $scope.current2_vehicleColour = $scope.leadVehicles.CurrentVehicle2.Colour;
            if($scope.leadVehicles.CurrentVehicle2.Trim != "")
-             $scope.TradeIn_vehicleColour = $scope.leadVehicles.CurrentVehicle2.Trim;			 
-			if($scope.leadVehicles.CurrentVehicle2.AMG != "")
-				$scope.interestedamgValue = $scope.leadVehicles.CurrentVehicle2.AMG;	
+             $scope.TradeIn_vehicleColour = $scope.leadVehicles.CurrentVehicle2.Trim;            
+            if($scope.leadVehicles.CurrentVehicle2.AMG != "")
+                $scope.interestedamgValue = $scope.leadVehicles.CurrentVehicle2.AMG;    
            if($scope.leadVehicles.CurrentVehicle2.Mileage != "")
              $scope.c2_vehicleMilage = $scope.leadVehicles.CurrentVehicle2.Mileage;
            if($scope.leadVehicles.CurrentVehicle2.RecordType != "")
@@ -223,9 +224,9 @@
            if($scope.leadVehicles.TradeIn.Colour)
              $scope.TradeIn_vehicleColour = $scope.leadVehicles.TradeIn.Colour;
            if($scope.leadVehicles.TradeIn.Trim != "")
-              $scope.TradeIn_vehicleTrim = $scope.leadVehicles.TradeIn.Trim;			 
-			if($scope.leadVehicles.TradeIn.AMG != "")
-				$scope.interestedamgValue = $scope.leadVehicles.TradeIn.AMG;	             
+              $scope.TradeIn_vehicleTrim = $scope.leadVehicles.TradeIn.Trim;             
+            if($scope.leadVehicles.TradeIn.AMG != "")
+                $scope.interestedamgValue = $scope.leadVehicles.TradeIn.AMG;                 
            if($scope.leadVehicles.TradeIn.Mileage != "")
              $scope.TradeIn_vehicleMilage = $scope.leadVehicles.TradeIn.Mileage;
            if($scope.leadVehicles.TradeIn.RecordType != "")
@@ -258,9 +259,9 @@
            if($scope.leadVehicles.PurchasedVehicle.Colour)
               $scope.Purchased_vehicleColour = $scope.leadVehicles.PurchasedVehicle.Colour; 
            if($scope.leadVehicles.PurchasedVehicle.Trim != "")
-              $scope.Purchased_vehicleTrim = $scope.leadVehicles.PurchasedVehicle.Trim;			 
-			if($scope.leadVehicles.PurchasedVehicle.AMG != "")
-				$scope.interestedamgValue = $scope.leadVehicles.PurchasedVehicle.AMG;	
+              $scope.Purchased_vehicleTrim = $scope.leadVehicles.PurchasedVehicle.Trim;          
+            if($scope.leadVehicles.PurchasedVehicle.AMG != "")
+                $scope.interestedamgValue = $scope.leadVehicles.PurchasedVehicle.AMG;   
            if($scope.leadVehicles.PurchasedVehicle.Mileage != "")
              $scope.Purchased_vehicleMilage = $scope.leadVehicles.PurchasedVehicle.Mileage;
            if($scope.leadVehicles.PurchasedVehicle.RecordType != "")
@@ -329,24 +330,26 @@
                    function(result, event) {
                         $scope.refreshLookupData(result);
                         $scope.$apply();
-                        $route.reload();
+                        //$route.reload();
              });
          }
          
          /*This method displays the details of the vehicles.*/
+		 
          $scope.showDetail = function (vehicle_type, selectedBrand, selectedClass){   
+		 console.log(vehicle_type);
             if(angular.equals(vehicle_type, 'Interested Vehicle')){
                 $scope.status_type = 'Own Sellable';
                 $scope.vehicleDetail = true;
                 $scope.vehicleLookup = false;
-				$scope.interestedamgValue.value;
-				
-				if($scope.interestedamgValue.value == 'true'){
-					$scope.interestedamgValue.value = true;
-				}else{
-					$scope.interestedamgValue.value = false;
-				}
-				
+                $scope.interestedamgValue.value;
+                
+                if($scope.interestedamgValue.value == 'true'){
+                    $scope.interestedamgValue.value = true;
+                }else{
+                    $scope.interestedamgValue.value = false;
+                }
+                
                 console.log($scope.interestedamgValue.value);
                 //Others
                 $scope.vehicleDetailCompetitor = false;
@@ -376,7 +379,7 @@
                 $scope.vehicleDetailPurchased = false;
                 $scope.PurchasedLookup = false;
             }else if (angular.equals(vehicle_type, 'CurrentVehicle1')){
-                $scope.status_type = 'None';
+                $scope.status_type = 'Competitor';
                 $scope.vehicleDetailCurrent1 = true;
                 $scope.LookupCurrentVehicle1 = false;
                 
@@ -440,19 +443,22 @@
                 $scope.vehicleDetailTradeIn = false;
                 $scope.TradeInLookup = false;
             }
-                /*Fetch the car models based on status types here*/
+                console.log($scope.status_type);
+				/*Fetch the car models based on status types here*/
                 $scope.getCarModelsForLeadVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand);
+				
           }  
           
           $scope.selectBrandAction = function () {
                 $scope.vehicleBrand = ''+$scope.brandText;           
           };
-          		   
-		   
-		   
+                   
+           
+           
           /*Save the Vehicle Details on New or Edit*/
-          $scope.saveDetail = function (vehicleType, operation) {	
-			  
+          $scope.saveDetail = function (vehicleType, operation) {   
+              console.log(vehicleType);
+			  console.log(operation);
               $scope.brands.sort(function (a, b) {
                            return a.toLowerCase().localeCompare(b.toLowerCase());
                                  });
@@ -465,13 +471,13 @@
               $scope.classVal = document.getElementById("classItems").value;
               $scope.colourVal = document.getElementById("colourValue").value;
               $scope.trimVal = document.getElementById("trimValue").value;
-			  console.log($scope.interestedamgValue.value);
-			  $scope.amgVal = $scope.interestedamgValue.value;		 
-			  console.log($scope.amgVal);
+              console.log($scope.interestedamgValue.value);
+              $scope.amgVal = $scope.interestedamgValue.value;       
+              console.log($scope.amgVal);
               $scope.modelVal = document.getElementById("modelItems").value;
               $scope.mileage = document.getElementById("mileageValue").value; 
-			  
-			  
+              
+              
               $scope.vehicleAttributes = [ { 
                                              Brand:$scope.brands[parseInt($scope.brandVal)], Class:$scope.relatedClasses[parseInt($scope.classVal)],
                                              Colour:$scope.colourVal, Model:$scope.models[$scope.modelVal],
@@ -479,22 +485,22 @@
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
                                          ];
-			  console.log($scope.vehicleAttributes);
+              console.log($scope.vehicleAttributes);
               /*Remoting method here*/
                Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.VehiclePickerController.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
-				   console.log(result);
+                   console.log(result);
                        $scope.contacts = result;
                        $scope.$apply();
-						//$route.reload();
+                        //$route.reload();
                        if (sforce.console.isInConsole()){
                            function testGetFocusedSubtabId() {   
-                                sforce.console.getFocusedSubtabId(showTabId);	
+                                sforce.console.getFocusedSubtabId(showTabId);   
                            }                            
                            var showTabId = function showTabId(result) {
                                 var subtabId = result.id;
-								console.log(result.id);
+                                console.log(result.id);
                                 sforce.console.refreshSubtabById(subtabId, true);
                                     
                            };
@@ -502,7 +508,7 @@
                        }else{
                            window.top.location="{!URLFOR($Site.Prefix)}/{!currentRecordId}";
                        } 
-						
+                        
               }); 
           };
        
@@ -559,7 +565,7 @@
             if(angular.equals(vehicle_type, 'Interested Vehicle')){
                 $scope.vehicleDetail = false;
                 $scope.vehicleLookup = true;
-				$scope.interestedamgValue.value;
+                $scope.interestedamgValue.value;
                 console.log($scope.interestedamgValue.value);
                 
                 //Others
@@ -709,13 +715,13 @@
           
     }]);  
 
-		function checkValuepick(intialValue){
-			console.log(intialValue);
-		}
-		
-		
+        function checkValuepick(intialValue){
+            console.log(intialValue);
+        }
+        
+        
     </script>
-	
+    
     <div id="ng-app" ng-app="VehiclePickerApp" ng-controller="VehiclePickerController">
     <table>
     <tr>
@@ -749,31 +755,29 @@
                     <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedModel)" ng-model="selectedModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="vehicleMilage" style="width:150px" /></td>
-                </tr>	
-				<tr>
-					<td>{!$label.AMG}</td>
-					<label for="checkbox">
-					<td><input type="checkbox"  id="{{interestedamgValue.value}}" ng-model="interestedamgValue.value" /></td>	
-					</label>
-					<td><tt>value = {{interestedamgValue.value}}</tt><br/></td>
-					<td></td>
-				</tr>				
-				
+                </tr>   
+                <tr>
+                    <td>{!$label.AMG}</td>
+                    <label for="checkbox">
+                    <td><input type="checkbox"  id="value" ng-model="interestedamgValue.value" /></td>   
+                    </label>
+                </tr>               
+                
             </table>
             <br/>
             <input type="button" ng-click="cancelDetail('Interested Vehicle')" class="btn" value="{!$label.Cancel_Button}" />&nbsp;
             <input type="button" ng-click="saveDetail('Interested Vehicle', vehicleDetailText)" class="btn" value="{!$label.Save_Button}"/>
-			
+            
         </div>
-		
-		<!--<div ng-app="MyApp" ng-controller="MyController">
-				Do you have Passport?
-				<label for="chkPassport">
+        
+        <!--<div ng-app="MyApp" ng-controller="MyController">
+                Do you have Passport?
+                <label for="chkPassport">
             <input id="chkPassport" type="checkbox" ng-model="HasPassport" />
         </label>
         <input type="button" value = "Check Passport" ng-click = "CheckPassport()" />
-		
-		
+        
+        
     </div> -->
         <!------------ INTERESTED VEHICLE LOOKUP SECTION ---------------------->
         <div ng-if="vehicleLookup" style="background-color:#efefef;width:500px">
@@ -854,7 +858,7 @@
                     <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCurrent1Model)" ng-model="selectedCurrent1Model" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="c1_vehicleMilage" style="width:150px" /></td>
-                </tr>			
+                </tr>           
             </table>
             <br/>
             <input type="button" ng-click="cancelDetail('CurrentVehicle1')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
@@ -874,8 +878,8 @@
         </div>
         </td>
         </tr>
-		<!-- Commented by Rakesh JP-945  Start-- >
-		<!--
+        <!-- Commented by Rakesh JP-945  Start-- >
+        <!--
         <tr>
         <!----------- CURRENT VEHICLE2 SECTION --------<
         <td style="vertical-align: top;">
@@ -926,7 +930,7 @@
         </td>
         </tr>
         
-		<tr>
+        <tr>
         <!----------- TRADE-IN SECTION --------<
         <td style="vertical-align: top;">{!$label.Vehicle_Picker_TradeIn}&nbsp;</td><td>
         <input type="text" ng-model="tradeInVehicleDetails"  disabled="disabled" style="width:300px" /> 
@@ -975,21 +979,21 @@
         </div>
         </td>
         </tr>
-		-->
-		<!-- Commented by Rakesh JP-945  End-- >
+        -->
+        <!-- Commented by Rakesh JP-945  End-- >
         <tr>
         <!----------- PURCHASED VEHICLE SECTION -------->
         <td style="vertical-align: top;">{!$label.Vehicle_Picker_Purchased}&nbsp;</td><td>
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" /> 
-		</td>
+        </td>
         <!-- Commented by Rakesh JP-945  Start-- >
-		<!--
-			&nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
-			&nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
-			&nbsp;<input type="button" ng-click="clearVehicle('Purchased')" class="btn" value="{!$label.Clear_Button}"/> 
-			&nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetails != ''}}" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
-		
-		
+        <!--
+            &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
+            &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
+            &nbsp;<input type="button" ng-click="clearVehicle('Purchased')" class="btn" value="{!$label.Clear_Button}"/> 
+            &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetails != ''}}" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
+        
+        
         <!----------- PURCHASED VEHICLE DETAILS SECTION --------<
         <div ng-if="vehicleDetailPurchased" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -1018,8 +1022,8 @@
             <input type="button" ng-click="saveDetail('Purchased',purchasedVehicleDetailText)" class="btn" value="{!$label.Save_Button}"/> 
         </div>
         <!----------- PURCHASED VEHICLE LOOKUP SECTION -------->
-		<!-- Commented by Rakesh JP-945  End-- >
-		
+        <!-- Commented by Rakesh JP-945  End-- >
+        
         <div ng-if="PurchasedLookup" style="background-color:#efefef;width:500px">
             {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('Purchased',vin_no)" class="btn" value="{!$label.Search}"></input>
             <table class="lookup" ng-table="lookuptable">
@@ -1031,12 +1035,12 @@
             <input type="button" ng-click="cancelItem('Purchased')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
             <input type="button" ng-click="saveItem('Purchased')" class="btn" value="{!$label.Save_Button}"/>
         </div>
-		
+        
         </td>
         </tr>
-		-->
+        -->
         </table>
-		
+        
     </div>
     
     <!-- For dynamic resizing see here: http://salesforce.stackexchange.com/questions/46200/dynamically-resize-visualforce-section-in-page-layout -->

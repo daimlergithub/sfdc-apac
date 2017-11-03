@@ -16,6 +16,7 @@ History:
     Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
     Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in
     CDM   
+	Sanjay Nandi(SN20171028)    2017/10/28            //SN20171028- Added code to resolve issues related to search of CUstomer without address																																		  
 **/
 public class AddressSearchValidationController
 {
@@ -37,7 +38,7 @@ public class AddressSearchValidationController
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}   
     Public Boolean Validation;
-    public Boolean AutoFill {get;set;}
+    //public Boolean AutoFill {get;set;}
     public map<string,string> labelNvalue=new map<string,string>();
     // KOREA related parameters - Start
     public String market{get;set;}
@@ -128,7 +129,7 @@ public class AddressSearchValidationController
         public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
     
         public AddressSearchValidationController(ApexPages.StandardController controller){
-        AutoFill = false;
+        //AutoFill = false;
         objAccount= new Account();
         objPersonAccount= new Account();
         objContact=new contact();
@@ -941,13 +942,11 @@ public class AddressSearchValidationController
       }  
     }
     
-    public void AutoFillAddress(){
+    /*public void AutoFillAddress(){
         AutoFill = true;
-        crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType isAutofill= new  crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType();
-        isAutofill.AutoFillMode = true;
         validateAddressByZipCode();
         
-    }
+    }*/
     
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -1514,6 +1513,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
            Address__c NewAdd=new Address__c();
+			//SN20171028- Online dedup fix
+            newadd.market__c=market;
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
             {
               AddressObj.Address_Type__c = addresspicklist;
@@ -1694,7 +1695,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             System.debug('@@@@@@@@@@ objAccount : '+objAccount);
             System.debug('@@@@@@@@@@ AddressObj : '+AddressObj);
             Address__c NewAdd=new Address__c();
-            
+            //SN20171028- Online dedup fix
+            newadd.market__c=market;									
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             {   
                 System.debug('@@@@@@@@@@ objAccount 2 :'+objAccount);
@@ -1922,6 +1924,8 @@ If the user is Saving  same address which matches the fields returned by toleran
              system.debug('@@@'+objAccount);
              system.debug('@@@'+AddressObj);             
            Address__c NewAdd=new Address__c();
+			//SN20171028- Online dedup fix
+            newadd.market__c=market;				
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.LastName!=null)
             {              
               system.debug('@@@In');
@@ -2088,7 +2092,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             
             Address__c NewAdd=new Address__c();
-            
+            //SN20171028- Online dedup fix
+            newadd.market__c=market;									
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             { 
                 response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
