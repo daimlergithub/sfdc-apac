@@ -2832,10 +2832,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>customizedVehicleLookup</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>dealerViewForContract</apexClass>
         <enabled>false</enabled>
     </classAccesses>
