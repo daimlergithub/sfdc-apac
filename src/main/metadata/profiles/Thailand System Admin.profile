@@ -28365,10 +28365,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>customizedVehicleLookupPage</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>labs_survey_css</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
