@@ -16,16 +16,16 @@ List<Network>  myNetwork = [SELECT Id,Name FROM Network];
            }
        }
 List<Retail_campaign__c> retcamp=new List<Retail_Campaign__c>();
-if(Test.isRunningTest()){
-Date todaydate=DATE.TODAY();
-Date nextdate=todaydate.addDays(1);
-String query = 'Select Id,Name,owner.Email,OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: nextdate AND IsAutoSegmentationExecuted__c = false and recordtypeid=:executionRecordId';
- query+= ' AND MD__c=\'TH\'';
- return Database.getQueryLocator(query);
+if(!Test.isRunningTest()){
+    String query = 'Select Id,Name,owner.Email,OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: todaydate AND IsAutoSegmentationExecuted__c = false and recordtypeid=:executionRecordId';
+     query+= ' AND MD__c=\'TH\'';
+     return Database.getQueryLocator(query);
 }else{
-String query = 'Select Id,Name,owner.Email,OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: todaydate AND IsAutoSegmentationExecuted__c = false and recordtypeid=:executionRecordId';
- query+= ' AND MD__c=\'TH\'';
- return Database.getQueryLocator(query);
+  Date todaydate=DATE.TODAY();
+    Date nextdate=todaydate.addDays(1);
+    String query = 'Select Id,Name,owner.Email,OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: nextdate AND IsAutoSegmentationExecuted__c = false and recordtypeid=:executionRecordId';
+     query+= ' AND MD__c=\'TH\'';
+     return Database.getQueryLocator(query);
  }
 }
 global void execute(Database.BatchableContext bc, List<Retail_Campaign__c> scope) {
