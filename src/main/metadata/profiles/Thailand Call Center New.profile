@@ -26892,9 +26892,6 @@
         <layout>ContractLineItem-Contract Line Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Contract_Info__c-Contract Info Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Contract_Relation__c-Contract Relation Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
