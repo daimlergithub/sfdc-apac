@@ -882,34 +882,28 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>      
                     </apex:pageBlockSectionItem>        
-                        
+                     <apex:pageBlockSectionItem rendered="True">      
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>       
+                        <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" onchange="ForeignNationalFields(this.value)"/>        
+                    </apex:pageBlockSectionItem>    
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Address_Line_2__c}"/>      
                     </apex:pageBlockSectionItem>        
-                            
-                    <apex:pageBlockSectionItem >        
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}"/>        
-                        <apex:inputField value="{!AddressObj.Address_Line_3__c}"/>      
-                    </apex:pageBlockSectionItem>   
-                    
-                   <apex:pageBlockSectionItem rendered="True">      
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>       
-                        <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" onchange="ForeignNationalFields(this.value)"/>        
-                    </apex:pageBlockSectionItem>        
-                            
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
                         <apex:outputLabel value="State/Province"/>      
                          <apex:selectList size="1" value="{!province}" id="slDistrict" onchange="loadDistrict(this.value)">     
                             <apex:selectOptions value="{!lstProvince}"/>                                
                         </apex:selectList>      
                     </apex:pageBlockSectionItem>        
-                            
+                    <apex:pageBlockSectionItem >        
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}"/>        
+                        <apex:inputField value="{!AddressObj.Address_Line_3__c}"/>      
+                    </apex:pageBlockSectionItem> 
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">        
                         <apex:outputLabel value="State/Province"/>      
                          <apex:inputText id="slStateProvince" value="{!province}"/>     
-                    </apex:pageBlockSectionItem>        
-                            
+                    </apex:pageBlockSectionItem>
                     <apex:pageblockSectionItem id="pbsDistrict" rendered="{!IF(IsForeignNational==false,true,false)}">                      
                       <apex:outputLabel value="City"/>      
                       <apex:selectList size="1" value="{!district}" id="slprovince" >       

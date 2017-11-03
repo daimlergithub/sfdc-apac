@@ -582,8 +582,9 @@ public class AddressDisplayInlineEditController {
     {       
         try     
         {       
-            Validation=false;       
-            if(province!='' && province!=System.Label.SelectPicklist)      
+            Validation=false;   
+			boolean countPre=false;
+			if(province!='' && province!=System.Label.SelectPicklist)      
                 addressobj.Province__c=province;        
             if(district!='' && district!=System.Label.SelectPicklist)      
                 addressobj.District__c=district;        
@@ -592,11 +593,13 @@ public class AddressDisplayInlineEditController {
             if(addresspicklist!=null)       
                 addressobj.Address_Type__c = addresspicklist;           
             string accountid=ApexPages.currentPage().getParameters().get('id');     
-            List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid and preferred__c=true LIMIT 100];        
-                    
+            List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid LIMIT 100];        
+             
+			if(addressobj.preferred__c==true) countPre=false;
+				
             for(address__c add:objAddresses)        
             {                       
-                if(add.id!=addressobj.id && addressobj.preferred__c==true)      
+                if(add.id!=addressobj.id && add.preferred__c==true && countPre==false)      
                 {                       
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.OnePreferredError));         
                     Validation = true;          
@@ -607,7 +610,8 @@ public class AddressDisplayInlineEditController {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeError));         
                     Validation = true;          
                 }                       
-            }       
+            } 
+			
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));        
