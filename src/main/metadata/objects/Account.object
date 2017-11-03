@@ -10574,8 +10574,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>DIY</fullName>
                 <default>false</default>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
+			</picklistValues>
             <picklistValues>
                 <fullName>Humanity</fullName>
                 <default>false</default>

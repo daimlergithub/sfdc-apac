@@ -41,7 +41,7 @@
                 <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -251,10 +251,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MD__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Occupation__c</field>
             </layoutItems>
 			<layoutItems>
@@ -288,6 +284,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MD__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Market__c</field>
