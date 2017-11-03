@@ -15704,7 +15704,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>TH_You_Can_not_Change_Campaign_Status</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.Name ='Campaign Execution',ISCHANGED( Child_Campaign_Status__c ),MD__c='TH')</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.Name ='Campaign Execution',ISCHANGED( Child_Campaign_Status__c ),MD__c='TH' ,Not(ispickval(Child_Campaign_Status__c ,'No Response')))</errorConditionFormula>
         <errorMessage>You Can't Change Campaign Status Manually.it will change according to the Execution,segmentation,start and close date</errorMessage>
     </validationRules>
     <validationRules>

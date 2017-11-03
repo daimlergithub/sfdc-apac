@@ -6,7 +6,7 @@ retcamp.name='parentretcamp';
 retcamp.recordtypeid=RecordTypeAccessService.getRecordTypeId('Retail_Campaign__c','Planning & Design Campaign');
 retcamp.start_date__C=system.today()+1;
 retcamp.close_Date__c=system.today()+1;
-retcamp.Status__c='Completed';
+retcamp.Status__c='ongoing';
 Retail_Campaign__C retcampchild=new Retail_campaign__c();
 retcampchild.name='pchildretcamp';
 retcampchild.recordtypeid=RecordTypeAccessService.getRecordTypeId('Retail_Campaign__c','Campaign Execution');
@@ -35,6 +35,7 @@ seg.md__c='TH';
 insert seg;
 retcampchild.Segmentation_Criteria__c=seg.id;
 update retcampchild;
+
 DataBase.ExecuteBatch(new Batch_AutoSegmentationTH());
 test.stoptest();
 }
