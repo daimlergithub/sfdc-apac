@@ -167,6 +167,10 @@
                 <behavior>Readonly</behavior>
                 <field>Purchase_Date__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Purchased_Date__c</field>
+            </layoutItems>
 			 <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Bought_Vehicle_Brand__c</field>
