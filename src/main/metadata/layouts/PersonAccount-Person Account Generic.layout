@@ -16,6 +16,9 @@
         <editHeading>false</editHeading>
         <label>Fields</label>
         <layoutColumns>
+		<layoutItems>
+                <field>title__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
