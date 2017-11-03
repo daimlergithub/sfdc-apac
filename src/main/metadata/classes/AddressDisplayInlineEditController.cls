@@ -595,7 +595,7 @@ public class AddressDisplayInlineEditController {
             string accountid=ApexPages.currentPage().getParameters().get('id');     
             List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid LIMIT 100];        
              
-			if(addressobj.preferred__c==true) countPre=true;
+			if(addressobj.preferred__c == true) countPre=true;
 				
             for(address__c add:objAddresses)        
             {                       
