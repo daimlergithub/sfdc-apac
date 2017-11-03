@@ -9,6 +9,7 @@
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
+	<excludeButtons>Share</excludeButtons>
     <excludeButtons>ViewCustomerPortalUser</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
