@@ -2583,16 +2583,27 @@ public pagereference saveAccountTH()
         Validation = false;     
            
         // Save record without Address record if no value is Entered in Address section     
-        if(AddressObj.Address_Type__c == null)      
+        if(AddressObj.Address_Type__c == null )      
         {       
-            if(SaveAccountDetailsMY())      
-            {       
-                PageReference pageRef = new PageReference('/'+objAccount.Id);       
-                return PageRef;                 
-            }       
-        }       
-             
-        // Save record with Address details Validating the Address Details      
+			if( (AddressObj.Address_Line_1__c!=null ||      
+				AddressObj.Address_Line_2__c!=null ||   AddressObj.Address_Line_3__c!=null ||                       
+				province!=null || district!=null || zip!=null )){
+				
+				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select address type'));       
+				Validation = true; 
+			}
+			
+			else{
+			   if(SaveAccountDetailsMY())      
+				{       
+					PageReference pageRef = new PageReference('/'+objAccount.Id);       
+					return PageRef;                 
+				}       
+			}
+        } 
+				
+        // Save record with Address details Validating the Address Details 
+		boolean check=false;
         If(AddressObj.Address_Type__c != null)      
         {       
                 
@@ -2628,7 +2639,7 @@ public pagereference saveAccountTH()
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));       
                 CustomLogUtil.CustomLoggingEntry('Error Occured ' +e.getDMlMessage(0));              
             }               
-        }       
+        } 
      return null;       
     }
 //Saves the Account relaed details for Thailand Market

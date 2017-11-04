@@ -107,13 +107,13 @@ public with sharing class VehicleRelationshipHelperTHTest{
        public static void creatTestData(){
             accList = new List<Account>();
             Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-            accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamjaya@gmail.com');
+            accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamjaya@gmail.com',market__c='TH');
             accList.add(accObj);
             Id recordTypeAccDealerObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-            accObj = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamjaya@gmail.com');
+            accObj = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamjaya@gmail.com',market__c='TH');
             accList.add(accObj);
             Id recordTypeAccCompanyAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-            accObj = new Account(RecordTypeId = recordTypeAccCompanyAccountObjId ,Name = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamjaya@gmail.com');
+            accObj = new Account(RecordTypeId = recordTypeAccCompanyAccountObjId ,Name = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamjaya@gmail.com',market__c='TH');
             accList.add(accObj);
             insert accList;
             Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
@@ -455,24 +455,24 @@ public with sharing class VehicleRelationshipHelperTHTest{
        }
 
        public static testMethod void afterUpdateEventTest1(){
-           creatTestData();
-           
-           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626');
-            insert accobj1;
-            Account accObj2 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626');
-            insert accobj2;
-             Account_Link__c al=new Account_Link__c(Name='new al',
-            toRole__c=accobj1.id,
-            System__C='My Mercedes',
-            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
-             );
-             insert al;
-             
-           Address__c address=new Address__c();
-           address.Address_Type__c='Home';
-           address.Province__c='test1';
-           address.City__c='bangalore';
+			creatTestData();
+
+			Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+			Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626');
+			insert accobj1;
+			Account accObj2 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626');
+			insert accobj2;
+			Account_Link__c al=new Account_Link__c(Name='new al',
+				toRole__c=accobj1.id,
+				System__C='My Mercedes',
+				RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
+			);
+			insert al;
+
+			Address__c address=new Address__c();
+			address.Address_Type__c='Home';
+			address.Province__c='test1';
+			address.City__c='bangalore';
             address.District__c='test2';
             address.Block__c='test3';
             address.Address_Line_1__c='testaddress1';
@@ -480,8 +480,7 @@ public with sharing class VehicleRelationshipHelperTHTest{
             address.Customer__c=accobj1.id;
             address.TitleOfHonor__c = 'To Person'; 
          
-            
-           insert address;
+			insert address;
            
            
             Address__c address1=new Address__c();
@@ -496,53 +495,46 @@ public with sharing class VehicleRelationshipHelperTHTest{
             address1.TitleOfHonor__c = 'To Person'; 
             insert address1;
             
-                     Group g=new Group();
-                     g.name='Test Group';
-                    insert g;
+			Group g=new Group();
+			g.name='Test Group';
+			insert g;
            
-                 
-       
-           List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
-           Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(Owner_Dealer__c=accobj1.id,vehicle_address_picklist__c='Home Address',vehicle_address__c=address.id,Vehicle_Phone_picklist__c='Home phone',vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='Email Home',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
-            insert vehicleRelationshipObj1;
-          
-           listcampaigns.add(vehicleRelationshipObj1);
+			List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
+			Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(Owner_Dealer__c=accobj1.id,vehicle_address_picklist__c='Home Address',vehicle_address__c=address.id,Vehicle_Phone_picklist__c='Home phone',vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='Email Home',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
+			insert vehicleRelationshipObj1;
+
+			listcampaigns.add(vehicleRelationshipObj1);
            
            
-                    Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
-                    vehicleRelationShare.AccessLevel = 'Read';
-                    vehicleRelationShare.UserOrGroupId = g.Id;
-                    vehicleRelationShare.ParentId = listcampaigns[0].id;
-                    insert vehicleRelationShare;
+			Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
+			vehicleRelationShare.AccessLevel = 'Read';
+			vehicleRelationShare.UserOrGroupId = g.Id;
+			vehicleRelationShare.ParentId = listcampaigns[0].id;
+			insert vehicleRelationShare;
            
-           
-           
-           Vehicle_Relationship__c listCampaign =[select vehicle_address_picklist__c,Owner_Dealer__c,Car_Relation__c,Owner_Relation__c,vehicle_address__c,Registration_Number__c,Vehicle_Phone_picklist__c,Vehicle_ID__c,Selling_Dealer__c,Purchase_Date__c,Contact__c,Validity__c,Start_Date__c,End_Reason__c from Vehicle_Relationship__c where id IN:listcampaigns ];
-           list<Vehicle_Relationship__c> oldList = new  list<Vehicle_Relationship__c>();
-           oldList.add(listCampaign);
-           map<id,Vehicle_Relationship__c> oldMap = new map<id,Vehicle_Relationship__c>();
-           oldMap.put(listCampaign.id, listCampaign);
-           
-           
-           //vehicleRelationshipObj1.Contact__c=accobj2.id;
-           update vehicleRelationshipObj1;
-           update listcampaigns;   
-           
-               
-               //VehicleRelationshipHelperTH.afterUpdateEvent(listcampaigns,oldMap);
-              // VehicleRelationshipHelperTH.beforeupdateEventAddress(listcampaigns,oldMap);
-              // VehicleRelationshipHelperTH.updatePortalApplyStatus(listcampaigns,oldMap);
-              // VehicleRelationshipHelperTH.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
-               
-               
-               
-               vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
-               vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
-               vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
-               update vehicleRelationshipObj1;
-               
-               //VehicleRelationshipHelperTH.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
-               system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
+			Vehicle_Relationship__c listCampaign =[select vehicle_address_picklist__c,Owner_Dealer__c,Car_Relation__c,Owner_Relation__c,vehicle_address__c,Registration_Number__c,Vehicle_Phone_picklist__c,Vehicle_ID__c,Selling_Dealer__c,Purchase_Date__c,Contact__c,Validity__c,Start_Date__c,End_Reason__c from Vehicle_Relationship__c where id IN:listcampaigns ];
+			list<Vehicle_Relationship__c> oldList = new  list<Vehicle_Relationship__c>();
+			oldList.add(listCampaign);
+			map<id,Vehicle_Relationship__c> oldMap = new map<id,Vehicle_Relationship__c>();
+			oldMap.put(listCampaign.id, listCampaign);
+
+			//vehicleRelationshipObj1.Contact__c=accobj2.id;
+			update vehicleRelationshipObj1;
+			update listcampaigns;   
+
+
+			//VehicleRelationshipHelperTH.afterUpdateEvent(listcampaigns,oldMap);
+			// VehicleRelationshipHelperTH.beforeupdateEventAddress(listcampaigns,oldMap);
+			// VehicleRelationshipHelperTH.updatePortalApplyStatus(listcampaigns,oldMap);
+			// VehicleRelationshipHelperTH.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+
+			vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
+			vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
+			vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
+			update vehicleRelationshipObj1;
+
+			//VehicleRelationshipHelperTH.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+			system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
        
@@ -553,10 +545,10 @@ public with sharing class VehicleRelationshipHelperTHTest{
            set<id> vr=new set<id>();
            set<id> conn=new set<id>();
            Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedezrty',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamja@gmail.com');
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedezrty',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamja@gmail.com',market__c='TH');
             insert accobj1;
             conn.add(accobj1.id);
-            Account accObj2 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedezing',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamjad@gmail.com');
+            Account accObj2 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedezing',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+66-12-123-789',email__c='Dhanamjad@gmail.com',market__c='TH');
             insert accobj2;
              Account_Link__c al=new Account_Link__c(Name='new al',
             toRole__c=accobj1.id,
@@ -566,9 +558,10 @@ public with sharing class VehicleRelationshipHelperTHTest{
              insert al;
              
             Address__c address=new Address__c();
-           address.Address_Type__c='Home';
-           address.Province__c='test1';
-           address.City__c='bangalore';
+			address.market__c='TH';
+			address.Address_Type__c='Home';
+			address.Province__c='test1';
+			address.City__c='bangalore';
             address.District__c='test2';
             address.HouseNumber__c='104';
             address.Country__c='Japan';
@@ -584,6 +577,7 @@ public with sharing class VehicleRelationshipHelperTHTest{
            
            
             Address__c address1=new Address__c();
+			address.market__c='TH';
             address1.Address_Type__c='Home';
             address1.Province__c='test1';
             address1.City__c='bangalore';
@@ -598,78 +592,76 @@ public with sharing class VehicleRelationshipHelperTHTest{
             address1.TitleOfHonor__c = 'To Person'; 
             insert address1;
             
-                     Group g=new Group();
-                     g.name='Test Group';
-                    insert g;
+			Group g=new Group();
+			g.name='Test Group';
+			insert g;
           
             Vehicle_Relationship__c  vehicleRelationshipObj2 = new Vehicle_Relationship__c(Owner_Dealer__c=accobj1.id,vehicle_address_picklist__c='Home Address',vehicle_address__c=address.id,vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='Email Home',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Parent',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
             insert vehicleRelationshipObj2;   
             vr.add(vehicleRelationshipObj2.id);
-           List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
-           Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(Owner_Dealer__c=accobj1.id,vehicle_address_picklist__c='Home Address',vehicle_address__c=address.id,vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='Email Home',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
+			List<Vehicle_Relationship__c> listcampaigns=new List<Vehicle_Relationship__c>();
+			Vehicle_Relationship__c  vehicleRelationshipObj1 = new Vehicle_Relationship__c(Owner_Dealer__c=accobj1.id,vehicle_address_picklist__c='Home Address',vehicle_address__c=address.id,vehicle_fax_picklist__c='FAX',vehicle_mail_picklist__c='Email Home',Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accobj1.Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
             insert vehicleRelationshipObj1;
           
-           listcampaigns.add(vehicleRelationshipObj1);
+			listcampaigns.add(vehicleRelationshipObj1);
+
+			Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
+			vehicleRelationShare.AccessLevel = 'Read';
+			vehicleRelationShare.UserOrGroupId = g.Id;
+			vehicleRelationShare.ParentId = listcampaigns[0].id;
+			insert vehicleRelationShare;
            
            
-                    Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
-                    vehicleRelationShare.AccessLevel = 'Read';
-                    vehicleRelationShare.UserOrGroupId = g.Id;
-                    vehicleRelationShare.ParentId = listcampaigns[0].id;
-                    insert vehicleRelationShare;
            
-           
-           
-           Vehicle_Relationship__c listCampaign =[select vehicle_address_picklist__c,Owner_Dealer__c,Car_Relation__c,Owner_Relation__c,vehicle_address__c,Registration_Number__c,Vehicle_Phone_picklist__c,Vehicle_ID__c,Selling_Dealer__c,Purchase_Date__c,Contact__c,Validity__c,Start_Date__c,End_Reason__c from Vehicle_Relationship__c where id IN:listcampaigns ];
-           list<Vehicle_Relationship__c> oldList = new  list<Vehicle_Relationship__c>();
-           oldList.add(listCampaign);
-           map<id,Vehicle_Relationship__c> oldMap = new map<id,Vehicle_Relationship__c>();
-           oldMap.put(listCampaign.id, listCampaign);
-           
-           
-           //vehicleRelationshipObj1.Contact__c=accobj2.id;
-           update vehicleRelationshipObj1;
-           update listcampaigns;   
-           
-               VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
-              // VehicleRelationshipHelperTH.afterUpdateEvent(listcampaigns,oldMap);
-              // VehicleRelationshipHelperTH.beforeupdateEventAddress(listcampaigns,oldMap);
-              // VehicleRelationshipHelperTH.updatePortalApplyStatus(listcampaigns,oldMap);
-              // VehicleRelationshipHelperTH.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+			Vehicle_Relationship__c listCampaign =[select vehicle_address_picklist__c,Owner_Dealer__c,Car_Relation__c,Owner_Relation__c,vehicle_address__c,Registration_Number__c,Vehicle_Phone_picklist__c,Vehicle_ID__c,Selling_Dealer__c,Purchase_Date__c,Contact__c,Validity__c,Start_Date__c,End_Reason__c from Vehicle_Relationship__c where id IN:listcampaigns ];
+			list<Vehicle_Relationship__c> oldList = new  list<Vehicle_Relationship__c>();
+			oldList.add(listCampaign);
+			map<id,Vehicle_Relationship__c> oldMap = new map<id,Vehicle_Relationship__c>();
+			oldMap.put(listCampaign.id, listCampaign);
+
+
+			//vehicleRelationshipObj1.Contact__c=accobj2.id;
+			update vehicleRelationshipObj1;
+			update listcampaigns;   
+
+			VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
+			// VehicleRelationshipHelperTH.afterUpdateEvent(listcampaigns,oldMap);
+			// VehicleRelationshipHelperTH.beforeupdateEventAddress(listcampaigns,oldMap);
+			// VehicleRelationshipHelperTH.updatePortalApplyStatus(listcampaigns,oldMap);
+			// VehicleRelationshipHelperTH.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
              
                
-           vehicleRelationshipObj2.Owner_Relation__c='Grand Parent';
-           update vehicleRelationshipObj2;
-            VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
-            
-            
-             vehicleRelationshipObj2.Owner_Relation__c='Grand Parent';
-           update vehicleRelationshipObj2;
-            VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
-            
-             vehicleRelationshipObj2.Owner_Relation__c='Child';
-           update vehicleRelationshipObj2;
-            VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
-            
-             vehicleRelationshipObj2.Owner_Relation__c='Grand Child';
-           update vehicleRelationshipObj2;
-            VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
-            
-            vehicleRelationshipObj2.Owner_Relation__c='Employee';
-           update vehicleRelationshipObj2;
-            VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
-            
-            vehicleRelationshipObj2.Owner_Relation__c='Manager';
-           update vehicleRelationshipObj2;
-            VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
+			vehicleRelationshipObj2.Owner_Relation__c='Grand Parent';
+			update vehicleRelationshipObj2;
+			VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
+
+			vehicleRelationshipObj2.Owner_Relation__c='Grand Parent';
+			update vehicleRelationshipObj2;
+			VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
+
+			vehicleRelationshipObj2.Owner_Relation__c='Child';
+			update vehicleRelationshipObj2;
+			VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
+
+			vehicleRelationshipObj2.Owner_Relation__c='Grand Child';
+			update vehicleRelationshipObj2;
+			VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
+
+			vehicleRelationshipObj2.Owner_Relation__c='Employee';
+			update vehicleRelationshipObj2;
+			VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
+
+			vehicleRelationshipObj2.Owner_Relation__c='Manager';
+			update vehicleRelationshipObj2;
+			VehicleRelationshipHelperTH.createAccountLink(vh,vr,conn);
                 
-               vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
-               vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
-               //vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
-               update vehicleRelationshipObj1;
-               
-               //VehicleRelationshipHelperTH.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
-               system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
+			vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
+			vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
+			//vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
+			update vehicleRelationshipObj1;
+
+			//VehicleRelationshipHelperTH.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
+			system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        } 
 
