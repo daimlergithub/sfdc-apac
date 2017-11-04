@@ -513,8 +513,8 @@
                 <field>Bought_Vehicle_Model__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Purchase_Date__c</field>
+                <behavior>Edit</behavior>
+                <field>Purchased_CAC_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
