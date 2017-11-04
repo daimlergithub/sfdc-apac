@@ -447,10 +447,6 @@ OR
             <name>Update_Country_Field_MY</name>
             <type>FieldUpdate</type>
         </actions>
-        <actions>
-            <name>Update_Preferred_Language_Field_MY</name>
-            <type>FieldUpdate</type>
-        </actions>
         <active>true</active>
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for MY</description>
         <formula>ISPICKVAL($User.Market__c,&apos;MY&apos;)</formula>
