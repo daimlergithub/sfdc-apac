@@ -2587,7 +2587,7 @@ public pagereference saveAccountTH()
         {       
 			if( (AddressObj.Address_Line_1__c!=null ||      
 				AddressObj.Address_Line_2__c!=null ||   AddressObj.Address_Line_3__c!=null ||                       
-				province!=null || district!=null || zip!=null )){
+				(province!=null && province!='--Select--' )||zip!=null )){
 				
 				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select address type'));       
 				Validation = true; 
