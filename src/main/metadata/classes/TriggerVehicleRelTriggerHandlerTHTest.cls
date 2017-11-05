@@ -42,7 +42,7 @@ public class TriggerVehicleRelTriggerHandlerTHTest{
        
     
    // Prepare test data for Vehicle
-    vehicle = new Vehicle__c(Brand__c = 'BMW',
+    vehicle = new Vehicle__c(Brand__c = 'BMW',md__c='TH',
                              RecordTypeId=Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId()
                             );
      
@@ -50,6 +50,7 @@ public class TriggerVehicleRelTriggerHandlerTHTest{
    // Prepare test data for VehicleRelationship
     vehicleRel = new Vehicle_Relationship__c(Car_Relation__c = 'Purchaser',
                                             Contact__c = personAcc.Id,
+                                            md__c='TH',
                                             Vehicle_ID__c = vehicle.Id
                                             );
 
@@ -91,13 +92,13 @@ public class TriggerVehicleRelTriggerHandlerTHTest{
                                Ownerid=usr.id,
                                PersonHasOptedOutOfEmail=True,
                                Opt_In_Email__c=true,
-                               Owner=usr,
+                             //  Owner=usr,
                                PersonBirthdate=date.today(),
                                
                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
        
    // Prepare test data for Vehicle
-    vehicle = new Vehicle__c(Brand__c = 'BMW',
+    vehicle = new Vehicle__c(Brand__c = 'BMW',md__c='TH',
                              RecordTypeId=Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId()
                             );
      
@@ -105,7 +106,8 @@ public class TriggerVehicleRelTriggerHandlerTHTest{
    // Prepare test data for VehicleRelationship
     vehicleRel = new Vehicle_Relationship__c(Car_Relation__c = 'Purchaser',
                                             Contact__c = personAcc.Id,
-                                            Vehicle_ID__c = vehicle.Id
+                                            Vehicle_ID__c = vehicle.Id,
+                                            md__c='TH'
                                             );
 
     vehicleRelList.add(vehicleRel);                                           
