@@ -71,7 +71,10 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                     accids.add(accrec.id);
                 }
                 //CDMInformatica_Services.createCustomerCDM(accids);
+                if(firstRun==true){
                 CDMInformatica_Services.createCustomerCDM(accids,'TH','insert');
+                firstRun=false;
+                }
             }
         } 
         if(isAfter && isUpdate && !System.isFuture())

@@ -1778,7 +1778,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 6) AND (2 OR 3 OR 4) AND 5</booleanFilter>
+        <booleanFilter>(1 OR 6) AND (2 OR 3 OR 4) AND (5 OR 7)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
@@ -1804,10 +1804,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <operation>equals</operation>
             <value>Order Placed</value>
         </criteriaItems>
+		
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
-            <value>MY</value>
+            <value>MY</value>			
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Order Placed</value>
         </criteriaItems>
         <description>When the Dealer lead status is set to &quot;Order Placed&quot; then the Order Placeddate time field need to be updated with current time</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1818,10 +1824,10 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>Update_Purchased_Date_Time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-		<booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <active>true</active>
+		<booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Purchased</value>
         </criteriaItems>
@@ -1829,12 +1835,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
             <value>Aftersales Leads,Sales Leads,Retail Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
+        </criteriaItems>       
 		 <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
