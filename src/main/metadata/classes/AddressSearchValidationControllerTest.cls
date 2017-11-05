@@ -724,4 +724,503 @@ public class AddressSearchValidationControllerTest
          System.assertEquals(null, result1);
         
     }
+	  static testmethod void testOnLineDeduplicationCDMMY(){
+            //Person Account
+            Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+             user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
+                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            DMLManagerService.insertAsSystem(user1 );
+            CDM_Integration_URLs__c cdm=new CDM_Integration_URLs__c();
+             cdm.Country__c='MY';
+             cdm.type__c='Person Account';
+             cdm.Context__c='Person Account';
+             cdm.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-TH-SARI-SearchPersonAccount?';
+             cdm.Name='SearchPersonAccount';
+             insert cdm;
+             CDM_Integration_URLs__c cdm1=new CDM_Integration_URLs__c();
+             cdm1.Country__c='MY';
+             cdm1.type__c='Company';
+             cdm1.Context__c='Company';
+             cdm1.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-TH-SARI-SearchCompanyAccount?';
+             cdm1.Name='SearchCompanyAccount';
+             insert cdm1;
+             CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+             cs.DEFAULT_CALLOUT_TIME__c='1000';
+             cs.MAX_CALLOUT_TIME__c='5000';
+             cs.Name='CalloutValues';
+             insert cs;
+             
+             
+            personAcc =new Account();
+            personAcc.firstname= 'John';
+            personAcc.lastname= 'Leamos';
+            personAcc.mobile__c= '+666465';
+            personAcc.ID_Number__c='12312';
+            personAcc.UCID__c='12345';
+            personAcc.market__c='MY';
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+            AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+            JPAcccontroller.market='MY';
+            JPAcccontroller.objPersonAccount = personAcc;
+            JPAcccontroller.recordType = 'Person Account';
+            JPAcccontroller.selectedRecordType = 'Person Account';
+            JPAcccontroller.objAccount = personAcc;
+            
+           // insert personAcc;
+             
+          
+            Continuation cont2 = (Continuation)JPAcccontroller.onLineDeduplicationMY();
+            Map<String, HttpRequest> requests = cont2.getRequests();
+            system.assert(requests.size() == 1);
+            system.assert(requests.get(JPAcccontroller.requestLabel) != null);
+            HttpResponse response = new HttpResponse();
+            response.setBody('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":'+personAcc.UCID__c+',"AdminClientNum":"'+personAcc.id+'"}]}');  
+            Test.setContinuationResponse(JPAcccontroller.requestLabel, response);
+             Object result = Test.invokeContinuationMethod(JPAcccontroller, cont2);
+             System.assertEquals(null, result);
+             // System.assertEquals('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":'+personAcc.CDM_UCID__c+',"AdminClientNum":"2018-05-87987"}]}', JPAcccontroller.result);
+            //Comapany Acc1
+            personAcc1 = new Account();
+            personAcc1.Name='New Organization';
+            personAcc1.Company_Name__c='New Organization';
+            personAcc1.Work_Phone__c='+6611233132';
+            personAcc1.Name='New Organization';
+            ApexPages.StandardController objSc1 = new ApexPages.StandardController(personAcc1);
+            AddressSearchValidationController JPAcccontroller1= new AddressSearchValidationController(objSc1);
+            JPAcccontroller1.objPersonAccount = personAcc1;
+            JPAcccontroller1.recordType = 'Company';
+            JPAcccontroller1.selectedRecordType = 'Company';
+            JPAcccontroller1.objAccount = personAcc1;
+            JPAcccontroller1.hmphoneNumber='123456';
+           Continuation conti3 = (Continuation)JPAcccontroller1.onLineDeduplicationMY();
+            Map<String, HttpRequest> requests1 = conti3.getRequests();
+            system.assert(requests1.size() == 1);
+            system.assert(requests1.get(JPAcccontroller1.requestLabel) != null);
+            HttpResponse response1 = new HttpResponse();
+            response1.setBody('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":'+personAcc1.CDM_UCID__c+',"AdminClientNum":"2018-05-87987"}]}');  
+            Test.setContinuationResponse(JPAcccontroller1.requestLabel, response1);
+             Object result1 = Test.invokeContinuationMethod(JPAcccontroller1, conti3);
+             System.assertEquals(null, result1);
+            }
+       
+        static testmethod void testSaveMY(){
+            //Person Account
+            Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+             user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
+                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            DMLManagerService.insertAsSystem(user1 );
+            system.runas(user1){
+             
+            personAcc =new Account();
+            personAcc.firstname= 'John';
+            personAcc.lastname= 'Leamos';
+            personAcc.mobile__c= '+666465';
+            personAcc.ID_Number__c='12312';
+            
+            personAcc.UCID__c='12345';
+            personAcc.market__c='MY';
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+            AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+            JPAcccontroller.market='MY';
+            JPAcccontroller.objPersonAccount = personAcc;
+            JPAcccontroller.recordType = 'Person Account';
+            JPAcccontroller.selectedRecordType = 'Person Account';
+            JPAcccontroller.objAccount = personAcc;     
+            
+            
+            JPAcccontroller.hmphoneNumber='123456';
+            JPAcccontroller.wkphoneNumber='123456';
+            JPAcccontroller.mbphoneNumber='123456';
+            JPAcccontroller.faxphoneNumber='123456';
+            
+            JPAcccontroller.hmAreaCode='12';
+            JPAcccontroller.wkAreaCode='12';
+            JPAcccontroller.faxAreaCode='12';
+            
+            JPAcccontroller.faxCountryCode='+65';
+            JPAcccontroller.hmCountryCode='+65';
+            JPAcccontroller.wkCountryCode='+65';
+            JPAcccontroller.checkcountrycode();
+            
+            JPAcccontroller.faxCountryCode='+60';
+            JPAcccontroller.hmCountryCode='+60';
+            JPAcccontroller.wkCountryCode='+60';
+            JPAcccontroller.checkcountrycode();
+            
+            JPAcccontroller.saveAccountMY();
+            
+            
+            
+            
+            
+            personAcc1 = new Account();
+            personAcc1.Name='New Organization';
+            personAcc1.Company_Name__c='New Organization';
+            personAcc1.Work_Phone__c='+6011233132';
+            personAcc1.Name='New Organization';
+            personAcc1.Ucid__c='123212132';
+            ApexPages.StandardController objSc1 = new ApexPages.StandardController(personAcc1);
+            AddressSearchValidationController JPAcccontroller1= new AddressSearchValidationController(objSc1);
+            JPAcccontroller1.objPersonAccount = personAcc1;
+            JPAcccontroller1.recordType = 'Company';
+            JPAcccontroller1.selectedRecordType = 'Company';
+            JPAcccontroller1.objAccount = personAcc1;
+            JPAcccontroller1.hmphoneNumber='123456';
+            
+            JPAcccontroller1.hmphoneNumber='123456';
+            JPAcccontroller1.wkphoneNumber='123456';
+            JPAcccontroller1.mbphoneNumber='123456';
+            JPAcccontroller1.faxphoneNumber='123456';
+            
+            JPAcccontroller1.hmAreaCode='12';
+            JPAcccontroller1.wkAreaCode='12';
+            JPAcccontroller1.faxAreaCode='12';
+            
+            JPAcccontroller1.faxCountryCode='+65';
+            JPAcccontroller1.hmCountryCode='+65';
+            JPAcccontroller1.wkCountryCode='+65';
+            JPAcccontroller1.checkcountrycode();
+            
+            JPAcccontroller1.faxCountryCode='+60';
+            JPAcccontroller1.hmCountryCode='+60';
+            JPAcccontroller1.wkCountryCode='+60';
+            JPAcccontroller1.checkcountrycode();
+            JPAcccontroller1.saveAccountMY();
+               }
+       }
+        
+          static testmethod void testSavewithaddressMY(){
+            //Person Account
+            Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+             user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
+                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            DMLManagerService.insertAsSystem(user1 );
+            system.runas(user1){
+             
+            personAcc =new Account();
+            personAcc.firstname= 'John';
+            personAcc.lastname= 'Leamos';
+            personAcc.mobile__c= '+666465';
+            personAcc.ID_Number__c='12312';
+            
+            personAcc.UCID__c='12345';
+            personAcc.market__c='MY';
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+            AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+            JPAcccontroller.market='MY';
+            JPAcccontroller.objPersonAccount = personAcc;
+            JPAcccontroller.recordType = 'Person Account';
+            JPAcccontroller.selectedRecordType = 'Person Account';
+            JPAcccontroller.objAccount = personAcc;     
+            
+            JPAcccontroller.addressobj =  new Address__C();
+            JPAcccontroller.addressobj.Address_Type__c = 'Home';
+            JPAcccontroller.addressobj.Address_Line_1__c = 'line 1';
+            JPAcccontroller.addressobj.Address_Line_2__c = 'line 2';
+            JPAcccontroller.addressobj.Block__c = 'Block';
+            JPAcccontroller.addressobj.Customer__c = personAcc.id;
+            JPAcccontroller.addressobj.ZipCode__c = '104031';
+            JPAcccontroller.addressobj.Province__c ='Fukushima';
+            JPAcccontroller.addressobj.District__c ='Fukushima';
+            
+          
+            
+            JPAcccontroller.hmphoneNumber='123456';
+            JPAcccontroller.wkphoneNumber='123456';
+            JPAcccontroller.mbphoneNumber='123456';
+            JPAcccontroller.faxphoneNumber='123456';
+
+            
+            JPAcccontroller.faxCountryCode='+65';
+            JPAcccontroller.hmCountryCode='+65';
+            JPAcccontroller.wkCountryCode='+65';
+            JPAcccontroller.checkcountrycode();
+            
+            
+            JPAcccontroller.saveAccountMY();
+            
+            
+            
+            
+            
+            personAcc1 = new Account();
+            personAcc1.Name='New Organization';
+            personAcc1.Company_Name__c='New Organization';
+            personAcc1.Work_Phone__c='+6011233132';
+            personAcc1.Name='New Organization';
+            personAcc1.Ucid__c='123212132';
+            ApexPages.StandardController objSc1 = new ApexPages.StandardController(personAcc1);
+            AddressSearchValidationController JPAcccontroller1= new AddressSearchValidationController(objSc1);
+            JPAcccontroller1.objPersonAccount = personAcc1;
+            JPAcccontroller1.recordType = 'Company';
+            JPAcccontroller1.selectedRecordType = 'Company';
+            JPAcccontroller1.objAccount = personAcc1;
+            JPAcccontroller1.hmphoneNumber='123456';
+            
+            JPAcccontroller1.hmphoneNumber='123456';
+            JPAcccontroller1.wkphoneNumber='123456';
+            JPAcccontroller1.mbphoneNumber='123456';
+            JPAcccontroller1.faxphoneNumber='123456';
+            
+            JPAcccontroller1.hmAreaCode='12';
+            JPAcccontroller1.wkAreaCode='12';
+            JPAcccontroller1.faxAreaCode='12';
+            
+            JPAcccontroller1.faxCountryCode='+65';
+            JPAcccontroller1.hmCountryCode='+65';
+            JPAcccontroller1.wkCountryCode='+65';
+            JPAcccontroller1.checkcountrycode();
+            JPAcccontroller1.district='Fukushima';
+            JPAcccontroller1.province='Fukushima';
+            JPAcccontroller1.zip='12312';
+            JPAcccontroller1.addressobj =  new Address__C();
+            JPAcccontroller1.addressobj.Address_Type__c = 'Home';
+            JPAcccontroller1.addressobj.Address_Line_1__c = 'line 1';
+            JPAcccontroller1.addressobj.Address_Line_2__c = 'line 2';
+            JPAcccontroller1.addressobj.Block__c = 'Block';
+            JPAcccontroller1.addressobj.Customer__c = personAcc.id;
+            JPAcccontroller1.addressobj.ZipCode__c = '104031';
+            JPAcccontroller1.addressobj.Province__c ='Fukushima';
+            JPAcccontroller1.addressobj.District__c ='Fukushima';
+            JPAcccontroller1.saveAccountMY();
+           }
+       }
+       
+       
+       static testmethod void testSavewithaddressMY12(){
+            //Person Account
+            Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+             user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
+                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            DMLManagerService.insertAsSystem(user1 );
+            system.runas(user1){
+             
+            personAcc =new Account();
+            personAcc.firstname= 'John';
+            personAcc.lastname= 'Leamos';
+            personAcc.mobile__c= '+666465';
+            personAcc.ID_Number__c='12312';
+            
+            personAcc.UCID__c='12345';
+            personAcc.market__c='MY';
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+            AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+            JPAcccontroller.market='MY';
+            JPAcccontroller.objPersonAccount = personAcc;
+            JPAcccontroller.recordType = 'Person Account';
+            JPAcccontroller.selectedRecordType = 'Person Account';
+            JPAcccontroller.objAccount = personAcc;     
+            
+            JPAcccontroller.addressobj =  new Address__C();
+            JPAcccontroller.addressobj.Address_Type__c = 'Home';
+            JPAcccontroller.addressobj.Address_Line_1__c ='' ;
+            JPAcccontroller.addressobj.Address_Line_2__c ='' ;
+            JPAcccontroller.addressobj.Block__c = 'Block';
+            JPAcccontroller.addressobj.Customer__c = personAcc.id;
+            JPAcccontroller.addressobj.ZipCode__c ='' ;
+            JPAcccontroller.addressobj.Province__c ='Fukushima';
+            JPAcccontroller.addressobj.District__c ='Fukushima';
+            
+          
+            
+            JPAcccontroller.hmphoneNumber='123456';
+            JPAcccontroller.wkphoneNumber='123456';
+            JPAcccontroller.mbphoneNumber='123456';
+            JPAcccontroller.faxphoneNumber='123456';
+
+            
+            JPAcccontroller.faxCountryCode='+65';
+            JPAcccontroller.hmCountryCode='+65';
+            JPAcccontroller.wkCountryCode='+65';
+            JPAcccontroller.checkcountrycode();
+            
+            
+            JPAcccontroller.saveAccountMY();
+            
+            
+            
+            
+            
+            personAcc1 = new Account();
+            personAcc1.Name='New Organization';
+            personAcc1.Company_Name__c='New Organization';
+            personAcc1.Work_Phone__c='+6011233132';
+            personAcc1.Name='New Organization';
+            personAcc1.Ucid__c='123212132';
+            ApexPages.StandardController objSc1 = new ApexPages.StandardController(personAcc1);
+            AddressSearchValidationController JPAcccontroller1= new AddressSearchValidationController(objSc1);
+            JPAcccontroller1.objPersonAccount = personAcc1;
+            JPAcccontroller1.recordType = 'Company';
+            JPAcccontroller1.selectedRecordType = 'Company';
+            JPAcccontroller1.objAccount = personAcc1;
+            JPAcccontroller1.hmphoneNumber='123456';
+            
+            JPAcccontroller1.hmphoneNumber='123456';
+            JPAcccontroller1.wkphoneNumber='123456';
+            JPAcccontroller1.mbphoneNumber='123456';
+            JPAcccontroller1.faxphoneNumber='123456';
+            
+            JPAcccontroller1.hmAreaCode='12';
+            JPAcccontroller1.wkAreaCode='12';
+            JPAcccontroller1.faxAreaCode='12';
+            
+            JPAcccontroller1.faxCountryCode='+65';
+            JPAcccontroller1.hmCountryCode='+65';
+            JPAcccontroller1.wkCountryCode='+65';
+            JPAcccontroller1.checkcountrycode();
+            JPAcccontroller1.addressobj =  new Address__C();
+            JPAcccontroller1.addressobj.Address_Type__c = 'Home';
+            JPAcccontroller1.addressobj.Address_Line_1__c = 'line 1';
+            JPAcccontroller1.addressobj.Address_Line_2__c = 'line 2';
+            JPAcccontroller1.addressobj.Block__c = 'Block';
+            JPAcccontroller1.addressobj.Customer__c = personAcc.id;
+            JPAcccontroller1.addressobj.ZipCode__c = '104031';
+            JPAcccontroller1.addressobj.Province__c ='Fukushima';
+            JPAcccontroller1.addressobj.District__c ='Fukushima';
+            JPAcccontroller1.saveAccountMY();
+           }
+       }
+        static testmethod void testPagination(){
+            //Person Account
+            Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+             user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
+                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            DMLManagerService.insertAsSystem(user1 );
+            system.runas(user1){
+            List<account> acclist= new list<account>();
+            for(integer i=0;i<12;i++){
+                personAcc =new Account();
+                personAcc.firstname= 'John';
+                personAcc.lastname= 'Leamos';
+                personAcc.mobile__c= '+666465';
+                personAcc.ID_Number__c='12312';     
+                personAcc.UCID__c='12345'+i;
+                personAcc.market__c='MY';
+                acclist.add(personAcc);
+            }
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+            AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+            JPAcccontroller.market='MY';
+            JPAcccontroller.objPersonAccount = personAcc;
+            JPAcccontroller.recordType = 'Person Account';
+            JPAcccontroller.selectedRecordType = 'Person Account';
+            JPAcccontroller.objAccount = personAcc; 
+            JPAcccontroller.DedupAccountList.addall(acclist);
+            JPAcccontroller.LastIndex=acclist.size();
+            JPAcccontroller.First();
+            JPAcccontroller.next();
+            JPAcccontroller.previous();
+            JPAcccontroller.last();
+            }
+            
+            
+        }
+        
+         static testmethod void testSavewithaddressMY13(){
+            //Person Account
+            Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+             user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
+                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            DMLManagerService.insertAsSystem(user1 );
+            system.runas(user1){
+             
+            personAcc =new Account();
+            personAcc.firstname= 'John';
+            personAcc.lastname= 'Leamos';
+            personAcc.mobile__c= '+666465';
+            personAcc.ID_Number__c='12312';
+            
+            personAcc.UCID__c='12345';
+            personAcc.market__c='MY';
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+            AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+            JPAcccontroller.market='MY';
+            JPAcccontroller.objPersonAccount = personAcc;
+            JPAcccontroller.recordType = 'Person Account';
+            JPAcccontroller.selectedRecordType = 'Person Account';
+            JPAcccontroller.objAccount = personAcc;     
+            
+            JPAcccontroller.addressobj =  new Address__C();
+            JPAcccontroller.addressobj.Address_Type__c = 'Home';
+            JPAcccontroller.addressobj.Address_Line_1__c ='12312' ;
+            JPAcccontroller.addressobj.Address_Line_2__c ='12312' ;
+            JPAcccontroller.addressobj.Block__c = 'Block';
+            JPAcccontroller.addressobj.Customer__c = personAcc.id;
+            JPAcccontroller.addressobj.ZipCode__c ='12342' ;
+            JPAcccontroller.addressobj.Province__c ='Fukushima';
+            JPAcccontroller.addressobj.District__c ='Fukushima';
+            JPAcccontroller.province='1231231';
+            JPAcccontroller.zip='12312';
+            JPAcccontroller.district='1231';
+            JPAcccontroller.addressobj.Country__c='Malaysia';
+          
+            
+            JPAcccontroller.hmphoneNumber='123456';
+            JPAcccontroller.wkphoneNumber='123456';
+            JPAcccontroller.mbphoneNumber='123456';
+            JPAcccontroller.faxphoneNumber='123456';
+
+            
+            JPAcccontroller.faxCountryCode='+65';
+            JPAcccontroller.hmCountryCode='+65';
+            JPAcccontroller.wkCountryCode='+65';
+            JPAcccontroller.checkcountrycode();
+            
+            JPAcccontroller.saveAccountMY();        
+            
+            personAcc1 = new Account();
+            personAcc1.Name='New Organization';
+            personAcc1.Company_Name__c='New Organization';
+            personAcc1.Work_Phone__c='+6011233132';
+            personAcc1.Name='New Organization';
+            personAcc1.Ucid__c='123212132';
+            ApexPages.StandardController objSc1 = new ApexPages.StandardController(personAcc1);
+            AddressSearchValidationController JPAcccontroller1= new AddressSearchValidationController(objSc1);
+            JPAcccontroller1.objPersonAccount = personAcc1;
+            JPAcccontroller1.recordType = 'Company';
+            JPAcccontroller1.selectedRecordType = 'Company';
+            JPAcccontroller1.objAccount = personAcc1;
+            JPAcccontroller1.hmphoneNumber='123456';
+            JPAcccontroller1.province='1231231';
+            JPAcccontroller1.zip='12312';
+            JPAcccontroller1.district='1231';
+            JPAcccontroller.addressobj.Country__c='Malaysia';
+            JPAcccontroller1.hmphoneNumber='123456';
+            JPAcccontroller1.wkphoneNumber='123456';
+            JPAcccontroller1.mbphoneNumber='123456';
+            JPAcccontroller1.faxphoneNumber='123456';
+            
+            JPAcccontroller1.hmAreaCode='12';
+            JPAcccontroller1.wkAreaCode='12';
+            JPAcccontroller1.faxAreaCode='12';
+            
+            JPAcccontroller1.faxCountryCode='+65';
+            JPAcccontroller1.hmCountryCode='+65';
+            JPAcccontroller1.wkCountryCode='+65';
+            JPAcccontroller1.checkcountrycode();
+            JPAcccontroller1.addressobj =  new Address__C();
+            JPAcccontroller1.addressobj.Address_Type__c = 'Home';
+            JPAcccontroller1.addressobj.Address_Line_1__c = 'line 1';
+            JPAcccontroller1.addressobj.Address_Line_2__c = 'line 2';
+            JPAcccontroller1.addressobj.Block__c = 'Block';
+            JPAcccontroller1.addressobj.Customer__c = personAcc.id;
+            JPAcccontroller1.addressobj.ZipCode__c = '104031';
+            JPAcccontroller1.addressobj.Province__c ='Fukushima';
+            JPAcccontroller1.addressobj.District__c ='Fukushima';
+            JPAcccontroller1.saveAccountMY();
+           }
+       }
 }
