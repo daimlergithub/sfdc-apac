@@ -15,7 +15,7 @@ public static void updateCampaignMemberStatus(List<task> tlst){
     
     }
     List<CampaignMember> campmember=[Select id,contactid,campaignid,MBTH_Status__c from Campaignmember where contact.id IN: taskwithaccount.values()];
-    List<CampaignMember>campmembertoupdate=new List<CampaignMember>();
+    set<CampaignMember>campmembertoupdate=new set<CampaignMember>();
     for(Task tk:taskstoiterate){
     
     for(CampaignMember cM:campmember){
@@ -88,7 +88,9 @@ public static void updateCampaignMemberStatus(List<task> tlst){
         }
     }
 if(campmembertoupdate.size()>0){
-update campmembertoupdate;
+List<CampaignMember> updatelist=new List<CampaignMember>();
+updatelist.addAll(campmembertoupdate);
+update updatelist;
 }
 }
 
