@@ -59,7 +59,13 @@
                 <field>Dealer_Feedback__c</field>
             </layoutItems>
         </layoutColumns>
-        <style>OneColumn</style>
+		<layoutColumns>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+			</layoutColumns>
+        <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
     <showEmailCheckbox>false</showEmailCheckbox>

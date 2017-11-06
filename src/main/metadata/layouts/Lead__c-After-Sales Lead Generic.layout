@@ -3,37 +3,6 @@
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
-    <feedLayout>
-        <autocollapsePublisher>true</autocollapsePublisher>
-        <compactFeed>true</compactFeed>
-        <feedFilterPosition>CenterDropDown</feedFilterPosition>
-        <feedFilters>
-            <feedFilterType>AllUpdates</feedFilterType>
-        </feedFilters>
-        <feedFilters>
-            <feedFilterType>FeedItemType</feedFilterType>
-            <feedItemType>TextPost</feedItemType>
-        </feedFilters>
-        <fullWidthFeed>true</fullWidthFeed>
-        <hideSidebar>false</hideSidebar>
-        <highlightExternalFeedItems>true</highlightExternalFeedItems>
-        <rightComponents>
-            <componentType>Following</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>Followers</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>Topics</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>CustomLinks</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>CustomButtons</componentType>
-        </rightComponents>
-        <useInlineFiltersInConsole>true</useInlineFiltersInConsole>
-    </feedLayout>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -163,8 +132,8 @@
         <label>Lead Customer Information</label>
 		<layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contact__c</field>
+                <behavior>Required</behavior>
+                <field>Contact__c</field>				
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -513,8 +482,8 @@
                 <field>Bought_Vehicle_Model__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Purchase_Date__c</field>
+                <behavior>Edit</behavior>
+                <field>Purchased_CAC_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
