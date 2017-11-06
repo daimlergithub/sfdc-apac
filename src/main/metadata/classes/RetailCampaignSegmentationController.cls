@@ -2,9 +2,14 @@
         Page Controller
         ---------------------------------------------------------------
         History:
-         
+          
+        1. Justin Yu Created on 2014-05-14
+        2. Last modified date : 2017-May-08
+               modified by : Lokesh M
+           Desc : retail campign segmentation
+           JIRA : SFDCJP-1023,JP-1052,JP-1050,JP-1076,JP-1054
     ******************************************************************/
-    global with sharing class RetailCampaignSegmentationController_TH {
+    global with sharing class RetailCampaignSegmentationController {
         
         public Set<Id> accIdToGetRetailPerson;
         public Set<Id> vehIdToGetVehExtLink;
@@ -83,7 +88,8 @@
         public Set<String> accStatus = new Set<String>{'Customer', 'Prospect'};
         public Set<String> LeadDealerStatus = new Set<String>{'Not Started','On-going','Order Placed','Purchased(Only Non BDC)','Lost'};
         public Set<String> retTaskType = new Set<String>{'Standard Warranty','Used Car Warranty','Loan','Lease','Service Program'};
-        public Set<String> retProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus) ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
+       public Set<String> retProductName = new Set<String>{'Maintenance Plus','smart Maintenance Pack Start Plan','smart Maintenance Pack Second Plan','smart Maintenance Pack EV Plan','smart touring support 2 years Plan','smart touring support 3 years Plan','smart touring support 6 years Plan','MyMercedes Support','smart Maintenance Pack EV Start Plan','smart Maintenance Pack EV Second Plan','Maintenanec Plus Light','smart Maintenance','smart Maintenane Plus','Warranty Plus','Touring support Plus'};
+        //public Set<String> retProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus) ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
         public Set<String> retFinanceProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus)  ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
 
         public String jsonFilter { get; set; }
@@ -131,7 +137,7 @@
         //Segmentation_Base__c
         public String segmentationBase{set;get;}
         
-        public RetailCampaignSegmentationController_TH()
+        public RetailCampaignSegmentationController()
         {
             size = 100;
             system.debug('++++++++++'+con);
@@ -287,57 +293,7 @@
             set;
         }
         
-    public List<SelectOption> gender{
-        get{
-            gender= new List<SelectOption>();
-            gender.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Gender__c;
-            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                gender.add(new SelectOption(entry.getValue(), entry.getLabel()));
-            }
-            return gender;
-        }
-        set;
-    }
-    
-    public List<SelectOption> personalAgreement{
-        get{
-            personalAgreement = new List<SelectOption>();
-            personalAgreement.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Personal_Agreement__c;
-            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                personalAgreement.add(new SelectOption(entry.getValue(), entry.getLabel()));
-            }
-            return personalAgreement;
-        }
-        set;
-    }
-    
-     public List<SelectOption> hobbies{
-        get{
-            hobbies = new List<SelectOption>();
-            //RetailOptOutContactReason.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Hobby__c;
-            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                hobbies.add(new SelectOption(entry.getValue(), entry.getLabel()));
-            }
-            return hobbies;
-        }
-        set;
-    }
-    
-     public List<SelectOption> idType{
-        get{
-            idType = new List<SelectOption>();
-            //RetailOptOutContactReason.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.ID_Type__c;
-            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                idType.add(new SelectOption(entry.getValue(), entry.getLabel()));
-            }
-            return idType;
-        }
-        set;
-    }
+        
         
         public List<SelectOption> Customerphase{
             get{
@@ -574,7 +530,6 @@
                 }
             }
             
-            System.debug('----'+vehRelLength+'----'+vehicleRelSoql.length()+'----'+segmentationBase);
             if(vehicleRelSoql.length()>vehRelLength && segmentationBase != 'Vehicle'){
                 vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
                 system.debug('vehiclerelSoqlAtCommon>>>>'+vehicleRelSoql);
@@ -699,8 +654,7 @@
                system.debug('++++++++++++'+saveQuery );
                saveQuery = saveQuery.replace('AND AND','AND');
                 if(saveQuery.endsWith('AND ') || saveQuery.endsWith('AND  ')){
-                //saveQuery = saveQuery.replace('AND ','');
-                saveQuery = saveQuery.removeEnd('AND ');
+                saveQuery = saveQuery.replace('AND ','');
                 }
                  system.debug('++++++++++++'+saveQuery );
                 //List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
@@ -785,7 +739,6 @@
             recallLength = recallSoql.length();
             VehRetCopyLength = VehRetCopySoql.length();
             
-            System.debug('-----contentMap-----'+contentMap);
             List<Object> customerFilterItems = (List<Object>)contentMap.get('Customer');
             List<Object> leadFilterItems = (List<Object>)contentMap.get('Interest');
             List<Object> AccountLinkFilterItems = (List<Object>)contentMap.get('AccountLink');
@@ -1082,7 +1035,117 @@
             
             
         }
+            public PageReference selectall() 
+            
+    {
+    if(segmentationBase == 'Customer'){
+  
+       list<Account> accfinalist =  Database.query(saveQuery);
+       List<Account_Link__c> accLinkRetaiPersonList = [SELECT Id,toRole__c,Selling_Dealer__c FROM Account_Link__c WHERE RecordType.Name = 'Retail Person' AND toRole__c IN : accIdToGetRetailPerson];
+                    Map<Id,Id> toRoleAndSelDelMap = new Map<Id,Id>();
+                    for(Account_Link__c al : accLinkRetaiPersonList){
+                        toRoleAndSelDelMap.put(al.toRole__c,al.Selling_Dealer__c);
+                    }
+
+       system.debug('++++++accfinalist '+accfinalist );
+        list<Campaign_Member__c> camlist = new  list<Campaign_Member__c>();
+
+       for (Account acc : accfinalist )
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
+              
+        cam.Status__c = 'Ready';
+        cam.Contact_Id__c= acc.Id;
+         cam.Retail_Campaign_Id__c = retailCampaignId;  
+                            if(toRoleAndSelDelMap.containsKey(acc.Id)){
+            cam.Preferred_Dealer__c = toRoleAndSelDelMap.get(acc.id);                            }
+            
+        camlist.add(cam);
+ }
+                          try {
+                if(camlist != NULL && !camlist.isEmpty())
+                insert camlist;
+            }
+            catch(Exception ex){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getMessage()));
+                return null; 
+            } 
+       // insert(camlist);
+        }              
         
+              else if(segmentationBase == 'Vehicle'){ 
+              List<Account_Link__c> vehExtAccLinkList = [SELECT Id,Vehicle__c,Service_Dealer__c FROM Account_Link__c WHERE RecordType.Name = 'Vehicle External Link' AND Vehicle__c IN : vehIdToGetVehExtLink];
+               list<Vehicle_Relationship__c> accfinalist1 =  Database.query(saveQuery);   
+                                   Map<Id,Id> vehIdAndSerDelMap = new Map<Id,Id>();
+                    for(Account_Link__c al : vehExtAccLinkList){
+                        vehIdAndSerDelMap.put(al.Vehicle__c,al.Service_Dealer__c);
+                    }              
+        list<Campaign_Member__c> camlist1 = new  list<Campaign_Member__c>();
+
+      
+       for (Vehicle_Relationship__c acc : accfinalist1 )
+       
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
+        
+        cam.Status__c = 'Ready';
+         cam.Contact_Id__c= acc.Contact__c;
+         cam.Vehicle__c = acc.Vehicle_ID__c;
+         cam.Vehicle_Relationship__c = acc.Id;            
+         cam.Retail_Campaign_Id__c = retailCampaignId;
+         cam.Preferred_Dealer__c = vehIdAndSerDelMap.get(acc.Vehicle_ID__c);
+        camlist1.add(cam);
+        } 
+      // insert(camlist1); 
+                         try {
+                if(camlist1 != NULL && !camlist1.isEmpty())
+                insert camlist1;
+            }
+            catch(Exception ex){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getMessage()));
+                return null;
+            }
+}
+                   else if(segmentationBase == 'Contract'){ 
+               list<Retail_Task__c> accfinalist1 =  Database.query(saveQuery);                 
+       
+        list<Campaign_Member__c> camlist2 = new  list<Campaign_Member__c>();
+      
+       for (Retail_Task__c acc : accfinalist1 )
+       
+        {
+        Campaign_Member__c cam = new Campaign_Member__c ();
+        
+        cam.Status__c = 'Ready';
+        cam.Contract__c = acc.Id;
+        cam.Contact_Id__c= acc.Account__c;
+         cam.Retail_Campaign_Id__c = retailCampaignId;
+         cam.Vehicle__c = acc.Related_Vehicle__c;
+         cam.Preferred_Dealer__c = acc.Related_Dealer__c;
+        camlist2.add(cam);
+        } 
+      // insert(camlist2); 
+                               try {
+                if(camlist2 != NULL && !camlist2.isEmpty())
+                insert camlist2;
+            }
+            catch(Exception ex){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getMessage()));
+                return null;
+            }
+}
+
+     
+        
+            return new PageReference('/' + retailCampaignId);
+            
+    
+    }
+
+
+
+
+
         
         //Add campaign members to Retail campiang
         public PageReference addToCampaign(){
@@ -1242,8 +1305,8 @@
             numberFields = new Set<String>{'Vehicle_Amount__c', 'CurrentMileage__c'};
             dateFields = new Set<String>{'PersonBirthdate', 'LastServiceDate__c', 'End_Date__c','LastServiceDate__c', 'NextServiceDate__c','FirstRegistrationDate__c', 'Registration_Date__c', 'Expected_Close_Date__c','Expected_Registration_Date__c','NextInspectionDate__c','LastWorkDate__c','LastInspectionDate__c','EndDate__c'};
             textFields = new Set<String>{'Recall_No__c','Retail_Sales_Consultant__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'ZipCode__c', 'Selling_Dealer__c','Name','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c','Service_Dealer__c'};
-            pickListFields = new Set<String>{'Market__c','Customer_Type__c','Special_Mark_on_Account__c','Gender__c','Personal_Agreement__c','ID_Type__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c','Car_Model__r.Model_Name__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
-            multiplePickListFields = new Set<String>{'Hobby__c','Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
+            pickListFields = new Set<String>{'Market__c','Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c','Car_Model__r.Model_Name__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
+            multiplePickListFields = new Set<String>{'Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
             vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','FirstRegistrationDate__c', 'Class__c','Car_Model__r.Model_Name__c'};
             vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
             AccountLinkFields =new Set<String>{'Sales_Representative__c','Selling_Dealer__c','Retail_Sales_Consultant__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c','LastWorkDate__c','LastInspectionDate__c'};  

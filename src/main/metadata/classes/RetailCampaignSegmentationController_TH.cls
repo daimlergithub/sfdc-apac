@@ -2,12 +2,7 @@
         Page Controller
         ---------------------------------------------------------------
         History:
-          
-        1. Justin Yu Created on 2014-05-14
-        2. Last modified date : 2017-May-08
-               modified by : Lokesh M
-           Desc : retail campign segmentation
-           JIRA : SFDCJP-1023,JP-1052,JP-1050,JP-1076,JP-1054
+         
     ******************************************************************/
     global with sharing class RetailCampaignSegmentationController_TH {
         
@@ -292,7 +287,57 @@
             set;
         }
         
-        
+    public List<SelectOption> gender{
+        get{
+            gender= new List<SelectOption>();
+            gender.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Gender__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                gender.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return gender;
+        }
+        set;
+    }
+    
+    public List<SelectOption> personalAgreement{
+        get{
+            personalAgreement = new List<SelectOption>();
+            personalAgreement.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Personal_Agreement__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                personalAgreement.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return personalAgreement;
+        }
+        set;
+    }
+    
+     public List<SelectOption> hobbies{
+        get{
+            hobbies = new List<SelectOption>();
+            //RetailOptOutContactReason.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Hobby__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                hobbies.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return hobbies;
+        }
+        set;
+    }
+    
+     public List<SelectOption> idType{
+        get{
+            idType = new List<SelectOption>();
+            //RetailOptOutContactReason.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.ID_Type__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                idType.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return idType;
+        }
+        set;
+    }
         
         public List<SelectOption> Customerphase{
             get{
@@ -654,7 +699,8 @@
                system.debug('++++++++++++'+saveQuery );
                saveQuery = saveQuery.replace('AND AND','AND');
                 if(saveQuery.endsWith('AND ') || saveQuery.endsWith('AND  ')){
-                saveQuery = saveQuery.replace('AND ','');
+                //saveQuery = saveQuery.replace('AND ','');
+                saveQuery = saveQuery.removeEnd('AND ');
                 }
                  system.debug('++++++++++++'+saveQuery );
                 //List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
@@ -1196,8 +1242,8 @@
             numberFields = new Set<String>{'Vehicle_Amount__c', 'CurrentMileage__c'};
             dateFields = new Set<String>{'PersonBirthdate', 'LastServiceDate__c', 'End_Date__c','LastServiceDate__c', 'NextServiceDate__c','FirstRegistrationDate__c', 'Registration_Date__c', 'Expected_Close_Date__c','Expected_Registration_Date__c','NextInspectionDate__c','LastWorkDate__c','LastInspectionDate__c','EndDate__c'};
             textFields = new Set<String>{'Recall_No__c','Retail_Sales_Consultant__c','New_Used__c','PersonEmail', 'Modification_Package__c','Model_Description__c', 'ZipCode__c', 'Selling_Dealer__c','Name','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c','Service_Dealer__c'};
-            pickListFields = new Set<String>{'Market__c','Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c','Car_Model__r.Model_Name__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
-            multiplePickListFields = new Set<String>{'Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
+            pickListFields = new Set<String>{'Market__c','Customer_Type__c','Special_Mark_on_Account__c','Gender__c','Personal_Agreement__c','ID_Type__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Occupation__c', 'Type','Type__c', 'Range__c','Car_Relation__c', 'Class__c','Car_Model__r.Model_Name__c', 'Dealer_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
+            multiplePickListFields = new Set<String>{'Hobby__c','Interest_Model__c', 'Retail_OptOutContact_Reason__c'};
             vehicleFields = new Set<String>{'Model_Description__c','Modification_Package__c','Range__c','FirstRegistrationDate__c', 'Class__c','Car_Model__r.Model_Name__c'};
             vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};
             AccountLinkFields =new Set<String>{'Sales_Representative__c','Selling_Dealer__c','Retail_Sales_Consultant__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c','NextServiceDate__c','NextInspectionDate__c','LastServiceDate__c', 'CurrentMileage__c', 'Service_Dealer__c','LastWorkDate__c','LastInspectionDate__c'};  
