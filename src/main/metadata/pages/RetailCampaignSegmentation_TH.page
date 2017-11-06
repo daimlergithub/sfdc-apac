@@ -6,7 +6,7 @@
 
 
         var filterNames = '';
-        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;LastWorkDate__c;LastInspectionDate__c;';
+        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; Handover_Date__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;LastWorkDate__c;LastInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
@@ -577,6 +577,10 @@
                                     <option value="Interest_Model__c">{!$ObjectType.Account.Fields.Interest_Model__c.Label}</option>
                                     <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>                                   
                                     <option value="Status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
+                                    <option value="Gender__c">{!$ObjectType.Account.Fields.Gender__c.Label}</option>
+                                    <option value="Personal_Agreement__c">{!$ObjectType.Account.Fields.Personal_Agreement__c.Label}</option>
+                                    <option value="Hobby__c">{!$ObjectType.Account.Fields.Hobby__c.Label}</option>
+                                    <option value="ID_Type__c">{!$ObjectType.Account.Fields.ID_Type__c.Label}</option>
                                     <option value="Customer_Lifecycle_Phase__c">{!$Label.Customer_Stage}</option>
                                 </select>
                             </td>
@@ -611,7 +615,19 @@
                                 <apex:selectList styleClass="Special_Mark_on_Account__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!SpecialMarkonAccount}"></apex:selectOptions>
                                 </apex:selectList>
-                                 
+                                   <apex:selectList styleClass="Gender__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!gender}"></apex:selectOptions>
+                                </apex:selectList>
+                                   <apex:selectList styleClass="Personal_Agreement__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!personalAgreement}"></apex:selectOptions>
+                                </apex:selectList>
+                                   <apex:selectList styleClass="Hobby__c" size="5" multiselect="true">
+                                    <apex:selectOptions value="{!hobbies}"></apex:selectOptions>
+                                </apex:selectList>
+                                   <apex:selectList styleClass="ID_Type__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!idType}"></apex:selectOptions>
+                                </apex:selectList>
+
                                 <input class="dateInput" id="customerTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                </td>
@@ -790,6 +806,7 @@
                                    <option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>                                                                     
                                    <option value="Modification_Package__c">{!$ObjectType.Vehicle__c.Fields.Modification_Package__c.Label}</option>
                                    <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
+                                   <option value="Handover_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Handover_Date__c.Label}</option>
                                    <option value="Recall_No__c">{!$ObjectType.Recall__c.Fields.Recall_No__c.Label}</option> 
                                    <option value="Status__c">{!$Label.Recall_Status}</option> 
                                 </select>
@@ -1081,7 +1098,9 @@
                                 <select onchange="showCriteria(this);"> 
                                    
                                    <option value="ZipCode__c">{!$ObjectType.Address__c.Fields.ZipCode__c.Label}</option>                                                                     
-                                    <option value="Province__c">{!$ObjectType.Address__c.Fields.Province__c.Label}</option>                                  
+                                    <option value="Province__c">{!$ObjectType.Address__c.Fields.Province__c.Label}</option>    
+                                    <option value="District__c">{!$ObjectType.Address__c.Fields.District__c.Label}</option>                                
+                                    <option value="Sub_District__c">{!$ObjectType.Address__c.Fields.Sub_District__c.Label}</option>                              
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -1101,6 +1120,8 @@
                                     <apex:selectOptions value="{!provincemodel}"></apex:selectOptions>
                                 </apex:selectList> 
                                 <apex:inputField value="{!address.ZipCode__c}" styleClass="ZipCode__c" style="display:block;"/> 
+                                  <apex:inputField value="{!address.District__c}" styleClass="District__c"/>
+                                  <apex:inputField value="{!address.Sub_District__c}" styleClass="Sub_District__c"/>
                                  <!-- <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/> -->  
                                   
                             </td>

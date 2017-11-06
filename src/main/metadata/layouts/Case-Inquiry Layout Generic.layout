@@ -265,7 +265,15 @@
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
+        <layoutColumns>
+		   <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+		   <layoutItems>
+		    <behavior>Edit</behavior>
+            <field>Market__c</field>
+		   </layoutItems>
+		</layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
