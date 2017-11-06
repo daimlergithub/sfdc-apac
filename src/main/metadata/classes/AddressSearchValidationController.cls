@@ -2585,9 +2585,13 @@ public pagereference saveAccountTH()
         // Save record without Address record if no value is Entered in Address section     
         if(AddressObj.Address_Type__c == null )      
         {       
-			if( (AddressObj.Address_Line_1__c!=null ||      
-				AddressObj.Address_Line_2__c!=null ||   AddressObj.Address_Line_3__c!=null ||                       
-				province!=null || province!='--Select--'  ||zip!=null )){
+			if (string.isnotblank(AddressObj.Address_Line_1__c) ||      
+                string.isnotblank(AddressObj.Address_Line_2__c) ||   string.isnotblank(AddressObj.Address_Line_3__c)||                       
+               string.isnotblank(Zip)||                     
+                ((string.isnotblank(province) && addressObj.Country__c!='Malaysia') ||
+                 (province!='--Select--' && addressObj.Country__c=='Malaysia')   )){
+				
+				
 				
 				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select address type'));       
 				Validation = true; 
