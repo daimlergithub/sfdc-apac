@@ -11718,6 +11718,11 @@
         <field>Case.Vehicle_repossession_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Vehicle_Registration_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Vehicle_you_are_most_interested_in__c</field>
@@ -13268,6 +13273,11 @@
         <field>Duplicate_Merge_Info__c.Duplicate_Customer__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Duplicate_UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Duplicate_Reason__c</field>
@@ -13286,6 +13296,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Master_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Master_UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
