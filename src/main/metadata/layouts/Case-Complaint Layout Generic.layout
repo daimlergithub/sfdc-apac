@@ -32,7 +32,7 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Case_Type__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBTH_Case_Subtype__c</field>
             </layoutItems>
@@ -110,7 +110,7 @@
                 <behavior>Edit</behavior>
                 <field>AccountId</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Origin</field>
             </layoutItems>
@@ -323,6 +323,10 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedDate</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -384,7 +388,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h5D000000IiWp</masterLabel>
+        <masterLabel>00h0I000006TjTh</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
