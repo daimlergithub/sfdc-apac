@@ -21970,7 +21970,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
 	<validationRules>
         <fullName>Vehicle_Market_Cannot_be_Changed</fullName>
         <active>true</active>
-        <description>Market field of Vehicle should be same as user's market field</description>
+        <description>Market field of Vehicle  should be same as user's market field</description>
         <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
