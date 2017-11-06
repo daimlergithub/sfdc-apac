@@ -14,8 +14,14 @@
                 <behavior>Required</behavior>
                 <field>Reason</field>
             </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
+			</layoutColumns>
+		<layoutColumns>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+		</layoutColumns>	
+        <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
