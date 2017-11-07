@@ -21,7 +21,7 @@
         <visible>false</visible>
     </applicationVisibilities>
 	<applicationVisibilities>
-        <application>MY_Console</application>
+        <application>MBMY_Call_Center_Console</application>
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
@@ -26962,7 +26962,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Tasks</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>TerminateVehicleRelationship</apexPage>

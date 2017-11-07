@@ -249,7 +249,7 @@
                || newFieldValue == 'Registration_Date__c'|| newFieldValue == 'Warranty_Start_Date__c'|| newFieldValue == 'Expected_Registration_Date__c'|| newFieldValue == 'Expected_Close_Date__c' 
                || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Handover_Date__c' || newFieldValue == 'Occupation__c' || newFieldValue == 'Special_Mark_on_Account__c'|| newFieldValue == 'Gender__c' || newFieldValue == 'MBTH_Nationality__c' || newFieldValue == 'Personal_Agreement__c' || newFieldValue == 'Interest_Model__c' || newFieldValue == 'Customer_Type__c' 
                || newFieldValue == 'Sales_Representative__c' || newFieldValue == 'Retail_Visit_OptOut__c' || newFieldValue == 'Retail_Sales_Sanction__c' || newFieldValue == 'Retail_Postal_OptOut__c' || newFieldValue == 'Retail_Phone_OptOut__c'
-               || newFieldValue == 'Retail_Fax_OptOut__c' || newFieldValue == 'Retail_Email_OptOut__c' || newFieldValue == 'Retail_OptOutContact_Reason__c' || newFieldValue == 'Hobby__c' || newFieldValue == 'Portal_ID__c' || newFieldValue == 'Retail_Postal_OptOut__c'
+               || newFieldValue == 'Retail_Fax_OptOut__c' || newFieldValue == 'Retail_Email_OptOut__c' || newFieldValue == 'Retail_OptOutContact_Reason__c' || newFieldValue == 'Hobby__c' || newFieldValue == 'ID_Type__c' || newFieldValue == 'Portal_ID__c' || newFieldValue == 'Retail_Postal_OptOut__c'
                || newFieldValue == 'CAC_Lead_Status__c' || newFieldValue == 'Class__c' || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Service_Advisor__c' 
                || newFieldValue == 'Service_Advisor__c'  || newFieldValue == 'Last_Service_Dealer__c' || newFieldValue == 'MOT_Expired_Date__c' || newFieldValue == 'NextInspectionDate__c' || newFieldValue == 'CurrentMileage__c' 
                || newFieldValue == 'CurrentMileage__c' || newFieldValue == 'Product_Name__c' || newFieldValue == 'Finance_Product_Name__c' || newFieldValue == 'Re_lease_Prohibit_flag__c' || newFieldValue == 'Duration__c'
@@ -656,6 +656,7 @@
                                     <option value="MBTH_Nationality__c">{!$ObjectType.Account.Fields.MBTH_Nationality__c.Label}</option>
                                     <option value="Personal_Agreement__c">{!$ObjectType.Account.Fields.Personal_Agreement__c.Label}</option>
                                     <option value="Hobby__c">{!$ObjectType.Account.Fields.Hobby__c.Label}</option>
+                                    <option value="ID_Type__c">{!$ObjectType.Account.Fields.ID_Type__c.Label}</option>
                                     <option value="Customer_Lifecycle_Phase__c">Customer Stage</option>
                                 </select>
                             </td>
@@ -695,6 +696,9 @@
                                 </apex:selectList>
                                    <apex:selectList styleClass="Hobby__c" size="5" multiselect="true">
                                     <apex:selectOptions value="{!hobbies}"></apex:selectOptions>
+                                </apex:selectList>
+                                   <apex:selectList styleClass="ID_Type__c" size="1" multiselect="false">
+                                    <apex:selectOptions value="{!idType}"></apex:selectOptions>
                                 </apex:selectList>
                                 <input class="dateInput" id="customerTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
