@@ -4551,6 +4551,11 @@
         <editable>true</editable>
         <field>Account.Other_Hobby__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Outlet_General_GroupID__c</field>
+        <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
@@ -8912,6 +8917,12 @@
         <field>Campaign_Member__c.Zip_Code_Finance__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Finance_Product_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Zip_Code__c</field>
@@ -25327,6 +25338,21 @@
         <field>Persona__c.Profiles__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<layoutAssignments>
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
@@ -29002,10 +29028,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageUsers</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>MassInlineEdit</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

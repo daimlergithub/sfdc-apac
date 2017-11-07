@@ -31,19 +31,25 @@ public class RetailCampaignHelperTHTest {
   
      dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', Md__c='TH',Individual_Home_Phone__c='+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='12345');
         insert dealer;
-        retailcampaign=new Retail_Campaign__C(Dealer_Name__c=dealer.id,name='test123',recordtypeid=planningRecordId,start_date__c=system.today(),close_Date__C=system.today()+1);
+        retailcampaign=new Retail_Campaign__C(Dealer_Name__c=dealer1.id,name='test123',recordtypeid=planningRecordId,start_date__c=system.today()+1,close_Date__C=system.today()+1);
         insert retailcampaign;
     }
 static testMethod void updateRetailCampaignEmail() {
     test.starttest();
      createtestdata();
-    system.runAs(user1){
-   
+    system.runAs(user2){
+        Retail_Campaign__C retailcampaign1=new Retail_Campaign__C(Dealer_Name__c=dealer1.id,name='test123',recordtypeid=planningRecordId,start_date__c=system.today()+1,close_Date__C=system.today()+3);
+        insert retailcampaign1;
     ret.name='test';
-    ret.Start_Date__c=system.today();
+    ret.Start_Date__c=system.today()+1;
     ret.Close_Date__c=System.today()+1;
-    ret.Dealer_Name__c=dealer.id;
-    insert ret;
+    ret.Dealer_Name__c=null;
+    ret.recordtypeid=executionRecordId;
+        ret.Parent_Campaign1__c=retailcampaign1.id;
+        ret.Child_Campaign_Status__c='Planning';
+    insert ret;        
+       ret.Dealer_Name__c=dealer1.id;
+        update ret;
     test.stopTest();
 }
         }
@@ -58,5 +64,15 @@ static testMethod void updateRetailCampaignEmail() {
     test.stopTest();
         }
         }
- 
+    static testMethod void DeletChildsandParents() {
+        test.starttest();
+        createtestdata();
+        system.runAs(user1){
+            Retail_campaign__c retcampchild=new Retail_Campaign__C(Dealer_Name__c=dealer.id,name='test123',recordtypeid=executionRecordId,start_date__c=system.today()+2,close_Date__C=system.today()+2,Parent_Campaign1__c=retailcampaign.id);
+            insert retcampchild;
+           delete retailcampaign;
+    test.stopTest();
+   
+    } 
     }
+}

@@ -42,6 +42,10 @@ public with sharing class AccountMergeController{
     public static final String notmastermsg = Label.No_Master;
     public static final String notslavemsg = Label.No_Slave;
     public map<string,string> labelNvalue=new map<string,string>();
+      public  Account recAcc {get; set;}
+     public static Id PersoAccid= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id CompanyAccid= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    
      /** 
      * @Description : Constructor would be called to get the Master and Slave record
      * @author  Sneha chail
@@ -56,15 +60,21 @@ public with sharing class AccountMergeController{
            Id RecordTypeIdPersonSoftDeleted=UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
            Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','Company Soft Deleted');
            hasSuspectAccounts=false;
+           
+           
+              recAcc=[Select id,recordtypeid,Recordtype.name from account where Id=:Apexpages.currentPage().getParameters().get('id')];
+        
+          if(recAcc.recordtypeid==PersoAccid)
+          {
            if(AccountwrapperList == null) {
                AccountwrapperList = new List<Accountwrapper>();             
-               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,UCID__c ,RecordType.DeveloperName,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True and torole__c=:Apexpages.currentPage().getParameters().get('id')),Mobile__c,Work_Phone__c,Email__c,Individual_Home_Phone__c,PersonMobilePhone,
-                       PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
+               Acct = [Select Id,DUPNumber__c,Vehicle_Amount__c ,firstname,LastModifiedById,lastname,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,UCID__c ,RecordType.DeveloperName,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True and torole__c=:Apexpages.currentPage().getParameters().get('id')),Mobile__c,Work_Phone__c,Email__c,Individual_Home_Phone__c,PersonMobilePhone,
+                       PersonOtherPhone,PersonHomePhone,Full_Name__c,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
                if(Acct.DUPNumber__c!=Null){
                 AccountwrapperList.add(new Accountwrapper(Acct));  
-                for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,UCID__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
-                      DUPNumber__c,Id,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True and torole__c=:Apexpages.currentPage().getParameters().get('id')) FROM Account
-                      WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
+                for(Account a: [Select Full_Name__c ,Vehicle_Amount__c ,LastModifiedById,firstname,lastname,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,UCID__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
+                      DUPNumber__c,Id,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True) FROM Account
+                      WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id ]) {
                     // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
                     AccountwrapperList.add(new Accountwrapper(a));
                  }  
@@ -76,6 +86,34 @@ public with sharing class AccountMergeController{
                  ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'No record found'));
               }
             }
+            
+            }
+             if(recAcc.recordtypeid==CompanyAccid)
+            {
+            system.debug('venky@@*@**@*@*@*@');
+               if(AccountwrapperList == null) {
+               AccountwrapperList = new List<Accountwrapper>();             
+               Acct = [Select Id,name,Partner_First_Name__c ,Vehicle_Amount__c,DUPNumber__c,LastModifiedById,Master_Record__c,RecordtypeId,RecordType.Name,Primary_Address_Reference__c,Primary_Address_Reference__r.name,UCID__c ,RecordType.DeveloperName,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True and torole__c=:Apexpages.currentPage().getParameters().get('id')),Mobile__c,Work_Phone__c,Email__c,Individual_Home_Phone__c,PersonMobilePhone,
+                       PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
+               if(Acct.DUPNumber__c!=Null){
+                AccountwrapperList.add(new Accountwrapper(Acct));  
+                for(Account a: [Select name,Partner_First_Name__c ,Vehicle_Amount__c ,LastModifiedById,recordType.developerName,Master_Record__c,Dup_Reason__c,Primary_Address_Reference__c,Primary_Address_Reference__r.name,PersonMobilePhone,Mobile__c,Work_Phone__c,Individual_Home_Phone__c,Email__c,UCID__c,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
+                      DUPNumber__c,Id,(Select toRole__c,System__c,Primary__c ,Name from Account_Links__r where System__c='My Mercedes' and primary__c=True ) FROM Account
+                      WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id ]) {
+                    // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
+                    AccountwrapperList.add(new Accountwrapper(a));
+                 }  
+                 if(AccountwrapperList.size()==1){
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'You should have aleast one master and one slave record to merge the duplicates'));
+                   }  
+               } 
+             else{
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'No record found'));
+              }
+            }
+        
+        }
+            
             if(AccountwrapperList.size()!=2){
                 hasSuspectAccounts=true;
                }          
@@ -278,6 +316,7 @@ public with sharing class AccountMergeController{
           if
           (slave.RecordType.developerName == 'PersonAccount' && master.RecordType.developerName == 'PersonAccount')
           {
+          system.debug('&*&*&*&*&*&*&&*&*&*&*&* slave'+slave);
             slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
             slave.OwnerId = usr.Id;       
             slave.Master_Account_Id__c = master.Id;
@@ -300,14 +339,21 @@ public with sharing class AccountMergeController{
             insert duplicateLog;
             update master;
             update slave;
+            
+          system.debug('&*&*&*&*&*&*&&*&*&*&*&* slave'+slave);
         }
+        
+          
         catch (DMLException e) {
             Database.rollback(sp);
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 
                 e.getDMLMessage(0)));
             return null;
-        }        
-        return new PageReference('/' + master.Id);
+        }      
+        
+          system.debug('&*&*&*&*&*&*&&*&*&*&*&* slave'+slave);  
+       // return new PageReference('/' + master.Id);
+          return new PageReference('javascript:window.close()');
     }    
     /** 
      * @Description : Populate fieldLabel and fieldAPI 
@@ -628,6 +674,7 @@ public with sharing class AccountMergeController{
                 hasSuspectAdds =false;
                }
        return null; 
+       //return new PageReference('javascript:window.Reload()');
     }
      
       public PageReference previous() {      

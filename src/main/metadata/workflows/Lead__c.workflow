@@ -2288,7 +2288,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <formula>OR(AND(ISPICKVAL(CAC_Lead_Status__c , "Qualified"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR'),AND(ISPICKVAL(CAC_Lead_Status__c , "Qualified"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'TH'))</formula>
+        <formula>OR(AND(ISPICKVAL(CAC_Lead_Status__c , "Qualified"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR'),AND(ISPICKVAL(CAC_Lead_Status__c , "Qualified"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'TH'))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
