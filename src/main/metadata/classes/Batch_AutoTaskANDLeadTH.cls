@@ -1,15 +1,13 @@
 global class Batch_AutoTaskANDLeadTH implements Database.Batchable<SObject>, Database.Stateful, Schedulable{
  Date todaydate=System.today();
  List<Lead__c> existingLeadList=new List<Lead__C>();
- public static String leadRTId;
- public static String leadRTId1;
- 
-
+ public static String sales='Sales Leads';
+ public static String aftersales='Aftersales Leads';
  public static Id obCall = RecordTypeAccessService.getRecordTypeId('Task','OB Call');
- public static Id salesLead = RecordTypeAccessService.getRecordTypeId('Lead__c','Sales Leads');
- public static Id afterSalesLead = RecordTypeAccessService.getRecordTypeId('Lead__c','Aftersales Leads');
+String leadRTId= [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :sales].id;
+String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :aftersales].id;
   global Database.QueryLocator start(Database.BatchableContext bc) {
-  return DataBase.getQueryLocator('SELECT id,Auto_creation_of_tasks__c,Name,Convert_To_Lead_Flag__c,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Preferred_Dealer__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Retail_Campaign_Id__r.Execution_Type__c,Campaign_ID__r.OwnerId,Contact_Id__r.personcontactid,Retail_Campaign_Id__c,Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c FROM Campaign_Member__c WHERE  Retail_Campaign_Id__r.Execution_Start_Date__c=:todaydate and  (Status__c = \'Ready\' OR Status__c = \'Executed\' ) AND md__c=\'TH\' AND (Retail_Campaign_Id__r.MBTH_Approval_Status__c!=\'Submitted\' AND Retail_Campaign_Id__r.MBTH_Approval_Status__c!=\'Rejected\')');
+  return DataBase.getQueryLocator('SELECT id,Contact_Id__r.Work_Phone__c,Contact_Id__r.Mobile__c,Contact_Id__r.Primary_Phone__c,Contact_Id__r.Individual_Home_Phone__c,Auto_creation_of_tasks__c,Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype,Name,Convert_To_Lead_Flag__c,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Preferred_Dealer__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Retail_Campaign_Id__r.Execution_Type__c,Campaign_ID__r.OwnerId,Contact_Id__r.personcontactid,Retail_Campaign_Id__c,Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c,Retail_Campaign_Id__r.MBTH_Approval_Status__c, Lead_Sub_Type__c, Interested_Model__c FROM Campaign_Member__c WHERE  Retail_Campaign_Id__r.Execution_Start_Date__c=:todaydate and  (Status__c = \'Ready\' OR Status__c = \'Executed\' ) AND md__c=\'TH\' AND (Retail_Campaign_Id__r.MBTH_Approval_Status__c!=\'Submitted\' AND Retail_Campaign_Id__r.MBTH_Approval_Status__c!=\'Rejected\')');
   }
   global void execute(Database.BatchableContext bc, List<Campaign_Member__c> scope) {
       List<Task> taskstoInsert=new List<Task>();
@@ -24,14 +22,14 @@ global class Batch_AutoTaskANDLeadTH implements Database.Batchable<SObject>, Dat
        existingLeadList = [Select Retail_Campaign_Name__c, Contact__c  from Lead__c where Retail_Campaign_Name__c =: retcamp];
       List<Lead__c> leadListToInsert = new List<Lead__c>();
       for(Campaign_Member__c  campmember:scope){
-      if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='OB Call'&&campmember.Auto_creation_of_tasks__c==false){
+      if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='OB Call'&&campmember.Auto_creation_of_tasks__c==false && campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'&& campmember.Retail_Campaign_Id__r.MBTH_Approval_Status__c=='Approved'){
       Task taskRec=new Task();
       
       
            taskRec.status= 'New';
         taskRec.Priority='Low';
         taskRec.subject = 'Campaign Executed';
-        taskRec.Whatid = campmember.id;
+        taskRec.Whatid = campmember.Retail_Campaign_Id__r.id;
         taskRec.OwnerId = campmember.Retail_Campaign_Id__r.OwnerId;
         taskRec.ActivityDate=System.today()+3;
         campmember.Auto_creation_of_tasks__c=true;
@@ -41,14 +39,14 @@ global class Batch_AutoTaskANDLeadTH implements Database.Batchable<SObject>, Dat
         taskRec.Related_Vehicle__c= campmember.Vehicle__c;    
         taskRec.Account_Name__c =campmember.Company_Name__c;
         taskRec.Phone__c = campmember.Contract_Phone1_1__c;
-        taskRec.Phone_number__c= campmember.Contract_Phone2_2__c;
+       taskRec.Phone_number__c=campmember.Contact_Id__r.Primary_Phone__c=='Home Phone'?campmember.Contact_Id__r.Individual_Home_Phone__c:campmember.Contact_Id__r.Primary_Phone__c=='Work Phone'?campmember.Contact_Id__r.Work_Phone__c:campmember.Contact_Id__r.Primary_Phone__c=='Mobile'?campmember.Contact_Id__r.Mobile__c:'';
         taskRec.Campaign_Member_ID__c = campmember.Name;
         taskRec.RecordTypeId = obCall;
         taskstoInsert.add(taskrec);
         campmember.Auto_creation_of_tasks__c= true;
 
         }
-        else if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='Lead' && campmember.Convert_To_Lead_Flag__c!=True){
+        else if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='Lead' && campmember.Convert_To_Lead_Flag__c!=True &&campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'&& campmember.Retail_Campaign_Id__r.MBTH_Approval_Status__c=='Approved'){
              Lead__c duplicate = checkDuplicate(campmember, existingLeadList);
               if(duplicate.Id == null){
                   leadListToInsert.add(setLeadRecordFields(campmember.Retail_Campaign_Id__c,campmember));
@@ -77,7 +75,6 @@ global class Batch_AutoTaskANDLeadTH implements Database.Batchable<SObject>, Dat
   public Lead__c setLeadRecordFields(String campaignId, Campaign_Member__c campaignMember) {
         Lead__c leadRec = new Lead__c();
         leadRec.Retail_Campaign_Name__c = campaignId;
-        leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
         leadRec.CAC_Lead_Status__c = 'New';
         leadRec.Lead_DataSource__c='Dealer Outlet';
         leadRec.Contact__c = campaignMember.Contact_Id__c;
@@ -95,6 +92,7 @@ global class Batch_AutoTaskANDLeadTH implements Database.Batchable<SObject>, Dat
         leadRec.Finance_Total_V_Price_Tax__c=campaignMember.Total_Vehicle_Price_with_tax__c;
         leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
         leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
+        system.debug(campaignMember.Retail_Campaign_Id__r.OwnerId);
         leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
         leadRec.UsVIN__c=campaignMember.UsVIN__c;
         if(campaignMember.Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c!=null){

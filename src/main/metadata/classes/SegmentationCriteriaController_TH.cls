@@ -171,7 +171,7 @@ public with sharing class SegmentationCriteriaController_TH {
     public List<SelectOption> personalAgreement{
         get{
             personalAgreement = new List<SelectOption>();
-            nationality.add(new SelectOption('', '--None--'));
+            personalAgreement.add(new SelectOption('', '--None--'));
             Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Personal_Agreement__c;
             for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
                 personalAgreement.add(new SelectOption(entry.getValue(), entry.getLabel()));
@@ -203,6 +203,19 @@ public with sharing class SegmentationCriteriaController_TH {
                 hobbies.add(new SelectOption(entry.getValue(), entry.getLabel()));
             }
             return hobbies;
+        }
+        set;
+    }
+    
+     public List<SelectOption> idType{
+        get{
+            idType = new List<SelectOption>();
+            //RetailOptOutContactReason.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.ID_Type__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                idType.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return idType;
         }
         set;
     }

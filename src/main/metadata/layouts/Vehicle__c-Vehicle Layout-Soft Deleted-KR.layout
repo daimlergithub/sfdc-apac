@@ -281,6 +281,10 @@
                 <behavior>Readonly</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
