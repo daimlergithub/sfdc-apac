@@ -65,6 +65,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         if(isAfter && isUpdate && !System.isFuture())
         {
             if(TriggerRecursiveCheck.run){
+					TriggerRecursiveCheck.runOnce();
                     AccountHelperTH.createUpdateCDMUCID(Label.UpdateContext,Label.MY,Trigger.new);
                     firstRun=false;
                 }
