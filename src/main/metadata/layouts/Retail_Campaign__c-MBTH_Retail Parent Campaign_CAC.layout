@@ -68,10 +68,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Total_Converted_Leads_in_Hierarchy__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Range__c</field>
             </layoutItems>
             <layoutItems>
@@ -141,10 +137,6 @@
                 <field>Campaign_Sub_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Parent_Campaign1__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Close_Date__c</field>
             </layoutItems>
@@ -170,7 +162,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>M_Brand__c</field>
+                <field>Brand__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -195,10 +187,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Class1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
