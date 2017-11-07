@@ -1250,7 +1250,7 @@
         <value>Response Date Error</value>
     </labels>
     <labels>
-        <fullName>Campaign_Execution_Simple</fullName>
+        <fullName>Campaign_Execution_Simple</fullName> 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Campaign Execution</shortDescription>
