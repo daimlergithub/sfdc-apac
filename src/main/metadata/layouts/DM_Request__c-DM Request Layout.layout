@@ -98,6 +98,10 @@
                 <behavior>Edit</behavior>
                 <field>Expected_DM_Material3__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_DM_Material1__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
