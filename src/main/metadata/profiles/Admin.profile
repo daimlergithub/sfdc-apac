@@ -15,11 +15,6 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-	<applicationVisibilities>
-        <application>MY_Console</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
     <applicationVisibilities>
         <application>Central_Marketing</application>
         <default>false</default>
