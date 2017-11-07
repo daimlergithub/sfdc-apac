@@ -43,10 +43,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Brand__c</field>
             </layoutItems>
             <layoutItems>
@@ -60,10 +56,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Total_Leads__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Total_Converted_Leads_in_Hierarchy__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

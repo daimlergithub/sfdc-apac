@@ -1546,7 +1546,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassAssignChangeOwnerJP</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassAssignChangeOwnerJPTest</apexClass>
@@ -1554,7 +1554,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TaskMassChangeOwnerTest</apexClass>
@@ -2648,7 +2648,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Age_Range__c</field>
         <readable>true</readable>
     </fieldPermissions>
