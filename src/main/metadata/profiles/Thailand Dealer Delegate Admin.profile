@@ -27030,11 +27030,11 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail Execution Campaign Dealer TH</layout>
+        <layout>Retail_Campaign__c-MBTH_Retail Execution Campaign_CAC</layout>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail Parent Campaign Dealer TH</layout>
+        <layout>Retail_Campaign__c-MBTH_Retail Parent Campaign_CAC</layout>
         <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
