@@ -267,15 +267,6 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>MEMBER_TYPE</fields>
-        <fields>STATUS</fields>
-        <fields>FIRST_NAME</fields>
-        <fields>LAST_NAME</fields>
-        <fields>TITLE</fields>
-        <fields>COMPANY</fields>
-        <relatedList>RelatedCampaignMemberList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.TOTAL_NUM_LEADS</fields>
         <fields>CAMPAIGN.TOT_CONVERTED_LEADS</fields>
@@ -294,19 +285,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Campaign_Lead__c.Campaign__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Contact__c</fields>
-        <fields>Status__c</fields>
-        <fields>Expected_DM_Material1__c</fields>
-        <fields>Status1__c</fields>
-        <fields>Expected_DM_Material2__c</fields>
-        <fields>Status2__c</fields>
-        <fields>Expected_DM_Material3__c</fields>
-        <fields>Status3__c</fields>
-        <fields>Sent_Date__c</fields>
-        <relatedList>DM_Request__c.Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
