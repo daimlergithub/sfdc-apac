@@ -2891,9 +2891,9 @@
     </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
-        <editable>True</editable>
+        <editable>true</editable>
         <field>Case.Market__c</field>
-        <readable>True</readable>
+        <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>True</editable>
@@ -11258,11 +11258,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Mailing_Phone_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Market__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
