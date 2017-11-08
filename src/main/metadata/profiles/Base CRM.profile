@@ -25594,14 +25594,14 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Lead Generic</layout>
+        <layout>Lead__c-After-Sales Lead Generic Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Lead Generic</layout>
+        <layout>Lead__c-After-Sales Lead Generic Layout</layout>
         <recordType>Lead__c.After_Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Lead Generic</layout>
+        <layout>Lead__c-After-Sales Lead Generic Layout</layout>
         <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25613,7 +25613,7 @@
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Lead Generic</layout>
+        <layout>Lead__c-After-Sales Lead Generic Layout</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
