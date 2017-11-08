@@ -10321,6 +10321,6 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>New_Component</shortDescription>
-        <value>false</value>
+        <value>true</value>
     </labels>
 </CustomLabels>

@@ -27957,4 +27957,8 @@
         <enabled>true</enabled>
         <name>EmailSingle</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
+        <name>LightningExperienceUser</name>
+    </userPermissions>
 </Profile>
