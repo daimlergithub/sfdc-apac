@@ -18,8 +18,8 @@
 				<apex:outputField value="{!Case.Parentid}"/>
 				<apex:outputLabel ></apex:outputLabel>
 				<apex:outputField value="{!Case.TL_Reviewed__c}"/>
-				<apex:outputField value="{!Case.Internal_Comments__c}"/>
 				<apex:outputField value="{!Case.Inquiry_Comments__c}"/>
+				<apex:outputField value="{!Case.Internal_Comments__c}"/>
 				<apex:outputField value="{!Case.Dealer_Contact__c}"/>
             </apex:pageblockSection>
             

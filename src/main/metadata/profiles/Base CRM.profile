@@ -2610,7 +2610,22 @@
         <apexClass>usernotificationsetting</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <custom>true</custom>
+    <custom>true</custom>	
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Case.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Vehicle__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Vehicle_Relationship__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.ASLead_Notification_Timing__c</field>
@@ -25579,14 +25594,14 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Lead Generic</layout>
+        <layout>Lead__c-After-Sales Lead Generic Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Lead Generic</layout>
+        <layout>Lead__c-After-Sales Lead Generic Layout</layout>
         <recordType>Lead__c.After_Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Lead Generic</layout>
+        <layout>Lead__c-After-Sales Lead Generic Layout</layout>
         <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25598,7 +25613,7 @@
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Lead Generic</layout>
+        <layout>Lead__c-After-Sales Lead Generic Layout</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>

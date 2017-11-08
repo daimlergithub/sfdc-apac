@@ -36,8 +36,8 @@
 				<apex:inputField value="{!Case.Parentid}"/>
 				<apex:outputLabel ></apex:outputLabel>
 				<apex:inputField value="{!Case.TL_Reviewed__c}"/>
-				<apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
 				<apex:inputField value="{!Case.Inquiry_Comments__c}" style="width:300px; height:100px"/>
+				<apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
 				<apex:inputField value="{!Case.Dealer_Contact__c}"/>
             </apex:pageblockSection>
                
