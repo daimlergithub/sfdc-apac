@@ -4978,7 +4978,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 1</fullName>
