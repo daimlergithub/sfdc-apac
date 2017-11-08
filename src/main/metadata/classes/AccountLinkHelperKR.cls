@@ -1613,3 +1613,4 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
         } 
     }
 }
+
