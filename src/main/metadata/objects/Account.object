@@ -10330,6 +10330,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Skiing</fullName>
@@ -10502,6 +10503,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Driving</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Motorcycle</fullName>
@@ -10624,6 +10626,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Fashion</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Current events</fullName>
@@ -10744,30 +10747,37 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Movies&amp;Plays</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Concerts&amp;Exhibition</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interior</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wine/Cuisine</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Well-being</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hiking</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
@@ -10778,10 +10788,12 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Beauty&amp;Skincare</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Health Training</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Childcare</fullName>
@@ -12528,7 +12540,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <fullName>Loyalty_Card_No__c</fullName>
         <externalId>false</externalId>
         <label>Loyalty Card No</label>
-        <length>16</length>
+        <length>18</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
