@@ -22324,6 +22324,14 @@ PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Exection'</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Campaign_Executer_is_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Driven_Type__c,'Joint'), 
+ISBLANK(TEXT(Campaign_Executer__c)),MD__c = 'JP', 
+$Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Planning_Design_Campaign' )</errorConditionFormula>
+        <errorMessage>In case of Joint Campaign, Campaign Executer is mandatory.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Campaign_Not_Yet_Started_Active</fullName>
         <active>true</active>
