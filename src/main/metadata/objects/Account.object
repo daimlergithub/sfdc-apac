@@ -241,16 +241,12 @@
         </displayedFields>
         <label>AccountMergeFields</label>
     </fieldSets>
-    <fieldSets>
+	
+	 <fieldSets>
         <fullName>AccountMergeFieldsCompany</fullName>
-        <description>AccountMerge</description>
-		        <displayedFields>
-            <field>UCID__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
+        <description>AccountMerge</description>		        
         <displayedFields>
-            <field>Salutation</field>
+            <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -295,301 +291,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Data_Source_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>MB_Customer_Info_Remove__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>MB_CIR_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Allow_Data_Sharing2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Sales_Sanction__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Sales_Sanction_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Sales_Sanction_Comment__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Mobile__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Mobile_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Mobile2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_MMS_IM_Status_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_Last_Modified_Date2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Individual_Home_Phone__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Individual_Home_Phone_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Status_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Last_Modified_Date2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Phone</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Status_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Last_Modified_Date2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Status_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_Date2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Status_3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_By3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_Date3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax_Validity__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax_Validity2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Fax_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax2_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Address_Reference__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Address_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Phone__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Phone_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Email__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Email_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Fax__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Fax_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Foundation_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -620,11 +321,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>VIP__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Special_Care__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -635,47 +331,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Interest_Model__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>UpsellOpportunity__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CreatedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CreatedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Customer_LastUpdatedDate__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Last_Modified_User_Type__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Warranty_Apply_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Warranty_Apply_User__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Warranty_Apply_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -916,17 +572,17 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>AccountMergeFieldsCompanyKR</label>
-    </fieldSets>
+    </fieldSets>	
     <fieldSets>
         <fullName>AccountMergeFieldsPerson</fullName>
-        <description>AccountMerge.page (Contact Portfolio)</description>
-                <displayedFields>
-            <field>UCID__c</field>
+        <description>AccountMerge.page (Contact Portfolio)</description>        
+		<displayedFields>
+            <field>LastName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
 		<displayedFields>
-            <field>Name</field>
+            <field>FirstName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -949,302 +605,7 @@
             <field>Data_Source__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Data_Source_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>MB_Customer_Info_Remove__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>MB_CIR_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Allow_Data_Sharing2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Sales_Sanction__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Sales_Sanction_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Sales_Sanction_Comment__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Mobile__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Mobile_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Mobile2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_MMS_IM_Status_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>SMS_Last_Modified_Date2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Individual_Home_Phone__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Individual_Home_Phone_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Status_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Home_Phone_Last_Modified_Date2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Phone</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Status_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Phone_Last_Modified_Date2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Status_2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_Date2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Status_3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_By3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Email_Last_Modified_Date3__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax_Validity__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax_Validity2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Work_Fax_Last_Modified_By__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Fax2_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Address_Reference__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Address_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Phone__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Phone_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Email__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Email_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Fax__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Fax_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
+        </displayedFields>		
         <displayedFields>
             <field>Preferred_Contact_Method__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1261,80 +622,10 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>PersonDoNotCall</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>PersonDoNotCall_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>PersonHasOptedOutOfEmail</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>OptedOutOfEmail_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Postal_Opt_Out__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Postal_Opt_Out_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>PersonHasOptedOutOfFax</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>OptedOutOfFax_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Visit_Opt_Out__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Visit_Opt_Out_Last_Modified_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Main_Dealer__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Opt_Out_Portal__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Opt_Out_Portal_Reason__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Opt_In_Contact_Reason__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Opt_In_Contact_Reason_Details__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
+        </displayedFields>		
         <displayedFields>
             <field>Description</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1414,17 +705,7 @@
             <field>Preferred_Internet_Site__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Hobby__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Deceased__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
+        </displayedFields>		
         <displayedFields>
             <field>Driver_License_Number__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1432,11 +713,6 @@
         </displayedFields>
         <displayedFields>
             <field>Driver_License_Validity_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>VIP__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1451,77 +727,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Interest_Model__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>UpsellOpportunity__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <displayedFields>
-            <field>CreatedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CreatedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Customer_LastUpdatedDate__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Last_Modified_User_Type__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Portal_Apply_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Portal_Apply_User__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Portal_Apply_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Warranty_Apply_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Warranty_Apply_User__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Warranty_Apply_Date__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
         <label>AccountMergeFieldsPerson</label>
-    </fieldSets>
+    </fieldSets>	
     <fieldSets>
         <fullName>AccountMergeFieldsPersonKR</fullName>
         <description>This is field set used in verify duplicate, This has the list fields that shows in merge page. This set is for KOREA.AccountMergeKR.page (Contact Portfolio)</description>
@@ -1882,16 +1093,62 @@
         </displayedFields>
         <label>AccountMergeFieldsPersonKR</label>
     </fieldSets>
+	
     <fieldSets>
         <fullName>AccountMergeReadonlyCompany</fullName>
         <description>Account Merge</description>
+		<displayedFields>
+            <field>UCID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>		
         <displayedFields>
-            <field>SMS_Last_Modified_By__c</field>
+            <field>Data_Source_Last_Modified_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>SMS_Last_Modified_By2__c</field>
+            <field>MB_Customer_Info_Remove__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MB_CIR_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction_Comment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_By__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1901,7 +1158,37 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Mobile2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_MMS_IM_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>SMS_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_By__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1911,7 +1198,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Home_Phone_Last_Modified_By__c</field>
+            <field>Home_Phone_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Status_2__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1926,12 +1218,17 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Work_Phone_Last_Modified_By__c</field>
+            <field>Work_Phone__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Work_Phone_Last_Modified_By2__c</field>
+            <field>Work_Phone_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_By__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1941,7 +1238,32 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Work_Phone_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1951,17 +1273,37 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Email_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Email_Last_Modified_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Email2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Email_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status_3__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1976,12 +1318,107 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Fax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Validity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Validity2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Fax_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax2_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Reference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Phone_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Email_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Fax__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Fax_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>		
+        <displayedFields>
+            <field>VIP__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Interest_Model__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>		
+        <displayedFields>
             <field>CreatedDate</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields> 
+		<displayedFields>
+            <field>LastModifiedDate</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1991,12 +1428,32 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>LastModifiedDate</field>
+            <field>Customer_LastUpdatedDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Last_Modified_User_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Warranty_Apply_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Warranty_Apply_User__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Warranty_Apply_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <label>AccountMergeReadonlyCompany</label>
-    </fieldSets>
+    </fieldSets>	
     <fieldSets>
         <fullName>AccountMergeReadonlyCompanyKR</fullName>
         <description>This is used in verify duplicate and account merge on the account layout button.</description>
@@ -2117,16 +1574,62 @@
         </displayedFields>
         <label>AccountMergeReadonlyCompanyKR</label>
     </fieldSets>
+	
     <fieldSets>
         <fullName>AccountMergeReadonlyPerson</fullName>
         <description>Account Merge</description>
-        <displayedFields>
-            <field>SMS_Last_Modified_By__c</field>
+		<displayedFields>
+            <field>UCID__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>SMS_Last_Modified_By2__c</field>
+            <field>Data_Source_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MB_Customer_Info_Remove__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MB_CIR_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction_Comment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_By__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2136,7 +1639,32 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Mobile2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_MMS_IM_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>SMS_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone_Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2146,12 +1674,22 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Home_Phone_Last_Modified_By2__c</field>
+            <field>Home_Phone_Last_Modified_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Home_Phone_Last_Modified_Date__c</field>
+            <field>Home_Phone_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_By2__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2161,12 +1699,17 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Work_Phone_Last_Modified_By__c</field>
+            <field>Work_Phone__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Work_Phone_Last_Modified_By2__c</field>
+            <field>Work_Phone_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_By__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2176,7 +1719,32 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Work_Phone_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2186,17 +1754,37 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Email_Last_Modified_By2__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Email_Last_Modified_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Email2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Email_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status_3__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2211,6 +1799,175 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Fax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Validity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Validity2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Fax_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax2_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Reference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Phone_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Email_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Fax__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Fax_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>        <displayedFields>
+            <field>PersonDoNotCall</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonDoNotCall_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonHasOptedOutOfEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OptedOutOfEmail_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Postal_Opt_Out__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Postal_Opt_Out_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonHasOptedOutOfFax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OptedOutOfFax_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Visit_Opt_Out__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Visit_Opt_Out_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>		
+        <displayedFields>
+            <field>Opt_Out_Portal__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Opt_Out_Portal_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Opt_In_Contact_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Opt_In_Contact_Reason_Details__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>		
+        <displayedFields>
+            <field>Hobby__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Deceased__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>		
+        <displayedFields>
+            <field>VIP__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Interest_Model__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>CreatedDate</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -2221,12 +1978,52 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>LastModifiedById</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>LastModifiedDate</field>
+            <field>Customer_LastUpdatedDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Last_Modified_User_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Portal_Apply_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Portal_Apply_User__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Portal_Apply_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Warranty_Apply_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Warranty_Apply_User__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Warranty_Apply_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2387,9 +2184,15 @@
         </displayedFields>
         <label>SLICK_CTI_ACCOUNT</label>
     </fieldSets>
+	
     <fieldSets>
         <fullName>SuspectAccountFields</fullName>
         <description>SelectSlaveAccount.page (Contact Portfolio)</description>
+		 <displayedFields>
+            <field>UCID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
@@ -2397,6 +2200,11 @@
         </displayedFields>
         <displayedFields>
             <field>Dup_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Vehicle_Amount__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2425,7 +2233,73 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+		<displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>SuspectAccountFields</label>
+    </fieldSets>
+	
+    <fieldSets>
+        <fullName>SuspectedPersonaccountfields</fullName>
+        <description>SelectSlaveAccount.page This is created as part of changes related to SFDCJP-2941</description>
+		 <displayedFields>
+            <field>UCID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>FirstName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>		
+        <displayedFields>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Dup_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Vehicle_Amount__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SuspectedPersonaccountfields</label>
     </fieldSets>
     <fields>
         <fullName>ASLead_Notification_Timing__c</fullName>
@@ -4653,7 +4527,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4868,14 +4741,12 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>English Customer Desk</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4891,7 +4762,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4899,7 +4769,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -5033,7 +4902,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -5064,18 +4932,16 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cataloue Call</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -5110,6 +4976,41 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Inbound</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -8839,18 +8740,18 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
     <fields>
         <fullName>Email_Sent_Status__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(
-		ISPICKVAL(Email_Status__c , 'Incomplete'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),
-		IF(
-		ISPICKVAL(Email_Status__c , 'Invalid'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),
-		IF(
-		ISPICKVAL(Email_Status__c , 'BounceBack'),
-		IMAGE("/servlet/servlet.FileDownload?file=0150k0000000ZK6",
-		"Red"),"")))</formula>
+           <formula>IF( 
+ISPICKVAL(Email_Status__c , 'Incomplete'), 
+IMAGE("/resource/RedLed","RedLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Invalid'), 
+IMAGE("/resource/RedLed","RedLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Valid'), 
+IMAGE("/resource/GreenLed","GreenLed"), 
+IF( 
+ISPICKVAL(Email_Status__c , 'Bounce-Back'), 
+IMAGE("/resource/RedLed","RedLed"),""))))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Email Sent Status</label>
         <required>false</required>
@@ -10221,6 +10122,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Skiing</fullName>
@@ -10318,7 +10220,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Gardening</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Camping</fullName>
@@ -10394,6 +10295,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Driving</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Motorcycle</fullName>
@@ -10461,11 +10363,12 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DIY</fullName>
                 <default>false</default>
-            </picklistValues>
+			</picklistValues>
             <picklistValues>
                 <fullName>Humanity</fullName>
                 <default>false</default>
@@ -10498,7 +10401,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Collecting (Other)</fullName>
                 <default>false</default>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Collecting (antiques)</fullName>
@@ -10516,6 +10418,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Fashion</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Current events</fullName>
@@ -10602,7 +10505,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Travelling</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -10637,30 +10539,37 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Movies&amp;Plays</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Concerts&amp;Exhibition</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interior</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wine/Cuisine</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Well-being</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hiking</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
@@ -10671,11 +10580,12 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Beauty&amp;Skincare</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Health Training</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Childcare</fullName>
@@ -10704,6 +10614,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Movies</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Home &amp; Gardening</fullName>
@@ -10714,7 +10625,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Arts &amp; Crafts</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -10725,7 +10635,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Wine</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Diet</fullName>
@@ -10734,7 +10643,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Movie/Drama</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interior Design</fullName>
@@ -10743,7 +10651,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Art Collecting</fullName>
                 <default>false</default>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10951,13 +10858,11 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>National ID</fullName>
                 <default>false</default>
-				<controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
-				<controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
@@ -12427,7 +12332,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <fullName>Loyalty_Card_No__c</fullName>
         <externalId>false</externalId>
         <label>Loyalty Card No</label>
-        <length>16</length>
+        <length>18</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -13892,22 +13797,13 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <externalId>false</externalId>
         <label>SMS / MMS / IM Status</label>
         <picklist>
-            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Valid</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Invalid</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -14198,7 +14094,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14206,7 +14101,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14222,7 +14116,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14262,7 +14155,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14302,7 +14194,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14310,7 +14201,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14326,7 +14216,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14356,7 +14245,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <fullName>Housekeeping</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14418,7 +14306,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Doctor/Pharmacist/Nurse</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14430,7 +14317,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Legal Expert</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14443,7 +14329,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>State Enterprise Employee</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14825,6 +14710,17 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+	 <fields>
+        <fullName>Outlet_General_GroupID__c</fullName>
+        <externalId>false</externalId>
+        <label>Outlet General GroupID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
 	<fields>
         <fullName>Owner_Relation__c</fullName>
@@ -15517,7 +15413,6 @@ Modify Reason:
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -15734,7 +15629,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
     <fields>
         <fullName>Preferred_Contact_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Preferred Contact Date</label>
+        <label>Preferred Contact Day</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -18363,6 +18258,221 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>                
+                <fullName>Mr.</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Mrs.</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Ms.</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Unknown</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Prof.</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Madam</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Encik</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Cik </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>               
+                <fullName>Tuan</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Puan</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Ungku</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Haji </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Hajjah</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Dato&apos;</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Datin</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Datuk</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Dato&apos; Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Datuk Seri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Dato Paduka</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Datin Paduka</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Datuk Wira</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>YAB Datuk</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Y. A. Bhg Datin</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>YAB Dato&apos; Sri </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Tun</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Toh Puan</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Tan Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Puan Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Y.A. Bhg</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Y. Bhg. Dato</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Yang Arif </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Yang Mulia </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Yang Amat Mulia </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Yang Teramat Mulia </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Yang Berhormat </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Yang Amat Arif </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>KDYMM</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>DYTM</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Tuan Yang Terutama </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>Yang Amat Berhormat </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>                
+                <fullName>YAB Tan Sri Datuk Dr </fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>YAB Datuk Tan Sri Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -20482,7 +20592,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20587,6 +20697,38 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22611,6 +22753,22 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yoga</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Interior Design</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Well-being</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Wine</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Movie%2FDrama</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26569,7 +26727,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -32616,7 +32774,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -38507,7 +38665,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -44634,7 +44792,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50392,7 +50550,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50497,6 +50655,38 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55706,7 +55896,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60433,7 +60623,7 @@ NOT(Dealer_Active__c)
         <fullName>Customer_Status_Check_TH</fullName>
         <active>true</active>
         <errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
-		&amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Status__c , 'Customer') &amp;&amp;(MD__c = 'TH')</errorConditionFormula>
+&amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Status__c , 'Customer') &amp;&amp; (OR(MD__c = 'TH', MD__c = 'MY'))</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>If customer has no vehicle relationship, Status must not be Customer.</errorMessage>
     </validationRules>
@@ -61932,7 +62122,7 @@ srcUp('/apex/SelectSlaveAccount?Id={!Account.Id}');
 } 
 }
 else if(userMarket[0].Market__c == 'JP'){ 
-window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","scrollbars=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","scrollbars=yes,width = 1200, height = 600"); 
 }
 else if(userMarket[0].Market__c == 'KR'){ 
 window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 

@@ -51,6 +51,49 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
+	    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>ATL_BTL__c</fullName>
         <description>ATL/BTL of the campaign</description>
@@ -2303,9 +2346,12 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -4683,6 +4729,33 @@
         <active>true</active>
         <description>For AS Central Campaign</description>
         <label>AS Central Campaign</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -5901,6 +5974,33 @@
         <active>true</active>
         <description>For CAC CRM Manager Campaign Planning</description>
         <label>CAC CRM Campaign</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -7107,6 +7207,33 @@
         <active>true</active>
         <description>For CAC Campaign Operation</description>
         <label>CAC Campaign</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -8320,6 +8447,33 @@
         <active>true</active>
         <description>For CAS Marketing Campaign Planning</description>
         <label>CAS Marketing Campaign</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -9346,6 +9500,33 @@
         <active>true</active>
         <description>For Campaign Executions of various channels (OB/SMS/eDM/DM )</description>
         <label>Campaign Execution - Simple</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -10400,6 +10581,33 @@
         <active>true</active>
         <description>For Campaign Executions with complex segmentation</description>
         <label>Campaign Execution - Complex</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -11468,6 +11676,33 @@
         <fullName>Campaign_Execution_Complex_Lock</fullName>
         <active>true</active>
         <label>Campaign Execution-Complex Lock</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -12513,6 +12748,33 @@
         <fullName>Campaign_Executiono</fullName>
         <active>true</active>
         <label>Campaign Execution</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -13962,6 +14224,33 @@
         <active>true</active>
         <description>Campaign Planning</description>
         <label>Central Marketing Campaign</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -14992,6 +15281,33 @@
         <active>true</active>
         <description>MB Best Practice Campaign</description>
         <label>MB Best Practice</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -16221,6 +16537,33 @@
         <fullName>Planning_Design_Campaign</fullName>
         <active>true</active>
         <label>Planning &amp; Design Campaign</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -18129,6 +18472,33 @@
         <active>true</active>
         <description>For S&amp;M Event Central Campaign</description>
         <label>S&amp;M Event Central Campaign</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -19359,6 +19729,33 @@
         <active>true</active>
         <description>For S&amp;M Media Central Campaign</description>
         <label>S&amp;M Media Central Campaign</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -20588,6 +20985,33 @@
         <fullName>smart_Best_Practice</fullName>
         <active>true</active>
         <label>smart Best Practice</label>
+		        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -21900,6 +22324,14 @@ PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Exection'</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Campaign_Executer_is_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Driven_Type__c,'Joint'), 
+ISBLANK(TEXT(Campaign_Executer__c)),MD__c = 'JP', 
+$Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Planning_Design_Campaign' )</errorConditionFormula>
+        <errorMessage>In case of Joint Campaign, Campaign Executer is mandatory.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Campaign_Not_Yet_Started_Active</fullName>
         <active>true</active>
@@ -21943,7 +22375,7 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !=&apos;IntegrationAPI&apos;,ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,&quot;DM&quot;),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
@@ -21985,13 +22417,13 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
 )</errorConditionFormula>
         <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
     </validationRules>
-    <validationRules>
+   <validationRules>
         <fullName>Locked_for_Central_when_Published_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-RecordType.Name =='Planning &amp; Design Campaign',
+RecordType.Name ==&apos;Planning &amp; Design Campaign&apos;,
 
-OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
+OR(ISPICKVAL(Status,&apos;Published&apos;),ISPICKVAL(Status,&apos;Closed&apos;)),
 OR( ISCHANGED( Campaign_Code__c ),
 ISCHANGED( Name ),
 ISCHANGED( Description ), 
@@ -22013,8 +22445,8 @@ ISCHANGED( Min_Car_Age__c ),
 ISCHANGED( Max_Car_Age__c ),
 ISCHANGED( Purpose__c )
 ),
-$Profile.Name != 'IntegrationAPI', UPPER(MD__c) = 'TH')</errorConditionFormula>
-        <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
+$Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;))</errorConditionFormula>
+        <errorMessage>You cann&apos;t change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Locked_for_MB_BP_when_Published</fullName>
@@ -22104,7 +22536,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
     <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
     </validationRules>
@@ -22113,6 +22545,13 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <active>true</active>
         <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Status),'Completed'),ISCHANGED(Status), MD__c = 'JP', $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'Planning_Design_Campaign' )</errorConditionFormula>
         <errorMessage>You cannot changed the status</errorMessage>
+    </validationRules>
+	 <validationRules>
+        <fullName>Planning_Design_Campaign_Active_MY</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Planning_Design_Campaign&apos;,ISNEW(),IsActive = True, UPPER(MD__c) = &apos;MY&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>Parent Campaign can&apos;t be active if there aren&apos;t any associated campaign execution record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Previous_Campaign_Execution_Parent</fullName>
@@ -22165,6 +22604,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;  TODAY() , true, false)))</errorConditionFormula>
         <errorDisplayField>StartDate</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
+	    <validationRules>
+        <fullName>TH_publish_Date_Should_be_between_start</fullName>
+        <active>true</active>
+        <errorConditionFormula>MD__c ='TH' &amp;&amp;(StartDate &gt; Publish_Date__c ||Publish_Date__c&gt; EndDate)</errorConditionFormula>
+        <errorDisplayField>Publish_Date__c</errorDisplayField>
+        <errorMessage>Campaign Publish Date Should be Between Start  Date And  End Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Use_Segmentation_Criteria</fullName>
@@ -22886,5 +23332,37 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <openType>replace</openType>
         <protected>false</protected>
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Create_Child_Campaign_Generic</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Child Campaign</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/701/e?RecordType=01228000001Dg46&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Create_Simple_Execution_Generic</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Execution Campaign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/29.0/apex.js")} 
+
+if('{!User.ContactId}' !='')
+{
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+}
+else
+{
+window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+}</url>
     </webLinks>
 </CustomObject>

@@ -101,11 +101,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBMY_Call_Center</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>MBMY_Call_Center_Console</application>
         <default>false</default>
         <visible>false</visible>
@@ -157,11 +152,6 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_Reports_and_Dashboards</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>MY_Console</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
@@ -29758,10 +29748,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageReportsInPubFolders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>MassInlineEdit</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

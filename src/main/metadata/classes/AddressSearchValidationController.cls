@@ -16,6 +16,7 @@ History:
     Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
     Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in
     CDM   
+	Sanjay Nandi(SN20171028)    2017/10/28            //SN20171028- Added code to resolve issues related to search of CUstomer without address																																		  
 **/
 public class AddressSearchValidationController
 {
@@ -1512,6 +1513,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
            Address__c NewAdd=new Address__c();
+			//SN20171028- Online dedup fix
+            newadd.market__c=market;
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
             {
               AddressObj.Address_Type__c = addresspicklist;
@@ -1692,7 +1695,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             System.debug('@@@@@@@@@@ objAccount : '+objAccount);
             System.debug('@@@@@@@@@@ AddressObj : '+AddressObj);
             Address__c NewAdd=new Address__c();
-            
+            //SN20171028- Online dedup fix
+            newadd.market__c=market;									
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             {   
                 System.debug('@@@@@@@@@@ objAccount 2 :'+objAccount);
@@ -1920,6 +1924,8 @@ If the user is Saving  same address which matches the fields returned by toleran
              system.debug('@@@'+objAccount);
              system.debug('@@@'+AddressObj);             
            Address__c NewAdd=new Address__c();
+			//SN20171028- Online dedup fix
+            newadd.market__c=market;				
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.LastName!=null)
             {              
               system.debug('@@@In');
@@ -2086,7 +2092,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             
             Address__c NewAdd=new Address__c();
-            
+            //SN20171028- Online dedup fix
+            newadd.market__c=market;									
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             { 
                 response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
@@ -2227,7 +2234,15 @@ If the user is Saving  same address which matches the fields returned by toleran
                     endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
                     endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
                     endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-                    endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):''); 
+                    //SN20171108- This is interim solution
+					if(market =='MY' && label.New_Component=='true'){ 
+						endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
+						endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):''); 
+					}
+					else{
+						endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
+					}
+					
             }
             else if(recordType == 'Company'){
                          endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
@@ -2576,16 +2591,31 @@ public pagereference saveAccountTH()
         Validation = false;     
            
         // Save record without Address record if no value is Entered in Address section     
-        if(AddressObj.Address_Type__c == null)      
+        if(AddressObj.Address_Type__c == null )      
         {       
-            if(SaveAccountDetailsMY())      
-            {       
-                PageReference pageRef = new PageReference('/'+objAccount.Id);       
-                return PageRef;                 
-            }       
-        }       
-             
-        // Save record with Address details Validating the Address Details      
+			if (string.isnotblank(AddressObj.Address_Line_1__c) ||      
+                string.isnotblank(AddressObj.Address_Line_2__c) ||   string.isnotblank(AddressObj.Address_Line_3__c)||                       
+               string.isnotblank(Zip)||                     
+                ((string.isnotblank(province) && addressObj.Country__c!='Malaysia') ||
+                 (province!='--Select--' && addressObj.Country__c=='Malaysia')   )){
+				
+				
+				
+				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select address type'));       
+				Validation = true; 
+			}
+			
+			else{
+			   if(SaveAccountDetailsMY())      
+				{       
+					PageReference pageRef = new PageReference('/'+objAccount.Id);       
+					return PageRef;                 
+				}       
+			}
+        } 
+				
+        // Save record with Address details Validating the Address Details 
+		boolean check=false;
         If(AddressObj.Address_Type__c != null)      
         {       
                 
@@ -2621,7 +2651,7 @@ public pagereference saveAccountTH()
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));       
                 CustomLogUtil.CustomLoggingEntry('Error Occured ' +e.getDMlMessage(0));              
             }               
-        }       
+        } 
      return null;       
     }
 //Saves the Account relaed details for Thailand Market

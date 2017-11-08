@@ -79,14 +79,13 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>OR(AND( ISNEW() ,  NOT( ISNULL( [Lead__c].VehicleRel_No__c  ) ) ) ,AND( NOT(ISNEW()) ,  NOT( ISNULL( [Lead__c].VehicleRel_No__c  ) ),  ISCHANGED([Lead__c].VehicleRel_No__c ) ))
-
+                <stringValue>OR(AND( ISNEW() , [Lead__c].Aftersales_Vehicle_Relationship__c &lt;&gt; &apos;&apos; ) ,AND( NOT(ISNEW()) , [Lead__c].Aftersales_Vehicle_Relationship__c &lt;&gt; &apos;&apos;, ISCHANGED([Lead__c].Aftersales_Vehicle_Relationship__c ) ))
 </stringValue>
             </value>
         </processMetadataValues>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
-        <expression>OR(AND( ISNEW() ,  NOT( ISNULL( {!myVariable_current.VehicleRel_No__c}  ) ) ) ,AND( NOT(ISNEW()) ,  NOT( ISNULL( {!myVariable_current.VehicleRel_No__c}  ) ),  ISCHANGED({!myVariable_current.VehicleRel_No__c} ) ))</expression>
+        <expression>OR(AND( ISNEW() , {!myVariable_current.Aftersales_Vehicle_Relationship__c} &lt;&gt; &apos;&apos; ) ,AND( NOT(ISNEW()) , {!myVariable_current.Aftersales_Vehicle_Relationship__c} &lt;&gt; &apos;&apos;, ISCHANGED({!myVariable_current.Aftersales_Vehicle_Relationship__c} ) ))</expression>
     </formulas>
     <formulas>
         <processMetadataValues>

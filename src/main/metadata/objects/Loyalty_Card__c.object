@@ -62,10 +62,18 @@
         <relationshipLabel>Loyalty Card</relationshipLabel>
         <relationshipName>Loyalty_Card</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+	<fields>
+        <fullName>Card_Renew_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Card Renew Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>ConsentOfOverseasTransferOfPersonalInfo__c</fullName>
@@ -162,6 +170,46 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Customer_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renew</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>FG_GREGORIAN__c</fullName>
+        <externalId>false</externalId>
+        <label>FG Gregorian</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Lunar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Solar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Hobby__c</fullName>
         <externalId>false</externalId>
@@ -243,50 +291,11 @@
         <fullName>Interest__c</fullName>
         <externalId>false</externalId>
         <label>Interest</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Makeup Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf Lesson</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf Competition</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Concert/Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Launch Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test Drive Promotion</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Club</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion/Accessories Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
+        <length>200</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
-        <visibleLines>10</visibleLines>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Job__c</fullName>

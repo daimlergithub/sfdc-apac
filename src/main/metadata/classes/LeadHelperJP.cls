@@ -312,13 +312,18 @@ public class LeadHelperJP
                     {
                         leadsId.add(les.id);
                     }
+					if(isUpdate && les.Source_Campaign__c!=null && les.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && les.Assigned_Dealer__c != null )
+                    {
+                    System.debug('venky here..........');
+                     leadsId.add(les.id);
+                    }
                 }
             }
         }
         system.debug('leadsId<><><>' + leadsId);
         if(!leadsId.isEmpty() && leadsId != null)
         {
-            ledsList = [select id ,Assigned_Dealer__c ,Service_Advisor__c ,Assigned_Dealer__r.Dealer_Rollout_Status__c ,CAC_Lead_Status__c from Lead__c where id =:leadsId];
+            ledsList = [select id ,Assigned_Dealer__c ,Service_Advisor__c ,Source_Campaign__c,Assigned_Dealer__r.Dealer_Rollout_Status__c ,CAC_Lead_Status__c from Lead__c where id =:leadsId];
         }
         system.debug('ledsList<><><>' + ledsList);
         
@@ -343,6 +348,11 @@ public class LeadHelperJP
                 {
                     lds.OwnerId = lds.Service_Advisor__c;
                 }
+				 if(isUpdate && lds.Source_Campaign__c!=null && lds.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && lds.Assigned_Dealer__c != null )
+                    {
+                    System.debug('venky here..........');
+                    lds.CAC_Lead_Status__c = 'Allocated';
+                    }
                 system.debug('LeadStatus<><><>' + lds.CAC_Lead_Status__c);
                 updateLeadList.add(lds);
             }
@@ -350,7 +360,11 @@ public class LeadHelperJP
         system.debug('updateLeadList<><><>' + updateLeadList);
         if(!updateLeadList.isEmpty() && updateLeadList != null)
         {
+		 if(LeadUtil.convert2leads)
+        {
+		 LeadUtil.convert2leads=false;
             update updateLeadList;
+			}
         }
     }
     /*
@@ -555,7 +569,7 @@ public class LeadHelperJP
         List<Messaging.SingleEmailMessage > mails  = new  List<Messaging.SingleEmailMessage >();
         List<String> assignedList = new List<String>();
         List<User> userGCCode = new List<User>();
-        
+        List<User> ChangeList=new List<User>();
         
         if(!listNewLeads.isEmpty() && listNewLeads != null)
         {
@@ -588,25 +602,31 @@ public class LeadHelperJP
                     DealerAccid.add(lsds.Assigned_Dealer__c);
                     if(lsds.RecordType.DeveloperName == 'Sales_Leads'){
                         DealerGcCode.add(lsds.Assigned_Dealer__r.Dealer_GC_Code__c);
-                    }else if(lsds.RecordType.DeveloperName == 'Aftersales_Leads'){
+                    }
+                    if(lsds.RecordType.DeveloperName == 'Aftersales_Leads'){
                         AfterSalesDealerGcCode.add(lsds.Assigned_Dealer__r.Dealer_GC_Code__c);
                     }
                 }
             }
         }
         if(!DealerGcCode.isEmpty()){
-            userGCCode = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User where Dealer_GC_Code__c IN:DealerGcCode and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Sales Representative')) ];
-        }else if(!AfterSalesDealerGcCode.isEmpty()){
-            userGCCode = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User where Dealer_GC_Code__c IN:DealerGcCode and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Service Advisor')) ];
+            userGCCode = [select id ,profile.name ,Dealer_GC_Code__c,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User where Dealer_GC_Code__c IN:DealerGcCode and ContactId != null and isActive = true ];
+        }if(!AfterSalesDealerGcCode.isEmpty()){
+            userGCCode = [select id ,profile.name ,Dealer_GC_Code__c,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User where Dealer_GC_Code__c IN:AfterSalesDealerGcCode and ContactId != null and isActive = true ];
         }
         
         set<String> usrlst = New set<String>();
+        if(Leadlist !=null && userGCCode!=null)
+        {
         for(Lead__c led : Leadlist){
-        for(User usr : userGCCode){
+        for(User usr : userGCCode){ 
             if(usr.Notification_Lead_Dealer_Assignment__c != null){
+            
               List<string> LeadAssignement = (usr.Notification_Lead_Dealer_Assignment__c.split(';')); 
+              system.debug('&*&*&*&*&*LeadAssignement'+LeadAssignement);
                for(String leadAssinstr: LeadAssignement ){
                    if(leadAssinstr == led.Assigned_Dealer__r.Name){
+                   if(usr.Notification_Lead_Dealer_Assignment__c!=null && led.Assigned_Dealer__r.Dealer_GC_Code__c == usr.Dealer_GC_Code__c)
                        usrlst.add(usr.id);    
                    }
                }
@@ -614,8 +634,12 @@ public class LeadHelperJP
             
         }
         }
-        List<User> ChangeList =[Select id From User Where id =: usrlst];
-        
+        }
+         system.debug('usrlst*****************'+usrlst);
+         if(usrlst !=null)
+         {
+       ChangeList =[Select id,Notification_Lead_Dealer_Assignment__c,Dealer_GC_Code__c From User Where id =: usrlst and ((Dealer_GC_Code__c In:DealerGcCode) OR (Dealer_GC_Code__c In:AfterSalesDealerGcCode)) and ContactId != null and isActive = true];
+        }
         //List<User> LeadAssignedusers = [select Id,Name from User WHERE Name IN:assignedList];
         
         
@@ -623,17 +647,15 @@ public class LeadHelperJP
         if(!DealerAccid.isEmpty() && DealerAccid != null)
         {
             if(!DealerGcCode.isEmpty()){
-            dealerUserList = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User
+            dealerUserList = [select id ,profile.name ,Name ,email,Dealer_GC_Code__c,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User
                              where contact.AccountId =: DealerAccid  and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
-            }else if(!AfterSalesDealerGcCode.isEmpty()){
-                dealerUserList = [select id ,profile.name ,Name ,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User
+            }if(!AfterSalesDealerGcCode.isEmpty()){
+                dealerUserList = [select id ,profile.name ,Name ,Dealer_GC_Code__c,email,contactid,contact.AccountId,contact.Account.Dealer_GC_Code__c,Notification_Lead_Dealer_Assignment__c from User
                              where contact.AccountId =: DealerAccid  and ContactId != null and isActive = true and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Service Advisor'))];
             }            
         }
         
-        for(User Us : ChangeList ){
-            dealerUserList.add(Us);
-        }
+        
         system.debug('dealerUserList ><><><>' + dealerUserList);
         
         
@@ -643,12 +665,14 @@ public class LeadHelperJP
             for(Lead__c emaLeds : Leadlist)
             {
                 // System.debug('$$$$$$$$&^&^&^'+dealerUserList);
-                if(!dealerUserList.isEmpty() && dealerUserList != null)
-                {
+                if((!dealerUserList.isEmpty() && dealerUserList != null) || (ChangeList!=null && !ChangeList.isempty()))
+                {   
+                    if(dealerUserList !=null)
+                    {
                     for(User us : dealerUserList)
                     {   
                         System.debug('$$$$$$$$&^&^&^'+dealerUserList);
-                        if(emaLeds.Lead_Assignment_Notification_Done__c == false && emaLeds.Lead_DataSource__c != 'Dealer Outlet')
+                        if(emaLeds.Lead_Assignment_Notification_Done__c == false && emaLeds.Lead_DataSource__c != 'Dealer Outlet' && emaLeds.Assigned_Dealer__c == us.Contact.AccountId)
                         {
                             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
                             mail.setWhatId(emaLeds.id); 
@@ -663,6 +687,40 @@ public class LeadHelperJP
                             
                         }
                     }
+                    }
+                    if(ChangeList !=null)
+                    {
+                    for(User us : ChangeList)
+                    {   
+                        System.debug('$$$$$$$$&^&^&^'+dealerUserList);
+                        if(emaLeds.Lead_Assignment_Notification_Done__c == false && emaLeds.Lead_DataSource__c != 'Dealer Outlet' && us.Notification_Lead_Dealer_Assignment__c!=null && emaLeds.Assigned_Dealer__r.Dealer_GC_Code__c == us.Dealer_GC_Code__c)
+                        {
+                        List<string> LeadAssignement = (us.Notification_Lead_Dealer_Assignment__c.split(';')); 
+                        
+                         for(String leadAssinstr: LeadAssignement ){
+                         
+                          if(leadAssinstr == emaLeds.Assigned_Dealer__r.Name){
+                          
+                           Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
+                            mail.setWhatId(emaLeds.id); 
+                            mail.setTemplateID(e.Id); 
+                            //mail.setTargetObjectId(con.id);
+                            mail.setTargetObjectId(us.Id);                            
+                            mail.setBccSender(false);
+                            mail.setWhatId(emaLeds.Id);
+                            mail.setUseSignature(false);              
+                            mail.setSaveAsActivity(false);     
+                            mails.add(mail);
+                     
+                          }
+                         
+                         }
+                           
+                            
+                        }
+                    }
+                    }
+                    
                     if(emaLeds.CAC_Lead_Status__c == 'Allocated' && (isInsert || (isUpdate && (emaLeds.CAC_Lead_Status__c != leadOldMap.get(emaLeds.id).CAC_Lead_Status__c))))
                     {
                         emaLeds.Lead_Assignment_Notification_Done__c = True;

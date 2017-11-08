@@ -9,6 +9,7 @@
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
+	<excludeButtons>Share</excludeButtons>
     <excludeButtons>ViewCustomerPortalUser</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -16,6 +17,10 @@
         <editHeading>false</editHeading>
         <label>Fields</label>
         <layoutColumns>
+			<layoutItems>
+				<behavior>Edit</behavior>
+                <field>title__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
@@ -37,7 +42,7 @@
                 <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -247,10 +252,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MD__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Occupation__c</field>
             </layoutItems>
 			<layoutItems>
@@ -284,6 +285,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MD__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Market__c</field>
@@ -371,6 +376,21 @@
         <fields>CASES.STATUS</fields>
         <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
+    </relatedLists>
+	 <relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Lead_Desired_Service__c</fields>
+        <fields>Drop_off_Time__c</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>CAC_Lead_Status__c</fields>
+        <fields>Dealer_Lead_Status__c</fields>
+        <fields>Source_Campaign__c</fields>
+        <fields>Lead_DataSource__c</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>Lead__c.Contact__c</relatedList>
+        <sortField>Drop_off_Time__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

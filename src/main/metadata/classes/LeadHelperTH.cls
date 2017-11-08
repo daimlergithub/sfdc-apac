@@ -76,8 +76,9 @@ public without sharing class  LeadHelperTH{
             l.dealer_lead_status__c='';
             }
             else{
+            if(((Lead__c)Trigger.oldMap.get(l.id)).assigned_dealer__c!=null && l.assigned_dealer__c==null)
            
-            l.assigned_dealer__c=null;
+            //l.assigned_dealer__c=null;
             l.ownerId=l.createdbyId;
             
             }
@@ -89,7 +90,7 @@ public without sharing class  LeadHelperTH{
         
         else if((l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
                 if(l.assigned_dealer__c==null){
-                    l.ownerID=l.createdbyId;
+                    //l.ownerID=l.createdbyId;
                   
                     
                     }
@@ -97,7 +98,7 @@ public without sharing class  LeadHelperTH{
                     if(l.assigned_dealer__c!=null && l.Received_Date_Time__c!=null&&l.Accepted_Date_Time__c!=null){
                         if(l.dealer_lead_status__c!=System.label.Accepted){
                                
-                               l.ownerID=l.createdbyId;
+                               //l.ownerID=l.createdbyId;
                                l.assigned_dealer__c=null;
                                
                     }

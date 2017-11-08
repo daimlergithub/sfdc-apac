@@ -14,13 +14,6 @@
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
     </labels>
-	<labels>
-        <fullName>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</shortDescription>
-        <value>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</value>
-    </labels>
     <labels>
         <fullName>A6_Invitation_to_an_event_event_at_the_car_dealership</fullName>
         <language>en_US</language>
@@ -76,6 +69,13 @@
         <protected>false</protected>
         <shortDescription>A6 Visit to a car dealership</shortDescription>
         <value>Visit to a car dealership</value>
+    </labels>
+    <labels>
+        <fullName>AMG</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AMG</shortDescription>
+        <value>AMG</value>
     </labels>
     <labels>
         <fullName>A_selected_DM_Material_does_not_have_a_sufficient_stock</fullName>
@@ -1250,11 +1250,11 @@
         <value>Response Date Error</value>
     </labels>
     <labels>
-        <fullName>Campaign_Execution_Simple</fullName>
+        <fullName>Campaign_Execution_Simple</fullName> 
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Campaign Execution - Simple</shortDescription>
-        <value>Campaign Execution - Simple</value>
+        <shortDescription>Campaign Execution</shortDescription>
+        <value>Campaign Execution</value>
     </labels>
     <labels>
         <fullName>Campaign_Id</fullName>
@@ -1761,7 +1761,7 @@
         <shortDescription>Close</shortDescription>
         <value>Close</value>
     </labels>
-		    <labels>
+    <labels>
         <fullName>Close2</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1829,7 +1829,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>used in MY Address Search Validation Controller</shortDescription>
-        <value>For Company Search Account Name and any of the contact information</value>
+        <value>One of Contact Number/ Email has to be entered</value>
     </labels>
     <labels>
         <fullName>Company_Account_Information</fullName>
@@ -3424,6 +3424,13 @@ please contact the number below.</value>
         <value>If Yes, specify favorite model</value>
     </labels>
     <labels>
+        <fullName>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</shortDescription>
+        <value>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</value>
+    </labels>
+    <labels>
         <fullName>If_yes_within_which_period_do_you_plan_to_purchase</fullName>
         <categories>flows</categories>
         <language>en_US</language>
@@ -4510,6 +4517,13 @@ please contact the number below.</value>
         <value>Manager</value>
     </labels>
     <labels>
+        <fullName>Market</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Market</shortDescription>
+        <value>JP</value>
+    </labels>
+    <labels>
         <fullName>MarketJP</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4809,6 +4823,13 @@ please contact the number below.</value>
         <value>N.A.</value>
     </labels>
     <labels>
+        <fullName>National_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>National ID</shortDescription>
+        <value>National ID Number / หมายเลขบัตรประชาชน</value>
+    </labels>
+    <labels>
         <fullName>Near_Dealer_1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5052,6 +5073,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>ไม่ได้</value>
     </labels>
     <labels>
+        <fullName>No_Thai_Can_t_Talk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Thai Can&apos;t Talk</shortDescription>
+        <value>ไม่ใช่ หรือไม่สะดวกคุย  ( จบการสนทนา และ Agent กล่าวขอบคุณลูกค้า) 
+(ต้องขอขอบพระคุณที่กรุณาสละเวลาในวันนี้ค่ะ และขอบพระคุณที่ใช้บริการ เมอร์เซเดส-เบนซ์ ประเทศไทย สวัสดีค่ะ)</value>
+    </labels>
+    <labels>
         <fullName>No_Users_are_available_to_assign</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5063,14 +5092,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>No, busy right now</shortDescription>
-        <value>No, busy right now</value>
+        <value>No, busy right now         : Can I call you back at any time Sir/Madam?</value>
     </labels>
     <labels>
         <fullName>No_don_t_want_to_talk</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>No, don’t want to talk</shortDescription>
-        <value>No, don’t want to talk</value>
+        <value>No, don’t want to talk    : I am sorry for your inconvenient Sir/ Madam. Thank you. Bye.</value>
     </labels>
     <labels>
         <fullName>No_master_record_found_for_duplicate_merge</fullName>
@@ -6696,13 +6725,6 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>S5 A3.4 I don’t know (yet)</shortDescription>
         <value>I don’t know (yet)</value>
     </labels>
-		    <labels>
-        <fullName>Select_All_Records</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Select All Records</shortDescription>
-        <value>Select All Records</value>
-    </labels>
     <labels>
         <fullName>S5_A3_4_I_will_primarily_use_the_car_for_business</fullName>
         <language>en_US</language>
@@ -7203,7 +7225,9 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q2.1 T P2</shortDescription>
-        <value>รวมถึงคำนำหน้านาม (Title)  เพศ (Gender) ต้องถูกต้อง</value>
+        <value>สะกดด้วย.........ข้อมูลถูกต้องหรือไม่คะ (ตรวจสอบทั้งภาษาไทย และอังกฤษ)
+	**รวมถึงคำนำหน้านาม (Title)  เพศ (Gender) ต้องถูกต้อง**
+	**เพิ่มเติมสำหรับลูกค้าที่ซื้อในนามบริษัท จะต้องทวนชื่อ-ตัวสะกดของบริษัท รวมถึงรูปแบบการจดทะเบียนว่าเป็น บจก. / บมจ. / ห้างหุ้นส่วน / ตลาดหลักทรัพย์ / ธนาคาร / โรงพยาบาล  และอื่นๆ**</value>
     </labels>
     <labels>
         <fullName>S5_Q2_1_T_P3</fullName>
@@ -7211,6 +7235,13 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <protected>false</protected>
         <shortDescription>S5 Q2.1 T P3</shortDescription>
         <value>ชื่อ บริษัท ของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_T_P3_A</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2 1 T P3_A</shortDescription>
+        <value>**ปีต้องเป็น ค.ศ. เท่านั้น**</value>
     </labels>
     <labels>
         <fullName>S5_Q2_1_T_P4</fullName>
@@ -7722,7 +7753,7 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q5 T TH P3</shortDescription>
-        <value>สามารถติดต่อผู้จำหน่ายฯอย่างเป็นทางการได้โดยตรงที่หมายเลข .(แจ้งเบอร์ของผู้จำหน่ายฯที่ลูกค้าซื้อรถ) หรือติดต่อกับบริษัทฯ ได้ที่หมายเลข Customer Contact Center</value>
+        <value>สามารถติดต่อผู้จำหน่ายฯอย่างเป็นทางการได้โดยตรงที่หมายเลข .(แจ้งเบอร์ของผู้จำหน่ายฯที่ลูกค้าซื้อรถ) หรือติดต่อกับบริษัทฯ ได้ที่หมายเลข Customer Contact Center 1250</value>
     </labels>
     <labels>
         <fullName>S5_Q5_T_TH_P4</fullName>
@@ -8144,6 +8175,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>[Select All]</shortDescription>
         <value>[Select All]</value>
+    </labels>
+    <labels>
+        <fullName>Select_All_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All Records</shortDescription>
+        <value>Select All Records</value>
     </labels>
     <labels>
         <fullName>Select_Company</fullName>
@@ -9742,11 +9780,25 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Yes</value>
     </labels>
     <labels>
+        <fullName>Yes_Can_Talk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes Can Talk</shortDescription>
+        <value>Yes:	Thank you Sir/ Madam.</value>
+    </labels>
+    <labels>
         <fullName>Yes_Thai</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Yes Thai</shortDescription>
         <value>ใช่</value>
+    </labels>
+    <labels>
+        <fullName>Yes_Thai_Can_talk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes Thai Can talk</shortDescription>
+        <value>ใช่ และ สะดวกคุย</value>
     </labels>
     <labels>
         <fullName>You_cannot_Delete_CaseComment</fullName>
@@ -10263,5 +10315,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>updateRetailCopy</value>
+    </labels>
+	<labels>
+        <fullName>New_Component</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New_Component</shortDescription>
+        <value>true</value>
     </labels>
 </CustomLabels>

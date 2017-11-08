@@ -15,7 +15,7 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Campaign_Type__c</field>
             </layoutItems>
             <layoutItems>
@@ -23,16 +23,12 @@
                 <field>Campaign_Sub_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Driven_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Campaign_Executer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Campaign_Execution_Channels__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -50,7 +46,7 @@
                 <behavior>Edit</behavior>
                 <field>IsActive</field>
             </layoutItems>
-			            <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CloneCampaign__c</field>
             </layoutItems>

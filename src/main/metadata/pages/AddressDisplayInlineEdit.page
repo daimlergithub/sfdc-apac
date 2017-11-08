@@ -522,7 +522,7 @@
                             
                                         
                 <apex:pageBlockSectionItem rendered="true">     
-                        <apex:outputLabel value="ZIP"/>     
+                        <apex:outputLabel value="Zip/Postal Code"/>     
                          <apex:inputText id="inpZip" value="{!zip}"/>       
                 </apex:pageBlockSectionItem>        
                         

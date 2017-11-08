@@ -882,34 +882,29 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>      
                     </apex:pageBlockSectionItem>        
-                        
+                     <apex:pageBlockSectionItem rendered="True">      
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>       
+                        <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" onchange="ForeignNationalFields(this.value)"/>        
+                    </apex:pageBlockSectionItem>    
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Address_Line_2__c}"/>      
                     </apex:pageBlockSectionItem>        
-                            
-                    <apex:pageBlockSectionItem >        
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}"/>        
-                        <apex:inputField value="{!AddressObj.Address_Line_3__c}"/>      
-                    </apex:pageBlockSectionItem>   
-                    
-                   <apex:pageBlockSectionItem rendered="True">      
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>       
-                        <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" onchange="ForeignNationalFields(this.value)"/>        
-                    </apex:pageBlockSectionItem>        
-                            
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
                         <apex:outputLabel value="State/Province"/>      
                          <apex:selectList size="1" value="{!province}" id="slDistrict" onchange="loadDistrict(this.value)">     
                             <apex:selectOptions value="{!lstProvince}"/>                                
                         </apex:selectList>      
                     </apex:pageBlockSectionItem>        
-                            
-                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">        
+					<apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">        
                         <apex:outputLabel value="State/Province"/>      
                          <apex:inputText id="slStateProvince" value="{!province}"/>     
-                    </apex:pageBlockSectionItem>        
-                            
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >        
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}"/>        
+                        <apex:inputField value="{!AddressObj.Address_Line_3__c}"/>      
+                    </apex:pageBlockSectionItem> 
+                    
                     <apex:pageblockSectionItem id="pbsDistrict" rendered="{!IF(IsForeignNational==false,true,false)}">                      
                       <apex:outputLabel value="City"/>      
                       <apex:selectList size="1" value="{!district}" id="slprovince" >       
@@ -923,7 +918,7 @@
                     </apex:pageBlockSectionItem>                                            
                                         
                 <apex:pageBlockSectionItem rendered="true">     
-                        <apex:outputLabel value="ZIP"/>     
+                        <apex:outputLabel value="Zip/Postal Code"/>     
                          <apex:inputText id="inpZip" value="{!zip}"/>       
                 </apex:pageBlockSectionItem>        
                                             
@@ -950,17 +945,20 @@
         
         <!--  Page Buttons Information JP & KR - Start -->
                 <apex:pageBlockButtons location="bottom">
+					
                     <!--<apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>-->
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>
                     <!--PR20170918--Start-->
                     <!--<apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />-->
+					 <apex:outputPanel>
+					 <apex:actionFunction name="rerendersection" reRender="form"/> 
                     <apex:commandButton action="{!onLineDeduplicationCDMTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" reRender="form,msgs" />
                     <!--PR20170918--End-->
                      <!--MT20170909- Added Button for Malaysia-->
-                     <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'MY') ,true,false)}" reRender="form,msgs"/>      
+                     <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'MY') ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>      
                     <!--MT20170909-->
-                    
+                     </apex:outputPanel>
                     <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'MY'))) ,true,false)}"/> <!--oncomplete="hideTable();-->
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     

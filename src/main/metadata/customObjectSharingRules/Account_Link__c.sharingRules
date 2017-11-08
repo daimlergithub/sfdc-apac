@@ -66,4 +66,18 @@
         <description>View all records of Thailand with MD__c = &apos;TH&apos; for all Roles used in Thailand</description>
         <name>TH_MarketAccountLink_Readable_to_MBTH_Management</name>
     </criteriaBasedRules>
+	 <criteriaBasedRules>
+        <fullName>MY_MarketAccountLink_Readable_to_MBMY_Management</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of Thailand with MD__c = &apos;MY&apos; for all Roles used in Malaysia</description>
+        <name>MY_MarketAccountLink_Readable_to_MBMY_Management</name>
+    </criteriaBasedRules>
 </CustomObjectSharingRules>

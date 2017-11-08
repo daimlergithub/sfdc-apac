@@ -105,6 +105,10 @@
                 <behavior>Readonly</behavior>
                 <field>SuppliedPhone</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

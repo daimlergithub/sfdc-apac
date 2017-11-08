@@ -29,6 +29,35 @@
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Allow Only to special users</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Allow_Only_to_special_users_MY</fullName>
+        <sharedTo>
+            <role>MY_Manager</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Published</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Allow Only to special users MY</name>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>CAC_CRM_Campaign_Share_with_CAC</fullName>
         <sharedTo>
@@ -329,6 +358,19 @@
         </criteriaItems>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign With Roles and Subordinates</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_MY_V1</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share Campaign With Roles and Subordinates MY</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_Published_MB_BP_with_Central</fullName>
