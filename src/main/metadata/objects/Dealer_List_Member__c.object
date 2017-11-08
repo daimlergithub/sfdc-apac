@@ -208,7 +208,7 @@
         <picklist>
             <picklistValues>
                 <fullName>Ready</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Removed</fullName>
@@ -216,7 +216,7 @@
             </picklistValues>
             <picklistValues>
                 <fullName>New</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -434,7 +434,7 @@ As per JIRA SFDCJP-3118</description>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), 
 NOT(ISBLANK(PRIORVALUE(Participating_Dealer__c))),NOT(ISNEW()),ISCHANGED(Participating_Dealer__c))</errorConditionFormula>
         <errorMessage>Participating Dealer cannot be changed</errorMessage>
-		<errorDisplayField>NewAccount__c</errorDisplayField>
+		<errorDisplayField>Participating_Dealer__c</errorDisplayField>
     </validationRules>
 	
 </CustomObject>
