@@ -63,6 +63,10 @@
                 <behavior>Edit</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Primary_Address__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing__c</field>
