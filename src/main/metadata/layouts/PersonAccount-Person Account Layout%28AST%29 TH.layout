@@ -426,6 +426,10 @@
                 <behavior>Edit</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Primary_Address__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Sales_Address_Type__c</field>
