@@ -16,6 +16,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
             
            }
            else if(trigger.isupdate &&trigger.isbefore){
+           CaseHelperBase.updatemarket(Trigger.New);
            caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
            
            }
