@@ -938,7 +938,7 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_Website__c = accountMap.get(acclnk.toRole__c).website;
                     acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
                     acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
-                    acclnk.Retail_DMS_Customer_ID__c = accountMap.get(acclnk.toRole__c).DMS_Customer_ID__c;      
+                    //acclnk.Retail_DMS_Customer_ID__c = accountMap.get(acclnk.toRole__c).DMS_Customer_ID__c;      
                     acclnk.Retail_Email_OptOut__c = accountMap.get(acclnk.toRole__c).PersonHasOptedOutOfEmail;
                     acclnk.Retail_Fax_OptOut__c = accountMap.get(acclnk.toRole__c).PersonHasOptedOutOfFax;
                     acclnk.Retail_Primary_Phone__c = accountMap.get(acclnk.toRole__c).Primary_Phone_Display__c;

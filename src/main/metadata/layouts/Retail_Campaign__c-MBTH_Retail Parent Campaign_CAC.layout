@@ -243,7 +243,7 @@
         <fields>Start_Date__c</fields>
         <fields>Close_Date__c</fields>
         <fields>Campaign_Type__c</fields>
-        <relatedList>Retail_Campaign__c.CloneCampaign__c</relatedList>
+        <relatedList>Retail_Campaign__c.Parent_Campaign1__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>CreatedDate</fields>
