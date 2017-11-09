@@ -1117,6 +1117,33 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         
           //  delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual']; 
     }
+	
+	/* This method is created as part of changes related to SFDCJP-2276 */
+	  public static void ChangeSoftDeletedRecordsOwner(List<Account> softAccountList)
+    {
+        set<id> deletedAccId = new set<id>();
+         List<Account> UpdateAcc=new List<Account>();
+         User IntegrationUser=new User();
+     IntegrationUser=[Select id,firstName,LastName,Profile.Name from User Where profile.Name='IntegrationAPI' and firstName='Integration' and LastName='User' limit 1];
+          
+          
+            for(Account acc : softAccountList)
+        {
+            if(acc.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acc.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
+            {
+                 if(acc.OwnerId !=IntegrationUser.id)
+                    {
+                        acc.OwnerId=IntegrationUser.id;                       
+                        
+                    }
+                  
+                 
+            }
+       
+       }
+         
+         
+    }
 }
 
 
