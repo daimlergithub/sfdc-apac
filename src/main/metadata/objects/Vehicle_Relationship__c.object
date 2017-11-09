@@ -283,7 +283,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+        <fields>
         <fullName>Car_Relation__c</fullName>
         <description>/* 
 Created by: Amy Liang 
@@ -297,7 +297,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRelation“</description>
         <externalId>false</externalId>
-        <inlineHelpText>Person's relationship to the vehicle</inlineHelpText>
+        <inlineHelpText>Person&apos;s relationship to the vehicle</inlineHelpText>
         <label>Car Relation</label>
         <picklist>
             <picklistValues>
@@ -1559,7 +1559,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+        <fields>
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
         <label>Democar flag</label>
@@ -1748,7 +1748,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
+        <fields>
         <fullName>End_Reason__c</fullName>
         <externalId>false</externalId>
         <label>End_Reason</label>
@@ -2694,7 +2694,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+        <fields>
         <fullName>Ownership__c</fullName>
         <description>/* 
 Created by: Amy Liang 
@@ -4686,7 +4686,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+        <fields>
         <fullName>Vehicle_Phone_picklist__c</fullName>
         <externalId>false</externalId>
         <label>vehicle tel picklist</label>
@@ -4966,7 +4966,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <fields>
+        <fields>
         <fullName>vehicle_address_picklist__c</fullName>
         <externalId>false</externalId>
         <label>vehicle address picklist</label>
@@ -5013,7 +5013,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+        <fields>
         <fullName>vehicle_fax_picklist__c</fullName>
         <externalId>false</externalId>
         <label>vehicle fax picklist</label>
@@ -5048,7 +5048,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+        <fields>
         <fullName>vehicle_mail_picklist__c</fullName>
         <externalId>false</externalId>
         <label>vehicle mail picklist</label>

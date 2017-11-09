@@ -448,7 +448,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+        <fields>
         <fullName>Brand__c</fullName>
         <description>MB brand</description>
         <externalId>false</externalId>
@@ -2205,7 +2205,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
+        <fields>
         <fullName>Fuel__c</fullName>
         <externalId>false</externalId>
         <label>Fuel</label>
@@ -5002,7 +5002,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ModelY
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+        <fields>
         <fullName>New_Used__c</fullName>
         <externalId>false</externalId>
         <label>New Used</label>
@@ -5528,14 +5528,14 @@ Modify Reason:
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: 'Manual' or 'Automatic' transmission 
+Function: &apos;Manual&apos; or &apos;Automatic&apos; transmission 
 Used in: Pagelayouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_TransmissionÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle isÃ¢â‚¬ÂVehicle_TransmissionÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Transmission</label>
         <picklist>
@@ -5583,7 +5583,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_Transmi
                 <fullName>Stepless automatic one hand transmission</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>6 speed</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5595,7 +5595,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_Transmi
                 <fullName>9 speed</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>MB Powershift (Automatic)</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5607,7 +5607,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_Transmi
                 <fullName>Manual</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>SprintShift</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5732,7 +5732,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <fields>
+        <fields>
         <fullName>VehicleStatus__c</fullName>
         <externalId>false</externalId>
         <label>VehicleStatus</label>
@@ -5785,7 +5785,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Repossessed</fullName>
                 <default>false</default>
             </picklistValues>
