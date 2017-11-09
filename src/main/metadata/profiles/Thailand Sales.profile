@@ -11331,11 +11331,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.Market__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Case.Mileage__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -26725,11 +26720,11 @@
         <recordType>Case.Touring_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-MBTH Complaint Layout-CCC</layout>
+        <layout>Case-MBTH Complaint Layout-InternalUsers</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-MBTH_Inquiry Layout - CCC</layout>
+        <layout>Case-MBTH_Inquiry Layout - InternalUsers</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -27441,9 +27436,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Address__c</object>

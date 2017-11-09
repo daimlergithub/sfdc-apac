@@ -5325,9 +5325,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Primary_Address__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -11337,11 +11337,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Mailing_Phone_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Market__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

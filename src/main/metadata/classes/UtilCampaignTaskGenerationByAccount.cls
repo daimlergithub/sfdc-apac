@@ -79,7 +79,7 @@ system.debug('&******************'+cpList);
                     Campaign.Parent.Task_De_dup_Range__c,
                     Campaign.Parent.ParentId,
                     Campaign.Previous_Campaign_Execution__c,
-                    Campaign.Template__c, Status, Campaign.OwnerId, Campaign.MD__c
+                    Campaign.Template__c, Status, Campaign.OwnerId, Campaign.MD__c,Campaign.Campaign_Code__c
             from CampaignMember
             where CampaignId in :cpIdList and Task_Generated__c = false]);
     } 
@@ -168,7 +168,7 @@ system.debug('&******************'+cpList);
                 tsk.Subject= strOBCall;
                 } 
                 else{
-                tsk.Subject= '';
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
                 } 
                 tsk.RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId();
                 tsk.Status = strOpenStatus;
@@ -211,7 +211,7 @@ system.debug('&******************'+cpList);
             tsk.Subject= strSMS;
             } 
                 else{
-                tsk.Subject= '';
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
                 } 
             tsk.RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
@@ -241,7 +241,7 @@ system.debug('&******************'+cpList);
             tsk.Subject= mms;
             } 
                 else{
-                tsk.Subject= '';
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
                 }  
             tsk.RecordTypeId = taskRecordTypeMap.get(mms).getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
@@ -272,7 +272,7 @@ system.debug('&******************'+cpList);
             tsk.Subject= streDM; 
             } 
                 else{
-                tsk.Subject= '';
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
                 } 
             tsk.RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
@@ -307,7 +307,7 @@ system.debug('&******************'+cpList);
             tsk.Subject = strDM; 
             } 
                 else{
-                tsk.Subject= '';
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
                 } 
             tsk.RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
