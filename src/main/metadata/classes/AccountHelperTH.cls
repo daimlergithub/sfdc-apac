@@ -131,6 +131,7 @@ public class AccountHelperTH{
                    if(acc.Opt_In_Work_Phone2__c){ acc.Opt_In_Work_Phone2__c = FALSE;}
                    if(acc.Preferred_Mobile_1__c){ acc.Preferred_Mobile_1__c = FALSE;}
                    if(acc.Preferred_Mobile_2__c){ acc.Preferred_Mobile_2__c = FALSE;}
+                   if(acc.MD__c == Label.TH) {if(acc.Opt_In_Mobile__c){ acc.Opt_In_Mobile__c= FALSE;}}
                }
            } 
         }

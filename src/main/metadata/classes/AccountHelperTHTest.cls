@@ -12,7 +12,7 @@ public with sharing class AccountHelperTHTest
 {
 /*Method to check the update AcountField Before Insert,update On NotCall, updateOn PostalOptout,updateOn EmailOptout,update AgeRange */
     static testMethod void testAccAssignment() {
-        
+        system.debug('Demo');
         User user1 = TestUtils.createAdminUser();
         Id retailPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
         Id retailCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
