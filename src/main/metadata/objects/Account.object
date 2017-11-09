@@ -1138,6 +1138,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>COS_Flag__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Mobile__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1615,6 +1620,11 @@
         </displayedFields>
         <displayedFields>
             <field>Sales_Sanction_Comment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>COS_Flag__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
