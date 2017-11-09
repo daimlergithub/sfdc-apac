@@ -360,11 +360,8 @@ public class LeadHelperJP
         system.debug('updateLeadList<><><>' + updateLeadList);
         if(!updateLeadList.isEmpty() && updateLeadList != null)
         {
-		 if(LeadUtil.convert2leads)
-        {
-		 LeadUtil.convert2leads=false;
-            update updateLeadList;
-			}
+		 
+            update updateLeadList; 
         }
     }
     /*

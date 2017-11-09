@@ -184,7 +184,7 @@ public class AccountHelperJP
 **  Created By: Sudhir 
 **  Date: 2015-12-22
 **/
-    public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
+   public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
     {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
@@ -251,28 +251,28 @@ public class AccountHelperJP
                     Acc.Fax_Last_Modified_Date__c = System.now();
                 }
                 
-                if(Acc.Fax2__c != OldAcc.Fax2__c   )
+                if(Acc.Fax2__c != OldAcc.Fax2__c )
                 {     
                     Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();              
                     Acc.Fax2_Last_Modified_Date__c = System.now();
                 }
                 
-                if(Acc.Primary_Phone__c != Null && Acc.Primary_Phone__c != '')
+                if(Acc.Primary_Phone__c != Null && Acc.Primary_Phone__c != '' && Acc.Primary_Phone__c != OldAcc.Primary_Phone__c)
                 {                    
                     Acc.Primary_Phone_Last_Modified_Date__c = System.now();
                 }
                 
-                if(Acc.Primary_Email__c != Null && Acc.Primary_Email__c != '')
+                if(Acc.Primary_Email__c != Null && Acc.Primary_Email__c != '' && Acc.Primary_Email__c != OldAcc.Primary_Email__c)
                 {                    
                     Acc.Primary_Email_Last_Modified_Date__c = System.now();
                 }
                 
-                if(Acc.Primary_Fax__c != Null && Acc.Primary_Fax__c != '')
+                if(Acc.Primary_Fax__c != Null && Acc.Primary_Fax__c != '' && Acc.Primary_Fax__c != OldAcc.Primary_Fax__c)
                 {                    
                     Acc.Primary_Fax_Last_Modified_Date__c = System.now();
                 }
                 
-                if(Acc.Primary_Address__c != Null && Acc.Primary_Address__c != '')
+                if(Acc.Primary_Address__c != Null && Acc.Primary_Address__c != '' && Acc.Primary_Address__c != OldAcc.Primary_Address__c)
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
@@ -281,7 +281,7 @@ public class AccountHelperJP
                 {                    
                     Acc.Primary_Address_Last_Modified_Date__c = System.now();
                 }
-                if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
+                if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '' && Acc.Sales_Sanction__c != OldAcc.Sales_Sanction__c)
                 {                    
                     Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
                 }
@@ -316,7 +316,7 @@ public class AccountHelperJP
                     Acc.MB_CIR_Last_Modified_Date__c = System.now();
                 }
                                 
-                if(Acc.Data_Source__c != Null && Acc.Data_Source__c != '')
+                if(Acc.Data_Source__c != Null && Acc.Data_Source__c != '' && Acc.Data_Source__c != OldAcc.Data_Source__c)
                 {                    
                     Acc.Data_Source_Last_Modified_Date__c = System.now();
                 }
@@ -1116,6 +1116,33 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
 	   }
         
           //  delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual']; 
+    }
+	
+	/* This method is created as part of changes related to SFDCJP-2276 */
+	  public static void ChangeSoftDeletedRecordsOwner(List<Account> softAccountList)
+    {
+        set<id> deletedAccId = new set<id>();
+         List<Account> UpdateAcc=new List<Account>();
+         User IntegrationUser=new User();
+     IntegrationUser=[Select id,firstName,LastName,Profile.Name from User Where profile.Name='IntegrationAPI' and firstName='Integration' and LastName='User' limit 1];
+          
+          
+            for(Account acc : softAccountList)
+        {
+            if(acc.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acc.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
+            {
+                 if(acc.OwnerId !=IntegrationUser.id)
+                    {
+                        acc.OwnerId=IntegrationUser.id;                       
+                        
+                    }
+                  
+                 
+            }
+       
+       }
+         
+         
     }
 }
 

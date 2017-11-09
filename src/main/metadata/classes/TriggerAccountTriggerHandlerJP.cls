@@ -37,6 +37,7 @@ implements TriggerHandlerIf
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new,Trigger.isInsert,trigger.isupdate);
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+			 AccountHelperJP.ChangeSoftDeletedRecordsOwner(Trigger.new);
         }
         if(isAfter && isInsert && !System.isFuture())
         {
@@ -94,6 +95,7 @@ implements TriggerHandlerIf
                 AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
                 
                 AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+				 AccountHelperJP.ChangeSoftDeletedRecordsOwner(Trigger.new);
             } 
             if(isAfter && isUpdate && !System.isFuture())
             {   
