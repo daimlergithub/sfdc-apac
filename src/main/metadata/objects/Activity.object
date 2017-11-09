@@ -1587,7 +1587,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <fullName>Phone__c</fullName>
         <description>DMS</description>
         <externalId>false</externalId>
-        <label>Contract Phone 1</label>
+        <label>Contact Phone 1</label>
         <required>false</required>
         <type>Phone</type>
     </fields>
