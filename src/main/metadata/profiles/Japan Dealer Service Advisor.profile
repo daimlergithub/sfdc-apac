@@ -12786,7 +12786,6 @@
         <field>Dealer_List_Member__c.Class_and_Body__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.Company_Name__c</field>
