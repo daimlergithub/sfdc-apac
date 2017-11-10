@@ -289,7 +289,7 @@
 	  <fields>
         <fullName>Loaner_Vehicle__c</fullName>
         <externalId>false</externalId>
-        <label>At The Time of Retrieval</label>
+        <label>Loaner Vehicle</label>
         <picklist>
             <picklistValues>
                 <fullName>Required</fullName>
