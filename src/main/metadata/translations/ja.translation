@@ -2397,6 +2397,10 @@
         <label>マージ先レコード</label>
         <name>Master_Record</name>
     </customLabels>
+	<customLabels>
+        <label>マスタとスレーブは同一レコードを選択できません。</label>
+        <name>Master_and_Slave_can_not_have_same_Id</name>
+    </customLabels>
     <customLabels>
         <label><!-- Media Type --></label>
         <name>Media_Type</name>
@@ -2628,6 +2632,10 @@
 	<customLabels>
         <label>対象リードが存在しません。</label>
         <name>No_master_record_found_for_duplicate_merge</name>
+    </customLabels>
+	<customLabels>
+        <label>名寄せ候補レコードはありません。</label>
+        <name>No_record_found</name>
     </customLabels>
     <customLabels>
         <label>なし</label>
@@ -2919,6 +2927,14 @@
     <customLabels>
         <label>マスタレコードは一つのみ選択してください。</label>
         <name>Please_select_only_one_Master_Record</name>
+    </customLabels>
+	<customLabels>
+        <label>スレーブレコードは一つのみ選択してください。</label>
+        <name>Please_select_only_one_slave_Record</name>
+    </customLabels>
+    <customLabels>
+        <label>マスタとスレーブは複数選択できません。</label>
+        <name>Please_select_only_one_slave_and_one_Master_Record</name>
     </customLabels>
     <customLabels>
         <label>次ページの「処理依頼事項」、および「申立内容・状況」をご確認の上、対応をお願いいたします。</label>
@@ -5095,6 +5111,10 @@
     <customLabels>
         <label><!-- Yes Thai --></label>
         <name>Yes_Thai</name>
+    </customLabels>
+	<customLabels>
+        <label>名寄せ候補レコードはありません。</label>
+        <name>You_should_have_aleast_one_master_and_one_slave_record_to_merge_the_duplicates</name>
     </customLabels>
     <customLabels>
         <label><!-- Q.Your Current car(s) --></label>
