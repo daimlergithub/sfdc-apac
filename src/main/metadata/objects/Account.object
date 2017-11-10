@@ -2082,6 +2082,34 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Finance Contract</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes me connect Consultation</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Service Program</fullName>
                 <default>false</default>
@@ -8572,7 +8600,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <fullName>Loyalty_Card_No__c</fullName>
         <externalId>false</externalId>
         <label>Loyalty Card No</label>
-        <length>16</length>
+        <length>18</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -14662,6 +14690,34 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service Program</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24957,6 +25013,34 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

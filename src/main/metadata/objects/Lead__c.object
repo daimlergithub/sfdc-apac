@@ -243,7 +243,70 @@
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
-
+  
+    <fields>
+        <fullName>At_The_Time_of_Stock__c</fullName>
+        <externalId>false</externalId>
+        <label>At The Time of Stock</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Visit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pickup</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	  <fields>
+        <fullName>At_The_Time_of_Retrieval__c</fullName>
+        <externalId>false</externalId>
+        <label>At The Time of Retrieval</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Visit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delivery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>	
+	  <fields>
+        <fullName>Loaner_Vehicle__c</fullName>
+        <externalId>false</externalId>
+        <label>At The Time of Retrieval</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NotRequired</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
 	
     <fields>
         <fullName>Additional_Services__c</fullName>
@@ -8178,7 +8241,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -21717,6 +21780,39 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+		 <picklistValues>
+            <picklist>At_The_Time_of_Stock__c</picklist>
+            <values>
+                <fullName>Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pickup</fullName>
+                <default>false</default>
+            </values> 
+        </picklistValues>
+		 <picklistValues>
+            <picklist>At_The_Time_of_Retrieval__c</picklist>
+            <values>
+                <fullName>Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delivery</fullName>
+                <default>false</default>
+            </values> 
+        </picklistValues>
+		 <picklistValues>
+            <picklist>Loaner_Vehicle__c</picklist>
+            <values>
+                <fullName>Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NotRequired</fullName>
+                <default>false</default>
+            </values> 
         </picklistValues>
         <picklistValues>
             <picklist>Behavioural_group__c</picklist>
@@ -50557,7 +50653,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -61903,7 +61999,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
