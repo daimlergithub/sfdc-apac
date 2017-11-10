@@ -17,7 +17,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>ParentId</field>
+                <field>parentid</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
