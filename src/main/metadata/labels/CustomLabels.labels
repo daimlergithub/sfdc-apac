@@ -4662,6 +4662,13 @@ please contact the number below.</value>
         <shortDescription>Master Record</shortDescription>
         <value>Master Record</value>
     </labels>
+	<labels>
+        <fullName>Master_and_Slave_can_not_have_same_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Master and Slave can not have same Id</shortDescription>
+        <value>Master and Slave can not have same Id</value>
+    </labels>
     <labels>
         <fullName>Media_Type</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -5107,6 +5114,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>No master record found for duplicate merge</shortDescription>
         <value>No master record found for duplicate merge</value>
+    </labels>
+	<labels>
+        <fullName>No_record_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No record found</shortDescription>
+        <value>No record found</value>
     </labels>
     <labels>
         <fullName>None</fullName>
@@ -5653,6 +5667,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Please select only one Master Record</shortDescription>
         <value>Please select only one Master Record</value>
+    </labels>
+	<labels>
+        <fullName>Please_select_only_one_slave_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select only one slave Record</shortDescription>
+        <value>Please select only one slave Record</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_only_one_slave_and_one_Master_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select only one slave and one Master Record</shortDescription>
+        <value>Please select only one slave and one Master Record</value>
     </labels>
     <labels>
         <fullName>Pleasecheck</fullName>
@@ -9820,6 +9848,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>You don&apos;t have permission to update this record for case edit for KR roles</shortDescription>
         <value>You don&apos;t have permission to update this record</value>
+    </labels>
+	<labels>
+        <fullName>You_should_have_aleast_one_master_and_one_slave_record_to_merge_the_duplicates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You should have aleast one master and one slave record to merge the duplicates</shortDescription>
+        <value>You should have aleast one master and one slave record to merge the duplicates</value>
     </labels>
     <labels>
         <fullName>Your_Current_car_s</fullName>
