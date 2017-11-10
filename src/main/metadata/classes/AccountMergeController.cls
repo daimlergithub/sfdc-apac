@@ -79,11 +79,11 @@ public with sharing class AccountMergeController{
                     AccountwrapperList.add(new Accountwrapper(a));
                  }  
                  if(AccountwrapperList.size()==1){
-                      ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'You should have aleast one master and one slave record to merge the duplicates'));
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,System.Label.You_should_have_aleast_one_master_and_one_slave_record_to_merge_the_duplicates));
                    }  
                } 
              else{
-                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'No record found'));
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,System.Label.No_record_found));
               }
             }
             
@@ -104,11 +104,11 @@ public with sharing class AccountMergeController{
                     AccountwrapperList.add(new Accountwrapper(a));
                  }  
                  if(AccountwrapperList.size()==1){
-                      ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'You should have aleast one master and one slave record to merge the duplicates'));
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,System.Label.You_should_have_aleast_one_master_and_one_slave_record_to_merge_the_duplicates));
                    }  
                } 
              else{
-                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'No record found'));
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,System.Label.No_record_found));
               }
             }
         
@@ -178,11 +178,11 @@ public with sharing class AccountMergeController{
           
           // Changes related to SFDCJP-2851 Added by Venky(23/8/2017)
              if(hasMasterAccount>=2 && hasSlaveAccount==1){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave and one Master Record'));   
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_slave_and_one_Master_Record));   
                 return Null;           
             } 
             if(hasSlaveAccount>=2 && hasMasterAccount==1){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave and one Master Record'));   
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_slave_and_one_Master_Record));   
                 return Null;           
             } 
            if(hasMasterAccount==0){
@@ -190,11 +190,11 @@ public with sharing class AccountMergeController{
                 return Null;           
             } 
             if(hasSlaveAccount==0){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave Record'));   
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_slave_Record));   
                 return Null; 
             }
          if(selectedSlaveAccount.Id==selectedMasterAccount.Id){
-               ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'Master and Slave can not have same Id'));
+               ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,System.Label.Master_and_Slave_can_not_have_same_Id));
                return null;        
           }
           PageReference pr = new PageReference('/apex/Accountmerge?selectedMasterAccount='+selectedMasterAccount.Id+'&selectedSlaveAccount='+selectedSlaveAccount.Id+'&Id='+Acct.Id);
@@ -230,11 +230,11 @@ public with sharing class AccountMergeController{
             } 
            
             if(hasSlaveAccount>=2 || hasSlaveAccount==0){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave Record'));   
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_slave_Record));   
                 return Null; 
             }
             if(selectedSlaveAccount.Id==selectedMasterAccount.Id){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'Master and Slave can not have same Id'));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,System.Label.Master_and_Slave_can_not_have_same_Id));
             return null;        
           }
             Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c(
