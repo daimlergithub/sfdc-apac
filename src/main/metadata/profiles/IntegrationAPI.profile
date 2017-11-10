@@ -9156,6 +9156,11 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Class_and_Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Dealer_ND_Code__c</field>
         <readable>true</readable>
@@ -9168,6 +9173,21 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.To_be_deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Model_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Temp_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Temp_ZipCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10318,6 +10338,26 @@
 	    <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.NewAccount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Class_and_Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Model_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Temp_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Temp_ZipCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
