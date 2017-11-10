@@ -141,6 +141,49 @@
         </displayedFields>
         <label>Vehicle Details</label>
     </fieldSets>
+	<fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>AMG__c</fullName>
         <defaultValue>false</defaultValue>
@@ -800,6 +843,18 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Class_and_Body__c</fullName>
+        <externalId>false</externalId>
+        <formula>Car_Model__r.Model_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Class and Body</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Colour__c</fullName>
         <description>/* 
@@ -1268,6 +1323,15 @@ Attribute in Data Dictionary object Vehicle is ‚ÄùVehicle_FirstRegistrationDate‚
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Grey_Vehicle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Grey Vehicle</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Info_Source__c</fullName>
@@ -4909,6 +4973,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <active>true</active>
         <description>Competitor Vehicle</description>
         <label>Competitor</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -5729,6 +5820,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <active>true</active>
         <description>MB vehicle</description>
         <label>MB</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -8488,6 +8606,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <fullName>Self_Registered</fullName>
         <active>true</active>
         <label>Self Registered</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -11343,6 +11488,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <fullName>Vehicle_Product</fullName>
         <active>true</active>
         <label>Vehicle Product</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -14199,6 +14371,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <active>true</active>
         <description>Soft deleted vehicle</description>
         <label>Vehicle Soft Deleted</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>

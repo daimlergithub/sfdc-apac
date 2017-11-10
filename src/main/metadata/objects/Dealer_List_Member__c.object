@@ -79,6 +79,17 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Class_and_Body__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign_Member__r.Class_and_Body__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Class and Body</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Company_Name__c</fullName>
         <externalId>false</externalId>
@@ -224,6 +235,17 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Model_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign_Member__r.Model_Description__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Model Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Model__c</fullName>
         <externalId>false</externalId>
@@ -234,6 +256,18 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NewAccount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Dealer List Members</relationshipLabel>
+        <relationshipName>Dealer_List_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Participating_Dealer__c</fullName>
@@ -285,6 +319,28 @@
         <formula>"true"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Representative</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Temp_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign_Member__r.Temp_Address__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unnormalized Address</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_ZipCode__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign_Member__r.Temp_ZipCode__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unnormalized Post Code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -343,4 +399,5 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
+
 

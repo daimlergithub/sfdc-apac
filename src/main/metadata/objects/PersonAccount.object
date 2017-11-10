@@ -84,6 +84,36 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Agreement_to_commit_info_proces_CC_Old__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Alliance_Offered_Service__c</picklist>
             <values>
@@ -594,6 +624,34 @@
             </values>
             <values>
                 <fullName>Service Program</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2093,6 +2151,66 @@
             </values>
             <values>
                 <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Sales_Marketing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3604,6 +3722,21 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Abroad_Agreement_CC_Old__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Person_Type__pc</picklist>
             <values>
@@ -3612,6 +3745,96 @@
             </values>
             <values>
                 <fullName>Shareholder</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Agreement_CC_Old__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Info_Third_Party_Release_CC_Old__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4144,6 +4367,36 @@
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4750,6 +5003,34 @@
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8217,6 +8498,21 @@
             <picklist>TSP_Esa_Flg__c</picklist>
             <values>
                 <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13150,6 +13446,34 @@
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(i-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concierge Service(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me portal)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Inquiry form(Mercedes me App)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>24 hours Touring Support(b-call)</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

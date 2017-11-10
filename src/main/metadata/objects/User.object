@@ -356,6 +356,15 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>MBK_Reporting_Partner_User__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Reporting Partner User</label>
+        <relationshipName>PartnerUsers</relationshipName>
+        <restrictedAdminField>false</restrictedAdminField>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
         <fullName>ManagerId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Hierarchy</type>
