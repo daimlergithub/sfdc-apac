@@ -22,11 +22,9 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
        existingLeadList = [Select Retail_Campaign_Name__c, Contact__c  from Lead__c where Retail_Campaign_Name__c =: retcamp];
       List<Lead__c> leadListToInsert = new List<Lead__c>();
       for(Campaign_Member__c  campmember:scope){
-      if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='OB Call'&&campmember.Auto_creation_of_tasks__c==false && campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'&& campmember.Retail_Campaign_Id__r.MBTH_Approval_Status__c=='Approved'){
+      if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='OB Call'&&campmember.Auto_creation_of_tasks__c==false && ((campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'&& campmember.Retail_Campaign_Id__r.MBTH_Approval_Status__c=='Approved')||campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='PowerPartner')){
       Task taskRec=new Task();
-      
-      
-           taskRec.status= 'New';
+        taskRec.status= 'New';
         taskRec.Priority='Low';
         taskRec.subject = 'Campaign Executed';
         taskRec.Whatid = campmember.Retail_Campaign_Id__r.id;
@@ -44,9 +42,8 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
         taskRec.RecordTypeId = obCall;
         taskstoInsert.add(taskrec);
         campmember.Auto_creation_of_tasks__c= true;
-
         }
-        else if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='Lead' && campmember.Convert_To_Lead_Flag__c!=True &&campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'&& campmember.Retail_Campaign_Id__r.MBTH_Approval_Status__c=='Approved'){
+        else if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='Lead' && campmember.Convert_To_Lead_Flag__c!=True &&((campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'&& campmember.Retail_Campaign_Id__r.MBTH_Approval_Status__c=='Approved')||campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='PowerPartner')){
              Lead__c duplicate = checkDuplicate(campmember, existingLeadList);
               if(duplicate.Id == null){
                   leadListToInsert.add(setLeadRecordFields(campmember.Retail_Campaign_Id__c,campmember));
@@ -108,8 +105,6 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
         }
         return leadRec;
     }
-    
-    
    public Lead__c checkDuplicate(Campaign_Member__c campaignMemberRec, List<Lead__c> existingLeadList) 
     {
         
@@ -154,8 +149,6 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
   global void finish(Database.BatchableContext bc) {
         
     }
-    
-    
     
     global void execute(SchedulableContext ctx) {
         Database.executeBatch(new Batch_AutoTaskANDLeadTH(), 1);
