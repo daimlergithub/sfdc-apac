@@ -21790,11 +21790,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>Pickup</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            </values> 
         </picklistValues>
 		 <picklistValues>
             <picklist>At_The_Time_of_Retrieval__c</picklist>
@@ -21805,11 +21801,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>Delivery</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            </values> 
         </picklistValues>
 		 <picklistValues>
             <picklist>Loaner_Vehicle__c</picklist>
@@ -21820,11 +21812,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>NotRequired</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+            </values> 
         </picklistValues>
         <picklistValues>
             <picklist>Behavioural_group__c</picklist>
