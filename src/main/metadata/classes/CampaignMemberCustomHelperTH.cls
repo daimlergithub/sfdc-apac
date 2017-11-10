@@ -1,6 +1,37 @@
 public class CampaignMemberCustomHelperTH{
 Map<ID,String> retcampstatus=new MAP<Id,String>();
 //if the status of parent campaign is Execution or response collection or completed then it will not allow to add the campaign members
+public void CampaignmemberssharewithsubDealers(List<Campaign_member__c> campmember){
+Map<id,String> idwithndcode=new Map<id,String>();
+List<Campaign_member__share> campmembershare = new List<Campaign_member__share>();
+for(Campaign_member__c re:[Select id,Createdby.Dealer_Nd_code__c from Campaign_member__c where id IN :campmember]){
+             
+            if(Userinfo.getUserType()=='PowerPartner'&& re.createdby.dealer_nd_code__C!=null){
+                idwithndcode.put(re.id,re.createdby.dealer_nd_code__C);
+            }
+    
+
+}
+for(Group g:[select Name from group where name IN : idwithndcode.values() ]){
+           for(Id id:idwithndcode.keyset()){
+               if(idwithndcode.get(id)==g.name){
+                  Campaign_member__share retca=new Campaign_member__share();
+                   retca.ParentId=id;
+                   retca.AccessLevel='EDIT';
+                   retca.RowCause=Schema.Campaign_member__share.RowCause.Manual;
+                   retca.UserOrGroupId=g.id;
+                   campmembershare.add(retca);
+                   
+               }
+        
+        }
+               
+               
+       }
+       if(campmembershare .size()>0){
+       insert campmembershare;
+       }
+}
 public void  campaignMemberHelperBeforeInsert(List<Campaign_Member__c> campmember){
     List<ID> retcamplst=new List<ID>();
     List<Retail_Campaign__c> retcamplststatus=new List<Retail_Campaign__c>();
