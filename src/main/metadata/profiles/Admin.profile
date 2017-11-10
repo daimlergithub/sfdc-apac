@@ -14628,6 +14628,26 @@
         <field>Lead__c.Behavioural_group__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Booked_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Online_Credit_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Online_Credit_Detail__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.TestDrive_End_DateTime__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Body_Type__c</field>
@@ -23981,6 +24001,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User.MBJ_Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.MBK_Partner_Roles__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.MBK_Reporting_Partner_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
