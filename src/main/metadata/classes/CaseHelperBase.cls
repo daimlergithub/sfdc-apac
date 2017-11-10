@@ -162,4 +162,16 @@ public class CaseHelperBase {
             }
         }
     }
+/* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Case> caseList){        
+        
+               for(Case caseRec : caseList){
+                    if(Test.isRunningTest()){
+                        caseRec.isTestRunning__c=true;
+                    }
+                   if(caseRec.Market__c =='' || caseRec.Market__c==NULL){
+                     caseRec.Market__c=caseRec.MD__c;
+                  }  
+              }       
+    }
 }

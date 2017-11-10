@@ -14570,7 +14570,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Finance_Product_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>

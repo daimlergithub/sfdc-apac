@@ -8727,7 +8727,7 @@
         <field>Campaign_Member__c.Delinquency_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	 <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Duplicate_Campaign_Member__c</field>
         <readable>true</readable>
@@ -14556,6 +14556,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Attachment_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Loaner_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.At_The_Time_of_Retrieval__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.At_The_Time_of_Stock__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
