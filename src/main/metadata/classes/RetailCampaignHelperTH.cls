@@ -40,6 +40,9 @@ public class RetailCampaignHelperTH{
         }
     }
     }
+    public static void ShareChildRecordswithDealers(List<Retail_Campaign__C> retcamptoshare){
+        
+    }
     /*public static void beforeinsertORUpdateRetailCampaign(List<Retail_campaign__c> campnew){
     Map<id,Retail_campaign__c> retailcampaigs=new Map<id,Retail_campaign__c>();
         for(Retail_campaign__c retcamp:campnew){
@@ -164,12 +167,34 @@ public class RetailCampaignHelperTH{
         }   
     }
     //Will change the parent campaigns status depends on the Child campaign status
-    public static void parentCampaingStatusChange(List<Retail_Campaign__c> retailcamp){     
-     List<Retail_Campaign__c> records=[Select id,Close_Date__c,RecordTypeId,Child_Campaign_Status__c,Parent_Campaign1__r.id,Parent_Campaign1__r.Close_Date__c,Parent_Campaign1__r.status__c from Retail_Campaign__c where id IN:retailcamp];
+    public static void parentCampaingStatusChange(List<Retail_Campaign__c> retailcamp, boolean isinsertflag){     
+        String usrtype=Userinfo.getUserType();
+        Map<id,String>  idwithndcode=new Map<id,String>();
+        List<Retail_Campaign__share> retcampshare=new List<Retail_Campaign__share>();
+     List<Retail_Campaign__c> records=[Select id,Close_Date__c,createdby.dealer_nd_code__C,RecordTypeId,Child_Campaign_Status__c,Parent_Campaign1__r.id,Parent_Campaign1__r.Close_Date__c,Parent_Campaign1__r.status__c from Retail_Campaign__c where id IN:retailcamp];
         for(Retail_Campaign__c re:records){
             if(re.RecordTypeId==executionRecordId && re.Parent_Campaign1__c!=null){               
                retailcampaign.put(re.Parent_Campaign1__r.id,re.Parent_Campaign1__r.status__c);            
             } 
+            if(isinsertflag&&usrtype=='PowerPartner' && (re.RecordTypeId==planningRecordId || re.RecordTypeId==executionRecordId) && re.createdby.dealer_nd_code__C!=null){
+                idwithndcode.put(re.id,re.createdby.dealer_nd_code__C);
+            }
+        }
+        for(Group g:[select Name from group where name IN : idwithndcode.values() ]){
+           for(Id id:idwithndcode.keyset()){
+               if(idwithndcode.get(id)==g.name){
+                   Retail_Campaign__share retca=new Retail_Campaign__share();
+                   retca.ParentId=id;
+                   retca.AccessLevel='EDIT';
+                   retca.RowCause=Schema.Retail_Campaign__share.RowCause.Manual;
+                   retca.UserOrGroupId=g.id;
+                   retcampshare.add(retca);
+                   
+               }
+               
+               
+           } 
+        
         }
         for(Retail_Campaign__c re:records){
            if(re.Child_Campaign_Status__c == 'Planning'){
@@ -192,8 +217,12 @@ public class RetailCampaignHelperTH{
         }
         
        if(updateRetailCampaign.size()>0){
+           
            //update updateRetailCampaign;
            DMLManagerService.updateAsSystem(updateRetailCampaign);
+        }
+        if(retcampshare.size()>0){
+            DMLManagerService.insertAsSystem(retcampshare);
         }
     }
 }
