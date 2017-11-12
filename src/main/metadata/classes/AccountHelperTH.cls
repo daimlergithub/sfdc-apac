@@ -842,32 +842,37 @@ It would be replaced by Informatica/Middleware  */
     //Date:26th Mar 2017 
     //This method removes the '0' from the area code if it contains while saving from standard pagelayout.
     /* Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */
-    /* 
-     public static void eliminateZerofrmPhone(List<Account> Accts)
+    public static void eliminateZerofrmPhone(List<Account> Accts)
     {
         Profile p = [select name from Profile where id =:UserInfo.getProfileId()];
-        String ProfileName = p.name;        
+        String ProfileName = p.name; 
+        String CompanyRecordtypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+        String PersonRecordtypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+             
         if(ProfileName !='IntegrationAPI'){       
             for (Account a :  Accts) { 
-            if(!(String.IsBlank(a.mobile__c)) && a.mobile__c.length()==13 && a.mobile__c.substring(3,4)=='0')
+            if(!(String.IsBlank(a.mobile__c)) && a.mobile__c.length()!=12 && (a.recordtypeId == CompanyRecordtypeId || a.recordtypeId ==PersonRecordtypeId))
             {            
-                a.mobile__c=a.mobile__c.substring(0,3)+a.mobile__c.substring(4,13);
+                a.mobile__c.addError('Must be a 9 digit number excluding +66');
+            }
+                        
+            if(!(String.IsBlank(a.Individual_Home_Phone__c)) && a.Individual_Home_Phone__c.length()!=11 && (a.recordtypeId == CompanyRecordtypeId || a.recordtypeId ==PersonRecordtypeId))
+            {     
+                a.Individual_Home_Phone__c.addError('Must be a 8 digit number excluding +66');
+                //a.Individual_Home_Phone__c =a.Individual_Home_Phone__c .substring(0,3)+a.Individual_Home_Phone__c.substring(4,12);
             }
             
-            if(!(String.IsBlank(a.Individual_Home_Phone__c)) && a.Individual_Home_Phone__c.length()==12 && a.Individual_Home_Phone__c.substring(3,4)=='0')
-            {            
-                a.Individual_Home_Phone__c =a.Individual_Home_Phone__c .substring(0,3)+a.Individual_Home_Phone__c.substring(4,12);
-            }
-            
-            if(!(String.IsBlank(a.Work_Phone__c)) && a.Work_Phone__c.length()==12 && a.Work_Phone__c.substring(3,4)=='0')
-            {            
-                a.Work_Phone__c=a.Work_Phone__c.substring(0,3)+a.Work_Phone__c.substring(4,12);
+            if(!(String.IsBlank(a.Work_Phone__c)) && a.Work_Phone__c.length()!=11 && (a.recordtypeId == CompanyRecordtypeId || a.recordtypeId ==PersonRecordtypeId))
+            {  
+                a.Work_Phone__c.addError('Must be a 8 digit number excluding +66');
+                //a.Work_Phone__c=a.Work_Phone__c.substring(0,3)+a.Work_Phone__c.substring(4,12);
             }
             
             }
             
-            }
-    } */
+        }
+    }  
+     
     /* Data Migration Explicit Fix - Santosh Mohanty */
     public static void updatemarket(List<Account> accList){        
         
