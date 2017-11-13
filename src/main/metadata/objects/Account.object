@@ -61092,7 +61092,7 @@ REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}"),REGEX(Individual_Home_Phone
     </validationRules>
     <validationRules>
         <fullName>HomePhone_Format_TH</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Home Phone must be in any of the following formats :	
 1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
         <errorConditionFormula>AND( 
@@ -61188,7 +61188,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_NoOfDigits_TH</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
 		NOT(ISBLANK(Individual_Home_Phone__c)),
 		LEN(Individual_Home_Phone__c ) &lt; 13,
@@ -61417,7 +61417,7 @@ NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{9
     </validationRules>
     <validationRules>
         <fullName>Mobile_Format_TH</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Mobile Phone must be in any of the following formats : 
 1. Province code (+xx) And PhoneNumber 9 (xxxxxxxxx)digits only</description>
         <errorConditionFormula>AND( 
