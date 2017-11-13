@@ -33,8 +33,4 @@
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- Start Date must be less than or equal to End Date --></errorMessage>
-        <name>Start_Date_is_less_than_the_End_Date</name>
-    </validationRules>
 </CustomObjectTranslation>
