@@ -12238,6 +12238,15 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
+	 <fields>
+        <fullName>Lastest_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Latest Consent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Latest_Sales_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -18851,6 +18860,17 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>User_Organization__c</fullName>
+        <externalId>false</externalId>
+        <label>User Organization</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>VAN_No_Brand_Purchases__c</fullName>
@@ -61302,6 +61322,13 @@ REGEX(LastName_Native_1__c, "[ァアィイゥウェエォオカガキギクグ�
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be KANA Characters</errorMessage>
+    </validationRules>
+	 <validationRules>
+        <fullName>Latest_Consent_Date_is_mandatory</fullName>
+        <active>true</active>
+        <description>If Personal Agreement value is not blank, then latest Consent Date is mandatory.</description>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Personal_Agreement__c ,'')),ISNULL(Lastest_Consent_Date__c))</errorConditionFormula>
+        <errorMessage>Latest Consent Date is mandatory.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MBK_Data_Source_Update</fullName>
