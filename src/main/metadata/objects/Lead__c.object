@@ -289,7 +289,7 @@
 	  <fields>
         <fullName>Loaner_Vehicle__c</fullName>
         <externalId>false</externalId>
-        <label>At The Time of Retrieval</label>
+        <label>Loaner Vehicle</label>
         <picklist>
             <picklistValues>
                 <fullName>Required</fullName>
@@ -766,6 +766,62 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>    
+	    <fields>
+        <fullName>Booked_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Booked Date Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>	
+	 <fields>
+        <fullName>Online_Credit_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Online Credit Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Optional</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Decline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>	
+	<fields>
+        <fullName>Online_Credit_Detail__c</fullName>
+        <externalId>false</externalId>
+        <label>Online Credit Detail</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>	
+	 <fields>
+        <fullName>TestDrive_End_DateTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Drive End DateTime</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>Behavioural_group__c</fullName>
         <description>This is used to calcuate the priority score.</description>
@@ -47091,6 +47147,21 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+		 <picklistValues>
+            <picklist>Online_Credit_Status__c</picklist>
+            <values>
+                <fullName>Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Optional</fullName>
+                <default>false</default>
+            </values>			
+            <values>
+                <fullName>Decline</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
