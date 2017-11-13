@@ -8012,6 +8012,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
@@ -8047,11 +8051,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>TV</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>KakaoTalk</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+		</picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -14854,6 +14854,11 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            
         </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
@@ -14886,10 +14891,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
 			<values>
-                <fullName>KakaoTalk</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>TV</fullName>
                 <default>false</default>
             </values>
