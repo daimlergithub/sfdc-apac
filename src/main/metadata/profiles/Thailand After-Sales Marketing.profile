@@ -27952,7 +27952,6 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
         <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
 	</objectPermissions>
 	   <objectPermissions>
         <allowCreate>true</allowCreate>

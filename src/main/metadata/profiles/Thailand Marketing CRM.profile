@@ -27963,7 +27963,6 @@
         <object>Account</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-	</objectPermissions>
 	   <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
