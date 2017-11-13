@@ -93,6 +93,10 @@
                 <behavior>Edit</behavior>
                 <field>Task_De_dup_Range__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Courtesy_Greeting__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -228,6 +232,7 @@
         <relatedList>Campaign.Previous_Campaign_Execution__c</relatedList>
     </relatedLists>
     <relatedLists>
+	    <customButtons>Task.Manage_Tasks</customButtons>
         <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
