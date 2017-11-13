@@ -1,4 +1,4 @@
-global class LeadShareBatch implements Database.Batchable<sobject>,database.stateful
+global class LeadShareBatch implements Database.Batchable<sobject>,database.stateful, Schedulable
 {
     public static List<string> dealerGCCodeList = new list<string>();
     public static List<string> dealerNDCodeList = new List<string>();
@@ -63,7 +63,7 @@ global class LeadShareBatch implements Database.Batchable<sobject>,database.stat
                                 Lead__Share ledShre = new Lead__Share();
                                 ledShre.AccessLevel = 'Edit';
                                 ledShre.ParentId = lead.Id;
-                                ledShre.UserOrGroupId = groupGcCodeMap.get(lead.assigned_Dealer__r.Dealer_ND_Code__c);
+                                ledShre.UserOrGroupId = groupNdCodeMap.get(lead.assigned_Dealer__r.Dealer_ND_Code__c);
                                 leadShareList.add(ledShre);
                 }
 
@@ -86,5 +86,8 @@ if(!leadShareList.isEmpty() && leadShareList != null)
     global void finish(database.BatchableContext bc)
     {
         
+    }
+     global void execute(SchedulableContext ctx) {
+    Database.ExecuteBatch(new LeadShareBatch(),200);
     }
 }
