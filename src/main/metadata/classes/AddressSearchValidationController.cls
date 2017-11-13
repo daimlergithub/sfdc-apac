@@ -14,9 +14,8 @@ History:
     Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
     Sanjay Nandi(SN20170907)    2017/09/09            //SN20170907- Pagination Logic
     Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
-    Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in
-    CDM   
-	Sanjay Nandi(SN20171028)    2017/10/28            //SN20171028- Added code to resolve issues related to search of CUstomer without address																																		  
+    Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in CDM   
+    Sanjay Nandi(SN20171028)    2017/10/28            //SN20171028- Added code to resolve issues related to search of CUstomer without address                                                                                                                                        
 **/
 public class AddressSearchValidationController
 {
@@ -1513,7 +1512,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
            Address__c NewAdd=new Address__c();
-			//SN20171028- Online dedup fix
+            //SN20171028- Online dedup fix
             newadd.market__c=market;
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
             {
@@ -1696,7 +1695,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             System.debug('@@@@@@@@@@ AddressObj : '+AddressObj);
             Address__c NewAdd=new Address__c();
             //SN20171028- Online dedup fix
-            newadd.market__c=market;									
+            newadd.market__c=market;                                    
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             {   
                 System.debug('@@@@@@@@@@ objAccount 2 :'+objAccount);
@@ -1852,9 +1851,9 @@ If the user is Saving  same address which matches the fields returned by toleran
     /* *PR20170918- Switch Between EP and CDM* */
     public void onLineDedupSwitchTH(){
         CDM_EP_Switch__c switchEP = CDM_EP_Switch__c.getValues('Switch');
-        if(switchEP.EP__c == true)
+        if(switchEP != null && switchEP.EP__c == true)
             onLineDeduplicationTH();
-        else if(switchEP.CDM__c == true)
+        else if(switchEP != null && switchEP.CDM__c == true)
             onLineDeduplicationCDMTH();
     }
    //Introduced for TH Market
@@ -1924,8 +1923,8 @@ If the user is Saving  same address which matches the fields returned by toleran
              system.debug('@@@'+objAccount);
              system.debug('@@@'+AddressObj);             
            Address__c NewAdd=new Address__c();
-			//SN20171028- Online dedup fix
-            newadd.market__c=market;				
+            //SN20171028- Online dedup fix
+            newadd.market__c=market;                
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.LastName!=null)
             {              
               system.debug('@@@In');
@@ -2093,7 +2092,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             
             Address__c NewAdd=new Address__c();
             //SN20171028- Online dedup fix
-            newadd.market__c=market;									
+            newadd.market__c=market;                                    
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             { 
                 response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
@@ -2224,33 +2223,33 @@ If the user is Saving  same address which matches the fields returned by toleran
                     endUrl+=mapURLs.get(str).Informatica_URL__c;
                 }
             }
-            //endUrl+= recordType == 'Person Account'?mapURLs.get('SearchPersonAccount').Informatica_URL__c:mapURLs.get('SearchCompanyAccount').Informatica_URL__c;
             if(recordType == 'Person Account')
             {
-                    //sss = mapURLs.get('SearchPersonAccount').Informatica_URL__c;
-                    endUrl+='ip_Firstname='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
-                    endUrl+='&ip_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
-                    endUrl+='&ip_MobileTelephone='+((string.isnotblank(objAccount.Mobile__c))?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
-                    endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
-                    endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-                    endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-                    //SN20171108- This is interim solution
-					if(market =='MY' && label.New_Component=='true'){ 
-						endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
-						endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):''); 
-					}
-					else{
-						endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
-					}
-					
+                endUrl+='ip_Firstname='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
+                endUrl+='&ip_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
+                endUrl+='&ip_MobileTelephone='+((string.isnotblank(objAccount.Mobile__c))?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+                endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+                endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
+                endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
+                //SN20171108- This is interim solution
+                /*
+                if(market =='MY' && label.New_Component=='true'){ 
+                    endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
+                    endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):''); 
+                }
+                else{
+                    endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
+                }
+                */
             }
             else if(recordType == 'Company'){
-                         endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
-                         endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
-                         endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
-                         endUrl+='&ip_BusinessEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-                         endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-                         
+                 endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
+                 endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                 endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                 endUrl+='&ip_BusinessEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+                 endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
             }
        
         return endUrl;
@@ -2329,7 +2328,6 @@ If the user is Saving  same address which matches the fields returned by toleran
       try{
       this.requestLabel = res.getBody();
       CustomLogUtil.CustomLoggingEntry('Continuation Response Body' + res.getBody());
-      //this.responsedisp = res.getBody();
         if(res.getbody()=='{}'){
             showCDM=false;
             CustomLogUtil.CustomLoggingEntry('Error Occured will calling ' + 'Response Body' +res.getbody());
@@ -2363,14 +2361,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
                 for(account acc :database.query(querytxt)){
-                        DedupAccountList.add(acc);
-                    } 
-                
-        
-                //for(account acc :[select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where UCID__c in: set_accounts]){
-                //    DedupAccountList.add(acc);
-                //}
-                
+                    DedupAccountList.add(acc);
+                }
                 last=false;     
                 previous=false;     
                 first=false;        
@@ -2593,29 +2585,29 @@ public pagereference saveAccountTH()
         // Save record without Address record if no value is Entered in Address section     
         if(AddressObj.Address_Type__c == null )      
         {       
-			if (string.isnotblank(AddressObj.Address_Line_1__c) ||      
+            if (string.isnotblank(AddressObj.Address_Line_1__c) ||      
                 string.isnotblank(AddressObj.Address_Line_2__c) ||   string.isnotblank(AddressObj.Address_Line_3__c)||                       
                string.isnotblank(Zip)||                     
                 ((string.isnotblank(province) && addressObj.Country__c!='Malaysia') ||
                  (province!='--Select--' && addressObj.Country__c=='Malaysia')   )){
-				
-				
-				
-				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select address type'));       
-				Validation = true; 
-			}
-			
-			else{
-			   if(SaveAccountDetailsMY())      
-				{       
-					PageReference pageRef = new PageReference('/'+objAccount.Id);       
-					return PageRef;                 
-				}       
-			}
+                
+                
+                
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select address type'));       
+                Validation = true; 
+            }
+            
+            else{
+               if(SaveAccountDetailsMY())      
+                {       
+                    PageReference pageRef = new PageReference('/'+objAccount.Id);       
+                    return PageRef;                 
+                }       
+            }
         } 
-				
+                
         // Save record with Address details Validating the Address Details 
-		boolean check=false;
+        boolean check=false;
         If(AddressObj.Address_Type__c != null)      
         {       
                 
