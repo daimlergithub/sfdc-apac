@@ -1,4 +1,4 @@
-global class caseShareBatch implements Database.Batchable<sobject>,database.stateful
+global class caseShareBatch implements Database.Batchable<sobject>,database.stateful, Schedulable
 {
     public static List<string> dealerGCCodeList = new list<string>();
     public static List<string> dealerNDCodeList = new List<string>();
@@ -62,7 +62,7 @@ global class caseShareBatch implements Database.Batchable<sobject>,database.stat
                                 CaseShare casShre = new CaseShare();
                                 casShre.CaseAccessLevel = 'Edit';
                                 casShre.CaseId = cas.Id;
-                                casShre.UserOrGroupId = groupGcCodeMap.get(cas.Case_Dealer__r.Dealer_ND_Code__c);
+                                casShre.UserOrGroupId = groupNdCodeMap.get(cas.Case_Dealer__r.Dealer_ND_Code__c);
                                 caseShareList.add(casShre);
                 }
                 
@@ -84,5 +84,8 @@ if(!caseShareList.isEmpty() && caseShareList != null)
     global void finish(database.BatchableContext bc)
     {
         
+    }
+    global void execute(SchedulableContext ctx) {
+    Database.ExecuteBatch(new caseShareBatch(),200);
     }
 }
