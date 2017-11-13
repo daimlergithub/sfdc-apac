@@ -34,6 +34,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
 
         if(isBefore && isInsert){
            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+           AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         
          if(isAfter && isInsert )
@@ -54,7 +55,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateOnEmailOptout(Trigger.new);
             AccountHelperTH.updateAgeRange(Trigger.new);
             AccountHelperTH.activeContracts(Trigger.new);
-           // AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
+            AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
