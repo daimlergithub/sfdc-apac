@@ -34,7 +34,6 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
 
         if(isBefore && isInsert){
            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
-           AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         
          if(isAfter && isInsert )
@@ -55,7 +54,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateOnEmailOptout(Trigger.new);
             AccountHelperTH.updateAgeRange(Trigger.new);
             AccountHelperTH.activeContracts(Trigger.new);
-            AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
+           // AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
@@ -119,6 +118,14 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         */
         if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
             AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
+        }
+        
+        /*** This is used for updating the Document Consent History related to ticket SFDCTH-509 ***/
+        if(isAfter && isUpdate){
+            if(AccountHelperTH.consentHistoryCodeCalled){
+                AccountHelperTH.UpdateConsentHistory((Map<Id,Account>)Trigger.oldMap,Trigger.New);
+                AccountHelperTH.consentHistoryCodeCalled = false;
+            }
         }
     }
     
