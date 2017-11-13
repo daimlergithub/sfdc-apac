@@ -1,4 +1,4 @@
-global class accountLinkShareBatch implements Database.Batchable<sobject>,database.stateful
+global class accountLinkShareBatch implements Database.Batchable<sobject>,database.stateful, Schedulable
 {
     public static List<string> dealerGCCodeList = new list<string>();
     public static List<string> dealerNDCodeList = new List<string>();
@@ -102,5 +102,8 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
     global void finish(database.BatchableContext bc)
     {
         
+    }
+    global void execute(SchedulableContext ctx) {
+    Database.ExecuteBatch(new accountLinkShareBatch(),200);
     }
 }
