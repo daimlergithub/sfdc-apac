@@ -1564,6 +1564,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Courtesy_Greeting__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Courtesy Greeting</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Create_Task__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1980,6 +1988,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8000,6 +8012,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
@@ -8035,7 +8051,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>TV</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+		</picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -11216,6 +11232,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14834,6 +14854,11 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            
         </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
@@ -14865,7 +14890,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>TV</fullName>
                 <default>false</default>
             </values>
@@ -22392,6 +22417,13 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
         <active>false</active>
         <errorConditionFormula>OR(Expected_Response_Rate__c &gt; 1,Expected_Participation__c &gt; 1,Expected_Registration__c &gt; 1, Expected_Lead__c &gt; 1)</errorConditionFormula>
         <errorMessage>Expected Outcome fields should not be more than 100.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Get_OBSMSTemplate_on_Courtesy_Greet</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL($User.Market__c,'KR'), Courtesy_Greeting__c = true, OBSMSTemplate__c  = '', ISBLANK(OBSMSTemplate__c) )</errorConditionFormula>
+        <errorDisplayField>OBSMSTemplate__c</errorDisplayField>
+        <errorMessage>Please select the OB SMS Template.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Locked_for_Central_when_Published</fullName>
