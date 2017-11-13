@@ -5603,6 +5603,11 @@
         <field>Campaign.Approver__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Add_Preferred_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Auto_Number__c</field>
@@ -14968,6 +14973,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Approver__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Add_Preferred_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
