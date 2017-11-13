@@ -40,7 +40,7 @@
     <fieldUpdates>
         <fullName>First_Consent_User</fullName>
         <field>First_Consent_User__c</field>
-        <formula>$User.Username</formula>
+        <formula>$User.FirstName + &apos; &apos; + $User.LastName</formula>
         <name>First Consent User</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -101,6 +101,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>System_Data_Source_2</fullName>
+        <description>System Data Source equals to Salesforce</description>
+        <field>System_Data_Source__c</field>
+        <formula>&apos;Salesforce&apos;</formula>
+        <name>System Data Source 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>UpdateDataSource</fullName>
         <field>System_Data_Source__c</field>
         <formula>&apos;Salesforce&apos;</formula>
@@ -124,6 +134,26 @@
         <field>Company_Name__c</field>
         <formula>Name</formula>
         <name>Update Company Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Consent_Date</fullName>
+        <description>Update Consent Date to Today&apos;s date</description>
+        <field>Updated_Consent_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Consent Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Consent_User</fullName>
+        <description>Update Consent User as the current username</description>
+        <field>Updated_Consent_User__c</field>
+        <formula>$User.FirstName + &apos; &apos; + $User.LastName</formula>
+        <name>Update Consent User</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -294,19 +324,32 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2</booleanFilter>
-        <criteriaItems>
-            <field>Account.Personal_Agreement__c</field>
-            <operation>equals</operation>
-            <value>Yes</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;YES&quot;</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;No&quot;</description>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;), MD__c = &apos;TH&apos; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>MBTH_Update_Consent_data_Source_2</fullName>
+        <actions>
+            <name>System_Data_Source</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>System_Data_Source_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Consent_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Consent_User</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update the Data Source,Update Consent User and Update Consent Date when Personal_Agreement__c is &quot;Yes&quot;</description>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;Yes&apos;), MD__c = &apos;TH&apos; )</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>MBTH_Update_consent_Information</fullName>
@@ -394,11 +437,7 @@ Modify Reason:
         </actions>
         <active>true</active>
         <description>Update Allow data sharing to &apos;No&apos; for KR Market</description>
-        <formula>AND(MD__c=&quot;KR&quot;,
-OR
-(NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c,&quot;Yes&quot;))
-,NOT(ISPICKVAL(Personal_Agreement__c,&quot;Yes&quot;))
-,NOT(ISPICKVAL(Agreement_to_commit_info_processing__c,&quot;Yes&quot;))))</formula>
+        <formula>AND(MD__c=&quot;KR&quot;, OR (NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Personal_Agreement__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Agreement_to_commit_info_processing__c,&quot;Yes&quot;))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
