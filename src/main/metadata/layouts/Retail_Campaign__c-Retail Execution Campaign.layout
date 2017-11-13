@@ -74,6 +74,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Add_Preferred_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Add_Sales_Staff__c</field>
             </layoutItems>
             <layoutItems>
