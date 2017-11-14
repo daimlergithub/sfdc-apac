@@ -116,6 +116,10 @@
         <label><!-- A6 Other contact channels --></label>
         <name>A6_Other_contact_channels</name>
     </customLabels>
+	<customLabels>
+        <label>하나의 연락처만 선택 하시기 바랍니다</label>
+        <name>KR_Company_Account_Record_Type</name>
+    </customLabels>
     <customLabels>
         <label><!-- A6 Personal email --></label>
         <name>A6_Personal_email</name>
