@@ -2,7 +2,7 @@ global class Batch_VRSharingJP implements Database.Batchable<sObject>, Database.
     global final Set<Id> setmainId;
     global final Map<Id, List<Id>> InsertMap;
     global final Set<String> dealerAccount;
-    global Batch_VRSharing(Set<String> dealerAccNameSet,Map<Id, List<Id>> map_FromAccountIdAndListToAccountId, Set<Id> set_ToAccountId){
+    global Batch_VRSharingJP(Set<String> dealerAccNameSet,Map<Id, List<Id>> map_FromAccountIdAndListToAccountId, Set<Id> set_ToAccountId){
     
         InsertMap = map_FromAccountIdAndListToAccountId;
         setmainId = set_ToAccountId;
