@@ -1591,96 +1591,62 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+        <fields>
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
         <label>Democar flag</label>
         <picklist>
-            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Demo Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Alternative Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Daimler Employee Rental Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Company Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Employee Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Employee Lease</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Company Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Daimler Employee Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <picklistValues>
                 <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso Company Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso Employee Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso Employee Lease</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gift Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <default>false</default>                
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
