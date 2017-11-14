@@ -63,6 +63,13 @@
         <shortDescription>A6 Telephone call</shortDescription>
         <value>Telephone call</value>
     </labels>
+	<labels>
+        <fullName>KR_Company_Account_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KR Company Account Record Type</shortDescription>
+        <value>Only one contact number can be selected</value>
+    </labels>
     <labels>
         <fullName>A6_Visit_to_a_car_dealership</fullName>
         <language>en_US</language>
