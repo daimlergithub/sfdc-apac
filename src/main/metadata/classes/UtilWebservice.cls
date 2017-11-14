@@ -1,8 +1,6 @@
 Global class UtilWebservice 
 {
 
-
-
 webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String AccountLinkId)
     {  
      Account_link__c  alk=new  Account_Link__c();
