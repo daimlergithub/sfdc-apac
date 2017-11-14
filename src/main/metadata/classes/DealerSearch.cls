@@ -4,7 +4,7 @@ public String size { get; set; }
 //This is Our collection of the class/wrapper objects AddingParticipatingDealer 
 Public List<AddingParticipatingDealer> wrapperlist{get;set;}
 Public Integer noOfRecords{get; set;}
-
+private String objectAPIName;
 // Create a new Map to verify whether the Account is already added in the Map
 Map <id,Account> SelectedAccountMap = new Map <id,Account>();
 Set<id> Checkid = New Set<id>();
@@ -25,6 +25,7 @@ public String soql {get;set;}
 Set<String> getDealerNDCode= new Set<String>();
 map<string,id> assgroupMap = new map<string,id>();
 List<DM_Material__share> cpnShares = new List<DM_Material__share>();
+List<DM_Request__Share> cpnShares1 = new List<DM_Request__Share>();
 // private String soql {get;set;}
 
 public DealerSearch(){ 
@@ -33,10 +34,14 @@ public DealerSearch(){
     regionOptions.add(new SelectOption('sid','Select A Dealer'));
     //SearchLogic();
     panelStopper = false;
-    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR']));
+    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Parent.Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR']));
    
    
     obId =ApexPages.currentPage().getParameters().get('id');
+    if(obId != '')
+    {
+      objectAPIName = (Id.valueOf(obId)).getSObjectType().getDescribe().getName();
+    }
     
     
     
@@ -50,7 +55,7 @@ Public Void dropDown(){
     else if(regionValue == 'aid' ){
         panelStopper = false;
         
-    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR'])); 
+    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,Dealer_GC_Code__c,Parent.Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR'])); 
     setCon.setpagesize(10);
     }
 }
@@ -64,9 +69,9 @@ Public void SearchLogic(){
      String md = 'KR';
      String dea = 'Dealer';
     
-    //Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Dealer_Sales_Type__c,Dealer_Service_Func__c,Dealer_Sales_func__c,Dealer_UsedCar_Func__c,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_UsedCarCorner__c,Dealer_AMGPerformance__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c,Dealer_Cars_Dlr_Class_Sales__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' AND MD__c ='KR' ]));
+    //Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Dealer_Sales_Type__c,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' AND MD__c ='KR' ]));
     
-  String soql = 'SELECT Dealer_Sales_Type__c,Dealer_Service_Func__c,Dealer_Sales_func__c,Dealer_UsedCar_Func__c,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_UsedCarCorner__c,Dealer_AMGPerformance__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c,Dealer_Cars_Dlr_Class_Sales__c FROM Account '
+  String soql = 'SELECT Dealer_Sales_Type__c,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c,Parent.Dealer_ND_Code__c FROM Account '
    + 'where (RecordTypeId =\'' + dealerRecordtypeid   + '\' AND '  
     + 'MD__c = \'' + String.escapeSingleQuotes(md) +'\')  '; 
            
@@ -132,7 +137,15 @@ public void  ShareRecordd(){
     {
      if(selac.Dealer_ND_Code__c != null)
      {
-      getDealerNDCode.add(selac.Dealer_ND_Code__c);
+       if(selac.Dealer_Type__c == 'Outlet')
+        {
+          getDealerNDCode.add(selac.Dealer_ND_Code__c);
+          getDealerNDCode.add(selac.Parent.Dealer_ND_Code__c);
+        }
+        else
+        {
+          getDealerNDCode.add(selac.Dealer_ND_Code__c);
+        }
      }
     }
     
@@ -157,16 +170,35 @@ public void  ShareRecordd(){
            // share.CampaignId = obId;
             share.CampaignId = obId;
             share.UserOrGroupId = m;*/
+            if(objectAPIName == 'DM_Material__c')
+            {
             DM_Material__Share share=new DM_Material__Share();
             share.AccessLevel = 'Read';
             share.ParentID = obId;
             share.UserOrGroupId = m;
             cpnShares.add(share);
+            }
+            else if(objectAPIName == 'DM_Request__c')
+            {
+             DM_Request__Share share1=new DM_Request__Share();
+             share1.AccessLevel = 'Read';
+             share1.ParentID = obId;
+             share1.UserOrGroupId = m;
+             cpnShares1.add(share1);
+            }
         }           
-        if (!cpnShares.isEmpty()) {
+        if (!cpnShares.isEmpty() || !cpnShares1.isEmpty()) {
             try {
             system.debug('cpnShares--'+cpnShares);
+            system.debug('cpnShares--'+cpnShares);
+            if(objectAPIName == 'DM_Material__c')
+            {
                 insert cpnShares;
+            }
+            else if(objectAPIName == 'DM_Request__c')
+            {
+              insert cpnShares1;
+            }
                 
             } catch (DMLException e) {
                 System.debug('Issues while sharing Campaign : ' + e);

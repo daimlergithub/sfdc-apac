@@ -28,6 +28,41 @@
         <shortDescription>A6 Other contact channels</shortDescription>
         <value>Other contact channels</value>
     </labels>
+	<labels>
+        <fullName>Manage_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Manage Tasks on campaign</shortDescription>
+        <value>Manage Tasks</value>
+    </labels>
+	<labels>
+        <fullName>Select_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All</shortDescription>
+        <value>Select All</value>
+    </labels>
+	<labels>
+        <fullName>Filter_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter Status</shortDescription>
+        <value>Filter Status</value>
+    </labels>
+	<labels>
+        <fullName>New_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Status</shortDescription>
+        <value>New Status</value>
+    </labels>
+	<labels>
+        <fullName>All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
     <labels>
         <fullName>A6_Personal_email</fullName>
         <language>en_US</language>

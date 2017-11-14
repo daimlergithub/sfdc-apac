@@ -2529,18 +2529,13 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <fullName>OBSMSTemplate__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>OB SMS Template</label>
+        <label>Outbound Template</label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
-                <field>Template__c.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>SMS</value>
-            </filterItems>
-            <filterItems>
                 <field>$Source.Execution_Type__c</field>
                 <operation>equals</operation>
-                <value>OB Call</value>
+                <valueField>Template__c.RecordType.Name</valueField>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -22421,9 +22416,9 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
 	<validationRules>
         <fullName>Get_OBSMSTemplate_on_Courtesy_Greet</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL($User.Market__c,'KR'), Courtesy_Greeting__c = true, OBSMSTemplate__c  = '', ISBLANK(OBSMSTemplate__c) )</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c = 'KR', Courtesy_Greeting__c = true, OBSMSTemplate__c  = '', ISBLANK(OBSMSTemplate__c) )</errorConditionFormula>
         <errorDisplayField>OBSMSTemplate__c</errorDisplayField>
-        <errorMessage>Please select the OB SMS Template.</errorMessage>
+        <errorMessage>Outbound Template is Mandatory when Courtesy Greeting is Checked</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Locked_for_Central_when_Published</fullName>
