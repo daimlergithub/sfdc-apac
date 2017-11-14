@@ -18,15 +18,10 @@ global without sharing class customerVehiceStatus {
         String RegistrationNumber=(String)obj.get('RegistrationNumber');
         String name='';
         if(LastName!='' && !String.isBlank(LastName) && LastName!=' ' && lastname!=null){
-            if(Pattern.matches('.*[A-Za-z]{1,}.*', lastname)){
-                name+=lastname;
-            }
-            else{
-                name+=lastname;
-            }            
+                name+=lastname;                   
         }
         if(FirstName!='' && !String.isBlank(FirstName) && FirstName!=' ' && FirstName!=null){
-            if(Pattern.matches('.*[A-Za-z]{1,}.*', FirstName)){
+            if(Pattern.matches('.*[A-Za-z]{1,}.*', FirstName) || Pattern.matches('.*[A-Za-z]{1,}.*', lastname)){
                name+=name!='' ? (' '+FirstName) :(FirstName);
             }
             else{
@@ -34,6 +29,8 @@ global without sharing class customerVehiceStatus {
             }
         }
         system.debug(name);
+        system.debug(Email);
+        system.debug(Mobile);
         //changes for Frst & lastname
         List<Account> acc= new List<Account>();
         List<Vehicle__c> vehicle=new List<Vehicle__c>();
@@ -49,12 +46,15 @@ global without sharing class customerVehiceStatus {
         }
         //considering removal of white spaces
         RegistrationNumber=RegistrationNumber.deleteWhitespace();
+        if(RegistrationNumber==null || RegistrationNumber==''){
+            return response;
+        }
         String regNumwithwildcards='%';
         for(Integer i=0;i<RegistrationNumber.length();i++){
             regNumwithwildcards+=RegistrationNumber.substring(i,i+1)+'%';
         }
         List<Vehicle__c> vehicles=new List<Vehicle__c>();
-        vehicles=[select id,RegistrationNo__c from vehicle__c where RegistrationNo__c like :regNumwithwildcards and Md__c='KR'];
+        vehicles=[select id,RegistrationNo__c from vehicle__c where RegistrationNo__c like :regNumwithwildcards and Md__c='KR' limit 50000];
         for(vehicle__c v:vehicles){
             if(v.RegistrationNo__c.deleteWhitespace()==RegistrationNumber){
                 RegistrationNumber=v.RegistrationNo__c;

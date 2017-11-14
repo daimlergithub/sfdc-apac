@@ -202,7 +202,7 @@
                     
                 </apex:pageBlockTable>
                 
-                <apex:pageBlockTable id="acc_addressTH" value="{!adds}" var="row" style="width:900px;" rendered="{!IF((market == 'TH' || market='MY'), true, false)}">                                                                    
+                <apex:pageBlockTable id="acc_addressTH" value="{!adds}" var="row" style="width:900px;" rendered="{!IF((market == 'TH' || $Permission.MYGeneric), true, false)}">                                                                    
                     
                     <apex:column width="8%">
                         
@@ -237,7 +237,7 @@
                         </apex:outputText>
                     </apex:column>
                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}" rendered="{!IF(($Permission.MYGeneric),true,false)}">
                         <apex:outputText value="{!row.Address_Line_3__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
                     </apex:column>
@@ -252,7 +252,7 @@
                         </apex:outputText>
                     </apex:column>
                     
-                    <apex:column headerValue="City" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
+                    <apex:column headerValue="City" rendered="{!IF(($Permission.MYGeneric),true,false)}">
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
@@ -267,7 +267,7 @@
                         </apex:outputField>
                     </apex:column>
                     
-					<apex:column headerValue="Country" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">
+					<apex:column headerValue="Country" rendered="{!IF(($Permission.MYGeneric),true,false)}">
                         <apex:outputField value="{!row.Country__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>					
@@ -474,7 +474,7 @@
                      
                 </apex:pageBlockSection>
                 
-                 <apex:pageBlockSection title="Address Information" columns="2" id="pbsMY" rendered="{!IF((market=='MY' && $Permission.MYGeneric),true,false)}">       
+                 <apex:pageBlockSection title="Address Information" columns="2" id="pbsMY" rendered="{!IF(($Permission.MYGeneric),true,false)}">       
                                                 
                     <apex:pageBlockSectionItem >        
                             
@@ -561,10 +561,10 @@
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
-                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', market!='MY' ),true,false)}"/>
+                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric) ),true,false)}"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF((market='KR' || market='JP'),true,false)}"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market=='TH',true,false)}"/>
-                   <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market=='MY',true,false)}"/>
+                   <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.MYGeneric,true,false)}"/>
                     
                     <apex:outputPanel id="redirectPanel">                   
                         <apex:outputText rendered="{!refreshPage}">
