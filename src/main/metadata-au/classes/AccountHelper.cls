@@ -200,7 +200,7 @@ public class AccountHelper {
             acc.PC_Status__c = 'Prospect';
             acc.CV_Status__c = 'Prospect';
             acc.VAN_Status__c = 'Prospect';
-			acc.Insurance_Status__c = 'Prospect';
+            acc.Insurance_Status__c = 'Prospect';
         }
         return acc;
     }
@@ -597,7 +597,7 @@ public class AccountHelper {
                        VAN_Status__c,
                        VAN_Tenure__c,
                        VAN_No_Brand_Purchases__c,
-					   System_Data_Source__c
+                       System_Data_Source__c
                 from Account
                 where Id in :ids]);
     }
@@ -1065,11 +1065,12 @@ public class AccountHelper {
        {
           CustomLogUtil.CustomLoggingEntry(' Account Helper Class auBeforeInsert_Update_Phonenum_validation method '+'lstNewAccouts= ' + lstNewAccouts.size());
     
-        //Id profileId = userinfo.getProfileId();
-        //String profileName = [Select Id,Name from Profile where Id=:profileId].Name; 
+        //Id uId = userinfo.getuserId();
+       String profileName = [Select Id,Name from Profile where Id=:userinfo.getProfileId()].Name;
+      // user currentUser=[Select Id,profileid,Market__c from user where id=:userinfo.getuserId()]; 
         for(Account objAcc:lstNewAccouts)
         {
-            if(profileName != 'IntegrationAPI')
+            if(profileName != 'IntegrationAPI' && objAcc.MD__c == 'AU')
             {
                 if (string.valueof(objAcc.Mobile__c) != null && string.valueof(objAcc.Mobile__c)!='')
                 {
@@ -1114,7 +1115,20 @@ public class AccountHelper {
                            if(errorMsg != null)
                                objAcc.addError(errorMsg);
                 }
-            }    
+            } 
+             else if(profileName != 'IntegrationAPI' && objAcc.MD__c == 'NZ')
+             {
+                  if (string.valueof(objAcc.Mobile__c) != null && string.valueof(objAcc.Mobile__c)!='')
+                {
+                    if(!(string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+642') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('02')))
+                    { objAcc.Mobile__c.addError('Mobile number should begin with any one of these values +642,02');}
+                   
+                      String errorMsg = ValidatePhoneNumberFieldsNZ(string.valueof(objAcc.Mobile__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                 
+             }               
         }
         }
       catch(DMLException ex)
@@ -1124,6 +1138,24 @@ public class AccountHelper {
       CustomLogUtil.DebugLogInsert();
     }
     
+    public static String ValidatePhoneNumberFieldsNZ(String PhoneNum)
+    {
+         
+        if((string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').startsWith('+64') && (string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').remove('+').length() > 13 || string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').remove('+').length() < 11 ) ))
+        {
+            
+            
+            return 'Number of digits in Phone Number should be in between 11 and 13 if it starts with +64';
+            
+        }
+     else if((!(string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').startsWith('+64')) && string.valueof(PhoneNum).remove('+').trim().replaceAll('(\\s+)', '').length() > 11 || string.valueof(PhoneNum).remove('+').trim().replaceAll('(\\s+)', '').length() < 9 ))
+       {
+           
+            return 'Number of digits in Phone Number should be in between 9 and 11 if it doesnot starts with +64';
+       }
+        else 
+        return null;
+    }
     public static String ValidatePhoneNumberFields(String PhoneNum)
     {
         if((string.valueof(PhoneNum).startsWith('0') && (string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() > 10 || string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() < 8 ) ))
@@ -1187,7 +1219,7 @@ public class AccountHelper {
         {
             for(Group prosgrp : groupList)
             {
-            	groupMap.put(prosgrp.name, prosgrp.id);
+                groupMap.put(prosgrp.name, prosgrp.id);
             }
         }
         for(Account sharepors : prosAccList)
