@@ -1,4 +1,4 @@
-global class Batch_VRSharing implements Database.Batchable<sObject>, Database.Stateful{
+global class Batch_VRSharingJP implements Database.Batchable<sObject>, Database.Stateful{
     global final Set<Id> setmainId;
     global final Map<Id, List<Id>> InsertMap;
     global final Set<String> dealerAccount;
