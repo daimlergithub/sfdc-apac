@@ -17,17 +17,22 @@ public class TriggerCampaignTriggerHandlerMY implements TriggerHandlerIf
          
         if(trigger.isUpdate)
         {
-           chb.beforeUpdateEvents(Trigger.new,oldmap,market,parentCampaign);
+			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+				chb.beforeUpdateEvents(Trigger.new,oldmap,market,parentCampaign);
+		   }
         }
         
         if((trigger.isAfter && trigger.isInsert))
         {        
-           chb.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate,market,parentCampaign);                  
+           if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+			chb.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate,market,parentCampaign);  
+			}		   
         }
         
         if(trigger.isAfter && trigger.isUpdate)
-        {        
-           chb.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate,market,parentCampaign);                  
+        {  if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){      
+           chb.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate,market,parentCampaign);       
+			}           
         }
        
   }
