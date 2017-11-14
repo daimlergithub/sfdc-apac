@@ -8687,14 +8687,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH_CACPurchaseddateRequired_Error</shortDescription>
-        <value>SARI changing lead statust ot purchased please enter Purchased CAC Date  Field</value>
+        <value>SARI changing lead status to purchased please enter Purchased CAC Date  Field</value>
     </labels>
     <labels>
         <fullName>TH_CAC_LeadstatusPurchasedError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH_CAC_LeadstatusPurchasedError</shortDescription>
-        <value>SARI changing lead statust ot “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
+        <value>SARI changing lead status to “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
     </labels>
     <labels>
         <fullName>TH_Not_authorized_to_create_MB_Vehicle_record</fullName>

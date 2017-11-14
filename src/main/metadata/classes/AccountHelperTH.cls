@@ -17,6 +17,7 @@ public class AccountHelperTH{
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
     public static Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
     public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
+    public static boolean consentHistoryCodeCalled = true;
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
@@ -762,6 +763,31 @@ public class AccountHelperTH{
         
     } 
     
+    /**Implemented as part of the ticket SFDCTH-509 by Suresh Panduga**/
+    
+    public Static void UpdateConsentHistory(Map<Id,Account> oldAccountMap, List<Account> newAccountList){
+        List<Account_Field_History_Tracker__c> consentHistoryList = new List<Account_Field_History_Tracker__c>();
+        for(Account acc : newAccountList){
+            if(!String.isBlank(oldAccountMap.get(acc.Id).Personal_Agreement__c) || oldAccountMap.get(acc.Id).Lastest_Consent_Date__c != null){
+                if(acc.Personal_Agreement__c != oldAccountMap.get(acc.Id).Personal_Agreement__c || acc.Lastest_Consent_Date__c != oldAccountMap.get(acc.Id).Lastest_Consent_Date__c){
+                    Account_Field_History_Tracker__c consentHistory = new Account_Field_History_Tracker__c();
+                    consentHistory.Account_Record_Id__c = acc.Id;
+                    consentHistory.Personal_Agreement__c = oldAccountMap.get(acc.Id).Personal_Agreement__c;
+                    consentHistory.System_Data_Source__c = oldAccountMap.get(acc.Id).System_Data_Source__c;
+                    consentHistory.Updated_Consent_Date__c = oldAccountMap.get(acc.Id).Updated_Consent_Date__c;
+                    consentHistory.Updated_Consent_User__c = oldAccountMap.get(acc.Id).Updated_Consent_User__c;
+                    consentHistory.User_Organization__c = oldAccountMap.get(acc.Id).User_Organization__c;
+                    consentHistory.Lastest_Consent_Date__c = oldAccountMap.get(acc.Id).Lastest_Consent_Date__c;
+                    consentHistoryList.add(consentHistory);
+                }
+            }
+        }
+        if(!consentHistoryList.isEmpty()){
+            System.debug('--consentHistoryList--'+consentHistoryList);
+            insert consentHistoryList;
+        }
+    }
+    
    //implemented "MD__c" field as a parameter as well so that the same will be picked and sent dynamically to EP as part of webservice 21/09/2016 Sekhar
     @Future(callout=true)   
     public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject)
@@ -842,37 +868,32 @@ It would be replaced by Informatica/Middleware  */
     //Date:26th Mar 2017 
     //This method removes the '0' from the area code if it contains while saving from standard pagelayout.
     /* Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */
-    public static void eliminateZerofrmPhone(List<Account> Accts)
+    /* 
+     public static void eliminateZerofrmPhone(List<Account> Accts)
     {
         Profile p = [select name from Profile where id =:UserInfo.getProfileId()];
-        String ProfileName = p.name; 
-        String CompanyRecordtypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
-        String PersonRecordtypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-             
+        String ProfileName = p.name;        
         if(ProfileName !='IntegrationAPI'){       
             for (Account a :  Accts) { 
-            if(!(String.IsBlank(a.mobile__c)) && a.mobile__c.length()!=12 && (a.recordtypeId == CompanyRecordtypeId || a.recordtypeId ==PersonRecordtypeId))
+            if(!(String.IsBlank(a.mobile__c)) && a.mobile__c.length()==13 && a.mobile__c.substring(3,4)=='0')
             {            
-                a.mobile__c.addError('Must be a 9 digit number excluding +66');
-            }
-                        
-            if(!(String.IsBlank(a.Individual_Home_Phone__c)) && a.Individual_Home_Phone__c.length()!=11 && (a.recordtypeId == CompanyRecordtypeId || a.recordtypeId ==PersonRecordtypeId))
-            {     
-                a.Individual_Home_Phone__c.addError('Must be a 8 digit number excluding +66');
-                //a.Individual_Home_Phone__c =a.Individual_Home_Phone__c .substring(0,3)+a.Individual_Home_Phone__c.substring(4,12);
+                a.mobile__c=a.mobile__c.substring(0,3)+a.mobile__c.substring(4,13);
             }
             
-            if(!(String.IsBlank(a.Work_Phone__c)) && a.Work_Phone__c.length()!=11 && (a.recordtypeId == CompanyRecordtypeId || a.recordtypeId ==PersonRecordtypeId))
-            {  
-                a.Work_Phone__c.addError('Must be a 8 digit number excluding +66');
-                //a.Work_Phone__c=a.Work_Phone__c.substring(0,3)+a.Work_Phone__c.substring(4,12);
+            if(!(String.IsBlank(a.Individual_Home_Phone__c)) && a.Individual_Home_Phone__c.length()==12 && a.Individual_Home_Phone__c.substring(3,4)=='0')
+            {            
+                a.Individual_Home_Phone__c =a.Individual_Home_Phone__c .substring(0,3)+a.Individual_Home_Phone__c.substring(4,12);
+            }
+            
+            if(!(String.IsBlank(a.Work_Phone__c)) && a.Work_Phone__c.length()==12 && a.Work_Phone__c.substring(3,4)=='0')
+            {            
+                a.Work_Phone__c=a.Work_Phone__c.substring(0,3)+a.Work_Phone__c.substring(4,12);
             }
             
             }
             
-        }
-    }  
-     
+            }
+    } */
     /* Data Migration Explicit Fix - Santosh Mohanty */
     public static void updatemarket(List<Account> accList){        
         
