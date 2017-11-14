@@ -333,14 +333,14 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
-            if(market=='TH' || market==Label.MY)
+            if(market=='TH' || Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
                    
                     if(market=='TH')
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
-                    else  if(addressobj.Country__c==label.MYCountry && market==Label.MY)
+                    else  if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
                     else
                         LanguageSelected='English';
