@@ -19094,6 +19094,33 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>Work_Phone_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Work Phone Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Mobile_Phone_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Mobile Phone Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>home_Phone_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>home Phone Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Warranty_Apply_Status__c</fullName>
         <description>"The info to identify the Account to share SPO
@@ -61197,7 +61224,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_NoOfDigits_TH</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
 		NOT(ISBLANK(Individual_Home_Phone__c)),
 		LEN(Individual_Home_Phone__c ) &lt; 13,
@@ -61336,7 +61363,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Latest_Consent_Date_is_mandatory</fullName>
         <active>true</active>
         <description>If Personal Agreement value is not blank, then latest Consent Date is mandatory.</description>
-        <errorConditionFormula>AND(NOT(ISPICKVAL(Personal_Agreement__c ,'')),ISNULL(Lastest_Consent_Date__c))</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Personal_Agreement__c ,'')),ISNULL(Lastest_Consent_Date__c),MD__c = 'TH')</errorConditionFormula>
         <errorMessage>Latest Consent Date is mandatory.</errorMessage>
     </validationRules>
     <validationRules>

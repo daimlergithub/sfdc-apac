@@ -57,7 +57,7 @@ public void getstatusval() {
     public List<SelectOption> getoldstatuses()
     {
         List<SelectOption> options = new List<SelectOption>();
-        options.add(new SelectOption('ALL','ALL'));
+        options.add(new SelectOption(Label.All,Label.All));
         options.add(new SelectOption('Open','Open'));        
         options.add(new SelectOption('Closed','Closed'));
         options.add(new SelectOption('Cancelled','Cancelled'));

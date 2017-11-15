@@ -17,25 +17,27 @@ global without sharing class LoyalityManger {
         responsemap.put('UCID','Nil');
         //considering removal of white spaces
         Vehicle_Registration=Vehicle_Registration.deleteWhitespace();
-        String regNumwithwildcards='%';
-        for(Integer i=0;i<Vehicle_Registration.length();i++)
-        {
-            regNumwithwildcards+=Vehicle_Registration.substring(i,i+1)+'%';
-        }
-        List<Vehicle__c> vehicles=new List<Vehicle__c>();
-        vehicles=[select id,RegistrationNo__c from vehicle__c where RegistrationNo__c like :regNumwithwildcards and MD__c='KR'];
-        system.debug(vehicles);
-            for(vehicle__c v:vehicles)
-        {
-            if(v.RegistrationNo__c.deleteWhitespace()==Vehicle_Registration)
+        if(Vehicle_Registration!=null || Vehicle_Registration!=''){
+            String regNumwithwildcards='%';
+            for(Integer i=0;i<Vehicle_Registration.length();i++)
             {
-                Vehicle_Registration=v.RegistrationNo__c;
+                regNumwithwildcards+=Vehicle_Registration.substring(i,i+1)+'%';
             }
-        }  
-    if(Vehicle_Registration!=null && Vehicle_Registration!='' && !String.isBlank(Vehicle_Registration))
-    {  
-    vehlist=[select id,Related_contact__c,RegistrationNo__c from Vehicle__c where RegistrationNo__c =:Vehicle_Registration and MD__c='KR'];
-    }
+            List<Vehicle__c> vehicles=new List<Vehicle__c>();
+            vehicles=[select id,RegistrationNo__c from vehicle__c where RegistrationNo__c like :regNumwithwildcards and MD__c='KR'];
+            system.debug(vehicles);
+                for(vehicle__c v:vehicles)
+            {
+                if(v.RegistrationNo__c.deleteWhitespace()==Vehicle_Registration)
+                {
+                    Vehicle_Registration=v.RegistrationNo__c;
+                }
+            }  
+        if(Vehicle_Registration!=null && Vehicle_Registration!='' && !String.isBlank(Vehicle_Registration))
+        {  
+        vehlist=[select id,Related_contact__c,RegistrationNo__c from Vehicle__c where RegistrationNo__c =:Vehicle_Registration and MD__c='KR'];
+        }
+    	}
     system.debug(vehlist);
     if(Loyalty_Card_No!=null && Loyalty_Card_No!='' && !String.isBlank(Loyalty_Card_No))
     {

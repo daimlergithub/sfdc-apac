@@ -71,9 +71,10 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                     accids.add(accrec.id);
                 }
                 //CDMInformatica_Services.createCustomerCDM(accids);
-                if(firstRun==true){
+                if(TriggerRecursiveCheck.run){
+                TriggerRecursiveCheck.runOnce();
                 CDMInformatica_Services.createCustomerCDM(accids,'TH','insert');
-                firstRun=false;
+                //firstRun=false;
                 }
             }
         } 
@@ -90,10 +91,11 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             for(Account accrec:acc){
                 accids.add(accrec.id);
             }
-            if(firstRun==true){
+            if(TriggerRecursiveCheck.run){
+            TriggerRecursiveCheck.runOnce();
             //CDMInformatica_Services.createCustomerCDM(accids);
             CDMInformatica_Services.createCustomerCDM(accids,'TH','update');
-            firstRun=false;
+            //firstRun=false;
             }
             }
         }

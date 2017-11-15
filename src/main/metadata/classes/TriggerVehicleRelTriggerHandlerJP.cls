@@ -87,8 +87,8 @@ public class TriggerVehicleRelTriggerHandlerJP
          }
 		 
 		 // Changes related to SFDCJP-3136
-         if (trigger.isBefore && trigger.isUpdate){ 
-                VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New, new Map<Id,Vehicle_Relationship__c>());
+         if (trigger.isBefore && trigger.isUpdate){  
+				 VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
          }
 		 
          // US-CP-007
