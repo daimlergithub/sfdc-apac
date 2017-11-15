@@ -180,6 +180,7 @@ public class UtilTask {
             }
 
             member.Status = needAssignedMemberStatus;
+			member.Status__c = needAssignedMemberStatus;
             membersNeedToUpdate.add(member);
         }
 
