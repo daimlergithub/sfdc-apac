@@ -111,8 +111,8 @@ Public With Sharing class AccountTable{
          String dea = 'Dealer';
         
         //Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Dealer_Sales_Type__c,Dealer_Service_Func__c,Dealer_Sales_func__c,Dealer_UsedCar_Func__c,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_UsedCarCorner__c,Dealer_AMGPerformance__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c,Dealer_Cars_Dlr_Class_Sales__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' AND MD__c ='JP' ]));
-        
-      String soql = 'SELECT Dealer_Sales_Type__c,Dealer_Service_Func__c,Dealer_Sales_func__c,Dealer_UsedCar_Func__c,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_UsedCarCorner__c,Dealer_AMGPerformance__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c,Dealer_Cars_Dlr_Class_Sales__c FROM Account '
+      
+     String soql = 'SELECT Dealer_Sales_Type__c,Dealer_Service_Func__c,Dealer_Sales_func__c,Dealer_UsedCar_Func__c,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c,Dealer_UsedCarCorner__c,Dealer_AMGPerformance__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c,Dealer_Cars_Dlr_Class_Sales__c FROM Account '
        + 'where (RecordTypeId =\'' + dealerRecordtypeid   + '\' AND '  
         + 'MD__c = \'' + String.escapeSingleQuotes(md) +'\')  '; 
                
@@ -154,6 +154,19 @@ Public With Sharing class AccountTable{
         setCon.setpagesize(10);
         noOfRecords = setCon.getResultSize();
        getAccount();
+    }
+    public void selectAllParticipatingdealers(){
+        set<Id> accid = new set<Id>();
+        CamId =ApexPages.currentPage().getParameters().get('id');
+        
+        List<Account> Acclist = [SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP'];
+        for(Account acc:Acclist  ){
+            accid.add(acc.id);
+        }
+        
+        Batch_insertDealer  batcher = new Batch_insertDealer (accid, CamId );
+            Database.executeBatch(batcher, 50);
+        
     }
     Public List<AddingParticipatingDealer> getAccount(){
         getSelectedAccount();

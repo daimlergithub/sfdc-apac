@@ -115,6 +115,11 @@
                 <default>false</default>
                 <closed>true</closed>
             </picklistValues>
+			<picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <closed>true</closed>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
@@ -862,6 +867,10 @@
             <picklist>Status</picklist>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1632,6 +1641,10 @@
             <picklist>Status</picklist>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2695,6 +2708,10 @@
                 <fullName>Closed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Open</fullName>
                 <default>true</default>
@@ -3493,6 +3510,10 @@
             <picklist>Status</picklist>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4498,6 +4519,10 @@
             <picklist>Status</picklist>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5521,6 +5546,10 @@
                 <fullName>Closed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Open</fullName>
                 <default>true</default>
@@ -6361,6 +6390,10 @@
                 <fullName>Closed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Open</fullName>
                 <default>true</default>
@@ -7143,6 +7176,10 @@
                 <fullName>Closed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Open</fullName>
                 <default>true</default>
@@ -7923,6 +7960,10 @@
             <picklist>Status</picklist>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8795,6 +8836,10 @@
                 <fullName>Closed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Open</fullName>
                 <default>true</default>
@@ -9550,6 +9595,10 @@
             <picklist>Status</picklist>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10346,6 +10395,10 @@
                 <fullName>Closed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Open</fullName>
                 <default>true</default>
@@ -11127,6 +11180,10 @@
                 <fullName>Closed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Open</fullName>
                 <default>true</default>
@@ -11221,6 +11278,12 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR')),AND($Profile.Nam
         <errorDisplayField>Related_Task_Id__c</errorDisplayField>
         <errorMessage>Activity status is required if you close task.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Cannot_Edit_OB_Call_Task_with_Cancel_AS</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Activity_Status__c),'Cancelled'), MD__c = 'KR', RecordType.Name = 'OB Call')</errorConditionFormula>
+        <errorMessage>These record cannot be edited as Activity Status is Cancelled</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>QC_Fields_editing_limitations</fullName>
         <active>false</active>
@@ -11284,6 +11347,30 @@ window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_AFTERSALES_REC
         <openType>sidebar</openType>
         <page>SurveyMerge</page>
         <protected>false</protected>
+    </webLinks>
+	<webLinks>
+        <fullName>Manage_Tasks</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Manage Tasks</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var cid="{!Campaign.Id}";
+
+
+if(cid != '' &amp;&amp; {!ISPICKVAL($User.Market__c,'KR')})
+{
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700")
+}
+else
+{
+alert('This is for korea');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Manual_Assign</fullName>
