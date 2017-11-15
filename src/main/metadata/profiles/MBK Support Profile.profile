@@ -28225,7 +28225,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.DM</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28245,12 +28245,12 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.MMS</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.OB_Call</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28260,7 +28260,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.SMS</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28280,7 +28280,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.eDM</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
