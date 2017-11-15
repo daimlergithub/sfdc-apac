@@ -1990,10 +1990,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
-                <fullName>KakaoTalk</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
