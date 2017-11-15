@@ -1218,9 +1218,9 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
     </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Active__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
 		<lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Car_Series__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+		<lookupDialogsAdditionalFields>Car_Series__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Car_Series__c</searchResultsAdditionalFields>
