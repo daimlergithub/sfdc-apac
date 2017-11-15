@@ -466,7 +466,7 @@
                 </apex:pageBlockSection>       
         <!--  THAILAND MARKET Company Account - End -->
 <!--  Malaysia MARKET Person Account - Start -->        
-                <apex:pageBlockSection id="PersonAccBlockMY" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'MY'),$Permission.MYGeneric ),true,false)}">        
+                <apex:pageBlockSection id="PersonAccBlockMY" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',$Permission.MYGeneric ),true,false)}">        
                         
                             
                   <!--  <apex:pageBlockSectionItem >                         
@@ -554,7 +554,7 @@
                 
                 
           <!--  Malaysia MARKET Company Account - Start -->     
-                <apex:pageBlockSection id="companyBlockMY" title="{!$Label.Company_Account_Information}" rendered="{!If( AND(RecordType == 'Company',ISPICKVAL($User.Market__c,'MY'),$Permission.MYGeneric) ,true,false)}" >      
+                <apex:pageBlockSection id="companyBlockMY" title="{!$Label.Company_Account_Information}" rendered="{!If( AND(RecordType == 'Company',$Permission.MYGeneric) ,true,false)}" >      
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>        
                         <apex:outputPanel styleClass="requiredInput" layout="block">        
@@ -862,7 +862,7 @@
         <!--  Address Information TH - End -->
         
         <!--  Address Information MY - Start -->        
-                <apex:pageBlockSection title="{!$Label.Address_Information}" Id="AddrPBSMY" rendered="{!If((ISPICKVAL($User.Market__c,'MY') && $Permission.MYGeneric) ,true,false)}">      
+                <apex:pageBlockSection title="{!$Label.Address_Information}" Id="AddrPBSMY" rendered="{!If(($Permission.MYGeneric) ,true,false)}">      
                         
                             
                             
@@ -953,20 +953,20 @@
                     <!--<apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />-->
 					 <apex:outputPanel>
 					 <apex:actionFunction name="rerendersection" reRender="form"/> 
-                    <apex:commandButton action="{!onLineDeduplicationCDMTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" reRender="form,msgs" />
+                    <apex:commandButton action="{!onLineDeduplicationCDMTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>
                     <!--PR20170918--End-->
                      <!--MT20170909- Added Button for Malaysia-->
-                     <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'MY') ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>      
+                     <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If($Permission.MYGeneric ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>      
                     <!--MT20170909-->
                      </apex:outputPanel>
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'MY'))) ,true,false)}"/> <!--oncomplete="hideTable();-->
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric)) ,true,false)}"/> <!--oncomplete="hideTable();-->
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     
                     <apex:outputPanel rendered="{!firstsave}" >
                         <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(Market =='JP',True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                         <apex:commandButton id="SavebtnTH" action="{!saveAccountTH}" value="{!$Label.Save_Button}" rendered="{!if(Market =='TH',True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     <!--MT20170909- Added Button for Malaysia-->        
-                     <apex:commandButton id="SavebtnMY" action="{!saveAccountMY}" value="{!$Label.Save_Button}" rendered="{!if(Market =='MY',True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>     
+                     <apex:commandButton id="SavebtnMY" action="{!saveAccountMY}" value="{!$Label.Save_Button}" rendered="{!if($Permission.MYGeneric,True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>     
                         <!--MT20170909-->
                     </apex:outputPanel>
                     <apex:outputPanel rendered="{!secondsave}">
@@ -1103,7 +1103,7 @@
             </apex:PageBlock>
             
              <!--SN20170907 - Added Block for Malaysia-->       
-                 <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!IF((market == 'MY' &&  displayAccList.size!=0 && $Permission.MYGeneric), true, false)}" id="frm">     
+                 <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!IF(( displayAccList.size!=0 && $Permission.MYGeneric), true, false)}" id="frm">     
                      <apex:pageBlockSection columns="1">-->
             <!--PR20170918--Start-- Introduced for Thailand. Shows Customer Search Result from CDM via Informatica-->
                 <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
@@ -1145,7 +1145,7 @@
                  
                  <!--SN20170907 - Added Block for Malaysia-->       
                  <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" id="frm">-->
-                     <apex:pageBlockSection columns="1" rendered="{!IF((market == 'MY' &&  displayAccList.size!=0 && $Permission.MYGeneric), true, false)}">                 
+                     <apex:pageBlockSection columns="1" rendered="{!IF((displayAccList.size!=0 && $Permission.MYGeneric), true, false)}">                 
                      <apex:pageBlockTable value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Person Account'}">       
                       <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">         
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>            

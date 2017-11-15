@@ -93,6 +93,10 @@
                 <behavior>Edit</behavior>
                 <field>Task_De_dup_Range__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Courtesy_Greeting__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -133,10 +137,6 @@
         <editHeading>true</editHeading>
         <label>Template</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Template__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Flow_URL__c</field>
@@ -201,7 +201,7 @@
     </relatedLists>
     <relatedLists>
         <fields>MEMBER_TYPE</fields>
-        <fields>STATUS</fields>
+        <fields>Status__c</fields>
         <fields>FIRST_NAME</fields>
         <fields>LAST_NAME</fields>
         <fields>Participating_Dealer_Name__c</fields>
@@ -228,6 +228,7 @@
         <relatedList>Campaign.Previous_Campaign_Execution__c</relatedList>
     </relatedLists>
     <relatedLists>
+	    <customButtons>Task.Manage_Tasks</customButtons>
         <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>

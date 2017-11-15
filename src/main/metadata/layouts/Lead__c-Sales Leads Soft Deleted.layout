@@ -298,11 +298,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Preferred_Negotiation_Place__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Test_Drive_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Method__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Online_Credit_Detail__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -323,8 +331,11 @@
                 <field>Contact_Timing__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Preferred_Negotiation_Place__c</field>
+                <behavior>Edit</behavior>
+                <field>TestDrive_End_DateTime__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -627,6 +638,9 @@
                 <field>CA_status_change_date__c</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Comment__c</field>
             </layoutItems>
@@ -718,6 +732,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CA_Lead_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Online_Credit_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
