@@ -29529,7 +29529,7 @@
     <pageAccesses>
         <apexPage>DealerSearchPage</apexPage>
         <enabled>true</enabled>
-    </pageAccesses
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
