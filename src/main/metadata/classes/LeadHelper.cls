@@ -670,4 +670,65 @@ public class LeadHelper
         }
         return epUser;
     }
+	 // SFDCKR-1424
+	 public static void assignLeadstoqueues(Set<Id> dealerIds, List<Lead__c> leadslst , Map<Id,Lead__c> oldValLead, string action){
+        if(leadslst.size()>0 && UserInfo.getUserType() != 'PowerPartner'){
+            map<id, id> leadtogrpidmap = new map<id, id>();
+            map<id, Group> queuemap = new map<id, Group>([select id, name from Group where type = 'Queue' and (Name Like '%AS Lead' or Name Like '%Sales Lead')]);
+            map<string, Group> queunametogrpmap = new map<string, Group>();
+            for(string str:queuemap.keyset()){
+                queunametogrpmap.put(queuemap.get(str).name, queuemap.get(str));
+            }
+          
+            map<id, Account> accmap = new map<id, Account>([select id, Dealer_ND_Code__c, Dealer_Type__c from Account where id in: dealerIds and RecordType.Name = 'Dealer' and Dealer_Type__c = 'Company']);
+            for(Lead__c lea: [select id, ownerId, RecordType.Name,Assigned_Dealer__c from Lead__c where id in: leadslst and Assigned_Dealer__c != null]){
+                if(action == 'update'){
+                    //if(lea.Assigned_Dealer__c != oldValLead.get(lea.id).Assigned_Dealer__c){
+                       system.debug('PSM GROUP Id to make owner '+queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                       system.debug('PSM lea.RecordType.Name '+lea.RecordType.Name);
+                       system.debug('PSM GRP Name '+queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead'));
+                       if(lea.RecordType.Name == 'Aftersales Leads'){
+                            system.debug('Came inside the if loop');
+                            lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id;
+                            //lea.ownerId = '00G0k000000kstMEAQ';
+                            leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                        }
+                        if(lea.RecordType.Name == 'Sales Leads'){
+                            lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'Sales Lead').id;
+                            leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                        }
+                    //}
+                }
+                if(action == 'insert'){
+                    if(lea.RecordType.Name == 'Aftersales Leads'){
+                        lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id; 
+                        leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                    }
+                    if(lea.RecordType.Name == 'Sales Leads'){
+                        lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'Sales Lead').id; 
+                        leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                    }
+                }
+                
+            }
+            if(leadtogrpidmap.size()>0){
+                TriggerLeadTriggerHandlerKR.preventRecurssionafter = true;
+                updateLeadowner(leadtogrpidmap);
+            }
+        }
+    }
+    
+
+    public static void updateLeadowner(map <id,id> inids){
+            List<Lead__c> leadtoupd = new List<Lead__c>();
+            for(Lead__c lea: [select id, ownerId, RecordType.Name,Assigned_Dealer__c from Lead__c where id in:inids.keyset()]){
+                lea.ownerId = inids.get(lea.id);
+                leadtoupd.add(lea);
+            }
+            
+            if(leadtoupd.size()>0){
+                    update leadtoupd;
+            }
+        
+    }
 }
