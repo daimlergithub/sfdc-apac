@@ -12737,6 +12737,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Quotation_Model_History__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Quotation_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
