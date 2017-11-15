@@ -955,6 +955,14 @@
                 <fullName>Feedback</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Waiting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Postponement</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
