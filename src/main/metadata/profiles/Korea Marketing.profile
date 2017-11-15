@@ -27078,7 +27078,7 @@
         <visible>true</visible>
 </recordTypeVisibilities>
 <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Task.KakaoTalk</recordType>
         <visible>true</visible>
 </recordTypeVisibilities>
