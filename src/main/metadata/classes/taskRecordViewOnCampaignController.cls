@@ -21,7 +21,7 @@ public without sharing class taskRecordViewOnCampaignController
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, 'This section is used for Dealer Users'));
         }
-        else
+        else if(userinfo.getUserType() == 'PowerPartner')
         {
             currentUser = [Select Id,AccountId, Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
             campMembrList = [Select Id,Contact.AccountId from CampaignMember where CampaignId =: ApexPages.currentPage().getParameters().get('Id')];
