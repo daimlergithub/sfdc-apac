@@ -34,14 +34,7 @@
         <protected>false</protected>
         <shortDescription>Manage Tasks on campaign</shortDescription>
         <value>Manage Tasks</value>
-    </labels>
-	<labels>
-        <fullName>Select_All</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Select All</shortDescription>
-        <value>Select All</value>
-    </labels>
+    </labels> 
 	<labels>
         <fullName>Filter_Status</fullName>
         <language>en_US</language>
