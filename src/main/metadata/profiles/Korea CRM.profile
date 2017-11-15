@@ -25172,6 +25172,11 @@
         <field>Vehicle__c.last_update_changed_by__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.last_updated__c</field>
@@ -25180,6 +25185,14 @@
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Template__c-KakaoTalk</layout>
+        <recordType>Template__c.KakaoTalk</recordType>
+</layoutAssignments>
+<layoutAssignments>
+        <layout>Task-KakaoTalk</layout>
+        <recordType>Task.KakaoTalk</recordType>
+</layoutAssignments>
  <layoutAssignments>
         <layout>Account-Company Layout</layout>
         <recordType>Account.CompanyManualMerge</recordType>
@@ -27619,6 +27632,16 @@
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Template__c.KakaoTalk</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.KakaoTalk</recordType>
+        <visible>true</visible>
+   </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Template__c.MMS</recordType>
