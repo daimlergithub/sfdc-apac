@@ -21,6 +21,7 @@
 						<apex:outputField value="{!Case.Response_Type__c}"/>
 						<apex:outputField value="{!Case.Customer_Satisfaction__c}"/>
 						<apex:outputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
+						<apex:outputField value="{!Case.Market__c}"/>
             </apex:pageblockSection>
             
             <apex:pageblockSection title="{!$Label.MBF_Query_Information_Section}">
