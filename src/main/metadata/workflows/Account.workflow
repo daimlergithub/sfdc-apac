@@ -325,16 +325,6 @@
         <protected>false</protected>
     </fieldUpdates>
 	<fieldUpdates>
-        <fullName>Sales_Tel_Display_field_auto_populate</fullName>
-        <field>Primary_Phone_Display__c</field>
-        <formula>Mobile__c</formula>
-        <name>&apos;Sales Tel Display&apos; field auto populate</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-	<fieldUpdates>
         <fullName>Sales_Tel_field_auto_populate_Mobile</fullName>
         <field>Primary_Phone__c</field>
         <literalValue>Mobile</literalValue>
