@@ -1831,9 +1831,16 @@ location.reload();</url>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var RetailcampaignName = '{!Retail_Campaign__c.Name}'; 
-var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
-window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEl?pv0="+RetailcampaignName);
-</url>
+var JPmarketusr={!ISPICKVAL($User.Market__c , "JP")};
+if(JPmarketusr &amp;&amp; '{!User.Profile}' == (('Japan Dealer Sales Manager') || ('Japan Dealer Sales Representative') || ('Japan Dealer Service Advisor') || ('Japan Dealer Service Manager')))
+{
+  alert('{!$Label.Only_Company_Manager_can_export}');
+}
+else
+{
+ var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+  window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEl?pv0="+RetailcampaignName);
+}</url>
     </webLinks>
     <webLinks>
         <fullName>RetailRefresh</fullName>
