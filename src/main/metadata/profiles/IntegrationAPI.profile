@@ -29617,7 +29617,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Template__c.KakaoTalk</recordType>
         <visible>true</visible>
 </recordTypeVisibilities>
