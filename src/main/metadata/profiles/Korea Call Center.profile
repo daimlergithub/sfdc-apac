@@ -2442,11 +2442,6 @@
         <field>Account.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>CampaignMember.Status_c</field>
-        <readable>true</readable>
-</fieldPermissions>
 <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Courtesy_Greeting__c</field>
@@ -25190,15 +25185,7 @@
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
-	<layoutAssignments>
-        <layout>Template__c-KakaoTalk</layout>
-        <recordType>Template__c.KakaoTalk</recordType>
-</layoutAssignments>
-<layoutAssignments>
-        <layout>Task-KakaoTalk</layout>
-        <recordType>Task.KakaoTalk</recordType>
-</layoutAssignments>
-    <layoutAssignments>
+  <layoutAssignments>
         <layout>Account-Company Layout</layout>
         <recordType>Account.CompanyManualMerge</recordType>
     </layoutAssignments>
@@ -27105,17 +27092,7 @@
         <recordType>Account.Company</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Template__c.KakaoTalk</recordType>
-        <visible>true</visible>
-</recordTypeVisibilities>
-<recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Task.KakaoTalk</recordType>
-        <visible>true</visible>
-</recordTypeVisibilities>
-    <recordTypeVisibilities>
+  <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.CompanyManualMerge</recordType>
         <visible>false</visible>
