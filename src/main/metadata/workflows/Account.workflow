@@ -694,29 +694,6 @@ Modify Reason:
         <triggerType>onAllChanges</triggerType>
     </rules>
 	<rules>
-        <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number for Person Account Record Type</fullName>
-        <actions>
-            <name>Sales_Tel_Display_field_auto_populate</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Account.Mobile__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Person Account</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.MD__pc</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-	<rules>
         <fullName>Work Phone Checkbox autopopulate</fullName>
         <actions>
             <name>sales_Tel_picklist_value</name>
