@@ -1947,11 +1947,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MMS</fullName>
+                <fullName>SMS/MMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1983,15 +1979,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2529,18 +2525,13 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <fullName>OBSMSTemplate__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>OB SMS Template</label>
+        <label>Outbound Template</label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
-                <field>Template__c.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>SMS</value>
-            </filterItems>
-            <filterItems>
                 <field>$Source.Execution_Type__c</field>
                 <operation>equals</operation>
-                <value>OB Call</value>
+                <valueField>Template__c.RecordType.Name</valueField>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -4749,33 +4740,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>For AS Central Campaign</description>
         <label>AS Central Campaign</label>
-		<picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -5580,6 +5544,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -5994,33 +5985,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>For CAC CRM Manager Campaign Planning</description>
         <label>CAC CRM Campaign</label>
-		<picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -6817,6 +6781,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -7227,33 +7218,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>For CAC Campaign Operation</description>
         <label>CAC Campaign</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -8001,6 +7965,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -8010,10 +7978,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8051,7 +8015,34 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>TV</fullName>
                 <default>false</default>
             </values>
-		</picklistValues>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -8471,33 +8462,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>For CAS Marketing Campaign Planning</description>
         <label>CAS Marketing Campaign</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -9114,6 +9078,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -9524,33 +9515,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>For Campaign Executions of various channels (OB/SMS/eDM/DM )</description>
         <label>Campaign Execution - Simple</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -10179,6 +10143,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -10605,33 +10596,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>For Campaign Executions with complex segmentation</description>
         <label>Campaign Execution - Complex</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -11219,6 +11183,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -11232,10 +11200,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11271,6 +11235,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11704,33 +11695,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <fullName>Campaign_Execution_Complex_Lock</fullName>
         <active>true</active>
         <label>Campaign Execution-Complex Lock</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -12291,11 +12255,11 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
+                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MyM</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12306,11 +12270,11 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Segmentation Only</fullName>
+			<values>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+       </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
@@ -12343,6 +12307,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12776,33 +12767,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <fullName>Campaign_Executiono</fullName>
         <active>true</active>
         <label>Campaign Execution</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -13759,6 +13723,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -14252,33 +14243,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>Campaign Planning</description>
         <label>Central Marketing Campaign</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -14843,6 +14807,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -14854,11 +14822,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>KakaoTalk</fullName>
-                <default>false</default>
-            </values>
-            
         </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
@@ -14890,8 +14853,35 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15314,33 +15304,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>MB Best Practice Campaign</description>
         <label>MB Best Practice</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -16145,6 +16108,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -16570,33 +16560,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <fullName>Planning_Design_Campaign</fullName>
         <active>true</active>
         <label>Planning &amp; Design Campaign</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -17704,6 +17667,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -18505,33 +18495,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>For S&amp;M Event Central Campaign</description>
         <label>S&amp;M Event Central Campaign</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -19344,6 +19307,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19762,33 +19752,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <active>true</active>
         <description>For S&amp;M Media Central Campaign</description>
         <label>S&amp;M Media Central Campaign</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -20605,6 +20568,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -21018,33 +21008,6 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <fullName>smart_Best_Practice</fullName>
         <active>true</active>
         <label>smart Best Practice</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -21837,6 +21800,33 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22421,9 +22411,9 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
 	<validationRules>
         <fullName>Get_OBSMSTemplate_on_Courtesy_Greet</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL($User.Market__c,'KR'), Courtesy_Greeting__c = true, OBSMSTemplate__c  = '', ISBLANK(OBSMSTemplate__c) )</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c = 'KR', Courtesy_Greeting__c = true, OBSMSTemplate__c  = '', ISBLANK(OBSMSTemplate__c) )</errorConditionFormula>
         <errorDisplayField>OBSMSTemplate__c</errorDisplayField>
-        <errorMessage>Please select the OB SMS Template.</errorMessage>
+        <errorMessage>Outbound Template is Mandatory when Courtesy Greeting is Checked</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Locked_for_Central_when_Published</fullName>

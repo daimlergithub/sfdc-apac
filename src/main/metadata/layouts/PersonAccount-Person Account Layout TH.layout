@@ -133,10 +133,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CDM_UCID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Customer_Lifecycle_Phase__c</field>
             </layoutItems>
             <layoutItems>
