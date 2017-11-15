@@ -17081,6 +17081,11 @@
         <field>Lead__c.Quotation_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Quotation_Model_History__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Quotation_Model__c</field>
@@ -26921,9 +26926,22 @@
         <field>Vehicle__c.last_updated__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Template__c-KakaoTalk</layout>
+        <recordType>Template__c.KakaoTalk</recordType>
+</layoutAssignments>
+<layoutAssignments>
+        <layout>Task-KakaoTalk</layout>
+        <recordType>Task.KakaoTalk</recordType>
+</layoutAssignments>
  <layoutAssignments>
         <layout>Account-Company Layout</layout>
         <recordType>Account.Company</recordType>
@@ -30199,6 +30217,16 @@
         <recordType>Template__c.ChildrenMMSTemplate</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Template__c.KakaoTalk</recordType>
+        <visible>true</visible>
+</recordTypeVisibilities>
+<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.KakaoTalk</recordType>
+        <visible>true</visible>
+</recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
@@ -30215,9 +30243,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Template__c.eDM</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
