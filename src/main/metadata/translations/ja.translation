@@ -2706,6 +2706,10 @@
         <label><!-- Online Dedup callout failure --></label>
         <name>Online_Dedup_callout_failure</name>
     </customLabels>
+	<customLabels>
+        <label>法人責任者のみダウンロード可能です。</label>
+        <name>Only_Company_Manager_can_export</name>
+    </customLabels>
     <customLabels>
         <label><!-- Operation --></label>
         <name>Operation</name>

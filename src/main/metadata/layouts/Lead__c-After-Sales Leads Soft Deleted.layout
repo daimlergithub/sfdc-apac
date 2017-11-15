@@ -343,6 +343,14 @@
                 <behavior>Edit</behavior>
                 <field>Aftersales_Vehicle_Relationship__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>At_The_Time_of_Stock__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Loaner_Vehicle__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -372,6 +380,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Wholesale_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>At_The_Time_of_Retrieval__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
