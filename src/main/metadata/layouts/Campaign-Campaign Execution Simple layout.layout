@@ -112,10 +112,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Template__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Flow_URL__c</field>
             </layoutItems>
             <layoutItems>
