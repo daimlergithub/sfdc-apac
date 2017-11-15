@@ -8152,6 +8152,11 @@
         <field>CampaignMember.Participating_Dealer_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>CampaignMember.Participating_Dealer_Package__c</field>
