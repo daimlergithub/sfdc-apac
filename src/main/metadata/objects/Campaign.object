@@ -1947,11 +1947,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MMS</fullName>
+                <fullName>SMS/MMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1983,15 +1979,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -10118,15 +10114,11 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>OB Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SMS</fullName>
+                <fullName>SMS/MMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10135,6 +10127,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

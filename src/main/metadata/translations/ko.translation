@@ -3914,7 +3914,7 @@
     </customLabels>
     <customLabels>
         <label>[모두 선택]</label>
-        <name>Select_All</name>
+        <name>Select_All_View</name>
     </customLabels>
     <customLabels>
         <label>--없음--</label>
