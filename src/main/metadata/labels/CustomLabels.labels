@@ -5285,6 +5285,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Online Dedup callout failure</shortDescription>
         <value>Webservice Callout failed: Please contact system Administrator</value>
     </labels>
+	<labels>
+        <fullName>Only_Company_Manager_can_export</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Only Company Manager can export</shortDescription>
+        <value>Only Company Manager can export</value>
+    </labels>
     <labels>
         <fullName>Operation</fullName>
         <language>en_US</language>
@@ -8239,6 +8246,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>[Select All]</shortDescription>
         <value>[Select All]</value>
     </labels>
+	<labels>
+        <fullName>Select_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All</shortDescription>
+        <value>Select All</value> 
+   </labels>
     <labels>
         <fullName>Select_All_Records</fullName>
         <language>en_US</language>
