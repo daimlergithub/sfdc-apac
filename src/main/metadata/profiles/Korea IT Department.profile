@@ -2437,7 +2437,6 @@
         <field>Vehicle_Relationship__c.Market__c</field>
         <readable>True</readable>
     </fieldPermissions>
-    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Market__c</field>
