@@ -139,10 +139,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Template__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Flow_URL__c</field>
             </layoutItems>
         </layoutColumns>
@@ -205,7 +201,7 @@
     </relatedLists>
     <relatedLists>
         <fields>MEMBER_TYPE</fields>
-        <fields>STATUS</fields>
+        <fields>Status__c</fields>
         <fields>FIRST_NAME</fields>
         <fields>LAST_NAME</fields>
         <fields>Participating_Dealer_Name__c</fields>
