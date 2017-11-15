@@ -61187,7 +61187,6 @@ MD__c = 'JP'
         <errorConditionFormula>IF( 
 AND( 
 ISPICKVAL( ID_Type__c, 'National ID'), 
-$Profile.Name != 'IntegrationAPI', 
 MD__c=='TH'), 
 IF( 
 AND 
