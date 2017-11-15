@@ -30243,7 +30243,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Template__c.eDM</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
