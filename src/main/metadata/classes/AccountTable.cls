@@ -52,7 +52,7 @@ Public With Sharing class AccountTable{
         regionOptions.add(new SelectOption('sid','Select A Dealer'));
         //SearchLogic();
         panelStopper = false;
-        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP']));
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP' AND Dealer_Active__c=True AND Dealer_Type__c='Outlet']));
         DealerTypepick = new List<SelectOption>();
         DealerTypepick.add(new SelectOption('','---None--'));
         DealerTypepick.add(new SelectOption('Outlet','Outlet'));
@@ -159,7 +159,7 @@ Public With Sharing class AccountTable{
         set<Id> accid = new set<Id>();
         CamId =ApexPages.currentPage().getParameters().get('id');
         
-        List<Account> Acclist = [SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP'];
+        List<Account> Acclist = [SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='JP' AND Dealer_Active__c=True AND Dealer_Type__c='Outlet'];
         for(Account acc:Acclist  ){
             accid.add(acc.id);
         }
