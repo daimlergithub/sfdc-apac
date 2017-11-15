@@ -946,4 +946,72 @@ List<Account> accUpdLst = new List<Account>();
         }
         TriggerCaseTriggerHandlerKR.recurssionCheckafter = true;
     }
+	
+	public static void assignCasestoqueues(List<case> dealerCaseList, Map<id,Case> caseOldMap, string action){
+         if(dealerCaseList.size()>0 && UserInfo.getUserType() != 'PowerPartner'){
+                map<id, id> casetogrpidmap = new map<id, id>();
+                map<id, Group> queuemap = new map<id, Group>([select id, name from Group where type = 'Queue' and (Name Like '%Inquiry' or Name Like '%MB Complaints')]);
+                map<string, Group> queunametogrpmap = new map<string, Group>();
+                 List<Id> dealerIds = new List<Id>();
+                for(case cse: dealerCaseList){
+                    dealerIds.add(cse.Case_Dealer__c);
+                }
+                
+                for(string str:queuemap.keyset()){
+                    queunametogrpmap.put(queuemap.get(str).name, queuemap.get(str));
+                }
+            
+              map<id, Account> accmap = new map<id, Account>([select id, Dealer_ND_Code__c, Dealer_Type__c from Account where id in: dealerIds and RecordType.Name = 'Dealer' and Dealer_Type__c = 'Company']);
+                system.debug('PSM queuemap '+queuemap );
+                system.debug('PSM queunametogrpmap '+queunametogrpmap);
+                system.debug('PSM leadslst '+dealerCaseList);
+               for(case cse: [select id, ownerId, RecordType.Name,Case_Dealer__c from case where id in: dealerCaseList and Case_Dealer__c != null]){
+                    if(action == 'update'){
+                        system.debug('PSM '+queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id);
+                        if(cse.Case_Dealer__c != caseOldMap.get(cse.id).Case_Dealer__c){
+                           if(cse.RecordType.Name == 'Inquiry'){
+                                system.debug('Came inside the if loop');
+                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'Inquiry').id;
+                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'Inquiry').id);
+                            }
+                            if(cse.RecordType.Name == 'MB Complaint'){
+                                system.debug('Came inside the if loop');
+                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id;
+                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id);
+                            }
+                        }
+                    }
+                     if(action == 'insert'){
+                            if(cse.RecordType.Name == 'Inquiry'){
+                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'Inquiry').id; 
+                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'Inquiry').id);
+                            }
+                            if(cse.RecordType.Name == 'MB Complaint'){
+                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id; 
+                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id);
+                            }
+                        }
+                
+                }
+                    if(casetogrpidmap.size()>0){
+                        //TriggerCaseTriggerHandlerKR.recurssionCheckafter = true;
+                        updateCaseowner(casetogrpidmap);
+                    }
+            }
+          
+    }
+
+     public static void updateCaseowner(map <id,id> inids){
+            List<case> casetoupd = new List<case>();
+            for(case cse: [select id, ownerId, RecordType.Name,Case_Dealer__c from case where id in:inids.keyset()]){
+                cse.ownerId = inids.get(cse.id);
+                casetoupd.add(cse);
+            }
+            
+            if(casetoupd.size()>0){
+                    TriggerCaseTriggerHandlerKR.recurssioncheckafterownerupdate = true;
+                    update casetoupd;
+            }
+        
+    }
  }

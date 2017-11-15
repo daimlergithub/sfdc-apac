@@ -2415,12 +2415,45 @@
         <apexClass>SubmitSuveryTaken</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>ManageTasks</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
+<classAccesses>
+        <apexClass>DealerSearch</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>True</editable>
         <field>Campaign.Market__c</field>
         <readable>True</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Status__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Courtesy_Greeting__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Work_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.home_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
 	<fieldPermissions>
         <editable>True</editable>
         <field>CampaignMember.Market__c</field>
@@ -26042,6 +26075,14 @@
         <layout>Template__c-Template Layout</layout>
         <recordType>Template__c.Callscript</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Template__c-KakaoTalk</layout>
+        <recordType>Template__c.KakaoTalk</recordType>
+</layoutAssignments>
+<layoutAssignments>
+        <layout>Task-KakaoTalk</layout>
+        <recordType>Task.KakaoTalk</recordType>
+</layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-Template Layout</layout>
         <recordType>Template__c.ChildrenMMSTemplate</recordType>
@@ -27651,6 +27692,14 @@
         <apexPage>usernotificationsetting</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>ManageTasks</apexPage>
+        <enabled>true</enabled>
+</pageAccesses>
+<pageAccesses>
+        <apexPage>DealerSearchPage</apexPage>
+        <enabled>true</enabled>
+</pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
@@ -28243,6 +28292,16 @@
         <recordType>Template__c.ChildrenMMSTemplate</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Template__c.KakaoTalk</recordType>
+        <visible>true</visible>
+</recordTypeVisibilities>
+<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.KakaoTalk</recordType>
+        <visible>false</visible>
+</recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
