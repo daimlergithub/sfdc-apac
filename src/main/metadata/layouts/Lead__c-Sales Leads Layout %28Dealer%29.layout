@@ -394,6 +394,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Preferred_Negotiation_Place__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Test_Drive_Type__c</field>
             </layoutItems>
             <layoutItems>
@@ -424,7 +428,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preferred_Negotiation_Place__c</field>
+                <field>TestDrive_End_DateTime__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -433,6 +440,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Online_Credit_Detail__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -566,6 +577,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CA_Lead_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Online_Credit_Status__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
