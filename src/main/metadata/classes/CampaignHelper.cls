@@ -1167,5 +1167,81 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
             }
         }
     }
-    
+   
+  /*********************************************************************************
+	Method Name  : shareCampaignPlainingAndDesignRecordsWithDealers
+	Created By   : 
+	Created Date : 13th November 2017
+	Project      : Daimler APAC
+	Usages       : This method would share the Campaign records to the dealer based on below 2 conditions.
+				   1. Campaign Planning and Campaign Design records will be shared with all Dealers.
+				   2. Campaign Execution will be shared with Dealers who have retail copy of the customer 
+				      who are associated as campaign member to the Campaign Exection. Dealer company as well gets the access.
+	
+	***********************************************************************************/
+	   
+    public static void shareCampaignPlainingAndDesignRecordsWithDealers (list<Campaign> campaignList)
+    {
+    	if(userinfo.getUserType()!= 'PowerPartner')
+    	{
+    		Id campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+	        Id campDsgnRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
+	        Id campExeRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
+	    	list<CampaignShare> insertCampaignShareList = new list<CampaignShare>();
+	    	set<string> dealerNDCodeSet = new set<string>();
+	    	set<string> dealerCompNDCodeSet = new set<string>();
+	    	set<Id> dealerCompGroupIdSet = new set<Id>();
+	    	list<Group> dealerGroupList = new list<Group>();
+	    	list<Account> dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtype.name = 'Dealer' and MD__c = 'KR'];
+	    	
+	    	if(!dealerAccountList.isEmpty() && dealerAccountList != null)
+	    	{
+	    		for(Account dlrAcnt : dealerAccountList)
+		    	{
+		    		if(dlrAcnt.Dealer_Type__c == 'Company')
+		    		{
+		    			dealerCompNDCodeSet.add(dlrAcnt.Dealer_ND_Code__c);
+		    		}
+		    		dealerNDCodeSet.add(dlrAcnt.Dealer_ND_Code__c);
+		    	}
+	    	}
+	    	if(!dealerNDCodeSet.isEmpty() && dealerNDCodeSet != null)
+	    	{
+	    		dealerGroupList = [select Id, Name from Group where Name in : dealerNDCodeSet];
+	    	}
+	    	
+	    	for(Campaign campn: campaignList)
+	    	{
+	    		if(campn.recordtypeId == campPlngRecTypId || campn.recordtypeId == campDsgnRecTypId)
+	    		{
+	    			for(Group dlrGrp : dealerGroupList)
+	    			{
+	    				CampaignShare campShare = new CampaignShare();
+	    				campShare.CampaignId = campn.Id;
+	    				campShare.CampaignAccessLevel = 'Read';
+	    				campShare.UserOrGroupId  = dlrGrp.Id;
+	    				insertCampaignShareList.add(campShare);
+	    			}
+	    		}
+	    		else if(campn.recordtypeId == campExeRecTypId)
+	    		{
+	    			for(Group dlrGrp : dealerGroupList)
+	    			{
+	    				if(dealerCompNDCodeSet.contains(dlrGrp.Name))
+	    				{
+	    					CampaignShare campShare = new CampaignShare();
+		    				campShare.CampaignId = campn.Id;
+		    				campShare.CampaignAccessLevel = 'Read';
+		    				campShare.UserOrGroupId  = dlrGrp.Id;
+		    				insertCampaignShareList.add(campShare);
+	    				}
+	    			}
+	    		}
+	    	}
+	    	if(!insertCampaignShareList.isEmpty() && insertCampaignShareList != null)
+	    	{
+	    		insert insertCampaignShareList;
+	    	}
+    	}
+    }
 }
