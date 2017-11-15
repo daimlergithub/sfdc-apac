@@ -2014,6 +2014,19 @@ window.open("OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.C
 }
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>Record_Share</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Record Share</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+var myWindow = window.open("/apex/DealerSearchPage?Id={!DM_Request__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
+    </webLinks>
     <webLinks>
         <fullName>New_DM_Request_TH_Account</fullName>
         <availability>online</availability>

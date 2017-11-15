@@ -40,6 +40,11 @@ public class AccountHelperMY{
     
     public static void updateAgeRange(list<Account> listNewAccounts){
         AccountHelperBase.updateAgeRange(listNewAccounts,System.Label.MarketMY);
+		for(account acc : listNewAccounts ){
+			if(string.isnotblank(acc.Age_Range__c)?acc.Age_Range__c=='Unknown':False)
+			acc.Age_Range__c = '0-17';
+		
+		}
     }
     
     public static void activeContracts(list<Account> listNewAccounts){
@@ -66,4 +71,12 @@ public class AccountHelperMY{
     public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject){
         AccountHelperBase.entityNotifyUpdate(updateType,sfdcId,MarketDiscriminator,serlializedObject);    
     }
+	
+		 /**
+	 *SN20171411-  SM1-177
+    * Calculate “Age Range” based on birthdate.
+	* Change from the previous method is if the birthdate is less than 18 years then it will have 0-16
+    */
+	
+	
 }

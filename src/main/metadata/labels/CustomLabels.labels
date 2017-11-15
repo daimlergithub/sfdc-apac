@@ -28,6 +28,41 @@
         <shortDescription>A6 Other contact channels</shortDescription>
         <value>Other contact channels</value>
     </labels>
+	<labels>
+        <fullName>Manage_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Manage Tasks on campaign</shortDescription>
+        <value>Manage Tasks</value>
+    </labels>
+	<labels>
+        <fullName>Select_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All</shortDescription>
+        <value>Select All</value>
+    </labels>
+	<labels>
+        <fullName>Filter_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter Status</shortDescription>
+        <value>Filter Status</value>
+    </labels>
+	<labels>
+        <fullName>New_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Status</shortDescription>
+        <value>New Status</value>
+    </labels>
+	<labels>
+        <fullName>All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
     <labels>
         <fullName>A6_Personal_email</fullName>
         <language>en_US</language>
@@ -62,6 +97,13 @@
         <protected>false</protected>
         <shortDescription>A6 Telephone call</shortDescription>
         <value>Telephone call</value>
+    </labels>
+	<labels>
+        <fullName>KR_Company_Account_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KR Company Account Record Type</shortDescription>
+        <value>Only one contact number can be selected</value>
     </labels>
     <labels>
         <fullName>A6_Visit_to_a_car_dealership</fullName>
@@ -8687,14 +8729,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH_CACPurchaseddateRequired_Error</shortDescription>
-        <value>SARI changing lead statust ot purchased please enter Purchased CAC Date  Field</value>
+        <value>SARI changing lead status to purchased please enter Purchased CAC Date  Field</value>
     </labels>
     <labels>
         <fullName>TH_CAC_LeadstatusPurchasedError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH_CAC_LeadstatusPurchasedError</shortDescription>
-        <value>SARI changing lead statust ot “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
+        <value>SARI changing lead status to “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
     </labels>
     <labels>
         <fullName>TH_Not_authorized_to_create_MB_Vehicle_record</fullName>

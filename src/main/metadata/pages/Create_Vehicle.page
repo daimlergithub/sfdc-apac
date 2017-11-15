@@ -348,6 +348,7 @@
                         <apex:inputField value="{!vehicle.VehicleAge__c}"/>
                         <apex:inputField value="{!vehicle.Product_Model__c}"/>
                         <apex:inputField value="{!vehicle.Category_Code__c}"/>
+                        <apex:inputField value="{!vehicle.Market__c}"/>
                     </apex:pageBlockSection> 
                  </span>
                
