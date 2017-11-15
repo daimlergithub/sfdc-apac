@@ -683,7 +683,7 @@ public class LeadHelper
             map<id, Account> accmap = new map<id, Account>([select id, Dealer_ND_Code__c, Dealer_Type__c from Account where id in: dealerIds and RecordType.Name = 'Dealer' and Dealer_Type__c = 'Company']);
             for(Lead__c lea: [select id, ownerId, RecordType.Name,Assigned_Dealer__c from Lead__c where id in: leadslst and Assigned_Dealer__c != null]){
                 if(action == 'update'){
-                    //if(lea.Assigned_Dealer__c != oldValLead.get(lea.id).Assigned_Dealer__c){
+                    if(lea.Assigned_Dealer__c != oldValLead.get(lea.id).Assigned_Dealer__c){
                        system.debug('PSM GROUP Id to make owner '+queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
                        system.debug('PSM lea.RecordType.Name '+lea.RecordType.Name);
                        system.debug('PSM GRP Name '+queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead'));
@@ -697,7 +697,7 @@ public class LeadHelper
                             lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'Sales Lead').id;
                             leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
                         }
-                    //}
+                    }
                 }
                 if(action == 'insert'){
                     if(lea.RecordType.Name == 'Aftersales Leads'){
