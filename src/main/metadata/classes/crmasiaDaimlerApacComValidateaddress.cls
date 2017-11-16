@@ -7,8 +7,9 @@ public class crmasiaDaimlerApacComValidateaddress {
         public Boolean AutoFillMode;
         private String[] Organization_type_info = new String[]{'Organization','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] Address_type_info = new String[]{'Address','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
+         private String[] AutoFillMode_type_info = new String[]{'AutoFillMode','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/ValidateAddress_1.0','false','false'};
-        private String[] field_order_type_info = new String[]{'Organization','Address'};
+        private String[] field_order_type_info = new String[]{'Organization','Address','AutoFillMode'};
     }
     public class AddressValidationMessageFaultType {
         public String errorCode;
@@ -63,10 +64,12 @@ public class crmasiaDaimlerApacComValidateaddress {
     public class AddressValidationResponseMessageType {
         public String ValidationStatus;
         public crmasiaDaimlerApacComValidateaddress.Address[] Addresses;
+        public Boolean AutoFillMode;
         private String[] ValidationStatus_type_info = new String[]{'ValidationStatus','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] Addresses_type_info = new String[]{'Addresses','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','-1','false'};
+        private String[] AutoFillMode_type_info = new String[]{'AutoFillMode','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/ValidateAddress_1.0','false','false'};
-        private String[] field_order_type_info = new String[]{'ValidationStatus','Addresses'};
+        private String[] field_order_type_info = new String[]{'ValidationStatus','Addresses','AutoFillMode'};
     }
     public class ValidateAddress {
         public crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType AddressValidationRequestMessage;
