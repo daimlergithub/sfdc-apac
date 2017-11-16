@@ -12709,7 +12709,7 @@
         <field>Custom_Debug_Info__c.Custom_Debug_Log_Data__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+   <fieldPermissions>
         <editable>true</editable>
         <field>DM_Material__c.Active__c</field>
         <readable>true</readable>
