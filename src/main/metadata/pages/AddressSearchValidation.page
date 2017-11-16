@@ -1002,13 +1002,14 @@
         
         <br/>
         <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>    
-        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF((market == 'KR' || AutoFill == true), true, false)}">    
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF((market == 'KR' || DisplayAutoFill == true), true, false)}">    
             <apex:column >
                 <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
             </apex:column>        
             <apex:column value="{!item.add.Province__c}"/>
             <apex:column value="{!item.add.City__c}"/>
             <apex:column value="{!item.add.District__c}"/>
+			<apex:column value="{!item.add.Block__c}" rendered="{!IF(DisplayAutoFill == true,true,false)}"/>
             <apex:column value="{!item.add.ZipCode__c}"/>
             <apex:column value="{!item.add.Address_Line_1__c}"/> 
             <apex:column value="{!item.add.Address_Line_2__c}"/>           
