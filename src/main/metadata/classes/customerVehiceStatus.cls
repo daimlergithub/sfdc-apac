@@ -42,7 +42,7 @@ global without sharing class customerVehiceStatus {
             acc2=[select id,Ucid__c,email__c,firstname,lastname from Account where Mobile__c=:Mobile and Recordtype.name='Person Account' and Md__c='KR' Order By LastModifiedDate DESC ];
         }
         for(Account a:acc2){
-            if(a.firstname.containsIgnoreCase(name) || a.lastname.containsIgnoreCase(name)){
+            if(a.firstname!=null?a.firstname.containsIgnoreCase(name):false || a.lastname!=null?a.lastname.containsIgnoreCase(name):false){
                 acc.add(a);
                 break;
             }
