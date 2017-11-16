@@ -30,7 +30,13 @@ public class LeadMergeController{
     // Get All Account fields Describe
     private Map<String, Schema.SObjectField> fieldNamesMap = Lead__c.sObjectType.getDescribe().fields.getMap(); 
             
-    
+     public static id isMasterSelected{ get; set; } 
+    public static id isSlaveSelected{ get; set; } 
+    public Lead__c selectedslavelead        {get; set;}
+    Public static Id Leadslaveids{get;set;}
+    public Boolean MastertoChild {get; set;}  
+    public Boolean ChildtoMaster {get; set;}  
+    public string radioHidden {get;set;}
      /** 
      * @Description : Contructor Calles to get the curect page Id and Slave Id.      
      * @author  Sneha chail
@@ -38,6 +44,7 @@ public class LeadMergeController{
      */   
       public LeadMergeController(ApexPages.StandardController con) {
        // controller = con;
+        MastertoChild=true;
        dmstr =new  List<DM_Request__c>();
      surtake= new List<SurveyTaker__c>();
         leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Existing_Contract__c ,AfterSales_VIN__c ,Dealer_Lead_Status__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,CAC_Lead_Status__c  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
@@ -46,101 +53,88 @@ public class LeadMergeController{
           
           slaves = new List<LeadWrapperclass>();
           
-             if((leads.Dealer_Lead_Status__c !='Purchased' || leads.Dealer_Lead_Status__c !='Invoiced' || leads.Dealer_Lead_Status__c !='Order Placed' ))
-   {
-   
-   if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c ==null )
-        { 
-            
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost') ]){
-            slaves.add(new LeadWrapperclass(a));
-          }
-        }
-        if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c ==null )
-        { 
-        
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost')]){
-            slaves.add(new LeadWrapperclass(a));
-          }
-        }
-        
-         if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c !=null )
-        { 
-         
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and(Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost')  ]){
-            slaves.add(new LeadWrapperclass(a));
-          }
-        }
-        }
-        
-        if((leads.Dealer_Lead_Status__c =='Purchased' || leads.Dealer_Lead_Status__c =='Invoiced' || leads.Dealer_Lead_Status__c =='Order Placed' ))
+                   if((leads.Dealer_Lead_Status__c =='Purchased(Only Non BDC)' || leads.Dealer_Lead_Status__c =='Invoiced' || leads.Dealer_Lead_Status__c =='Order Placed' ))
         {
         
         
-         if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c ==null  )
+         if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c !=null  )
         { 
             
         for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased') OR (Dealer_Lead_Status__c !='Invoiced') OR (Dealer_Lead_Status__c !='Order Placed'))]){
+                And ((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
             slaves.add(new LeadWrapperclass(a));
+             System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
           }
         }
         if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c ==null)
         { 
         
         for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased') OR (Dealer_Lead_Status__c !='Invoiced') OR (Dealer_Lead_Status__c !='Order Placed'))]){
+                And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
             slaves.add(new LeadWrapperclass(a));
+             System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
           }
         }
         
-         if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c !=null )
+         if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c ==null && leads.Existing_Contract__c !=null )
         { 
+        System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
          
         for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and(Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased') OR (Dealer_Lead_Status__c !='Invoiced') OR (Dealer_Lead_Status__c !='Order Placed'))]){
+                and((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
+            slaves.add(new LeadWrapperclass(a));
+             System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+          }
+        }
+            if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c ==null && leads.Existing_Contract__c ==null )
+        { 
+          System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+               and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
+           System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
             slaves.add(new LeadWrapperclass(a));
           }
         }
         
         }
-        
-        /*   if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c ==null && (leads.Dealer_Lead_Status__c !='Purchased' || leads.Dealer_Lead_Status__c !='Invoiced' || leads.Dealer_Lead_Status__c !='Order Placed' ))
-        { 
+        else  if(((leads.Dealer_Lead_Status__c !='Purchased(Only Non BDC)') || (leads.Dealer_Lead_Status__c !='Invoiced') || (leads.Dealer_Lead_Status__c !='Order Placed')))
+                 {
+                    if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c !=null )
+                        {
+                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                            And (Existing_Contract__c=:leads.Existing_Contract__c) and (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost') ]){
+                            slaves.add(new LeadWrapperclass(a));
+                             System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+                            }
+                        }
+                     if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c ==null )
+                            {
+                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                            And (Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost') ]){
+                            slaves.add(new LeadWrapperclass(a));
+                             System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+                                    }
+                            }
+                        if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c ==null && leads.AfterSales_VIN__c !=null )
+                             {
+                                for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                                    And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost') ]){
+                                    slaves.add(new LeadWrapperclass(a));
+                                     System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+                                    }
+                             }
+                     if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c ==null && leads.AfterSales_VIN__c ==null )
+                             {
+                                for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                                    and (Dealer_Lead_Status__c !='Lost') ]){
+                                    slaves.add(new LeadWrapperclass(a));
+                                     System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+                                    }
+                             }
+                   
             
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased') OR (Dealer_Lead_Status__c !='Invoiced') OR (Dealer_Lead_Status__c !='Order Placed'))]){
-            slaves.add(new LeadWrapperclass(a));
-          }
-        }
-        if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c ==null && (leads.Dealer_Lead_Status__c !='Purchased' || leads.Dealer_Lead_Status__c !='Invoiced' || leads.Dealer_Lead_Status__c !='Order Placed' ))
-        { 
         
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost')  and ( (Dealer_Lead_Status__c !='Purchased') OR (Dealer_Lead_Status__c !='Invoiced') OR (Dealer_Lead_Status__c !='Order Placed'))]){
-            slaves.add(new LeadWrapperclass(a));
-          }
-        }
-        
-         if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c !=null && (leads.Dealer_Lead_Status__c !='Purchased' || leads.Dealer_Lead_Status__c !='Invoiced' || leads.Dealer_Lead_Status__c !='Order Placed' ))
-        { 
-         
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and(Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost')  and ( (Dealer_Lead_Status__c !='Purchased') OR (Dealer_Lead_Status__c !='Invoiced') OR (Dealer_Lead_Status__c !='Order Placed')) ]){
-            slaves.add(new LeadWrapperclass(a));
-          }
-        } */
-          
-          /* if(leads.Service_Advisor__c != NULL)
-        { 
-        slaves = new List<LeadWrapperclass>();     
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId]){
-            slaves.add(new LeadWrapperclass(a));
-          }
-        }*/
+                 }
            
         SoqlFieldset = new set<string>();
         SoqlFieldset.addAll(this.getFieldsListByFieldSet('LeadMergeFieldsSet'));    
@@ -149,13 +143,33 @@ public class LeadMergeController{
         boolean slavecount=true;
         // Initiate hasMessage and wraps
         hasMessage = false;
-        wraps = new List<LeadWrapper>();       
+        wraps = new List<LeadWrapper>();     
+       
         try{
         if(Apexpages.currentPage().getParameters().get('selectedValue')!=Null){
-              selectedValue=Apexpages.currentPage().getParameters().get('selectedValue');             
+              selectedValue=Apexpages.currentPage().getParameters().get('selectedValue');       
+                Leadslaveids=Apexpages.currentPage().getParameters().get('selectedValue'); 
+                System.debug('Leadslaveids ^^^^^^^^^^^^^'+Leadslaveids);
+              if(Leadslaveids!=null)
+              {
+              selectedslavelead=[Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Existing_Contract__c ,AfterSales_VIN__c ,Dealer_Lead_Status__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,CAC_Lead_Status__c  from Lead__c where Id=:Leadslaveids];
+                 System.debug('Leadslaveids ^^^^^^^^^^^^^'+selectedslavelead);
+              }      
+            
               getMasterAndslaveId();
               master= this.getQueriedLead(leads.Id); 
-              slave = this.getQueriedLead(selectedValue);                   
+              slave = this.getQueriedLead(selectedValue);    
+                  Master.id=ApexPages.currentPage().getParameters().get('idselecteds');  
+           slave.id=ApexPages.currentPage().getParameters().get('idselected');             
+          system.debug('+++++++++ MasterSelectedId'+  Master.id);
+           system.debug('+++++++++ SlaveSelectedId'+ slave.id); 
+             
+                Master.id=ApexPages.currentPage().getParameters().get('idselecteds');  
+           slave.id=ApexPages.currentPage().getParameters().get('idselected');             
+          system.debug('+++++++++ MasterSelectedId'+  Master);
+           system.debug('+++++++++ SlaveSelectedId'+ slave);    
+             System.debug('&*&*&*&&&**&* ChildtoMaster '+ChildtoMaster);
+             System.debug('&*&*&*&&&**&* MastertoChild'+MastertoChild);            
          }  
          }
         catch(Exception e){
@@ -182,7 +196,53 @@ public class LeadMergeController{
          chosenSlaveId=selectedValue;
          chosenMasterId=leads.id;        
         } 
-        
+         public pageReference  getSelected()
+         {
+         MastertoChild=true;
+         //isMasterSelected=ApexPages.currentPage().getParameters().get('idselecteds');  
+          isMasterSelected=ApexPages.currentPage().getParameters().get('idselecteds');  
+          isSlaveSelected=ApexPages.currentPage().getParameters().get('idselected');   
+          
+           if(isSlaveSelected !=null && isMasterSelected==null)
+           {
+           
+           chosenSlaveId=chosenMasterId;
+           
+           selectedValue=chosenMasterId;
+           chosenMasterId=isSlaveSelected; 
+           } 
+         //  MergeLead();
+          PageReference pr = new PageReference('/apex/LeadMerge?Id='+chosenMasterId+'&'+System.Label.slaveId+'='+chosenSlaveId+'&retURL=/apex/SelectSlaveLead?Id='+chosenSlaveId+'&selectedValue='+selectedValue);
+          pr.setRedirect(true);
+          
+         // return pr;
+            System.debug('&*&*&*&&&**&* ChildtoMaster '+ChildtoMaster);
+             System.debug('&*&*&*&&&**&* MastertoChild'+MastertoChild);
+           return pr;
+         
+         }
+         public pageReference  getSelectedMaster()
+         {
+         //isMasterSelected=ApexPages.currentPage().getParameters().get('idselecteds');  
+          isMasterSelected=ApexPages.currentPage().getParameters().get('idselecteds');  
+          isSlaveSelected=ApexPages.currentPage().getParameters().get('idselected');   
+           MastertoChild=true;
+           if(isSlaveSelected ==null && isMasterSelected !=null)
+           {
+           
+           chosenSlaveId=chosenSlaveId;
+           
+           selectedValue=selectedValue;
+           chosenMasterId=chosenMasterId; 
+           } 
+         //  MergeLead();
+          PageReference pr = new PageReference('/apex/LeadMerge?Id='+chosenMasterId+'&'+System.Label.slaveId+'='+chosenSlaveId+'&retURL=/apex/SelectSlaveLead?Id='+chosenSlaveId+'&selectedValue='+selectedValue);
+          pr.setRedirect(true);
+          
+         
+           return pr;
+         
+         }
     /** 
      * @Description : Reject duplicate Accouts and create new log by creating record on "Rejected_Duplicate_Log__c".
        @            : Update slave "DUPNumber__c" and "Dup_Reason__c" as Null and choosen MasterId on Slave Account
@@ -383,6 +443,11 @@ public class LeadMergeController{
      }
      public PageReference MergeLead() {        
         User usr;
+                    
+       //     getSelectedMaster();
+        //    getSelected();
+            
+          
         try {
             usr = [SELECT Id FROM User 
                   WHERE Profile.Name =:UtilConstant.PROFILE_SALES_LEAD_SOFT_DELETED  And IsActive = true 
@@ -413,7 +478,11 @@ public class LeadMergeController{
          slave.Dealer_Lead_Status__c = 'Lost';
          slave.Dealer_Lost_Reason__c = 'Lead Merge';
          slave.Lost_Situation__c = 'Lead Merge';
-        
+        system.debug('&&&&&&&&&&&&&&&&&&&&&&'+Slave);
+         system.debug('&&&&&&&&&&&&&&&&&&&&&master'+Master);
+           system.debug('*****************slave'+Slave.id);
+         system.debug('************************master id'+Master.id);
+       
          for(DM_Request__C dm:[Select id,Lead__c from DM_Request__c Where Lead__C=:slave.Id]){
              dm.Lead__c=leads.id;
              dmstr.add(dm);
@@ -423,6 +492,7 @@ public class LeadMergeController{
              st.Lead__c=leads.id;
              surtake.add(st); 
          }
+         
          
         // Set SavePoint, if slave DML failed, master DML should be rollback .
         SavePoint sp = Database.setSavepoint();        

@@ -133,11 +133,8 @@
 					</sf:typeset>
 					<sf:typeset name="classes">
 					<sf:exclude name="WSMockAddressValidationRespInvalidAddrTH"/>
-					<sf:exclude name="taskRecordViewOnCampaignController"/>
 					</sf:typeset>
-					<sf:typeset name="pages">
-					<sf:exclude name="taskRecordViewOnCampaign"/>
-					</sf:typeset>
+					<sf:typeset name="pages"/>
 					<sf:typeset name="triggers"/>								
 					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 						

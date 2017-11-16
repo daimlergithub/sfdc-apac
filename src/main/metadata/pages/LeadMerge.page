@@ -29,13 +29,22 @@
     jquery = jQuery.noConflict();
     jquery(document).ready(function() {
     //alert('hi');
+
+        
+        jquery('input[name*="Dealer_Lead_Status__c"]').hide(); 
         jquery(':radio').change(function() {
+            var name = jquery(this).attr('name');
+            jquery('input[name=' + name + ']').each(function() {
+                jquery(this).next().val(jquery(this).attr('checked'));
+            });
+        });
+      <!--  jquery(':radio').change(function() {
             var name = jquery(this).attr('name');
             
             jquery('input[name=' + name + ']').each(function() {
                 jquery(this).next().val(jquery(this).attr('checked'));
             });
-        });
+        });-->
     });
     
     function setEntityValues (conid) {
@@ -53,16 +62,96 @@
     }
     </script>
     
+    <script>
+        function assignValue(input, hidden){
+          
+            document.getElementById(hidden).value = input.value;
+          //  alert(document.getElementById(hidden).value);
+        }
+    </script>
+    
+    <apex:includeScript value="{!$Resource.jquery142}"/>
+    <script>
+    jquery = jQuery.noConflict();
+    jquery(document).ready(function() {
+    jquery('input[name*="Dealer_Lead_Status__c"]').hide(); 
+	jquery('input[name*="Contact__c"]').hide(); 
+	jquery('input[name*="Service_Advisor__c"]').hide(); 
+	jquery('input[name*="RecordTypeId"]').hide(); 
+	jquery('input[name*="AfterSales_VIN__c"]').hide(); 
+	jquery('input[name*="Lead_Latest_Phase__c"]').hide(); 
+	jquery('input[name*="Lead_Possibility__c"]').hide(); 
+	jquery('input[name*="Lead_Possibility_text__c"]').hide(); 
+	jquery('input[name*="Existing_Contract__c"]').hide(); 
+	jquery('input[name*="Existing_Contract_No__c"]').hide(); 
+	jquery('input[name*="Customer_Intention__c"]').hide(); 
+	jquery('input[name*="Finance_Closing_Option__c"]').hide(); 
+	jquery('input[name*="Finance_Closing_Reason__c"]').hide(); 
+	jquery('input[name*="DMS_Sent_Flag__c"]').hide(); 
+	jquery('input[name*="Quotation_Number_History__c"]').hide(); 
+	jquery('input[name*="Order_Confirmation_Date__c"]').hide(); 
+	jquery('input[name*="Network_Registration_Date__c"]').hide(); 
+	jquery('input[name*="LastModifiedById"]').hide(); 
+	
+        jquery(':radio').change(function() {
+            var name = jquery(this).attr('name');
+            jquery('input[name=' + name + ']').each(function() {
+                jquery(this).next().val(jquery(this).attr('checked'));
+            });
+        });
+    });
+    
+    function setEntityValues (conid) {
+        for (var frm = 0; frm < document.forms.length; frm++) {
+            for (var fld = 0; fld < document.forms[frm].elements.length; fld++) {
+                var elt = document.forms[frm].elements[fld];
+                if (elt.type == "radio") {
+                    if (elt.value == conid) {
+                        elt.checked = true;
+                    }
+                }
+            }
+        }
+    }
+    </script>
+    
+    
     <apex:sectionHeader title="Lead Merge" subtitle="{!$Label.Master_Account}: {!master.Name}"/>
     
-    <apex:form >
+    <apex:form id="Formaid">
         <apex:pageBlock >
             <apex:pageMessages Id="message"/>            
             <apex:pageBlockButtons >
                 <apex:commandButton value="{!$Label.Previous}" action="{!previous}" immediate="true"/>              
                 <apex:commandButton action="{!mergeLead}" value="{!$Label.Merge}" Id="save" 
                                     onclick="if (confirm('{!$Label.CP_Merge_Account_Confirm}')) return true; return false;"/>
-            </apex:pageBlockButtons>          
+            </apex:pageBlockButtons>         
+             
+            <apex:pageBlock title="Please Select only One as a Master">
+            <apex:actionRegion >
+             <apex:pageblockTable value="{!leads}" var="slave1" styleclass="compare_table" id="a" title="Please select Master" columns="2"> 
+             <apex:column headerClass="Please select" >
+             
+            Master <input type="radio" name="Letters" value="{!leads}"  checked="True" >
+                <apex:actionSupport event="onclick" action="{!getSelectedMaster}"  rerender="detail">
+                    <apex:param name="idselecteds" value="{!leads.Id}" assignTo="{!isMasterSelected}"/>   
+                     </apex:actionSupport>
+                </input> 
+               </apex:column>
+              <apex:column headerClass="Please select" >
+           Slave  <input type="radio" name="tLetters" value="{!selectedslavelead}"  >
+          <apex:actionSupport event="onclick" action="{!getSelected}"  rerender="detail">
+                    <apex:param name="idselected" value="{!selectedslavelead.id}" assignTo="{!isSlaveSelected}"/>   
+                    </apex:actionSupport>
+                </input>                          
+             </apex:column> 
+             <apex:inputHidden value="{!radioHidden}" id="hidValId" />
+             </apex:pageblockTable>
+           <!--   </apex:pageBlockSection> -->
+         
+           </apex:actionRegion>
+              </apex:pageBlock>
+              
             <apex:outputpanel Id="detail">
                 <table cellspacing="0" cellpadding="0" width="80%" align="center" class="rollup" style="margin-left:20px">
                     <tbody>
