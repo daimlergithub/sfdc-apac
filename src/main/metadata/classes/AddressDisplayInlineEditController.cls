@@ -706,7 +706,7 @@ public class AddressDisplayInlineEditController {
         else if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
         {
             crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-            response =  UtilWebservice.validateAddressByZipCode(addressobj);
+            response =  UtilWebservice.validateAddressByZipCode(addressobj,false);
             if(response != null && response.ValidationStatus == 'OK')
             {
                 
@@ -831,7 +831,7 @@ public class AddressDisplayInlineEditController {
         mapAddressResponse = new List<addressSelectionWrapper>();      
         //Address__c AddressObjtemp1 = new Address__c();       
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-        response =  UtilWebservice.validateAddressByZipCode(addressobj);
+        response =  UtilWebservice.validateAddressByZipCode(addressobj,false);
         
         
         if(response != null && response.ValidationStatus == 'OK'){
@@ -1011,7 +1011,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     public String ValidateAddressCode(Address__c Address)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-        response =  UtilWebservice.validateAddressByZipCode(Address);
+        response =  UtilWebservice.validateAddressByZipCode(Address,false);
         if(response != null && response.ValidationStatus == 'OK')
         {  
             if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode  && 

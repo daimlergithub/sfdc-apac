@@ -716,13 +716,17 @@ public class LeadHelper
 
     public static void updateLeadowner(map <id,id> inids){
             List<Lead__c> leadtoupd = new List<Lead__c>();
+			//The below code is added to trigger email to queue
+            Database.DMLOptions dlo = new Database.DMLOptions();
+            dlo.EmailHeader.triggerUserEmail = true;
             for(Lead__c lea: [select id, ownerId, RecordType.Name,Assigned_Dealer__c from Lead__c where id in:inids.keyset()]){
                 lea.ownerId = inids.get(lea.id);
                 leadtoupd.add(lea);
             }
             
             if(leadtoupd.size()>0){
-                    update leadtoupd;
+                  //update leadtoupd;
+				   database.update(leadtoupd, dlo);
             }
         
     }
