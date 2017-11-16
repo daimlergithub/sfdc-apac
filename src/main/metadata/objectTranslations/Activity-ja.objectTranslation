@@ -576,7 +576,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
+            <translation>オープン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Status</masterLabel>
@@ -728,7 +728,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>not started</masterLabel>
-            <translation><!-- not started --></translation>
+            <translation>未開始</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>reject</masterLabel>
@@ -741,6 +741,14 @@
         <picklistValues>
             <masterLabel>wrong number</masterLabel>
             <translation>未コンタクト該当なし</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting</masterLabel>
+            <translation>待機中</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation>延期</translation>
         </picklistValues>
     </fields> 
     <fields>

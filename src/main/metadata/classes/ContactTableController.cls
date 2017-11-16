@@ -101,7 +101,7 @@ public class ContactTableController
         //sarath added Market__c field to retrieve in query
         stdController.addFields(new List<String> {'Id','Fax_Last_Modified_By__c','Work_Fax_Last_Modified_By__c','Fax_Last_Modified_Date__c','Fax2_Last_Modified_Date__c','Mobile__c','Mobile2__c','Individual_Home_Phone__c','Home_Phone_2__c','Work_Phone__c','Phone','Email__c','Email2__c','Email3__c','Fax2__c','Fax','Fax_Validity2__c','Fax_Validity__c','Email_Status__c','Email_Status_2__c','Work_Phone_Last_Modified_Date__c','Work_Phone_Last_Modified_Date2__c',
             'Email_Status_3__c','Work_Phone_Status__c','Work_Phone_Status_2__c','Individual_Home_Phone_Status__c', 'Home_Phone_Status_2__c' ,'Mobile_Status__c','SMS_MMS_IM_Status_2__c','Email_Last_Modified_By__c','Email_Last_Modified_By2__c','Email_Last_Modified_By3__c','Email_Last_Modified_Date__c','Email_Last_Modified_Date2__c',
-           'Work_Phone_Last_Modified_By__c','Work_Phone_Last_Modified_By2__c','Home_Phone_Last_Modified_By__c','Home_Phone_Last_Modified_By2__c','SMS_Last_Modified_By__c','SMS_Last_Modified_By2__c','SMS_Last_Modified_Date__c','SMS_Last_Modified_Date2__c','Home_Phone_Last_Modified_Date__c','Home_Phone_Last_Modified_Date2__c','Email_Last_Modified_Date3__c','MD__c','Market__c','RecordType.Name','Mobile_Phone_Checkbox__c','home_Phone_Checkbox__c','Work_Phone_Checkbox__c'});
+           'Work_Phone_Last_Modified_By__c','Work_Phone_Last_Modified_By2__c','Home_Phone_Last_Modified_By__c','Home_Phone_Last_Modified_By2__c','SMS_Last_Modified_By__c','SMS_Last_Modified_By2__c','SMS_Last_Modified_Date__c','SMS_Last_Modified_Date2__c','Home_Phone_Last_Modified_Date__c','Home_Phone_Last_Modified_Date2__c','Email_Last_Modified_Date3__c','MD__c','Market__c','RecordType.Name','Mobile_Phone_Checkbox__c','home_Phone_Checkbox__c','Work_Phone_Checkbox__c','Primary_Phone__c'});
              
             } 
         ParAcc = (Account)stdController.getRecord(); 
@@ -786,24 +786,25 @@ public class ContactTableController
                 
           System.debug('------------'+ParAcc.Mobile__c+'----'+ParAcc.Individual_Home_Phone__c+'---'+ParAcc.Work_Phone__c);
          
-         if((ParAcc.Mobile_Phone_Checkbox__c==true&& ParAcc.home_Phone_Checkbox__c==true&& ParAcc.Work_Phone_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true && ParAcc.home_Phone_Checkbox__c==true&& ParAcc.Work_Phone_Checkbox__c==false)||(ParAcc.Mobile_Phone_Checkbox__c==false&&ParAcc.home_Phone_Checkbox__c==true&&ParAcc.Work_Phone_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true&& ParAcc.home_Phone_Checkbox__c==false && ParAcc.Work_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Mobile__c) && ParAcc.Mobile_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Individual_Home_Phone__c)&& ParAcc.home_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Work_Phone__c) && ParAcc.Work_Phone_Checkbox__c==true))
+         if((ParAcc.Mobile_Phone_Checkbox__c==true&& ParAcc.home_Phone_Checkbox__c==true&& ParAcc.Work_Phone_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true && ParAcc.home_Phone_Checkbox__c==true&& ParAcc.Work_Phone_Checkbox__c==false)||(ParAcc.Mobile_Phone_Checkbox__c==false&&ParAcc.home_Phone_Checkbox__c==true && ParAcc.Work_Phone_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true&& ParAcc.home_Phone_Checkbox__c==false && ParAcc.Work_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Mobile__c) && ParAcc.Mobile_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Individual_Home_Phone__c)&& ParAcc.home_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Work_Phone__c) && ParAcc.Work_Phone_Checkbox__c==true))
          {   
          refreshPage = false;
-        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.KR_Company_Account_Record_Type));       
-        }
-        else if(!(String.isBlank(ParAcc.Mobile__c ))&& ParAcc.Mobile_Phone_Checkbox__c==true)
+        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.KR_Company_Account_Record_Type));
+        }        
+        else if((!(String.isBlank(ParAcc.Mobile__c )) && (String.isBlank(ParAcc.Individual_Home_Phone__c)) && (String.isBlank(ParAcc.Work_Phone__c))) ||(!(String.isBlank(ParAcc.Mobile__c ))&& ParAcc.Mobile_Phone_Checkbox__c==true))
         {
         ParAcc.Primary_Phone_Display__c=ParAcc.Mobile__c;
-         
+        ParAcc.Primary_Phone__c='Mobile'; 
         } 
-        else if(!(String.isBlank(ParAcc.Individual_Home_Phone__c))&& ParAcc.home_Phone_Checkbox__c==true)
+        else if((String.isBlank(ParAcc.Mobile__c ) && (!(String.isBlank(ParAcc.Individual_Home_Phone__c))) && (String.isBlank(ParAcc.Work_Phone__c))) || (!(String.isBlank(ParAcc.Individual_Home_Phone__c))&& ParAcc.home_Phone_Checkbox__c==true))
         {
         ParAcc.Primary_Phone_Display__c=ParAcc.Individual_Home_Phone__c;
-       
+        ParAcc.Primary_Phone__c='Home Phone'; 
         }
-        else if (!(String.isBlank(ParAcc.Work_Phone__c)) && ParAcc.Work_Phone_Checkbox__c==true)
+        else if ((String.isBlank(ParAcc.Mobile__c ) && (String.isBlank(ParAcc.Individual_Home_Phone__c)) && (!(String.isBlank(ParAcc.Work_Phone__c)))) || (!(String.isBlank(ParAcc.Work_Phone__c)) && ParAcc.Work_Phone_Checkbox__c==true))
         {
-        ParAcc.Primary_Phone_Display__c=ParAcc.Work_Phone__c;     
+        ParAcc.Primary_Phone_Display__c=ParAcc.Work_Phone__c;
+        ParAcc.Primary_Phone__c='Work Phone';     
         }
        else if (ParAcc.Mobile_Phone_Checkbox__c==false&& ParAcc.home_Phone_Checkbox__c==false && ParAcc.Work_Phone_Checkbox__c==false)
         {

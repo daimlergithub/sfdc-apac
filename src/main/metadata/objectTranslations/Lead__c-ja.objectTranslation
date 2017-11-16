@@ -71,6 +71,30 @@
         <name>Assigned_to_Dealer_Directly__c</name>
     </fields>
     <fields>
+        <label>出庫時</label>
+        <name>At_The_Time_of_Retrieval__c</name>
+        <picklistValues>
+            <masterLabel>Delivery</masterLabel>
+            <translation>納車</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit</masterLabel>
+            <translation>来店</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>入庫時</label>
+        <name>At_The_Time_of_Stock__c</name>
+        <picklistValues>
+            <masterLabel>Pickup</masterLabel>
+            <translation>引き取り</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit</masterLabel>
+            <translation>来店</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Attachment Flag --></label>
         <name>Attachment_Flag__c</name>
     </fields>
@@ -5527,8 +5551,16 @@
             <translation>1年点検</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>1 Year Inspection Express</masterLabel>
+            <translation>1年点検（新車1,2年目）（エクスプレスサービス）</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>6 month Inspection</masterLabel>
             <translation>新車6ヵ月点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 month Inspection Express</masterLabel>
+            <translation>新車6ヶ月点検（エクスプレスサービス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Body &amp; Paint</masterLabel>
@@ -5536,11 +5568,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Buy</masterLabel>
-            <translation><!-- Buy --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Car Wash</masterLabel>
-            <translation><!-- Car Wash --></translation>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engine Oil Express</masterLabel>
+            <translation>エンジンオイル交換（エクスプレスサービス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Extended Warranty</masterLabel>
@@ -5571,6 +5607,10 @@
             <translation>車検</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MOT Express</masterLabel>
+            <translation>初回車検（新車3年目）（エクスプレスサービス）</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation>その他</translation>
         </picklistValues>
@@ -5596,11 +5636,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Repair</masterLabel>
-            <translation><!-- Repair --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Retrofit</masterLabel>
-            <translation><!-- Retrofit --></translation>
+            <translation>使用しないでください</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Safety Check Express</masterLabel>
+            <translation>セーフティチェック（エクスプレスサービス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tire Change Express</masterLabel>
+            <translation>タイヤ交換（エクスプレスサービス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wiper Change Express</masterLabel>
+            <translation>ワイパー交換（エクスプレスサービス）</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7116,6 +7168,22 @@
         <name>Loan_Car_Provided_by_Dealer__c</name>
     </fields>
     <fields>
+        <label>代替車利用</label>
+        <name>Loaner_Vehicle__c</name>
+        <picklistValues>
+            <masterLabel>NotRequired</masterLabel>
+            <translation>利用しない</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required</masterLabel>
+            <translation>利用する</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ShareCar</masterLabel>
+            <translation>シェアカーを利用する</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>展開予定日</label>
         <name>Lodgment_Date__c</name>
     </fields>
@@ -8241,6 +8309,26 @@
         <name>Odometer_Reading__c</name>
     </fields>
     <fields>
+        <label>オンライン審査詳細</label>
+        <name>Online_Credit_Detail__c</name>
+    </fields>
+    <fields>
+        <label>オンライン審査結果</label>
+        <name>Online_Credit_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approval</masterLabel>
+            <translation>承諾</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decline</masterLabel>
+            <translation>否決</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Optional</masterLabel>
+            <translation>条件付き</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>商談名</label>
         <name>Opportunity_Name__c</name>
     </fields>
@@ -8541,7 +8629,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>商談希望日時</label>
+        <label>商談・試乗希望日時</label>
         <name>Preferred_Negotiation_DateTime__c</name>
     </fields>
     <fields>
@@ -12226,6 +12314,10 @@
     <fields>
         <label><!-- Term (Month) --></label>
         <name>Term_Month__c</name>
+    </fields>
+    <fields>
+        <label>試乗希望日時(To)</label>
+        <name>TestDrive_End_DateTime__c</name>
     </fields>
     <fields>
         <label><!-- Test Drive Date Time --></label>

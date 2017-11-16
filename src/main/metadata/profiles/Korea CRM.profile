@@ -2333,6 +2333,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>taskRecordViewOnCampaignController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>testusernotification</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2346,6 +2350,14 @@
     </classAccesses>
 	<classAccesses>
         <apexClass>SubmitSuveryTaken</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
+<classAccesses>
+        <apexClass>ManageTasks</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
+<classAccesses>
+        <apexClass>DealerSearch</apexClass>
         <enabled>true</enabled>
 </classAccesses>
     <custom>true</custom>
@@ -2434,6 +2446,26 @@
         <field>Account.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Courtesy_Greeting__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Work_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.home_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Market__c</field>
@@ -25144,6 +25176,11 @@
         <field>Vehicle__c.last_update_changed_by__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.last_updated__c</field>
@@ -25152,7 +25189,15 @@
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
+	<layoutAssignments>
+        <layout>Template__c-KakaoTalk</layout>
+        <recordType>Template__c.KakaoTalk</recordType>
+</layoutAssignments>
+<layoutAssignments>
+        <layout>Task-KakaoTalk</layout>
+        <recordType>Task.KakaoTalk</recordType>
+</layoutAssignments>
+ <layoutAssignments>
         <layout>Account-Company Layout</layout>
         <recordType>Account.CompanyManualMerge</recordType>
     </layoutAssignments>
@@ -26988,16 +27033,28 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>taskRecordViewOnCampaign</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>usernotificationsetting</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>ManageTasks</apexPage>
+        <enabled>true</enabled>
+</pageAccesses>
+<pageAccesses>
+        <apexPage>DealerSearchPage</apexPage>
+        <enabled>true</enabled>
+</pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Company</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>
+	<recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.CompanyManualMerge</recordType>
         <visible>false</visible>
@@ -27583,6 +27640,16 @@
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Template__c.KakaoTalk</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.KakaoTalk</recordType>
+        <visible>true</visible>
+   </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Template__c.MMS</recordType>

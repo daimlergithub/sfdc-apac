@@ -18645,7 +18645,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
     <fields>
         <fullName>UCID_Sequence__c</fullName>
         <displayFormat>0{0000000000}</displayFormat>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>UCID Sequence</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
@@ -61187,7 +61187,6 @@ MD__c = 'JP'
         <errorConditionFormula>IF( 
 AND( 
 ISPICKVAL( ID_Type__c, 'National ID'), 
-$Profile.Name != 'IntegrationAPI', 
 MD__c=='TH'), 
 IF( 
 AND 
