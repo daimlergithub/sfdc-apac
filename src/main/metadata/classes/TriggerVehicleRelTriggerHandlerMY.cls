@@ -12,6 +12,9 @@ public class TriggerVehicleRelTriggerHandlerMY implements TriggerHandlerIf{
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){ 
        //Harshit added to check for User permission-Access Management- on 09-10-2017
         if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+            if(trigger.isBefore && Trigger.isUpdate){
+               UtilVehicleRelationship.updatemarket(Trigger.New);
+            }
             if(trigger.isAfter && (trigger.isInsert)){
                 VehicleRelationshipHelperMY.OnAfterInsert(Trigger.new);          
             }
