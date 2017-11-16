@@ -7,6 +7,20 @@
         <shortDescription>A6 Contact as part of visiting a car dealership</shortDescription>
         <value>Contact as part of visiting a car dealership</value>
     </labels>
+	<labels>
+        <fullName>Accept_Leads_case_MSG1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accept Lead / cases custom button</shortDescription>
+        <value>This record does not belong to any queue, thus cant be assigned via this button.</value>
+    </labels>
+	<labels>
+        <fullName>Accept_Leads_case_MSG2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accept Lead / cases custom button</shortDescription>
+        <value>This button is for Korea partner users only</value>
+    </labels>
     <labels>
         <fullName>A6_Email</fullName>
         <language>en_US</language>
@@ -4184,6 +4198,14 @@ please contact the number below.</value>
         <shortDescription>Lead Memo</shortDescription>
         <value>Lead Memo</value>
     </labels>
+	<labels>
+        <fullName>Leadmergeupdated</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Leadmergeupdated</shortDescription>
+        <value>As for 16 fields values (” Interested Vehicle Brand”～”Purchased Vehicle VIN”), master record value will be left by Lead Merge</value>
+    </labels> 
     <labels>
         <fullName>Lead_Process_Sheet</fullName>
         <language>en_US</language>
