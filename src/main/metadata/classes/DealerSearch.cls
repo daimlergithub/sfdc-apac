@@ -55,7 +55,7 @@ Public Void dropDown(){
     else if(regionValue == 'aid' ){
         panelStopper = false;
         
-    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,Dealer_GC_Code__c,Parent.Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR'])); 
+    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Parent.Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR'])); 
     setCon.setpagesize(10);
     }
 }

@@ -962,39 +962,35 @@ List<Account> accUpdLst = new List<Account>();
                 }
             
               map<id, Account> accmap = new map<id, Account>([select id, Dealer_ND_Code__c, Dealer_Type__c from Account where id in: dealerIds and RecordType.Name = 'Dealer' and Dealer_Type__c = 'Company']);
-                system.debug('PSM queuemap '+queuemap );
-                system.debug('PSM queunametogrpmap '+queunametogrpmap);
-                system.debug('PSM leadslst '+dealerCaseList);
+			  
                for(case cse: [select id, ownerId, RecordType.Name,Case_Dealer__c from case where id in: dealerCaseList and Case_Dealer__c != null]){
                     if(action == 'update'){
-                        system.debug('PSM '+queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id);
                         if(cse.Case_Dealer__c != caseOldMap.get(cse.id).Case_Dealer__c){
                            if(cse.RecordType.Name == 'Inquiry'){
                                 system.debug('Came inside the if loop');
-                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'Inquiry').id;
-                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'Inquiry').id);
+                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Inquiry').id;
+                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Inquiry').id);
                             }
                             if(cse.RecordType.Name == 'MB Complaint'){
                                 system.debug('Came inside the if loop');
-                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id;
-                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id);
+                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'MB Complaints').id;
+                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'MB Complaints').id);
                             }
                         }
                     }
                      if(action == 'insert'){
                             if(cse.RecordType.Name == 'Inquiry'){
-                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'Inquiry').id; 
-                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'Inquiry').id);
+                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Inquiry').id; 
+                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Inquiry').id);
                             }
                             if(cse.RecordType.Name == 'MB Complaint'){
-                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id; 
-                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c+' - '+'MB Complaints').id);
+                                cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'MB Complaints').id; 
+                                casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'MB Complaints').id);
                             }
                         }
                 
                 }
                     if(casetogrpidmap.size()>0){
-                        //TriggerCaseTriggerHandlerKR.recurssionCheckafter = true;
                         updateCaseowner(casetogrpidmap);
                     }
             }

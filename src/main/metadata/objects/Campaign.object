@@ -10595,7 +10595,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+   <recordTypes>
         <fullName>Campaign_Execution_Complex</fullName>
         <active>true</active>
         <description>For Campaign Executions with complex segmentation</description>
@@ -11183,7 +11183,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11191,7 +11191,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
-                <fullName>MyM</fullName>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11202,11 +11202,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+          </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
