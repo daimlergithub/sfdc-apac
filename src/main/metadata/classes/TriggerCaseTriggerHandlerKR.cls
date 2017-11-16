@@ -3,26 +3,27 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
     public static boolean isFutureUpdate = false;
 	public static boolean recurssionCheckbefore = false;
     public static boolean recurssionCheckafter = false;
+	public static boolean recurssioncheckafterownerupdate = false;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        CaseHelperJP caseHelperJP = new CaseHelperJP();
+        CaseHelperJP caseHelperJPinit = new CaseHelperJP();
         if(trigger.isBefore && trigger.isInsert)
         {
             System.debug('#########################################-->trigger.isBefore && trigger.isInsert');
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
-            caseHelperJP.updateCaseDeadline(trigger.new);
-            caseHelperJP.updateCaseDealer(Trigger.New,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
+            caseHelperJPinit.updateCaseDeadline(trigger.new);
+            caseHelperJPinit.updateCaseDealer(Trigger.New,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
             
         }
         if(trigger.isBefore && trigger.isUpdate && isFutureUpdate != true)
         {
             System.debug('#########################################-->trigger.isBefore && trigger.isUpdate');
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
-            //caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
+            //caseHelperJPinit.calculateComplaintAmount(trigger.new,trigger.oldMap);
              if(recurssionCheckbefore != true){    
-                caseHelperJP.updateCaseDealer(Trigger.New,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
+                caseHelperJPinit.updateCaseDealer(Trigger.New,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
              }
-            //caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
+            //caseHelperJPinit.updateCaseDeadline(trigger.new,trigger.oldMap);
             
         }
         //caseHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Case>)trigger.oldMap,isUpdate,isDelete);
@@ -32,20 +33,28 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
             {
                 CaseHelper.caseafterInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
                 if(recurssionCheckafter != true){
-                    caseHelperJP.calculateComplaintAmount(trigger.new);
+                    caseHelperJPinit.calculateComplaintAmount(trigger.new);
                 }
-                caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
+				if(recurssioncheckafterownerupdate != true){
+                    caseHelperJP.assignCasestoqueues(Trigger.New,(Map<Id,Case>)trigger.oldMap, 'insert');
+                }
+                caseHelperJPinit.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
                 caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
+				caseHelperKR.casesharehierarchy(trigger.new);
             }
             if (trigger.isUpdate)
             {
-                caseHelperJP.calculateComplaintAmount(trigger.new);
-                caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
+                caseHelperJPinit.calculateComplaintAmount(trigger.new);
+                caseHelperJPinit.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
                 caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
+				if(recurssioncheckafterownerupdate != true){
+                    caseHelperJP.assignCasestoqueues(Trigger.New,(Map<Id,Case>)trigger.oldMap, 'update');
+                }
+				caseHelperKR.casesharehierarchy(trigger.new);
             }
             if (trigger.isDelete)
             {               
-                caseHelperJP.calculateComplaintAmount(trigger.old);
+                caseHelperJPinit.calculateComplaintAmount(trigger.old);
             }
         }
         // Implementation to addedd as required in market

@@ -5595,7 +5595,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_Recall
     </fields>
     <fields>
         <fullName>RegistrationNo__c</fullName>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>RegistrationNo</label>
         <length>20</length>
         <required>false</required>

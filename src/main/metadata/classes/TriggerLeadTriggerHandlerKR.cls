@@ -6,7 +6,7 @@
 public class TriggerLeadTriggerHandlerKR
     implements TriggerHandlerIf
 {
-    
+    public static boolean preventRecurssionafter = false;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
@@ -42,20 +42,38 @@ public class TriggerLeadTriggerHandlerKR
         } 
           		
         if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated)
-        {
+		{
+             if(preventRecurssionafter == false){
+                set<id> dealerIds = new set<id>();
+                
+                for(Lead__C leds : (List<Lead__c>)trigger.new){
+                    dealerIds.add(Leds.Assigned_Dealer__c);
+                }  
+                LeadHelper.assignLeadstoqueues(dealerIds, Trigger.new, (Map<Id,Lead__c>)trigger.oldMap, 'insert');
+            }
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadHelperKR.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadSharingforDealerJP.LeadSharing_Dealer(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadUtil.isCreated = false;
+			LeadHelperKR.leadsharehierarchy(trigger.new);
         }
         if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated)
         {
             system.debug('Isafter is working');
+            if(preventRecurssionafter == false){
+                set<id> dealerIds = new set<id>();
+                
+                for(Lead__C leds : (List<Lead__c>)trigger.new){
+                    dealerIds.add(Leds.Assigned_Dealer__c);
+                }  
+                LeadHelper.assignLeadstoqueues(dealerIds, Trigger.new, (Map<Id,Lead__c>)trigger.oldMap, 'update');
+            }
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             //LeadSharingforDealerJP.LeadSharingforDealer(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadSharingforDealerJP.LeadSharing_Dealer(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadHelperKR.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadUtil.isCreated = false;
+			LeadHelperKR.leadsharehierarchy(trigger.new);
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
