@@ -4189,7 +4189,23 @@ please contact the number below.</value>
         <categories>Merge Lead</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>As for 16 fields values (” Interested Vehicle Brand”～”Purchased Vehicle VIN”), master record value will be left by Lead Merge</shortDescription>
+        <shortDescription>As for 16 fields values</shortDescription>
+        <value>Lead Type</value>
+    </labels>
+	<labels>
+        <fullName>Leadmergeupdated1</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>(” Interested Vehicle Brand”～”Purchased Vehicle VIN”),</shortDescription>
+        <value>Lead Type</value>
+    </labels>
+	<labels>
+        <fullName>Leadmergeupdated2</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription> master record value will be left by Lead Merge</shortDescription>
         <value>Lead Type</value>
     </labels>
     <labels>
