@@ -19,16 +19,17 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
            if(trigger.isAfter && (trigger.isInsert))
             {
                 VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
-				VehicleRelationshipHelperKR.afterInsertEvent(trigger.new);
-				VehicleRelationshipHelper.updateRecall(trigger.new);                
+                VehicleRelationshipHelperKR.afterInsertEvent(trigger.new);
+                VehicleRelationshipHelper.updateRecall(trigger.new);                
             }
             if(trigger.isAfter && Trigger.isUpdate) 
             {
+                UtilVehicleRelationship.updatemarket(Trigger.New);
                 Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
                 VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
                 VehicleRelationshipHelperKR.afterUpdateEvent(Trigger.new,oldmapVehicleRelship);
-				VehicleRelationshipHelper.updateRecall(trigger.new);
-				 VehicleRelationshipHelperKR.updateCustomerbasedonVRs(trigger.new);
+                VehicleRelationshipHelper.updateRecall(trigger.new);
+                 VehicleRelationshipHelperKR.updateCustomerbasedonVRs(trigger.new);
             } 
            if(trigger.isAfter && Trigger.isDelete) {
               VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
@@ -53,19 +54,19 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
         List<Vehicle_Relationship__c> velRelOldList = Trigger.old;
         if(!isDelete && !velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'KR')
         {
-		   if(trigger.isAfter && (trigger.isInsert))
-			{
-			  VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
-			}
-			if(trigger.isAfter && Trigger.isUpdate) {
-			  Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
-			  VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
-			} 
-		   if(trigger.isAfter && Trigger.isDelete) 
-		    {
-			  VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
-			}
-		}
+           if(trigger.isAfter && (trigger.isInsert))
+            {
+              VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
+            }
+            if(trigger.isAfter && Trigger.isUpdate) {
+              Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+              VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+            } 
+           if(trigger.isAfter && Trigger.isDelete) 
+            {
+              VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
+            }
+        }
     }
     
        

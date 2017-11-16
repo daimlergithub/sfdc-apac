@@ -47,7 +47,10 @@ public class LeadMergeController{
         MastertoChild=true;
        dmstr =new  List<DM_Request__c>();
      surtake= new List<SurveyTaker__c>();
-        leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Existing_Contract__c ,AfterSales_VIN__c ,Dealer_Lead_Status__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,CAC_Lead_Status__c  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
+        leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Existing_Contract__c ,AfterSales_VIN__c ,Dealer_Lead_Status__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+                Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+                Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+                    Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
           MasterRecordTypeName = leads.Recordtype.Name;
           
           
@@ -60,7 +63,10 @@ public class LeadMergeController{
          if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c !=null  )
         { 
             
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                 And ((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
             slaves.add(new LeadWrapperclass(a));
              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -69,7 +75,10 @@ public class LeadMergeController{
         if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c ==null)
         { 
         
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                 And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
             slaves.add(new LeadWrapperclass(a));
              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -80,7 +89,10 @@ public class LeadMergeController{
         { 
         System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
          
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                 and((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
             slaves.add(new LeadWrapperclass(a));
              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -89,7 +101,10 @@ public class LeadMergeController{
             if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c ==null && leads.Existing_Contract__c ==null )
         { 
           System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
            System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
             slaves.add(new LeadWrapperclass(a));
@@ -101,7 +116,10 @@ public class LeadMergeController{
                  {
                     if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c !=null )
                         {
-                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                             And (Existing_Contract__c=:leads.Existing_Contract__c) and (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost') ]){
                             slaves.add(new LeadWrapperclass(a));
                              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -109,7 +127,10 @@ public class LeadMergeController{
                         }
                      if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c ==null )
                             {
-                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                             And (Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost') ]){
                             slaves.add(new LeadWrapperclass(a));
                              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -117,7 +138,10 @@ public class LeadMergeController{
                             }
                         if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c ==null && leads.AfterSales_VIN__c !=null )
                              {
-                                for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                                for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                                     And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost') ]){
                                     slaves.add(new LeadWrapperclass(a));
                                      System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -125,7 +149,10 @@ public class LeadMergeController{
                              }
                      if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c ==null && leads.AfterSales_VIN__c ==null )
                              {
-                                for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+                                for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
+Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                                     and (Dealer_Lead_Status__c !='Lost') ]){
                                     slaves.add(new LeadWrapperclass(a));
                                      System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -267,6 +294,32 @@ public class LeadMergeController{
      */
    public PageReference mergeDup() {
           getMasterAndslaveId();
+          Lead__c mlead=new Lead__c();
+           Lead__c slead=new Lead__c();
+          mlead=[Select id,Existing_Contract__c,Dealer_Lead_Status__c from Lead__c where id=:chosenMasterId];
+           slead=[Select id,Existing_Contract__c,Dealer_Lead_Status__c from Lead__c where id=:chosenSlaveId];
+           System.debug('%^%^%^%^%^^%^%^ mlead'+mlead);
+          System.debug('%^%^%^%^%^^%^%^ slead'+slead);
+          System.debug('%^%^%^%^%^^%^%^ chosenMasterId'+chosenMasterId);
+          System.debug('%^%^%^%^%^^%^%^ chosenSlaveId'+chosenSlaveId);
+           System.debug('%^%^%^%^%^^%^%^ selectedValue'+selectedValue);
+           if(slead.Existing_Contract__c !=null && mlead.Existing_Contract__c==null)
+           {
+           chosenMasterId=slead.id;
+           chosenSlaveId=mlead.id;
+           selectedValue=mlead.id;
+           }
+    if((slead.Dealer_Lead_Status__c =='Purchased(Only Non BDC)' || slead.Dealer_Lead_Status__c =='Invoiced' || slead.Dealer_Lead_Status__c =='Order Placed' ) && (mlead.Dealer_Lead_Status__c !='Purchased(Only Non BDC)') && (mlead.Dealer_Lead_Status__c !='Invoiced') && (mlead.Dealer_Lead_Status__c !='Order Placed'))
+         //  if(slead.Dealer_Lead_Status__c!=null && ((slead.Dealer_Lead_Status__c=='Order Placed') || (slead.Dealer_Lead_Status__c=='Purchased(Only Non BDC)') || (slead.Dealer_Lead_Status__c='Invoiced'))  )
+           {
+           chosenMasterId=slead.id;
+           chosenSlaveId=mlead.id;
+           selectedValue=mlead.id;
+           }
+            System.debug('%^%^%^%^%^^%^%^ chosenMasterId'+chosenMasterId);
+          System.debug('%^%^%^%^%^^%^%^ chosenSlaveId'+chosenSlaveId);
+           System.debug('%^%^%^%^%^^%^%^ selectedValue'+selectedValue);
+          
           PageReference pr = new PageReference('/apex/LeadMerge?Id='+chosenMasterId+'&'+System.Label.slaveId+'='+chosenSlaveId+'&retURL=/apex/SelectSlaveLead?Id='+chosenSlaveId+'&selectedValue='+selectedValue);
           pr.setRedirect(true);
           return pr;
