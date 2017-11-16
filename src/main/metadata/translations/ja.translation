@@ -2264,6 +2264,18 @@
     <customLabels>
         <label>リードメモ</label>
         <name>Lead_Memo</name>
+    </customLabels> 
+	<customLabels>
+        <label>表示されている１６項目</label>
+        <name>Leadmergeupdated</name>
+    </customLabels>
+	<customLabels>
+        <label>（Interested Vehicle Brand～Purchased Vehicle VIN）</label>
+        <name>Leadmergeupdated1</name>
+    </customLabels>
+	<customLabels>
+        <label>についてはMasterレコードの値が反映されます。</label>
+        <name>Leadmergeupdated2</name>
     </customLabels>
     <customLabels>
         <label>商談プロセスシート</label>
