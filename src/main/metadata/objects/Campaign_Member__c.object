@@ -1832,7 +1832,7 @@ location.reload();</url>
         <requireRowSelection>true</requireRowSelection>
         <url>var RetailcampaignName = '{!Retail_Campaign__c.Name}'; 
 var JPmarketusr={!ISPICKVAL($User.Market__c , "JP")};
-if(JPmarketusr &amp;&amp; '{!User.Profile}' == (('Japan Dealer Sales Manager') || ('Japan Dealer Sales Representative') || ('Japan Dealer Service Advisor') || ('Japan Dealer Service Manager')))
+if(JPmarketusr &amp;&amp; ('{!User.Profile}' == 'Japan Dealer Sales Manager' || '{!User.Profile}' == 'Japan Dealer Sales Representative' || '{!User.Profile}' == 'Japan Dealer Service Advisor' || '{!User.Profile}' == 'Japan Dealer Service Manager'))
 {
   alert('{!$Label.Only_Company_Manager_can_export}');
 }
