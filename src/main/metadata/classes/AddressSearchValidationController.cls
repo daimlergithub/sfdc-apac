@@ -2233,16 +2233,6 @@ If the user is Saving  same address which matches the fields returned by toleran
                 endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
                 endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
                 endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
-                //SN20171108- This is interim solution
-                /*
-                if(market =='MY' && label.New_Component=='true'){ 
-                    endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
-                    endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):''); 
-                }
-                else{
-                    endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
-                }
-                */
             }
             else if(recordType == 'Company'){
                  endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
@@ -2254,6 +2244,54 @@ If the user is Saving  same address which matches the fields returned by toleran
        
         return endUrl;
     }
+    
+    /* created by ashish to send separate set of parameters to CDM for TH*/
+    public String generateCDMEndPointURLTH(){
+        String endUrl='';
+        String Birthdate='';
+        if(objAccount.PersonBirthdate!= null)
+        {   
+            Birthdate = String.valueOf(objAccount.PersonBirthdate);
+        }
+            map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
+            For(string str: mapURLs.keyset()){
+                if(mapURLs.get(str).Country__c == Market && mapURLs.get(str).Type__c==RecordType){
+                    endUrl+=mapURLs.get(str).Informatica_URL__c;
+                }
+            }
+            //System.debug('Birthdate'+Birthdate);
+            if(recordType == 'Person Account')
+            {
+                endUrl+='ip_Firstname='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
+                endUrl+='&ip_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
+                endUrl+='&ip_MobileTelephone='+((string.isnotblank(objAccount.Mobile__c))?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+                endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+                endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
+                endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
+                endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
+            }
+			else if(recordType == 'Company'){
+                 endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
+                 endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                 endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                 endUrl+='&ip_BusinessEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+                 endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+                 endUrl+='&ip_AddressUsageValue='+(string.isnotblank(AddressObj.Address_Type__c)?EncodingUtil.URLENCODE(AddressObj.Address_Type__c,'UTF-8'):'');
+                 endUrl+='&ip_AddressLineOne='+(string.isnotblank(AddressObj.Address_Line_1__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_1__c,'UTF-8'):'');
+                 endUrl+='&ip_AddressLineTwo='+(string.isnotblank(AddressObj.Address_Line_2__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_2__c,'UTF-8'):'');
+                 endUrl+='&ip_ProvinceStateValue='+(string.isnotblank(Province)?EncodingUtil.URLENCODE(Province,'UTF-8'):'');
+                 endUrl+='&ip_XDistrictValue='+(string.isnotblank(district)?EncodingUtil.URLENCODE(district,'UTF-8'):'');
+                 endUrl+='&ip_XSubcityValue='+(string.isnotblank(SubDIstrict)?EncodingUtil.URLENCODE(SubDIstrict,'UTF-8'):'');
+                 endUrl+='&ip_ZipPostalCode='+(string.isnotblank(zip)?EncodingUtil.URLENCODE(zip,'UTF-8'):'');
+                 endUrl+='&ip_CommercialRegisterId='+(String.isnotblank(objAccount.Commercial_Reg_No__c)?EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c,'UTF-8'):'');
+           }
+            
+            System.debug('endUrl '+endUrl);
+        return endUrl;
+    }
+    
     /* *PR20170918- CustomerSearch in CDM* */
     public Object onLineDeduplicationCDMTH() {
         
@@ -2275,8 +2313,6 @@ If the user is Saving  same address which matches the fields returned by toleran
             {             
                 objAccount.Recordtypeid=PersonAccountRecordTypeID ;
             }
-           
-            
             if(market == System.Label.TH)
             {
                 if(hmCountryCode!= '' && hmphoneNumber!='')
@@ -2313,7 +2349,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
             }         
             
-           String endUrl=generateCDMEndPointURL();
+           String endUrl=generateCDMEndPointURLTH();
             con = new Continuation(120);            
             con.continuationMethod='processResponse';
             this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(endUrl,con);

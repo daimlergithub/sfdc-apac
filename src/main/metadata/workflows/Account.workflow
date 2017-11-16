@@ -325,16 +325,6 @@
         <protected>false</protected>
     </fieldUpdates>
 	<fieldUpdates>
-        <fullName>Sales_Tel_Display_field_auto_populate</fullName>
-        <field>Primary_Phone_Display__c</field>
-        <formula>Mobile__c</formula>
-        <name>&apos;Sales Tel Display&apos; field auto populate</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-	<fieldUpdates>
         <fullName>Sales_Tel_field_auto_populate_Mobile</fullName>
         <field>Primary_Phone__c</field>
         <literalValue>Mobile</literalValue>
@@ -701,29 +691,6 @@ Modify Reason:
         <active>true</active>
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for TH</description>
         <formula>ISPICKVAL($User.Market__c,&apos;TH&apos;)</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-	<rules>
-        <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number for Person Account Record Type</fullName>
-        <actions>
-            <name>Sales_Tel_Display_field_auto_populate</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Account.Mobile__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Person Account</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.MD__pc</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
 	<rules>

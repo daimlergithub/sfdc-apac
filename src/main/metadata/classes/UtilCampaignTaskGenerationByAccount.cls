@@ -302,7 +302,7 @@ system.debug('&******************'+cpList);
             //'IF' condition added for MY for blank subject for auto created tasks
             if(cpm.Campaign.MD__c!='MY')
             {
-            tsk.Subject= strSMS;
+            tsk.Subject= strKkTlk;
             } 
             else
             {
