@@ -4184,6 +4184,14 @@ please contact the number below.</value>
         <shortDescription>Lead Memo</shortDescription>
         <value>Lead Memo</value>
     </labels>
+	<labels>
+        <fullName>Leadmergeupdated</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Leadmergeupdated</shortDescription>
+        <value>As for 16 fields values (” Interested Vehicle Brand”～”Purchased Vehicle VIN”), master record value will be left by Lead Merge</value>
+    </labels> 
     <labels>
         <fullName>Lead_Process_Sheet</fullName>
         <language>en_US</language>
