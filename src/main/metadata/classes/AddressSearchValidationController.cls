@@ -38,6 +38,7 @@ public class AddressSearchValidationController
     public boolean Address_Validated_Flag {get;set;}   
     Public Boolean Validation;
     public Boolean AutoFill {get;set;}
+	public Boolean DisplayAutoFill {get;set;}
     public map<string,string> labelNvalue=new map<string,string>();
     // KOREA related parameters - Start
     public String market{get;set;}
@@ -943,6 +944,7 @@ public class AddressSearchValidationController
     
     public void AutoFillAddress(){
         AutoFill = true;
+		DisplayAutoFill = true; 
         validateAddressByZipCode();
         
     }
@@ -2560,6 +2562,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Province__c = cWrapper.add.Province__c;
                 AddressObj.City__c = cWrapper.add.City__c;
                 AddressObj.District__c = cWrapper.add.District__c;
+				AddressObj.Block__c= cWrapper.add.Block__c;
                 AddressObj.ZipCode__c= cWrapper.add.ZipCode__c; 
                 AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;
                 AddressObj.Address_Line_2__c= cWrapper.add.Address_Line_2__c;  
