@@ -946,7 +946,7 @@ List<Account> accUpdLst = new List<Account>();
         }
         TriggerCaseTriggerHandlerKR.recurssionCheckafter = true;
     }
-	
+	// SFDCKR-1424
 	public static void assignCasestoqueues(List<case> dealerCaseList, Map<id,Case> caseOldMap, string action){
          if(dealerCaseList.size()>0 && UserInfo.getUserType() != 'PowerPartner'){
                 map<id, id> casetogrpidmap = new map<id, id>();
@@ -999,6 +999,9 @@ List<Account> accUpdLst = new List<Account>();
 
      public static void updateCaseowner(map <id,id> inids){
             List<case> casetoupd = new List<case>();
+			//The below code is added to trigger email to queue
+            Database.DMLOptions dlo = new Database.DMLOptions();
+            dlo.EmailHeader.triggerUserEmail = true;
             for(case cse: [select id, ownerId, RecordType.Name,Case_Dealer__c from case where id in:inids.keyset()]){
                 cse.ownerId = inids.get(cse.id);
                 casetoupd.add(cse);
@@ -1006,7 +1009,8 @@ List<Account> accUpdLst = new List<Account>();
             
             if(casetoupd.size()>0){
                     TriggerCaseTriggerHandlerKR.recurssioncheckafterownerupdate = true;
-                    update casetoupd;
+                    //update casetoupd;
+					 database.update(casetoupd, dlo);
             }
         
     }
