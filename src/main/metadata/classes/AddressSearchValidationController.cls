@@ -1201,7 +1201,7 @@ EP/Tolerant for Validation.
                 }
                 mapAddressResponse.add(new addressSelectionWrapper(AddressObjtable));
              } 
-             //Autofill = false;  
+             Autofill = false;  
         }
         else if(response != null && response.ValidationStatus == 'OK'){
             for(Integer i=0;i<response.Addresses.size();i++){                
