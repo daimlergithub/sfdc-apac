@@ -684,29 +684,24 @@ public class LeadHelper
             for(Lead__c lea: [select id, ownerId, RecordType.Name,Assigned_Dealer__c from Lead__c where id in: leadslst and Assigned_Dealer__c != null]){
                 if(action == 'update'){
                     if(lea.Assigned_Dealer__c != oldValLead.get(lea.id).Assigned_Dealer__c){
-                       system.debug('PSM GROUP Id to make owner '+queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
-                       system.debug('PSM lea.RecordType.Name '+lea.RecordType.Name);
-                       system.debug('PSM GRP Name '+queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead'));
                        if(lea.RecordType.Name == 'Aftersales Leads'){
-                            system.debug('Came inside the if loop');
-                            lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id;
-                            //lea.ownerId = '00G0k000000kstMEAQ';
-                            leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                            lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'AS Lead').id;
+                            leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'AS Lead').id);
                         }
                         if(lea.RecordType.Name == 'Sales Leads'){
-                            lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'Sales Lead').id;
-                            leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                            lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Sales Lead').id;
+                            leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Sales Lead').id);
                         }
                     }
                 }
                 if(action == 'insert'){
                     if(lea.RecordType.Name == 'Aftersales Leads'){
-                        lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id; 
-                        leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                        lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'AS Lead').id; 
+                        leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'AS Lead').id);
                     }
                     if(lea.RecordType.Name == 'Sales Leads'){
-                        lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'Sales Lead').id; 
-                        leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c+' - '+'AS Lead').id);
+                        lea.ownerId = queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Sales Lead').id; 
+                        leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Sales Lead').id);
                     }
                 }
                 
@@ -721,13 +716,17 @@ public class LeadHelper
 
     public static void updateLeadowner(map <id,id> inids){
             List<Lead__c> leadtoupd = new List<Lead__c>();
+			//The below code is added to trigger email to queue
+            Database.DMLOptions dlo = new Database.DMLOptions();
+            dlo.EmailHeader.triggerUserEmail = true;
             for(Lead__c lea: [select id, ownerId, RecordType.Name,Assigned_Dealer__c from Lead__c where id in:inids.keyset()]){
                 lea.ownerId = inids.get(lea.id);
                 leadtoupd.add(lea);
             }
             
             if(leadtoupd.size()>0){
-                    update leadtoupd;
+                  //update leadtoupd;
+				   database.update(leadtoupd, dlo);
             }
         
     }

@@ -1,6 +1,8 @@
 Global class UtilWebservice 
 {
- 
+
+
+
 webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String AccountLinkId)
     {  
      Account_link__c  alk=new  Account_Link__c();
@@ -150,7 +152,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
       System.debug('%^%%^%^%^% response'+response); 
        return response;
     }
-    public static crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType validateAddressByZipCode(Address__c address)
+    public static crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType validateAddressByZipCode(Address__c address, boolean isAutofillMode)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationPort stub = new crmasiaDaimlerApacComValidateaddress.AddressValidationPort();
         crmasiaDaimlerApacComValidateaddress.Address SendingAddress = new crmasiaDaimlerApacComValidateaddress.Address();
@@ -325,10 +327,17 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         SendingAddress.Province = address.Province__c;
         crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType request = new crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType();
         request.Organization = UserInfo.getOrganizationId();
+        if(isAutoFillMode == true){
+            request.AutofillMode = true;
+        }else{
+            request.AutofillMode = false;
+        }
+        
         request.Address = SendingAddress;
         try
         {
-            response = stub.ValidateAddress(request);            
+            response = stub.ValidateAddress(request); 
+            System.debug('UtilWebservice Response'+response );           
         }
         catch(CalloutException excpObj)
         {
