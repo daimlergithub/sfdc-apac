@@ -1368,6 +1368,21 @@
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Case.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Account.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5601,6 +5616,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Approver__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Add_Preferred_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12732,6 +12752,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Quotation_Model_History__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Quotation_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14968,6 +14993,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Approver__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Add_Preferred_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

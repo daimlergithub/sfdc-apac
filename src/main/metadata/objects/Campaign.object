@@ -93,6 +93,14 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Add_Preferred_Dealer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Add Preferred Dealer</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Add_Sales_Staff__c</fullName>
         <defaultValue>false</defaultValue>

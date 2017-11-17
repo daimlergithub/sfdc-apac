@@ -5981,6 +5981,11 @@
         <field>Campaign.Auto_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Add_Preferred_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.BP_End_Date__c</field>
@@ -12857,6 +12862,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Quotation_Model_History__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Quotation_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15138,6 +15148,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Approver__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Add_Preferred_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
