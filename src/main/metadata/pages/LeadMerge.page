@@ -116,7 +116,7 @@
     </script>
     
     
-    <apex:sectionHeader title="Lead Merge" subtitle="{!$Label.Master_Account}: {!master.Name}"/>
+    <apex:sectionHeader title="{!$Label.Leadmerge}" subtitle="{!$Label.Master_Account}: {!master.Name}"/>
     {!$Label.Leadmergeupdated}
     <apex:form id="Formaid">
         <apex:pageBlock >
@@ -127,7 +127,7 @@
                                     onclick="if (confirm('{!$Label.CP_Merge_Account_Confirm}')) return true; return false;"/>
             </apex:pageBlockButtons>     
  
-            <apex:pageBlock title="Please Select only One as a Master">
+            <apex:pageBlock title="{!$Label.Please_Select_only_one_as_a_Master}">
             <apex:actionRegion >
               
              <apex:pageblockTable value="{!leads}" var="slave1" styleclass="compare_table" id="a" title="Please select Master" columns="2"> 
@@ -227,30 +227,29 @@
                 </table>
             </apex:outputpanel>
             
-             <apex:pageblock id="Readonly1" title="Vehicle details" >
+             <apex:pageblock id="Readonly1" title="{!$Label.vehicle_Details}" >
         
         <apex:panelGrid columns="2" width="1000px">
         <aPex:pageBlockSection columns="1">
-                 <apex:pageblocksection columns="1" title="Interested Vehicle Details" >
+                 <apex:pageblocksection columns="1" title="{!$Label.Interested_Vehicle_Details}" >
                 <apex:outputField value="{!master.Interested_Vehicle__r.Brand__c}"/>
                   <apex:outputField value="{!master.Interested_Vehicle__r.Class__c}"/>
                   <apex:outputField value="{!master.Interested_Vehicle__r.Model_Description__c }"/>
-                  <apex:outputField value="{!master.Interested_Vehicle__r.UsVIN__c}"/>
-                  <apex:outputField value="{!master.Interested_Vehicle__r.Brand__c}"/>
+                  <apex:outputField value="{!master.Interested_Vehicle__r.UsVIN__c}"/> 
                    </apex:pageblocksection>
-                    <apex:pageblocksection columns="1" title="Interested Competitor Vehicle Details" >
+                    <apex:pageblocksection columns="1" title="{!$Label.Interested_competitor_Vehicle_Details}" >
                   <apex:outputField value="{!master.Interested_Competitor_Vehicle__r.Brand__c}"/>
                   <apex:outputField value="{!master.Interested_Competitor_Vehicle__r.Class__c}"/>
                   <apex:outputField value="{!master.Interested_Competitor_Vehicle__r.Model_Description__c}"/>
                   <apex:outputField value="{!master.Interested_Competitor_Vehicle__r.UsVIN__c}"/>
                     </apex:pageblocksection>
-                     <apex:pageblocksection columns="1" title="Current_Vehicle Details" >
+                     <apex:pageblocksection columns="1" title="{!$Label.Current_Vehicle_Details}" >
                   <apex:outputField value="{!master.Current_Vehicle_1__r.Brand__c}"/>
                   <apex:outputField value="{!master.Current_Vehicle_1__r.Class__c}"/>
                   <apex:outputField value="{!master.Current_Vehicle_1__r.Model_Description__c}"/>
                   <apex:outputField value="{!master.Current_Vehicle_1__r.UsVIN__c}"/>
                    </apex:pageblocksection>
-                    <apex:pageblocksection columns="1" title="Purchased Vehicle Details" >
+                    <apex:pageblocksection columns="1" title="{!$Label.Purchased_Vehicle_Details}" >
                   <apex:outputField value="{!master.Purchased_Vehicle__r.Brand__c}"/>
                   <apex:outputField value="{!master.Purchased_Vehicle__r.Class__c}"/>
                   <apex:outputField value="{!master.Purchased_Vehicle__r.Model_Description__c}"/>
@@ -259,26 +258,25 @@
                     </apex:pageblocksection>
                     </aPex:pageBlockSection>
                      <aPex:pageBlockSection columns="1"> 
-                 <apex:pageblocksection columns="1" title="Child Interested Vehicle Details" >
+                 <apex:pageblocksection columns="1" title="{!$Label.Ch_Interested_Vehicle_Details}" >
                  <apex:outputField value="{!slave.Interested_Vehicle__r.Brand__c}"/>
                  <apex:outputField value="{!slave.Interested_Vehicle__r.Class__c}"/>
                  <apex:outputField value="{!slave.Interested_Vehicle__r.Model_Description__c }"/>
-                 <apex:outputField value="{!slave.Interested_Vehicle__r.UsVIN__c}"/>
-                 <apex:outputField value="{!slave.Interested_Vehicle__r.Brand__c}"/>
+                 <apex:outputField value="{!slave.Interested_Vehicle__r.UsVIN__c}"/> 
                   </apex:pageblocksection>
-                    <apex:pageblocksection columns="1" title="Child Interested Competitor Vehicle Details" >
+                    <apex:pageblocksection columns="1" title="{!$Label.ch_Interested_competitor_Vehicle_Details}" >
                  <apex:outputField value="{!slave.Interested_Competitor_Vehicle__r.Brand__c}"/>
                  <apex:outputField value="{!slave.Interested_Competitor_Vehicle__r.Class__c}"/>
                  <apex:outputField value="{!slave.Interested_Competitor_Vehicle__r.Model_Description__c}"/>
                  <apex:outputField value="{!slave.Interested_Competitor_Vehicle__r.UsVIN__c}"/>
                   </apex:pageblocksection>
-                     <apex:pageblocksection columns="1" title="Child Current Vehicle Details" >
+                     <apex:pageblocksection columns="1" title="{!$Label.ch_Current_Vehicle_Details}" >
                  <apex:outputField value="{!slave.Current_Vehicle_1__r.Brand__c}"/>
                  <apex:outputField value="{!slave.Current_Vehicle_1__r.Class__c}"/>
                  <apex:outputField value="{!slave.Current_Vehicle_1__r.Model_Description__c}"/>
                  <apex:outputField value="{!slave.Current_Vehicle_1__r.UsVIN__c}"/>
                   </apex:pageblocksection>
-                    <apex:pageblocksection columns="1" title="Child Purchased Vehicle Details" >
+                    <apex:pageblocksection columns="1" title="{!$Label.ch_Purchased_Vehicle_Details}" >
                  <apex:outputField value="{!slave.Purchased_Vehicle__r.Brand__c}"/>
                  <apex:outputField value="{!slave.Purchased_Vehicle__r.Class__c}"/>
                  <apex:outputField value="{!slave.Purchased_Vehicle__r.Model_Description__c}"/>

@@ -8,6 +8,94 @@
         <value>Contact as part of visiting a car dealership</value>
     </labels>
 	<labels>
+        <fullName>Please_Select_only_one_as_a_Master</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Please Select only one as a Master</value>
+    </labels> 
+	<labels>
+        <fullName>vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge vehicle</shortDescription>
+        <value>vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Interested_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Interested Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Interested_competitor_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Interested competitor Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>Current_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Current Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>Purchased_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Purchased Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Ch_Interested_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Interested Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>ch_Interested_competitor_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Interested competitor Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>ch_Current_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Current Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>ch_Purchased_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Purchased Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Leadmerge</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge</shortDescription>
+        <value>Lead Merge</value>
+    </labels> 
+	<labels>
         <fullName>Accept_Leads_case_MSG1</fullName>
         <language>en_US</language>
         <protected>false</protected>
