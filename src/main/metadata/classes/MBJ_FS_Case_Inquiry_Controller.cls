@@ -13,8 +13,9 @@ public class MBJ_FS_Case_Inquiry_Controller{
     public MBJ_FS_Case_Inquiry_Controller(ApexPages.StandardController stdController) {
         this.inquiryCase = (Case)stdController.getrecord();
         caseID = ApexPages.currentPage().getParameters().get('id');
-        
-        
+        /* MD changes - Santosh Mohanty*/
+        user usr=[select id,market__c from user where id = : userinfo.getuserid() LIMIT 1];      
+        inquiryCase.market__c=usr.market__c;
         
         /*
         Field value are set while creating a case record

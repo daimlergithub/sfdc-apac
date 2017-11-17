@@ -449,6 +449,10 @@
         <name>Authorization</name>
     </customLabels>
 	<customLabels>
+        <label>郵便番号検索</label>
+        <name>Auto_fill</name>
+    </customLabels>
+	<customLabels>
         <label>Autoline用住所選択</label>
         <name>AutolineCreate_Retail_Copy</name>
     </customLabels>
@@ -2266,7 +2270,51 @@
         <name>Lead_Memo</name>
     </customLabels> 
 	<customLabels>
-        <label>表示されている１６項目（Interested Vehicle Brand～Purchased Vehicle VIN）についてはMasterレコードの値が反映されます。</label>
+        <label>リード統合</label>
+        <name>Leadmerge</name>
+    </customLabels> 
+	<customLabels>
+        <label>選択したレコードがマージ先となり左側に表示されます。</label>
+        <name>Please_Select_only_one_as_a_Master</name>
+    </customLabels> 
+	<customLabels>
+        <label>車両情報（全てマージ先の値が反映されます）</label>
+        <name>vehicle_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>興味車両：マージ先</label>
+        <name>Interested_Vehicle_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>競合他社車両：マージ先</label>
+        <name>Interested_competitor_Vehicle_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>現在保有車両１：マージ先</label>
+        <name>Current_Vehicle_Details</name>
+    </customLabels> 
+	<customLabels>
+        <label>購入済車両：マージ先</label>
+        <name>Purchased_Vehicle_Details</name>
+    </customLabels> 
+	<customLabels>
+        <label>興味車両：マージ元</label>
+        <name>Ch_Interested_Vehicle_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>競合他社車両：マージ元</label>
+        <name>ch_Interested_competitor_Vehicle_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>現在保有車両１：マージ元</label>
+        <name>ch_Current_Vehicle_Details</name>
+    </customLabels> 
+	<customLabels>
+        <label>購入済車両：マージ元</label>
+        <name>ch_Purchased_Vehicle_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>表示されている１６項目（興味車両メーカー～購入済車両車台番号）についてはマージ先レコードの値が反映されます。</label>
         <name>Leadmergeupdated</name>
     </customLabels> 
     <customLabels>
