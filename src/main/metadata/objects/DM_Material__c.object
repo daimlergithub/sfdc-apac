@@ -2135,7 +2135,7 @@ Modify Reason:
    <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;,MD__c =&apos;MY&apos;), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
         <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
     </validationRules>
