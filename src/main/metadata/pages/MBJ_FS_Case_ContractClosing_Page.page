@@ -35,6 +35,8 @@
                 <apex:inputField value="{!Case.Inquiry_Comments__c }" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Dealer_Contact__c}"/>
+                <!-- MD changes - Santosh Mohanty -->
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
                 <apex:inputField value="{!Case.Market__c}"/>
             </apex:pageblockSection>
             

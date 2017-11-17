@@ -613,9 +613,9 @@
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Competitor_Brand__c</fields>
-        <fields>Competitor_Model__c</fields>
-        <fields>BodyType__c</fields>
+        <fields>Brand__c</fields>
+        <fields>Model_Description__c</fields>
+        <fields>Range__c</fields>
         <fields>ModelYear__c</fields>
         <fields>NextInspectionDate__c</fields>
         <fields>Related_From__c</fields>
@@ -638,6 +638,7 @@
         <relatedList>Lead__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
+	<excludeButtons>AddCampaign</excludeButtons>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
@@ -651,7 +652,7 @@
         <customButtons>Convert_To_Task</customButtons>
         <fields>Campaign_ID__c</fields>
         <fields>Retail_Campaign_Id__c</fields>
-        <fields>Campaign_Member_ID__c</fields>
+        <fields>NAME</fields>
         <fields>Status__c</fields>
         <fields>RespondedDate__c</fields>
         <fields>Preferred_Dealer__c</fields>
