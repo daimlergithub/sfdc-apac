@@ -25262,6 +25262,10 @@
         <recordType>Campaign.CAC_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Campaign Execution Simple layout</layout>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Campaign-Campaign Execution Simple layout  MBK</layout>
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
     </layoutAssignments>
@@ -27124,6 +27128,11 @@
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
