@@ -317,15 +317,16 @@ public with sharing class VehicleEditExtension {
         }
         
                 try{  
-                    update vehicle;                       
+                    update vehicle;
+                    nextPage = new PageReference('/' + vehicle.Id);
+                    nextPage.setRedirect(true);					
                   }catch(DmlException  e){
                    string error=e.getMessage();
                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
                    System.debug('Exception encountered...' +error);
                 }
         
-                nextPage = new PageReference('/' + vehicle.Id);
-                nextPage.setRedirect(true);
+                
                 system.debug('redirecturl'+nextPage);
               }
          
