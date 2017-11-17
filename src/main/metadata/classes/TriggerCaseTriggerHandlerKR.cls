@@ -40,6 +40,7 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
                 }
                 caseHelperJPinit.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
                 caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
+				caseHelperKR.casesharehierarchy(trigger.new);
             }
             if (trigger.isUpdate)
             {
@@ -49,6 +50,7 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
 				if(recurssioncheckafterownerupdate != true){
                     caseHelperJP.assignCasestoqueues(Trigger.New,(Map<Id,Case>)trigger.oldMap, 'update');
                 }
+				caseHelperKR.casesharehierarchy(trigger.new);
             }
             if (trigger.isDelete)
             {               

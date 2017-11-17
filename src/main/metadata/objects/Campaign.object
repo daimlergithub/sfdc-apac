@@ -10595,7 +10595,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+   <recordTypes>
         <fullName>Campaign_Execution_Complex</fullName>
         <active>true</active>
         <description>For Campaign Executions with complex segmentation</description>
@@ -11183,7 +11183,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11191,7 +11191,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </values>
             <values>
-                <fullName>MyM</fullName>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11202,11 +11202,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+          </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
@@ -22570,9 +22566,16 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
     <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Parent_Campign_Not_Same_Generic</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( PRIORVALUE(ParentId ) &lt;&gt; ParentId,RecordType.Name = $Label.Campaign_Execution_Simple, $Permission.MYGeneric ,Create_Task__c = TRUE, $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>ParentId</errorDisplayField>
+        <errorMessage>You cannot change Parent Campaign as task is already created for this campaign.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Parent_Complete_Status_Change</fullName>
@@ -23399,3 +23402,4 @@ window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;
 }</url>
     </webLinks>
 </CustomObject>
+

@@ -21,6 +21,7 @@
 				<apex:outputField value="{!Case.Inquiry_Comments__c}"/>
 				<apex:outputField value="{!Case.Internal_Comments__c}"/>
 				<apex:outputField value="{!Case.Dealer_Contact__c}"/>
+				<apex:outputField value="{!Case.Market__c}"/>
             </apex:pageblockSection>
             
             <apex:pageblockSection title="{!$Label.MBF_Authentication_Section}">
