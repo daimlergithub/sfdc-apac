@@ -382,21 +382,21 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
                    
                }
             
-          else if (masterFieldValue!=slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null) {
+           if (masterFieldValue!=slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null) {
                 wrap.isSame = false;
                 wrap.isMasterChecked = true;
                 wrap.isSlaveChecked = false;
                 wraps.add(wrap);
                 continue;
             }
-           else if(masterFieldValue==slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null){
+            if(masterFieldValue==slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null){
                 wrap.isSame = true;
                 wrap.isMasterChecked = false;
                 wrap.isSlaveChecked = false;
                 wraps.add(wrap);
                 continue;
            }
-           else if (masterFieldValue == null &&  slaveFieldValue != null)
+            if (masterFieldValue == null &&  slaveFieldValue != null)
             {
                wrap.isSame = false;
                wrap.isMasterChecked = false;
@@ -404,10 +404,18 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
                wraps.add(wrap);
                 continue;
            }
-           else if (masterFieldValue == null &&  slaveFieldValue == null)
+            if (masterFieldValue == null &&  slaveFieldValue == null)
             {
                wrap.isSame = true;
                wrap.isMasterChecked = false;
+               wrap.isSlaveChecked = false;
+               wraps.add(wrap);
+                continue;
+           }
+		  if (masterFieldValue != null &&  slaveFieldValue == null)
+            {
+               wrap.isSame = false;
+               wrap.isMasterChecked = true;
                wrap.isSlaveChecked = false;
                wraps.add(wrap);
                 continue;
