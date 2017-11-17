@@ -449,6 +449,10 @@
         <name>Authorization</name>
     </customLabels>
 	<customLabels>
+        <label>郵便番号検索</label>
+        <name>Auto_fill</name>
+    </customLabels>
+	<customLabels>
         <label>Autoline用住所選択</label>
         <name>AutolineCreate_Retail_Copy</name>
     </customLabels>
