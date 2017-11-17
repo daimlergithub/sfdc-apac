@@ -22398,7 +22398,7 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !=&apos;IntegrationAPI&apos;,ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,&quot;DM&quot;),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !=&apos;IntegrationAPI&apos;,ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,&quot;DM&quot;),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
@@ -22475,7 +22475,7 @@ ISCHANGED( Min_Car_Age__c ),
 ISCHANGED( Max_Car_Age__c ),
 ISCHANGED( Purpose__c )
 ),
-$Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,UPPER(MD__c) = &apos;MY&apos;))</errorConditionFormula>
+$Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorMessage>You cann&apos;t change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
@@ -22586,7 +22586,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
 	 <validationRules>
         <fullName>Planning_Design_Campaign_Active_MY</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Planning_Design_Campaign&apos;,ISNEW(),IsActive = True, UPPER(MD__c) = &apos;MY&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Planning_Design_Campaign&apos;,ISNEW(),IsActive = True, $Permission.MYGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>Parent Campaign can&apos;t be active if there aren&apos;t any associated campaign execution record.</errorMessage>
     </validationRules>
