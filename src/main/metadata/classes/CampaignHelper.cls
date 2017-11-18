@@ -1187,12 +1187,13 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
     		Id campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
 	        Id campDsgnRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
 	        Id campExeRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
+			Id dealerAccntRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
 	    	list<CampaignShare> insertCampaignShareList = new list<CampaignShare>();
 	    	set<string> dealerNDCodeSet = new set<string>();
 	    	set<string> dealerCompNDCodeSet = new set<string>();
 	    	set<Id> dealerCompGroupIdSet = new set<Id>();
 	    	list<Group> dealerGroupList = new list<Group>();
-	    	list<Account> dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtype.name = 'Dealer' and MD__c = 'KR'];
+	    	list<Account> dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccntRecTypId and MD__c = 'KR'];
 	    	
 	    	if(!dealerAccountList.isEmpty() && dealerAccountList != null)
 	    	{
