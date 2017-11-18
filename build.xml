@@ -138,6 +138,7 @@
 					<sf:exclude name="TriggerDMMaterialTriggerHandlerKR"/>
 					<sf:exclude name="TriggerDMRequestTriggerHandlerKR"/>
 					<sf:exclude name="utilDealerLevelRecordShare"/>
+					<sf:exclude name="taskRecordViewOnCampaignController"/>
 					</sf:typeset>
 					<sf:typeset name="pages"/>
 					<sf:typeset name="triggers"/>								
