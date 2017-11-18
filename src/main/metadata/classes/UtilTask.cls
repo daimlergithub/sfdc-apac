@@ -108,7 +108,7 @@ public class UtilTask {
             [SELECT Status, CampaignId, ContactId FROM CampaignMember
              WHERE CampaignId IN :camIds
              AND ContactId IN :contactIds
-             AND Status IN :CM_STATUS_PRIORITY.keySet()];
+             AND Status__c IN :CM_STATUS_PRIORITY.keySet()];
 
         // If more than one task is related to a campaign member, 
         // the Campaign Member Status will be updated following the priority as below 
