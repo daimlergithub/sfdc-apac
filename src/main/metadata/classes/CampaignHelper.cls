@@ -1245,4 +1245,170 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
 	    	}
     	}
     }
+	
+	/*
+	   Description : SFDCKR-1558 campaign sharing for dealers
+	   Release-K10
+	*/
+	
+public static void afterInsertSharefromSCtoMan(list<Campaign> campaignNew)
+{
+Set<ID> getownerId = new Set<ID>();
+set<id> tlid= new set<id>();
+set<id> smid= new set<id>();
+Set<String> getDealerGCCode= new Set<String>();
+Set<String> getDealerNDCode= new Set<String>();
+Set<String> getDealerRoleCode= new Set<String>();
+List<CampaignShare> campshare = new List<CampaignShare>();
+map<string,id> assgroupMap = new map<string,id>();
+List<Group> grplist=new List<Group>();
+List<User> Toptobotshare =new list<user>();
+ Id campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+ Id campDsgnRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
+ Id campExeRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
+ Id dealerRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            
+system.debug('i am here');
+
+system.debug('i am here');
+   for(Campaign cp : campaignNew) {
+   if(cp.MD__c == 'KR')
+   {
+    getownerId.add(cp.OwnerId);
+    }
+    }
+    
+    System.debug('getDealerRoleCode---'+getownerId);
+   
+    Map<ID, User> usershare = new Map<ID, User>([Select Id,Dealer_ND_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where id in: getownerId and Market__c = 'KR']);
+    System.debug('ownerlist---'+usershare);
+    
+    
+
+    if(usershare != null)
+    {
+      for(User u : usershare.values())
+      {
+         getDealerGCCode.add(u.Dealer_GC_Code__c);
+        if(u.MBK_Partner_Roles__c == 'Team Leader' || u.MBK_Partner_Roles__c == 'Sales Manager')
+        {
+          tlid.add(u.id);
+        }
+        
+      }
+    }
+    system.debug('tliddd----'+tlid);
+    List<Account> acc =[Select id,Dealer_ND_Code__c,Dealer_GC_Code__c,Dealer_Type__c from Account where Dealer_GC_Code__c IN: getDealerGCCode and Dealer_Type__c='Company' and MD__c = 'KR' and recordtypeid =: dealerRecTypId];
+    system.debug('acc---'+acc);
+    for(Account acclis : acc)
+    {
+      if(acclis.Dealer_Type__c == 'Company')
+       {
+       getDealerNDCode.add(acclis.Dealer_ND_Code__c);
+       }
+    }
+    
+    
+    if(!tlid.isEmpty() && tlid != null)
+    {
+    Toptobotshare=[Select Id,Dealer_ND_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where MBK_Reporting_Partner_User__c in: tlid and Market__c = 'KR'];
+    }
+    system.debug('Toptobotshare---'+Toptobotshare);
+    
+    if(!getDealerNDCode.isEmpty() && getDealerNDCode != null)
+     {
+    grplist = [select id ,Name ,Type from Group where Name IN: getDealerNDCode];
+     }
+    if(grplist != null)
+     {
+     for(Group assg:grplist)
+      {               
+    assgroupMap.put(assg.Name, assg.id);
+    system.debug('assg.Name'+assg.Name);
+      }
+     }
+     //If sales consultant creates record
+     
+     for(Campaign cams : campaignNew) {
+          if(!usershare.containsKey(cams.ownerid))continue;
+            user u = usershare.get(cams.ownerid);
+           if(u.MBK_Partner_Roles__c != '' || u.MBK_Partner_Roles__c != 'Null')
+           {
+          if(u.MBK_Partner_Roles__c == 'Sales Consultant') {
+        system.debug('Team Leader' +u.MBK_Reporting_Partner_User__c);
+            if(u.MBK_Reporting_Partner_User__c!=null || u.MBK_Reporting_Partner_User__c!='') {
+                CampaignShare shareRec = new CampaignShare();
+                shareRec.CampaignId = cams.Id;
+                shareRec.UserOrGroupId  = u.MBK_Reporting_Partner_User__c;
+                shareRec.CampaignAccessLevel  = 'Read';
+                campshare.add(shareRec);
+            }
+            if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null || u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!='') {
+                CampaignShare shareRec1 = new CampaignShare();
+                shareRec1.CampaignId = cams.Id;
+                shareRec1.UserOrGroupId  = u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c;
+                shareRec1.CampaignAccessLevel  = 'Read';
+                campshare.add(shareRec1);  
+            }  
+           
+             for(id NDgroup:assgroupMap.values())
+             { 
+               CampaignShare shareRec1 = new CampaignShare();
+                shareRec1.CampaignId = cams.Id;
+                shareRec1.UserOrGroupId  = NDgroup;
+                shareRec1.CampaignAccessLevel  = 'Read';
+                campshare.add(shareRec1); 
+             
+             }
+        }   
+        }    
+      }
+     
+     // IF Team Leader Share Process  
+    
+    for(Campaign camstl : campaignNew) {
+        if(!usershare.containsKey(camstl.ownerid))continue;
+            user tlu = usershare.get(camstl.ownerid);
+        if(tlu.MBK_Partner_Roles__c == 'Team Leader' || tlu.MBK_Partner_Roles__c == 'Sales Manager') {
+        system.debug('Sales Manager' +tlu.MBK_Reporting_Partner_User__c);
+        
+            if((tlu.MBK_Reporting_Partner_User__c!=null || tlu.MBK_Reporting_Partner_User__c!='')) 
+            {
+                CampaignShare tlshareRec = new CampaignShare();
+                tlshareRec.CampaignId = camstl.Id;
+                tlshareRec.UserOrGroupId  = tlu.MBK_Reporting_Partner_User__c;
+                tlshareRec.CampaignAccessLevel = 'Read';
+                campshare.add(tlshareRec);  
+             }
+            for(id NDgroup:assgroupMap.values())
+             { 
+               CampaignShare shareRec1 = new CampaignShare();
+                shareRec1.CampaignId = camstl.Id;
+                shareRec1.UserOrGroupId  = NDgroup;
+                shareRec1.CampaignAccessLevel  = 'Read';
+                campshare.add(shareRec1); 
+             }
+         
+            if(camstl.recordtypeId == campPlngRecTypId || camstl.recordtypeId == campDsgnRecTypId)
+            {
+            system.debug('camstl.recordtypeId---'+camstl.recordtypeId);
+            for(User topdown : Toptobotshare)
+            {
+               CampaignShare topshareRec = new CampaignShare();
+                topshareRec.CampaignId = camstl.Id;
+                topshareRec.UserOrGroupId  = topdown.id;
+                topshareRec.CampaignAccessLevel = 'Read';
+                campshare.add(topshareRec);
+            }
+            }
+            
+      }
+    }   
+     system.debug('campshare --'+campshare);
+     If(campshare != null & campshare.size() > 0) {
+        insert campshare;
+    }    
+     
+ 
+}
 }
