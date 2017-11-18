@@ -12063,7 +12063,7 @@
         <errorConditionFormula>OR(AND($Profile.Name != 'IntegrationAPI',	
 RecordType.DeveloperName = 'SSI_Task', 
 ISPICKVAL(Status, 'Closed'), 
-ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR')),AND($Profile.Name != 'IntegrationAPI',ISPICKVAL(Status,'Closed'),ISPICKVAL( Activity_Status__c, '' ),OR(MD__c='TH',MD__c='MY')))</errorConditionFormula>
+ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR')),AND($Profile.Name != 'IntegrationAPI',ISPICKVAL(Status,'Closed'),ISPICKVAL( Activity_Status__c, '' ),OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false))))</errorConditionFormula>
         <errorDisplayField>Related_Task_Id__c</errorDisplayField>
         <errorMessage>Activity status is required if you close task.</errorMessage>
     </validationRules>
