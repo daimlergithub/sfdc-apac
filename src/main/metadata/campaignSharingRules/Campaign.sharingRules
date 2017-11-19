@@ -347,9 +347,9 @@
         <name>Share AS Campaign with Retail AS Marketing</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Share_Campaign_With_Roles_and_Subordinates</fullName>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_KR_v1</fullName>
         <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
@@ -357,7 +357,7 @@
             <value>KR</value>
         </criteriaItems>
         <campaignAccessLevel>Edit</campaignAccessLevel>
-        <name>Share Campaign With Roles and Subordinates</name>
+        <name>Share Campaign With Roles and Subordinates KR v1</name>
     </criteriaBasedRules>
 	<criteriaBasedRules>
         <fullName>Share_Campaign_With_Roles_and_Subordinates_MY_V1</fullName>
