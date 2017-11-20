@@ -744,4 +744,81 @@ public class CaseHelperKR
         }
     
     }
+	
+	//---------------------------- Case Share - SFDCKR-964 ----------------------------
+    // Added By - Sreenivasareddy
+	
+    public static void casesharehierarchy(List<Case> LstnewCase) {
+        list<id> ownerids = new list<id>();
+        list<id> caseids= new list<id>();
+        for(case c:LstnewCase) {
+        system.debug('*****Caselist' +LstnewCase);
+        system.debug('*****Caselist1' +c);
+            //if(c.owner.type!='User')continue;
+        system.debug('*****Caseowner' +c.OwnerId);
+            ownerids.add(c.OwnerId);
+        system.debug('*****Caseownerlist' +ownerids);
+        }
+        
+        If(Trigger.IsUpdate){//before insert new casesharings need to delete old casesharings***...
+            List<CaseShare> sharesToDelete = [Select UserOrGroupId,RowCause,id From CaseShare where RowCause='Ownershare' and CaseId in:caseids];
+            if(!sharesToDelete.isEmpty()) {
+                delete sharesToDelete;
+            }
+        }
+        
+        Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c  from User where id in: ownerids]);
+        system.debug('Reporting Users' +usermap);
+       
+        List<CaseShare> caseShar = new List<CaseShare>();
+        
+        /* Sales Consultant Recors Sharing Process */
+        
+        for(case  cas : LstnewCase) {
+            if(!usermap.containsKey(cas.ownerid))continue;
+                user u = usermap.get(cas.ownerid);
+            if(u.MBK_Partner_Roles__c == 'Sales Consultant') {
+            system.debug('Team Leader' +u.MBK_Reporting_Partner_User__c);
+                if(u.MBK_Reporting_Partner_User__c!=null || u.MBK_Reporting_Partner_User__c!='') {
+                    CaseShare shareRec = new CaseShare();
+                    shareRec.CaseId= cas.Id;
+                    shareRec.UserOrGroupId  = u.MBK_Reporting_Partner_User__c;
+                    shareRec.RowCause = Schema.CaseShare.RowCause.Manual;
+                    shareRec.CaseAccessLevel= 'Edit';
+                    
+                    caseShar.add(shareRec);
+                }
+                if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null || u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!='') {
+                    CaseShare shareRec1 = new CaseShare();
+                    shareRec1.CaseId= cas.Id;
+                    shareRec1.UserOrGroupId  = u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c;
+                    shareRec1.CaseAccessLevel= 'Edit';
+                    shareRec1.RowCause = Schema.CaseShare.RowCause.Manual;
+                    
+                    caseShar.add(shareRec1);  
+                }   
+            }
+        }
+
+        /* Team Leader Recors Sharing Process */
+        
+        for(case  tlcas : LstnewCase) {
+            if(!usermap.containsKey(tlcas.ownerid))continue;
+                user tlu = usermap.get(tlcas.ownerid);
+            if(tlu.MBK_Partner_Roles__c == 'Team Leader') {
+            system.debug('Sales Manager' +tlu.MBK_Reporting_Partner_User__c);
+                if(tlu.MBK_Reporting_Partner_User__c!=null || tlu.MBK_Reporting_Partner_User__c!='') {
+                    CaseShare tlshareRec = new CaseShare();
+                    tlshareRec.CaseId= tlcas.Id;
+                    tlshareRec.UserOrGroupId  = tlu.MBK_Reporting_Partner_User__c;
+                    tlshareRec.CaseAccessLevel= 'Edit';
+                    tlshareRec.RowCause = Schema.CaseShare.RowCause.Manual;
+                    caseShar.add(tlshareRec);  
+                }
+            }
+        }   
+        If(caseShar != null & caseShar.size() > 0) {
+            insert caseShar;
+        }
+    } 
 }
