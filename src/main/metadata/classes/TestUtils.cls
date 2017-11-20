@@ -9,6 +9,7 @@
 
 @istest
 public class TestUtils {
+public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','Dealer');
     
     /* Creation of users for different roles  - Begin */
     // Admin User Creation
@@ -220,4 +221,30 @@ public class TestUtils {
     
     
     /* Creation of test records in various objects  - End */
+    /* Creation of Dealer accounts*/
+    public static Group CreateTHGroup(String Nameofgroup){
+        Group gp= new Group();
+        gp.Name = Nameofgroup;
+        insert gp;
+        return gp;
+    }
+    public static List<Sobject> createDealerAccountandUserTH(){
+     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
+     profile p2=[select id from profile where Name='Thailand Dealer Delegate Admin'];
+
+    /*User user1 = new User(LastName='User1',country='Australia',firstName='aBCI',ProfileId=p1.Id,Alias='aint123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admus1r@daimler.com',Market__c = 'TH');
+        insert user1;*/
+    Account dealer1 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='1235');
+        insert dealer1;
+        Contact dealerContact = new Contact(FirstName = 'Test',Md__c='TH', Lastname = 'Amit', AccountId = dealer1.Id, Email = 'test@test.com');
+        insert dealerContact;
+    /*User user2 = new User(LastName='GEORGE',contactid=dealerContact.id,firstName='BCIo',country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
+    insert user2;*/
+    /*User user2 = new User(LastName='Usera',country='Australia',contactid=dealerContact.id,firstName='BCIt',ProfileId=p2.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser041@testing.com',UserName='admus5r@daimler.com',Market__c = 'TH');
+        insert user2;*/
+    Account dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', Md__c='TH',Individual_Home_Phone__c='+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='12345');
+        insert dealer;
+        
+        return new List<Sobject>{dealer,dealer1};
+        }
 }
