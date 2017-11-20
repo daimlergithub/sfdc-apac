@@ -33,6 +33,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
 
         if(isBefore && isInsert){
+		   AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
         }
         
@@ -42,6 +43,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         }
         
         if(isBefore && isUpdate){
+			AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
             /* Data Update MD Fix - Santosh Mohanty*/
             AccountHelperTH.updatemarket(Trigger.New);
             AccountHelperTH.ValidateNationalid(Trigger.new);
