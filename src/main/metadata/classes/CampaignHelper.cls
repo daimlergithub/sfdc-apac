@@ -1253,9 +1253,11 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
 	
 public static void afterInsertSharefromSCtoMan(list<Campaign> campaignNew)
 {
+if(userinfo.getUserType()== 'PowerPartner')
+{
 Set<ID> getownerId = new Set<ID>();
 set<id> tlid= new set<id>();
-set<id> smid= new set<id>();
+set<string> DHQshare= new set<String>();
 Set<String> getDealerGCCode= new Set<String>();
 Set<String> getDealerNDCode= new Set<String>();
 Set<String> getDealerRoleCode= new Set<String>();
@@ -1263,6 +1265,7 @@ List<CampaignShare> campshare = new List<CampaignShare>();
 map<string,id> assgroupMap = new map<string,id>();
 List<Group> grplist=new List<Group>();
 List<User> Toptobotshare =new list<user>();
+List<User> dealerhqshare =new list<user>();
  Id campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
  Id campDsgnRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
  Id campExeRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
@@ -1280,7 +1283,7 @@ system.debug('i am here');
     
     System.debug('getDealerRoleCode---'+getownerId);
    
-    Map<ID, User> usershare = new Map<ID, User>([Select Id,Dealer_ND_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where id in: getownerId and Market__c = 'KR']);
+    Map<ID, User> usershare = new Map<ID, User>([Select Id,Dealer_ND_Code__c,Contact.Account.Dealer_Type__c,Contact.Account.Dealer_GC_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where id in: getownerId and Market__c = 'KR']);
     System.debug('ownerlist---'+usershare);
     
     
@@ -1294,7 +1297,10 @@ system.debug('i am here');
         {
           tlid.add(u.id);
         }
-        
+        else if(u.Contact.Account.Dealer_Type__c == 'Company' && u.Contact.Account.Dealer_GC_Code__c !=null)
+        {
+          DHQshare.add(u.Contact.Account.Dealer_GC_Code__c);
+        }
       }
     }
     system.debug('tliddd----'+tlid);
@@ -1312,6 +1318,10 @@ system.debug('i am here');
     if(!tlid.isEmpty() && tlid != null)
     {
     Toptobotshare=[Select Id,Dealer_ND_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where MBK_Reporting_Partner_User__c in: tlid and Market__c = 'KR'];
+    }
+    if(DHQshare != null && !DHQshare.isEmpty())
+    {
+    dealerhqshare = [Select Id,Dealer_ND_Code__c,Contact.Account.Dealer_Type__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where Dealer_GC_Code__c in: DHQshare and Market__c = 'KR' and Contact.Account.Dealer_Type__c = 'Outlet'];
     }
     system.debug('Toptobotshare---'+Toptobotshare);
     
@@ -1403,12 +1413,31 @@ system.debug('i am here');
             }
             
       }
-    }   
+    } 
+    
+    //Delaer company share
+     for(Campaign camsdq : campaignNew) {
+     if(!usershare.containsKey(camsdq.ownerid))continue;
+            user dqshare = usershare.get(camsdq.ownerid);
+         if((camsdq.recordtypeId == campPlngRecTypId || camsdq.recordtypeId == campDsgnRecTypId) && dqshare.Contact.Account.Dealer_Type__c == 'Company')
+            {
+               for(User topdownhq : dealerhqshare)
+               {
+                 CampaignShare topDqshareRec = new CampaignShare();
+                 topDqshareRec.CampaignId = camsdq.Id;
+                 topDqshareRec.UserOrGroupId  = topdownhq.id;
+                 topDqshareRec.CampaignAccessLevel = 'Read';
+                 campshare.add(topDqshareRec);
+               }
+            }    
+            
+     }  
      system.debug('campshare --'+campshare);
      If(campshare != null & campshare.size() > 0) {
         insert campshare;
     }    
      
  
+}
 }
 }

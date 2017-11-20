@@ -284,9 +284,13 @@ public class createUpdateRetailCopy
         system.debug('updatedacclnkMap<<<<<<<<' + updatedacclnkMap);
         if(existaccLinkList !=null)
         {
+        for(Account_Link__c acl : acclkList)
+        {
+        
         for(Account_Link__c aclnk : existaccLinkList)
         {
-       
+                if(aclnk.torole__c == acl.torole__c)        
+               {       
             if(aclnk.RecordTypeId == AccountLink_RetailPersonRecordTypeId
                || aclnk.RecordTypeId == AccountLink_RetailCompanyRecordTypeId && updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c).Id != aclnk.Id)
             {
@@ -354,6 +358,7 @@ public class createUpdateRetailCopy
                 }
             }
             
+            }
         
          if(updatedacclnkMap.get(aclnk.Retail_Dealer_CompanyCode__c)!=null)
                 {
@@ -372,6 +377,7 @@ public class createUpdateRetailCopy
             }
             }
             updateacclnkList.add(aclnk);
+        }
         }
         }
         
