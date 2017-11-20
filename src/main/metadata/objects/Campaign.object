@@ -2468,6 +2468,15 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Message__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;)</formula>
+        <label>Message</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Min_Car_Age__c</fullName>
         <description>Min Car Age of the campaign</description>

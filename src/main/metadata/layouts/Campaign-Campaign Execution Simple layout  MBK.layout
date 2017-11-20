@@ -94,6 +94,10 @@
                 <field>Task_De_dup_Range__c</field>
             </layoutItems>
 			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Message__c</field>
+            </layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Courtesy_Greeting__c</field>
             </layoutItems>
