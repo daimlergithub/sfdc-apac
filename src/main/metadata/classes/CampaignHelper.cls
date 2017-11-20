@@ -172,7 +172,7 @@ Usage               :    The functionality of this Class to make a copy of a cam
                           Required For Joint Driven Campaign Implementaion                          
 JIRA NO             :    SFDCJP-1044                                              
 ************************************************************************************/
-   public static void copyCampaignToRetailCampaign(List<Campaign> campaignIds){
+   public static void copyCampaignToRetailCampaign(List<Campaign> campaignIds,Map<id,Campaign > oldCampList){
    
    List<Campaign> camListCheck = New List<Campaign>();
 List<Retail_Campaign__c> retailCamParentList = New List<Retail_Campaign__c>();
@@ -195,7 +195,7 @@ Set<id> aid = New Set<id>();
                  aid.add(campNew.Id);  
                  parentCampaignList.add(campNew);
             
-        }else if (campNew.RecordTypeId==executionRecordId && campNew.Consolidated_List_Completed__c == true){
+        }else if (campNew.RecordTypeId==executionRecordId && campNew.Consolidated_List_Completed__c == true && campNew.Consolidated_List_Completed__c != oldCampList.get(campNew.id).Consolidated_List_Completed__c){
         
           sid.add(campNew.ParentId);
                  aid.add(campNew.Id); 
