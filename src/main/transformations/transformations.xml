@@ -1,48 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformations>
-
-<!-- Added by Venky (Start)--->
-<changetext>
-      <filename>objects\Vehicle_Relationship__c.object</filename>
-      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
-      <token tokenonly="true">OBJECT_LEAD_ID</token>
-    </changetext>
-	<changetext>
-      <filename>objects\Vehicle_Relationship__c.object</filename>
-      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
-      <token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
-    </changetext>
-	<changetext>
-      <filename>objects\Vehicle_Relationship__c.object</filename>
-      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
-      <token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
-    </changetext>
-	<changetext>
-      <filename>objects\Vehicle_Relationship__c.object</filename>
-      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
-      <token tokenonly="true">OBJECT_LEAD_CONTACT_ID_lkid</token>
-    </changetext>
-	<changetext>
-      <filename>objects\Vehicle_Relationship__c.object</filename>
-      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
-      <token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_NAME</token>
-    </changetext>
-	<changetext>
-      <filename>objects\Vehicle_Relationship__c.object</filename>
-      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
-      <token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID</token>
-    </changetext>
-	<changetext>
-      <filename>objects\Vehicle_Relationship__c.object</filename>
-      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
-      <token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID_LKID</token>
-    </changetext>
-	<changetext>
-      <filename>objects\Vehicle_Relationship__c.object</filename>
-      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
-      <token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID</token>
-    </changetext>
-<!-- Added by Venky (End)--->
 	<!--added by dhanamjaya-->
 	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
