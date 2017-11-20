@@ -27,7 +27,6 @@ public with sharing class CtrlMessageSearchKRDFW {
 		allChecked = false;
 		chkCount = 0;
 		idList ='';
-		system.debug(searchStr);
 		MessageSearchList = new list<MessageSearch>();	
 		if(searchStr <> null && searchStr <> ''){
 			searchStr = searchStr.replace('-','\\-');
@@ -46,15 +45,12 @@ public with sharing class CtrlMessageSearchKRDFW {
 						+ '  Contact.Account.Personal_Abroad_Agreement__c, Contact.Account.Agreement_to_commit_info_processing__c), '
 						+ ' Task(Id, Account_Name__c, Email_Address__c, UCID__c, PersonMobilePhone__c, Phone__c, Subject, What.Id, Who.Id,  What.Name, Who.Name)'
 						+ ' limit 1000';
-system.debug(searchquery);				
 			List<List<SObject>>searchList = search.query(searchquery);
-system.debug(searchList);
 			List<Account> accountList = searchList[0];
 			List<Lead__c> leadList = searchList[1];
 			List<Campaign> CampaignList = searchList[2];
 			List<Case> caseList = searchList[3];
 			List<Task> taskList = searchList[4];
-system.debug(accountList);
 			//data setting
 			for(Account temp:accountList){
 				Boolean doc = true; //Account Doc체크
@@ -124,7 +120,6 @@ system.debug(accountList);
 												FROM CampaignMember WHERE Campaign.Id IN: CampaignIds];			
 			for(CampaignMember temp:camMemList){
 				Account acc = temp.Contact.Account;
-system.debug(acc);				
 				Boolean doc = true; //Account Doc체크
 		    	//if(!acc.Opt_In_SMS__c) doc = false;
 		    	if(acc.Personal_Agreement__c <> 'Yes') doc = false;	
@@ -204,7 +199,9 @@ system.debug(acc);
 				}
 			}
 		}else{
-			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, '검색할 단어를 입력 하세요.'));
+			GlobalUtilityDFW gu = GlobalUtilityDFW.getInstance();
+			gu.debug('검색할 단어를 입력 하세요.');
+			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Info, '검색할 단어를 입력 하세요.'));
 		}
 	}
 	
@@ -243,7 +240,6 @@ system.debug(acc);
 	} 	      
 	
 	public void allChecking() {
-		system.debug('allchecked: ' + allChecked);
 		chkCount = 0;
 		idList = '';
 		
