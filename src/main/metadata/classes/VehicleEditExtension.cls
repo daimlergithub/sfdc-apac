@@ -317,15 +317,16 @@ public with sharing class VehicleEditExtension {
         }
         
                 try{  
-                    update vehicle;                       
+                    update vehicle;
+                    nextPage = new PageReference('/' + vehicle.Id);
+                    nextPage.setRedirect(true);					
                   }catch(DmlException  e){
                    string error=e.getMessage();
                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
                    System.debug('Exception encountered...' +error);
                 }
         
-                nextPage = new PageReference('/' + vehicle.Id);
-                nextPage.setRedirect(true);
+                
                 system.debug('redirecturl'+nextPage);
               }
          
@@ -395,6 +396,8 @@ public with sharing class VehicleEditExtension {
                 try
                 {
                  update vehicle;
+                 nextPage = new PageReference('/apex/Create_Vehicle');
+                 nextPage.setRedirect(true);
                 }
                 Catch(DmlException  e){
                     string error=e.getDMLMessage(0);
@@ -402,8 +405,7 @@ public with sharing class VehicleEditExtension {
                     System.debug('Exception encountered in Save...' +error);  
                     return null; 
                 }
-                nextPage = new PageReference('/apex/Create_Vehicle');
-                nextPage.setRedirect(true);
+                
                 system.debug('redirecturl'+nextPage);
          } 
                    

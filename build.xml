@@ -133,6 +133,12 @@
 					</sf:typeset>
 					<sf:typeset name="classes">
 					<sf:exclude name="WSMockAddressValidationRespInvalidAddrTH"/>
+					<sf:exclude name="DMMaterialHelperKR"/>
+					<sf:exclude name="DMRequestHelperKR"/>
+					<sf:exclude name="TriggerDMMaterialTriggerHandlerKR"/>
+					<sf:exclude name="TriggerDMRequestTriggerHandlerKR"/>
+					<sf:exclude name="utilDealerLevelRecordShare"/>
+					<sf:exclude name="taskRecordViewOnCampaignController"/>
 					</sf:typeset>
 					<sf:typeset name="pages"/>
 					<sf:typeset name="triggers"/>								

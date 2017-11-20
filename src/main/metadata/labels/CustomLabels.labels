@@ -7,6 +7,108 @@
         <shortDescription>A6 Contact as part of visiting a car dealership</shortDescription>
         <value>Contact as part of visiting a car dealership</value>
     </labels>
+	<labels>
+        <fullName>Please_Select_only_one_as_a_Master</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Please Select only one as a Master</value>
+    </labels> 
+	<labels>
+        <fullName>vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge vehicle</shortDescription>
+        <value>vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Interested_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Interested Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Interested_competitor_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Interested competitor Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>Current_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Current Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>Purchased_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Purchased Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Ch_Interested_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Interested Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>ch_Interested_competitor_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Interested competitor Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>ch_Current_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Current Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>ch_Purchased_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Purchased Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Leadmerge</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge</shortDescription>
+        <value>Lead Merge</value>
+    </labels> 
+	<labels>
+        <fullName>Accept_Leads_case_MSG1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accept Lead / cases custom button</shortDescription>
+        <value>This record does not belong to any queue, thus cant be assigned via this button.</value>
+    </labels>
+	<labels>
+        <fullName>Accept_Leads_case_MSG2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accept Lead / cases custom button</shortDescription>
+        <value>This button is for Korea partner users only</value>
+    </labels>
     <labels>
         <fullName>A6_Email</fullName>
         <language>en_US</language>
@@ -4184,6 +4286,14 @@ please contact the number below.</value>
         <shortDescription>Lead Memo</shortDescription>
         <value>Lead Memo</value>
     </labels>
+	<labels>
+        <fullName>Leadmergeupdated</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Leadmergeupdated</shortDescription>
+        <value>As for 16 fields values (” Interested Vehicle Brand”～”Purchased Vehicle VIN”), master record value will be left by Lead Merge</value>
+    </labels> 
     <labels>
         <fullName>Lead_Process_Sheet</fullName>
         <language>en_US</language>
@@ -4472,6 +4582,106 @@ please contact the number below.</value>
         <shortDescription>MBJ support</shortDescription>
         <value>MBJ support</value>
     </labels>
+	<!-- added for i2max -->	
+	<labels>
+        <fullName>MBKMessageLogDelete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBKMessageLogDelete</shortDescription>
+        <value>30</value>
+    </labels>
+    <labels>
+        <fullName>MBK_MessageType_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBK Message Type Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+	<labels>
+        <fullName>MBK_Message_Button_Name</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Button_Name</shortDescription>
+        <value>설문 시작</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Channel_KaKao</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Channel_KaKao</shortDescription>
+        <value>A</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Channel_LMS</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Channel_LMS</shortDescription>
+        <value>L</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Channel_MMS</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Channel_MMS</shortDescription>
+        <value>M</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Channel_SMS</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Channel_SMS</shortDescription>
+        <value>S</value>
+    </labels>
+	<labels>
+        <fullName>MBK_Message_ContentType</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_ContentType</shortDescription>
+        <value>application/json</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_SenderKey</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_SenderKey</shortDescription>
+        <value>c76dcff9ce0106edc23968bb52bb7728ecc36d25</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Sender_Phone</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Sender_Phone</shortDescription>
+        <value>07077057218</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Survey</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Survey</shortDescription>
+        <value>banz05</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_SurveyURL</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_SurveyURL</shortDescription>
+        <value>https://www.mercedes-benz.co.kr</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_URL</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_URL</shortDescription>
+        <value>https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_custGubun</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_custGubun</shortDescription>
+        <value>benzkr</value>
+    </labels>
+ <!--added for i2max-->
     <labels>
         <fullName>MB_Complaint</fullName>
         <language>en_US</language>

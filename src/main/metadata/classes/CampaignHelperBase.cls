@@ -80,7 +80,8 @@ public class CampaignHelperBase {
                 } 
                 
                 try{
-                    update childCmpList;
+                    DMLManagerService.updateAsSystem(childCmpList);
+                    //update childCmpList;
                 }catch(DmlException ex){
                     cp.addError('You can not activate a campaign without any execution.');
                 }
@@ -98,7 +99,9 @@ public class CampaignHelperBase {
             }
         }
 
-        if(!cpExeList.IsEmpty()) update cpExeList;
+        if(!cpExeList.IsEmpty()) 
+        DMLManagerService.updateAsSystem(cpExeList);
+        //update cpExeList;
         /* END Campaign Excution create task update */
         
         
@@ -108,7 +111,8 @@ public class CampaignHelperBase {
             accJob.Campaign_Set__c = cpAccIds;
         
             if(accJob!=Null){
-            insert accJob;
+             DMLManagerService.insertAsSystem(accJob);
+            //insert accJob;
             }
         }
         
@@ -116,18 +120,21 @@ public class CampaignHelperBase {
             //database.executeBatch(new UtilCampaignTaskGenerationByLeads(cpLeadList), 200);
             leadJob.Campaign_Set__c = cpLeadIds;
             if(leadJob!=Null){
-             insert leadJob;       
+            DMLManagerService.insertAsSystem(leadJob);
+             //insert leadJob;       
             }  
         }
         if(!cpVehicleList.isEmpty()) {          
             //database.executeBatch(new UtilCampaignTaskGenerationByVehicle(cpVehicleList), 200); 
             vehJob.Campaign_Set__c = cpVehicleIds;
-            insert vehJob; 
+            DMLManagerService.insertAsSystem(vehJob);
+            //insert vehJob; 
         }
         if(!cpCaseList.isEmpty()) {          
             //database.executeBatch(new UtilCampaignTaskGenerationByCase(cpCaseList), 200); 
             caseJob.Campaign_Set__c = cpCaseIds;
-            insert caseJob; 
+            DMLManagerService.insertAsSystem(caseJob);
+            //insert caseJob; 
         }
         /* END Batch Execution */
     

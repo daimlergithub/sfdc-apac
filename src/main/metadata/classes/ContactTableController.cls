@@ -791,7 +791,8 @@ public class ContactTableController
          refreshPage = false;
         ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.KR_Company_Account_Record_Type));
         }        
-        else if((!(String.isBlank(ParAcc.Mobile__c )) && (String.isBlank(ParAcc.Individual_Home_Phone__c)) && (String.isBlank(ParAcc.Work_Phone__c))) ||(!(String.isBlank(ParAcc.Mobile__c ))&& ParAcc.Mobile_Phone_Checkbox__c==true))
+        else{
+		if((!(String.isBlank(ParAcc.Mobile__c )) && (String.isBlank(ParAcc.Individual_Home_Phone__c)) && (String.isBlank(ParAcc.Work_Phone__c))) ||(!(String.isBlank(ParAcc.Mobile__c ))&& ParAcc.Mobile_Phone_Checkbox__c==true))
         {
         ParAcc.Primary_Phone_Display__c=ParAcc.Mobile__c;
         ParAcc.Primary_Phone__c='Mobile'; 
@@ -808,13 +809,17 @@ public class ContactTableController
         }
        else if (ParAcc.Mobile_Phone_Checkbox__c==false&& ParAcc.home_Phone_Checkbox__c==false && ParAcc.Work_Phone_Checkbox__c==false)
         {
-        ParAcc.Primary_Phone_Display__c=null;       
+        ParAcc.Primary_Phone_Display__c=null; 
+		ParAcc.Primary_Phone__c='';  		
        }
-      }
-                   update ParAcc;         
-            }      
+      
+       update ParAcc;         
+       }      
                 
-        }
+        }else{update ParAcc; }      
+              
+}       
+}     
         
         catch(DMLException de)
         {

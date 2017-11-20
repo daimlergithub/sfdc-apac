@@ -9,20 +9,23 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
     {
         boolean flag=true;
         LeadHelperMY leadRS= new LeadHelperMY();
-                
-        if(Trigger.isbefore && Trigger.isUpdate){
-            leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);
-            leadRS.leadValidation(Trigger.new);
-            
-            leadRS.updateOwner(Trigger.new);   
-        }
         
-        if(Trigger.isbefore && Trigger.isinsert){
-            leadRS.leadValidation(trigger.new);
-            leadRS.updateOwnerwithDealer(Trigger.new);   
-        }
-        if(Trigger.isafter && Trigger.isinsert){
-             leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);  
+        if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+                
+            if(Trigger.isbefore && Trigger.isUpdate){
+                leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);
+                leadRS.leadValidation(Trigger.new);
+                
+                leadRS.updateOwner(Trigger.new);   
+            }
+            
+            if(Trigger.isbefore && Trigger.isinsert){
+                leadRS.leadValidation(trigger.new);
+                leadRS.updateOwnerwithDealer(Trigger.new);   
+            }
+            if(Trigger.isafter && Trigger.isinsert){
+                 leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);  
+            }
         }
   
     }

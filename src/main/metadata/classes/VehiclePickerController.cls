@@ -402,7 +402,7 @@ global with sharing class VehiclePickerController {
                 system.debug('Default Vehicle Ids...' +defaultVehicleIds);
             }
             if (vin_number.equalsIgnoreCase('')){
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds];
                 system.debug('Default Vehicle Records...' +vehicle);
             }
             else{
@@ -457,10 +457,10 @@ global with sharing class VehiclePickerController {
                 if(vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
                 Id rec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
                 leadVehicle.RecordTypeId = rec_Id;
-				if(lead.Contact__c != Null || lead.Contact__c != ''){
-					leadVehicle.Related_Contact__c = lead.Contact__c;
-				}
-				
+                if(lead.Contact__c != Null || lead.Contact__c != ''){
+                    leadVehicle.Related_Contact__c = lead.Contact__c;
+                }
+                
 
                 System.debug('Rec_Id :' +rec_Id);
                 }else{
