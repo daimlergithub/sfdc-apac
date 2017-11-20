@@ -2330,6 +2330,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
             }
             else if(recordType == 'Company'){
+                        else if(recordType == 'Company'){
                  endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
                  endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
                  endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
@@ -2535,7 +2536,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
                     errorFlag=false;
         } 
-    //SN20171120- the following is being removed objAccount.Email__c
+
+      //SN20171120- the following is being removed objAccount.Email__c
      if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) ){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError));       
                     errorFlag=false;
@@ -2897,14 +2899,14 @@ public pagereference saveAccountTH()
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Type is mandatory in order to insert an address'));
                     }
                     //PR20170926-(End) Address Type Null check if other Address fields are populated
-                    else if(objAccount.Preferred_Phone__c == null)
+                    else if(objAccount.Primary_Phone__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Preferred Phone is mandatory'));
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sales TEL is mandatory'));
                     }                       
                     else
                     {
                         refreshPage = true;
-                        insert objAccount ;
+                        upsert objAccount ;
                         return true;
                     }                   
                               

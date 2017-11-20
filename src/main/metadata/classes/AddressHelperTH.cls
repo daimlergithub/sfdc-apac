@@ -37,6 +37,8 @@ public with sharing class AddressHelperTH {
                                   acc.Primary_Address__c = addr.Address_Line_1__c;
                              if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
                                   acc.Primary_Address__c +=' '+ addr.Address_Line_2__c;
+                             if(addr.Sub_District__c!=null && addr.Sub_District__c!='')
+                                  acc.Primary_Address__c +=' '+ addr.Sub_District__c;
                              if(addr.District__c!=null && addr.District__c!='')
                                   acc.Primary_Address__c +=' '+ addr.District__c;
                              if(addr.Province__c!=null && addr.Province__c!='')
@@ -220,9 +222,9 @@ public with sharing class AddressHelperTH {
         public static void updatemarket(List<Address__c> addList){        
             
                    for(Address__c addr : addList){
-						if(Test.isRunningTest()){
+                        if(Test.isRunningTest()){
                         addr.isTestRunning__c=true;
-						}	
+                        }   
                        if(addr.Market__c =='' || addr.Market__c==NULL){
                          addr.Market__c=addr.MD__c;
                       }  
