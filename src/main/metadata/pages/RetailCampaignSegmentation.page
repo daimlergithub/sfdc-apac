@@ -631,7 +631,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('customerTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('customerTable', 'OR', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
                     <hr style="margin-left:20px; width:650px;"/>
@@ -696,7 +696,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('AccountRetailCopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('AccountRetailCopyTable', 'OR', false);">{!$Label.And_Criteria}</a>
                        
                     </div>
                                         <div>
@@ -769,7 +769,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('interestTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('interestTable', 'OR', false);">{!$Label.And_Criteria}</a>
                        
                     </div>
                 <hr style="margin-left:20px; width:650px;"/> 
@@ -826,7 +826,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('vehicleTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('vehicleTable', 'OR', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
                     <hr style="margin-left:20px; width:650px;"/>
@@ -880,7 +880,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRelationTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRelationTable', 'OR', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
                 <hr style="margin-left:20px; width:650px;"/>
@@ -937,7 +937,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRetailcopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRetailcopyTable', 'OR', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
                     <div>
@@ -997,7 +997,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('CampaignTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('CampaignTable', 'OR', false);">{!$Label.And_Criteria}</a>
                     </div>
                     <hr style="margin-left:20px; width:650px;"/>
                 </div>
@@ -1064,7 +1064,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('ContractrelatedTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('ContractrelatedTable', 'OR', false);">{!$Label.And_Criteria}</a>
                     </div>
                     <hr style="margin-left:20px; width:650px;"/>
                 </div>
@@ -1116,7 +1116,7 @@
                         </tr>
                     </table>
                     <div class="criteriaLink">
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('AddressTable', 'AND', false);">{!$Label.And_Criteria}</a>
+                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('AddressTable', 'OR', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
                 </div>
@@ -1126,7 +1126,7 @@
             <apex:outputPanel layout="block" id="searchingResult">
                 <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign,saveCriteria" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
-					
+                    
                   <apex:commandButton value="{!$Label.Select_All_Records}" action="{!selectall}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="selectall"/>               
                 <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="addToCampaign"/>
                 <apex:actionStatus id="loadingStatus">
