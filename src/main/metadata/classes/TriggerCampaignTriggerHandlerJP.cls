@@ -49,7 +49,7 @@ public class TriggerCampaignTriggerHandlerJP
         if(Trigger.isAfter && Trigger.isUpdate)
         {
             CampaignHelper.emailNotificationToDealer (Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
-            CampaignHelper.copyCampaignToRetailCampaign(Trigger.New);
+            CampaignHelper.copyCampaignToRetailCampaign(Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
             CampaignHelper.parentCampaignSatus(Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
             CampaignHelper.updateLogic(Trigger.New);
             CampaignHelper.blankUpdateCM(Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
