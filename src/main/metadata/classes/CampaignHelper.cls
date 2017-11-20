@@ -1253,6 +1253,8 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
 	
 public static void afterInsertSharefromSCtoMan(list<Campaign> campaignNew)
 {
+if(userinfo.getUserType()== 'PowerPartner')
+{
 Set<ID> getownerId = new Set<ID>();
 set<id> tlid= new set<id>();
 set<string> DHQshare= new set<String>();
@@ -1413,11 +1415,11 @@ system.debug('i am here');
       }
     } 
     
-    /*//Delaer company share
+    //Delaer company share
      for(Campaign camsdq : campaignNew) {
      if(!usershare.containsKey(camsdq.ownerid))continue;
             user dqshare = usershare.get(camsdq.ownerid);
-         if((camsdq.recordtypeId == campPlngRecTypId || camsdq.recordtypeId == campDsgnRecTypId))
+         if((camsdq.recordtypeId == campPlngRecTypId || camsdq.recordtypeId == campDsgnRecTypId) && dqshare.Contact.Account.Dealer_Type__c == 'Company')
             {
                for(User topdownhq : dealerhqshare)
                {
@@ -1429,12 +1431,13 @@ system.debug('i am here');
                }
             }    
             
-     }  */
+     }  
      system.debug('campshare --'+campshare);
      If(campshare != null & campshare.size() > 0) {
         insert campshare;
     }    
      
  
+}
 }
 }
