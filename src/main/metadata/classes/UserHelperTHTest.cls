@@ -13,7 +13,6 @@ public class UserHelperTHTest {
     }
     public static testmethod  void  ShareUsersToDealersAfterInsertAndUpdateTest(){
         test.startTest();
-		
         createtestdata();
         Group grpObj=new Group(Name='12345');
         insert grpObj;
@@ -25,17 +24,13 @@ public class UserHelperTHTest {
         
         System.runAs(adminUserObj)
         {
-			
             Profile profileObj = [select id from profile where Name='Thailand Dealer Delegate Admin' limit 1];
-            
             User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'TH',isActive=true);
             insert userObj;  
             userObj.Market__c='MY';
         	update userObj;
         }
-        
         test.stopTest();
-        
     } 
     public static testMethod void AfterInsertANDUpdateMethodTest()
     {

@@ -4,7 +4,6 @@ public class UserTriggerHandlerTH implements TriggerHandlerIf {
         UserHelperTH.createGroup(Trigger.new);
         UserHelperTH.AfterInsertANDUpdateMethod(Trigger.new,Trigger.Isinsert,Trigger.isUpdate);
         UserHelperTH.ShareUsersToDealersAfterInsertAndUpdate(Trigger.new,Trigger.isupdate,trigger.old);
-    
     }
         if(Trigger.isAfter && trigger.isUpdate){
             UserHelperTH.ShareUsersToDealersAfterInsertAndUpdate(Trigger.new,Trigger.isupdate,trigger.old);
@@ -12,8 +11,5 @@ public class UserTriggerHandlerTH implements TriggerHandlerIf {
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-				// Implementation to be added as required in market.
     }
-
-
 }

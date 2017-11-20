@@ -3,7 +3,6 @@ public class UserHelperTH{
     public static List<id> userlisttosharewhileupdating=new List<id>();
     public static List<id> AccessneedstoRevokefromuser=new List<id>();
     public static MAP<id,String> dealeruser=new Map<Id,String>();
-    
     public static void AfterInsertANDUpdateMethod(list<User> usersList,boolean isInsert,boolean isUpdate)
     {    List<id> listOfUsers=new List<id>();
          List<id> accesstorevoke=new List<id>();
@@ -63,6 +62,8 @@ public class UserHelperTH{
             
         if(accesstorevoke.size()>0){
         //needs to revoke the access once users account or market got changed
+		
+		
         database.ExecuteBatch(new RevokeALLRecordsToNewUserBatchTH(accesstorevoke[0],'Account'));
         
         }
