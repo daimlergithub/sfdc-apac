@@ -121,7 +121,6 @@ public with sharing class CtrlMessageLogViewListKRDFW {
           sApplySOQL = sApplySOQL.substringBefore('Order By');
           sApplySOQL = sApplySOQL + ' Order By ' + sortField + ' ' + sortDir;
         }
-system.debug(sApplySOQL);        
 		List<MBK_Messages__c> Logs = Database.query(sApplySOQL+' limit 50000');
     	MessageStcon = new ApexPages.StandardSetController(Logs);
     	MessageStcon.setPageSize(LogsSize);
@@ -144,6 +143,8 @@ system.debug(sApplySOQL);
 			cancelData.Status__c = 'Cancel';
 			update cancelData;
 		}catch (System.Exception e){
+			GlobalUtilityDFW gu = GlobalUtilityDFW.getInstance();
+			gu.DebugException(e,userinfo.getUserId());
 			return false;
 		}
 		
