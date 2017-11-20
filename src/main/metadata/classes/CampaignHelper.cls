@@ -1317,11 +1317,11 @@ system.debug('i am here');
     
     if(!tlid.isEmpty() && tlid != null)
     {
-    Toptobotshare=[Select Id,Dealer_ND_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where MBK_Reporting_Partner_User__c in: tlid and Market__c = 'KR'];
+    Toptobotshare=[Select Id,Dealer_ND_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where (MBK_Reporting_Partner_User__c in: tlid or MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c in: tlid) and Market__c = 'KR' and IsActive=true];
     }
     if(DHQshare != null && !DHQshare.isEmpty())
     {
-    dealerhqshare = [Select Id,Dealer_ND_Code__c,Contact.Account.Dealer_Type__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where Dealer_GC_Code__c in: DHQshare and Market__c = 'KR' and Contact.Account.Dealer_Type__c = 'Outlet'];
+    dealerhqshare = [Select Id,Dealer_ND_Code__c,Contact.Account.Dealer_Type__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where Dealer_GC_Code__c in: DHQshare and Market__c = 'KR' and Contact.Account.Dealer_Type__c = 'Outlet' and IsActive=true];
     }
     system.debug('Toptobotshare---'+Toptobotshare);
     
