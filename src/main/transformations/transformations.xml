@@ -183,12 +183,12 @@
 		<token tokenonly="true">OBJECT_DM_REQUEST_ID</token>
     </changetext>
 		<changetext>
-		<filename>objects\Campaign_Member__C.object</filename>
+		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX</token>
 	</changetext>
 		<changetext>
-		<filename>objects\Campaign_Member__C.object</filename>
+		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX</token>
 	</changetext>
