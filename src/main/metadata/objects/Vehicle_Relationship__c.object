@@ -7342,20 +7342,6 @@ AND End reason is null"</description>
         <errorDisplayField>End_Reason__c</errorDisplayField>
         <errorMessage>Once end date has been set for the vehicle relationship, the end reason must be entered.</errorMessage>
     </validationRules>
-	    <webLinks>
-        <fullName>AfterSales_Lead</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>AfterSales Lead</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{
-window.open("{!URLFOR($Site.Prefix)}/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7q&amp;ent=Vehicle_Relationship__c&amp;CF00N0k000000kpsX={!Vehicle_Relationship__c.Name}&amp;CF00N0k000000kpsX_lkid={!Vehicle_Relationship__c.Id}&amp;CF00N2800000IiU23={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;CF00N2800000IiU23_lkid={!Vehicle_Relationship__c.Id}");
-}</url>
-    </webLinks>
     <webLinks>
         <fullName>New_Complaint</fullName>
         <availability>online</availability>
@@ -7371,7 +7357,35 @@ window.open("{!URLFOR($Site.Prefix)}/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=0122
 &amp;cas4_lkid={!Vehicle_Relationship__c.ContactId__c}
 &amp;CF00NN0000000Uktz={!Vehicle_Relationship__c.Vehicle_ID__c}
 &amp;CF00NN0000000Uktz_lkid={!Vehicle_Relationship__c.Vehicle_IDId__c}</url>
+    </webLinks>	
+    <webLinks>
+        <fullName>AfterSales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New AfterSales Leads</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>
+		{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+if('{!User.ContactId}' =='') { 
+
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_VEHICLE_RELATIONSHIP_NAME={!Vehicle_Relationship__c.Name}&amp;OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID={!Vehicle_Relationship__c.Vehicle_ID__c} '); 
+} 
+if('{!User.ContactId}' !='') 
+{ 
+var ContactObject = sforce.connection.query("SELECT Id,AccountId,Account.Name FROM Contact WHERE Id = '{!$User.ContactId}'"); 
+records = ContactObject.getArray("records"); 
+var accid = records[0].AccountID; 
+var accname = records[0].Account.Name; 
+
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID="+accid+"&amp;OBJECT_CASE_CASE_DEALER_ID="+accname+"&amp;OBJECT_VEHICLE_RELATIONSHIP_NAME={!Vehicle_Relationship__c.Name}&amp;OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID={!Vehicle_Relationship__c.Vehicle_ID__c} ") 
+}
+		</url>
     </webLinks>
+
     <webLinks>
         <fullName>New_Vehicle_Relationship</fullName>
         <availability>online</availability>

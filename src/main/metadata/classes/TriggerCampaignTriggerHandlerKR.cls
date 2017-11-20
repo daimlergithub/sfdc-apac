@@ -8,7 +8,8 @@ public class TriggerCampaignTriggerHandlerKR implements TriggerHandlerIf
         if(trigger.isAfter && trigger.isInsert)
         {
             CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate); 
-            CampaignHelper.shareCampaignPlainingAndDesignRecordsWithDealers(Trigger.new);    
+            CampaignHelper.shareCampaignPlainingAndDesignRecordsWithDealers(Trigger.new);  
+            CampaignHelper.afterInsertSharefromSCtoMan(Trigger.new);   			
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
