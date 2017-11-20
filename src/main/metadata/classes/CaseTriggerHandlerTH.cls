@@ -11,17 +11,23 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
         CaseHelperTH caseHelperTHd = new CaseHelperTH();
         
         if(trigger.isinsert && trigger.isbefore){
-            caseHelperTHd.countRepeatComplaintCase(trigger.new,true);
-            caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
-            
+            if(CaseHelperTH.booleanCampaignUpdate){
+            system.debug('*****************case1');
+                CaseHelperTH.booleanCampaignUpdate=false;
+                caseHelperTHd.countRepeatComplaintCase(trigger.new,true);
+                caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
+            }
+        }
+        else if(trigger.isupdate &&trigger.isbefore){
+           if(CaseHelperTH.booleanCampaignUpdate){
+                CaseHelperTH.booleanCampaignUpdate=false;
+                system.debug('*****************case2');
+                CaseHelperBase.updatemarket(Trigger.New);
+                caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
            }
-           else if(trigger.isupdate &&trigger.isbefore){
-           CaseHelperBase.updatemarket(Trigger.New);
-           caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
-           
-           }
+        }
           
-         if (trigger.isAfter){
+        if (trigger.isAfter){
             if (trigger.isDelete){
                caseHelperTHd .calculateComplaintAmount(trigger.old);
             }
@@ -34,6 +40,11 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
             }
            
         }
+        //share Record start
+        if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){
+            CaseHelperTH.ShareRecordswithDealers(Trigger.new,Trigger.isupdate);
+        }
+        //share Record end
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
