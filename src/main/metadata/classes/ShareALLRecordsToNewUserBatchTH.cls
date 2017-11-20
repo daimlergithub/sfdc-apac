@@ -13,6 +13,7 @@ global ShareALLRecordsToNewUserBatchTH (ID userID, set<id> lstofuser, String sob
         }
         existUserIDs = userIDs.left(userIDs.length()-1);
         
+		
 }
 
 global Database.QueryLocator start(Database.BatchableContext BC){

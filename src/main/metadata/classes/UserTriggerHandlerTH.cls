@@ -12,7 +12,7 @@ public class UserTriggerHandlerTH implements TriggerHandlerIf {
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        // Implementation to be added as required in market.
+				// Implementation to be added as required in market.
     }
 
 
