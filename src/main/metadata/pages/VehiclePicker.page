@@ -161,6 +161,7 @@
              $scope.c1_vehicleMilage = $scope.leadVehicles.CurrentVehicle1.Mileage;
            if($scope.leadVehicles.CurrentVehicle1.RecordType != "")
              $scope.c1_RecType = $scope.leadVehicles.CurrentVehicle1.RecordType;
+             console.log('Vehicle Record Type'+$scope.c1_RecType)
        }
        
        /*CURRENT VEHICLE2 : Vehicle Intitialization details*/
@@ -836,7 +837,7 @@
         <td style="vertical-align: top;padding=20px">
         {!$label.Vehicle_Picker_Current1}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)"  class="btn" value="{!$label.New_Button}"/>
-        &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New' || c1_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
+        &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle1')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle1Details != ''}}" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/> 
         <!----------- CURRENT VEHICLE1 DETAILS SECTION -------->
