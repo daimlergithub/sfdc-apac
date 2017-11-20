@@ -2362,6 +2362,11 @@
 </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>True</editable>
 	    <field>Campaign.Market__c</field>
         <readable>True</readable>
