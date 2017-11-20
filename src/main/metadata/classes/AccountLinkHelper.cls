@@ -57,7 +57,7 @@ public class AccountLinkHelper
             
         for(Account_Link__c als : accountLinkList)
         {
-            if ( als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailPersonRecordTypeId || als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailCompanyRecordTypeId 
+            if ( (als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailPersonRecordTypeId) || (als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailCompanyRecordTypeId) 
                 && (als.Retail_Gender__c!= oldals.get(als.Id).Retail_Gender__c || als.Retail_UCID__c!= oldals.get(als.Id).Retail_UCID__c || 
                     als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
                     als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
