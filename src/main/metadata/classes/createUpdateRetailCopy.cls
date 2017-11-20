@@ -384,7 +384,13 @@ public class createUpdateRetailCopy
         system.debug('updateacclnkList<><><><><' + updateacclnkList);
         if(!updateacclnkList.isEmpty() && updateacclnkList != null)
         {
-            update updateacclnkList;
+            try{
+            database.update(updateacclnkList,false);
+            }
+            catch(Exception e)
+            {
+            
+            }
         }
     }
     public static void createUpdateRetailCopyAccountCreation(set<Id> accIds ,string corelationID)
