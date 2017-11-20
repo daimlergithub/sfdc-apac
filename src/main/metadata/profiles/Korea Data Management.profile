@@ -7741,6 +7741,11 @@
         <field>Campaign.Media_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Min_Car_Age__c</field>
