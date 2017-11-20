@@ -405,10 +405,21 @@
             
             if(vehicleRelSoql.endsWith('AND  ') || vehicleRelSoql.endsWith('AND ')){
                 vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ').removeEnd('AND ');
+                if(vehicleRelSoql.Contains('OR')){
+                for(integer i=0;i<vehicleRelSoql.countMatches('OR') ;i++){
+                       vehicleRelSoql = vehicleRelSoql + ')';
+                }
+                }
+                system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
             }
             
             if(leadSoql.length()>leadLength){
                 //saveQuery += 'AND Id IN('+leadSoql+')';
+                if(leadSoql.Contains('OR')){
+               for(integer i=0;i<leadSoql.countMatches('OR') ;i++){
+                       leadSoql = leadSoql + ')';
+                }
+                }
                 system.debug('FinalLeadSoql'+leadSoql);
                 List<Lead__C> leadList = Database.query(leadSoql+ 'limit 10000');
                 for(Lead__C vr : leadList){
@@ -429,6 +440,11 @@
             if(AccountLinkSoql.length()>accLinkLength){
                 AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
                 //saveQuery += 'AND Id IN('+AccountLinkSoql+')';
+                if(AccountLinkSoql.Contains('OR')){
+                for(integer i=0;i<AccountLinkSoql.countMatches('OR') ;i++){
+                       AccountLinkSoql = AccountLinkSoql + ')';
+                }
+                }
                 system.debug('FianlAccountLinkSoql '+AccountLinkSoql);
                 List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
                 for(Account_Link__C vr : accLinkList){
@@ -450,6 +466,11 @@
     
             if(AddressSoql.length()>addressLength){
                 //saveQuery += 'AND Id IN('+AddressSoql+')';
+                 if(AddressSoql.Contains('OR')){
+                for(integer i=0;i<AddressSoql.countMatches('OR') ;i++){
+                       AddressSoql = AddressSoql + ')';
+                }
+                }
                 system.debug('FinalAddressSoql '+AddressSoql);
                 List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
                 for(Address__c vr : addList ){
@@ -470,6 +491,11 @@
         
             if(campaignMemSoql.length()>campLength){
                 //saveQuery += 'AND Id IN('+campaignMemSoql+')';
+                if(campaignMemSoql.Contains('OR')){
+                for(integer i=0;i<campaignMemSoql.countMatches('OR') ;i++){
+                       campaignMemSoql = campaignMemSoql + ')';
+                }
+                }
                 system.debug('FinalcampaignMemSoql'+campaignMemSoql);
                 List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
                 for(Campaign_Member__c vr : camMemList ){
@@ -490,6 +516,11 @@
     
             //for recall object records
             if(recallSoql.length()>recallLength){
+                if(recallSoql.Contains('OR')){
+                for(integer i=0;i<recallSoql.countMatches('OR') ;i++){
+                       recallSoql = recallSoql + ')';
+                }
+                }
                 System.debug('recallSoqlFinal>>>>'+recallSoql);
                // saveQuery += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
                 List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 8000');
@@ -505,6 +536,14 @@
             //for vehicleRetailCopy records
             if(VehRetCopySoql.length()>VehRetCopyLength){
                 VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Service_Advisor__c', 'Service_Advisor__r.Name').replace('Service_Dealer__c', 'Service_Dealer__r.name');
+                if(VehRetCopySoql.Contains('OR')){
+                
+                
+                
+                for(integer i=0;i<VehRetCopySoql.countMatches('OR') ;i++){
+                       VehRetCopySoql = VehRetCopySoql + ')';
+                }
+                }
                 system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
                 //saveQuery += 'AND Vehicle_Id__c IN ('+VehRetCopySoql+') ';
                 List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 10000');
@@ -532,6 +571,12 @@
             
             if(vehicleRelSoql.length()>vehRelLength && segmentationBase != 'Vehicle'){
                 vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
+                if(vehicleRelSoql.Contains('OR')){
+                for(integer i=0;i<vehicleRelSoql.countMatches('OR') ;i++){
+                       vehicleRelSoql = vehicleRelSoql + ')';
+                }
+                
+                }
                 system.debug('vehiclerelSoqlAtCommon>>>>'+vehicleRelSoql);
                 List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
                 For(Vehicle_relationship__C vr : vehRelList){
@@ -555,6 +600,12 @@
             
             if(accountSoql.length()>accountLenght && segmentationBase != 'Customer'){
                 system.debug('AccountSoqlatCommon ' + accountSoql);
+                if(accountSoql.Contains('OR')){
+                
+                for(integer i=0;i<accountSoql.countMatches('OR') ;i++){
+                       accountSoql = accountSoql + ')';
+                }
+                }
                 List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
                 for(Account acc : accList){
                     accountIdSet.add(acc.Id);
@@ -566,6 +617,12 @@
             }
             
             if(RetailTaskSoql.length()>retailaskLength && segmentationBase != 'Contract'){
+            if(RetailTaskSoql.Contains('OR')){
+                for(integer i=0;i<RetailTaskSoql.countMatches('OR') ;i++){
+                       RetailTaskSoql = RetailTaskSoql + ')';
+                }
+                
+                }
                  system.debug('FinalRetaiTaskSoqlatCommmon>>>>>>>>'+RetailTaskSoql);
                  List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000'); 
                  for(Retail_Task__c rt : retTaskList){
@@ -597,7 +654,13 @@
                 if(saveQuery.endsWith('AND ') || saveQuery.endsWith('AND  ')){
                 saveQuery = saveQuery.replace('AND ','');
                 }
+                if(saveQuery.countMatches('OR') >0){
+                for(integer i=0;i<saveQuery.countMatches('OR') ;i++){
+                       saveQuery = saveQuery + ')';
+                }
+                }
                 system.debug('++++++++++++'+saveQuery );
+                
                 List<account> accList = Database.Query(saveQuery+' LIMIT 10000');
                 Map<Id,Account> accIdAccountMap = new Map<Id,Account>();
                 for(Account acc : accList){
@@ -656,6 +719,14 @@
                 if(saveQuery.endsWith('AND ') || saveQuery.endsWith('AND  ')){
                 saveQuery = saveQuery.replace('AND ','');
                 }
+                if(saveQuery.endsWith('  ) ') || saveQuery.endsWith(')') || saveQuery.containsAny(')') ){
+                saveQuery = saveQuery.replace(')','');
+                }
+                if(saveQuery.countMatches('OR') >0){
+                for(integer i=0;i<saveQuery.countMatches('OR') ;i++){
+                       saveQuery = saveQuery + ')';
+                }
+                }
                  system.debug('++++++++++++'+saveQuery );
                 //List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
                 List<Vehicle_relationship__C> vehRelList = Database.query(saveQuery + ' limit 3000');
@@ -687,6 +758,11 @@
                saveQuery = saveQuery.replace('AND AND','AND');
                if(saveQuery.endsWith('AND     ')){
                 saveQuery = saveQuery.replace('AND     ','');
+                }
+                if(saveQuery.countMatches('OR') >0){
+                for(integer i=0;i<saveQuery.countMatches('OR') ;i++){
+                       saveQuery = saveQuery + ')';
+                }
                 }
                 
                  system.debug('++++++++++++'+saveQuery );
@@ -793,6 +869,9 @@
                         if(vehicleRelFind && vehicleFind && logic == '' && cluster == 'vehicle'){
                             logic = ' AND ';
                         }
+                        else if(vehicleRelFind && vehicleFind && logic == '' && cluster == 'vehicle'){
+                            logic = ' OR ';
+                        }
                         
                         if(vehicleFields.contains(field)){
                             field = 'Vehicle_ID__r.' + field;
@@ -837,10 +916,35 @@
                         }
                         else{
                             subSoql += logic + ' ';
+                            system.debug('++inside bracket+++'+subSoql);
                         }
+                        
+                        if(subSoql.endsWith('OR ') || subSoql.endsWith('OR  ') ){
+                        
+                        subSoql = '('+subSoql ;
+                        //subSoql = subSoql + ')';
+                       
+                        system.debug('++++++++++++++++'+'Working');
+                        system.debug('++++First++++++++++++'+'subSoql');
+                        }
+                        /*else{
+                       if(subSoql.contains('(')){
+                        subSoql = subSoql + ')';
+                        system.debug('++++++Second++++++++++'+subSoql);
+                        }
+                        } */
+                       /* 
+                       
+                       if(subSoql.endsWith(')') || subSoql.endsWith('  )')){
+                        
+                        subSoql = subSoql.replace('  )','');
+                        
+                        } */
                         System.debug('finalsubsoql'+subSoql);
                         if(cluster == 'account'){
-                            accountSoql += subSoql;
+                            
+                           accountSoql += subSoql;
+                           system.debug('+++++++++++++++'+accountSoql );
                             if(segmentationBase == 'customer'){
                             saveQuery += subSoql;
                             }
