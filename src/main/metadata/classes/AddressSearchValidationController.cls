@@ -38,7 +38,7 @@ public class AddressSearchValidationController
     public boolean Address_Validated_Flag {get;set;}   
     Public Boolean Validation;
     public Boolean AutoFill {get;set;}
-	public Boolean DisplayAutoFill {get;set;}
+    public Boolean DisplayAutoFill {get;set;}
     public map<string,string> labelNvalue=new map<string,string>();
     // KOREA related parameters - Start
     public String market{get;set;}
@@ -944,7 +944,7 @@ public class AddressSearchValidationController
     
     public void AutoFillAddress(){
         AutoFill = true;
-		DisplayAutoFill = true; 
+        DisplayAutoFill = true; 
         validateAddressByZipCode();
         
     }
@@ -2329,7 +2329,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
                 endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
             }
-			else if(recordType == 'Company'){
+            else if(recordType == 'Company'){
                  endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
                  endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
                  endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
@@ -2372,38 +2372,62 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(market == System.Label.TH)
             {
-                if(hmCountryCode!= '' && hmphoneNumber!='')
-                {                      
-                    objAccount.Individual_Home_Phone__c =hmCountryCode+ hmphoneNumber;
+                        //phone number format started
+            
+            if(!String.isBlank(hmphoneNumber)){
+                string phnumber=validatephonenumber(hmphoneNumber);
+                 if(!Pattern.matches('[0-9]{8}',phnumber)){
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Invalid Home Phone Number  should be 11 digits including +66 or 8 digits without +66'));
+                        return null;
+                    }
+                    else{
+                        objAccount.Individual_Home_Phone__c =hmCountryCode+ phnumber;
+                    }
                 }
-                else
-                {
-                    objAccount.Individual_Home_Phone__c = '';
+            else{
+                objAccount.Individual_Home_Phone__c = '';
+            }
+            
+            if(!String.isBlank(wkphoneNumber)){
+                 string phnumber=validatephonenumber(wkphoneNumber);
+                 if(!Pattern.matches('[0-9]{8}',phnumber)){
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'work Phone Number should be 11 digits including +66 or 8 digits without +66'));
+                        return null;
+                    }
+                    else{
+                        objAccount.Work_Phone__c = wkCountryCode+ phnumber;
+                    }
                 }
-                if(wkCountryCode!='' && wkphoneNumber!= '')
-                {                         
-                    objAccount.Work_Phone__c = wkCountryCode+ wkphoneNumber;
+            else{
+                objAccount.Work_Phone__c = '';
+            }
+            if(!String.isBlank(mbphoneNumber)){
+                 string phnumber=validatephonenumber(mbphoneNumber);
+                 if(!Pattern.matches('[0-9]{9}',phnumber)){
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'mobile Number  should be 12 digits including +66 or 9 digits without +66'));
+                        return null;
+                    }
+                    else{
+                        objAccount.Mobile__c=mbCountryCode+ phnumber;
+                    }
                 }
-                else
-                {
-                    objAccount.Work_Phone__c = '';
+            else{
+               objAccount.Mobile__c = '';
+            }
+            if(!String.isBlank(faxphoneNumber)){
+                 string phnumber=validatephonenumber(faxphoneNumber);
+                 if(!Pattern.matches('[0-9]{8}',phnumber)){
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'FAX Number  should be 11 digits including +66 or 8 digits without +66'));
+                        return null;
+                    }
+                    else{
+                       objAccount.fax=faxCountryCode+phnumber;
+                    }
                 }
-                if(mbCountryCode!='' && mbphoneNumber!= '')
-                {             
-                    objAccount.Mobile__c=mbCountryCode+ mbphoneNumber;   
-                }
-                else
-                {
-                    objAccount.Mobile__c = '';
-                } 
-                if(faxCountryCode!='' && faxphoneNumber!= '')
-                {              
-                    objAccount.fax=faxCountryCode+ faxphoneNumber;
-                }
-                else
-                {
-                    objAccount.fax = '';
-                }
+            else{
+              objAccount.fax = '';
+            }
+
             }         
             
            String endUrl=generateCDMEndPointURLTH();
@@ -2511,7 +2535,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
                     errorFlag=false;
         } 
-	//SN20171120- the following is being removed objAccount.Email__c
+    //SN20171120- the following is being removed objAccount.Email__c
      if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) ){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError));       
                     errorFlag=false;
@@ -2563,7 +2587,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Province__c = cWrapper.add.Province__c;
                 AddressObj.City__c = cWrapper.add.City__c;
                 AddressObj.District__c = cWrapper.add.District__c;
-				AddressObj.Block__c= cWrapper.add.Block__c;
+                AddressObj.Block__c= cWrapper.add.Block__c;
                 AddressObj.ZipCode__c= cWrapper.add.ZipCode__c; 
                 AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;
                 AddressObj.Address_Line_2__c= cWrapper.add.Address_Line_2__c;  
@@ -2572,6 +2596,24 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
         }           
     } 
+//This will validate the Thailand phone number format
+    public String validatephonenumber(String phnumber){
+        integer i;
+                string phon='';
+                for(i=0;i<phnumber.length();i++){
+                        if(phnumber.substring(i,i+1)=='0'){
+                            continue;
+                         }else
+                         {
+                           phon=phnumber.substring(i);
+                           
+                           break;
+                         }
+                    }
+                    
+        return phon;
+        
+    }
 
 /**  Save Account based on two scenarios
 * 1. With Validated Address information record.
