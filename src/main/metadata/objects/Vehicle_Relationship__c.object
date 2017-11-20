@@ -7342,20 +7342,6 @@ AND End reason is null"</description>
         <errorDisplayField>End_Reason__c</errorDisplayField>
         <errorMessage>Once end date has been set for the vehicle relationship, the end reason must be entered.</errorMessage>
     </validationRules>
-	    <webLinks>
-        <fullName>AfterSales_Lead</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>AfterSales Lead</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{
-window.open("{!URLFOR($Site.Prefix)}/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7q&amp;ent=Vehicle_Relationship__c&amp;CF00N0k000000kpsX={!Vehicle_Relationship__c.Name}&amp;CF00N0k000000kpsX_lkid={!Vehicle_Relationship__c.Id}&amp;CF00N2800000IiU23={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;CF00N2800000IiU23_lkid={!Vehicle_Relationship__c.Id}");
-}</url>
-    </webLinks>
     <webLinks>
         <fullName>New_Complaint</fullName>
         <availability>online</availability>
