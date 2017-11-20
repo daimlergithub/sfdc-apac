@@ -22,6 +22,20 @@ public class TriggerAddressTriggerHandlerTH implements TriggerHandlerIf
             AddressHelperTH.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
             }
             
+            if(isAfter && isinsert){
+            if(TriggerRecursiveCheck.run){
+                TriggerRecursiveCheck.runOnce();
+                AddressHelperTH.updateAddressCDM(trigger.new,Label.TH,Label.UpdateContext);
+            }
+            }
+
+            if(isafter && isupdate){
+            if(TriggerRecursiveCheck.run){
+                TriggerRecursiveCheck.runOnce();
+                AddressHelperTH.updateAddressCDM(trigger.new,Label.TH,Label.UpdateContext);
+            }
+            }
+            
             if ((Trigger.isAfter && Trigger.isUpdate)){
                 
                 AddressHelperTH.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
@@ -42,15 +56,11 @@ public class TriggerAddressTriggerHandlerTH implements TriggerHandlerIf
                 /* Data Update MD Fix - Santosh Mohanty*/
                 AddressHelperTH.updatemarket(Trigger.New);         
                 AddressHelperTH.updateAddressOnAccount(trigger.new);
-            }
-        
+            }       
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)        
     {                
         //Integration related code to be added here.
-    }
-    
-    
-    
+    }  
 }

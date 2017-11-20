@@ -2396,6 +2396,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>taskRecordViewOnCampaignController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>testusernotification</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -2411,7 +2415,105 @@
         <apexClass>SubmitSuveryTaken</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>ManageTasks</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
+<classAccesses>
+        <apexClass>DealerSearch</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
     <custom>true</custom>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Status__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Courtesy_Greeting__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Work_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.home_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>CampaignMember.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign_Member__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Car_Model__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Contact.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Dealer_Locator__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>DM_Material__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>DM_Request__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Recall__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Rejected_Duplicate_Log__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Retail_Task__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Survey_Question__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Lead__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>True</editable>
         <field>Case.Market__c</field>
@@ -12607,20 +12709,20 @@
         <field>Custom_Debug_Info__c.Custom_Debug_Log_Data__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+   <fieldPermissions>
+        <editable>true</editable>
         <field>DM_Material__c.Active__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.Brand__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.Car_Model__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12630,12 +12732,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Material__c.DecreaseStockAmount__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.Deployment_Due_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12645,12 +12747,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Material__c.IncreaseStockAmount__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.Label_Printing_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12663,9 +12765,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DM_Material__c.Model__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12673,19 +12775,19 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.Presentation_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.Print_Due_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.SentTotal__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12695,42 +12797,42 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Material__c.Stock_Alert__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Material__c.Stock__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.Threshold__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Material__c.Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Actual_DM_Material1__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Actual_DM_Material2__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Actual_DM_Material3__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Additional_Address__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12743,9 +12845,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.AfterSales_Department__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12758,9 +12860,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Campaign__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12768,9 +12870,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Case_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12778,9 +12880,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Comment__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12793,9 +12895,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Customer_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12808,9 +12910,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DM_Request__c.Delivery_Type__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12818,19 +12920,19 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Expected_DM_Material1__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Expected_DM_Material2__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Expected_DM_Material3__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12848,14 +12950,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Lead__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.MBK_Channel__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12863,14 +12965,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.MD__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Marketing_Department__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12893,9 +12995,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Receipient_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12903,9 +13005,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Sales_Department__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12923,9 +13025,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Sent_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -12933,19 +13035,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Status2__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Status3__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Status__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12953,9 +13055,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.TitleOfHonor__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25242,6 +25344,10 @@
         <recordType>Campaign.CAC_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Campaign Execution MBK - Wholesale to Dealer</layout>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Campaign-Campaign Execution Simple layout</layout>
         <recordType>Campaign.Campaign_Execution</recordType>
     </layoutAssignments>
@@ -25973,6 +26079,14 @@
         <layout>Template__c-Template Layout</layout>
         <recordType>Template__c.Callscript</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Template__c-KakaoTalk</layout>
+        <recordType>Template__c.KakaoTalk</recordType>
+</layoutAssignments>
+<layoutAssignments>
+        <layout>Task-KakaoTalk</layout>
+        <recordType>Task.KakaoTalk</recordType>
+</layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-Template Layout</layout>
         <recordType>Template__c.ChildrenMMSTemplate</recordType>
@@ -27575,9 +27689,21 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>taskRecordViewOnCampaign</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>usernotificationsetting</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>ManageTasks</apexPage>
+        <enabled>true</enabled>
+</pageAccesses>
+<pageAccesses>
+        <apexPage>DealerSearchPage</apexPage>
+        <enabled>true</enabled>
+</pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
@@ -27713,6 +27839,11 @@
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28103,7 +28234,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.DM</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28123,12 +28254,12 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.MMS</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Task.OB_Call</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28138,7 +28269,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.SMS</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28158,7 +28289,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.eDM</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28170,6 +28301,16 @@
         <recordType>Template__c.ChildrenMMSTemplate</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Template__c.KakaoTalk</recordType>
+        <visible>true</visible>
+</recordTypeVisibilities>
+<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.KakaoTalk</recordType>
+        <visible>false</visible>
+</recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>

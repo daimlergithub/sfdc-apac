@@ -42,7 +42,7 @@ public with sharing class VehicleEditExtension {
              vehicleId= ApexPages.currentPage().getParameters().get('id');
          
            
-            vehicle =[SELECT id,Name,UsVIN__c,Brand__c,EuroVIN__c,Competitor_Brand__c,Competitor_Model__c,Model_Description__c,New_Used__c,Related_contact__c,Finance_Method__c,Related_From__c,Related_To__c,Portal_Vehicle_ID__c,InsuranceExpiryDate__c,MOT_Expired_Date__c,Vehicle_Role__c,FirstRegistrationDate__c,Transmission__c,RegistrationNo__c,System_Data_Source__c,VehicleStatus__c,ProductionDate__c,NextServiceDate__c,NextInspectionDate__c,recordtypeid,recordtype.name,Class__c,Model__c,Range__c,Modification_Package__c,Vehicle_Group__c,BaumusterEx__c,OptionCode__c,Colour__c,EngineNumber__c,Trim__c,CurrentMileage__c,CylinderCapacity__c,Fuel__c,Height__c,Length__c,Width__c,Weight__c,ModelYear__c,National_Model__c,VehicleAge__c,Product_Model__c,Category_Code__c FROM Vehicle__c Where id =:vehicleId limit 1];
+            vehicle =[SELECT id,Market__c,Name,UsVIN__c,Brand__c,EuroVIN__c,Competitor_Brand__c,Competitor_Model__c,Model_Description__c,New_Used__c,Related_contact__c,Finance_Method__c,Related_From__c,Related_To__c,Portal_Vehicle_ID__c,InsuranceExpiryDate__c,MOT_Expired_Date__c,Vehicle_Role__c,FirstRegistrationDate__c,Transmission__c,RegistrationNo__c,System_Data_Source__c,VehicleStatus__c,ProductionDate__c,NextServiceDate__c,NextInspectionDate__c,recordtypeid,recordtype.name,Class__c,Model__c,Range__c,Modification_Package__c,Vehicle_Group__c,BaumusterEx__c,OptionCode__c,Colour__c,EngineNumber__c,Trim__c,CurrentMileage__c,CylinderCapacity__c,Fuel__c,Height__c,Length__c,Width__c,Weight__c,ModelYear__c,National_Model__c,VehicleAge__c,Product_Model__c,Category_Code__c FROM Vehicle__c Where id =:vehicleId limit 1];
             system.debug('vehicleeeeeeeeee'+vehicle);
             recrdType=vehicle.recordtype.name;
             if(recrdType == 'MB'){
@@ -317,15 +317,16 @@ public with sharing class VehicleEditExtension {
         }
         
                 try{  
-                    update vehicle;                       
+                    update vehicle;
+                    nextPage = new PageReference('/' + vehicle.Id);
+                    nextPage.setRedirect(true);					
                   }catch(DmlException  e){
                    string error=e.getMessage();
                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
                    System.debug('Exception encountered...' +error);
                 }
         
-                nextPage = new PageReference('/' + vehicle.Id);
-                nextPage.setRedirect(true);
+                
                 system.debug('redirecturl'+nextPage);
               }
          
@@ -395,6 +396,8 @@ public with sharing class VehicleEditExtension {
                 try
                 {
                  update vehicle;
+                 nextPage = new PageReference('/apex/Create_Vehicle');
+                 nextPage.setRedirect(true);
                 }
                 Catch(DmlException  e){
                     string error=e.getDMLMessage(0);
@@ -402,8 +405,7 @@ public with sharing class VehicleEditExtension {
                     System.debug('Exception encountered in Save...' +error);  
                     return null; 
                 }
-                nextPage = new PageReference('/apex/Create_Vehicle');
-                nextPage.setRedirect(true);
+                
                 system.debug('redirecturl'+nextPage);
          } 
                    

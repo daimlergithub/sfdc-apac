@@ -2135,8 +2135,30 @@ Modify Reason:
    <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;,MD__c =&apos;MY&apos;), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
         <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
     </validationRules>
+	<webLinks>
+        <fullName>Record_Share</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Record Share</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var market = '{!DM_Material__c.MD__c}'; 
+
+
+if(market == 'KR') 
+{ 
+var myWindow = window.open("/apex/DealerSearchPage?Id={!DM_Material__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+}else 
+{ 
+alert('This button is for Korea'); 
+}</url>
+
+    </webLinks>
 </CustomObject>

@@ -95,6 +95,7 @@ public class TriggerAccountTriggerHandlerMYTest{
       system.runAs(us1 ){
     
     insert accountList;
+	TriggerRecursiveCheck.run = true;								 
     update accountList; 
     }
  } 

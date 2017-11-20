@@ -1512,7 +1512,7 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <offsetFromField>Case.DeadLine__c</offsetFromField>
-            <timeLength>0</timeLength>
+            <timeLength>-1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>

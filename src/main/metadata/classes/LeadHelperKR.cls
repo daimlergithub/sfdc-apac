@@ -831,9 +831,8 @@ public class LeadHelperKR
                       }
            }
     }*/
-	
 	//---------------------------- Lead Share - SFDCKR-964 ----------------------------
-    // Added By - Sreenivasareddy
+		// Added By - Sreenivasareddy
     
     public static void leadsharehierarchy(List<lead__c> Lstnewlead) {
         list<id> ownerids = new list<id>();

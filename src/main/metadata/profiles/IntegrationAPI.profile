@@ -3002,12 +3002,45 @@
         <apexClass>usernotificationsetting</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>ManageTasks</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
+<classAccesses>
+        <apexClass>DealerSearch</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
     <custom>true</custom>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.ASLead_Notification_Timing__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Courtesy_Greeting__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Work_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.home_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile_Phone_Checkbox__c</field>
+        <readable>true</readable>
+</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
@@ -8688,6 +8721,16 @@
         <field>Campaign.Media_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Min_Car_Age__c</field>
@@ -11596,6 +11639,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Message__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16678,6 +16726,11 @@
         <field>Lead__c.Marketing_Opt_Out__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Mobile__c</field>
@@ -17051,6 +17104,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Quotation_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Quotation_Model_History__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -24688,6 +24746,11 @@
         <field>Task.MTH_Penetration__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Task.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Next_Steps__c</field>
@@ -25389,9 +25452,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.Persona_Assigned__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -26893,10 +26956,23 @@
         <field>Vehicle__c.last_updated__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
+	<layoutAssignments>
+        <layout>Template__c-KakaoTalk</layout>
+        <recordType>Template__c.KakaoTalk</recordType>
+</layoutAssignments>
+<layoutAssignments>
+        <layout>Task-KakaoTalk</layout>
+        <recordType>Task.KakaoTalk</recordType>
+</layoutAssignments>
+ <layoutAssignments>
         <layout>Account-Company Layout</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
@@ -27032,6 +27108,10 @@
     <layoutAssignments>
         <layout>Campaign-Campaign Execution Simple layout</layout>
         <recordType>Campaign.Campaign_Execution</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Execution Simple layout</layout>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Read Only Layout</layout>
@@ -27766,6 +27846,10 @@
         <layout>Task-SMS</layout>
         <recordType>Task.SMS</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Task-SMS with History Response</layout>
+        <recordType>Task.KaKao</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Task-SSI Task</layout>
         <recordType>Task.SSI_Task</recordType>
@@ -27812,6 +27896,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-Template Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Template__c-Template Layout</layout>
+        <recordType>Template__c.KaKao</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-eDM Template</layout>
@@ -29561,13 +29649,21 @@
         <apexPage>usernotificationsetting</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>ManageTasks</apexPage>
+        <enabled>true</enabled>
+</pageAccesses>
+<pageAccesses>
+        <apexPage>DealerSearchPage</apexPage>
+        <enabled>true</enabled>
+</pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Company</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>
+<recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.CompanyManualMerge</recordType>
         <visible>false</visible>
@@ -29706,6 +29802,11 @@
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -30108,6 +30209,11 @@
         <recordType>Task.IB_Call</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.KaKao</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.MBDA_Survey</recordType>
@@ -30163,9 +30269,24 @@
         <recordType>Template__c.ChildrenMMSTemplate</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Template__c.KakaoTalk</recordType>
+        <visible>true</visible>
+</recordTypeVisibilities>
+<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.KakaoTalk</recordType>
+        <visible>true</visible>
+</recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Template__c.KaKao</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -30179,9 +30300,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Template__c.eDM</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

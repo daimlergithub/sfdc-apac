@@ -8,7 +8,7 @@
 ** Modified By : Mohammed Touseef Ahmed
 ** Modified date :2017-03-12
 ** HN20171008- to set status for person account as Prospect 
-
+ 
 History:
     Author                         Date                    Description
     Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
@@ -37,7 +37,8 @@ public class AddressSearchValidationController
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}   
     Public Boolean Validation;
-    //public Boolean AutoFill {get;set;}
+    public Boolean AutoFill {get;set;}
+	public Boolean DisplayAutoFill {get;set;}
     public map<string,string> labelNvalue=new map<string,string>();
     // KOREA related parameters - Start
     public String market{get;set;}
@@ -128,7 +129,7 @@ public class AddressSearchValidationController
         public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
     
         public AddressSearchValidationController(ApexPages.StandardController controller){
-        //AutoFill = false;
+        AutoFill = false;
         objAccount= new Account();
         objPersonAccount= new Account();
         objContact=new contact();
@@ -941,11 +942,12 @@ public class AddressSearchValidationController
       }  
     }
     
-    /*public void AutoFillAddress(){
+    public void AutoFillAddress(){
         AutoFill = true;
+		DisplayAutoFill = true; 
         validateAddressByZipCode();
         
-    }*/
+    }
     
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
@@ -980,7 +982,7 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
         else if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
         {           
             crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-            response =  UtilWebservice.validateAddressByZipCode(AddressObj);
+            response =  UtilWebservice.validateAddressByZipCode(AddressObj,false);
            
             if(response != null && response.ValidationStatus == 'OK')
             {
@@ -1139,14 +1141,69 @@ EP/Tolerant for Validation.
     
     public List<addressSelectionWrapper> mapAddressResponse{get; set;}
     
-    public void ValidateAddressSearchCallout(Address__c AddressObj){ 
+     public void ValidateAddressSearchCallout(Address__c AddressObj){ 
         mapAddressResponse = new List<addressSelectionWrapper>();     
         system.debug('recordType 10:'+ objPersonAccount.Mobile__c);  
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-        response =  UtilWebservice.validateAddressByZipCode(AddressObj);
-        //system.debug('response >> 1:'+response);
+        response =  UtilWebservice.validateAddressByZipCode(AddressObj,Autofill);
+        system.debug('response >> 1:'+response);
         //system.debug('response >> 2:'+response.Addresses.size());
-        if(response != null && response.ValidationStatus == 'OK'){
+        if(response != null && response.AutoFillMode && AutoFill){
+             for(Integer i=0;i<response.Addresses.size();i++){                
+                Address__c AddressObjtable = new Address__c(); 
+                Address_Validated_Flag = true;
+                if(response.Addresses[i].ZipCode != null && response.Addresses[i].ZipCode != ''){           
+                AddressObjtable.ZipCode__c =  response.Addresses[i].ZipCode;
+                }else {
+                AddressObjtable.ZipCode__c = AddressObj.ZipCode__c;
+                }
+                if(response.Addresses[i].ValidFields != null && response.Addresses[i].ValidFields != '' && response.Addresses[i].Valid){
+                    String ValidStr = response.Addresses[i].ValidFields;
+                    system.debug('ValidStr >> :'+ValidStr);
+                    string province;   
+                    Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                    UtilAddressTranslation.gettranslatedvalues(Market);
+                    if(addtrmapUpdate.containsKey(AddressObjtable.Province__c)){
+                        province = addtrmapUpdate.get(AddressObjtable.Province__c);
+                    }
+                    if(ValidStr.contains('Address_Line_1__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.Address_Line_1__c = response.Addresses[i].Address_Line_1;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtable.Address_Line_1__c);
+                    }
+                    if(ValidStr.contains('Address_Line_2__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.Address_Line_2__c = response.Addresses[i].Address_Line_2;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtable.Address_Line_2__c);
+                    }
+                    if(ValidStr.contains('Block__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.Block__c = response.Addresses[i].Block;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtable.Block__c);
+                    }
+                    if(ValidStr.contains('City__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.City__c = response.Addresses[i].City;
+                       //AddressObjtemp.City__c = response.Addresses[i].City;
+                        system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtable.City__c);
+                    }
+                    if(ValidStr.contains('District__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.District__c = response.Addresses[i].District;
+                        system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtable.District__c);
+                    }
+                    if(ValidStr.contains('Province__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.Province__c = response.Addresses[i].Province;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtable.Province__c);
+                    }
+                             
+                }
+                mapAddressResponse.add(new addressSelectionWrapper(AddressObjtable));
+             } 
+             Autofill = false;  
+        }
+        else if(response != null && response.ValidationStatus == 'OK'){
             for(Integer i=0;i<response.Addresses.size();i++){                
                 Address__c AddressObjtemp = new Address__c(); 
                 Address_Validated_Flag = true;                
@@ -1326,7 +1383,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     public String ValidateAddressCode(Address__c Address)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-        response =  UtilWebservice.validateAddressByZipCode(Address);       
+        response =  UtilWebservice.validateAddressByZipCode(Address,false);       
         if(response != null && response.ValidationStatus == 'OK')
         {
             if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
@@ -2233,16 +2290,6 @@ If the user is Saving  same address which matches the fields returned by toleran
                 endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
                 endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
                 endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
-                //SN20171108- This is interim solution
-                /*
-                if(market =='MY' && label.New_Component=='true'){ 
-                    endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
-                    endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):''); 
-                }
-                else{
-                    endUrl+='&ip_SocialSecurity='+(string.isnotblank(objAccount.ID_Number__c)?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
-                }
-                */
             }
             else if(recordType == 'Company'){
                  endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
@@ -2254,6 +2301,54 @@ If the user is Saving  same address which matches the fields returned by toleran
        
         return endUrl;
     }
+    
+    /* created by ashish to send separate set of parameters to CDM for TH*/
+    public String generateCDMEndPointURLTH(){
+        String endUrl='';
+        String Birthdate='';
+        if(objAccount.PersonBirthdate!= null)
+        {   
+            Birthdate = String.valueOf(objAccount.PersonBirthdate);
+        }
+            map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
+            For(string str: mapURLs.keyset()){
+                if(mapURLs.get(str).Country__c == Market && mapURLs.get(str).Type__c==RecordType){
+                    endUrl+=mapURLs.get(str).Informatica_URL__c;
+                }
+            }
+            //System.debug('Birthdate'+Birthdate);
+            if(recordType == 'Person Account')
+            {
+                endUrl+='ip_Firstname='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
+                endUrl+='&ip_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
+                endUrl+='&ip_MobileTelephone='+((string.isnotblank(objAccount.Mobile__c))?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+                endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+                endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
+                endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
+                endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
+            }
+			else if(recordType == 'Company'){
+                 endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
+                 endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                 endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                 endUrl+='&ip_BusinessEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+                 endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+                 endUrl+='&ip_AddressUsageValue='+(string.isnotblank(AddressObj.Address_Type__c)?EncodingUtil.URLENCODE(AddressObj.Address_Type__c,'UTF-8'):'');
+                 endUrl+='&ip_AddressLineOne='+(string.isnotblank(AddressObj.Address_Line_1__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_1__c,'UTF-8'):'');
+                 endUrl+='&ip_AddressLineTwo='+(string.isnotblank(AddressObj.Address_Line_2__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_2__c,'UTF-8'):'');
+                 endUrl+='&ip_ProvinceStateValue='+(string.isnotblank(Province)?EncodingUtil.URLENCODE(Province,'UTF-8'):'');
+                 endUrl+='&ip_XDistrictValue='+(string.isnotblank(district)?EncodingUtil.URLENCODE(district,'UTF-8'):'');
+                 endUrl+='&ip_XSubcityValue='+(string.isnotblank(SubDIstrict)?EncodingUtil.URLENCODE(SubDIstrict,'UTF-8'):'');
+                 endUrl+='&ip_ZipPostalCode='+(string.isnotblank(zip)?EncodingUtil.URLENCODE(zip,'UTF-8'):'');
+                 endUrl+='&ip_CommercialRegisterId='+(String.isnotblank(objAccount.Commercial_Reg_No__c)?EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c,'UTF-8'):'');
+           }
+            
+            System.debug('endUrl '+endUrl);
+        return endUrl;
+    }
+    
     /* *PR20170918- CustomerSearch in CDM* */
     public Object onLineDeduplicationCDMTH() {
         
@@ -2275,8 +2370,6 @@ If the user is Saving  same address which matches the fields returned by toleran
             {             
                 objAccount.Recordtypeid=PersonAccountRecordTypeID ;
             }
-           
-            
             if(market == System.Label.TH)
             {
                 if(hmCountryCode!= '' && hmphoneNumber!='')
@@ -2313,7 +2406,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
             }         
             
-           String endUrl=generateCDMEndPointURL();
+           String endUrl=generateCDMEndPointURLTH();
             con = new Continuation(120);            
             con.continuationMethod='processResponse';
             this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(endUrl,con);
@@ -2417,8 +2510,9 @@ If the user is Saving  same address which matches the fields returned by toleran
     if(Recordtype==Label.PersonAccount && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null && objAccount.ID_Number__c==null){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
                     errorFlag=false;
-        }  
-     if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null ){        
+        } 
+	//SN20171120- the following is being removed objAccount.Email__c
+     if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) ){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError));       
                     errorFlag=false;
      }
@@ -2469,6 +2563,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Province__c = cWrapper.add.Province__c;
                 AddressObj.City__c = cWrapper.add.City__c;
                 AddressObj.District__c = cWrapper.add.District__c;
+				AddressObj.Block__c= cWrapper.add.Block__c;
                 AddressObj.ZipCode__c= cWrapper.add.ZipCode__c; 
                 AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;
                 AddressObj.Address_Line_2__c= cWrapper.add.Address_Line_2__c;  

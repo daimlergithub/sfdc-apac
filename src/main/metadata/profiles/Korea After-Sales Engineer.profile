@@ -2333,6 +2333,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>taskRecordViewOnCampaignController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>testusernotification</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2349,6 +2353,71 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
+	<fieldPermissions>
+        <editable>True</editable>
+	    <field>Campaign.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>CampaignMember.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign_Member__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Car_Model__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Contact.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Dealer_Locator__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>DM_Material__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>DM_Request__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Recall__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Rejected_Duplicate_Log__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Retail_Task__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Survey_Question__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Lead__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>True</editable>
         <field>Case.Market__c</field>
@@ -25193,6 +25262,10 @@
         <recordType>Campaign.CAC_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Campaign Execution Simple layout</layout>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Campaign-Campaign Execution Simple layout  MBK</layout>
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
     </layoutAssignments>
@@ -26913,6 +26986,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>taskRecordViewOnCampaign</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>usernotificationsetting</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -27051,6 +27128,11 @@
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

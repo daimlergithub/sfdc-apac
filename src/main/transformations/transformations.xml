@@ -42,6 +42,46 @@
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID</token>
     </changetext>
 <!--end of -->
+     <changetext>
+      <filename>objects\Vehicle_Relationship__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_LEAD_ID</token>
+    </changetext>
+	<changetext>
+      <filename>objects\Vehicle_Relationship__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+    </changetext>
+	<changetext>
+      <filename>objects\Vehicle_Relationship__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+    </changetext>
+	<changetext>
+      <filename>objects\Vehicle_Relationship__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_LEAD_CONTACT_ID_lkid</token>
+    </changetext>
+	<changetext>
+      <filename>objects\Vehicle_Relationship__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_NAME</token>
+    </changetext>
+	<changetext>
+      <filename>objects\Vehicle_Relationship__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID</token>
+    </changetext>
+	<changetext>
+      <filename>objects\Vehicle_Relationship__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID_LKID</token>
+    </changetext>
+	<changetext>
+      <filename>objects\Vehicle_Relationship__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID</token>
+    </changetext>
 	<changetext>
       <filename>objects\DM_Request__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request_Lead']/url/text()</xpath>
@@ -143,12 +183,12 @@
 		<token tokenonly="true">OBJECT_DM_REQUEST_ID</token>
     </changetext>
 		<changetext>
-		<filename>objects\Campaign_Member__C.object</filename>
+		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX</token>
 	</changetext>
 		<changetext>
-		<filename>objects\Campaign_Member__C.object</filename>
+		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX</token>
 	</changetext>
@@ -1003,6 +1043,11 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Simple_Execution']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_ID</token>
 	</changetext>
@@ -1723,5 +1768,3 @@
 		</permissions>
 	</defaultpermissions>
 </transformations>
-
-

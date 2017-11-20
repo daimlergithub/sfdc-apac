@@ -40,7 +40,7 @@
     <fieldUpdates>
         <fullName>First_Consent_User</fullName>
         <field>First_Consent_User__c</field>
-        <formula>$User.Username</formula>
+        <formula>$User.FirstName + &apos; &apos; + $User.LastName</formula>
         <name>First Consent User</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -82,6 +82,35 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Sales_Tel_Display_field_auto_populate</fullName>
+        <field>Primary_Phone_Display__c</field>
+        <formula>Mobile__c</formula>
+        <name>&apos;Sales Tel Display&apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Sales_Tel_Display_field_auto_populate_Co</fullName>
+        <field>Primary_Phone_Display__c</field>
+        <formula>IF(Mobile__c!=NULL,Mobile__c,IF(Individual_Home_Phone__c!=NULL,Individual_Home_Phone__c,Work_Phone__c))</formula>
+        <name>&apos;Sales Tel Display&apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Sales_Tel_field_auto_populate</fullName>
+        <field>Primary_Phone__c</field>
+        <literalValue>Home Phone</literalValue>
+        <name>&apos;Sales Tel &apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Mobile_Update</fullName>
         <field>Mobile__c</field>
@@ -91,11 +120,39 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Mobile_phone_checkbox_update</fullName>
+        <field>Mobile_Phone_Checkbox__c</field>
+        <literalValue>1</literalValue>
+        <name>Mobile phone checkbox update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Sales_Tel_field_personaccount</fullName>
+        <field>Primary_Phone__c</field>
+        <literalValue>Mobile</literalValue>
+        <name>&apos;Sales Tel&apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>System_Data_Source</fullName>
         <field>System_Data_Source__c</field>
         <formula>&apos;Salesforce&apos;</formula>
         <name>System Data Source</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>System_Data_Source_2</fullName>
+        <description>System Data Source equals to Salesforce</description>
+        <field>System_Data_Source__c</field>
+        <formula>&apos;Salesforce&apos;</formula>
+        <name>System Data Source 2</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -126,6 +183,35 @@
         <name>Update Company Name</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Consent_Date</fullName>
+        <description>Update Consent Date to Today&apos;s date</description>
+        <field>Updated_Consent_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Consent Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Consent_User</fullName>
+        <description>Update Consent User as the current username</description>
+        <field>Updated_Consent_User__c</field>
+        <formula>$User.FirstName + &apos; &apos; + $User.LastName</formula>
+        <name>Update Consent User</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>field_auto_populate_for_comany_account</fullName>
+        <field>home_Phone_Checkbox__c</field>
+        <literalValue>1</literalValue>
+        <name>field auto populate for comany account</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -238,6 +324,79 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Sales_Tel_field_auto_populate_Mobile</fullName>
+        <field>Primary_Phone__c</field>
+        <literalValue>Mobile</literalValue>
+        <name>&apos;Sales Tel&apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	 <fieldUpdates>
+        <fullName>sales_Tel_picklist_value</fullName>
+        <field>Primary_Phone__c</field>
+        <literalValue>Work Phone</literalValue>
+        <name>sales Tel picklist value</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>workphone_checkbox_to_true</fullName>
+        <field>Work_Phone_Checkbox__c</field>
+        <literalValue>1</literalValue>
+        <name>workphone checkbox to true</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<rules>
+        <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number</fullName>
+        <actions>
+            <name>Sales_Tel_Display_field_auto_populate_Co</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Company</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number for Person Account Record Type</fullName>
+        <actions>
+            <name>Sales_Tel_Display_field_auto_populate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Sales_Tel_field_personaccount</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Mobile__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__pc</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
@@ -248,6 +407,37 @@
         <description>When field “Preferred contact method” value is set to others from “Phone”,the field value changes to null</description>
         <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Home Phone Checkbox autopopulate</fullName>
+        <actions>
+            <name>Sales_Tel_field_auto_populate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>field_auto_populate_for_comany_account</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Mobile__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Individual_Home_Phone__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Company</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>MBK Populate Company Name</fullName>
@@ -294,19 +484,32 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2</booleanFilter>
-        <criteriaItems>
-            <field>Account.Personal_Agreement__c</field>
-            <operation>equals</operation>
-            <value>Yes</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;YES&quot;</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;No&quot;</description>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;), MD__c = &apos;TH&apos; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>MBTH_Update_Consent_data_Source_2</fullName>
+        <actions>
+            <name>System_Data_Source</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>System_Data_Source_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Consent_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Consent_User</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update the Data Source,Update Consent User and Update Consent Date when Personal_Agreement__c is &quot;Yes&quot;</description>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;Yes&apos;), MD__c = &apos;TH&apos; )</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>MBTH_Update_consent_Information</fullName>
@@ -335,6 +538,33 @@
         </criteriaItems>
         <description>If personal agreement value change to ‘Withdrawn’ by dealer then will update the updated consent date and updated consent user field and also source field.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>Mobile Phone Checkbox autopopulate</fullName>
+        <actions>
+            <name>Mobile_phone_checkbox_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Sales_Tel_field_auto_populate_Mobile</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Mobile__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Company</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Send Assigned Leads to Dealer Everyday</fullName>
@@ -394,11 +624,7 @@ Modify Reason:
         </actions>
         <active>true</active>
         <description>Update Allow data sharing to &apos;No&apos; for KR Market</description>
-        <formula>AND(MD__c=&quot;KR&quot;,
-OR
-(NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c,&quot;Yes&quot;))
-,NOT(ISPICKVAL(Personal_Agreement__c,&quot;Yes&quot;))
-,NOT(ISPICKVAL(Agreement_to_commit_info_processing__c,&quot;Yes&quot;))))</formula>
+        <formula>AND(MD__c=&quot;KR&quot;, OR (NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Personal_Agreement__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Agreement_to_commit_info_processing__c,&quot;Yes&quot;))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -466,5 +692,40 @@ OR
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for TH</description>
         <formula>ISPICKVAL($User.Market__c,&apos;TH&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Work Phone Checkbox autopopulate</fullName>
+        <actions>
+            <name>sales_Tel_picklist_value</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>workphone_checkbox_to_true</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Mobile__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Individual_Home_Phone__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Work_Phone__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

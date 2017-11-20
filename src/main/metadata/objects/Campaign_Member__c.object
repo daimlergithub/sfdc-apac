@@ -1781,7 +1781,7 @@ window.open("{!URLFOR($Site.Prefix)}/CAMPAIGN_MEMBER_REPORT_ID?pv0="+campaignNam
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}"; 
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) { 
-window.open("{!URLFOR($Site.Prefix)}/a1K/e?CF00N2800000IkqXw={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqXw_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Campaign.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?CF00N2800000IkqXw={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqXw_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Campaign.Id}"); 
 }else 
 { 
 alert('You cannot create campaign members for this campaign status'); 
@@ -1800,7 +1800,7 @@ alert('You cannot create campaign members for this campaign status');
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-window.open("{!URLFOR($Site.Prefix)}/a1H/e?CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -1831,9 +1831,16 @@ location.reload();</url>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var RetailcampaignName = '{!Retail_Campaign__c.Name}'; 
-var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
-window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEl?pv0="+RetailcampaignName);
-</url>
+var JPmarketusr={!ISPICKVAL($User.Market__c , "JP")};
+if(JPmarketusr &amp;&amp; ('{!User.Profile}' == 'Japan Dealer Sales Manager' || '{!User.Profile}' == 'Japan Dealer Sales Representative' || '{!User.Profile}' == 'Japan Dealer Service Advisor' || '{!User.Profile}' == 'Japan Dealer Service Manager'))
+{
+  alert('{!$Label.Only_Company_Manager_can_export}');
+}
+else
+{
+ var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+  window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEl?pv0="+RetailcampaignName);
+}</url>
     </webLinks>
     <webLinks>
         <fullName>RetailRefresh</fullName>
@@ -1901,3 +1908,4 @@ alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
 </CustomObject>
+

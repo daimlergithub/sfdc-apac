@@ -197,49 +197,6 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Activity_Type_Other__c</fullName>
-        <externalId>false</externalId>
-        <label>Activity Type Other</label>
-        <length>240</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Activity_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Activity Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Media &amp; Advertising</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>true</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Actual_Cost__c</fullName>
         <description>This field will be used to capture the actual cost incured</description>
         <externalId>false</externalId>
@@ -385,24 +342,6 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Actual_Period_End_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Actual Period End Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Actual_Period_Start_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Actual Period Start Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Actual_Show_up_Customer__c</fullName>
         <externalId>false</externalId>
         <label>Actual Show up Customer</label>
@@ -469,15 +408,6 @@
         <description>Flag to copied on Campaign member for Opro Campaigns</description>
         <externalId>false</externalId>
         <label>Add Campaign Member ID</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>Add_Preferred_Dealer__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Add Preferred Dealer</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -675,30 +605,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Budget_Approval__c</fullName>
-        <externalId>false</externalId>
-        <label>Budget Approval Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>true</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Budgeted_Cost__c</fullName>
         <description>This field is used to capture the campaign budget information</description>
         <externalId>false</externalId>
@@ -833,9 +739,17 @@
             <picklistValues>
                 <fullName>After Sales</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>			
             <picklistValues>
                 <fullName>Sales and After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Marketing Event</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>CRM/CSR</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -848,18 +762,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Finance - &gt; Prematurity</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Marketing Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CRM/CSR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -958,137 +860,171 @@
 2.All select‘GenericModel’</inlineHelpText>
         <label>Class</label>
         <picklist>
+            <controllingField>Brand__c</controllingField>
             <picklistValues>
                 <fullName>A-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Estate</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Coupe</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E Coupe Sport</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-CLASS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Concept Car</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
                 <default>false</default>
+                <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>StarElite</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G65 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G63 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E63 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK55 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C63 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS63 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G55 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML63 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S65 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL63 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLS AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>TRUCKS</fullName>
@@ -1097,54 +1033,67 @@
             <picklistValues>
                 <fullName>E-Class Coupe</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL 63 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 L AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GenericModel</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C55 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E55 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML 55 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S55 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL55 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Sport Sedan</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1179,10 +1128,6 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>No Response</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1201,270 +1146,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Class1__c</fullName>
-        <externalId>false</externalId>
-        <label>Class</label>
-        <picklist>
-            <controllingField>Brand__c</controllingField>
-            <picklistValues>
-                <fullName>A-Class HATCHBACK</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B-Class MPV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class COUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class HATCHBACK</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class SEDAN</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLC COUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CL COUPE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLA 4 DOOR COUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLA ESTATE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLK CABRIO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLK COUPE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS 4 DOOR COUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS ESTATE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class CABRIO</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class ESTATE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class SEDAN</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G-Class SUV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GL SUV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLA SUV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLC SUV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLE SUV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK SUV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maybach SEDAN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>M-Class SUV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-AMG GT SPORTCOUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R-Class MPV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class CABRIO</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class COUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class SEDAN</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL ROADSTER</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLC ROADSTER</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK ROADSTER</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLR ROADSTER</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLR SPORTCOUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLS ROADSTER</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLS SPORTCOUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VANEO MPV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>V-Class MPV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLE COUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GT ROADSTER</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VITO MPV</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class ESTATE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class COUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class CABRIO</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLC SUC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLS SUV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLE SUC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart fortwo CABRIO</fullName>
-                <default>false</default>
-                <controllingFieldValues>smart</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart fortwo HATCHBACK</fullName>
-                <default>false</default>
-                <controllingFieldValues>smart</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart forfour HATCHBACK</fullName>
-                <default>false</default>
-                <controllingFieldValues>smart</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart roadster COUPE</fullName>
-                <default>false</default>
-                <controllingFieldValues>smart</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart roadster ROUDSTER</fullName>
-                <default>false</default>
-                <controllingFieldValues>smart</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Class__c</fullName>
@@ -1597,27 +1278,6 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>ContactPerson__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Retail_Campaigns</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Contact_Telephone__c</fullName>
-        <externalId>false</externalId>
-        <label>Contact Telephone</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Phone</type>
-    </fields>
-    <fields>
         <fullName>DM_Template__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1639,16 +1299,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Email__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Email</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Email</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2027,44 +1677,12 @@
                 <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Expected_Number_Of_Prospects__c</fullName>
-        <externalId>false</externalId>
-        <label>Expected Number Of Prospects</label>
-        <precision>7</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Expected_Revenue__c</fullName>
@@ -2077,18 +1695,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Expected_Unit_of_Car_Sales__c</fullName>
-        <externalId>false</externalId>
-        <label>Expected Unit of Car Sales</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Feedback_Comments__c</fullName>
@@ -2256,38 +1862,10 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>MBTH_Approval_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>Approval Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Needs to Modify</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'),'TH','NA')))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -2708,28 +2286,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Partner1__c</fullName>
-        <externalId>false</externalId>
-        <label>Partner1</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Partner2__c</fullName>
-        <externalId>false</externalId>
-        <label>Partner2</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Parts_Turn_over__c</fullName>
         <description>Retail Campaign: Parts Turn over of the campaign</description>
         <externalId>false</externalId>
@@ -3002,398 +2558,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <fullName>Range__c</fullName>
         <externalId>false</externalId>
         <label>Range</label>
-        <picklist>
-            <controllingField>Class1__c</controllingField>
-            <picklistValues>
-                <fullName>W168</fullName>
-                <default>false</default>
-                <controllingFieldValues>A-Class HATCHBACK</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>V168</fullName>
-                <default>false</default>
-                <controllingFieldValues>A-Class HATCHBACK</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W169</fullName>
-                <default>false</default>
-                <controllingFieldValues>A-Class HATCHBACK</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W176</fullName>
-                <default>false</default>
-                <controllingFieldValues>A-Class HATCHBACK</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>T245</fullName>
-                <default>false</default>
-                <controllingFieldValues>B-Class MPV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W246</fullName>
-                <default>false</default>
-                <controllingFieldValues>B-Class MPV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C204</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C205</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CL203</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class HATCHBACK</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W202</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W204</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W205</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C215</fullName>
-                <default>false</default>
-                <controllingFieldValues>CL COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C216</fullName>
-                <default>false</default>
-                <controllingFieldValues>CL COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C117</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLA 4 DOOR COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X117</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLA ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A208</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLK CABRIO</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A209</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLK CABRIO</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C208</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLK COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C209</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLK COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C218</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLS 4 DOOR COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C219</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLS 4 DOOR COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X218</fullName>
-                <default>false</default>
-                <controllingFieldValues>CLS ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A207</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class CABRIO</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S210</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S211</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S212</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S213</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W210</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W211</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W212</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W213</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>461</fullName>
-                <default>false</default>
-                <controllingFieldValues>G-Class SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BR463</fullName>
-                <default>false</default>
-                <controllingFieldValues>G-Class SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X164</fullName>
-                <default>false</default>
-                <controllingFieldValues>GL SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X166</fullName>
-                <default>false</default>
-                <controllingFieldValues>GL SUV</controllingFieldValues>
-                <controllingFieldValues>GLS SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X156</fullName>
-                <default>false</default>
-                <controllingFieldValues>GLA SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X253</fullName>
-                <default>false</default>
-                <controllingFieldValues>GLC SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W166</fullName>
-                <default>false</default>
-                <controllingFieldValues>GLE SUV</controllingFieldValues>
-                <controllingFieldValues>M-Class SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X204</fullName>
-                <default>false</default>
-                <controllingFieldValues>GLK SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W/V240</fullName>
-                <default>false</default>
-                <controllingFieldValues>Maybach SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W163</fullName>
-                <default>false</default>
-                <controllingFieldValues>M-Class SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W164</fullName>
-                <default>false</default>
-                <controllingFieldValues>M-Class SUV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C190</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-AMG GT SPORTCOUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W/V251</fullName>
-                <default>false</default>
-                <controllingFieldValues>R-Class MPV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A217</fullName>
-                <default>false</default>
-                <controllingFieldValues>S-Class CABRIO</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C217</fullName>
-                <default>false</default>
-                <controllingFieldValues>S-Class COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W/V220</fullName>
-                <default>false</default>
-                <controllingFieldValues>S-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W/V221</fullName>
-                <default>false</default>
-                <controllingFieldValues>S-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W/V222</fullName>
-                <default>false</default>
-                <controllingFieldValues>S-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X222</fullName>
-                <default>false</default>
-                <controllingFieldValues>S-Class SEDAN</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R129</fullName>
-                <default>false</default>
-                <controllingFieldValues>SL ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R230</fullName>
-                <default>false</default>
-                <controllingFieldValues>SL ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R231</fullName>
-                <default>false</default>
-                <controllingFieldValues>SL ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R172</fullName>
-                <default>false</default>
-                <controllingFieldValues>SLC ROADSTER</controllingFieldValues>
-                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R170</fullName>
-                <default>false</default>
-                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R171</fullName>
-                <default>false</default>
-                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R199</fullName>
-                <default>false</default>
-                <controllingFieldValues>SLR ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Z199</fullName>
-                <default>false</default>
-                <controllingFieldValues>SLR ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C199</fullName>
-                <default>false</default>
-                <controllingFieldValues>SLR SPORTCOUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R197</fullName>
-                <default>false</default>
-                <controllingFieldValues>SLS ROADSTER</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C197</fullName>
-                <default>false</default>
-                <controllingFieldValues>SLS SPORTCOUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VANEO</fullName>
-                <default>false</default>
-                <controllingFieldValues>VANEO MPV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BR447</fullName>
-                <default>false</default>
-                <controllingFieldValues>V-Class MPV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BR639</fullName>
-                <default>false</default>
-                <controllingFieldValues>V-Class MPV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>V-CLASS</fullName>
-                <default>false</default>
-                <controllingFieldValues>V-Class MPV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VITO</fullName>
-                <default>false</default>
-                <controllingFieldValues>VITO MPV</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S202</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S203</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S204</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S205</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class ESTATE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C207</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C238</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-Class COUPE</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A205</fullName>
-                <default>false</default>
-                <controllingFieldValues>C-Class CABRIO</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C253</fullName>
-                <default>false</default>
-                <controllingFieldValues>GLC SUC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C292</fullName>
-                <default>false</default>
-                <controllingFieldValues>GLE SUC</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <precision>18</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Record_Type_Name__c</fullName>
@@ -3480,37 +2650,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>RetailCampaignCarModelText__c</fullName>
-        <externalId>false</externalId>
-        <label>RetailCampaignCarModelText</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Campaign_Car_Model__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Retail Campaign Car Model</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Car_Model__c.MD__c</field>
-                <operation>equals</operation>
-                <value>TH</value>
-            </filterItems>
-            <isOptional>true</isOptional>
-        </lookupFilter>
-        <referenceTo>Car_Model__c</referenceTo>
-        <relationshipLabel>Retail Campaigns</relationshipLabel>
-        <relationshipName>Retail_Campaigns</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Retail_Candidate__c</fullName>
@@ -4613,29 +3752,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>After sales activities</description>
         <label>AS Retail Campaign</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -4716,21 +3832,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -4769,13 +3870,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sub_Type__c</picklist>
+            <picklist>Campaign_Sub_Type__c</picklist>			
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5299,21 +4400,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5526,29 +4612,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Aftermarket annual targets</description>
         <label>Aftersales Yearly TA</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -5629,21 +4692,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -5684,11 +4732,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6204,21 +5252,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -6431,29 +5464,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Monthly goals</description>
         <label>Monthly TA</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -6534,21 +5544,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -6589,11 +5584,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7109,21 +6104,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -7336,29 +6316,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Project applications</description>
         <label>S&amp;M Event Retail Campaign</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -7439,21 +6396,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -7494,11 +6436,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8017,21 +6959,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -8238,31 +7165,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <recordTypes>
         <fullName>Retail_Execution_Campaign</fullName>
         <active>true</active>
-        <description>子キャンペーン作成時に使用</description>
         <label>Campaign Execution</label>
-        <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
@@ -8344,21 +7247,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -8410,50 +7298,30 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM%2FCSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales and After Sales</fullName>
+                <default>false</default>
+            </values>	
+             <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Familiarization workshop for new vehicle owners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8490,10 +7358,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Promotion on Technical accessories and collections</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8708,10 +7572,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No Response</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9027,39 +7887,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>eMail</fullName>
                 <default>false</default>
@@ -9082,25 +7910,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Needs to Modify</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -9313,29 +8122,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Dealer MB Best activities</description>
         <label>Retail MB Best Practice</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -9404,21 +8190,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -9457,13 +8228,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sub_Type__c</picklist>
+            <picklist>Campaign_Sub_Type__c</picklist>			
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9990,21 +8761,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -10214,29 +8970,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Media plan application</description>
         <label>S&amp;M Media Retail Campaign</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -10317,21 +9050,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -10370,13 +9088,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sub_Type__c</picklist>
+            <picklist>Campaign_Sub_Type__c</picklist>			
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10895,21 +9613,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -11116,31 +9819,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <recordTypes>
         <fullName>Retail_Parent_Campaign</fullName>
         <active>true</active>
-        <description>親キャンペーン作成時に使用</description>
         <label>Planning &amp; Design Campaign</label>
-        <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
@@ -11205,6 +9884,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MB</fullName>
                 <default>false</default>
             </values>
@@ -11212,19 +9895,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <fullName>StarElite</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11280,19 +9952,27 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Sales and After Sales</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Marketing Event</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CRM/CSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11522,217 +10202,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Class1__c</picklist>
-            <values>
-                <fullName>A-Class HATCHBACK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B-Class MPV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C-Class CABRIO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C-Class COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C-Class ESTATE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C-Class HATCHBACK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C-Class SEDAN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CL COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CLA 4 DOOR COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CLA ESTATE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CLK CABRIO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CLK COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CLS 4 DOOR COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CLS ESTATE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Class CABRIO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Class COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Class ESTATE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Class SEDAN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>G-Class SUV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GL SUV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLA SUV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLC COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLC SUC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLC SUV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLE COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLE SUC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLE SUV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK SUV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLS SUV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GT ROADSTER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>M-Class SUV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maybach SEDAN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-AMG GT SPORTCOUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R-Class MPV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S-Class CABRIO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S-Class COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S-Class SEDAN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SL ROADSTER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SLC ROADSTER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SLK ROADSTER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SLR ROADSTER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SLR SPORTCOUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SLS ROADSTER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SLS SPORTCOUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smart forfour HATCHBACK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smart fortwo CABRIO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smart fortwo HATCHBACK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smart roadster COUPE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smart roadster ROUDSTER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V-Class MPV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VANEO MPV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VITO MPV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12036,7 +10505,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>eMail</fullName>
                 <default>false</default>
@@ -12059,21 +10528,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -12168,313 +10622,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Loyalty</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Range__c</picklist>
-            <values>
-                <fullName>461</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>A205</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>A207</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>A208</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>A209</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>A217</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BR447</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BR463</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BR639</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C117</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C190</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C197</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C199</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C204</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C205</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C207</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C208</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C209</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C215</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C216</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C217</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C218</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C219</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C238</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C253</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C292</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CL203</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R129</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R170</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R171</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R172</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R197</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R199</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R230</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R231</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S202</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S203</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S204</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S205</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S210</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S211</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S212</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S213</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>T245</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V-CLASS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V168</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VANEO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VITO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W%2FV220</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W%2FV221</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W%2FV222</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W%2FV240</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W%2FV251</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W163</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W164</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W166</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W168</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W169</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W176</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W202</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W204</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W205</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W210</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W211</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W212</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W213</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W246</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X117</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X156</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X164</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X166</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X204</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X218</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X222</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X253</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Z199</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12593,29 +10740,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Dealer smart best activities</description>
         <label>Retail smart Best Practice</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -12684,21 +10808,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -12739,11 +10848,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13270,21 +11379,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
             <values>
                 <fullName>Event Plan</fullName>
@@ -13494,29 +11588,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Sales annual objectives</description>
         <label>Sales &amp; Marketing Yearly TA</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -13597,21 +11668,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -13650,13 +11706,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sub_Type__c</picklist>
+            <picklist>Campaign_Sub_Type__c</picklist>			
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14172,21 +12228,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -14399,29 +12440,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <description>Independent filtering，No application feedback， Not included in our target market appraisal</description>
         <label>Segmentation Only</label>
         <picklistValues>
-            <picklist>Activity_Type__c</picklist>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CSR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media %26 Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -14502,21 +12520,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Budget_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>CBU_PbP__c</picklist>
             <values>
                 <fullName>CBU</fullName>
@@ -14555,13 +12558,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sub_Type__c</picklist>
+            <picklist>Campaign_Sub_Type__c</picklist>			
             <values>
-                <fullName>Finance - %3E Prematurity</fullName>
+                <fullName>Sales -%3E Crosspoint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Finance - %3E Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15077,21 +13080,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBTH_Approval_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -15345,8 +13333,8 @@ false)</errorConditionFormula>
     <validationRules>
         <fullName>Auto_Segmentation_Criteria</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),OR(MD__c = 'JP',MD__c = 'TH'),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
-        <errorMessage>If Auto Segmentation Check box is checked then Segmentation Criteria is Required</errorMessage>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),MD__c = 'JP',(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
+        <errorMessage>Field Is Mandatory</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_Update_Monthly</fullName>
@@ -15393,20 +13381,6 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>You Couldn't Update Retail Candidate With Current Status.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>DM_Material_Template_Required</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND
-(
-$Profile.Name !='IntegrationAPI',
-ISBLANK(DM_Template__c),
-ISPICKVAL(Execution_Type__c,"DM"),
-Record_Type_Name__c = 'Campaign Execution',
-OR(MD__c ='JP',MD__c ='TH')
-)</errorConditionFormula>
-        <errorDisplayField>DM_Template__c</errorDisplayField>
-        <errorMessage>DM Material Template is reqired when execution type is DM</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Dealer_Couldnot_update_Retail_BP</fullName>
         <active>true</active>
         <description>Dealer Couldn't update Retail MB or smart BP After Retail Due Date - Generation Process</description>
@@ -15450,15 +13424,9 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Delay Reason is mandatory when Plan Start Date is earlier than today.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>End_date_cant_be_past_date</fullName>
-        <active>true</active>
-        <errorConditionFormula>IF(Close_Date__c!=null&amp;&amp;Close_Date__c &lt;=TODAY()&amp;&amp;MD__c='TH',TRUE,IF(Start_Date__c!=null &amp;&amp;Close_Date__c&lt;Start_Date__c&amp;&amp;MD__c='TH',TRUE,FALSE))</errorConditionFormula>
-        <errorMessage>Campaign End date can't past date and can't be less than start date</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Feedback_Mandatory_Actual_End_Date</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>AND(  
 ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Actual_End_Date__c ),
 $Profile.Name != 'IntegrationAPI'
@@ -15491,7 +13459,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Feedback_Mandatory_Actual_Start_Date</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND(  
 ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Actual_Start_Date__c ),
 $Profile.Name != 'IntegrationAPI'
@@ -15530,7 +13498,7 @@ $Profile.Name != 'IntegrationAPI'
         <fullName>P_Start_Date_is_less_than_the_P_End_Date</fullName>
         <active>true</active>
         <description>Plan Start Date later than Plan Start Date</description>
-        <errorConditionFormula>OR(AND( 
+        <errorConditionFormula>AND( 
 OR( 
 RecordType.Name =='AS Retail Campaign',
 RecordType.Name =='S&amp;M Event Retail Campaign',
@@ -15538,8 +13506,7 @@ RecordType.Name =='S&amp;M Media Retail Campaign'
 ), 
 Plan_Start_Date__c &gt;  Plan_End_Date__c,
 $Profile.Name != 'IntegrationAPI'
-),AND(Plan_Start_Date__c &gt;  Plan_End_Date__c,
-$Profile.Name != 'IntegrationAPI',MD__c='TH'))</errorConditionFormula>
+)</errorConditionFormula>
         <errorMessage>Plan Start Date must be less than or equal to Plan End Dat</errorMessage>
     </validationRules>
     <validationRules>
@@ -15570,7 +13537,7 @@ ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
 ISPICKVAL(Child_Campaign_Status__c, 'Response collection') ,ISPICKVAL(Child_Campaign_Status__c, '')
 
 ),
-OR(MD__c = 'JP',MD__c = 'TH'),
+MD__c = 'JP', 
 $Profile.Name != 'IntegrationAPI',
 RecordType.DeveloperName = 'Retail_Execution_Campaign' 
 )</errorConditionFormula>
@@ -15584,11 +13551,11 @@ OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'),
 ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
 ISPICKVAL(Child_Campaign_Status__c, '')
 ),
-OR(MD__c = 'JP',MD__c = 'TH'), 
+MD__c = 'JP', 
 $Profile.Name != 'IntegrationAPI',
 RecordType.DeveloperName = 'Retail_Execution_Campaign' 
 )</errorConditionFormula>
-        <errorMessage>Status cannot be changed from 'Execution' to 'Planning or Segmentation''</errorMessage>
+        <errorMessage>Status cannot be changed from 'Exection' to 'Planning or Segmentation''</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Cam_Status_From_Response</fullName>
@@ -15601,16 +13568,16 @@ ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
 ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
 ISPICKVAL(Child_Campaign_Status__c, '')
 ),
-OR(MD__c = 'JP',MD__c = 'TH'), 
+MD__c = 'JP', 
 $Profile.Name != 'IntegrationAPI',
 RecordType.DeveloperName = 'Retail_Execution_Campaign' 
 )</errorConditionFormula>
-        <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Execution'</errorMessage>
+        <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Exection'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Campaign_Status_Completed</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c = 'TH'),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Close_Date__c</errorDisplayField>
         <errorMessage>Retail Campaign status Completed you cant change Close Date</errorMessage>
     </validationRules>
@@ -15642,103 +13609,25 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>Start_Date_And_End_date</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>AND(MD__c='TH',(IF(NOT(Close_Date__c &gt;=Start_Date__c), true,false)))</errorConditionFormula>
-        <errorDisplayField>Close_Date__c</errorDisplayField>
-        <errorMessage>Close  Date should be greater than Start Date</errorMessage>
+        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt;= Close_Date__c, true,false)))</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(MD__c='TH',
-Start_Date__c &lt;=TODAY(),
-if( RecordType.Name='Campaign Execution'&amp;&amp;ischanged(Start_Date__c),true,
-if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISChanged(Start_Date__c),true,false))))</errorConditionFormula>
+        <active>false</active>
+        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt;= TODAY(), true,false)))</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Status_is_Ongoing_cant_change_Start_Date</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c='TH'),(IF( ISCHANGED( Start_Date__c) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED( Start_Date__c) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Status is ongoing you can not change Start date</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_Close_date_should_be_greater_than_seg</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(MD__c='TH',OR(Close_Date__c&lt; Segmentation_Date__c,Close_Date__c&lt; Response_Date__c,Close_Date__c&lt; Execution_Start_Date__c))</errorConditionFormula>
-        <errorMessage>segmentation,Execution,Response collection date should be less  than End date</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_Feedback_Mandatory_Actual_End_Date</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(MD__c='TH', 
-ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), 
-OR(ISBLANK(Actual_Period_End_Date__c ),ISBLANK( Actual_Period_Start_Date__c)),$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
-        <errorMessage>Actual Period End Date&amp; Actual Period Start Date field is mandatory when Submit for Feedback.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_Feedback_Mandatory_Actual_Start_Date</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND( MD__c ='TH', 
-ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), 
-ISBLANK( Actual_Period_Start_Date__c), 
-$Profile.Name != 'IntegrationAPI' 
-)</errorConditionFormula>
-        <errorDisplayField>Actual_Period_Start_Date__c</errorDisplayField>
-        <errorMessage>Actual Period End Date field is mandatory when Submit for Feedback</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_Parent_Campaign_Status_cant_Edit</fullName>
-        <active>true</active>
-        <errorConditionFormula>NOT(IsNew())&amp;&amp;ISchanged(Status__c) &amp;&amp; MD__c='TH' &amp;&amp;  RecordType.Name ='	Planning &amp; Design Campaign'</errorConditionFormula>
-        <errorDisplayField>Status__c</errorDisplayField>
-        <errorMessage>You Can't change Campaign Status.it will change Automatically depends on the start/close date</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_Restrict_to_create_child_Campaign</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(OR(ISPICKVAL(Parent_Campaign1__r.Budget_Approval__c,'Submitted'),ISPICKVAL(Parent_Campaign1__r.Budget_Approval__c,'Rejected')),MD__c='TH')</errorConditionFormula>
-        <errorMessage>You can't create child campaigns if it is submitted for approval or Rejected.kindly check the Budget Approval Status</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_Segmentation_should_be_greater_than</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(MD__c='TH',OR(Start_Date__c&gt; Segmentation_Date__c,Start_Date__c&gt; Response_Date__c,Start_Date__c&gt; Execution_Start_Date__c))</errorConditionFormula>
-        <errorMessage>segmentation,Execution,Response collection date should be greater than start date</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_You_Can_not_Change_Campaign_Status</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(RecordType.Name ='Campaign Execution',ISCHANGED( Child_Campaign_Status__c ),MD__c='TH' ,Not(ispickval(Child_Campaign_Status__c ,'No Response')))</errorConditionFormula>
-        <errorMessage>You Can't Change Campaign Status Manually.it will change according to the Execution,segmentation,start and close date</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_You_cant_Create_child_Campaign</fullName>
-        <active>true</active>
-        <errorConditionFormula>( isnew()&amp;&amp;NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp;Parent_Campaign1__r.Close_Date__c &lt;today()&amp;&amp;MD__c='TH')</errorConditionFormula>
-        <errorMessage>Parent campaign already reached close date so You can't create child campaigns</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_actualstart_and_end_should_be_future</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(MD__c='TH',Actual_Period_Start_Date__c&gt; Actual_Period_End_Date__c)</errorConditionFormula>
-        <errorMessage>Actual Period Start Date Should be less than Actual period End Date</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_child_campaign_should_bw_parent_close</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(Parent_Campaign1__c !=null,MD__c='TH',OR(Start_Date__c &lt;Parent_Campaign1__r.Start_Date__c,Close_Date__c &gt; Parent_Campaign1__r.Close_Date__c ))</errorConditionFormula>
-        <errorMessage>child campaign Start and close date should be between parent start and Close Date</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TH_you_cant_Add_childcampaings_for_close</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(MD__c ='TH', isPickval(Parent_Campaign1__r.Status__c,'Completed'))</errorConditionFormula>
-        <errorMessage>You Can't Create child campaigns for the Completed Campaigns</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application</fullName>
@@ -15810,10 +13699,10 @@ $Profile.Name != 'IntegrationAPI'
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{ 
+{
 
 
-window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
 
 
 }</url>
@@ -15936,40 +13825,15 @@ alert('The event has yet to be published or has been closed.');
         <url>/apex/MonthlyMarketAmountReport</url>
     </webLinks>
     <webLinks>
-        <fullName>New_Retail_Campaign_TH</fullName>
+        <fullName>OPRO_DM_Print_PDF</fullName>
         <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>New Retail Campaign</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
-if({!Campaign.IsActive}){
-if('{!Campaign.MD__c}' == 'TH') {
-window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!Campaign.Description}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!Campaign.Name}&amp;ent={!Retail_Campaign__c.Id}');
-
-
-
-}
-}
-else{
-alert('kindly Activate The Campaign');
-
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>OPRO_DM_Print_OPR</fullName>
-        <availability>online</availability>
-        <description>OPROARTS</description>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
+        <masterLabel>[OPRO]Label Print(PDF)</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+        <url> 
+		// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
 // 
 // OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
 // Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
@@ -15983,21 +13847,100 @@ alert('kindly Activate The Campaign');
 var tpArray = (function () { 
 var dmmaterial_type = '{!Retail_Campaign__c.DM_Template__c}'; 
 switch(dmmaterial_type){ 
-case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate_RC';brak; 
+case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate_RC';brak; 
 case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate_RC';brak; 
-case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate_RC';brak; 
+case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate_RC';brak; 
 case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate_RC';brak; 
-case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint_RC';brak; 
+case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint_RC';brak; 
 case 'Direct Mail Print': return 'p03_DirectMailPrint_RC';brak; 
-case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
+case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
 case 'Company Account': return 'p04_CompanyAccount_RC';brak; 
-case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
+case 'Smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
 case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
-case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
+case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
-case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+} 
+}()); 
+
+OPROARTS.Live.fF.action({ 
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
+// このパラメータを省略することはできません。 
+tp:tpArray, 
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
+fe:false, 
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+createsAttach:false, 
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
+// - taskSubject: 活動履歴の件名 
+// - taskComment: 活動履歴のコメント 
+// 無指定の場合は、システムの初期値が適用されます。 
+createsTask:false, 
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
+title:'', 
+
+// objectId: 帳票オブジェクトのIDを指定します。 
+objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。 
+// このパラメータを編集しないでください。 
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
+}).url("https://benz.pd.oproarts.com/liveffbb/action").pdf(); 
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
+// ---- END ----
+		</url>
+    </webLinks>
+    <webLinks>
+        <fullName>OPRO_DM_Print_OPR</fullName>
+        <availability>online</availability>
+        <description>OPROARTS</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>
+		// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+// 
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
+
+
+// ---- BEGIN ---- 
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
+{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
+
+var tpArray = (function () { 
+var dmmaterial_type = '{!Retail_Campaign__c.DM_Template__c}'; 
+switch(dmmaterial_type){ 
+case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate_RC';brak; 
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate_RC';brak; 
+case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate_RC';brak; 
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate_RC';brak; 
+case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint_RC';brak; 
+case 'Direct Mail Print': return 'p03_DirectMailPrint_RC';brak; 
+case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
+case 'Company Account': return 'p04_CompanyAccount_RC';brak; 
+case 'Smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
+case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
+case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
 } 
 }()); 
 
@@ -16038,154 +13981,8 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
 // 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
 // ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
-    </webLinks>
-    <webLinks>
-        <fullName>OPRO_DM_Print_PDF</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>[OPRO]Label Print(PDF)</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
-// 
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
-
-
-// ---- BEGIN ---- 
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
-{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
-
-var tpArray = (function () { 
-var dmmaterial_type = '{!Retail_Campaign__c.DM_Template__c}'; 
-switch(dmmaterial_type){ 
-case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate_RC';brak; 
-case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate_RC';brak; 
-case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate_RC';brak; 
-case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate_RC';brak; 
-case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint_RC';brak; 
-case 'Direct Mail Print': return 'p03_DirectMailPrint_RC';brak; 
-case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
-case 'Company Account': return 'p04_CompanyAccount_RC';brak; 
-case 'DM_Smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
-case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
-case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
-case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
-case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting_RC';brak;
-} 
-}()); 
-
-OPROARTS.Live.fF.action({ 
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
-// このパラメータを省略することはできません。 
-tp:tpArray, 
-
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
-fe:false, 
-
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-createsAttach:false, 
-
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
-// - taskSubject: 活動履歴の件名 
-// - taskComment: 活動履歴のコメント 
-// 無指定の場合は、システムの初期値が適用されます。 
-createsTask:false, 
-
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
-title:'', 
-
-// objectId: 帳票オブジェクトのIDを指定します。 
-objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
-
-// OPROARTS Live - Force.com API に必要な諸パラメータです。 
-// このパラメータを編集しないでください。 
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
-}).url("https://benz.pd.oproarts.com/liveffbb/action").pdf(); 
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
-    </webLinks>
-    <webLinks>
-        <fullName>OPRO_Label_Print_PDF</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>[OPRO]Label Print(PDF)</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
-// 
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
-
-
-// ---- BEGIN ---- 
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
-{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
-
-var tpArray = (function () { 
-var dmTemplate= sforce.connection.query("SELECT id,DM_Template__r.Type__c FROM Retail_Campaign__c WHERE ID ='{!Retail_Campaign__c.Id}' LIMIT 1"); 
-records = dmTemplate.getArray("records"); 
-var dmmaterial_type = records[0].DM_Template__r.Type__c; 
-switch(dmmaterial_type){ 
-case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
-case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
-case 'smart manual': return 'p03_DirectMailPrint';brak; 
-case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
-case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
-case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
-case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting';brak; 
-} 
-}()); 
-
-OPROARTS.Live.fF.action({ 
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
-// このパラメータを省略することはできません。 
-tp:tpArray, 
-
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
-fe:false, 
-
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-createsAttach:false, 
-
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
-// - taskSubject: 活動履歴の件名 
-// - taskComment: 活動履歴のコメント 
-// 無指定の場合は、システムの初期値が適用されます。 
-createsTask:false, 
-
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
-title:'', 
-
-// objectId: 帳票オブジェクトのIDを指定します。 
-objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
-
-// OPROARTS Live - Force.com API に必要な諸パラメータです。 
-// このパラメータを編集しないでください。 
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
-}).url("https://benz.pd.oproarts.com/liveffb/action").pdf(); 
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
+// ---- END ----
+		</url>
     </webLinks>
     <webLinks>
         <fullName>Refresh</fullName>
@@ -16233,28 +14030,7 @@ if(CampStatus != 'Planning' &amp;&amp; CampStatus != 'Segmentation') {
 alert('You cannot create campaign members for this campaign status');
 }else
 {
-var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
-if(marketusr) {
-window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation_TH?id={!Retail_Campaign__c.Id}");
-}else{
 window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}");
-}
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>ShareToDealersTH</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>ShareToDealers</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
-if(marketusr)
-{ 
-window.open("{!URLFOR($Site.Prefix)}/apex/DealerPickerTH?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -16695,3 +14471,4 @@ alert('Application status error.');
 }</url>
     </webLinks>
 </CustomObject>
+

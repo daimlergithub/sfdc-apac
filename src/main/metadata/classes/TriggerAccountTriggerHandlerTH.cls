@@ -33,8 +33,8 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
 
         if(isBefore && isInsert){
+		   AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
-           AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         
          if(isAfter && isInsert )
@@ -43,6 +43,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         }
         
         if(isBefore && isUpdate){
+			AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
             /* Data Update MD Fix - Santosh Mohanty*/
             AccountHelperTH.updatemarket(Trigger.New);
             AccountHelperTH.ValidateNationalid(Trigger.new);
@@ -55,7 +56,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateOnEmailOptout(Trigger.new);
             AccountHelperTH.updateAgeRange(Trigger.new);
             AccountHelperTH.activeContracts(Trigger.new);
-            AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
+           // AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
@@ -72,9 +73,10 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                     accids.add(accrec.id);
                 }
                 //CDMInformatica_Services.createCustomerCDM(accids);
-                if(firstRun==true){
+                if(TriggerRecursiveCheck.run){
+                TriggerRecursiveCheck.runOnce();
                 CDMInformatica_Services.createCustomerCDM(accids,'TH','insert');
-                firstRun=false;
+                //firstRun=false;
                 }
             }
         } 
@@ -91,10 +93,11 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             for(Account accrec:acc){
                 accids.add(accrec.id);
             }
-            if(firstRun==true){
+            if(TriggerRecursiveCheck.run){
+            TriggerRecursiveCheck.runOnce();
             //CDMInformatica_Services.createCustomerCDM(accids);
             CDMInformatica_Services.createCustomerCDM(accids,'TH','update');
-            firstRun=false;
+            //firstRun=false;
             }
             }
         }
@@ -119,6 +122,14 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         */
         if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
             AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
+        }
+        
+        /*** This is used for updating the Document Consent History related to ticket SFDCTH-509 ***/
+        if(isAfter && isUpdate){
+            if(AccountHelperTH.consentHistoryCodeCalled){
+                AccountHelperTH.UpdateConsentHistory((Map<Id,Account>)Trigger.oldMap,Trigger.New);
+                AccountHelperTH.consentHistoryCodeCalled = false;
+            }
         }
     }
     

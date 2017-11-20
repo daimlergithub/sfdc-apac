@@ -742,11 +742,10 @@ public class CaseHelperKR
             system.debug('PSM caseJsonStr + caseIds '+'  '+caseJsonStr);
             updateCaseDeadLine.caseDeadLinesetter(caseJsonStr);
         }
-    
-    }
+	}
 	
 	//---------------------------- Case Share - SFDCKR-964 ----------------------------
-    // Added By - Sreenivasareddy
+// Added By - Sreenivasareddy
 	
     public static void casesharehierarchy(List<Case> LstnewCase) {
         list<id> ownerids = new list<id>();
@@ -820,5 +819,6 @@ public class CaseHelperKR
         If(caseShar != null & caseShar.size() > 0) {
             insert caseShar;
         }
-    } 
+    }
+	
 }

@@ -65,14 +65,15 @@ public class UtilTask {
             TASK_RT_OB + 'not started' => CM_STATUS_SENT,
             TASK_RT_OB + 'no answer' => CM_STATUS_FAILED_NO_RESPONSE,
             TASK_RT_OB + 'need call back' => CM_STATUS_SENT,
-            TASK_RT_OB + 'busy' => CM_STATUS_SENT,
+            TASK_RT_OB + 'busy' => CM_STATUS_FAILED_NO_RESPONSE,
             TASK_RT_OB + 'reject' => CM_STATUS_DECLINE,
             TASK_RT_OB + 'wrong number' => CM_STATUS_FAILED_NO_RESPONSE,
             TASK_RT_OB + 'no such person' => CM_STATUS_FAILED_NO_RESPONSE,
             TASK_RT_OB + 'invalid data' => CM_STATUS_FAILED_NO_RESPONSE,
-            TASK_RT_OB + 'reservation' => CM_STATUS_SENT,
+            TASK_RT_OB + 'reservation' => CM_STATUS_FAILED_NO_RESPONSE,
             TASK_RT_OB + 'Successful' => CM_STATUS_RESPONDED,
-            TASK_RT_OB + 'invalid call' => CM_STATUS_FAILED_NO_RESPONSE
+            TASK_RT_OB + 'invalid call' => CM_STATUS_FAILED_NO_RESPONSE,
+			TASK_RT_OB + 'Language Issue' => CM_STATUS_FAILED_NO_RESPONSE
         };
 
     public static void updateCampaignMemberStatus(List<Task> tasks) {
@@ -107,7 +108,7 @@ public class UtilTask {
             [SELECT Status, CampaignId, ContactId FROM CampaignMember
              WHERE CampaignId IN :camIds
              AND ContactId IN :contactIds
-             AND Status IN :CM_STATUS_PRIORITY.keySet()];
+             AND Status__c IN :CM_STATUS_PRIORITY.keySet()];
 
         // If more than one task is related to a campaign member, 
         // the Campaign Member Status will be updated following the priority as below 
@@ -179,6 +180,7 @@ public class UtilTask {
             }
 
             member.Status = needAssignedMemberStatus;
+			member.Status__c = needAssignedMemberStatus;
             membersNeedToUpdate.add(member);
         }
 

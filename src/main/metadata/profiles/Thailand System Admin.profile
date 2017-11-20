@@ -850,6 +850,14 @@
         <apexClass>CommunitiesSelfRegControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	 <classAccesses>
+        <apexClass>ConsentHistoryInlinepage_TH_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ConsentHistoryInlinepage_TH_Ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>CompassCase</apexClass>
         <enabled>false</enabled>
@@ -4793,6 +4801,11 @@
         <field>Account.Last_updated__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Lastest_Consent_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Latest_Sales_Dealer__c</field>
@@ -5973,6 +5986,11 @@
         <field>Account.UsedLead_Notification_Timing__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	  <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.User_Organization__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.VAN_No_Brand_Purchases__c</field>
@@ -6141,6 +6159,46 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.smart_Account_Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.Account_Record_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Field_History_Tracker__c.Changed_By_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Field_History_Tracker__c.Lastest_Consent_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Field_History_Tracker__c.Personal_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Field_History_Tracker__c.System_Data_Source__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Field_History_Tracker__c.Updated_Consent_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Field_History_Tracker__c.Updated_Consent_User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Field_History_Tracker__c.User_Organization__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -26924,6 +26982,9 @@
         <layout>Account-Dealer Layout-TH</layout>
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
+	 <layoutAssignments>
+        <layout>Account_Field_History_Tracker__c-Account Field History Tracker Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
@@ -27910,6 +27971,15 @@
         <object>Account</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+	   <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Account_Field_History_Tracker__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
@@ -28432,6 +28502,10 @@
     <pageAccesses>
         <apexPage>CommunitiesTemplate</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>ConsentHistoryInlinePage_TH</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ConsolidationDisplayList</apexPage>

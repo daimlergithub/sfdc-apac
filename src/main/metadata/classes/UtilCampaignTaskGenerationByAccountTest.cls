@@ -1,9 +1,10 @@
 @isTest
-public with sharing class UtilCampaignTaskGenerationByAccountTest
+public class UtilCampaignTaskGenerationByAccountTest
 {
     private static Campaign childCampaign;
     private static Campaign parentCampaign;
     private static String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+    private static Id campExecRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution MBK - Wholesale to Dealer').getRecordTypeId();
     private static List<Campaign> campaignList = new List<Campaign>();
     private static List<CampaignMember> campaignMemberList = new List<CampaignMember>();
     private static Batch_Job__c batchJob;
@@ -11,12 +12,13 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
     private static Contact contact;
     private static set<id> setCamId= new set<id>();
     private static Template__c tempObj;
-    static user objUsr;
+    private static user objUsr;
     Private static string empty='';
     static string BY_CAC_CAMPAIGN='By CAC Campaign';
     private static string smsRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     private static string eDMRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
     private static string MMSRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
+    private static string kakaoRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('KakaoTalk').getRecordTypeId();
     private static string CallscriptRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('Callscript').getRecordTypeId();
     private static string strVeriStatus = 'Need Verification';
     static{
@@ -79,6 +81,30 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
             system.assertEquals(campaignMemberList.size(),lstCM.size());
             system.assertEquals(objTask[0].UniqueCampaignMobile__c,campaignMemberList[0].CampaignId+'-'+contact.MobilePhone);
             system.assertEquals(objTask[0].UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+'SMS');
+            system.assertEquals(objTask[0].Activity_Status__c,strVeriStatus);
+        }
+    }
+    
+    public static testMethod void testUtilCampaignTaskGenerationByCase_ExecutionTypeKakaoTalk()
+    {
+        system.runAs(objUsr){
+            test.startTest();
+            createTemplate(kakaoRecordTypeId);
+            createCampaignParent(BY_CAC_CAMPAIGN);
+            createCampaign(BY_CAC_CAMPAIGN);
+            
+            createAccount_Contact();
+            createCampaign_Case('KakaoTalk');
+            createCampaign_Member();
+            createBatchJob();
+            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList);
+            Database.executeBatch(batcher);
+            test.stopTest();
+            list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
+            list<task> objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,WhatId,SMSTemplateID__c from task limit 1];
+            system.assertEquals(campaignMemberList.size(),lstCM.size());
+            system.assertEquals(objTask[0].UniqueCampaignMobile__c,campaignMemberList[0].CampaignId+'-'+contact.MobilePhone);
+            system.assertEquals(objTask[0].UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+'KakaoTalk');
             system.assertEquals(objTask[0].Activity_Status__c,strVeriStatus);
         }
     }
@@ -223,7 +249,7 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
         m.Content_Preview__c='Test';
         m.Execution_Type__c=executionType;
         m.Flow_URL__c='test url';
-        if(executionType!='DM')
+        if(executionType!='DM' && executionType!='KakaoTalk')
         m.Template__c=tempObj.id;
         m.Task_De_dup_Range__c=BY_CAC_CAMPAIGN; 
         campaignList.add(m);
@@ -258,6 +284,6 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
     {
         tempObj = new Template__c(RecordTypeId = recodrTypeid, Active__c = true,
                                            Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR');
-        insert tempObj;                                   
+        insert tempObj;
     }
 }
