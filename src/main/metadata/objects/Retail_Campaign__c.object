@@ -744,6 +744,14 @@
                 <fullName>Sales and After Sales</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Marketing Event</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>CRM/CSR</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
