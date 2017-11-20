@@ -64,7 +64,7 @@ public class UserHelperTH{
         //needs to revoke the access once users account or market got changed
 		
 		
-        database.ExecuteBatch(new RevokeALLRecordsToNewUserBatchTH(accesstorevoke[0],'Account'));
+        //database.ExecuteBatch(new RevokeALLRecordsToNewUserBatchTH(accesstorevoke[0],'Account'));
         
         }
           
