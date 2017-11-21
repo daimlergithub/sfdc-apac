@@ -5181,6 +5181,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>New Lead</value>
     </labels>
     <labels>
+        <fullName>New_Campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Campaign</shortDescription>
+        <value>New Campaign</value>
+    </labels>
+    <labels>
         <fullName>NewSurveyMoreQuestions</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
