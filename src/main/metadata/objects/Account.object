@@ -60832,7 +60832,7 @@ CONTAINS(LOWER(Email3__c), '*@'),
 CONTAINS(LOWER(Email3__c), '&amp;@'), 
 CONTAINS(LOWER(Email3__c), '%@') 
 ),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
-        <errorMessage>Please Enter proper Email Address  before @ don't use this characters /.%&*</errorMessage>
+        <errorMessage>Please Enter proper Email Address  before @ don't use this characters /.%*</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Email_Opt_Out_Reason_Mandatory</fullName>
