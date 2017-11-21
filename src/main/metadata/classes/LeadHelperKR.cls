@@ -831,8 +831,8 @@ public class LeadHelperKR
                       }
            }
     }*/
-	
-	//---------------------------- lead Share ----------------------------
+	//---------------------------- Lead Share - SFDCKR-964 ----------------------------
+		// Added By - Sreenivasareddy
     
     public static void leadsharehierarchy(List<lead__c> Lstnewlead) {
         list<id> ownerids = new list<id>();
@@ -846,12 +846,19 @@ public class LeadHelperKR
         system.debug('*****leadownerlist' +ownerids);
         }
         
+        If(Trigger.IsUpdate){//before insert new casesharings need to delete old Leadsharings***...
+            List<Lead__Share> sharesToDelete = [Select UserOrGroupId,RowCause,id From Lead__Share where RowCause='Ownershare' and Id in:leadids];
+            if(!sharesToDelete.isEmpty()) {
+                delete sharesToDelete;
+            }
+        }
+        
         Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c  from User where id in: ownerids]);
         system.debug('Reporting Users' +usermap);
        
         List<Lead__Share> leadShar = new List<Lead__Share>();
         
-        /*  Sales Consultant Share Process  */
+        /* Sales Consultant Share Process */
         
         for(lead__c  led : Lstnewlead) {
             if(!usermap.containsKey(led.ownerid))continue;
@@ -875,17 +882,17 @@ public class LeadHelperKR
             }
         }
 
-        /*  Team Leader Share Process  */
+        /* Team Leader Share Process */
         
         for(lead__c  tlled : Lstnewlead) {
             if(!usermap.containsKey(tlled.ownerid))continue;
                 user tlu = usermap.get(tlled.ownerid);
             if(tlu.MBK_Partner_Roles__c == 'Team Leader') {
-            system.debug('Sales Manager' +tlu.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c);
-                if(tlu.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null || tlu.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!='') {
+            system.debug('Sales Manager' +tlu.MBK_Reporting_Partner_User__c);
+                if(tlu.MBK_Reporting_Partner_User__c!=null || tlu.MBK_Reporting_Partner_User__c!='') {
                     Lead__Share tlshareRec = new Lead__Share();
                     tlshareRec.ParentId = tlled.Id;
-                    tlshareRec.UserOrGroupId  = tlu.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c;
+                    tlshareRec.UserOrGroupId  = tlu.MBK_Reporting_Partner_User__c;
                     tlshareRec.AccessLevel = 'edit';
                     leadShar.add(tlshareRec);  
                 }

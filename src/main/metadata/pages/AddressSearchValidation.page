@@ -375,15 +375,23 @@
                             
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem >
+                    <!--<apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Preferred_Phone__c.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                            
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:inputField value="{!objAccount.Preferred_Phone__c}" />
                         </apex:outputPanel>
-                    </apex:pageBlockSectionItem>
+                    </apex:pageBlockSectionItem>-->
                   <!--<apex:inputField value="{!objAccount.Preferred_Phone__c}" required="true"/>--> 
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Primary_Phone__c.Label}"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                           
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                            <apex:inputField value="{!objAccount.Primary_Phone__c}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
                   <apex:inputField value="{!objAccount.Email__c}" />                    
                   <apex:inputField value="{!objAccount.PersonBirthdate}"/> 
                     
@@ -433,15 +441,23 @@
                          <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber"  style="width:120px"/>    
                         </apex:outputPanel>                   
                     </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem >
+                    <!--<apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Preferred_Phone__c.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                            
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:inputField value="{!objAccount.Preferred_Phone__c}" />
                         </apex:outputPanel>
-                    </apex:pageBlockSectionItem>
-                   <!--<apex:inputField value="{!objAccount.Preferred_Phone__c}" required="true"/>-->               
+                    </apex:pageBlockSectionItem>-->
+                   <!--<apex:inputField value="{!objAccount.Preferred_Phone__c}" required="true"/>-->    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Primary_Phone__c.Label}"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                           
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                            <apex:inputField value="{!objAccount.Primary_Phone__c}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>           
                    <apex:inputField value="{!objAccount.Email__c}" />  
                    <!--MD changes commented by santosh Mohanty-->
                    <!--<apex:outputField value="{!objAccount.Market__c }" />-->                                         
