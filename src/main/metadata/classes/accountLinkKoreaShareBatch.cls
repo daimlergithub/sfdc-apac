@@ -1,13 +1,11 @@
-global class accountLinkShareBatch implements Database.Batchable<sobject>,database.stateful, Schedulable
+global class accountLinkKoreaShareBatch implements Database.Batchable<sobject>,database.stateful, Schedulable
 {
     public static List<string> dealerGCCodeList = new list<string>();
     public static List<string> dealerNDCodeList = new List<string>();
     public static Map<string,string> groupGcCodeMap = new Map<string,string>();
     public static Map<string,string> groupNdCodeMap = new Map<string,string>();
-    public static map<string,list<String>> dealeraccntMap = new Map<string,list<String>>();
     public static List<Account_Link__Share> updateaclnkShareList = new List<Account_Link__Share>();
     public static List<AccountShare> updateAccShareList = new List<AccountShare>();
-    public static map<string,id> assignedgroupMap = new map<string,id>();
   global database.QueryLocator start(database.BatchableContext bc)
     { 
         string query = 'Select id,fromRole__c,toRole__c,fromRole__r.Dealer_GC_Code__c,fromRole__r.Dealer_ND_Code__c,fromRole__r.Dealer_Type__c from Account_Link__c where fromRole__r.Dealer_GC_Code__c in '+ '(\'GC0037971\',\'GC0011433\',\'GC0037972\',\'GC0011422\',\'GC0011432\',\'GC0011423\',\'GC0037973\',\'GC0037970\',\'GC0011430\',\'GC0037969\',\'GC0011434\') '+ 'and fromRole__c != null and toRole__c != null and MD__C =' +'\'KR\''+ 'and (Recordtype.Name =' +'\'Retail Person\'' + 'or Recordtype.Name = ' +'\'Retail Company\')';
@@ -16,6 +14,7 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
     global void execute(database.BatchableContext bc,List<Account_Link__c> scope)
     {
     
+           system.debug('+++++'+scope.size());
         dealerGCCodeList.add('GC0037971');
         dealerGCCodeList.add('GC0037972');
         dealerGCCodeList.add('GC0011433');
@@ -33,12 +32,6 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
         for(Account acc : accntList){
         
            ndCodeList.add(acc.Dealer_ND_Code__c);
-           if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
-            {
-                dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
-            }
-            dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Dealer_ND_Code__c);
-           
         }
         
         system.debug('+++++++++++++'+ndCodeList);
@@ -47,48 +40,55 @@ global class accountLinkShareBatch implements Database.Batchable<sobject>,databa
         {
             for(group gr : grpList)
             {
-               
-               
-               assignedgroupMap.put(gr.Name, gr.id);
-               
-               
-               
-              
+                for(Account acc : accntList)
+                {
+                    if(acc.Dealer_Type__c == 'Company' && gr.Name == acc.Dealer_ND_Code__c)
+                    {
+                        groupGcCodeMap.put(acc.Dealer_GC_Code__c,gr.Id);
+                    }
+                    
+                    if(acc.Dealer_Type__c == 'outlet' &&gr.Name == acc.Dealer_ND_Code__c)
+                    {
+                        groupNdCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
+                    }
+                }
             }
         }
         for(Account_Link__c acclnk : Scope)
         {
-            
-            if(dealeraccntMap.get(acclnk.fromRole__r.Dealer_GC_Code__c) != null){
-            for(integer i=0 ; i < dealeraccntMap.get(acclnk.fromRole__r.Dealer_GC_Code__c).size();i++)
-                    
+            if((groupNdCodeMap.get(acclnk.fromRole__r.Dealer_ND_Code__c))!=null && groupNdCodeMap!=null && acclnk.fromRole__r.Dealer_Type__c =='outlet')
             {
-                if(assignedgroupMap.get(dealeraccntMap.get(acclnk.fromRole__r.Dealer_GC_Code__c)[i]) != null)
-                        {
-           
+            Account_Link__Share aclnkshare = new Account_Link__Share();
+            aclnkshare.ParentId = acclnk.Id;
+            aclnkshare.UserOrGroupId = groupNdCodeMap.get(acclnk.fromRole__r.Dealer_ND_Code__c);
+            aclnkshare.AccessLevel = 'Edit';
+            updateaclnkShareList.add(aclnkshare);
             
-            AccountShare achsare = new Accountshare();
-            achsare.Accountid=acclnk.toRole__c;
-            
-            achsare.UserOrGroupId = assignedgroupMap.get(dealeraccntMap.get(acclnk.fromRole__r.Dealer_GC_Code__c)[i]);
-            achsare.AccountAccessLevel='edit';
-            achsare.OpportunityAccessLevel ='none';
-            updateAccShareList.add(achsare);  
+              
             }
-            } 
-        }  
-        }      
-        
-        if(!updateAccShareList.isEmpty() && updateAccShareList != null)
-        {
-            insert updateAccShareList;
+            if((groupGcCodeMap.get(acclnk.fromRole__r.Dealer_GC_Code__c))!=null && groupGcCodeMap!=null )
+            {
+            Account_Link__Share aclnkshare = new Account_Link__Share();
+            aclnkshare.ParentId = acclnk.Id;
+            aclnkshare.UserOrGroupId = groupGcCodeMap.get(acclnk.fromRole__r.Dealer_GC_Code__c);
+            aclnkshare.AccessLevel = 'Edit';
+            updateaclnkShareList.add(aclnkshare);
+            
+            
+                
+            }
         }        
+        if(!updateaclnkShareList.isEmpty() && updateaclnkShareList != null)
+        {
+            insert updateaclnkShareList; 
+        }
+              
     }
     global void finish(database.BatchableContext bc)
     {
         
     }
     global void execute(SchedulableContext ctx) {
-    Database.ExecuteBatch(new accountLinkShareBatch(),50);
+    Database.ExecuteBatch(new accountLinkShareBatch(),200);
     }
 }
