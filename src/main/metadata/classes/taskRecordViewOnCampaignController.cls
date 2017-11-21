@@ -24,19 +24,22 @@ public without sharing class taskRecordViewOnCampaignController
         else if(userinfo.getUserType() == 'PowerPartner')
         {
             currentUser = [Select Id, Name, AccountId, Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
-            campMembrList = [Select Id,Contact.AccountId from CampaignMember where CampaignId =: ApexPages.currentPage().getParameters().get('Id')];
-            if(!campMembrList.isEmpty() && campMembrList != null)
+			if(ApexPages.currentPage().getParameters().get('Id') != null)
+			{
+				campMembrList = [Select Id,Contact.AccountId from CampaignMember where CampaignId =: ApexPages.currentPage().getParameters().get('Id')];
+			}            
+            if(campMembrList != null && !campMembrList.isEmpty())
             {
                 for(CampaignMember camMbr : campMembrList)
                 {               
                     accountContactIdMap.put(camMbr.Contact.AccountId,camMbr.ContactId);
                 }
             }
-            if(!accountContactIdMap.isEmpty() && accountContactIdMap != null)
+            if(accountContactIdMap != null && !accountContactIdMap.isEmpty())
             {
                 sharedAccountList = [Select Id, AccountId, UserOrGroup.Name from AccountShare where AccountId in : accountContactIdMap.keySet()];
             }
-            if(!sharedAccountList.isEmpty() && sharedAccountList != null)
+            if(sharedAccountList != null && !sharedAccountList.isEmpty())
             {
                 for(AccountShare accShr : sharedAccountList)
                 {

@@ -4,6 +4,7 @@ public class TriggerCampaignMembersCustomTH implements TriggerHandlerIf
     {
     CampaignMemberCustomHelperTH helper=new CampaignMemberCustomHelperTH();
     if(Trigger.isInsert/*||Trigger.IsUpdate*/){
+	
         helper.campaignMemberHelperBeforeInsert(Trigger.new);
         if(Trigger.isAfter){
                helper.CampaignmemberssharewithsubDealers(Trigger.new);
