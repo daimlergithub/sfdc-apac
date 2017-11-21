@@ -812,7 +812,7 @@
         
         top2.Campaign_Type__c='After Sales';
         update top2;
-        CampaignHelper.copyCampaignToRetailCampaign(listcampaigns.campignMap);
+        CampaignHelper.copyCampaignToRetailCampaign(listcampaigns,campignMap);
         
         Test.StopTest();
         system.assertNotEquals(null, listcampaigns[0].StartDate);
