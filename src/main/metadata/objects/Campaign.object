@@ -24516,7 +24516,7 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <openType>replace</openType>
         <protected>false</protected>
         <url>/701/e?RecordType=01228000001Dg46&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
-    </webLinks>
+    </webLinks> 
 	<webLinks>
         <fullName>Create_Simple_Execution_Generic</fullName>
         <availability>online</availability>
