@@ -60821,6 +60821,19 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Driver_License_Year__c</errorDisplayField>
         <errorMessage>The driver's license year is not in correct format</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Email3_Other_EMail</fullName>
+        <active>true</active>
+		 <description> Changes related to SFDCJP-3139</description>
+        <errorConditionFormula>AND(OR( 
+CONTAINS(LOWER(Email3__c), '.@'), 
+CONTAINS(LOWER(Email3__c), '/@'), 
+CONTAINS(LOWER(Email3__c), '*@'), 
+CONTAINS(LOWER(Email3__c), '&@'), 
+CONTAINS(LOWER(Email3__c), '%@') 
+),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
+        <errorMessage>Please Enter proper Email Address  before @ don't use this characters /.%&*</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Email_Opt_Out_Reason_Mandatory</fullName>
         <active>true</active>

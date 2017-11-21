@@ -15,6 +15,7 @@ public class AccountHelperTH{
     **/
     public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+    public static Id dealer_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Dealer');
     public static Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
     public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
     public static boolean consentHistoryCodeCalled = true;
@@ -51,6 +52,7 @@ public class AccountHelperTH{
      public static void ValidatePhoneNumberonBeforeEvents(list<Account> listNewAccounts){
          String individualphone='+66';
          for(Account acc:listNewAccounts){
+           if(acc.RecordTypeId!=dealer_RecordTypeId){
              if(!(String.IsBlank(acc.Individual_Home_Phone__c))&&acc.Individual_Home_Phone__c.length()>3){
                  //if user inputs more than one zero after +66 it will remove all the zero's
                  //if the Individual_Home_Phone__c starts with zero then find zero in third position 
@@ -149,7 +151,7 @@ public class AccountHelperTH{
              }
                 
          }
-         
+        } 
      }
      
      /* End Of phone Number format */
