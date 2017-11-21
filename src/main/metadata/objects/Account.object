@@ -60829,7 +60829,7 @@ $Profile.Name != 'IntegrationAPI'
 CONTAINS(LOWER(Email3__c), '.@'), 
 CONTAINS(LOWER(Email3__c), '/@'), 
 CONTAINS(LOWER(Email3__c), '*@'), 
-CONTAINS(LOWER(Email3__c), '&@'), 
+CONTAINS(LOWER(Email3__c), '&amp;@'), 
 CONTAINS(LOWER(Email3__c), '%@') 
 ),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorMessage>Please Enter proper Email Address  before @ don't use this characters /.%&*</errorMessage>
