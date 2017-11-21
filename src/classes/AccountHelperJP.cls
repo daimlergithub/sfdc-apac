@@ -41,7 +41,8 @@ public class AccountHelperJP
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
-        If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
+       system.debug('*** IN ACCOUNT HELPER******');
+       If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
             for(Account Acc : listNewAccounts)
             {
