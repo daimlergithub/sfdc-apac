@@ -18,6 +18,7 @@
     public static string Published = 'Published';
     public static Set<String> topCampaignIds;
     private static List<Campaign> rclist; 
+	private static map<Id, Campaign> campignMap;
      private static Map<id,Campaign> CampaignMap1;
        public static Campaign camobj;
        public static Campaign camobj1;
@@ -47,6 +48,7 @@
     insert camobj;
   
     rclist=new List<Campaign>();
+	campignMap = new map<Id, Campaign>();
    // rclist.add(camobj);
      system.debug('rclist---'+rclist);
     
@@ -159,7 +161,7 @@
     Test.StartTest();
    listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -600,7 +602,7 @@
             );
              Database.insert(portalAccountOwner1);
     
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342');
      insert dealer;
     
     camobj = new Campaign();
@@ -660,7 +662,7 @@
             );
             insert portalAccountOwner1;
     
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_Sales_Manager_Email__c='test1@gmail.com');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342',Dealer_Sales_Manager_Email__c='test1@gmail.com');
      insert dealer;
      
     camobj = new Campaign();
@@ -678,6 +680,7 @@
     insert camobj;
   
     rclist=new List<Campaign>();
+	campignMap = new map<Id, Campaign>();
    // rclist.add(camobj);
      system.debug('rclist---'+rclist);
     
@@ -695,12 +698,13 @@
     camobj1.Execution_Type__c= 'eMail';
     camobj1.Description = 'testdescrip';
     rclist.add(camobj1);
+	campignMap.put(camobj1.Id, camobj1);
     insert rclist;
     system.debug('rclist---'+rclist);
    
     
      Test.startTest();
-     CampaignHelper.copyCampaignToRetailCampaign(rclist);
+     CampaignHelper.copyCampaignToRetailCampaign(rclist,campignMap);
    
      Test.stopTest();
     }
@@ -728,8 +732,9 @@
            preparedTestDataCustomsettings();     
         Test.StartTest();
        listcampaigns=new List<Campaign>();
+	   campignMap = new map<Id,Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_Sales_Manager_Email__c='test1@gmail.com');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342',Dealer_Sales_Manager_Email__c='test1@gmail.com');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -801,12 +806,13 @@
 
         CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
         listcampaigns.add(objcampaign);
+		campignMap.put(objcampaign.Id,objcampaign);
         
-        CampaignHelper.copyCampaignToRetailCampaign(listcampaigns);
+        CampaignHelper.copyCampaignToRetailCampaign(listcampaigns,campignMap);
         
         top2.Campaign_Type__c='After Sales';
         update top2;
-        CampaignHelper.copyCampaignToRetailCampaign(listcampaigns);
+        CampaignHelper.copyCampaignToRetailCampaign(listcampaigns,campignMap);
         
         Test.StopTest();
         system.assertNotEquals(null, listcampaigns[0].StartDate);
@@ -821,7 +827,7 @@
     Test.StartTest();
    listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -898,7 +904,7 @@
     Test.StartTest();
    listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -972,7 +978,7 @@
     Test.StartTest();
    listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -1066,7 +1072,7 @@
     Test.StartTest();
    listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -1177,7 +1183,7 @@
         Test.StartTest();
        listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_Sales_Manager_Email__c='test1@gmail.com');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342',Dealer_Sales_Manager_Email__c='test1@gmail.com');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -1341,7 +1347,7 @@
     Test.StartTest();
    listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 

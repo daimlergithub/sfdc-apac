@@ -211,6 +211,7 @@ RecordType.Name,
 'CAS Marketing Campaign', 'L1'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
 'Campaign Execution - Simple', 'L3'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
 'Campaign Execution - Complex', 'L3'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
+'Campaign Execution MBK - Wholesale to Dealer', 'L3'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
 'L2'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c)</formula>
         <name>Update Campaign Code</name>
         <notifyAssignee>false</notifyAssignee>

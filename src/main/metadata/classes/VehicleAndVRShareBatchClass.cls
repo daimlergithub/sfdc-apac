@@ -4,6 +4,8 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
     public static List<string> dealerNDCodeList = new List<string>();
     public static Map<string,string> groupNdCodeMap = new Map<string,string>();
     public static Map<string,string> groupGcCodeMap = new Map<string,string>();
+    public static map<string,list<String>> dealeraccntMap = new Map<string,list<String>>();
+    public static map<string,id> assignedgroupMap = new map<string,id>();
     public static List<Vehicle_Relationship__Share> updateVRShareList = new List<Vehicle_Relationship__Share>();
     public static List<Vehicle__Share> updateVehShareList = new List<Vehicle__Share>();
     public static list<Vehicle_Relationship__c> vehRelList = new list<Vehicle_Relationship__c>();
@@ -15,10 +17,10 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
     }
     global void execute(database.BatchableContext bc,List<Vehicle_Relationship__c> scope)
     {
-        dealerGCCodeList.add('GC0011422');
+        dealerGCCodeList.add('GC0037971');
+       dealerGCCodeList.add('GC0011422');
         dealerGCCodeList.add('GC0011430');
         dealerGCCodeList.add('GC0037972');
-        dealerGCCodeList.add('GC0037971');
         dealerGCCodeList.add('GC0011433');
         dealerGCCodeList.add('GC0011434');
         dealerGCCodeList.add('GC0037969');
@@ -31,6 +33,11 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
         for(Account acc : accntList){
         
            ndCodeList.add(acc.Dealer_ND_Code__c);
+            if(!dealeraccntMap.containsKey(acc.Dealer_GC_Code__c))
+            {
+                dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
+            }
+            dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Dealer_ND_Code__c);
         }
         
         
@@ -39,7 +46,8 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
         {
             for(group gr : grpList)
             {
-                for(Account acc : accntList)
+                assignedgroupMap.put(gr.Name, gr.id);
+               /* for(Account acc : accntList)
                 {
                     if(acc.Dealer_Type__c == 'Company' && gr.Name == acc.Dealer_ND_Code__c)
                     {
@@ -50,59 +58,51 @@ global class VehicleAndVRShareBatchClass implements Database.Batchable<sobject>,
                     {
                         groupNdCodeMap.put(acc.Dealer_ND_Code__c,gr.Id);
                     }
-                }
+                }*/
             }
         }
         if(!scope.isEmpty() && scope != null)
         {
-            for(Vehicle_Relationship__c vehRel : scope)
-            {
-                if((groupNdCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c))!=null && groupNdCodeMap != null)
-            {
-                Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
-                vehicleRelationShare.AccessLevel = 'Edit';
-                vehicleRelationShare.UserOrGroupId = groupNdCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
-                vehicleRelationShare.ParentId = vehRel.Id;
-                updateVRShareList.add(vehicleRelationShare);   
-    
-                Vehicle__Share vehicleShare = new Vehicle__Share();
-                vehicleShare.AccessLevel = 'Edit';
-                vehicleShare.UserOrGroupId = groupNdCodeMap.get(vehRel.Owner_Dealer__r.Dealer_ND_Code__c);
-                vehicleShare.ParentId = vehRel.Vehicle_ID__c;
-                updateVehShareList.add(vehicleShare);
-            }
-            if((groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c))!=null && groupGcCodeMap != null)
-            {
+                    for(Vehicle_Relationship__c vehRel : scope)
+                    {
+                        if((dealeraccntMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c))!=null )
+                        {
+                            for(integer i=0 ; i < dealeraccntMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c).size();i++)
+                            {
+                                if(assignedgroupMap.get(dealeraccntMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c)[i]) != null)
+                                
+                                {
+                                    Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
+                                    vehicleRelationShare.AccessLevel = 'Edit';
+                                    vehicleRelationShare.UserOrGroupId = assignedgroupMap.get(dealeraccntMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c)[i]);
+                                    vehicleRelationShare.ParentId = vehRel.Id;
+                                    updateVRShareList.add(vehicleRelationShare);   
+                        
+                                    Vehicle__Share vehicleShare = new Vehicle__Share();
+                                    vehicleShare.AccessLevel = 'Edit';
+                                    vehicleShare.UserOrGroupId = assignedgroupMap.get(dealeraccntMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c)[i]);
+                                    vehicleShare.ParentId = vehRel.Vehicle_ID__c;
+                                    updateVehShareList.add(vehicleShare);
+                                }
+                            }
+                        }
+                    }
                 
-                Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
-                vehicleRelationShare.AccessLevel = 'Edit';
-                vehicleRelationShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c);
-                vehicleRelationShare.ParentId = vehRel.Id;
-                updateVRShareList.add(vehicleRelationShare);   
-    
-                Vehicle__Share vehicleShare = new Vehicle__Share();
-                vehicleShare.AccessLevel = 'Edit';
-                vehicleShare.UserOrGroupId = groupGcCodeMap.get(vehRel.Owner_Dealer__r.Dealer_GC_Code__c);
-                vehicleShare.ParentId = vehRel.Vehicle_ID__c;
-                updateVehShareList.add(vehicleShare);
-            }
+                if(!updateVRShareList.isEmpty() && updateVRShareList != null)
+                {
+                    insert updateVRShareList;
+                }
+                if(!updateVehShareList.isEmpty() && updateVehShareList != null)
+                {
+                    insert updateVehShareList;
+                }
         }
-        
-        if(!updateVRShareList.isEmpty() && updateVRShareList != null)
-        {
-            insert updateVRShareList;
-        }
-        if(!updateVehShareList.isEmpty() && updateVehShareList != null)
-        {
-            insert updateVehShareList;
-        }
-    }
     }
     global void finish(database.BatchableContext bc)
     {
                     
     }
     global void execute(SchedulableContext ctx) {
-    Database.ExecuteBatch(new VehicleAndVRShareBatchClass(),200);
+    Database.ExecuteBatch(new VehicleAndVRShareBatchClass(),50);
     }
 }
