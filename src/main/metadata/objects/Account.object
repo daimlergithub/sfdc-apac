@@ -16432,7 +16432,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other1</fullName>
@@ -16440,7 +16439,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other2</fullName>
@@ -16448,7 +16446,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Home</fullName>
@@ -61620,6 +61617,13 @@ $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
         <errorMessage>Phone should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+	 <validationRules>
+        <fullName>Phone_Required_for_Sales_TEL</fullName>
+        <active>true</active>
+        <description>When Mobile is selected for picklist field Sales TEL, then field value Mobile is required.</description>
+        <errorConditionFormula>AND(OR(AND(ISPICKVAL(Primary_Phone__c,'Mobile'),ISBLANK(Mobile__c)),AND(ISPICKVAL(Primary_Phone__c,'Home Phone'),ISBLANK(Individual_Home_Phone__c)),AND(ISPICKVAL(Primary_Phone__c,'Work Phone'),ISBLANK(Work_Phone__c))),MD__c = 'TH',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>No value entered in Phone field for selected value in Sales Tel</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Phone_StartsWith0</fullName>
