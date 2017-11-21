@@ -23851,7 +23851,19 @@ window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_C
 }
 else
 {
-window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	if (sforce.console.isInConsole()) 
+	{ 
+		javascript:sforce.console.getEnclosingPrimaryTabId( 
+		function openPrimaryTab(result) 
+		{ 	
+		sforce.console.openPrimaryTab(result.id,'/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&ent=Campaign&Parent={!Campaign.Name}&Parent_lkid={!Campaign.Id}&retURL={!Campaign.Id}&cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		}
+		)
+	}
+	else
+	{	
+	window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	}
 }</url>
     </webLinks>
     <webLinks>
@@ -23909,7 +23921,19 @@ window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordT
 }
 else
 {
-window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	if (sforce.console.isInConsole()) 
+	{ 
+		javascript:sforce.console.getEnclosingPrimaryTabId( 
+		function openPrimaryTab(result) 
+		{
+		sforce.console.openPrimaryTab(result.id,'/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		}
+		)
+	}
+	else
+	{
+	window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	}
 }</url>
     </webLinks>
     <webLinks>
