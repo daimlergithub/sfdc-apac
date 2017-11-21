@@ -1429,7 +1429,19 @@ system.debug('i am here');
                  topDqshareRec.CampaignAccessLevel = 'Read';
                  campshare.add(topDqshareRec);
                }
-            }    
+			    
+            }  
+        if((camsdq.recordtypeId == campPlngRecTypId || camsdq.recordtypeId == campDsgnRecTypId || camsdq.recordtypeId == campExeRecTypId) && dqshare.Contact.Account.Dealer_Type__c == 'Company')
+               {
+                for(id NDgroup:assgroupMap.values())
+               { 
+               CampaignShare shareRec1 = new CampaignShare();
+                shareRec1.CampaignId = camsdq.Id;
+                shareRec1.UserOrGroupId  = NDgroup;
+                shareRec1.CampaignAccessLevel  = 'Read';
+                campshare.add(shareRec1); 
+               }
+               }  			
             
      }  
      system.debug('campshare --'+campshare);
