@@ -23856,7 +23856,7 @@ else
 		javascript:sforce.console.getEnclosingPrimaryTabId( 
 		function openPrimaryTab(result) 
 		{ 	
-		sforce.console.openPrimaryTab(result.id,'/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&ent=Campaign&Parent={!Campaign.Name}&Parent_lkid={!Campaign.Id}&retURL={!Campaign.Id}&cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		sforce.console.openPrimaryTab(result.id,'/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
 		}
 		)
 	}
