@@ -1975,7 +1975,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>eMail</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11193,6 +11193,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22870,6 +22874,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
