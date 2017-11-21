@@ -5,7 +5,9 @@ final static Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', Uti
 public List<Id> tmpCaseIds = new List<Id>();
 public List<Account> updateAccount = new List<Account>();
 public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
-public static Account personAcc  ;
+public static Account personAcc;
+public static Account dealerAccount;
+public static Account dealerAccount2;
 static void init( ){
 Trigger__C casetrigger=new Trigger__C(name='TriggerCaseTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseTriggerHandlerTH',Trigger_Name__c='CaseTrigger',update__c=true);
 insert casetrigger;
@@ -26,7 +28,7 @@ User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
                 Database.insert(usr); 
                
         }
-        
+   List<Account> accLst=new List<Account>();     
    personAcc = new Account(Dealer_Default_Flag__c=false,
                            Dealer_DMS_SR_Code__c='test code 2',
                            Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
@@ -35,21 +37,27 @@ User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
                            Phone = '0801801110',
                            Area_code__c = '0101',
                            MD__c = 'TH',
-                           LastName = 'galaxy1',
-                           FirstName = 'First Name',
-                           Salutation = 'Unknown',      
+                           LastName = 'galaxy11',
+                           FirstName = 'First Name1',
+                           Salutation = 'Unknown1',      
                            Province__c = 'Shanghai',
                            ZipCode__c= '12347',
-                           
+                           Dealer_nd_code__c='465798',
                            Mobile2__c = '035456232678',
                            Primary_Email__c = 'Email1',
                            Primary_Fax__c = 'FAX2',
                            Primary_Phone__c ='Other2',
                            RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
-                           insert personAcc;
+                           
         
-
-
+		accLst.add(personAcc);
+		dealerAccount =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId(), Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='1235');
+     
+    accLst.add(dealerAccount);
+    dealerAccount2 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId(), Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='123565');
+      
+     accLst.add(dealerAccount2);
+    insert accLst;
 }
 @isTest
 public static void calculateCaseAmountTest(){
@@ -107,4 +115,32 @@ init();
          system.assertequals([select id from case where id=:c1.id].size(),1);
 
 }
+    static testMethod void ShareRecordswithDealers_Test()
+    {
+        init();
+        Test.startTest();
+        
+        List<Group> groupLst=new List<Group>();
+        groupLst.add(new Group(Name='123565'));
+        insert groupLst;
+        
+        Case testCaseObj = new Case();
+         testCaseObj.Subject='testing';
+         testCaseObj.accountid=personAcc.id;
+        testCaseObj.Recordtypeid=MBRecordtypeid ;
+         testCaseObj.MD__c='TH';
+        testCaseObj.Case_Dealer__c=dealerAccount.Id;
+         insert testCaseObj;
+        
+        testCaseObj.Case_Dealer__c=null;
+        update testCaseObj;
+        
+        testCaseObj.Case_Dealer__c=dealerAccount2.Id;
+        update testCaseObj;
+        
+        testCaseObj.Case_Dealer__c=dealerAccount.Id;
+        update testCaseObj;
+        
+        Test.stopTest();
+    }
 }

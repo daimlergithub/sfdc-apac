@@ -17,7 +17,6 @@ global class CtrlMessageAPIKRDFW {
 												processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c 
 											FROM MBK_Messages__c WHERE Id IN: MessageIds]);
 		List<MBK_Messages__c> MBKMessages = mapMBKs.values();
-		system.debug('MessageIds:'+MessageIds);
 		map<Id, List<Attachment>> messageImages = new map<Id, List<Attachment>>();
 		List<Attachment> Attachments = [SELECT Id, Body, Name,ParentId FROM Attachment WHERE ParentId IN: messageIds];
 		List<Attachment> tempList = null;
@@ -30,7 +29,6 @@ global class CtrlMessageAPIKRDFW {
 			}
 			tempList.add(temp);			
 		}	
-		system.debug('messageImages:'+messageImages);
 		Http			http	= new Http();
 		HttpRequest		req		= new HttpRequest();
 		HttpResponse	res		= new HttpResponse();
@@ -66,7 +64,7 @@ global class CtrlMessageAPIKRDFW {
 					for(Attachment att:MBKAtts){					
 						subg.writeStartObject();
 						subg.writeStringField('seq', String.valueOf(i));	
-						subg.writeStringField('data', EncodingUtil.base64Encode(att.Body));
+						subg.writeStringField('file', EncodingUtil.base64Encode(att.Body));
 						subg.writeStringField('ext', att.Name.right(3));
 						subg.writeEndObject();
 						i++;
@@ -99,80 +97,77 @@ global class CtrlMessageAPIKRDFW {
 		req.setMethod('POST');
 		req.setBody(dataJson);		
 		req.setTimeout(60000);
-system.debug('dataJson:'+dataJson);
 		//Status Send로 업데이트
+		GlobalUtilityDFW gu = GlobalUtilityDFW.getInstance();
 		try {			
 			res = http.send(req);
-system.debug(res.getBody());
 			update MBKMessages;
 			Integer statusCode = res.getStatusCode();
-			Map<String, Object> ReturnDatas = new Map<String, Object>();
+			List<Object> ReturnDatas = new List<Object>();
 			if(statusCode != 200) {
 				//API 전송실패
-				errMsg = res.getStatus();
-				ReturnDatas = (Map<String, Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
-system.debug('statusCode error: '+ ReturnDatas);	
-				//step1
-				map<String, Object> error = (map<String, Object>)ReturnDatas.get('error');
-				//step2
-				Integer code = (Integer)error.get('code');
-				String message = (String)error.get('message');
-				map<String, Object> details = (map<String, Object>)error.get('details');
-				//step3
-				String extra = String.valueOf(details.get('extra'));						
+				errMsg = res.getStatus();					
 				for(MBK_Messages__c temp:MBKMessages){
-					temp.code__c = String.valueOf(code);
-					temp.altMsg__c = message+':'+extra;
+					temp.code__c = String.valueOf(statusCode);
+					temp.altMsg__c = errMsg;
 					temp.processed__c = true;
 					temp.Status__c = 'Fail';
 				}
 			}else{
-system.debug('res:'+res.getBody());
-				ReturnDatas = (Map<String, Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
+				ReturnDatas = (List<Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
 				//step1
-				map<String, Object> Out = (map<String, Object>)ReturnDatas.get('Out');
-				String sndDtm = (String)ReturnDatas.get('sndDtm');
-				//Step2
-				String altCode = (String)Out.get('altCode');
-				String altMsg = (String)Out.get('altMsg');
-				String custMsgSn = (String)Out.get('custMsgSn');
-				String smsMsg = (String)Out.get('smsMsg');
-system.debug('ReturnDatas:'+ReturnDatas);
-				for(MBK_Messages__c temp:MBKMessages){
-					
-					temp.sn__c = '';
-					temp.code__c = String.valueOf(statusCode);
-					temp.altCode__c = String.valueOf(altCode);
-					temp.altMsg__c = altMsg;
-					temp.sndDtm__c = sndDtm;
-					temp.smsMsg__c = smsMsg;
-					temp.custMsgSn__c = custMsgSn;
-					temp.processed__c = true;
-					if(String.valueOf(altCode) <> '0000') temp.Status__c = 'Fail';
-					else temp.Status__c = 'Completed';
-				}		
+				map<String, object> resData;
+				if(ReturnDatas <> null && ReturnDatas.size() > 0){
+					resData = (map<String, object>)ReturnDatas[0];
+
+					//Step2
+					String sn = resData.get('sn') == null ? '' : (String)resData.get('sn');
+				    String custMsgSn = resData.get('custMsgSn') == null ? '' : (String)resData.get('custMsgSn');
+					String code = resData.get('code') == null ? '' : (String)resData.get('code');
+				    String altCode = resData.get('altCode') == null ? '' : (String)resData.get('altCode');
+				    String altMsg = resData.get('altMsg') == null ? '' : (String)resData.get('altMsg');
+				    String smsCode = resData.get('smsCode') == null ? '' : (String)resData.get('smsCode');
+				    String smsMsg = resData.get('smsMsg') == null ? '' : (String)resData.get('smsMsg');
+				    String rcptDtm = resData.get('rcptDtm') == null ? '' : (String)resData.get('rcptDtm');
+				    String sndDtm = resData.get('sndDtm') == null ? '' : (String)resData.get('sndDtm');
+
+					for(MBK_Messages__c temp:MBKMessages){
+						temp.sn__c = sn;
+						temp.code__c = code;
+						temp.altCode__c = altCode;
+						temp.altMsg__c = altMsg;
+						temp.sndDtm__c = sndDtm;
+						//temp.smsCode__c = smsCode;
+						temp.smsMsg__c = smsMsg;
+						temp.rcptDtm__c = rcptDtm;
+						temp.processed__c = true;
+						if(code <> 'AS' && code <> 'SS') temp.Status__c = 'Completed';
+						else if(code <> 'EW') temp.Status__c = 'Send';
+						else if(altCode == '0000') temp.Status__c = 'Completed';
+						else temp.Status__c = 'Fail';
+					}	
+
+				}else{
+					for(MBK_Messages__c temp:MBKMessages){
+						temp.processed__c = true;
+						temp.Status__c = 'Fail';
+					}
+				}
 			}
 			update MBKMessages;
-		} catch(System.CalloutException e) {
-			System.debug('Callout error: '+ e);
-			System.debug(res.toString());
-			System.debug('statusCode error: '+ e.getMessage());
+		} catch(System.CalloutException e) {		
+			gu.DebugException(e,userinfo.getUserId());
 			for(MBK_Messages__c temp:MBKMessages){
 				temp.Status__c = 'Fail';
 			}
 			update MBKMessages;
 		} catch(System.JSONException e){
+			gu.DebugException(e,userinfo.getUserId());			
 			for(MBK_Messages__c temp:MBKMessages){
 				temp.Status__c = 'Fail';
 			}
 			update MBKMessages;
-			System.debug('JSON error: '+ e);
-			System.debug(res.toString());
-			System.debug('statusCode error: '+ e.getMessage());
 		}
-		
-		System.debug(LoggingLevel.DEBUG, '=============== HttpResponse: '+ res);
-		System.debug(LoggingLevel.DEBUG, '=============== res.getBody(): '+ res.getBody());	
 	}
 	
 	@future
