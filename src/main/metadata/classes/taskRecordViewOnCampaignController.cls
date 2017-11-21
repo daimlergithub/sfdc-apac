@@ -28,18 +28,18 @@ public without sharing class taskRecordViewOnCampaignController
 			{
 				campMembrList = [Select Id,Contact.AccountId from CampaignMember where CampaignId =: ApexPages.currentPage().getParameters().get('Id')];
 			}            
-            if(!campMembrList.isEmpty() && campMembrList != null)
+            if(campMembrList != null && !campMembrList.isEmpty())
             {
                 for(CampaignMember camMbr : campMembrList)
                 {               
                     accountContactIdMap.put(camMbr.Contact.AccountId,camMbr.ContactId);
                 }
             }
-            if(!accountContactIdMap.isEmpty() && accountContactIdMap != null)
+            if(accountContactIdMap != null && !accountContactIdMap.isEmpty())
             {
                 sharedAccountList = [Select Id, AccountId, UserOrGroup.Name from AccountShare where AccountId in : accountContactIdMap.keySet()];
             }
-            if(!sharedAccountList.isEmpty() && sharedAccountList != null)
+            if(sharedAccountList != null && !sharedAccountList.isEmpty())
             {
                 for(AccountShare accShr : sharedAccountList)
                 {
