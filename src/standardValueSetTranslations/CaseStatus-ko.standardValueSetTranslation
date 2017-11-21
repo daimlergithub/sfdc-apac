@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>2nd Final Position Released</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Approval Request</masterLabel>
+        <translation><!-- Approval Request --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Awaiting MB</masterLabel>
+        <translation>배정됨(딜러)</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>CM Inputting</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Call waiting</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Cancel</masterLabel>
+        <translation><!-- Cancel --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closed</masterLabel>
+        <translation>종결됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closed (Final)</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalation Confirmed</masterLabel>
+        <translation>승인 거부 (딜러)</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalation Raised</masterLabel>
+        <translation>다시 시작됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalation Raised &amp; Confirmed</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalation Request</masterLabel>
+        <translation>진행 중 (딜러)</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Final Position Released</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Final approval done</masterLabel>
+        <translation>진행 중 (MBK)</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Final approval rejected</masterLabel>
+        <translation>승인 완료 (CCC Sup)</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Finished</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Has been upgraded</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Have tracked</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>In progress</masterLabel>
+        <translation>진행 중</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Insufficient Document</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Investigating</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Need track</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>New</masterLabel>
+        <translation>시작됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>No approval needed</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Open</masterLabel>
+        <translation>시작됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Processed</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Prospect</masterLabel>
+        <translation>승인 대기 중 (MBK Staff)</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Rejected</masterLabel>
+        <translation><!-- Rejected --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Reopened</masterLabel>
+        <translation>다시 시작됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Requires Manager Review</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Response approved</masterLabel>
+        <translation>진행 중 (CCC)</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Suspended</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>TS transfer</masterLabel>
+        <translation>승인 거부 (MBK Staff)</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Uploaded</masterLabel>
+        <translation><!-- Uploaded --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Waiting Process</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Waiting for Reply</masterLabel>
+        <translation>--</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Waiting for Response approval</masterLabel>
+        <translation>시작됨</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Waiting for final approval</masterLabel>
+        <translation>승인 대기 중 (CCC Sup)</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

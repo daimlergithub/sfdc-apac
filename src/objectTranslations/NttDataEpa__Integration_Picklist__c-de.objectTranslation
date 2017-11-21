@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Used for updates by Data Loader only. --></help>
+        <label><!-- External Key --></label>
+        <name>NttDataEpa__External_Key__c</name>
+    </fields>
+    <fields>
+        <help><!-- If this checkbox is checked, no value is available in the picklist in SFDC for this Integraton Value. Otherwise a picklist value must be provided. --></help>
+        <label><!-- Integration Only --></label>
+        <name>NttDataEpa__Integration_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Picklist Mapping External ID --></label>
+        <name>NttDataEpa__Picklist_Mapping_External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Picklist Mapping --></label>
+        <name>NttDataEpa__Picklist_Mapping__c</name>
+        <relationshipLabel><!-- Integration Picklists --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Picklist Value --></label>
+        <name>NttDataEpa__Picklist_Value__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- If Integration Only is not checked, you have to define a Picklist Value, otherwise you may or may not define a Picklist value. --></errorMessage>
+        <name>NttDataEpa__Integration_Only_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Integration Value may consist of latin upper cases, arabic numbers and underlines only. --></errorMessage>
+        <name>NttDataEpa__Integration_Value_Syntax</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The syntax of the external key must match IP-{000000}. --></errorMessage>
+        <name>NttDataEpa__Validate_External_Key_Syntax</name>
+    </validationRules>
+</CustomObjectTranslation>

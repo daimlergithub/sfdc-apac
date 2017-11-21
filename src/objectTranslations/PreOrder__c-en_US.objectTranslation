@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Pre Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pre Orders</value>
+    </caseValues>
+    <fields>
+        <label><!-- Closed Date --></label>
+        <name>ClosedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Reason --></label>
+        <name>ClosedReason__c</name>
+        <picklistValues>
+            <masterLabel>Change of mind</masterLabel>
+            <translation><!-- Change of mind --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchased Competitor Vehicle</masterLabel>
+            <translation><!-- Purchased Competitor Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle purchased</masterLabel>
+            <translation><!-- Vehicle purchased --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wait time too long</masterLabel>
+            <translation><!-- Wait time too long --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer --></label>
+        <name>Customer__c</name>
+        <relationshipLabel><!-- Pre Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Interested --></label>
+        <name>VehicleInterested__c</name>
+        <relationshipLabel><!-- Pre Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Model Class --></label>
+        <name>Vehicle_Model_Class__c</name>
+        <picklistValues>
+            <masterLabel>A-Class</masterLabel>
+            <translation><!-- A-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B-Class</masterLabel>
+            <translation><!-- B-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Class Coupe (New)</masterLabel>
+            <translation><!-- C-Class Coupe (New) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Class Coupe (Old)</masterLabel>
+            <translation><!-- C-Class Coupe (Old) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Class Estate</masterLabel>
+            <translation><!-- C-Class Estate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Class Saloon</masterLabel>
+            <translation><!-- C-Class Saloon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA Coupe</masterLabel>
+            <translation><!-- CLA Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA Shooting Brake</masterLabel>
+            <translation><!-- CLA Shooting Brake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS Coupe</masterLabel>
+            <translation><!-- CLS Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS Shooting Brake</masterLabel>
+            <translation><!-- CLS Shooting Brake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Cabriolet</masterLabel>
+            <translation><!-- E-Class Cabriolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Coupe</masterLabel>
+            <translation><!-- E-Class Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Estate (Old)</masterLabel>
+            <translation><!-- E-Class Estate (Old) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Saloon (New)</masterLabel>
+            <translation><!-- E-Class Saloon (New) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Saloon (Old)</masterLabel>
+            <translation><!-- E-Class Saloon (Old) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G-Class (G350d &amp; G63)</masterLabel>
+            <translation><!-- G-Class (G350d &amp; G63) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G-Class Cab Chassis</masterLabel>
+            <translation><!-- G-Class Cab Chassis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLA</masterLabel>
+            <translation><!-- GLA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLC SUV</masterLabel>
+            <translation><!-- GLC SUV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLE Coupe</masterLabel>
+            <translation><!-- GLE Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLE SUV</masterLabel>
+            <translation><!-- GLE SUV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLS</masterLabel>
+            <translation><!-- GLS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-AMG GT Coupe</masterLabel>
+            <translation><!-- Mercedes-AMG GT Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Maybach S-Class Saloon</masterLabel>
+            <translation><!-- Mercedes-Maybach S-Class Saloon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S-Class Coupe</masterLabel>
+            <translation><!-- S-Class Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S-Class Saloon SWB &amp; LWB</masterLabel>
+            <translation><!-- S-Class Saloon SWB &amp; LWB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL</masterLabel>
+            <translation><!-- SL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLC (SLK)</masterLabel>
+            <translation><!-- SLC (SLK) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>V-Class</masterLabel>
+            <translation><!-- V-Class --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Model Code --></label>
+        <name>Vehicle_Model_Code__c</name>
+        <picklistValues>
+            <masterLabel>447</masterLabel>
+            <translation><!-- 447 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A207</masterLabel>
+            <translation><!-- A207 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C117</masterLabel>
+            <translation><!-- C117 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C190</masterLabel>
+            <translation><!-- C190 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C204</masterLabel>
+            <translation><!-- C204 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C205</masterLabel>
+            <translation><!-- C205 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C207</masterLabel>
+            <translation><!-- C207 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C217</masterLabel>
+            <translation><!-- C217 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C218</masterLabel>
+            <translation><!-- C218 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C292</masterLabel>
+            <translation><!-- C292 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R172</masterLabel>
+            <translation><!-- R172 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R231</masterLabel>
+            <translation><!-- R231 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S205</masterLabel>
+            <translation><!-- S205 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S212</masterLabel>
+            <translation><!-- S212 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W/V222</masterLabel>
+            <translation><!-- W/V222 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W166</masterLabel>
+            <translation><!-- W166 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W176</masterLabel>
+            <translation><!-- W176 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W205</masterLabel>
+            <translation><!-- W205 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W212</masterLabel>
+            <translation><!-- W212 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W213</masterLabel>
+            <translation><!-- W213 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W246</masterLabel>
+            <translation><!-- W246 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W461</masterLabel>
+            <translation><!-- W461 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W461 Professional Series</masterLabel>
+            <translation><!-- W461 Professional Series --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W463</masterLabel>
+            <translation><!-- W463 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X117</masterLabel>
+            <translation><!-- X117 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X156</masterLabel>
+            <translation><!-- X156 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X166</masterLabel>
+            <translation><!-- X166 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X218</masterLabel>
+            <translation><!-- X218 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X222</masterLabel>
+            <translation><!-- X222 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X253</masterLabel>
+            <translation><!-- X253 --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

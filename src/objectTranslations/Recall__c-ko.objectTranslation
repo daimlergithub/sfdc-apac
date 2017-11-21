@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Recall --></value>
+    </caseValues>
+    <fields>
+        <label>계정</label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Recall/Campaign --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>리콜/ 무상수리 유형</label>
+        <name>Campaign_Type__c</name>
+    </fields>
+    <fields>
+        <label>작업 완료일</label>
+        <name>Completion_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By EP Transaction --></label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label>리콜/ 무상수리 코드</label>
+        <name>Damage_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- EP Parent Transaction --></label>
+        <name>EP_Parent_Transaction__c</name>
+    </fields>
+    <fields>
+        <label>작업예상소요시간</label>
+        <name>Estimated_Working_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recall Class --></label>
+        <name>Recall_Class__c</name>
+    </fields>
+    <fields>
+        <label>작업시작일</label>
+        <name>Recall_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recall No --></label>
+        <name>Recall_No__c</name>
+    </fields>
+    <fields>
+        <label>작업설명</label>
+        <name>Recall_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recall Kind --></label>
+        <name>Recall_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Updated By EP Transactions --></label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label>V.I.N</label>
+        <name>VIN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle ID --></label>
+        <name>Vehicle_ID__c</name>
+        <relationshipLabel><!-- Recalls --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>차량등록번호</label>
+        <name>Vehicle_Registration_Number__c</name>
+    </fields>
+    <nameFieldLabel><!-- Recall ID --></nameFieldLabel>
+    <recordTypes>
+        <label><!-- Campaign --></label>
+        <name>Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Recall --></label>
+        <name>Recall</name>
+    </recordTypes>
+</CustomObjectTranslation>

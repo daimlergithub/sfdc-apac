@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>CRM Acquisition Program</masterLabel>
+        <translation>CRM 신규유입 프로그램</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>CRM Loyalty Program</masterLabel>
+        <translation>CRM 고객 충성도 프로그램</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other</masterLabel>
+        <translation>기타</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

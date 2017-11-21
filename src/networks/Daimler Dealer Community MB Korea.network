@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Network xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInternalUserLogin>false</allowInternalUserLogin>
+    <allowMembersToFlag>false</allowMembersToFlag>
+    <branding>
+        <loginFooterText>salesforce.com</loginFooterText>
+        <primaryColor>#1797C0</primaryColor>
+        <primaryComplementColor>#FFFFFF</primaryComplementColor>
+        <quaternaryColor>#FFFFFF</quaternaryColor>
+        <quaternaryComplementColor>#222222</quaternaryComplementColor>
+        <secondaryColor>#51606E</secondaryColor>
+        <tertiaryColor>#DDE4E9</tertiaryColor>
+        <tertiaryComplementColor>#222222</tertiaryComplementColor>
+        <zeronaryColor>#51606E</zeronaryColor>
+        <zeronaryComplementColor>#FFFFFF</zeronaryComplementColor>
+    </branding>
+    <changePasswordTemplate>unfiled$public/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
+    <emailSenderAddress>arun.iyer@nttdata.com</emailSenderAddress>
+    <emailSenderName>Daimler Dealer Community MB Korea</emailSenderName>
+    <enableGuestChatter>false</enableGuestChatter>
+    <enableInvitation>false</enableInvitation>
+    <enableKnowledgeable>false</enableKnowledgeable>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
+    <enablePrivateMessages>false</enablePrivateMessages>
+    <enableReputation>false</enableReputation>
+    <enableSiteAsContainer>false</enableSiteAsContainer>
+    <enableTopicAssignmentRules>false</enableTopicAssignmentRules>
+    <forgotPasswordTemplate>unfiled$public/CommunityForgotPasswordEmailTemplate</forgotPasswordTemplate>
+    <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
+    <navigationLinkSet>
+        <navigationMenuItem>
+            <label>Topics</label>
+            <position>1</position>
+            <publiclyAvailable>true</publiclyAvailable>
+            <target>ShowMoreTopics</target>
+            <type>NavigationalTopic</type>
+        </navigationMenuItem>
+    </navigationLinkSet>
+    <networkMemberGroups>
+        <profile>admin</profile>
+        <profile>dealer community user</profile>
+        <profile>korea call center</profile>
+        <profile>mbk dealer hq cs/ cr</profile>
+        <profile>mbk dealer hq sales/mkt</profile>
+        <profile>mbk dealer sr/sc</profile>
+        <profile>mbk dealer sr/sc - sc/sa</profile>
+        <profile>mbk support profile</profile>
+        <profile>mbk ccc retail - manager</profile>
+        <profile>mbk  dealer sr/sc - mgr / admin</profile>
+        <profile>mbk  dealer sr + sc general manager</profile>
+        <profile>mbk ccc retail operator</profile>
+    </networkMemberGroups>
+    <networkPageOverrides>
+        <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
+        <forgotPasswordPageOverrideSetting>Standard</forgotPasswordPageOverrideSetting>
+        <homePageOverrideSetting>Standard</homePageOverrideSetting>
+        <loginPageOverrideSetting>Standard</loginPageOverrideSetting>
+    </networkPageOverrides>
+    <picassoSite>Daimler_Dealer_Community_MB_Korea1</picassoSite>
+    <selfRegistration>false</selfRegistration>
+    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <site>Daimler_Dealer_Community_MB_Korea</site>
+    <status>Live</status>
+    <tabs>
+        <customTab>Campaign_Lead__c</customTab>
+        <customTab>Lead__c</customTab>
+        <customTab>Account_Link__c</customTab>
+        <customTab>Vehicle__c</customTab>
+        <customTab>Vehicle_Relationship__c</customTab>
+        <customTab>Tasks</customTab>
+        <customTab>Survey__c</customTab>
+        <customTab>SurveyTaker__c</customTab>
+        <defaultTab>Account</defaultTab>
+        <standardTab>Account</standardTab>
+        <standardTab>Case</standardTab>
+        <standardTab>report</standardTab>
+        <standardTab>Campaign</standardTab>
+        <standardTab>Knowledge</standardTab>
+    </tabs>
+    <urlPathPrefix>MBKorea</urlPathPrefix>
+    <welcomeTemplate>unfiled$public/CommunityWelcomeEmailTemplate</welcomeTemplate>
+</Network>

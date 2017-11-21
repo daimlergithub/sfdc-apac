@@ -1,0 +1,68 @@
+<apex:page standardController="OPROARTS020__Oproarts__c" extensions="OPROARTS020.OproartsController"
+    title="{!$ObjectType.OPROARTS020__Oproarts__c.Label&': '&OPROARTS020__Oproarts__c.Name}">
+  <apex:stylesheet value="{!URLFOR($Resource.OPROARTS020__oproarts,'application.css')}"/>
+  <apex:sectionHeader title="{!$ObjectType.OPROARTS020__Oproarts__c.Label}"
+      subtitle="{!OPROARTS020__Oproarts__c.Name&' (CID: '&OPROARTS020__Oproarts__c.OPROARTS020__CID__c&')'}" help="{!$Page.OPROARTS020__OproartsHelp}"/>
+  <apex:outputPanel id="op1" layout="block" styleClass="breadcrumb">
+      <p>&nbsp;&#xAB;&nbsp;<apex:outputLink value="{!$Page.OPROARTS020__OproartsTab}"
+      ><apex:outputText value="{!$Label.oproarts020__label_oproarts_view_breadcrumb&': '&$ObjectType.OPROARTS020__Oproarts__c.LabelPlural}"
+      /></apex:outputLink></p>
+  </apex:outputPanel>
+  <apex:pageMessages id="pm1"/>
+  <apex:pageBlock title="{!$ObjectType.OPROARTS020__OproartsUser__c.LabelPlural}">
+    <apex:form id="fOproartsUserEdit">
+      <apex:pageBlockTable value="{!oproartsUserEdit}" var="editOne" rendered="{!isOproartsUserCreateable}">
+        <apex:column headerValue="{!$Label.oproarts020__label_action}" styleClass="actionColumn" style="width: 5em;">
+          <apex:commandButton action="{!insertOproartsUser}" value="{!$Label.oproarts020__label_add_button}" style="width: 100%;"/>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__OproartsUser__c.Fields.OPROARTS020__User__c.Label}" style="width: 20em;">
+          <apex:inputField value="{!editOne.OPROARTS020__User__c}" required="true"/>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__OproartsUser__c.Fields.OPROARTS020__UID__c.Label}" style="width: 16em;">
+          <apex:inputField value="{!editOne.OPROARTS020__UID__c}" required="true"/>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__OproartsUser__c.Fields.OPROARTS020__UPW__c.Label}">
+          <apex:inputField value="{!editOne.OPROARTS020__UPW__c}" required="true" html-maxlength="48" rendered="{!NOT(maskUPW)}"/>
+          <apex:inputSecret value="{!upwEdit}" required="true" maxlength="48" redisplay="true" rendered="{!maskUPW}"/>
+        </apex:column>
+      </apex:pageBlockTable>
+    </apex:form>
+    <apex:form id="fOproartsUserList">
+      <apex:pageBlockTable value="{!oproartsUserPageList}" var="listOne">
+        <apex:column headerValue="{!$Label.oproarts020__label_action}" styleClass="actionColumn" style="width: 5em;">
+          <apex:commandLink action="{!editOproartsUser}" value="{!$Label.oproarts020__label_edit_button}"
+              rendered="{!isOproartsUserUpdateable}" styleClass="actionLink">
+            <apex:param name="targetId" assignTo="{!targetId}" value="{!listOne.Id}"/>
+          </apex:commandLink>
+          <apex:outputText value="&nbsp;|&nbsp;" escape="false"
+              rendered="{!AND(isOproartsUserUpdateable, isOproartsUserDeletable)}"/>
+          <apex:commandLink action="{!deleteOproartsUser}" value="{!$Label.oproarts020__label_delete_button}"
+              onclick="return window.confirm('{!JSINHTMLENCODE($Label.oproarts020__message_confirm_delete)}');"
+              rendered="{!isOproartsUserDeletable}" styleClass="actionLink">
+            <apex:param name="targetId" assignTo="{!targetId}" value="{!listOne.Id}"/>
+          </apex:commandLink>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__OproartsUser__c.Fields.OPROARTS020__User__c.Label}" style="width: 20em;">
+          <apex:outputField value="{!listOne.OPROARTS020__User__c}"/>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__OproartsUser__c.Fields.OPROARTS020__UID__c.Label}" style="width: 16em;">
+          <apex:outputField value="{!listOne.OPROARTS020__UID__c}"/>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.OPROARTS020__OproartsUser__c.Fields.LastModifiedDate.Label}">
+          <apex:outputField value="{!listOne.LastModifiedDate}"/>
+        </apex:column>
+      </apex:pageBlockTable>
+      <apex:outputPanel layout="block" styleClass="pagingButtons" rendered="{!OR(hasPreviousPage, hasNextPage)}">
+        <apex:commandLink action="{!goToFirstPage}" rendered="{!hasPreviousPage}" value="<<"/>
+        <apex:commandLink action="{!goToPreviousPage}" rendered="{!hasPreviousPage}" value="<"/>
+        <apex:outputPanel layout="inline"><apex:outputText value="{!currentPageNumber} / {!totalPageNumber}"/></apex:outputPanel>
+        <apex:commandLink action="{!goToNextPage}" rendered="{!hasNextPage}" value=">"/>
+        <apex:commandLink action="{!goToLastPage}" rendered="{!hasNextPage}" value=">>"/>
+      </apex:outputPanel>
+    </apex:form>
+  </apex:pageBlock>
+  <apex:outputPanel styleClass="applicationInformation" layout="block">
+    <p><apex:outputText value="{!$Label.oproarts020__application_name}"/></p>
+    <p><apex:outputText value="{!$Label.oproarts020__application_copyright}"/></p>
+  </apex:outputPanel>
+</apex:page>

@@ -1,0 +1,5 @@
+<messaging:emailTemplate subject="ReportEngine Test" recipientType="User" relatedToType="Profile">
+  <messaging:htmlEmailBody >
+    <p>Organization: {!$Organization.Name}, User: {!recipient.Name}, Profile: {!relatedTo.Name}</p>
+  </messaging:htmlEmailBody>
+</messaging:emailTemplate>

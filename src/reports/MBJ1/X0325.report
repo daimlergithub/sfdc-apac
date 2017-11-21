@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <filter>
+        <booleanFilter>1 AND 2 AND 3 AND (4 or 5)</booleanFilter>
+        <criteriaItems>
+            <column>Lead__c.CAC_Lead_Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Allocated</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Lead__c.Sales_Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c.Dealer_Lead_Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Purchased(Only Non BDC),Lost</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.Branch_name__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>メルセデス ミー 東京羽田,メルセデス・ベンツ浦安,メルセデス・ベンツ浦安　サーティファイドカーセンター,メルセデス・ベンツ葛飾,メルセデス・ベンツ葛飾　柏サーティファイドカーセンター,メルセデス・ベンツ江戸川,メルセデス・ベンツ甲府,メルセデス・ベンツ高井戸,メルセデス・ベンツ高井戸　サーティファイドカーセンター,メルセデス・ベンツ 三井アウトレットパーク 木更津,メルセデス・ベンツ渋谷,メルセデス・ベンツ松本,メルセデス・ベンツ新宿副都心,メルセデス・ベンツ神田,メルセデス・ベンツ杉並中央,メルセデス・ベンツ世田谷桜丘,メルセデス・ベンツ西多摩,メルセデス・ベンツ西池袋,メルセデス・ベンツ西東京,メルセデス・ベンツ西東京　サーティファイドカーセンター,メルセデス・ベンツ石神井,メルセデス・ベンツ川口,メルセデス・ベンツ足立,メルセデス・ベンツ多摩昭島,メルセデス・ベンツ多摩昭島 サーティファイドカーセンター,メルセデス・ベンツ大田,メルセデス・ベンツ大田　サーティファイドカーセンター,メルセデス・ベンツ中央,メルセデス・ベンツ中野,メルセデス・ベンツ中野　サーティファイドカーセンター,メルセデス・ベンツ中野　サービスセンター,メルセデス・ベンツ中野　豊島サービスセンター,メルセデス・ベンツ調布,メルセデス・ベンツ長野,メルセデス・ベンツ東京芝浦,メルセデス・ベンツ東信,メルセデス・ベンツ東信　軽井沢サーティファイドカーセンター,メルセデス・ベンツ日野,メルセデス・ベンツ八王子,メルセデス・ベンツ板橋,メルセデス・ベンツ品川,メルセデス・ベンツ品川　サーティファイドカーセンター,メルセデス・ベンツ品川　蒲田サーティファイドカーセンター,メルセデス・ベンツ府中,メルセデス・ベンツ府中 サーティファイドカーセンター,メルセデス・ベンツ武蔵野,メルセデス・ベンツ豊洲,メルセデス・ベンツ豊洲　有明サーティファイドカーセンター,メルセデス・ベンツ豊洲　有明サービスセンター,メルセデス・ベンツ墨田,メルセデス・ベンツ麻布,メルセデス・ベンツ目黒,メルセデス・ベンツ練馬,メルセデス・ベンツ神田 文京サービスセンター,メルセデス･ベンツ新宿副都心　池袋サービスセンター,メルセデス・ベンツ甲府　サーティファイドカーセンター,メルセデス・ベンツ大田　サービスセンター</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.Branch_name__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>メルセデス・ベンツ葛飾　松戸サービスセンター,メルセデス・ベンツ西多摩　サービスセンター,メルセデス・ベンツ浦安　サービスセンター,メルセデス・ベンツ浦安　ALL TIME STARS</value>
+        </criteriaItems>
+        <language>ja</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Lead_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>Lead__c.Expected_Registration_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Service_Advisor__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>03 中嶋純一 セールスリード集計 登録予定日／担当者 (新車・中古車)</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Lead__c@Lead__c.Assigned_Dealer__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c.Lead_Last_Modified_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>OPROARTS User</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>OPROARTS Users</value>
+    </caseValues>
+    <fields>
+        <label><!-- OPROARTS --></label>
+        <name>OPROARTS020__Oproarts__c</name>
+        <relationshipLabel><!-- OPROARTS User --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- UID --></label>
+        <name>OPROARTS020__UID__c</name>
+    </fields>
+    <fields>
+        <label><!-- UPW --></label>
+        <name>OPROARTS020__UPW__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>OPROARTS020__User__c</name>
+        <relationshipLabel><!-- OPROARTS Users --></relationshipLabel>
+    </fields>
+    <nameFieldLabel>OPROARTS User</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

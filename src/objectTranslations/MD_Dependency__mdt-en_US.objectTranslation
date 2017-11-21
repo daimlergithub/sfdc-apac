@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MD Dependency</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MD Dependencies</value>
+    </caseValues>
+    <fields>
+        <label><!-- Controlling Field --></label>
+        <name>Controlling_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dependency Values --></label>
+        <name>Dependency_Values__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dependent --></label>
+        <name>Dependent__c</name>
+    </fields>
+    <fields>
+        <label><!-- MarketName --></label>
+        <name>MarketName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object APIName --></label>
+        <name>Object_APIName__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

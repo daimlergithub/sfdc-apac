@@ -1,0 +1,36 @@
+<apex:page controller="NttDataEpa.EpaSystemStatusController">
+    <apex:pageblock title="EPA System Status">
+
+        <apex:form >
+        
+            <apex:commandButton action="{!showVersions}" value="Versions" id="showVersionsCommands"/>
+            <apex:commandButton action="{!showServerStatus}" value="Server Status" id="showServerStatus"/>
+            <apex:commandButton action="{!showThreadList}" value="Thread List" id="showThreadList"/>
+            <apex:commandButton action="{!showThreadDump}" value="Thread Dump" id="showThreadDump"/>
+            <apex:commandButton action="{!showDeadLocks}" value="Dead Locks" id="showDeadLocks"/>
+            <apex:commandButton action="{!showTransactionCosts}" value="Transaction Costs" id="showTransactionCosts"/>
+       
+            <apex:sectionHeader title="Thread List"/>
+    
+            <apex:pageBlockTable value="{!Threads}" var="thread">
+         
+                <apex:column headerValue="Server" value="{!thread.Server}"/>
+                <apex:column headerValue="Name" value="{!thread.Name}"/>
+                <apex:column headerValue="BTL ID" value="{!thread.TransactionId}"/>
+                <apex:column headerValue="Start" value="{!thread.StartTime}"/>
+                <apex:column headerValue="Organization" value="{!thread.Organization}"/>
+                <apex:column headerValue="Use Case" value="{!thread.UseCase}"/>
+                <apex:column headerValue="Elapsed Time (msec)" value="{!thread.ElapsedTimeInMsecs}"/>
+                <apex:column headerValue="CPU Time (msec)" value="{!thread.UsedCpuTimeInMsecs}"/>
+                <apex:column headerValue="Thread ID">
+                    <apex:commandLink action="{!showThreadDetails}" value="{!thread.ThreadId}" id="threadId">
+                        <apex:param name="threadId" value="{!thread.ThreadId}" assignTo="{!threadId}"/>
+                    </apex:commandLink>
+                </apex:column>
+             
+             </apex:pageBlockTable>
+
+        </apex:form>
+            
+    </apex:pageblock>
+ </apex:page>

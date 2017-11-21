@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Users do not participate in training</fullName>
+        <default>false</default>
+        <label>Users do not participate in training</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Complex function</fullName>
+        <default>false</default>
+        <label>Complex function</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Existing problems</fullName>
+        <default>false</default>
+        <label>Existing problems</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Instructions not clear</fullName>
+        <default>false</default>
+        <label>Instructions not clear</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>New problems</fullName>
+        <default>false</default>
+        <label>New problems</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+</StandardValueSet>

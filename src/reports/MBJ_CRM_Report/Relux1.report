@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Account__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Lead__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Survey__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Campaign__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>SurveyTaker__c.Survey__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Relux_Vクラス試乗＆一流旅館・ホテル無料ご招待キャンペーン</value>
+        </criteriaItems>
+        <language>ja</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Relux サーベイ一覧</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$SurveyTaker__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SurveyTaker__c.Survey_Taken_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

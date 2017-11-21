@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Maps from picklists defined by object and field to LOV name.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>NttDataEpa__External_Key__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Used for updates by Data Loader only.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Used for updates by Data Loader only.</inlineHelpText>
+        <label>External Key</label>
+        <length>9</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__Field_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The API name of a field mentioned by an object named in Object Name in SFDC.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The API name of a field mentioned by an object named in Object Name in SFDC.</inlineHelpText>
+        <label>Field Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__Integration_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Should be checked if this LOV is used in EP only and does not relate to a picklist in SFDC.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Should be checked if this LOV is used in EP only and does not relate to a picklist in SFDC.</inlineHelpText>
+        <label>Integration Only</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NttDataEpa__Object_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The API name of an object in SFDC.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The API name of an object in SFDC.</inlineHelpText>
+        <label>Object Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Picklist Mapping</label>
+    <listViews>
+        <fullName>NttDataEpa__All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>NttDataEpa__All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>LOV Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Picklist Mappings</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>NttDataEpa__Integration_Only_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR( NttDataEpa__Integration_Only__c = TRUE &amp;&amp; OR(NOT(ISBLANK( NttDataEpa__Object_Name__c )), NOT( ISBLANK( NttDataEpa__Field_Name__c ))) , NttDataEpa__Integration_Only__c = FALSE &amp;&amp; OR(ISBLANK( NttDataEpa__Object_Name__c ),ISBLANK( NttDataEpa__Field_Name__c )))</errorConditionFormula>
+        <errorMessage>If Integration Only is not set, you have to define an Object Name and a Field Name otherwise you must not set Object Name and Field Name.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NttDataEpa__LOV_Name_Syntax</fullName>
+        <active>true</active>
+        <description>Checks the LOV syntax.</description>
+        <errorConditionFormula>NOT(REGEX( Name , &quot;[A-Z]{1}[A-Z0-9_]*&quot;))</errorConditionFormula>
+        <errorMessage>The LOV name may consist of latin upper cases, arabic numbers and underlines only.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NttDataEpa__Validate_External_Key_Syntax</fullName>
+        <active>true</active>
+        <description>Check that the syntax of the External Key is correct.</description>
+        <errorConditionFormula>NOT(BEGINS(NttDataEpa__External_Key__c, &apos;PM-&apos;)) || NOT(ISNUMBER( RIGHT(NttDataEpa__External_Key__c, 6)))</errorConditionFormula>
+        <errorMessage>The syntax of the external key must match PM-{000000}.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object is used for Central_Activity(Inbound Call) Handling,  Assign a munber od IB Call tasks to a number of CSRs or TLs.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Assign_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Assign Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assignment</fullName>
+                    <default>false</default>
+                    <label>Assignment</label>
+                </value>
+                <value>
+                    <fullName>Recall</fullName>
+                    <default>false</default>
+                    <label>Recall</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Assignment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Assignment</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Assignment_per_Agent__c</fullName>
+        <externalId>false</externalId>
+        <label>Assignment per Agent</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                    <label>65</label>
+                </value>
+                <value>
+                    <fullName>75</fullName>
+                    <default>true</default>
+                    <label>75</label>
+                </value>
+                <value>
+                    <fullName>85</fullName>
+                    <default>false</default>
+                    <label>85</label>
+                </value>
+                <value>
+                    <fullName>95</fullName>
+                    <default>false</default>
+                    <label>95</label>
+                </value>
+                <value>
+                    <fullName>100</fullName>
+                    <default>false</default>
+                    <label>100</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Batch_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Batch No.</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>By_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>By Number</label>
+        <precision>15</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CSR__c</fullName>
+        <externalId>false</externalId>
+        <label>CSR</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Call_Times__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Times</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign1__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Campaign 1</fullName>
+                    <default>false</default>
+                    <label>Campaign 1</label>
+                </value>
+                <value>
+                    <fullName>Campaign 2</fullName>
+                    <default>false</default>
+                    <label>Campaign 2</label>
+                </value>
+                <value>
+                    <fullName>Campaign 3</fullName>
+                    <default>false</default>
+                    <label>Campaign 3</label>
+                </value>
+                <value>
+                    <fullName>Campaign 4</fullName>
+                    <default>false</default>
+                    <label>Campaign 4</label>
+                </value>
+                <value>
+                    <fullName>Campaign 5</fullName>
+                    <default>false</default>
+                    <label>Campaign 5</label>
+                </value>
+                <value>
+                    <fullName>Campaign 6</fullName>
+                    <default>false</default>
+                    <label>Campaign 6</label>
+                </value>
+                <value>
+                    <fullName>Campaign 7</fullName>
+                    <default>false</default>
+                    <label>Campaign 7</label>
+                </value>
+                <value>
+                    <fullName>Campaign 8</fullName>
+                    <default>false</default>
+                    <label>Campaign 8</label>
+                </value>
+                <value>
+                    <fullName>Campaign 9</fullName>
+                    <default>false</default>
+                    <label>Campaign 9</label>
+                </value>
+                <value>
+                    <fullName>Campaign 10</fullName>
+                    <default>false</default>
+                    <label>Campaign 10</label>
+                </value>
+                <value>
+                    <fullName>Campaign 11</fullName>
+                    <default>false</default>
+                    <label>Campaign 11</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Campaign2__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Campaign 1</fullName>
+                    <default>false</default>
+                    <label>Campaign 1</label>
+                </value>
+                <value>
+                    <fullName>Campaign 2</fullName>
+                    <default>false</default>
+                    <label>Campaign 2</label>
+                </value>
+                <value>
+                    <fullName>Campaign 3</fullName>
+                    <default>false</default>
+                    <label>Campaign 3</label>
+                </value>
+                <value>
+                    <fullName>Campaign 4</fullName>
+                    <default>false</default>
+                    <label>Campaign 4</label>
+                </value>
+                <value>
+                    <fullName>Campaign 5</fullName>
+                    <default>false</default>
+                    <label>Campaign 5</label>
+                </value>
+                <value>
+                    <fullName>Campaign 6</fullName>
+                    <default>false</default>
+                    <label>Campaign 6</label>
+                </value>
+                <value>
+                    <fullName>Campaign 7</fullName>
+                    <default>false</default>
+                    <label>Campaign 7</label>
+                </value>
+                <value>
+                    <fullName>Campaign 8</fullName>
+                    <default>false</default>
+                    <label>Campaign 8</label>
+                </value>
+                <value>
+                    <fullName>Campaign 9</fullName>
+                    <default>false</default>
+                    <label>Campaign 9</label>
+                </value>
+                <value>
+                    <fullName>Campaign 10</fullName>
+                    <default>false</default>
+                    <label>Campaign 10</label>
+                </value>
+                <value>
+                    <fullName>Campaign 11</fullName>
+                    <default>false</default>
+                    <label>Campaign 11</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.Is_Parent_Campaign_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>OB Task Handings</relationshipLabel>
+        <relationshipName>OB_Task_Handings</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>OB Task Handings</relationshipLabel>
+        <relationshipName>OB_Task_Handings</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Equal_Assignment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Equal Assignment</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Evenly_Location__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Evenly Location</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>From__c</fullName>
+        <externalId>false</externalId>
+        <label>Created Date From</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Network_Registration_Date_From__c</fullName>
+        <externalId>false</externalId>
+        <label>Network Registration Date From</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Network_Registration_Date_To__c</fullName>
+        <externalId>false</externalId>
+        <label>To</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Network_Registration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Network Registration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QC_Found__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>QC Found</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quota_Assignment__c</fullName>
+        <externalId>false</externalId>
+        <label>Quota Assignment</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Recall__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Recall</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Subject__c</fullName>
+        <externalId>false</externalId>
+        <label>Subject</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Welcome Call</fullName>
+                    <default>false</default>
+                    <label>Welcome Call</label>
+                </value>
+                <value>
+                    <fullName>1st Survey Call</fullName>
+                    <default>false</default>
+                    <label>1st Survey Call</label>
+                </value>
+                <value>
+                    <fullName>2nd Survey Call</fullName>
+                    <default>false</default>
+                    <label>2nd Survey Call</label>
+                </value>
+                <value>
+                    <fullName>Welcome Call + 1st Survey Call</fullName>
+                    <default>false</default>
+                    <label>Welcome Call + 1st Survey Call</label>
+                </value>
+                <value>
+                    <fullName>Campaign Executed</fullName>
+                    <default>false</default>
+                    <label>Campaign Executed</label>
+                </value>
+                <value>
+                    <fullName>Campaign Auto Creation</fullName>
+                    <default>false</default>
+                    <label>Campaign Auto Creation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Suspect_Dup__c</fullName>
+        <externalId>false</externalId>
+        <label>Suspect Dup</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                    <label>All</label>
+                </value>
+                <value>
+                    <fullName>Dup</fullName>
+                    <default>false</default>
+                    <label>Dup</label>
+                </value>
+                <value>
+                    <fullName>Non-Dup</fullName>
+                    <default>false</default>
+                    <label>Non-Dup</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Task_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Subject</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Welcome call</fullName>
+                    <default>false</default>
+                    <label>Welcome call</label>
+                </value>
+                <value>
+                    <fullName>1st servey call</fullName>
+                    <default>false</default>
+                    <label>1st servey call</label>
+                </value>
+                <value>
+                    <fullName>2nd servey call</fullName>
+                    <default>false</default>
+                    <label>2nd servey call</label>
+                </value>
+                <value>
+                    <fullName>1st servey + welcome call</fullName>
+                    <default>false</default>
+                    <label>1st servey + welcome call</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tasks_Found__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Tasks Found</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>To__c</fullName>
+        <externalId>false</externalId>
+        <label>To</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Unassignment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Unassignment</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <externalId>false</externalId>
+        <label>Users</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>OB Task Handing</label>
+    <nameField>
+        <label>OB Task Handing Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>OB Task Handings</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

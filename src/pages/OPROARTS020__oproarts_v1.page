@@ -1,0 +1,100 @@
+<!-- version : 1.3.2.3-b20101025a -->
+<apex:page renderAs="pdf" standardController="OPROARTS020__Oproarts__c" extensions="OPROARTS020.MultiContactTemplateController" showHeader="false" sidebar="false" applyhtmltag="false">
+  <head>
+    <style type="text/css">
+      <c:settings xParam="{!mainParams}" paperSize="A4" orientation="Portrait"></c:settings>
+      <c:font fontFamily="Times New Roman" fontSize="12px"></c:font>
+    </style>
+  </head>
+  <c:verticalReport value="{!contactList}" var="recipients">
+    <apex:variable value="" var="rowStyle"></apex:variable>
+    <apex:repeat value="{!recipients.dataLists[0]}" var="data">
+      <pre style="   width:50px;    left:30px;   height:15px;   top:{!data.currentposition + 31}px;     position:absolute;   overflow:hidden;                            border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Times New Roman',serif;  font-size:10.0pt;     color:#000000; text-align:left;  margin-top:0px; ">Name</pre>
+      <c:label type="string" width="50px" content="{!HTMLENCODE(OPROARTS020__Oproarts__c.Name)}" escape="false" left="90px" height="15px" top="{!data.currentposition + 30}px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label><!-- This is DTm  -->
+
+      <c:verticalContainer top="72px" left="41px" bodyHeight="580px" xParam="{!data.templateDataBean}" height="658px" style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; width:500px;left:41px;"><!-- DTm Report Header starts here -->
+
+        <c:reportHeader top="72px" left="41px" width="498px" height="48px" rendered="true" style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; ;width:498px;height:48px;" xParam="{!data.templateDataBean}">
+          <c:label type="string" width="50px" content="{!HTMLENCODE(OPROARTS020__Oproarts__c.Name)}" escape="false" left="17px" top="16px" height="15px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label>
+        </c:reportHeader><!-- DTm Report Header ends here -->
+
+        <c:reportDetail left="41px" width="500px" xParam="{!data.recipient.templateDataBean}" startPos="auto"><!-- DTm Column Header starts here -->
+
+          <c:columnHeader height="30px" width="498px" rendered="true" style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; ;width:498px;height:30px;" xParam="{!data.templateDataBean}">
+            <pre style="   width:50px;  left:117px;  top:8px;  height:15px;    position:absolute;   overflow:hidden;                            border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Times New Roman',serif;  font-size:10.0pt;     color:#000000; text-align:left;  margin-top:0px; ">Name</pre>
+            <pre style="   width:50px;  left:237px;  top:8px;  height:15px;    position:absolute;   overflow:hidden;                            border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Times New Roman',serif;  font-size:10.0pt;     color:#000000; text-align:left;  margin-top:0px; ">User</pre>
+          </c:columnHeader><!-- DTm Column Header ends here -->
+<!-- This is databand  -->
+
+          <c:dataBand height="32px" autoAdjust="false" xParam="{!data.templateDataBean}" rendered="true">
+            <apex:dataTable style="{!data.dataTable};width:498px;position:relative;" first="{!data.startIndex}" rows="{!data.numRows}" value="{!OPROARTS020__Oproarts__c.OPROARTS020__OproartsUsers__r}" var="var">
+              <apex:column >
+                <div style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; width:498px;position:relative;        height:32px;       {!data.RowStyle};   ">
+                  <c:label type="string" width="100px" content="{!HTMLENCODE(var.Name)}" escape="false" left="117px" top="10px" height="15px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label>
+                  <c:label type="string" width="120px" content="{!HTMLENCODE(var.User__r.Username)}" escape="false" left="237px" top="8px" height="15px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label>
+                </div>
+              </apex:column>
+            </apex:dataTable>
+            <apex:dataTable style="{!DataTable};position:relative;" value="{!emptyLists[0]}" var="item" rendered="{!data.isLastPage}">
+              <apex:column >
+                <div style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; width:498px;position:relative;        height:32px;        {!rowStyle};   "></div>
+              </apex:column>
+            </apex:dataTable><!-- DTm Report Footer starts here -->
+
+            <c:reportFooter width="498px" height="70px" rendered="true" style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; ;width:498px;height:70px;" startPos="bottom" bind="false" xParam="{!data.TemplateDataBean}">
+              <c:label type="string" width="107px" content="{!OPROARTS020__Oproarts__c.Id}" escape="false" left="360px" top="16px" height="15px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label>
+            </c:reportFooter><!-- DTm Report Footer ends here -->
+
+          </c:dataBand><!-- databand  ends here -->
+
+        </c:reportDetail>
+      </c:verticalContainer>
+    </apex:repeat>
+  </c:verticalReport>
+
+  <c:verticalReport value="{!contactList}" var="recipients" pageBreak="before">
+    <apex:variable value="" var="rowStyle"></apex:variable>
+    <apex:repeat value="{!recipients.dataLists[1]}" var="data">
+      <pre style="   width:50px;    left:30px;   height:15px;   top:{!data.currentposition + 31}px;     position:absolute;   overflow:hidden;                            border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Times New Roman',serif;  font-size:10.0pt;     color:#000000; text-align:left;  margin-top:0px; ">Name</pre>
+      <c:label type="string" width="50px" content="{!HTMLENCODE(OPROARTS020__Oproarts__c.Name)}" escape="false" left="90px" height="15px" top="{!data.currentposition + 30}px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label><!-- This is DTm  -->
+
+      <c:verticalContainer top="72px" left="41px" bodyHeight="580px" xParam="{!data.templateDataBean}" height="658px" style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; width:500px;left:41px;"><!-- DTm Report Header starts here -->
+
+        <c:reportHeader top="72px" left="41px" width="498px" height="48px" rendered="true" style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; ;width:498px;height:48px;" xParam="{!data.templateDataBean}">
+          <c:label type="string" width="50px" content="{!HTMLENCODE(OPROARTS020__Oproarts__c.Name)}" escape="false" left="17px" top="16px" height="15px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label>
+        </c:reportHeader><!-- DTm Report Header ends here -->
+
+        <c:reportDetail left="41px" width="500px" xParam="{!data.recipient.templateDataBean}" startPos="fixed"><!-- DTm Column Header starts here -->
+
+          <c:columnHeader height="30px" width="498px" rendered="true" style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; ;width:498px;height:30px;" xParam="{!data.templateDataBean}">
+            <pre style="   width:50px;  left:117px;  top:8px;  height:15px;    position:absolute;   overflow:hidden;                            border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Times New Roman',serif;  font-size:10.0pt;     color:#000000; text-align:left;  margin-top:0px; ">Name</pre>
+            <pre style="   width:50px;  left:237px;  top:8px;  height:15px;    position:absolute;   overflow:hidden;                            border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Times New Roman',serif;  font-size:10.0pt;     color:#000000; text-align:left;  margin-top:0px; ">User</pre>
+          </c:columnHeader><!-- DTm Column Header ends here -->
+<!-- This is databand  -->
+
+          <c:dataBand height="32px" autoAdjust="true" xParam="{!data.templateDataBean}" rendered="true">
+            <apex:dataTable style="{!data.dataTable};width:498px;position:relative;" first="{!data.startIndex}" rows="{!data.numRows}" value="{!OPROARTS020__Oproarts__c.OPROARTS020__OproartsUsers__r}" var="var">
+              <apex:column >
+                <div style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; width:498px;position:relative;        height:32px;       {!data.RowStyle};   ">
+                  <c:label type="string" width="100px" content="{!HTMLENCODE(var.Name)}" escape="false" left="117px" top="10px" height="15px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label>
+                  <c:label type="string" width="120px" content="{!HTMLENCODE(var.User__r.Username)}" escape="false" left="237px" top="8px" height="15px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label>
+                </div>
+              </apex:column>
+            </apex:dataTable>
+            <apex:dataTable style="{!DataTable};position:relative;" value="{!emptyLists[1]}" var="item" rendered="{!data.isLastPage}">
+              <apex:column >
+                <div style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; width:498px;position:relative;        height:32px;        {!rowStyle};   "></div>
+              </apex:column>
+            </apex:dataTable><!-- DTm Report Footer starts here -->
+
+            <c:reportFooter width="498px" height="70px" rendered="true" style="                      border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  background-color:#FFFFFF; ;width:498px;height:70px;" startPos="auto" bind="false" xParam="{!data.TemplateDataBean}">
+              <c:label type="string" width="107px" content="{!OPROARTS020__Oproarts__c.Id}" escape="false" left="360px" top="16px" height="15px" position="absolute" style="                           border-style:solid;   border-width:0px 0px 0px 0px;   border-color:#000000;  font-family:'Arial',sans-serif;  font-size:10.0pt;     color:#000000; text-align:left;  white-space:pre-wrap;   overflow:hidden; "></c:label>
+            </c:reportFooter><!-- DTm Report Footer ends here -->
+
+          </c:dataBand><!-- databand  ends here -->
+
+        </c:reportDetail>
+      </c:verticalContainer>
+    </apex:repeat>
+  </c:verticalReport>
+</apex:page>

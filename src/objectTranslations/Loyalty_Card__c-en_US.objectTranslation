@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Loyalty Card</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Loyalty Card</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Loyalty Card --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ConsentOfOverseasTransferOfPersonalInfo --></label>
+        <name>ConsentOfOverseasTransferOfPersonalInfo__c</name>
+    </fields>
+    <fields>
+        <label><!-- ConsentOfTransmissionOfAdvertisingInfo --></label>
+        <name>ConsentOfTransmissionOfAdvertisingInfo__c</name>
+    </fields>
+    <fields>
+        <label><!-- ConsentToCollectionAndUseOfPersonalInfo1 --></label>
+        <name>ConsentToCollectionAndUseOfPersonalInfo1__c</name>
+    </fields>
+    <fields>
+        <label><!-- ConsentToCollectionAndUseOfPersonalInfo2 --></label>
+        <name>ConsentToCollectionAndUseOfPersonalInfo2__c</name>
+    </fields>
+    <fields>
+        <label><!-- ConsentToProvisionOfPersonalInfo3dParty1 --></label>
+        <name>ConsentToProvisionOfPersonalInfo3dParty1__c</name>
+    </fields>
+    <fields>
+        <label><!-- ConsentToProvisionOfPersonalInfo3dParty2 --></label>
+        <name>ConsentToProvisionOfPersonalInfo3dParty2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consent to Consignment of Personal Info --></label>
+        <name>Consent_to_Consignment_of_Personal_Info__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Customer --></label>
+        <name>Credit_Card_Customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- CurrentPoints --></label>
+        <name>CurrentPoints__c</name>
+    </fields>
+    <fields>
+        <label><!-- CustomerLease --></label>
+        <name>CustomerLease__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer ID --></label>
+        <name>Customer_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hobby --></label>
+        <name>Hobby__c</name>
+        <picklistValues>
+            <masterLabel>Beauty/Skincare</masterLabel>
+            <translation><!-- Beauty/Skincare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Childcare</masterLabel>
+            <translation><!-- Childcare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concerts/Exhibition</masterLabel>
+            <translation><!-- Concerts/Exhibition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Driving</masterLabel>
+            <translation><!-- Driving --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fashion</masterLabel>
+            <translation><!-- Fashion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Golf</masterLabel>
+            <translation><!-- Golf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Trainer</masterLabel>
+            <translation><!-- Health Trainer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hiking</masterLabel>
+            <translation><!-- Hiking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interior</masterLabel>
+            <translation><!-- Interior --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Movies/Plays</masterLabel>
+            <translation><!-- Movies/Plays --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shopping</masterLabel>
+            <translation><!-- Shopping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sports (Swim/Health/Tennis)</masterLabel>
+            <translation><!-- Sports (Swim/Health/Tennis) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel</masterLabel>
+            <translation><!-- Travel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well-Being</masterLabel>
+            <translation><!-- Well-Being --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wine/Cuisine</masterLabel>
+            <translation><!-- Wine/Cuisine --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Interest --></label>
+        <name>Interest__c</name>
+        <picklistValues>
+            <masterLabel>Club</masterLabel>
+            <translation><!-- Club --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concert/Event</masterLabel>
+            <translation><!-- Concert/Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fashion/Accessories Event</masterLabel>
+            <translation><!-- Fashion/Accessories Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Golf Competition</masterLabel>
+            <translation><!-- Golf Competition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Golf Lesson</masterLabel>
+            <translation><!-- Golf Lesson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Makeup Class</masterLabel>
+            <translation><!-- Makeup Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Launch Event</masterLabel>
+            <translation><!-- New Launch Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Drive Promotion</masterLabel>
+            <translation><!-- Test Drive Promotion --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Job --></label>
+        <name>Job__c</name>
+        <picklistValues>
+            <masterLabel>Advertising</masterLabel>
+            <translation><!-- Advertising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agriculture</masterLabel>
+            <translation><!-- Agriculture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arts</masterLabel>
+            <translation><!-- Arts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Broadcasting, Media</masterLabel>
+            <translation><!-- Broadcasting, Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ComputerIT</masterLabel>
+            <translation><!-- ComputerIT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction</masterLabel>
+            <translation><!-- Construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivery</masterLabel>
+            <translation><!-- Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distribution</masterLabel>
+            <translation><!-- Distribution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance</masterLabel>
+            <translation><!-- Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal</masterLabel>
+            <translation><!-- Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturing</masterLabel>
+            <translation><!-- Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medicine</masterLabel>
+            <translation><!-- Medicine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Military</masterLabel>
+            <translation><!-- Military --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Real Estate</masterLabel>
+            <translation><!-- Real Estate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stocks</masterLabel>
+            <translation><!-- Stocks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student</masterLabel>
+            <translation><!-- Student --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LoyaltyCardEndDate --></label>
+        <name>Loyalty_Card_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loyalty Card Number --></label>
+        <name>Loyalty_Card_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- LoyaltyCardStartDate --></label>
+        <name>Loyalty_Card_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Magazine Shipment --></label>
+        <name>Magazine_Shipment__c</name>
+    </fields>
+    <fields>
+        <label><!-- MailShip --></label>
+        <name>MailShip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Publicity Processing Purpose --></label>
+        <name>Marketing_Publicity_Processing_Purpose__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marriage Status --></label>
+        <name>Marriage_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Hobby --></label>
+        <name>Other_Hobby__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred magazine --></label>
+        <name>Preferred_magazine__c</name>
+    </fields>
+    <fields>
+        <label><!-- TotalPoints --></label>
+        <name>TotalPoints__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle --></label>
+        <name>Vehicle__c</name>
+        <relationshipLabel><!-- Loyalty Card --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Owner Relation --></label>
+        <name>owner_relation__c</name>
+        <picklistValues>
+            <masterLabel>Child</masterLabel>
+            <translation><!-- Child --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee</masterLabel>
+            <translation><!-- Employee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grand Child</masterLabel>
+            <translation><!-- Grand Child --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Husband Wife</masterLabel>
+            <translation><!-- Husband Wife --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager</masterLabel>
+            <translation><!-- Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent</masterLabel>
+            <translation><!-- Parent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Relative</masterLabel>
+            <translation><!-- Relative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Same</masterLabel>
+            <translation><!-- Same --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

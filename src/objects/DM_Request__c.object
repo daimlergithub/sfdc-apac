@@ -1,0 +1,2142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Case: Track the DM Request. This is also used by Campaign for bulk DM Request</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Actual_DM_Material1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Actual DM Material1</label>
+        <referenceTo>DM_Material__c</referenceTo>
+        <relationshipLabel>DM Request (Actual DM Material1)</relationshipLabel>
+        <relationshipName>DM_Fulfill</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Actual_DM_Material2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Actual DM Material2</label>
+        <referenceTo>DM_Material__c</referenceTo>
+        <relationshipLabel>DM Request (Actual DM Material2)</relationshipLabel>
+        <relationshipName>DM_Fulfill1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Actual_DM_Material3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Actual DM Material3</label>
+        <referenceTo>DM_Material__c</referenceTo>
+        <relationshipLabel>DM Request (Actual DM Material3)</relationshipLabel>
+        <relationshipName>DM_Fulfill2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Address</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_TH__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c != null, Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c+ &apos;,&apos;, &apos;&apos;) + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c + &apos;,&apos;, &apos;&apos;) + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c + &apos;,&apos;, &apos;&apos;) + IF(Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) != null, Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) + &apos;,&apos;, &apos;&apos;) + Customer_Name__r.Primary_Address_Reference__r.ZipCode__c</formula>
+        <label>Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AfterSales_Department__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Manager will pick up the record and forward it for approval based on this &apos;AfterSales&apos; checkbox.</description>
+        <externalId>false</externalId>
+        <label>AfterSales Department</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Allow_Data_Sharing__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>The flag to identify if this record can be shared with MBJ</description>
+        <externalId>false</externalId>
+        <label>Allow Data Sharing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned Dealer</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>DM Request (Assigned Dealer)</relationshipLabel>
+        <relationshipName>DM_Request1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Attention__c</fullName>
+        <externalId>false</externalId>
+        <label>Attention</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Car_Model__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>/*
+Created by:  Chris.Huang
+Used by:  CAC User
+Function: Mapping &apos;Related vehicles&apos; in Data Dictionary.
+Used in: Integration
+
+Modify History
+Modify By: 
+Modify Reason: 
+*/</description>
+        <externalId>false</externalId>
+        <label>Car Model</label>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Number</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select Case that is linked to the same account as this DM Request.</errorMessage>
+            <filterItems>
+                <field>Case.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Customer_Name__c</valueField>
+            </filterItems>
+            <infoMessage>Search and select case.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Touch Point</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Dealer Outlet</fullName>
+                    <default>false</default>
+                    <label>Dealer Outlet</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Call Catalogue</fullName>
+                    <default>false</default>
+                    <label>Mercedes Call Catalogue</label>
+                </value>
+                <value>
+                    <fullName>Mercedes call</fullName>
+                    <default>false</default>
+                    <label>Mercedes call</label>
+                </value>
+                <value>
+                    <fullName>Maybach call</fullName>
+                    <default>false</default>
+                    <label>Maybach call</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz School of Excelence</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz School of Excelence</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Owner Hotline</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Owner Hotline</label>
+                </value>
+                <value>
+                    <fullName>English Customer Desk</fullName>
+                    <default>false</default>
+                    <label>English Customer Desk</label>
+                </value>
+                <value>
+                    <fullName>24 hours Touring Support</fullName>
+                    <default>false</default>
+                    <label>24 hours Touring Support</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz phone</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz phone</label>
+                </value>
+                <value>
+                    <fullName>Model-Year Reference desk</fullName>
+                    <default>false</default>
+                    <label>Model-Year Reference desk</label>
+                </value>
+                <value>
+                    <fullName>Dealers</fullName>
+                    <default>false</default>
+                    <label>Dealers</label>
+                </value>
+                <value>
+                    <fullName>Recall desk</fullName>
+                    <default>false</default>
+                    <label>Recall desk</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Campaign</fullName>
+                    <default>false</default>
+                    <label>Campaign</label>
+                </value>
+                <value>
+                    <fullName>Letter</fullName>
+                    <default>false</default>
+                    <label>Letter</label>
+                </value>
+                <value>
+                    <fullName>Letter to Executive</fullName>
+                    <default>false</default>
+                    <label>Letter to Executive</label>
+                </value>
+                <value>
+                    <fullName>Response Sheet</fullName>
+                    <default>false</default>
+                    <label>Response Sheet</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Magazine Survey</fullName>
+                    <default>false</default>
+                    <label>Mercedes Magazine Survey</label>
+                </value>
+                <value>
+                    <fullName>My Mercedes</fullName>
+                    <default>false</default>
+                    <label>My Mercedes</label>
+                </value>
+                <value>
+                    <fullName>DSC</fullName>
+                    <default>false</default>
+                    <label>DSC</label>
+                </value>
+                <value>
+                    <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
+                    <default>false</default>
+                    <label>Mercedes me Tokyo&amp;Osaka</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Me Haneda</fullName>
+                    <default>false</default>
+                    <label>Mercedes Me Haneda</label>
+                </value>
+                <value>
+                    <fullName>Outbound Call</fullName>
+                    <default>false</default>
+                    <label>Outbound Call</label>
+                </value>
+                <value>
+                    <fullName>MCare</fullName>
+                    <default>false</default>
+                    <label>MCare</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Comment</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Customer</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Company, Person Account, Person Account Manual Merge, Person Account Soft Deleted</value>
+            </filterItems>
+            <infoMessage>Search and select account.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DM_Request_External_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>DM Request External Id</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date__c</fullName>
+        <description>/*
+Created by:  Chris.Huang
+Used by:  CAC User
+Function: Mapping &apos;Planned delivery date&apos; in Data Dictionary.
+Used in: Integration
+
+Modify History
+Modify By: 
+Modify Reason: 
+*/</description>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Delivery_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>true</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>This field is created for DM request related list in account detail page.</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Expected_DM_Material1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Expected DM Material1</label>
+        <referenceTo>DM_Material__c</referenceTo>
+        <relationshipLabel>DM Request (Expected DM Material1)</relationshipLabel>
+        <relationshipName>DM_Request2</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Expected_DM_Material2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Expected DM Material2</label>
+        <referenceTo>DM_Material__c</referenceTo>
+        <relationshipLabel>DM Request (Expected DM Material2)</relationshipLabel>
+        <relationshipName>DM_Request3</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Expected_DM_Material3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Expected DM Material3</label>
+        <referenceTo>DM_Material__c</referenceTo>
+        <relationshipLabel>DM Request (Expected DM Material3)</relationshipLabel>
+        <relationshipName>DM_Request4</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c = &apos;TH&apos;, Customer_Name__r.FirstName, &apos;&apos;)</formula>
+        <label>First Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gender__c</fullName>
+        <description>This field is used for display account gender field in DM request.</description>
+        <externalId>false</externalId>
+        <formula>CASE(Customer_Name__r.Gender__c, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;,&quot;&quot;)</formula>
+        <label>Gender</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c  = &apos;TH&apos;, Customer_Name__r.LastName, &apos;&apos;)</formula>
+        <label>Last Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Lead</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select Leads that is linked to the same account as this DM Request.</errorMessage>
+            <filterItems>
+                <field>Lead__c.Contact__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Customer_Name__c</valueField>
+            </filterItems>
+            <infoMessage>Search and select leads.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Lead__c</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MBK_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Channel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>24 hours Touring Support</fullName>
+                    <default>false</default>
+                    <label>24 hours Touring Support</label>
+                </value>
+                <value>
+                    <fullName>Campaign</fullName>
+                    <default>false</default>
+                    <label>Campaign</label>
+                </value>
+                <value>
+                    <fullName>Dealers</fullName>
+                    <default>false</default>
+                    <label>Dealers</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Letter</fullName>
+                    <default>false</default>
+                    <label>Letter</label>
+                </value>
+                <value>
+                    <fullName>MB Connection</fullName>
+                    <default>false</default>
+                    <label>MB Connection</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Magazine Survey</fullName>
+                    <default>false</default>
+                    <label>Mercedes Magazine Survey</label>
+                </value>
+                <value>
+                    <fullName>Mercedes call</fullName>
+                    <default>false</default>
+                    <label>Mercedes call</label>
+                </value>
+                <value>
+                    <fullName>My Mercedes</fullName>
+                    <default>false</default>
+                    <label>My Mercedes</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>Outbound Call</fullName>
+                    <default>false</default>
+                    <label>Outbound Call</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+                <value>
+                    <fullName>Showroom</fullName>
+                    <default>false</default>
+                    <label>Showroom</label>
+                </value>
+                <value>
+                    <fullName>StarClass</fullName>
+                    <default>false</default>
+                    <label>StarClass</label>
+                </value>
+                <value>
+                    <fullName>Circle of excellence</fullName>
+                    <default>false</default>
+                    <label>Circle of excellence</label>
+                </value>
+                <value>
+                    <fullName>MercedesCard</fullName>
+                    <default>false</default>
+                    <label>MercedesCard</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Me</fullName>
+                    <default>false</default>
+                    <label>Mercedes Me</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MBTH_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Channel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>IB Call</fullName>
+                    <default>false</default>
+                    <label>IB Call</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Campaign</fullName>
+                    <default>false</default>
+                    <label>Campaign</label>
+                </value>
+                <value>
+                    <fullName>Add Social Media</fullName>
+                    <default>false</default>
+                    <label>Add Social Media</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Online</fullName>
+                    <default>false</default>
+                    <label>Online</label>
+                </value>
+                <value>
+                    <fullName>Others.</fullName>
+                    <default>false</default>
+                    <label>Others.</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,&apos;NA&apos;)))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Marketing_Department__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Manager will pick up the record and forward it for approval based on this &apos;Marketing&apos; checkbox.</description>
+        <externalId>false</externalId>
+        <label>Marketing Department</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mobile__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.MobilePhone</formula>
+        <label>Mobile</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Office_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Customer_Name__r.Phone</formula>
+        <label>Office Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>Customer_Name__r.Primary_Address__c</formula>
+        <label>Primary Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Province__c</fullName>
+        <externalId>false</externalId>
+        <label>Province</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Receipient_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Receipient Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Campaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Department__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Manager will pick up the record and forward it for approval based on this &apos;Sales&apos; checkbox.</description>
+        <externalId>false</externalId>
+        <label>Sales Department</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Second_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <formula>Customer_Name__r.PersonOtherPhone</formula>
+        <label>Second Mobile</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sending_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Sending Address</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Home</fullName>
+                    <default>false</default>
+                    <label>Home</label>
+                </value>
+                <value>
+                    <fullName>Business</fullName>
+                    <default>false</default>
+                    <label>Business</label>
+                </value>
+                <value>
+                    <fullName>Other Address 1</fullName>
+                    <default>false</default>
+                    <label>Other Address 1</label>
+                </value>
+                <value>
+                    <fullName>Other Address 2</fullName>
+                    <default>false</default>
+                    <label>Other Address 2</label>
+                </value>
+                <value>
+                    <fullName>Other Address 3</fullName>
+                    <default>false</default>
+                    <label>Other Address 3</label>
+                </value>
+                <value>
+                    <fullName>Temporary</fullName>
+                    <default>false</default>
+                    <label>Temporary</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SentName__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>/*
+Created by:  Chris.Huang
+Used by:  CAC User
+Function: Mapping &apos;Delivery details&apos; in Data Dictionary.
+Used in: Integration
+
+Modify History
+Modify By: 
+Modify Reason: 
+*/</description>
+        <externalId>false</externalId>
+        <label>SentName</label>
+        <referenceTo>DM_Material__c</referenceTo>
+        <relationshipLabel>DM Request (SentName)</relationshipLabel>
+        <relationshipName>DM_Request1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the deliver was ordered to the mail sender</inlineHelpText>
+        <label>Sent Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status1__c</fullName>
+        <externalId>false</externalId>
+        <label>Status1</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>to be sent</fullName>
+                    <default>false</default>
+                    <label>to be sent</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Not send</fullName>
+                    <default>false</default>
+                    <label>Not send</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status2</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>to be sent</fullName>
+                    <default>false</default>
+                    <label>to be sent</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Not send</fullName>
+                    <default>false</default>
+                    <label>Not send</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status3__c</fullName>
+        <externalId>false</externalId>
+        <label>Status3</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>to be sent</fullName>
+                    <default>false</default>
+                    <label>to be sent</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Not send</fullName>
+                    <default>false</default>
+                    <label>Not send</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Sent</fullName>
+                    <default>false</default>
+                    <label>Sent</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Approving</fullName>
+                    <default>false</default>
+                    <label>Approving</label>
+                </value>
+                <value>
+                    <fullName>to be sent</fullName>
+                    <default>false</default>
+                    <label>to be sent</label>
+                </value>
+                <value>
+                    <fullName>Not send</fullName>
+                    <default>false</default>
+                    <label>Not send</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SuggestedName__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>/*
+Created by:  Chris.Huang
+Used by:  CAC User
+Function: Mapping &apos;The referrer name&apos; in Data Dictionary.
+Used in: Integration
+
+Modify History
+Modify By: 
+Modify Reason: 
+*/</description>
+        <externalId>false</externalId>
+        <label>SuggestedName</label>
+        <referenceTo>DM_Material__c</referenceTo>
+        <relationshipLabel>DM Request (SuggestedName)</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TitleOfHonor__c</fullName>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>To Person</fullName>
+                    <default>true</default>
+                    <label>To Person</label>
+                </value>
+                <value>
+                    <fullName>To Company</fullName>
+                    <default>false</default>
+                    <label>To Company</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c = &apos;TH&apos;, TEXT(Customer_Name__r.Title__c), &apos;&apos;)</formula>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>View_By_All__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>View By All</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Zip_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Zip Code</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>DM Request</label>
+    <listViews>
+        <fullName>AfterSales_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>AfterSales Department</label>
+        <language>en_US</language>
+        <queue>AfterSales_Department</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_temp</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Created_By_EP_Transaction__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Created_By_EP_Transaction__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>All_temp</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Failed_DM_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Comment__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Customer_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Failed</value>
+        </filters>
+        <label>Failed direct-mail requests</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_CRM_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <language>en_US</language>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <language>en_US</language>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <language>en_US</language>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_temp</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Created_By_EP_Transaction__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Created_By_EP_Transaction__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All_temp</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Direct_request_has_been_sent</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Sent_Date__c</columns>
+        <columns>Comment__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Direct request has been sent</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Open_mail_requests</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Comment__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Open mail requests</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Rejected_requests_for_direct_mail</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Comment__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Customer_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Returned</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Rejected requests for direct mail</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Marketing_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Marketing Department</label>
+        <language>en_US</language>
+        <queue>Marketing_Department</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Mercedes</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Delivery_Type__c</columns>
+        <columns>Status__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Status1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Status2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Status3__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Channel__c</field>
+            <operation>equals</operation>
+            <value>My Mercedes</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>THIS_WEEK</value>
+        </filters>
+        <label>My Mercedesからのリクエスト</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Open_DM_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Comment__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>Open mail requests</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Returned_DM_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Comment__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Customer_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Returned</value>
+        </filters>
+        <label>Rejected requests for direct mail</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Sales_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>Sales Department</label>
+        <language>en_US</language>
+        <queue>Sales_Department</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Sent_DM_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Sent_Date__c</columns>
+        <columns>Comment__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Customer_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Sent</value>
+        </filters>
+        <label>Direct request has been sent</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <language>en_US</language>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_A_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <language>en_US</language>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_B_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team B</label>
+        <language>en_US</language>
+        <queue>Supervisor_Team_B</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View1</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>TitleOfHonor__c</columns>
+        <columns>Additional_Address__c</columns>
+        <columns>Address__c</columns>
+        <columns>Status__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>リクエスト日今日</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View17</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Attention__c</columns>
+        <columns>TitleOfHonor__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>LAST_MONTH</value>
+        </filters>
+        <filters>
+            <field>Delivery_Type__c</field>
+            <operation>equals</operation>
+            <value>4</value>
+        </filters>
+        <label>販売店からのカタログ送付</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View5</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Attention__c</columns>
+        <columns>TitleOfHonor__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>YESTERDAY</value>
+        </filters>
+        <filters>
+            <field>Delivery_Type__c</field>
+            <operation>notEqual</operation>
+            <value>4</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Sent</value>
+        </filters>
+        <label>リクエスト日昨日カタログ名</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>DMR-{000000}</displayFormat>
+        <label>DM Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>DM Request</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expected_DM_Material1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expected_DM_Material2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expected_DM_Material3__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status3__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sent_Date__c</customTabListAdditionalFields>
+        <listViewButtons>Download_Catalogue</listViewButtons>
+        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material3__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status3__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sent_Date__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Campaign__c</searchFilterFields>
+        <searchFilterFields>Customer_Name__c</searchFilterFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material3__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status3__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Add_Address_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Additional Address should be less than or equal to 50 letters.</description>
+        <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;))</errorConditionFormula>
+        <errorDisplayField>Additional_Address__c</errorDisplayField>
+        <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(LEN(Address__c)&gt;92, 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;))</errorConditionFormula>
+        <errorDisplayField>Address__c</errorDisplayField>
+        <errorMessage>Address should be less than or equal to 92 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Attention_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(LEN(Attention__c)&gt;50,
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;JP&apos;)</errorConditionFormula>
+        <errorDisplayField>Attention__c</errorDisplayField>
+        <errorMessage>Attention should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expected_DM_Material1</fullName>
+        <active>true</active>
+        <description>Expected DM Material1 has a value, but the Status 1 is null.
+OR Status 1 is selected, but the Expected DM Material1 is null.</description>
+        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, &quot;&quot;)) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, &quot;&quot;)))) &amp;&amp;  OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
+        <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expected_DM_Material2</fullName>
+        <active>true</active>
+        <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
+OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
+        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, &quot;&quot;)) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
+        <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expected_DM_Material3</fullName>
+        <active>true</active>
+        <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
+OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
+        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, &quot;&quot;)) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
+        <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Insufficient_Stock</fullName>
+        <active>true</active>
+        <description>US-DM-003:
+7. If Expected DM material&apos;s stock reaches Stock alert level, Data loader will report an error message &quot;&quot;Insufficient Stock&quot;&quot;. And this record will not be uploaded successfully.&quot;</description>
+        <errorConditionFormula>ISPICKVAL(Status__c , &apos;Sent&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;) &amp;&amp; 
+( 
+Actual_DM_Material1__r.Threshold__c &gt; Actual_DM_Material1__r.Stock__c 
+|| 
+Actual_DM_Material2__r.Threshold__c &gt; Actual_DM_Material2__r.Stock__c 
+|| 
+Actual_DM_Material3__r.Threshold__c &gt; Actual_DM_Material3__r.Stock__c 
+)</errorConditionFormula>
+        <errorMessage>Insufficient Stock</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_is_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Delivery_Type__c,&apos;4&apos;),
+OR(ISBLANK(Lead__c ), ISNULL(Lead__c )),
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;JP&apos;)</errorConditionFormula>
+        <errorDisplayField>Lead__c</errorDisplayField>
+        <errorMessage>Lead is required if your delivery type is 4.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_Reject</fullName>
+        <active>true</active>
+        <description>You cannot manually select &quot;Rejected&quot;.</description>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , &apos;Rejected&apos;),OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select &quot;Rejected&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Approve_Check</fullName>
+        <active>true</active>
+        <description>You cannot manually select &quot;Approving&quot;.</description>
+        <errorConditionFormula>AND(ISPICKVAL(Status__c,&apos;Approving&apos;),OR(MD__c = &apos;JP&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select &quot;Approving&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Be_Sent</fullName>
+        <active>true</active>
+        <description>You cannot manually select &quot;to be sent&quot;.</description>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , &apos;to be sent&apos;),NOT(ISPICKVAL(PRIORVALUE(Status__c),&apos;to be sent&apos;)),OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select &quot;to be sent&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Not_Send</fullName>
+        <active>true</active>
+        <description>You cannot manually select &quot;Not send&quot;.</description>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , &apos;Not send&apos;),OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select &quot;Not send&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Negative_Stock_on_ExpectedDMMat1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Expected_DM_Material1__c != Null,Expected_DM_Material1__r.Stock__c &lt;=0,$Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL($Profile.UserType, &apos;Standard&apos;), ISPICKVAL($User.Market__c,&apos;KR&apos;))</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
+        <errorMessage>A selected DM Material does not have a sufficient stock</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Negative_Stock_on_ExpectedDMMat2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Expected_DM_Material2__c != Null,Expected_DM_Material2__r.Stock__c &lt;=0,$Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL($Profile.UserType, &apos;Standard&apos;), ISPICKVAL($User.Market__c,&apos;KR&apos;))</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
+        <errorMessage>A selected DM Material does not have a sufficient stock</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Negative_Stock_on_ExpectedDMMat3</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Expected_DM_Material3__c != Null,Expected_DM_Material3__r.Stock__c &lt;=0,$Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL($Profile.UserType, &apos;Standard&apos;), ISPICKVAL($User.Market__c,&apos;KR&apos;))</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
+        <errorMessage>A selected DM Material does not have a sufficient stock</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Province_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(LEN(Province__c)&gt;4, 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;JP&apos;)</errorConditionFormula>
+        <errorDisplayField>Province__c</errorDisplayField>
+        <errorMessage>Province should be less than or equal to 4 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TitleOfHonor_is_Required</fullName>
+        <active>true</active>
+        <description>TitleOfHonor__c is null or blank</description>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , &apos;Null&apos;)|| ISPICKVAL( TitleOfHonor__c , &apos;&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;)</errorConditionFormula>
+        <errorDisplayField>TitleOfHonor__c</errorDisplayField>
+        <errorMessage>TitleOfHonor is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ZipCode_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(LEN(Zip_Code__c)&gt;7, 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;JP&apos;)</errorConditionFormula>
+        <errorDisplayField>Zip_Code__c</errorDisplayField>
+        <errorMessage>Zip Code should be less than or equal to 7 letters.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Download_Catalogue</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Download Catalogue</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+
+
+var result = sforce.apex.execute(&quot;GenerateCatalogueCsv&quot;,&quot;getDMRequests&quot;,{});
+if(result == &quot;&lt;3&quot;)
+{
+alert(&apos;{!$Label.Error_Message_1}&apos;);
+}
+else if(result == &quot;NoTargetRows&quot;)
+{ 
+alert(&apos;{!$Label.No_Target_records}&apos;);
+}
+else if(result == &quot;exception&quot;)
+{
+alert(&apos;{!$Label.Exception_message}&apos;);
+}
+else if(result == &quot;true&quot;)
+{ 
+alert(&apos;{!$Label.Success_message}&apos;);
+}
+else if(result == &quot;false&quot;)
+{
+alert(&apos;{!$Label.Error_Message_2}&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_DM_Request</fullName>
+        <availability>online</availability>
+        <description>For Case Object Related List</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New DM Request</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+var userMarket = sforce.connection.query(&quot;Select Id, Market__c from User where Id =&quot; + &quot;&apos;{!$User.Id}&apos;&quot;); 
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if(&apos;{!Case.RecordTypeId}&apos; == &apos;012280000006I86&apos;) 
+{	
+sforce.console.openPrimaryTab(result.id,&apos;/a12/e?&amp;CF00N2800000A9CiT={!Case.Account}&amp;CF00N2800000A9CiT_lkid={!Case.AccountId}&amp;CF00N2800000A9CiN={!Case.CaseNumber}&amp;CF00N2800000A9CiN_lkid={!Case.Id}&amp;CF00N2800000A9Cie={!Case.Lead__c}&amp;CF00N2800000A9Cie_lkid={!Case.LeadId__c}&amp;saveURL={!Case.Id}&amp;retURL={!Case.Id}&amp;cancelURL={!Case.Id}&apos;,true, &apos;{!$Label.New_DM_Request}&apos;); 
+} 
+} 
+) 
+}	
+else { 
+if(&apos;{!Case.RecordTypeId}&apos; == &apos;012280000006I86&apos;) 
+{	
+window.open(&quot;/a12/e?&amp;CF00N2800000A9CiT={!Case.Account}&amp;CF00N2800000A9CiT_lkid={!Case.AccountId}&amp;CF00N2800000A9CiN={!Case.CaseNumber}&amp;CF00N2800000A9CiN_lkid={!Case.Id}&amp;CF00N2800000A9Cie={!Case.Lead__c}&amp;CF00N2800000A9Cie_lkid={!Case.LeadId__c}&amp;saveURL={!Case.Id}&amp;retURL={!Case.Id}&amp;cancelURL={!Case.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+}  
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_DM_Request_Lead</fullName>
+        <availability>online</availability>
+        <description>For Lead Object Related List</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New DM Request</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+var userMarket = sforce.connection.query(&quot;Select Id, UserType,Market__c from User where Id =&quot; + &quot;&apos;{!$User.Id}&apos;&quot;); 
+records = userMarket.getArray(&quot;records&quot;);
+var accid = records[0].Market__c; 
+var usrty=records[0].UserType;
+alert(usrty);
+ if(accid==&apos;TH&apos;){
+var acccount=sforce.connection.query(&quot;select Id from DM_Request__c where Customer_Name__c =&apos;{!Lead__c.ContactId__c}&apos; and (Status1__c=&apos;Success&apos; OR Status2__c=&apos;Success&apos; OR Status3__c=&apos;Success&apos;) and Sent_Date__c &lt;= LAST_N_DAYS:90&quot;);
+reco = acccount.getArray(&quot;records&quot;);
+if(reco.length&gt;0){
+alert(&apos;DM request for this User has been created in last 90 days with status Success&apos;);
+} 
+}
+if(usrty==&apos;PowerPartner&apos;&amp;&amp; accid==&apos;TH&apos;){
+alert(&apos;hello&apos;);
+if(&apos;{!Lead__c.RecordTypeId}&apos; == &apos;012280000006I7s&apos;) 
+{	
+window.parent.navigateToUrl(&quot;{!JSENCODE($Site.BaseUrl)}&quot;+&apos;/a12/e?CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}&apos;); 
+} 
+else if (&apos;{!Lead__c.RecordTypeId}&apos; == &apos;012280000006I7q&apos;) 
+{ 
+window.parent.navigateToUrl(&quot;{!JSENCODE($Site.BaseUrl)}&quot;+&apos;/a12/e?CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}&apos;); 
+} 
+else if(&apos;{!Lead__c.RecordTypeId}&apos; == &apos;012280000006I7r&apos;){
+window.parent.navigateToUrl(&quot;{!JSENCODE($Site.BaseUrl)}&quot;+&apos;/a12/e?CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}&apos;);
+}
+}
+else{
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if(&apos;{!Lead__c.RecordTypeId}&apos; == &apos;012280000006I7s&apos;) 
+{	
+sforce.console.openPrimaryTab(result.id,&apos;/a12/e?CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9CiN={!Lead__c.Case__c}&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}&apos;,true, &apos;{!$Label.New_DM_Request}&apos;); 
+} 
+else if (&apos;{!Lead__c.RecordTypeId}&apos; == &apos;012280000006I7q&apos;) 
+{ 
+sforce.console.openPrimaryTab(result.id,&apos;/a12/e?CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9CiN={!Lead__c.Case__c}&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}&apos;,true, &apos;{!$Label.New_DM_Request}&apos;); 
+} 
+
+} 
+) 
+}	
+else { 
+if(&apos;{!Lead__c.RecordTypeId}&apos; == &apos;012280000006I7s&apos;) 
+{	
+window.open(&quot;/a12/e?CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9CiN={!Lead__c.Case__c}&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+} 
+else if (&apos;{!Lead__c.RecordTypeId}&apos; == &apos;012280000006I7q&apos;) 
+{ 
+window.open(&quot;/a12/e?CF00N2800000A9CiT={!Lead__c.Contact__c}&amp;CF00N2800000A9CiT_lkid={!Lead__c.ContactId__c}&amp;CF00N2800000A9CiN={!Lead__c.Case__c}&amp;CF00N2800000A9CiN_lkid={!Lead__c.CaseId__c}&amp;CF00N2800000A9Cie={!Lead__c.Name}&amp;CF00N2800000A9Cie_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}&quot;,&quot;&quot;,&quot;toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600&quot;); 
+} 
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_DM_Request_TH_Account</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New DM Request TH</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+var userMarket = sforce.connection.query(&quot;Select Id, Market__c from User where Id =&quot; + &quot;&apos;{!$User.Id}&apos;&quot;); 
+records = userMarket.getArray(&quot;records&quot;); 
+var accid = records[0].Market__c; 
+if(accid==&apos;TH&apos;){ 
+var acccount=sforce.connection.query(&quot;select Id from DM_Request__c where Customer_Name__c =&apos;{!Account.Id}&apos; and (Status1__c=&apos;Success&apos; OR Status2__c=&apos;Success&apos; OR Status3__c=&apos;Success&apos;) and Sent_Date__c &lt;= LAST_N_DAYS:90&quot;); 
+reco = acccount.getArray(&quot;records&quot;); 
+if(reco.length&gt;0){ 
+alert(&apos;DM request for this User has been created in last 90 days with status Success&apos;); 
+} 
+window.parent.navigateToUrl(&quot;{!JSENCODE($Site.BaseUrl)}&quot;+&apos;/a12/e?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_LKID={!Account.Id}&amp;saveURL=%2f{!Account.Id}&amp;cancelURL=%2f{!Account.Id}&amp;retURL=%2f{!Account.Id}&apos;);
+
+}</url>
+    </webLinks>
+</CustomObject>

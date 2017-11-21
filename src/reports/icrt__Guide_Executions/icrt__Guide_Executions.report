@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>icrt__Guide_Definition__c.icrt__Guide_Executions__r$Name</field>
+    </columns>
+    <columns>
+        <field>icrt__Guide_Definition__c.icrt__Guide_Executions__r$icrt__Run_On__c</field>
+    </columns>
+    <columns>
+        <field>icrt__Guide_Definition__c.icrt__Guide_Executions__r$icrt__Run_On_Type__c</field>
+    </columns>
+    <columns>
+        <field>icrt__Guide_Definition__c.icrt__Guide_Executions__r$icrt__Status__c</field>
+    </columns>
+    <columns>
+        <field>icrt__Guide_Definition__c.icrt__Guide_Executions__r$icrt__Start_Time__c</field>
+    </columns>
+    <columns>
+        <field>icrt__Guide_Definition__c.icrt__Guide_Executions__r$icrt__End_Time__c</field>
+    </columns>
+    <columns>
+        <field>icrt__Guide_Definition__c.icrt__Guide_Executions__r$icrt__Outcome__c</field>
+    </columns>
+    <columns>
+        <field>icrt__Guide_Definition__c.icrt__Guide_Executions__r$icrt__Running_Guide__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Guide Executions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>icrt__Guide_Executions__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>icrt__Guide_Definition__c.icrt__Guide_Executions__r$icrt__Start_Time__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>icrt__Guide_Definition__c$icrt__Last_Published__c</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

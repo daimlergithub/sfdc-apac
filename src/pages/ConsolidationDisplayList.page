@@ -1,0 +1,28 @@
+<apex:page controller="ConsolidationContorller" sidebar="false" showHeader="false" >
+  <apex:form >
+  <script type="text/javascript">
+      function closeWin() {
+        // window.close();   // Closes the new window
+         
+         window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.id}";
+          window.top.close();
+        }
+
+
+    </script>
+  
+  <apex:pageBlock >
+  <apex:pageBlockTable value="{!displayDealer}" var="deal">
+  <apex:column value="{!deal.Name}"/>
+  <apex:column value="{!deal.Dealer__c}"/>
+  <apex:column value="{!deal.Approve_the_List__c}"/>
+  
+  
+  
+  </apex:pageBlockTable>
+  
+  <apex:commandButton value="proceed" action="{!consolidationMaintenance}"  oncomplete="closeWin();" />
+  <apex:commandButton value="cancel" onClick="window.close();"/>
+  </apex:pageBlock>
+</apex:form>
+</apex:page>
