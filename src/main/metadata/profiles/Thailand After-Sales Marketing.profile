@@ -3423,11 +3423,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Customer_Consent_Happy_Calls__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Customer_Consent__c</field>
         <readable>false</readable>
     </fieldPermissions>
