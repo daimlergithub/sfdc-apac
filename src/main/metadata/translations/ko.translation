@@ -2333,6 +2333,10 @@
         <name>NewLead</name>
     </customLabels>
     <customLabels>
+        <label>새로 만들기</label>
+        <name>New_Campaign</name>
+    </customLabels>
+    <customLabels>
         <label>더 많은 질문을 만들까요?</label>
         <name>NewSurveyMoreQuestions</name>
     </customLabels>
