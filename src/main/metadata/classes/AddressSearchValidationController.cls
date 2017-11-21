@@ -2860,7 +2860,7 @@ public pagereference saveAccountTH()
                       {             
                              objAccount.Mobile__c='';
                       } 
-                           if
+                      if
                       (
                           (String.isBlank(faxphoneNumber)) &&
                           (String.isBlank(faxCountryCode))
@@ -2879,6 +2879,9 @@ public pagereference saveAccountTH()
                       {             
                              objAccount.fax='';
                       }
+                      if(objAccount.Email__c!=null)
+                          objAccount.PersonEmail=objAccount.Email__c;
+                          
                   //System.debug('****Type'+AddressObj.Address_Type__c+'Address_Line_1__c'+AddressObj.Address_Line_1__c+'Address_Line_2__c'+AddressObj.Address_Line_2__c+'province'+province+'district'+district+'subdistrict'+subdistrict+'zip'+zip);
                     if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
@@ -2901,6 +2904,18 @@ public pagereference saveAccountTH()
                     else if(objAccount.Primary_Phone__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sales TEL is mandatory'));
+                    }
+                    else if(objAccount.Primary_Phone__c == 'Home Phone' && objAccount.Individual_Home_Phone__c == '')
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Home Phone value if Sales TEL is Home Phone'));
+                    }
+                    else if(objAccount.Primary_Phone__c == 'Mobile' && objAccount.Mobile__c == '')
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Mobile value if Sales TEL is Mobile'));
+                    }
+                    else if(objAccount.Primary_Phone__c == 'Work Phone' && objAccount.Work_Phone__c == '')
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Work Phone value if Sales TEL is Work Phone'));
                     }                       
                     else
                     {

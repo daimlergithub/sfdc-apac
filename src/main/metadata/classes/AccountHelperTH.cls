@@ -422,10 +422,12 @@ public class AccountHelperTH{
                 
                 if(Acc.Email__c!= OldAcc.Email__c)
                 {
+                    Acc.PersonEmail = Acc.Email__c;
                     Acc.Email_Last_Modified_By__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date__c = System.now();
                 }
-                
+                if(Acc.Email__c != OldAcc.Email__c && Acc.Email__c == null)
+                    Acc.PersonEmail = Null;
                 if(Acc.Email2__c!= OldAcc.Email2__c)
                 {
                     Acc.Email_Last_Modified_By2__c = UserInfo.getName();
