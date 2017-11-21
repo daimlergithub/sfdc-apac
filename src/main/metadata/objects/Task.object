@@ -13269,20 +13269,10 @@ window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_AFTERSALES_REC
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 
-var cid="{!Campaign.Id}";
-
-
-if(cid != '' &amp;&amp; {!ISPICKVAL($User.Market__c,'KR')})
-{
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700")
-}
-else
-{
-alert('This is for korea');
-}</url>
+var myWindow = window.open("/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
     </webLinks>
     <webLinks>
         <fullName>Manual_Assign</fullName>
