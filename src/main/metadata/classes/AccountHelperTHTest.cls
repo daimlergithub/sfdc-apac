@@ -165,7 +165,7 @@ public with sharing class AccountHelperTHTest
             AccountHelperTH.updatePhoneFormat(AccList);            
             system.assertEquals('+66987654523', acc.Mobile__c);
             system.assertEquals('+66998576443',  acc.Work_Phone__c);
-            system.assertEquals('+66978648434',  acc.Individual_Home_Phone__c);
+           system.assertEquals('+66978648434',  acc.Individual_Home_Phone__c);
             test.stopTest();
         }  
     }*/
@@ -189,4 +189,19 @@ public with sharing class AccountHelperTHTest
                 
         }
     }*/
+    static testMethod void validateNationalId_Test()
+    {
+        User adminUser = TestUtils.createAdminUser();  
+        Account acc;
+        List<Trigger__c> customSettingTriggerLst=new List<Trigger__c>();
+        customSettingTriggerLst.add(new Trigger__c(Name='TriggerAccountTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,update__c=true,Market__c='TH',Trigger_Handler__c='TriggerAccountTriggerHandlerTH',Trigger_Name__c='TriggerAccount'));
+        insert customSettingTriggerLst;
+            System.runAs (adminUser) {
+            test.startTest();    
+            acc = TestUtils.createPersonAccountAsUserAsOwner(adminUser);
+            acc.ID_Number__c='1361863682746';
+            update acc;
+            test.stopTest();
+        }
+    }
 }

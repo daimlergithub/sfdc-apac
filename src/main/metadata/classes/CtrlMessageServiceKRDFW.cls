@@ -36,7 +36,6 @@ public with sharing class CtrlMessageServiceKRDFW {
     public List<Template__c> MessageTemplatesOrg{get;set;}
     private map<Id, Template__c> retTemplatesOrg{get;set;}    
     
-    
     private static Map<String, Schema.SObjectType> sObjectTypes = Schema.getGlobalDescribe() ;
     private MBK_Bulk_Message__c BulkMessage{get;set;}
     
@@ -94,7 +93,6 @@ public with sharing class CtrlMessageServiceKRDFW {
 					+ 'FROM Template__c WHERE Active__c = true ';			
 					if(Mtype == 'KaKao') query += 'AND RecordType.Name = \'KaKao\' ';
 					else query += 'AND (RecordType.Name = \'SMS\' Or RecordType.Name = \'MMS\') ';
-system.debug(query);					
 		List<Template__c> temps = Database.query(query);					 		                										
 		retTemplatesOrg = new map<Id, Template__c>();		                										
 		
@@ -149,7 +147,6 @@ system.debug(query);
     			lList.add(tempInsert);
     		}
     	}
-    	system.debug(lList.size());
     	return lList;
     }    
 
@@ -235,7 +232,6 @@ system.debug(query);
     							 Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c,
     							 Agreement_to_commit_info_processing__c 
     						FROM Account WHERE Id =: TargetID];
-system.debug('target:'+target);    						
     	viewObject.Account__c = target.Id;
     	viewObject.Account_Name__c = target.Name;
 		//if(!target.Opt_In_SMS__c) doc = false;
@@ -342,12 +338,11 @@ system.debug('target:'+target);
 	 **/
     public PageReference SendingMessage(){
 		// Create a savepoint
-		Savepoint sp = Database.setSavepoint();    	
+		Savepoint sp = Database.setSavepoint();
+		GlobalUtilityDFW gu = GlobalUtilityDFW.getInstance();    	
 		try{			
 			SendTemplateId = Apexpages.currentPage().getParameters().get('SendTemplate');
-system.debug('SendTemplateId:'+SendTemplateId);			
 			String messagebyte = Apexpages.currentPage().getParameters().get('messagebyte');
-system.debug('messagebyte:'+messagebyte);			
 			//VC
 			if(Mtype == 'KaKao' && (SendTemplateId == null || SendTemplateId == '')){
 				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, 'KaKao Talk Error, Select Template'));
@@ -419,13 +414,13 @@ system.debug('messagebyte:'+messagebyte);
 				}
 							
 			}
+			gu.debug('['+Mtype+'] transfer has been requested.');
 			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Info, '['+Mtype+'] transfer has been requested.'));
 			IsSend = true;
 		}catch(Exception e){
 			Database.rollback(sp);			
-			system.debug('===== callout Exception =====');
-			system.debug(e);
-			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'System Errpr:'+e));
+			gu.DebugException(e,userinfo.getUserId());
+			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'System Error:'+e));
 		}
    		return null;
     }	
@@ -433,7 +428,8 @@ system.debug('messagebyte:'+messagebyte);
     /* bulk Sending */
     public PageReference BulkSendingMessage(){
 		// Create a savepoint
-		Savepoint sp = Database.setSavepoint();    	
+		Savepoint sp = Database.setSavepoint();
+		GlobalUtilityDFW gu = GlobalUtilityDFW.getInstance();    	
 		try{			
 			String SendTemplateId = Apexpages.currentPage().getParameters().get('SendTemplate');
 			String messagebyte = Apexpages.currentPage().getParameters().get('messagebyte');
@@ -500,14 +496,14 @@ system.debug('messagebyte:'+messagebyte);
 				bulkBatch.batchType = 'Page';
 				database.executeBatch(bulkBatch, 1);
 			}
+			gu.debug('['+Mtype+'] transfer has been requested.');
 			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Info, 'Bulk ['+Mtype+'] transfer has been requested.'));
 			IsSend = true;
 			return null;
 		}catch(Exception e){
 			Database.rollback(sp);			
-			system.debug('===== callout Exception =====');
-			system.debug(e);
-			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'Error : '+e));
+			gu.DebugException(e,userinfo.getUserId());
+			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'System Error : '+e));
 		}
    		return null;
     }
@@ -515,13 +511,15 @@ system.debug('messagebyte:'+messagebyte);
     /* Message update */
     public PageReference updateMessage(){
 		// Create a savepoint
-		Savepoint sp = Database.setSavepoint();    	
+		Savepoint sp = Database.setSavepoint(); 
+		GlobalUtilityDFW gu = GlobalUtilityDFW.getInstance();   	
 		try{			
 			SendTemplateId = Apexpages.currentPage().getParameters().get('SendTemplate');
 			String messagebyte = Apexpages.currentPage().getParameters().get('messagebyte');
 			//VC
 			if(Mtype == 'KaKao' && (SendTemplateId == null || SendTemplateId == '')){
-				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR, 'No KaKaoTalk Template'));
+				gu.debug('No KaKaoTalk Template');
+				ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Info, 'No KaKaoTalk Template'));
 				return null;	
 			}else{
 				//Sending Object Field Setting
@@ -551,7 +549,6 @@ system.debug('messagebyte:'+messagebyte);
 				//Send
 				List<MBK_Messages__c> sendObjects = new List<MBK_Messages__c>();
 				sendObjects.add(viewObject);
-system.debug(sendObjects);				
 				update sendObjects;
 				List<Attachment> insertAttachments = new List<Attachment>();
 				if(mmsFile1.Name <> null){
@@ -598,12 +595,14 @@ system.debug(sendObjects);
 					}
 				}		
 			}
+			
+			gu.debug('['+Mtype+'] transfer has been requested.');
 			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Info, '['+Mtype+'] transfer has been requested.'));
 			return null;
 		}catch(Exception e){
-			Database.rollback(sp);			
-			system.debug('===== callout Exception =====');
-			system.debug(e);
+			Database.rollback(sp);		
+			gu.DebugException(e,userinfo.getUserId());
+			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'System Error : '+e));
 		}
    		return null;
     }

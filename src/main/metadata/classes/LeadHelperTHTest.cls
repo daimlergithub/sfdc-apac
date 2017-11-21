@@ -4,7 +4,8 @@ public with sharing class LeadHelperTHTest {
 private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
 private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
 
-static testMethod void testAccAssignment() {
+    
+  static testMethod void testAccAssignment() {
     Trigger__C casetrigger=new Trigger__C(name='TriggerLeadTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='LeadTriggerHandlerTH',Trigger_Name__c='TriggerLead',update__c=true);
 insert casetrigger;
     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
@@ -18,6 +19,7 @@ insert casetrigger;
    
 
         test.starttest();
+        
         set<id> accid=new set<id>();
         Account dealer = new Account();
         dealer.Dealer_Alternate_Name__c = 'Test Alternate';
@@ -39,8 +41,10 @@ insert casetrigger;
         dealer.ZipCode__c = '200235';
         dealer.Type = '0=Company';
         dealer.Status__c = '0=contac1';
+        dealer.Dealer_Active__c=true;
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'EAST';
+        dealer.Dealer_nd_code__c='123';
        insert dealer;
        system.assertEquals(dealer.id,[select id from account where id=:dealer.id limit 1].id);
        
@@ -64,8 +68,10 @@ insert casetrigger;
         dealer1.ZipCode__c = '200235';
         dealer1.Type = '0=Company';
         dealer1.Status__c = '0=contac1';
+        dealer1.Dealer_Active__c=true;
         dealer1.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer1.Dealer_Region__c = 'EAST';
+        dealer1.Dealer_nd_code__c='456';
        insert dealer1;
        system.assertNotEquals([select id from account where id=:dealer1.id limit 1].id,[select id from account where id=:dealer.id limit 1].id);
        
@@ -110,23 +116,35 @@ insert casetrigger;
         lead.Received_Date_Time__c=system.today();
         lead.Accepted_Date_Time__c=system.today();
         lead.RecordTypeId=salesRecordTypeId;
-        lead.Assigned_Dealer__c = dealer.id;
+        lead.Assigned_Dealer__c = dealer.Id;
         insert lead;
-        lead.Assigned_Dealer__c = null;
+    	
+        List<Group> groupLst=new List<Group>();
+        groupLst.add(new Group(Name='123'));
+        groupLst.add(new Group(Name='456'));
+        insert groupLst;
+        
+        LeadHelperTH.booleanCampaignUpdate=true;
+        lead.Assigned_Dealer__c = dealer.Id;
         update lead;
+        
+        LeadHelperTH.booleanCampaignUpdate=true;
         lead.Assigned_Dealer__c = dealer1.Id;
         update lead;
         
+		LeadHelperTH.booleanCampaignUpdate=true;
+        lead.Assigned_Dealer__c = null;
+        update lead;       
+        
         list<Lead__c> ld=new  list<Lead__c>();
         ld.add(lead);
-
-  
+		LeadHelperTH lr=new LeadHelperTH();
         
-         LeadHelperTH lr=new LeadHelperTH();
-
          LeadHelperTH.updateOwnership(accid,ld);
          test.stoptest();
           
         }     
         }
+    
+    
 }

@@ -59,7 +59,6 @@ global class MBKMessageStatusKRDFWBatch implements Database.AllowsCallouts, Data
 				//API 전송실패
 				errMsg = res.getStatus();
 				ReturnDatas = (Map<String, Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
-	System.debug('statusCode error: '+ ReturnDatas);	
 				//step1
 				map<String, Object> error = (map<String, Object>)ReturnDatas.get('error');
 				//step2
@@ -75,7 +74,6 @@ global class MBKMessageStatusKRDFWBatch implements Database.AllowsCallouts, Data
 					temp.Status__c = 'Fail';
 				}
 			}else{
-	system.debug('res:'+res.getBody());
 				ReturnDatas = (Map<String, Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
 				//step1
 				map<String, Object> Out = (map<String, Object>)ReturnDatas.get('Out');
@@ -84,7 +82,6 @@ global class MBKMessageStatusKRDFWBatch implements Database.AllowsCallouts, Data
 				//Step2
 				Integer altCode = (Integer)Out.get('sndDtm');
 				String altMsg = (String)Out.get('altMsg');
-	system.debug('ReturnDatas:'+ReturnDatas);
 				for(MBK_Messages__c temp:mbkMessages){
 					temp.sn__c = '';
 					temp.code__c = String.valueOf(statusCode);

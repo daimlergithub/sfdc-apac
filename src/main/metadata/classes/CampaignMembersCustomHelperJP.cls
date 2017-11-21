@@ -43,7 +43,14 @@ public  class CampaignMembersCustomHelperJP {
             }
         }   
         if(updateList.size() > 0) {
-            update updateList;
+        
+        try{
+        
+            Database.Update(updateList,false);
+            }
+            Catch(Exception e)
+            {
+            }
         }
     }
     
@@ -251,8 +258,8 @@ insert campMemShareList;
                         mapCheckingType.put(vc.Retail_Campaign_Id__r.dealer_name__c, new List<Id>());
                     }
                     mapCheckingType.get(vc.Retail_Campaign_Id__r.dealer_name__c).add(vc.Id);
-                    set_CampaignMemberId.add(vc.id);
-                    set_CustomerId.add(vc.Retail_Campaign_Id__r.dealer_name__c);
+                    //set_CampaignMemberId.add(vc.id);
+                   set_CampaignMemberId.add(vc.id);
             }
             if(vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c != null  )
             {
@@ -271,14 +278,14 @@ insert campMemShareList;
                 for(Account acc : accName)
                 {
                     GcNames.add(acc.Dealer_GC_Code__c );
-                    accNames.add(acc.Name);
+                 //   accNames.add(acc.Name);
                     system.debug('++++++++++++++'+'True');
                 } 
-              /*  List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
+                List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
                 for(Account accs : accGCode )
                 {
                   accNames.add(accs.Name);  
-                }*/
+                }
             } else if(set_CustomerId.size() >0)
             {
                 system.debug('++++++++++++++'+'False');
@@ -296,16 +303,16 @@ insert campMemShareList;
                     List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_LinkId];
                     for(Account acc : accName)
                     {
-                        // accNames.add(acc.Name);
+                         accNames.add(acc.Name);
                         GcNames.add(acc.Dealer_GC_Code__c );
             
                     }
-                    List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
+                     List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
                     for(Account accs : accGCode )
                     {
                         accNames.add(accs.Name);  
                 
-                    }
+                    } 
             
                 } 
             }
@@ -337,7 +344,9 @@ insert campMemShareList;
     // Get all the Dealer Account with Same GC Code -
     private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
         
+         system.debug('dealerAccountIdSet&*&*&*&*&*'+dealerAccountIdSet);
         List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordTypeId =: Dealer_RecordTypeId ];
+      system.debug('dealerAccList&*&*&*&*&*'+dealerAccList);
         Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
         for(Account accRec : dealerAccList) {
             gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
@@ -408,13 +417,15 @@ insert campMemShareList;
         List<Account_Link__c> ListAlk=new List<Account_Link__c>();
         Set<Id> DealerAccId=new Set<Id>();
         Set<Id> VrID=new Set<Id>();
-        
-        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:mapCheckingType.keySet() ];
+        system.debug('%^%^%^%^^%^%^% mapCheckingType'+mapCheckingType);
+        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:mapCheckingType.keySet() Or fromRole__c=:mapCheckingType.keySet()];
+         system.debug('%^%^%^%^^%^%^% ListAlk '+ListAlk );
         for(Account_Link__c alk:ListAlk) {
             DealerAccId.add(alk.fromRole__c);
         }
+        system.debug('%^%^%^%^^%^%^% DealerAccId'+DealerAccId);
         DealerAccId.remove(null);
-        
+         system.debug('%^%^%^%^^%^%^% DealerAccId'+DealerAccId);
         // Start: Share with all Dealer Account with same GC Code
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(DealerAccId);
         for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
