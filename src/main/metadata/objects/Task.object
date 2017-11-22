@@ -7213,10 +7213,6 @@
                 <fullName>wrong number</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </values>
 		</picklistValues>
         <picklistValues>
             <picklist>Call_Category__c</picklist>
