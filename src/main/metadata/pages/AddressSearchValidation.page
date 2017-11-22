@@ -1123,8 +1123,9 @@
                  <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!IF(( displayAccList.size!=0 && $Permission.MYGeneric), true, false)}" id="frm">     
                      <apex:pageBlockSection columns="1">-->
             <!--PR20170918--Start-- Introduced for Thailand. Shows Customer Search Result from CDM via Informatica-->
-                <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
-                    <apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
+            <!--    <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">-->
+                    <apex:pageBlock title="Match Found" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
+					<apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
                         <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="Th">   
                             <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!($User.ContactId !=null && recordType == 'Person Account')}">  
                                 <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.LastName}</apex:outputLink>    
