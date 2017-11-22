@@ -60,7 +60,7 @@
 
 <target name="preDestructiveChanges">
 			<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
-		<!--	<property name="persistedOnly" value="false" unless:set="CI"/>
+			<property name="persistedOnly" value="false" unless:set="CI"/>
 			<property name="persistedOnly" value="true" if:set="CI"/>
 		   
 			<sf:deployDestructiveChanges
@@ -68,7 +68,7 @@
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
 											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
-		-->
+		
 </target>
 
 <target name="postDestructiveChanges">
@@ -122,7 +122,7 @@
 			</target>
 			<target name="deploy05">
 				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
-			<!--
+			
 					<sf:typeset name="customPermissions" force="true"/>	
 					<sf:typeset name="objects"/> 	
 					<sf:typeset name="queues"/>
@@ -144,7 +144,7 @@
 					<sf:typeset name="pages"/>
 					<sf:typeset name="triggers"/>								
 					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
-						-->
+						
 				</deploy>
 			</target>
 			<target name="deploy07">
