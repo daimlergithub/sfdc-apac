@@ -1186,7 +1186,7 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
     	{
     		Id campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
 	        Id campDsgnRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
-	        Id campExeRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
+	        Id campExeRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution MBK - Wholesale to Dealer').getRecordTypeId();
 			Id dealerAccntRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
 	    	list<CampaignShare> insertCampaignShareList = new list<CampaignShare>();
 	    	set<string> dealerNDCodeSet = new set<string>();
