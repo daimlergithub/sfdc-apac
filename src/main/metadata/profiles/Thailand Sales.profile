@@ -1419,10 +1419,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PrintPDFTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>PrintPDFcontroller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
