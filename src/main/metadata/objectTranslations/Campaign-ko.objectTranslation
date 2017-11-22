@@ -1658,32 +1658,12 @@
         <name>DM_Material_is_Required</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Expected Outcome fields should not be more than 100. --></errorMessage>
-        <name>Expected_Outcome_Fields</name>
-    </validationRules>
-    <validationRules>
         <errorMessage>상태가 게시 또는 종결일 경우 이 레코드를 변경할 수 없습니다.</errorMessage>
         <name>Locked_for_Central_when_Published</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You cann&apos;t change this record when Status is published. --></errorMessage>
-        <name>Locked_for_MB_BP_when_Published</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- “BP Start Date”, “BP End Date”, “Retail Start Date”, “Retail Due Date”, “Region Due Date”, “Region Best Number” and “Region Recommend Number” are required. --></errorMessage>
-        <name>MB_BP_fields_are_required_when_Publish</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Only Campaign with &quot;Started&quot; status can be activated. --></errorMessage>
-        <name>Only_Started_Campaign_can_be_activated</name>
-    </validationRules>
-    <validationRules>
         <errorMessage>상위 캠페인은 이전 캠페인 실행의 상위 캠페인과 동일해야 합니다</errorMessage>
         <name>Parent_Campign_Not_Same</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Previous campaign execution only belong to this parent campaign. --></errorMessage>
-        <name>Previous_Campaign_Execution_Parent</name>
     </validationRules>
     <validationRules>
         <errorMessage>실행 유형이 SMS/MMS/eDM인 경우 SMS/MMS/eDM 템플릿이 있어야 합니다</errorMessage>
