@@ -89,6 +89,6 @@ global class accountLinkKoreaShareBatch implements Database.Batchable<sobject>,d
         
     }
     global void execute(SchedulableContext ctx) {
-    Database.ExecuteBatch(new accountLinkShareBatch(),200);
+    Database.ExecuteBatch(new accountLinkKoreaShareBatch(),50);
     }
 }

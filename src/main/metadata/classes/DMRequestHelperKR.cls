@@ -31,7 +31,7 @@ public class DMRequestHelperKR
 	    	set<string> dealerCompNdCodeSet = new set<string>();
 	    	list<Group> dealerCompGroupList = new list<Group>();
 	    	Id dealerAccountRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	    	User currentUser = [select Id, Account.Dealer_Type__c, Account.Dealer_GC_Code__c from User where Id =: UserInfo.getUserId()];
+	    	User currentUser = [select Id, Account.Dealer_Type__c, Account.Dealer_GC_Code__c, Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
 	    	list<Account> dealerAccountList = new list<Account>();
 	    	
 	    	if(currentUser.Account.Dealer_Type__c == 'Outlet')
@@ -85,7 +85,7 @@ public class DMRequestHelperKR
 	    	}
 	    	else if(currentUser.Account.Dealer_Type__c == 'Company')
 	    	{
-	    		dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccountRecTypId and MD__c = 'KR' and Dealer_GC_code__c =: currentUser.Account.Dealer_GC_Code__c];
+	    		/*dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccountRecTypId and MD__c = 'KR' and Dealer_GC_code__c =: currentUser.Account.Dealer_GC_Code__c];
 	    		if(!dealerAccountList.isEmpty() && dealerAccountList != null)
 	    		{
 	    			for(Account accnt : dealerAccountList)
@@ -93,10 +93,10 @@ public class DMRequestHelperKR
 	    				dealerCompNdCodeSet.add(accnt.Dealer_ND_Code__c);
 	    			}
 	    			if(!dealerCompNdCodeSet.isEmpty() && dealerCompNdCodeSet != null)
-			    	{
-			    		dealerCompGroupList = [select Id, Name from Group where Name in : dealerCompNdCodeSet];
-			    	}
-	    		}
+			    	{*/
+			    		dealerCompGroupList = [select Id, Name from Group where Name =: currentUser.Account.Dealer_ND_Code__c];
+			    	/*}
+	    		}*/
 	    		if(!dmRequestList.isEmpty() && dmRequestList != null && !dealerCompGroupList.isEmpty() && dealerCompGroupList != null)
 		    	{
 		    		for(DM_Request__c dmRqst : dmRequestList)
