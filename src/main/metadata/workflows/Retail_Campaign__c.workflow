@@ -153,7 +153,7 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TH_SegmentationgEmail_Notification</template>
+        <template>unfiled$public/TH_SegmentationgEmail_Notification_to_dealers</template>
     </alerts>
     <alerts>
         <fullName>Send_mail_to_approver</fullName>
@@ -416,7 +416,6 @@
         <criteriaItems>
             <field>Retail_Campaign__c.Approver__c</field>
             <operation>notEqual</operation>
-            <value></value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -438,19 +437,6 @@
             <value>TH</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Send_Notification_to_Dealer</name>
-                <type>Alert</type>
-            </actions>
-            <actions>
-                <name>Update_status_to_Segmentation</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <offsetFromField>Retail_Campaign__c.Segmentation_Date__c</offsetFromField>
-            <timeLength>0</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
         <workflowTimeTriggers>
             <actions>
                 <name>Send_Email_Notification_Owner</name>
@@ -480,6 +466,19 @@
             </actions>
             <offsetFromField>Retail_Campaign__c.Close_Date__c</offsetFromField>
             <timeLength>15</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_Notification_to_Dealer</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Update_status_to_Segmentation</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Segmentation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
