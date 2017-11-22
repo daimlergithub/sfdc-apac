@@ -12,7 +12,7 @@ Usages       : Test class for code coverage related to taskRecordViewOnCampaignC
 @isTest
 private class taskRecordViewOnCampaignControllerTest 
 {
-	public static string campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+    public static string campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
     public static String campDsgRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
     public static String campExcRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
     public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -26,32 +26,32 @@ private class taskRecordViewOnCampaignControllerTest
 
     static testMethod void testDataPreparation() 
     {
-    	contList = new list<Contact>();
-    	accountList = new list<Account>();
-      	campMembrList = new list<CampaignMember>();
-      	taskList = new list<Task>();
+        contList = new list<Contact>();
+        accountList = new list<Account>();
+        campMembrList = new list<CampaignMember>();
+        taskList = new list<Task>();
       
-		Campaign campPlng = new Campaign();
-		campPlng.RecordTypeId = campPlngRecTypId;
-		campPlng.Name = 'Test Campaign Planning';
-		campPlng.Type = 'Other';
-		campPlng.Status = 'Planning';
-		campPlng.StartDate = System.today();
-		campPlng.EndDate = System.today()+30;
-		campPlng.Campaign_Executer__c='Retail';
-		campPlng.Campaign_Objectives__c = 'camobjectives';
-		campPlng.Description = 'Test Campaign Planning Description';
-		campPlng.Campaign_Execution_Channels__c='eMail';
-		campPlng.Campaign_Type__c = 'After Sales';
-		insert campPlng;
+        Campaign campPlng = new Campaign();
+        campPlng.RecordTypeId = campPlngRecTypId;
+        campPlng.Name = 'Test Campaign Planning';
+        campPlng.Type = 'Other';
+        campPlng.Status = 'Planning';
+        campPlng.StartDate = System.today();
+        campPlng.EndDate = System.today()+30;
+        campPlng.Campaign_Executer__c='Retail';
+        campPlng.Campaign_Objectives__c = 'camobjectives';
+        campPlng.Description = 'Test Campaign Planning Description';
+        campPlng.Campaign_Execution_Channels__c='eMail';
+        campPlng.Campaign_Type__c = 'After Sales';
+        insert campPlng;
       
         Campaign campDsgn = new Campaign();
-	    campDsgn.Name = 'Test Campaign Design'; 
-	    campDsgn.CAC_Frequency_Category__c = 'Ad Hoc';
-	    campDsgn.Repeat_From__c = System.today(); 
-	    campDsgn.Repeat_End__c = System.today()+30;           
-	    campDsgn.RecordTypeId = campDsgRecTypId;
-	    insert campDsgn;
+        campDsgn.Name = 'Test Campaign Design'; 
+        campDsgn.CAC_Frequency_Category__c = 'Ad Hoc';
+        campDsgn.Repeat_From__c = System.today(); 
+        campDsgn.Repeat_End__c = System.today()+30;           
+        campDsgn.RecordTypeId = campDsgRecTypId;
+        insert campDsgn;
         
         campExec = new Campaign();
         campExec.IsActive = true; 
@@ -65,12 +65,12 @@ private class taskRecordViewOnCampaignControllerTest
         
         for(integer i=0; i<=5; i++)
         {
-        	Account personAccount = new Account();
-	        personAccount.RecordTypeId=personAccountRecordtypeid;
-	        personAccount.LastName='Test Account';
-	        personAccount.MBK_Data_Source__c='Email';
-	        personAccount.Mobile__c='0130-5678-9876';
-	        accountList.add(personAccount);
+            Account personAccount = new Account();
+            personAccount.RecordTypeId=personAccountRecordtypeid;
+            personAccount.LastName='Test Account';
+            personAccount.MBK_Data_Source__c='Email';
+            personAccount.Mobile__c='0130-5678-9876';
+            accountList.add(personAccount);
         }
        insert accountList;
        
@@ -78,7 +78,7 @@ private class taskRecordViewOnCampaignControllerTest
 
        for(contact con : contList)
        { 
-       	system.debug('*$*$*$* con.AccountId  ' + con.AccountId);
+        system.debug('*$*$*$* con.AccountId  ' + con.AccountId);
           CampaignMember campMbr = new CampaignMember();
           campMbr.CampaignId = campExec.Id;
           campMbr.ContactId = con.Id;           
@@ -88,62 +88,72 @@ private class taskRecordViewOnCampaignControllerTest
        }
        insert campMembrList; 
        
-       Group grp = [Select Id, Name from Group where name like '%MBK0%' limit 1];
-       
+       //Group grp = [Select Id, Name from Group where name like '%MBK0%' limit 1];
+       Group grp = new Group();
+       grp.name = 'MBK32KR';
+       insert grp;
+
        list<AccountShare> accShrList = new list<AccountShare>();
        for(Account accnt: accountList)
        {
-       	   AccountShare accshr = new AccountShare();
-		   accshr.AccountId = accnt.Id;
-		   accshr.AccountAccessLevel = 'Edit';
-		   accshr.CaseAccessLevel = 'None';
-		   accshr.OpportunityAccessLevel = 'None';
-		   accshr.UserOrGroupId = grp.Id;
-		   accShrList.add(accshr);
+           AccountShare accshr = new AccountShare();
+           accshr.AccountId = accnt.Id;
+           accshr.AccountAccessLevel = 'Edit';
+           accshr.CaseAccessLevel = 'None';
+           accshr.OpportunityAccessLevel = 'None';
+           accshr.UserOrGroupId = grp.Id;
+           accShrList.add(accshr);
        }
-	   insert accShrList;
+       insert accShrList;
     }
     static testMethod void showCampaignTaskListWsUsrTest() 
     {
-    	testDataPreparation();
-    	
+        testDataPreparation();
+        
        Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
        Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId,Name='Dealer',Phone ='09874760605',Dealer_Rollout_Status__c='Done',MD__c='KR',Dealer_GC_Code__c='1234',Dealer_ND_Code__c='1234');
        insert accobj2;
+         Account personAccount = new Account();
+          personAccount.RecordTypeId=personAccountRecordtypeid;
+          personAccount.LastName='Test Account';
+          personAccount.MBK_Data_Source__c='Email';
+          personAccount.Mobile__c='0130-5678-9876';
+          accountList.add(personAccount);
        
        Profile koreaCallCenter = [select Id from Profile where Name =:'Korea Call Center'];
        User usr = new User();
        usr.UserName = 'test' + Math.rint(Math.random() * 500000) + '@daimler.com.TestUser';        
        if(koreaCallCenter != Null)
        {
-	       usr.ProfileId = koreaCallCenter.Id;
-	   }
-	       usr.LastName = 'Test User';
-	       usr.Email = 'test001@daimler.com.full';
-	       usr.Alias = 'Atest';
-	       usr.TimeZoneSidKey = 'Asia/Seoul';
-	       usr.EmailEncodingKey = 'UTF-8';
-	       usr.LanguageLocaleKey = 'en_US';
-	       usr.localesidkey='en_US';
-	       usr.isActive = true;
-	       usr.Market__C='KR';    
-	       insert usr;
+           usr.ProfileId = koreaCallCenter.Id;
+       }
+           usr.LastName = 'Test User';
+           usr.Email = 'test001@daimler.com.full';
+           usr.Alias = 'Atest';
+           usr.TimeZoneSidKey = 'Asia/Seoul';
+           usr.EmailEncodingKey = 'UTF-8';
+           usr.LanguageLocaleKey = 'en_US';
+           usr.localesidkey='en_US';
+           usr.isActive = true;
+           usr.Market__C='KR';    
+           insert usr;
         
        Test.startTest();
-		system.runAs(usr)
-		{
-			ApexPages.StandardController sc = new ApexPages.StandardController(campExec);
-	        taskRecordViewOnCampaignController taskRecContrl = new taskRecordViewOnCampaignController(sc);
-		}
-		Test.stopTest();
+        system.runAs(usr)
+        {
+            ApexPages.StandardController sc = new ApexPages.StandardController(campExec);
+            taskRecordViewOnCampaignController taskRecContrl = new taskRecordViewOnCampaignController(sc);
+        }
+        Test.stopTest();
     }
     static testMethod void showCampaignTaskListDlrUsrTest() 
     {
-    	testDataPreparation();
-    	
+        testDataPreparation();
+        
        Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
        Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId,Name='Dealer',Phone ='09874760605',Dealer_Rollout_Status__c='Done',MD__c='KR',Dealer_GC_Code__c='GC1234',Dealer_ND_Code__c='MBK32KR');
        insert accobj2;
+
        
         Contact cont = new Contact();
         cont.AccountId = accobj2.Id; 
@@ -157,73 +167,73 @@ private class taskRecordViewOnCampaignControllerTest
         usr.UserName = 'test' + Math.rint(Math.random() * 600000) + '@daimler.com.TestUser';        
         if(mbkCCCRetailOperator != Null)
         {
-	       usr.ProfileId = mbkCCCRetailOperator.Id;
-	    }
-	       usr.LastName = 'Test User';
-	       usr.Email = 'test001@daimler.com.testUser';
-	       usr.ContactId = cont.Id;
-	       usr.Alias = 'AUsrtest';
-	       usr.TimeZoneSidKey = 'Asia/Seoul';
-	       usr.EmailEncodingKey = 'UTF-8';
-	       usr.LanguageLocaleKey = 'en_US';
-	       usr.localesidkey='en_US';
-	       usr.isActive = true;
-	       usr.Market__C='KR'; 
-	       insert usr;
-	       
-	       group grp = new group();
-	       grp.name = 'MBK32KR';
-	       insert grp;
-	     
-	     list<AccountShare> accShrList = new list<AccountShare>();
-	      for(Account accnt: accountList)
-	       {
-	       	   AccountShare accShrUsr = new AccountShare();
-			   accShrUsr.AccountId = accnt.Id;
-			   accShrUsr.AccountAccessLevel = 'Edit';
-			   accShrUsr.CaseAccessLevel = 'None';
-			   accShrUsr.OpportunityAccessLevel = 'None';
-			   accShrUsr.UserOrGroupId = usr.Id;
-			   accShrList.add(accShrUsr);
-			   
-			   AccountShare accShrGrp = new AccountShare();
-			   accShrGrp.AccountId = accnt.Id;
-			   accShrGrp.AccountAccessLevel = 'Edit';
-			   accShrGrp.CaseAccessLevel = 'None';
-			   accShrGrp.OpportunityAccessLevel = 'None';
-			   accShrGrp.UserOrGroupId = grp.Id;
-			   accShrList.add(accShrGrp);
-	       }
-		   insert accShrList;
-		   
-	     CampaignShare campShare = new CampaignShare();
-		 campShare.CampaignId = campExec.Id;
-		 campShare.CampaignAccessLevel = 'Read';
-		 campShare.UserOrGroupId  = usr.Id;
-		 insert campShare;
-		 
-		  for(CampaignMember camMembr : campMembrList)
-	       {
-	       	Task tsk = new Task();
-	       	tsk.subject = 'OB Call';
-	       	tsk.RecordTypeId = kakaoTaskRecordtypeid;
-	       	tsk.WhoId = camMembr.ContactId;
-	       	tsk.WhatId = campExec.Id;
-	       	tsk.status = 'Open';
-	       	taskList.add(tsk);       	
-	       } 
-	       insert taskList;
+           usr.ProfileId = mbkCCCRetailOperator.Id;
+        }
+           usr.LastName = 'Test User';
+           usr.Email = 'test001@daimler.com.testUser';
+           usr.ContactId = cont.Id;
+           usr.Alias = 'AUsrtest';
+           usr.TimeZoneSidKey = 'Asia/Seoul';
+           usr.EmailEncodingKey = 'UTF-8';
+           usr.LanguageLocaleKey = 'en_US';
+           usr.localesidkey='en_US';
+           usr.isActive = true;
+           usr.Market__C='KR'; 
+           insert usr;
+           
+           group grp = new group();
+           grp.name = 'MBK32KR';
+           insert grp;
+         
+         list<AccountShare> accShrList = new list<AccountShare>();
+          for(Account accnt: accountList)
+           {
+               AccountShare accShrUsr = new AccountShare();
+               accShrUsr.AccountId = accnt.Id;
+               accShrUsr.AccountAccessLevel = 'Edit';
+               accShrUsr.CaseAccessLevel = 'None';
+               accShrUsr.OpportunityAccessLevel = 'None';
+               accShrUsr.UserOrGroupId = usr.Id;
+               accShrList.add(accShrUsr);
+               
+               AccountShare accShrGrp = new AccountShare();
+               accShrGrp.AccountId = accnt.Id;
+               accShrGrp.AccountAccessLevel = 'Edit';
+               accShrGrp.CaseAccessLevel = 'None';
+               accShrGrp.OpportunityAccessLevel = 'None';
+               accShrGrp.UserOrGroupId = grp.Id;
+               accShrList.add(accShrGrp);
+           }
+           insert accShrList;
+           
+         CampaignShare campShare = new CampaignShare();
+         campShare.CampaignId = campExec.Id;
+         campShare.CampaignAccessLevel = 'Read';
+         campShare.UserOrGroupId  = usr.Id;
+         insert campShare;
+         
+          for(CampaignMember camMembr : campMembrList)
+           {
+            Task tsk = new Task();
+            tsk.subject = 'OB Call';
+            tsk.RecordTypeId = kakaoTaskRecordtypeid;
+            tsk.WhoId = camMembr.ContactId;
+            tsk.WhatId = campExec.Id;
+            tsk.status = 'Open';
+            taskList.add(tsk);          
+           } 
+           insert taskList;
        
        Test.startTest();
-		system.runAs(usr)
-		{
-			ApexPages.StandardController sc = new ApexPages.StandardController(campExec);
-			apexpages.currentpage().getparameters().put('Id' , campExec.Id);
-	        system.debug('*$*$*$ camMbrList   ' + campMembrList);
+        system.runAs(usr)
+        {
+            ApexPages.StandardController sc = new ApexPages.StandardController(campExec);
+            apexpages.currentpage().getparameters().put('Id' , campExec.Id);
+            system.debug('*$*$*$ camMbrList   ' + campMembrList);
             list<CampaignMember> memberList = [select Id from CampaignMember where CampaignId =: campExec.Id];
             system.debug('*$*$*$ memberList   ' + memberList);
-	        taskRecordViewOnCampaignController taskRecContrl = new taskRecordViewOnCampaignController(sc);
-		}
-		Test.stopTest();
+            taskRecordViewOnCampaignController taskRecContrl = new taskRecordViewOnCampaignController(sc);
+        }
+        Test.stopTest();
     }
 }
