@@ -67,7 +67,7 @@
 											dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre" debug="${sfdc.debug}"
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
 											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>		
 </target>
 
 <target name="postDestructiveChanges">
@@ -79,7 +79,7 @@
 											dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post" debug="${sfdc.debug}"
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
 											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>			
 </target>
 
 
@@ -120,9 +120,8 @@
 			</target>
 			<target name="deploy05">
 				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
-				<!--SN20170914 Added Custom Permissions-->
+			
 					<sf:typeset name="customPermissions" force="true"/>	
-					<!--SN20170914-->
 					<sf:typeset name="objects"/> 	
 					<sf:typeset name="queues"/>
 					<sf:typeset name="email"/>
@@ -148,7 +147,7 @@
 			</target>
 			<target name="deploy07">
 				<deploy runAllTests="${sfdc.runAllTests}">
-					<sf:typeset name="letterhead"/>                                          
+				<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
 						<sf:exclude name="selectAllChkBox"/>
 						<sf:exclude name="Retail_Campaigns"/>                                                 

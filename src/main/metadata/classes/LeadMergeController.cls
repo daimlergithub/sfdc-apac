@@ -114,13 +114,13 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         }
         else  if(((leads.Dealer_Lead_Status__c !='Purchased(Only Non BDC)') || (leads.Dealer_Lead_Status__c !='Invoiced') || (leads.Dealer_Lead_Status__c !='Order Placed')))
                  {
-                    if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c !=null )
+				             if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c !=null )
                         {
                         for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
 Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                            And (Existing_Contract__c=:leads.Existing_Contract__c) and (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost') ]){
+                            And ((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') ]){
                             slaves.add(new LeadWrapperclass(a));
                              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
                             }
@@ -131,7 +131,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
 Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                            And (Existing_Contract__c=:leads.Existing_Contract__c) and (Dealer_Lead_Status__c !='Lost') ]){
+                            And ((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) and (Dealer_Lead_Status__c !='Lost') ]){
                             slaves.add(new LeadWrapperclass(a));
                              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
                                     }
@@ -142,7 +142,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
 Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
-                                    And (AfterSales_VIN__c=:leads.AfterSales_VIN__c) and (Dealer_Lead_Status__c !='Lost') ]){
+                                    And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') ]){
                                     slaves.add(new LeadWrapperclass(a));
                                      System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
                                     }
