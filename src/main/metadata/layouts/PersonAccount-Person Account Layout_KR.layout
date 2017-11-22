@@ -185,7 +185,7 @@
                 <behavior>Edit</behavior>
                 <field>Old_UCID__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Message__c</field>
             </layoutItems>
@@ -314,7 +314,7 @@
                 <behavior>Readonly</behavior>
                 <field>Loyalty_Card_No__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Loyalty_Credit_Card_Member__c</field>
             </layoutItems>
@@ -509,7 +509,7 @@
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Agreement_Date_for_Contact_Method__c</field>
             </layoutItems>
@@ -517,10 +517,10 @@
                 <behavior>Readonly</behavior>
                 <field>Expiration_Date_for_Contact_Method__c</field>
             </layoutItems>
-         </layoutColumns>
+        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-	<layoutSections>
+    <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
@@ -794,7 +794,7 @@
                 <behavior>Edit</behavior>
                 <field>UpsellOpportunity__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Owner_Relation__c</field>
             </layoutItems>
@@ -1013,7 +1013,7 @@
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Loyalty_Card_Number__c</fields>
         <fields>Loyalty_Card_End_Date__c</fields>
@@ -1025,12 +1025,24 @@
         <relatedList>Loyalty_Card__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Booking_ID__c</fields>
+        <fields>Booking_Date__c</fields>
+        <fields>Booking_Time__c</fields>
+        <fields>BookingDateTimeFrom__c</fields>
+        <fields>BookingDateTimeTo__c</fields>
+        <fields>Booking_Status__c</fields>
+        <fields>Booking_Type__c</fields>
+        <fields>Cancellation_Reason__c</fields>
+        <relatedList>Booking__c.Sales_Consultant_ID__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>Vehicle_ID__c</fields>
         <fields>Vehicle_Registration_Number__c</fields>
         <fields>VIN__c</fields>
         <fields>Damage_Code__c</fields>
-		<fields>Campaign_Type__c</fields>
-        <fields>Recall_Reason__c</fields>        
+        <fields>Campaign_Type__c</fields>
+        <fields>Recall_Reason__c</fields>
         <fields>Recall_Date__c</fields>
         <fields>Estimated_Working_Hours__c</fields>
         <fields>Completion_Date__c</fields>

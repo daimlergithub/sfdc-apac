@@ -925,7 +925,7 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-	<excludeButtons>AddCampaign</excludeButtons>
+        <excludeButtons>AddCampaign</excludeButtons>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
@@ -1004,6 +1004,17 @@
         <fields>Interest__c</fields>
         <fields>Job__c</fields>
         <relatedList>Loyalty_Card__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Booking_Date__c</fields>
+        <fields>Booking_ID__c</fields>
+        <fields>Booking_Time__c</fields>
+        <fields>BookingDateTimeFrom__c</fields>
+        <fields>BookingDateTimeTo__c</fields>
+        <fields>Booking_Type__c</fields>
+        <fields>Cancellation_Reason__c</fields>
+        <relatedList>Booking__c.Sales_Consultant_ID__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
