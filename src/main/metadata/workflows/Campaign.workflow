@@ -118,42 +118,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Campaign_ExecutionIndex_Calculation</fullName>
-        <field>Index__c</field>
-        <formula>IF( Previous_Campaign_Execution__c == '' , 1,  Previous_Campaign_Execution__r.Index__c + 1 )</formula>
-        <name>Campaign ExecutionIndex Calculation</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Deactivate_Campaign</fullName>
-        <field>IsActive</field>
-        <literalValue>0</literalValue>
-        <name>Deactivate Campaign</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Director_Approval</fullName>
-        <field>Status</field>
-        <literalValue>Approved</literalValue>
-        <name>Director Approval</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Field_Update</fullName>
-        <field>Status</field>
-        <literalValue>Approving</literalValue>
-        <name>Field Update</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Rejected</fullName>
         <field>Status</field>
         <literalValue>Rejected</literalValue>
@@ -167,24 +131,6 @@
         <field>Status</field>
         <literalValue>Rejected</literalValue>
         <name>Rejection</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Status_Update_to_Approving</fullName>
-        <field>Status</field>
-        <literalValue>Approving</literalValue>
-        <name>Status Update to Approving</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Status_updated_to_Rejected</fullName>
-        <field>Status</field>
-        <literalValue>Rejected</literalValue>
-        <name>Status updated to Rejected</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -219,17 +165,6 @@ RecordType.Name,
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Campiagn_record_as_read_only</fullName>
-        <field>RecordTypeId</field>
-        <lookupValue>Campaign_Execution_Complex_Lock</lookupValue>
-        <lookupValueType>RecordType</lookupValueType>
-        <name>Update Campaign record as read only</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Content_Preview</fullName>
         <description>To display the Message Detail of selected Template</description>
         <field>Content_Preview__c</field>
@@ -244,15 +179,6 @@ RecordType.Name,
         <field>Status</field>
         <literalValue>Published</literalValue>
         <name>Update Status</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>campaign_status_change</fullName>
-        <field>Child_Campaign_Status__c</field>
-        <literalValue>Segmentation</literalValue>
-        <name>campaign status change</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -280,25 +206,6 @@ RecordType.Name,
         <field>Child_Campaign_Status__c</field>
         <literalValue>Execution</literalValue>
         <name>status change based on execution date</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>status_change_to_completed</fullName>
-        <field>Child_Campaign_Status__c</field>
-        <literalValue>Completed</literalValue>
-        <name>status change to completed</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>status_change_to_execution</fullName>
-        <description>campaign status will be changed o execution</description>
-        <field>Child_Campaign_Status__c</field>
-        <literalValue>Execution</literalValue>
-        <name>status change to execution</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -449,24 +356,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>Index Calculation</fullName>
-        <actions>
-            <name>Campaign_ExecutionIndex_Calculation</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Campaign.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Campaign Execution - Simple,Campaign Execution - Complex</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Campaign.ParentId</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>MBTH_Update status Published</fullName>
@@ -729,24 +618,5 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <active>true</active>
         <formula>AND(1=1,MD__c=&apos;JP&apos; ||MD__c=&apos;KR&apos; || MD__c=&apos;TH&apos; || MD__c=&apos;MY&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Campaign Record as %27 Read Only%27</fullName>
-        <actions>
-            <name>Update_Campiagn_record_as_read_only</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Campaign.Status</field>
-            <operation>equals</operation>
-            <value>Closed</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Campaign.MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
