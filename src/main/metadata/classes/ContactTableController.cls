@@ -54,7 +54,7 @@ public class ContactTableController
     public boolean hAreaBoolean{get;set;}
     Public boolean wAreaBoolean{get;set;}
     Public boolean fAreaBoolean{get;set;}
-	Public boolean  mobileCheckbox{get;set;}
+	
     /*Sn20171709 - end*/
     
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
@@ -76,7 +76,7 @@ public class ContactTableController
         hAreaBoolean=false;
         wAreaBoolean=false;
         fAreaBoolean=false;
-		mobileCheckbox=true;
+		
         //MT20170909 - Added  code to get the area code from the custom settings
           //Fill in CountryCodes
         //lstMobileAreaCode=new List<SelectOption>();
@@ -781,11 +781,9 @@ public class ContactTableController
             {
                 refreshPage = true;
                    system.debug('****MD*****'+parAcc);
-				   if(ParAcc.RecordType.Name=='Company')
+				   if(ParAcc.RecordType.Name=='Company'||ParAcc.RecordType.Name=='Person Account')
         {
-                
-          System.debug('------------'+ParAcc.Mobile__c+'----'+ParAcc.Individual_Home_Phone__c+'---'+ParAcc.Work_Phone__c);
-         
+                       
          if((ParAcc.Mobile_Phone_Checkbox__c==true&& ParAcc.home_Phone_Checkbox__c==true&& ParAcc.Work_Phone_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true && ParAcc.home_Phone_Checkbox__c==true&& ParAcc.Work_Phone_Checkbox__c==false)||(ParAcc.Mobile_Phone_Checkbox__c==false&&ParAcc.home_Phone_Checkbox__c==true && ParAcc.Work_Phone_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true&& ParAcc.home_Phone_Checkbox__c==false && ParAcc.Work_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Mobile__c) && ParAcc.Mobile_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Individual_Home_Phone__c)&& ParAcc.home_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Work_Phone__c) && ParAcc.Work_Phone_Checkbox__c==true))
          {   
          refreshPage = false;
