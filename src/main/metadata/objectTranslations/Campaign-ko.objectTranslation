@@ -1686,10 +1686,6 @@
         <name>Previous_Campaign_Execution_Parent</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- SMS task verified can only be true when Execution Type is SMS --></errorMessage>
-        <name>SMS_Task_Verified_is_True</name>
-    </validationRules>
-    <validationRules>
         <errorMessage>실행 유형이 SMS/MMS/eDM인 경우 SMS/MMS/eDM 템플릿이 있어야 합니다</errorMessage>
         <name>SMS_eDM_Template_is_Required</name>
     </validationRules>

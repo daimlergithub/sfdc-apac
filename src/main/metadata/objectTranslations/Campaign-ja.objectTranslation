@@ -2352,24 +2352,8 @@
         <name>Record_lock_on_campaign</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- SMS task verified can only be true when Execution Type is SMS --></errorMessage>
-        <name>SMS_Task_Verified_is_True</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required. --></errorMessage>
         <name>SMS_eDM_Template_is_Required</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Start Date can not be less than Today --></errorMessage>
-        <name>Start_Date_And_End_date</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Start Date can not be less than Today --></errorMessage>
-        <name>Start_date_can_not_be_equal_to_Today</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Segmentation Date is Required --></errorMessage>
-        <name>Use_Segmentation_Criteria</name>
     </validationRules>
     <validationRules>
         <errorMessage>キャンペーンチャネルは作成時に有効にすることはできません。</errorMessage>
