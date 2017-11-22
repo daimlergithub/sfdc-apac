@@ -18,12 +18,27 @@ public class BatchJobHelper
                     
                     // Execute Batch
                     List<Campaign> cpList = new List<Campaign>();
+                    List<String> str = New List<String>();
                     if(nxJob.Campaign_Set__c != null && nxJob.Campaign_Set__c != '')
                     {
                         for(String cpID : nxJob.Campaign_Set__c.split(';'))
                         {
                             if(cpId != '')
-                                cpList.add(new Campaign(Id = (Id)cpID));
+                            system.debug('+++++++++++++'+cpID);
+                                //cpList.add(new Campaign(Id = (Id)cpID));
+                                str.add(cpID);
+                                //system.debug('+++++++++++++'+cpList);
+                        }
+                        
+                        if(str!=null){
+                        
+                        List<campaign> camList =[select id From Campaign Where id =:str];
+                        
+                        for(Campaign cam :camList){
+                        
+                            cpList.add(cam);
+                        }
+                        
                         }
                         
                         if(nxJob.Batch_Type__c == 'Contact') 

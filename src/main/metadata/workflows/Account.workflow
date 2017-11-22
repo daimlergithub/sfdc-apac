@@ -352,12 +352,13 @@
         <protected>false</protected>
     </fieldUpdates>
 	<rules>
-        <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number</fullName>
+         <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number</fullName>
         <actions>
             <name>Sales_Tel_Display_field_auto_populate_Co</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <criteriaItems>
             <field>Account.MD__c</field>
             <operation>equals</operation>
@@ -367,6 +368,11 @@
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
@@ -380,7 +386,7 @@
             <name>Sales_Tel_field_personaccount</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Account.Mobile__c</field>
             <operation>notEqual</operation>
@@ -419,6 +425,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Account.Mobile__c</field>
             <operation>equals</operation>
@@ -436,6 +443,11 @@
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
@@ -550,6 +562,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
         <criteriaItems>
             <field>Account.Mobile__c</field>
             <operation>notEqual</operation>
@@ -563,6 +576,11 @@
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
@@ -704,6 +722,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 5 AND (4 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Account.Mobile__c</field>
             <operation>equals</operation>
@@ -725,6 +744,11 @@ Modify Reason:
             <field>Account.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>

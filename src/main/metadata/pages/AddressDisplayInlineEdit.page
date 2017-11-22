@@ -563,7 +563,7 @@
                  </apex:actionFunction> 
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">
-					 <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>
+					<!-- <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>-->
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
                     <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric) ),true,false)}" oncomplete="hideTable();"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF((market='KR' || market='JP'),true,false)}"/>
