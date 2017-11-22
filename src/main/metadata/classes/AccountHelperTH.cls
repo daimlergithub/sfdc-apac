@@ -35,14 +35,14 @@ public class AccountHelperTH{
                     //outside for loop
                     //after removing zero's if phone size is less than 8 through error 
                     if(phon.length()<len){
-                        return fields+ ' length should be '+ digits+'  the format should be +66DDDDDDDD or it can be in the format of DDDDDDDD';
+                        return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDD or it can be in the format of DDDDDDDD';
                         
                     }
                     else if(fields=='Mobile'&&!Pattern.matches('[0-9]{9}',phon)){
-                        return fields+' Should contain only Digits and '+ digits+' digits +66xxxxxxxx or it Can be in the format of DDDDDDDD';
+                        return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
                     }
                     else if(!Pattern.matches('[0-9]{8}',phon)&&fields!='Mobile'){
-                        return fields+' Should contain only Digits and '+ digits+' digits +66xxxxxxxx or it Can be in the format of DDDDDDDD';
+                        return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
                     }
                     else{
                        return '+66'+phon;
@@ -52,13 +52,13 @@ public class AccountHelperTH{
      public static void ValidatePhoneNumberonBeforeEvents(list<Account> listNewAccounts){
          String individualphone='+66';
          for(Account acc:listNewAccounts){
-           if(acc.RecordTypeId!=dealer_RecordTypeId){
+           if(acc.RecordTypeId!=dealer_RecordTypeId&&acc.md__c=='TH'){
              if(!(String.IsBlank(acc.Individual_Home_Phone__c))&&acc.Individual_Home_Phone__c.length()>3){
                  //if user inputs more than one zero after +66 it will remove all the zero's
                  //if the Individual_Home_Phone__c starts with zero then find zero in third position 
                  if(acc.Individual_Home_Phone__c.startsWith('+66')){
-                     String restultstring=validate(acc.Individual_Home_Phone__c,3,'Individual Home Phone',8,11);
-                     if(restultstring.startswith('Individual')){
+                     String restultstring=validate(acc.Individual_Home_Phone__c,3,'Home Phone',8,11);
+                     if(restultstring.startswith('Home Phone')){
                          acc.addError(restultstring);
                          
                      }else{
@@ -67,8 +67,8 @@ public class AccountHelperTH{
                  }
                  else{
                      
-                     String restultstring=validate(acc.Individual_Home_Phone__c,0,'Individual Home Phone',8,11);
-                     if(restultstring.startswith('Individual')){
+                     String restultstring=validate(acc.Individual_Home_Phone__c,0,'Home Phone',8,11);
+                     if(restultstring.startswith('Home Phone')){
                          acc.addError(restultstring);
                          
                      }else{
@@ -83,7 +83,7 @@ public class AccountHelperTH{
                  //if the Work_Phone__c starts with zero then find zero in third position 
                  if(acc.Work_Phone__c.startsWith('+66')){
                      String restultstring=validate(acc.Work_Phone__c,3,'WorkPhone',8,11);
-                     if(restultstring.startswith('Workphone')){
+                     if(restultstring.startswith('WorkPhone')){
                          acc.addError(restultstring);
                          
                      }else{
@@ -230,8 +230,7 @@ public class AccountHelperTH{
             Pattern p = Pattern.compile('[0-9]{13}');
             Matcher m = p.matcher(acc.ID_Number__c);
             if(!m.matches()){
-                acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
-                
+                acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');  
             }
             else{
                 integer sum=0;
@@ -248,8 +247,10 @@ public class AccountHelperTH{
             }
         
         }
- 
+       
    }
+   
+   
    }
    }
    

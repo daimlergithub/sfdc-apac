@@ -23,7 +23,7 @@ public without sharing class taskRecordViewOnCampaignController
         }
         else if(userinfo.getUserType() == 'PowerPartner')
         {
-            currentUser = [Select Id, Name, AccountId, Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
+            currentUser = [Select Id, Name, Contact.AccountId, Contact.Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
 			if(ApexPages.currentPage().getParameters().get('Id') != null)
 			{
 				campMembrList = [Select Id,Contact.AccountId from CampaignMember where CampaignId =: ApexPages.currentPage().getParameters().get('Id')];
