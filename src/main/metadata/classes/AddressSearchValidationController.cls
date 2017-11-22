@@ -1499,7 +1499,28 @@ If the user is Saving  same address which matches the fields returned by toleran
 			LanguageSelected = '';
 			LoadProvinceTHrecordtypselection();
         }
-    }     
+    }
+	public void LoadProvinceTHrecordtypselection()
+      {  
+          
+        if(LanguageSelected=='' || LanguageSelected ==null )     
+        {    // LanguageSelected ='English';
+            lstProvince=new List<SelectOption>();
+            Set<string> setProvinces = new set<string>();
+            lstProvince.add(new SelectOption('--Select--','--Select--'));
+            for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Market__c=:market order by Province__c asc])
+            {
+                if(!setProvinces.contains(lsttempProvince.Province__c))
+                {
+                    lstProvince.add(new SelectOption(lsttempProvince.Province__c,lsttempProvince.Province__c));
+                    setProvinces.add(lsttempProvince.Province__c);
+                }
+            }
+            lstDistrict=new List<SelectOption>();
+            lstSubDistrict=new List<SelectOption>();
+            lstZip=new List<SelectOption>();
+        }
+      }
     //Get the list of mobile code items for Thailand & Korea and fill the Mobile code picklist
     
     public List<SelectOption> getMobileAreacodeItems() 
