@@ -180,7 +180,7 @@ system.debug('&******************'+cpList);
                 else{
                 tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
                 } 
-                tsk.RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId();
+                tsk.RecordTypeId = taskRecordTypeMap.get('OB Call').getRecordTypeId();
                 tsk.Status = strOpenStatus;
                 tsk.DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c); 
                 tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
