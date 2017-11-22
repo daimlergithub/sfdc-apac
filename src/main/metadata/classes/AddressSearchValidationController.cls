@@ -1471,7 +1471,56 @@ If the user is Saving  same address which matches the fields returned by toleran
         
     public void resetPhoneAreacodes(){
         homePhoneAreaCodePart1 = homePhoneAreaCodePart2 = homePhoneAreaCodePart3 = workPhoneAreaCodePart1 = workPhoneAreaCodePart2 = workPhoneAreaCodePart3 = homePhone2AreaCode = homePhone2AreaCodePart2 = homePhone2AreaCodePart3 = mobileAreaCode= mobileAreaCodePart2 = mobileAreaCodePart3 = '';
-    }     
+		User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
+        if(u.Market__c==Label.TH){
+			System.debug('inside refresh');
+			hmphoneNumber =mbphoneNumber=wkphoneNumber ='';
+			objAccount.LastName ='';
+			objAccount.FirstName='';
+			objAccount.Individual_Home_Phone__c='';
+			objAccount.Preferred_Phone__c='';
+			objAccount.Email__c='';
+			objAccount.PersonBirthdate=null;
+			objAccount.Status__c='';
+			objAccount.ID_Type__c='';
+			objAccount.ID_Number__c='';
+			objAccount.Data_Source__c='';
+			objAccount.Salutation__c ='';
+			objAccount.Name='';
+			objAccount.Company_Name__c='';
+			objAccount.Company_Legal_Form__c = '--None--';
+			objAccount.Commercial_Reg_No__c ='';
+			faxphoneNumber = '';
+			
+			AddressObj.Address_Type__c ='';
+			AddressObj.Address_Line_1__c='';
+			AddressObj.Address_Line_2__c ='';
+			AddressObj.Foreign_Nationals__c = false;
+			LanguageSelected = '';
+			LoadProvinceTHrecordtypselection();
+        }
+    }
+	public void LoadProvinceTHrecordtypselection()
+      {  
+          
+        if(LanguageSelected=='' || LanguageSelected ==null )     
+        {    // LanguageSelected ='English';
+            lstProvince=new List<SelectOption>();
+            Set<string> setProvinces = new set<string>();
+            lstProvince.add(new SelectOption('--Select--','--Select--'));
+            for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Market__c=:market order by Province__c asc])
+            {
+                if(!setProvinces.contains(lsttempProvince.Province__c))
+                {
+                    lstProvince.add(new SelectOption(lsttempProvince.Province__c,lsttempProvince.Province__c));
+                    setProvinces.add(lsttempProvince.Province__c);
+                }
+            }
+            lstDistrict=new List<SelectOption>();
+            lstSubDistrict=new List<SelectOption>();
+            lstZip=new List<SelectOption>();
+        }
+      }
     //Get the list of mobile code items for Thailand & Korea and fill the Mobile code picklist
     
     public List<SelectOption> getMobileAreacodeItems() 
