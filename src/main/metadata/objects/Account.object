@@ -8505,6 +8505,15 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
+	<fields>
+        <fullName>Lastest_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Latest Consent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Latest_Sales_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -13335,6 +13344,17 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>User_Organization__c</fullName>
+        <externalId>false</externalId>
+        <label>User Organization</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>VAN_No_Brand_Purchases__c</fullName>

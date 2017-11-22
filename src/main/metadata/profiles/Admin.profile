@@ -3496,6 +3496,11 @@
         <field>Account.Last_updated__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Lastest_Consent_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Latest_Sales_Dealer__c</field>
@@ -4708,6 +4713,11 @@
         <field>Account.UsedLead_Notification_Timing__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.User_Organization__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.VAN_No_Brand_Purchases__c</field>
@@ -4851,6 +4861,46 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.smart_Account_Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.Account_Record_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.Changed_By_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.Lastest_Consent_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.Personal_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.System_Data_Source__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.Updated_Consent_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.Updated_Consent_User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Field_History_Tracker__c.User_Organization__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6146,6 +6196,11 @@
         <field>Campaign.Content_Preview__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Count_of_converted_leads__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Create_Task__c</field>
@@ -6199,6 +6254,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.ExpectedRevenue</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Expected_Cars_Sale__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6339,6 +6399,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Next_Run_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Noof_Car_display__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6501,6 +6566,11 @@
         <field>Campaign.Segmentation_Report_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Space__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.StartDate</field>
@@ -6554,6 +6624,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Venue__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15060,6 +15135,16 @@
         <field>Retail_Campaign__c.AS_Marketing_Current_Planned_Budget__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Activity_Type_Other__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Activity_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Actual_End_Date__c</field>
@@ -15108,6 +15193,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Actual_Parts_Turnover__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Actual_Period_End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Actual_Period_Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15180,6 +15275,11 @@
         <field>Retail_Campaign__c.Brand__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Budget_Approval__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.CBU_PbP__c</field>
@@ -15215,9 +15315,24 @@
         <field>Retail_Campaign__c.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.CloneCampaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Comments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.ContactPerson__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Contact_Telephone__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15253,6 +15368,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Event_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Expected_Number_Of_Prospects__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15308,6 +15428,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Location__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.MBTH_Approval_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15428,6 +15553,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Parent_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Partner1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Partner2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15558,6 +15693,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Relevant_Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.RetailCampaignCarModelText__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Retail_Campaign_Car_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19299,6 +19444,11 @@
         <field>Tool_Kit__c.Event_URL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Expected_Unit_of_Car_Sales__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Tool_Kit__c.Feedback_Comments__c</field>
@@ -20212,6 +20362,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Other_Driver__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Owner_Dealer_ND_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -21131,6 +21286,21 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Account_Link__c.RetailDealer_ND_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.RetailID_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.RetailID_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Account_Link__c.Retail_Delete_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21184,6 +21354,9 @@
     <layoutAssignments>
         <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Account_Field_History_Tracker__c-Account Field History Tracker Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
@@ -21926,6 +22099,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Account_Field_History_Tracker__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
 	<objectPermissions>
