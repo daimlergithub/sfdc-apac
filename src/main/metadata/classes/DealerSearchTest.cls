@@ -35,7 +35,7 @@ static testMethod void testMethod1()
   //Test.setCurrentPage(Page.DealerSearchPage);
   ApexPages.StandardSetController stdSetController = new ApexPages.StandardSetController(lstAccount);
   stdSetController.setSelected(lstAccount);
-  DealerSearch.SharingDealers empW = new DealerSearch.SharingDealers();
+  //DealerSearch.SharingDealers empW = new DealerSearch.SharingDealers();
   
   DealerSearch ext = new DealerSearch();
    
