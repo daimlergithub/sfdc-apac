@@ -60820,7 +60820,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
 	<validationRules>
         <fullName>Email3_Other_EMail</fullName>
-        <active>true</active>
+        <active>false</active>
 		 <description> Changes related to SFDCJP-3139</description>
         <errorConditionFormula>AND(OR( 
 CONTAINS(LOWER(Email3__c), '.@'), 
