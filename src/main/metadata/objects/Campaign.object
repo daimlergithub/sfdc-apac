@@ -24503,7 +24503,7 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <linkType>url</linkType>
         <masterLabel>View Previous Campaign Members</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>
+        <protected>false</protected> 
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
     </webLinks>
 	<webLinks>
