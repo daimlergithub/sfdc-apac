@@ -60,7 +60,7 @@
 
 <target name="preDestructiveChanges">
 			<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
-			<property name="persistedOnly" value="false" unless:set="CI"/>
+		<!--	<property name="persistedOnly" value="false" unless:set="CI"/>
 			<property name="persistedOnly" value="true" if:set="CI"/>
 		   
 			<sf:deployDestructiveChanges
@@ -68,11 +68,12 @@
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
 											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+		-->
 </target>
 
 <target name="postDestructiveChanges">
 			<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
-			<property name="persistedOnly" value="false" unless:set="CI"/>
+		<!--	<property name="persistedOnly" value="false" unless:set="CI"/>
 			<property name="persistedOnly" value="true" if:set="CI"/>
 		   
 			<sf:deployDestructiveChanges
@@ -80,6 +81,7 @@
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
 											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+			-->
 </target>
 
 
@@ -120,9 +122,8 @@
 			</target>
 			<target name="deploy05">
 				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
-				<!--SN20170914 Added Custom Permissions-->
+			<!--
 					<sf:typeset name="customPermissions" force="true"/>	
-					<!--SN20170914-->
 					<sf:typeset name="objects"/> 	
 					<sf:typeset name="queues"/>
 					<sf:typeset name="email"/>
@@ -143,12 +144,12 @@
 					<sf:typeset name="pages"/>
 					<sf:typeset name="triggers"/>								
 					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
-						
+						-->
 				</deploy>
 			</target>
 			<target name="deploy07">
 				<deploy runAllTests="${sfdc.runAllTests}">
-					<sf:typeset name="letterhead"/>                                          
+				<!--<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
 						<sf:exclude name="selectAllChkBox"/>
 						<sf:exclude name="Retail_Campaigns"/>                                                 
@@ -191,18 +192,18 @@
 					<sf:typeset name="dashboards"/>
 					<sf:typeset name="datacategorygroups">
 						<sf:exclude name="Topic"/>
-					</sf:typeset>
+					</sf:typeset>-->
 					<!--<sf:typeset name="objectTranslations">
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
 					</sf:typeset> -->
-					<sf:typeset name="translations"/>
+					<!--<sf:typeset name="translations"/>-->
 				</deploy>
 			</target>
 			<target name="deploy09">
 				<deploy>    
-					<sf:typeset name="profiles" force="true">								
-					</sf:typeset>
+					<!--<sf:typeset name="profiles" force="true">								
+					</sf:typeset>-->
 				</deploy>
 			</target>           
 
