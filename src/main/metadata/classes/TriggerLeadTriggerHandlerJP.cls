@@ -53,7 +53,7 @@ public class TriggerLeadTriggerHandlerJP
             LeadHelperAccountLinkCreateJP.populateRetailCompany(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             
                 LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-				LeadHelperJP.sharingTOJapanDataManagement((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap);
+                LeadHelperJP.sharingTOJapanDataManagement((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap);
             
         }
         
@@ -132,10 +132,11 @@ public class TriggerLeadTriggerHandlerJP
             LeadUtil.isCreated = false;
         }
         
-         if(isAfter && isUpdate && LeadUtil.LeadTrigger ){
+         if(isAfter && isUpdate){
+         //&& LeadUtil.LeadTrigger
         System.debug('*******************************isAfterisUpdateLeadTrigger part initiated****************************************');           
              LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);          
-           LeadUtil.LeadTrigger = false;
+           //LeadUtil.LeadTrigger = false;
             
         }
     }
