@@ -37,36 +37,42 @@ public class stouchUtilForLeadandAccntLnkTest {
         insert lead;
     }
     @istest static void AccountLinkIfnoSendToAL(){
-        createTestrecord();
-        Test.setMock(WebServiceMock.class, new WebServiceMockImplsar());
-        RestRequest request = new RestRequest();
-        request.requestUri =
-            'https://test.salesforce.com/services/apexrest/stouchUtilForAccountLink/';
-        request.httpMethod = 'POST';
-        request.addHeader('Content-Type', 'application/json');
-        
-        request.requestBody = Blob.valueOf('{"data":{"RTCustomerId" : "'+alk.id+'","DealerID" : "'+lead.Assigned_Dealer__c+'","CorrelationId" : "'+lead.Retail_Contact__c+'"}}');
-        RestContext.request = request;
-        Map<String,String> res1 = stouchUtilForAccountLink.AccountLinkIfnoSendToAL();
-        System.assertEquals(res1.get('Message') , system.Label.Web_service_callout_failed);
+        user u1=TestUtils.IntegrationAPIUser();
+        system.runas(u1){
+            createTestrecord();
+            Test.setMock(WebServiceMock.class, new WebServiceMockImplsar());
+            RestRequest request = new RestRequest();
+            request.requestUri =
+                'https://test.salesforce.com/services/apexrest/stouchUtilForAccountLink/';
+            request.httpMethod = 'POST';
+            request.addHeader('Content-Type', 'application/json');
+            
+            request.requestBody = Blob.valueOf('{"data":{"RTCustomerId" : "'+alk.id+'","DealerID" : "'+lead.Assigned_Dealer__c+'","CorrelationId" : "'+lead.Retail_Contact__c+'"}}');
+            RestContext.request = request;
+            Map<String,String> res1 = stouchUtilForAccountLink.AccountLinkIfnoSendToAL();
+            System.assertEquals(res1.get('Message') , system.Label.Web_service_callout_failed);
+        }
     }
     @isTest static void LeadIfnoSendToALTestMethod(){
-        createTestrecord();
-        RestRequest request = new RestRequest();
-        request.requestUri =
-            'https://test.salesforce.com/services/apexrest/stouchUtilForLead/';
-        request.httpMethod = 'POST';
-        request.addHeader('Content-Type', 'application/json');
-        
-        request.requestBody = Blob.valueOf('{"data":{"LeadId" : "'+lead.id+'","DealerID" : "'+lead.Assigned_Dealer__c+'","AccountLinkId" : "'+lead.Retail_Contact__c+'"}}');
-        RestContext.request = request;
-        Map<String,String> res1 = stouchUtilForLead.LeadIfnoSendToAL();
-        lead.Dealer_Lead_Status__c='Lost';
-        lead.Lost_To__c='Non Daimler Group';
-        lead.Assigned_Dealer__c=null;
-        update lead;
-        Map<String,String> res2 = stouchUtilForLead.LeadIfnoSendToAL();
-        System.assertEquals(res2.get('Message') , system.Label.This_Lead_cannot_be_send_to_Autoline);
-        System.assertEquals(res1.get('Message') , system.Label.Web_service_callout_failed);
+        user u1=TestUtils.IntegrationAPIUser();
+        system.runas(u1){
+            createTestrecord();
+            RestRequest request = new RestRequest();
+            request.requestUri =
+                'https://test.salesforce.com/services/apexrest/stouchUtilForLead/';
+            request.httpMethod = 'POST';
+            request.addHeader('Content-Type', 'application/json');
+            
+            request.requestBody = Blob.valueOf('{"data":{"LeadId" : "'+lead.id+'","DealerID" : "'+lead.Assigned_Dealer__c+'","AccountLinkId" : "'+lead.Retail_Contact__c+'"}}');
+            RestContext.request = request;
+            Map<String,String> res1 = stouchUtilForLead.LeadIfnoSendToAL();
+            lead.Dealer_Lead_Status__c='Lost';
+            lead.Lost_To__c='Non Daimler Group';
+            lead.Assigned_Dealer__c=null;
+            update lead;
+            Map<String,String> res2 = stouchUtilForLead.LeadIfnoSendToAL();
+            System.assertEquals(res2.get('Message') , system.Label.This_Lead_cannot_be_send_to_Autoline);
+            System.assertEquals(res1.get('Message') , system.Label.Web_service_callout_failed);
+        }
     }
 }
