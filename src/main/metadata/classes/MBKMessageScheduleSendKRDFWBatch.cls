@@ -21,7 +21,7 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 		String queryDate = year+'-'+month+'-'+day+'T'+hour+':'+minute+':'+second+'Z'; 	
 		
 		query = 'SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, '
-				+' Leads__c, SendTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c, '
+				+' Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c, '
 				+' altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, '
 				+' processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c '
 				+' FROM MBK_Messages__c WHERE Status__c = \'Reserved\' AND processed__c = false '
@@ -75,13 +75,16 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 			}
 			g.writeStringField('reqDtm', myDate);						//메시지 발송 요청시간
 			//첨부파일 처리
-			if(channel == 'M'){
+			if(channel == 'M')
+			{
 				List<Attachment> MBKAtts = messageImages.get(MBK.Id);
 				Integer i = 1; 
-				if(MBKAtts <> null && MBKAtts.size() > 0){ 
+				if(MBKAtts <> null && MBKAtts.size() > 0)
+				{ 
 					JSONGenerator subg = JSON.createGenerator(true);
 					subg.writeStartArray();
-					for(Attachment att:MBKAtts){					
+					for(Attachment att:MBKAtts)
+					{					
 						subg.writeStartObject();
 						subg.writeStringField('seq', String.valueOf(i));	
 						subg.writeStringField('file', EncodingUtil.base64Encode(att.Body));
@@ -94,7 +97,9 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 					g.writeStringField('files', dataSubJson);	
 				}
 			}
-			if(MBK.templateCode__c == system.label.MBK_Message_Survey){
+			String buttonTemp = system.label.MBK_Message_Survey;
+			if(MBK.templateCode__c == buttonTemp)
+			{
 				JSONGenerator buttong = JSON.createGenerator(true);
 				buttong.writeStartArray();
 				buttong.writeStartObject();
@@ -115,10 +120,12 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 		HttpResponse	res		= new HttpResponse();
 		String			errMsg	= '';
 		String dataJson = '{"Data":'+g.getAsString()+'}';
-		
-		req.setEndpoint(system.label.MBK_Message_URL);
-		req.setHeader('Content-Type', system.label.MBK_Message_ContentType);
-		req.setHeader('Accept', system.label.MBK_Message_ContentType);
+		String endpointUrl = UtilCustomSettings.getWebserviceUrl('EPUrlSfdcMBKMessage');
+		String ContentType = system.label.MBK_Message_ContentType;
+		String Accept = system.label.MBK_Message_ContentType;
+		req.setEndpoint(endpointUrl);
+		req.setHeader('Content-Type', ContentType);
+		req.setHeader('Accept', Accept);
 		req.setMethod('POST');
 		req.setBody(dataJson);		
 		req.setTimeout(60000);
@@ -129,18 +136,22 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 
 		integer statusCode = res.getStatusCode();
 		List<Object> ReturnDatas = new List<Object>();
-		if(statusCode != 200) {
+		if(statusCode != 200) 
+		{
 			//API 전송실패
 			errMsg = res.getStatus();					
-			for(MBK_Messages__c temp:MBKMessages){
+			for(MBK_Messages__c temp:MBKMessages)
+			{
 				temp.code__c = String.valueOf(statusCode);
 				temp.altMsg__c = errMsg;
 				temp.processed__c = true;
 				temp.Status__c = 'Fail';
 			}
 		}else{
-			ReturnDatas = (List<Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
-			for(Object rData:ReturnDatas){
+			String jsonBody = String.valueOf(res.getBody());
+			ReturnDatas = (List<Object>)JSON.deserializeUntyped(jsonBody);
+			for(Object rData:ReturnDatas)
+			{
     			map<String, object> resData = (map<String, object>)rData;
 				String sn = resData.get('sn') == null ? '' : (String)resData.get('sn');
 			    String custMsgSn = resData.get('custMsgSn') == null ? '' : (String)resData.get('custMsgSn');
@@ -151,8 +162,10 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 			    String smsMsg = resData.get('smsMsg') == null ? '' : (String)resData.get('smsMsg');
 			    String rcptDtm = resData.get('rcptDtm') == null ? '' : (String)resData.get('rcptDtm');
 			    String sndDtm = resData.get('sndDtm') == null ? '' : (String)resData.get('sndDtm');
-				for(MBK_Messages__c temp:mbkMessages){
-					if(custMsgSn == temp.Id){
+				for(MBK_Messages__c temp:mbkMessages)
+				{
+					if(custMsgSn == String.valueOf(temp.Id))
+					{
 						temp.sn__c = sn;
 						temp.code__c = code;
 						temp.altCode__c = altCode;

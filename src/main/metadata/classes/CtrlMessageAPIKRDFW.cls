@@ -12,7 +12,7 @@ global class CtrlMessageAPIKRDFW {
 	@future(callout=true)	
 	public static void MBKMessageDirectSender(List<String> MessageIds){
 		map<Id, MBK_Messages__c> mapMBKs = new map<Id, MBK_Messages__c>([SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c,  
-												Leads__c, SendTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
+												Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 												altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 												processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c 
 											FROM MBK_Messages__c WHERE Id IN: MessageIds]);
@@ -91,7 +91,7 @@ global class CtrlMessageAPIKRDFW {
 			}
 		g.writeEndArray();
 		dataJson = '{"Data":'+g.getAsString()+'}';
-		req.setEndpoint(system.label.MBK_Message_URL);
+		req.setEndpoint(UtilCustomSettings.getWebserviceUrl('EPUrlSfdcMBKMessage'));
 		req.setHeader('Content-Type', system.label.MBK_Message_ContentType);
 		req.setHeader('Accept', system.label.MBK_Message_ContentType);
 		req.setMethod('POST');
@@ -103,7 +103,7 @@ global class CtrlMessageAPIKRDFW {
 			res = http.send(req);
 			update MBKMessages;
 			Integer statusCode = res.getStatusCode();
-			List<Object> ReturnDatas = new List<Object>();
+			map<String, object> resData;
 			if(statusCode != 200) {
 				//API 전송실패
 				errMsg = res.getStatus();					
@@ -113,13 +113,12 @@ global class CtrlMessageAPIKRDFW {
 					temp.processed__c = true;
 					temp.Status__c = 'Fail';
 				}
-			}else{
-				ReturnDatas = (List<Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
+			}else{				
+				if(res.getBody().length() > 0){
+					resData = (map<String, object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
+				}
 				//step1
-				map<String, object> resData;
-				if(ReturnDatas <> null && ReturnDatas.size() > 0){
-					resData = (map<String, object>)ReturnDatas[0];
-
+				if(resData <> null){
 					//Step2
 					String sn = resData.get('sn') == null ? '' : (String)resData.get('sn');
 				    String custMsgSn = resData.get('custMsgSn') == null ? '' : (String)resData.get('custMsgSn');
@@ -167,13 +166,19 @@ global class CtrlMessageAPIKRDFW {
 				temp.Status__c = 'Fail';
 			}
 			update MBKMessages;
+		}catch(System.Exception e){
+			gu.DebugException(e,userinfo.getUserId());			
+			for(MBK_Messages__c temp:MBKMessages){
+				temp.Status__c = 'Fail';
+			}
+			update MBKMessages;
 		}
 	}
 	
 	@future
 	public static void MBKMessageLogging(List<String> MBKMessageIds){
 		List<MBK_Messages__c> MBKMessages = [SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c,  
-												Leads__c, SendTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
+												Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 												altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 												processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c,
 												LastModifiedDate, Campaign__c
@@ -186,7 +191,7 @@ global class CtrlMessageAPIKRDFW {
 			else if(temp.Leads__c <> null) log.WhatId = temp.Leads__c;
 			
 			String sendType = '';
-			if(temp.channel__c == 'A') sendType = 'kaKao';
+			if(temp.channel__c == 'A') sendType = 'KakaoTalk';
 			else if(temp.channel__c == 'M') sendType = 'MMS';
 			else sendType = 'SMS';
 			RecordType rectype = [SELECT Id FROM RecordType WHERE SobjectType = 'Task' AND Name =: sendType];

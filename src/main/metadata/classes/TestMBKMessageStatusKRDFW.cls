@@ -21,7 +21,7 @@
  */
 @isTest
 private class TestMBKMessageStatusKRDFW {
-	private static final String FAKE_RESPONSE = '{"Out":{"custMsgSn":"benz_20171018090700","altCode":"1003","smsMsg":null}}';
+	private static final String FAKE_RESPONSE = '[{"sn": "20171117022834054000122RS01","custMsgSn": "benz_20171018090700","code": "EW","altCode": null,"altMsg": null,"smsCode": null,"smsMsg": "SMS/LMS/MMS Sending","sndDtm": "20171117022834","rcptDtm": null},{"sn": "20171117022834054000122RS01","custMsgSn": "benz_20171018090700","code": "EW","altCode": null,"altMsg": null,"smsCode": null,"smsMsg": "SMS/LMS/MMS Sending","sndDtm": "20171117022834","rcptDtm": null}]';
 	
 	private class Mock implements HttpCalloutMock {
         public HTTPResponse respond(HTTPRequest req) {
@@ -33,18 +33,22 @@ private class TestMBKMessageStatusKRDFW {
         }
     }
     
-    private static final String FAKE_RESPONSE_Fail = '{"error":{"code":400,"details":{"extra":["smsMessage","smsKind","smsSndNum"]},"message":"Parameter validation failed"}}';
     private class MockFail implements HttpCalloutMock {
         public HTTPResponse respond(HTTPRequest req) {
             // You could assert the request content here
             HTTPResponse res = new HTTPResponse();
-            res.setBody(FAKE_RESPONSE_Fail);
+            res.setBody(FAKE_RESPONSE);
             res.setStatusCode(500);
             return res;
         }
     }
     
     static testMethod void myUnitTest() {
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;       	
+    	
     	MBK_Messages__c temp = new MBK_Messages__c();
     	temp.Set_Sending_Time__c = system.now().addMinutes(-29);
     	temp.processed__c = false;
@@ -61,6 +65,11 @@ private class TestMBKMessageStatusKRDFW {
     }
     
     static testMethod void myUnitTest1() {
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;       	
+    	
     	MBK_Messages__c temp = new MBK_Messages__c();
     	temp.Set_Sending_Time__c = system.now().addMinutes(-29);
     	temp.processed__c = false;

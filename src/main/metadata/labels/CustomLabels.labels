@@ -4674,13 +4674,13 @@ please contact the number below.</value>
         <shortDescription>MBK_Message_SurveyURL</shortDescription>
         <value>https://www.mercedes-benz.co.kr</value>
     </labels>
-    <labels>
+    <!--<labels>
         <fullName>MBK_Message_URL</fullName>
         <language>ko</language>
         <protected>false</protected>
         <shortDescription>MBK_Message_URL</shortDescription>
         <value>https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao</value>
-    </labels>
+    </labels>-->
     <labels>
         <fullName>MBK_Message_custGubun</fullName>
         <language>ko</language>
