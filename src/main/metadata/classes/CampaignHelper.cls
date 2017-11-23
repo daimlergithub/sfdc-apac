@@ -1371,7 +1371,19 @@ system.debug('i am here');
              
              }
         }   
-        }    
+        }
+     if(u.Contact.Account.Dealer_Type__c == 'Outlet' && u.Contact.Dealer_Complaint_Gate_Keeper__c == true && u.Contact.Dealer_Lead_Gate_Keeper__c == true)
+           {
+             for(id NDgroup:assgroupMap.values())
+             { 
+               CampaignShare shareRec1 = new CampaignShare();
+                shareRec1.CampaignId = cams.Id;
+                shareRec1.UserOrGroupId  = NDgroup;
+                shareRec1.CampaignAccessLevel  = 'Read';
+                campshare.add(shareRec1); 
+             
+             }
+           }    		
       }
      
      // IF Team Leader Share Process  

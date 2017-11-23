@@ -69,7 +69,7 @@
 </apex:pageBlockTable>
 </apex:outputPanel>
 <apex:pageBlockButtons location="bottom" >
-           <apex:commandButton value="Submit" action="{!Changestatus}" oncomplete="closeWin();"/>
+           <apex:commandButton value="Submit" action="{!Changestatus}" oncomplete="window.close();closeWin();"/>
 </apex:pageBlockButtons>
 </apex:pageBlock>
 </apex:form>
