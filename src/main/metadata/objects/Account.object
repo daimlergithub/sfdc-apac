@@ -12730,6 +12730,12 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <fullName>Compass</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>TDS</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -13793,7 +13799,9 @@ Function: After a suspect account is rejected or merged, master account id shoul
 	<fields>
         <fullName>Message__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;)</formula>
+        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
+HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
+HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
         <label>Message</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -61206,7 +61214,8 @@ MD__c = 'JP'
         <description>"ID Type to be created as Picklist with values as National ID, Other. If National ID is selected from the Picklist, system should do character length check. For Thailand it should be 13 characters</description>
         <errorConditionFormula>IF( 
 AND( 
-ISPICKVAL( ID_Type__c, 'National ID'), 
+ISPICKVAL( ID_Type__c, 'National ID'),
+$Profile.Name != 'IntegrationAPI', 
 MD__c=='TH'), 
 IF( 
 AND 
@@ -61216,7 +61225,7 @@ REGEX( ID_Number__c, "[0-9]{13}")
 ),false,true), 
 false)</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
-        <errorMessage>If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number</errorMessage>
+        <errorMessage>If ID Type is National ID, ID Number must not be empty and 13 characters length, containing only numbers</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_NoChar</fullName>

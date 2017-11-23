@@ -31,6 +31,9 @@ private class TestCtrlMessageLogViewListKRDFW {
         cmlvl.LogsLast();
         cmlvl.LogsPrevious();
         cmlvl.LogsNext();
+        cmlvl.sortField = 'LastModifiedDate';
+        Boolean aa = cmlvl.LogsHasNext;
+        Boolean bb = cmlvl.LogsHasPrevious;
         
         MBK_Messages__c temp = [SELECT Id FROM MBK_Messages__c limit 1];
         CtrlMessageLogViewListKRDFW.ScheduleSendCancel(temp.Id);

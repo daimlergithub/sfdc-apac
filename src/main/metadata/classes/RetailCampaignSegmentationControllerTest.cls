@@ -29,6 +29,16 @@ public Without Sharing class RetailCampaignSegmentationControllerTest
  Private Static  List<SelectOption> RetailSalesSanction;
 Private Static Retail_Campaign__c rc;
 Private Static  List<SelectOption> getItems;
+Private Static Account account;
+Private Static Lead__c lead;
+Private Static Vehicle__c vehicle;
+Private Static Vehicle_Relationship__c vehicleRel;
+Private Static Account_Link__c AlkRec;
+Private Static Retail_Task__c RatilTask;
+Private Static Address__c  address;
+Private Static campaign_member__C camMem;
+Private Static recall__C recall;
+
     public static String filtername = 'Name';
  
     public static testMethod void testRetailCampaignSegmentationController()
@@ -101,6 +111,15 @@ Private Static  List<SelectOption> getItems;
                 Customerphase = extension.Customerphase;
                 RetailOptOutContactReason = extension.RetailOptOutContactReason;
                 status = extension.status;
+                account = extension.account;
+                lead = extension.lead;
+                vehicle = extension.vehicle;
+                vehicleRel = extension.vehicleRel;
+                AlkRec = extension.AlkRec;
+                RatilTask = extension.RatilTask;
+                address = extension.address;
+                camMem = extension.camMem;
+                recall = extension.recall;
              
                 extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Occupation__c","operation":"Equals","criteria":"Office Staff","logic":"","bracket":false}]}}';
               
@@ -115,10 +134,30 @@ Private Static  List<SelectOption> getItems;
                  extension.next();
                  extension.previous();              
                 //extension.leadSoql ='Select id,Retail_Campaign_Name__c from Lead__C ';
+                extension.jsonFilter = '{"name":"filterName", "content":{"VehicleRelation":[{"field":"Customer_Type__c","operation":"Equals","criteria":"Demo Car","logic":"","bracket":false}]}}';
+               extension.searchAccount();
+             //  extension.jsonFilter = '{"Interest":[{"field":"Dealer_Lead_Status__c","operation":"Equals","criteria":"Order Placed","logic":"","bracket":false}]}}';
+             //  extension.searchAccount();
+               extension.segmentationBase = 'Customer';
+               extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Occupation__c","operation":"Equals","criteria":"Doctor","logic":"","bracket":false}]}}';
+               extension.searchAccount();
+               extension.jsonFilter = '{"name":"filterName", "content":{"AccountLink":[{"field":"Retail_Sales_Sanction__c","operation":"Equals","criteria":"C","logic":"","bracket":false}]}}';
+               extension.searchAccount();
+               extension.segmentationBase = 'Vehicle';
+               extension.jsonFilter = '{"name":"filterName", "content":{"Vehicle":[{"field":"FirstRegistrationDate__c","operation":"Equals","criteria":"10/18/2017","logic":"","bracket":false}]}}';
+               extension.searchAccount();
+               extension.jsonFilter = '{"name":"filterName", "content":{"Campaign":[{"field":"Status__c","operation":"Equals","criteria":"Bounced","logic":"","bracket":false}]}}';
+               extension.searchAccount();
+               extension.jsonFilter = '{"name":"filterName", "content":{"Address":[{"field":"ZipCode__c","operation":"Equals","criteria":"106167","logic":"","bracket":false}]}}';
+               extension.searchAccount();
+               extension.jsonFilter = '{"name":"filterName", "content":{"VehicleRetailcopy":[{"field":"NextInspectionDate__c","operation":"Equals","criteria":"10/20/2017","logic":"","bracket":false}]}}';
+               extension.searchAccount();
+               extension.jsonFilter = '{"name":"filterName", "content":{"VehicleRelation":[{"field":"New_Used__c","operation":"Equals","criteria":"New","logic":"","bracket":false}]}}';
+               extension.searchAccount();
             try{
-               // RetailCampaignSegmentationController.deleteFilter(filtername);
+             // RetailCampaignSegmentationController.deleteFilter(filtername);
                 }catch(Exception e){}
-               // extension.getlimitAccounts();
+              //  extension.getlimitAccounts();
         
             }
             
