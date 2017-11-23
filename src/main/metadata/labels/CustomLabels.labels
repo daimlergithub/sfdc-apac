@@ -10631,4 +10631,81 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>New_Component</shortDescription>
         <value>true</value>
     </labels>
+	<labels>
+        <fullName>IdeaId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Provding ID for navigating to URL</shortDescription>
+        <value>recordlist/Ideas__c/00BO0000001RszNMAS</value>
+    </labels>
+    <labels>
+        <fullName>Rug_CommunityOwnerProfile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rug CommunityOwnerProfile</shortDescription>
+        <value>RUG Membership</value>
+    </labels>
+    <labels>
+        <fullName>Rug_CommunityuserProfile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rug CommunityuserProfile</shortDescription>
+        <value>Honorary Member</value>
+    </labels>
+    <labels>
+        <fullName>Url_for_Rug_Low_static</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Url for Rug Low static</shortDescription>
+        <value>/RUGCollaboration/resource/1507784176000/Rug_low</value>
+    </labels>
+    <labels>
+        <fullName>Url_for_Rug_Med_static</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Url for Rug Med static</shortDescription>
+        <value>/RUGCollaboration/resource/1507784128000/Rug_med</value>
+    </labels>
+    <labels>
+        <fullName>Url_for_Rug_max_static</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Url for Rug max static</shortDescription>
+        <value>/RUGCollaboration/resource/1507784070000/Rug_max</value>
+    </labels>
+    <labels>
+        <fullName>assignRugPermissionSet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>assignRugPermissionSet</shortDescription>
+        <value>Company_Community_for_Force_com</value>
+    </labels>
+    <labels>
+        <fullName>getPickListValuesDepartment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>getPickListValuesDepartment</shortDescription>
+        <value>Department__c</value>
+    </labels>
+    <labels>
+        <fullName>getPickListValuesRegion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>getPickListValuesRegion</shortDescription>
+        <value>Region__c</value>
+    </labels>
+    <labels>
+        <fullName>pageRedirectionAfterReqCreation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>pageRedirectionAfterReqCreation</shortDescription>
+        <value>/rugcollaboration/s/login/</value>
+    </labels>
+    <labels>
+        <fullName>rug_userName_Extension</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>rug userName Extension</shortDescription>
+        <value>@rugcollaboration.daimler.com</value>
+    </labels>
 </CustomLabels>
