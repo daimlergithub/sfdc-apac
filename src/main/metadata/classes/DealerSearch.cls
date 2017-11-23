@@ -34,7 +34,7 @@ public DealerSearch(){
     regionOptions.add(new SelectOption('sid','Select A Dealer'));
     //SearchLogic();
     panelStopper = false;
-    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Parent.Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR']));
+    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Parent.Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR' AND Dealer_Active_Flag__c = true]));
    
    
     obId =ApexPages.currentPage().getParameters().get('id');
@@ -55,7 +55,7 @@ Public Void dropDown(){
     else if(regionValue == 'aid' ){
         panelStopper = false;
         
-    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Parent.Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR'])); 
+    Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Parent.Dealer_ND_Code__c FROM Account Where RecordType.Name = 'Dealer' AND MD__c ='KR' AND Dealer_Active_Flag__c = true])); 
     setCon.setpagesize(10);
     }
 }
@@ -69,10 +69,10 @@ Public void SearchLogic(){
      String md = 'KR';
      String dea = 'Dealer';
     
-    //Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Dealer_Sales_Type__c,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' AND MD__c ='KR' ]));
+    //Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Dealer_Sales_Type__c,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' AND MD__c ='KR' AND Dealer_Active_Flag__c = true ]));
     
   String soql = 'SELECT Dealer_Sales_Type__c,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c,Parent.Dealer_ND_Code__c FROM Account '
-   + 'where (RecordTypeId =\'' + dealerRecordtypeid   + '\' AND '  
+   + 'where (RecordTypeId =\'' + dealerRecordtypeid   + '\' AND Dealer_Active_Flag__c = true '  
     + 'MD__c = \'' + String.escapeSingleQuotes(md) +'\')  '; 
            
   if (!String.isBlank(dealerCode))
