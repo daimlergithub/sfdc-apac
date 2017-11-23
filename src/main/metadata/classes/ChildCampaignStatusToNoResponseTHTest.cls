@@ -22,6 +22,7 @@ test.starttest();
 insert retcamp; 
 retcampchild.Parent_Campaign1__c=retcamp.id;
 insert retcampchild;
+
 DataBase.ExecuteBatch(new UpdateChildCampaignStatusToNoResponseTH());
 retcampchild.Segmentation_Date__c=system.today()+1;
 retcampchild.Auto_Segmentation__c = true;

@@ -3,7 +3,7 @@
     Purpose:    RetailCampaignSegmentationController test class
     User Story: Release 1.2 Retail Campaign
     Used By:    RetailCampaignSegmentationController
-   
+    7-Jul-2014 Sinow    Created
 */
 @isTest
 public Without Sharing class RetailCampaignSegmentation_TH_Test 
@@ -29,6 +29,10 @@ public Without Sharing class RetailCampaignSegmentation_TH_Test
  Private Static  List<SelectOption> RetailSalesSanction;
 Private Static Retail_Campaign__c rc;
 Private Static  List<SelectOption> getItems;
+ Private Static List<SelectOption> gender;
+ Private Static List<SelectOption> personalAgreement;
+ Private Static List<SelectOption> hobbies;
+ Private Static List<SelectOption> idType;
 
         Private Static Account account;
         Private Static Lead__c lead;
@@ -39,6 +43,7 @@ Private Static  List<SelectOption> getItems;
         Private Static Address__c  address;
         Private Static campaign_member__C camMem;
         Private Static recall__C recall;
+      
 
     public static String filtername = 'Name';
  
@@ -99,6 +104,7 @@ Private Static  List<SelectOption> getItems;
                 //leadClassOptions=extension.leadClassOptions;
                 RetailSalesSanction =extension.RetailSalesSanction;
                 getItems =extension.getItems();
+                
                 //VehicleClassOptions=extension.VehicleClassOptions;
                 SpecialMarkonAccount = extension.SpecialMarkonAccount;
                 RetailTaskType=extension.RetailTaskType;
@@ -112,6 +118,10 @@ Private Static  List<SelectOption> getItems;
                 Customerphase = extension.Customerphase;
                 RetailOptOutContactReason = extension.RetailOptOutContactReason;
                 status = extension.status;
+                gender = extension.gender;
+                personalAgreement = extension.personalAgreement;
+                hobbies = extension.hobbies;
+                idType = extension.idType;
                 
                 account = extension.account;
                 lead = extension.lead;
@@ -122,13 +132,32 @@ Private Static  List<SelectOption> getItems;
                 address = extension.address;
                 camMem = extension.camMem;
                 recall = extension.recall;
+                RetailCampaignSegmentationController_TH.wrapperAccount wrp = new RetailCampaignSegmentationController_TH.wrapperAccount();
+                vehicleRel = wrp.veh;
+                RatilTask = wrp.retail;
+                recall = wrp.recall;
+                AlkRec = wrp.accLink;
                 
                 extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Occupation__c","operation":"Equals","criteria":"Office Staff","logic":"","bracket":false}]}}';
               
+                
+                RetailCampaignSegmentationController_TH.wrapperAccount wrAcc=new RetailCampaignSegmentationController_TH.wrapperAccount();
+                wrAcc.isSelected=true;
+                wrAcc.acc=customer;
+                
+                RetailCampaignSegmentationController_TH.wrapperAccount wrVeh=new RetailCampaignSegmentationController_TH.wrapperAccount();
+                wrVeh.isSelected=true;
+                wrVeh.acc=customer;
+                
+                List<RetailCampaignSegmentationController_TH.wrapperAccount> wrapperListObj=new List<RetailCampaignSegmentationController_TH.wrapperAccount>();
+                wrapperListObj.add(wrAcc);
+                extension.wrapperList=wrapperListObj;
+               
                 extension.searchAccount();
                 extension.addToCampaign();
                 extension.getloadwrapAccountList();
                  
+                 extension.selectedValue = 'Outlet';
                  extension.hasnext = True;
                  extension.hasPrevious= True;  
                  extension.first();
@@ -138,18 +167,24 @@ Private Static  List<SelectOption> getItems;
                 //extension.leadSoql ='Select id,Retail_Campaign_Name__c from Lead__C ';
                extension.jsonFilter = '{"name":"filterName", "content":{"VehicleRelation":[{"field":"Customer_Type__c","operation":"Equals","criteria":"Demo Car","logic":"","bracket":false}]}}';
                extension.searchAccount();
-               //extension.jsonFilter = '{"Interest":[{"field":"Dealer_Lead_Status__c","operation":"Equals","criteria":"Order Placed","logic":"","bracket":false}]}}';
-               //extension.searchAccount();
+               extension.getloadwrapAccountList();
+               extension.jsonFilter = '{"name":"filterName", "content":{"Interest":[{"field":"Dealer_Lead_Status__c","operation":"Equals","criteria":"Order Placed","logic":"","bracket":false}]}}';
+               extension.searchAccount();
                extension.segmentationBase = 'Customer';
                extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Occupation__c","operation":"Equals","criteria":"Doctor","logic":"","bracket":false}]}}';
                extension.searchAccount();
+               extension.getloadwrapAccountList();
                extension.jsonFilter = '{"name":"filterName", "content":{"AccountLink":[{"field":"Retail_Sales_Sanction__c","operation":"Equals","criteria":"C","logic":"","bracket":false}]}}';
                extension.searchAccount();
                extension.segmentationBase = 'Vehicle';
                extension.jsonFilter = '{"name":"filterName", "content":{"Vehicle":[{"field":"FirstRegistrationDate__c","operation":"Equals","criteria":"10/18/2017","logic":"","bracket":false}]}}';
                extension.searchAccount();
-               extension.jsonFilter = '{"name":"filterName", "content":{"Campaign":[{"field":"Status__c","operation":"Equals","criteria":"Bounced","logic":"","bracket":false}]}}';
+               extension.getloadwrapAccountList();
+               extension.jsonFilter = '{"name":"filterName", "content":{"Campaign":[{"field":"Status__c","operation":"Equals","criteria":"Ready","logic":"","bracket":false}]}}';
                extension.searchAccount();
+               extension.addToCampaign();
+               extension.getloadwrapAccountList();
+               //extension.wrapperAccount wp = new extension.wrapperAccount();
                extension.jsonFilter = '{"name":"filterName", "content":{"Address":[{"field":"ZipCode__c","operation":"Equals","criteria":"106167","logic":"","bracket":false}]}}';
                extension.searchAccount();
                extension.jsonFilter = '{"name":"filterName", "content":{"VehicleRetailcopy":[{"field":"NextInspectionDate__c","operation":"Equals","criteria":"10/20/2017","logic":"","bracket":false}]}}';
