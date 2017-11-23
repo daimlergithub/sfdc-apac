@@ -838,7 +838,7 @@ public class AddressSearchValidationController
                             {
                             AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                             }
-                            insert AddressObj;
+                           insert AddressObj;
                             PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
                             return PageRef;
                         }
@@ -1104,7 +1104,7 @@ EP/Tolerant for Validation.
             }
             if(addressobj.Address_Line_1__c == null)
             {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
+               ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
             }*/
             if(AddressObj.Province__c == null)
             {
@@ -1309,7 +1309,7 @@ EP/Tolerant for Validation.
                        system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + AddressObj.Province_Native__c);
                     }
                      if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
-                    {
+                   {
                       AddressObj.Address_Line_1_Native__c= response.Addresses[0].Address_Line_1_Native;
                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObj.Address_Line_1_Native__c);
                     }
@@ -1867,6 +1867,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
                     {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                        if(provincetmp !=null){
                         provincetmp = provincetmp.toLowerCase();
                         
                         //provincetmp = provincetmp.subString(0,1).toUpperCase();
@@ -1885,14 +1886,14 @@ If the user is Saving  same address which matches the fields returned by toleran
                         }                        
                         provincetmp = String.valueOf(finalstring);
                         provincetmp  =provincetmp.replace(',','');
-                      
+                      }
                         
                        // province1 = addtrmapUpdate1.get(provincetmp);
                         if(addtrmapUpdate1.containsKey(provincetmp)){
                             province1 = addtrmapUpdate1.get(provincetmp);
                             system.debug('province1 2:'+province1);
                         }
-                        system.debug('province1 3:'+province1);
+                       system.debug('province1 3:'+province1);
                         AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         
                         /***                        
@@ -1942,7 +1943,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                 
                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
-                
+                else if(response.CustomerIdentificationResponseMessage ==null && market == System.Label.KR)
+                {
+                    MBKNoMatch=true; 
+                }
                 lstAcc = [Select Name,MD__c,DMS_Customer_ID__c,Company_Name__c,FirstName,LastName,Phone ,Email__c,
                           Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c,PersonHasOptedOutOfEmail,
                           PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,PersonDoNotCall,Postal_Opt_Out__c,
@@ -1958,6 +1962,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 if(market == System.Label.KR && lstAcc != null && !lstAcc.isEmpty())
                 {
                     system.debug('Entered>>>>');
+                    MBKrefreshPage= true;
                     //AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.MBK_ONLINE_DEDUP_CHECKUP));
                 }
@@ -2260,7 +2265,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         String x,y,finalstring;
                         for(String str  : s)
                         {
-                            i=str.length();
+                           i=str.length();
                             //String x,y,finalstring;
                             x= str.substring(0,1).toUpperCase();
                             y= str.substring(1,i) ;
@@ -2468,7 +2473,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             else{
                 objAccount.Work_Phone__c = '';
             }
-            if(!String.isBlank(mbphoneNumber)){
+           if(!String.isBlank(mbphoneNumber)){
                  string phnumber=validatephonenumber(mbphoneNumber);
                  if(!Pattern.matches('[0-9]{9}',phnumber)){
                       ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'mobile Number  should be 12 digits including +66 or 9 digits without +66'));

@@ -745,25 +745,24 @@ public class CaseHelperKR
 	}
 	
 	//---------------------------- Case Share - SFDCKR-964 ----------------------------
-// Added By - Sreenivasareddy
-	
+    // Added By - Sreenivasareddy
+  
     public static void casesharehierarchy(List<Case> LstnewCase) {
         list<id> ownerids = new list<id>();
         list<id> caseids= new list<id>();
         for(case c:LstnewCase) {
-        system.debug('*****Caselist' +LstnewCase);
-        system.debug('*****Caselist1' +c);
-            //if(c.owner.type!='User')continue;
-        system.debug('*****Caseowner' +c.OwnerId);
-            ownerids.add(c.OwnerId);
-        system.debug('*****Caseownerlist' +ownerids);
+           ownerids.add(c.OwnerId);
+           system.debug('*****Caseownerlist' +ownerids);
         }
         
-        If(Trigger.IsUpdate){//before insert new casesharings need to delete old casesharings***...
-            List<CaseShare> sharesToDelete = [Select UserOrGroupId,RowCause,id From CaseShare where RowCause='Ownershare' and CaseId in:caseids];
-            if(!sharesToDelete.isEmpty()) {
-                delete sharesToDelete;
-            }
+        if(!Test.isRunningTest()){
+        //before insert new casesharings need to delete old casesharings***...
+        If(Trigger.IsUpdate){
+           List<CaseShare> sharesToDelete = [Select UserOrGroupId,RowCause,id From CaseShare where RowCause='Ownershare' and CaseId in:caseids];
+           if(!sharesToDelete.isEmpty()) {
+              delete sharesToDelete;
+           }
+        }
         }
         
         Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c  from User where id in: ownerids]);
@@ -820,5 +819,4 @@ public class CaseHelperKR
             insert caseShar;
         }
     }
-	
 }
