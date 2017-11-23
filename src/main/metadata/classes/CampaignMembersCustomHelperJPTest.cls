@@ -118,6 +118,46 @@ public class CampaignMembersCustomHelperJPTest
     test.stoptest();
    
   }
+    public static testMethod void updateContactTest3() {
+    createTestData();
+      Map<Id, Campaign_Member__c> oldMap = new Map<Id, Campaign_Member__c> ();
+    Map<Id, Campaign_Member__c> newMap = new Map<Id, Campaign_Member__c> ();
+   List<Campaign_Member__c> newList = new List<Campaign_Member__c> ();
+   oldMap.put(cm.Id , cm); 
+   cm.Response_FirstName__c ='testaccount1t';
+    cm.Response_LastName__c = 'testaccount1s';
+    cm.Response_Email__c = 'Testtre@test.com';
+    update cm;
+   newMap.put(cm.Id , cm);
+     newList.add(cm);
+    test.startTest();     
+      CampaignMembersCustomHelperJP cth = new CampaignMembersCustomHelperJP(); 
+      CampaignMembersCustomHelperJP.afterUpdateOperation(oldMap,newMap,newList); 
+      CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection (newList);   
+      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newMap);
+    test.stoptest();
+   
+  }
+      public static testMethod void updateContactTest4() {
+    createTestData();
+      Map<Id, Campaign_Member__c> oldMap = new Map<Id, Campaign_Member__c> ();
+    Map<Id, Campaign_Member__c> newMap = new Map<Id, Campaign_Member__c> ();
+   List<Campaign_Member__c> newList = new List<Campaign_Member__c> ();
+   oldMap.put(cm.Id , cm); 
+   cm.Response_FirstName__c ='testaccount1t';
+    cm.Response_LastName__c = 'testaccount1s';
+    cm.Response_Email__c = 'Testtre@test.com';
+    update cm;
+   newMap.put(cm.Id , cm);
+     newList.add(cm);
+    test.startTest();     
+      CampaignMembersCustomHelperJP cth = new CampaignMembersCustomHelperJP(); 
+      CampaignMembersCustomHelperJP.afterUpdateOperation(oldMap,newMap,newList); 
+      CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection (newList);   
+      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newMap);
+    test.stoptest();
+   
+  }
    public static testMethod void updateContactTestJP() {
     createTestData();
       
@@ -152,7 +192,13 @@ public class CampaignMembersCustomHelperJPTest
     camobj1.Add_Sales_Staff__c=true;
     camobj1.Share_Campaign_Participation_Flag__c=true;
     insert camobj1;
-       
+                   Account newAcc = new Account();
+                    newAcc.FirstName = cm.Response_FirstName__c;
+                    newAcc.LastName = cm.Response_LastName__c;
+                    newAcc.Email__c = cm.Response_Email__c;
+                    newAcc.recordtypeId = personAccRecordTypeId ;
+                   // accobj.add(newAcc);
+                  //  cm.add(cm);
     
     list<Campaign_Member__c> listcampaignmem=new list<Campaign_Member__c>();
     Campaign_Member__c cm1=new Campaign_Member__c();
@@ -187,6 +233,8 @@ public class CampaignMembersCustomHelperJPTest
       CampaignMembersCustomHelperJP.afterInsertSharing(listcampaignmem);
       CampaignMembersCustomHelperJP.wholesaleCampaignSharing(listcampaignmem);
       CampaignMembersCustomHelperJP.beforeDeleteOperation(listcampaignmem);
+      CampaignMembersCustomHelperJP.CmSharingForDealer(listcampaignmem);
+      CampaignMembersCustomHelperJP.addSalesCampaignMember(listcampaignmem);
     test.stoptest();
    }
   

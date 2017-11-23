@@ -72,7 +72,7 @@ Public void SearchLogic(){
     //Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Dealer_Sales_Type__c,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' AND MD__c ='KR' AND Dealer_Active__c = true ]));
     
   String soql = 'SELECT Dealer_Sales_Type__c,Dealer_Type__c,Dealer_GC_Code__c,Dealer_ND_Code__c,Name,Company_Name__c,Dealer_Group__c,Dealer_Province__c,Parent.Dealer_ND_Code__c FROM Account '
-   + 'where (RecordTypeId =\'' + dealerRecordtypeid   + '\' AND Dealer_Active__c = true '  
+   + 'where (RecordTypeId =\'' + dealerRecordtypeid   + '\' AND Dealer_Active__c = true  AND '  
     + 'MD__c = \'' + String.escapeSingleQuotes(md) +'\')  '; 
            
   if (!String.isBlank(dealerCode))
