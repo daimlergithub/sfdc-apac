@@ -19,7 +19,7 @@ public class accountLinkShareBatchTest {
      public static void init()
      { 
          
-      Account dealer =  new Account(RecordTypeId = accDealer_RecordTypeId, Name = 'test dealer',Dealer_GC_Code__c = 'GC0011422',Dealer_Type__c='Company',Dealer_ND_Code__c='MBK09Shq'); 
+      Account dealer =  new Account(RecordTypeId = accDealer_RecordTypeId, Name = 'test dealer',Dealer_GC_Code__c = 'GC0011422',Dealer_Type__c='Company',Dealer_ND_Code__c='MBK09Shq',MD__C='KR'); 
          insert dealer;
       Account  personAcc=new Account(RecordTypeId = accPerson_RecordTypeId, LastName = 'testacc',MD__C='KR',Data_Source__c='Dealer Outlet',MBK_Data_Source__c='Dealers',Mobile__c='000-0000-9642');
          insert personAcc;
@@ -36,6 +36,18 @@ public class accountLinkShareBatchTest {
           Test.startTest();
        
        accountLinkShareBatch bc= new accountLinkShareBatch();
+       database.executeBatch(bc);
+       
+          Test.stopTest();
+   }
+   
+   static testmethod void batchAugmentOne()
+   {
+          init();
+       
+          Test.startTest();
+       
+       accountLinkKoreaShareBatch  bc= new accountLinkKoreaShareBatch();
        database.executeBatch(bc);
        
           Test.stopTest();

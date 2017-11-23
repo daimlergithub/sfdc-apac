@@ -21,7 +21,7 @@
  */
 @isTest
 private class TestMBKMessageSchduleSendKRDFW {
-	private static final String FAKE_RESPONSE = '{"Out":{"custMsgSn":"benz_20171018090700","altCode":"1003","smsMsg":null}}';
+	private static String FAKE_RESPONSE = '[{"sn": "20171117022834054000122RS01","custMsgSn": "benz_20171018090700","code": "EW","altCode": null,"altMsg": null,"smsCode": null,"smsMsg": "SMS/LMS/MMS Sending","sndDtm": "20171117022834","rcptDtm": null},{"sn": "20171117022834054000122RS01","custMsgSn": "benz_20171018090700","code": "EW","altCode": null,"altMsg": null,"smsCode": null,"smsMsg": "SMS/LMS/MMS Sending","sndDtm": "20171117022834","rcptDtm": null}]';
 
 	private class Mock implements HttpCalloutMock {
 		public HTTPResponse respond(HTTPRequest req) {
@@ -33,12 +33,11 @@ private class TestMBKMessageSchduleSendKRDFW {
 		}
 	}
 
-	private static final String FAKE_RESPONSE_Fail = '{"error":{"code":400,"details":{"extra":["smsMessage","smsKind","smsSndNum"]},"message":"Parameter validation failed"}}';
 	private class MockFail implements HttpCalloutMock {
 		public HTTPResponse respond(HTTPRequest req) {
 			// You could assert the request content here
 			HTTPResponse res = new HTTPResponse();
-			res.setBody(FAKE_RESPONSE_Fail);
+			res.setBody(FAKE_RESPONSE);
 			res.setStatusCode(500);
 			return res;
 		}
@@ -46,14 +45,11 @@ private class TestMBKMessageSchduleSendKRDFW {
 
 	static testMethod void myUnitTest() {
     	
-        // TO DO: implement unit test
-        /*
-        MBKMessagScheduleSendKRDFWBatch.cls
-        MBKMessagScheduleSendKaKaoKRDFWSchedule.cls
-		MBKMessagScheduleSendMMSKRDFWSchedule.cls
-		MBKMessagScheduleSendSMSKRDFWSchedule.cls
-        */
-        
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;    	
+    	
         MBK_Messages__c temp = new MBK_Messages__c();
     	temp.Set_Sending_Time__c = system.now().addDays(-40);
     	temp.processed__c = true;
@@ -72,6 +68,7 @@ private class TestMBKMessageSchduleSendKRDFW {
 		temp2.templateCode__c = system.label.MBK_Message_Survey;
 		temp2.phoneNum__c = 'test';
 		temp2.message__c = 'test';
+		temp2.custMsgSn__c = 'benz_20171018090700';
 		insert temp2;
 
 		Test.setMock(HttpCalloutMock.class, new Mock());
@@ -96,6 +93,11 @@ private class TestMBKMessageSchduleSendKRDFW {
     }
 
 	static testMethod void myUnitTest2() {
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;   
+     			
 		MBK_Messages__c temp2 = new MBK_Messages__c();
 		temp2.Set_Sending_Time__c = system.now().addMinutes(-29);
 		temp2.processed__c = false;
@@ -109,6 +111,7 @@ private class TestMBKMessageSchduleSendKRDFW {
 		temp2.templateCode__c = system.label.MBK_Message_Survey;
 		temp2.phoneNum__c = 'test';
 		temp2.message__c = 'test';
+		temp2.custMsgSn__c = 'benz_20171018090700';
 		insert temp2;
 		
 		Test.setMock(HttpCalloutMock.class, new MockFail());

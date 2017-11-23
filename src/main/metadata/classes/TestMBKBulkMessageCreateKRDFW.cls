@@ -113,5 +113,57 @@ private class TestMBKBulkMessageCreateKRDFW {
 		batch.batchType = 'Page';
 		Database.executeBatch(batch);
     }
+
+	static testMethod void myUnitTestTask() {
+        // TO DO: implement unit test
+        //Page Bulk
+				
+		List<Task> tasks = new List<Task>();
+		Task temp1 = new Task(); 										        
+        temp1.Account_Name__c = '이정우';
+        temp1.PersonMobilePhone__c = '01055104746';
+        temp1.UCID__c = '213asdsfd1';
+        tasks.add(temp1);       
+                
+        Task temp2 = new Task();
+        temp2.Account_Name__c = '임유진';
+        temp2.PersonMobilePhone__c = '01055104746';
+        temp2.UCID__c = '244234234234';
+        tasks.add(temp2);
+        
+        Task temp3 = new Task();
+        temp2.Account_Name__c = '탁소영';
+        temp2.PersonMobilePhone__c = '01055104746';
+        temp2.UCID__c = '214323234324';
+        tasks.add(temp3);        
+        insert tasks; 
+           
+        String pages = '';
+        for(Task temp:tasks){
+        	if(pages == '') pages = temp.Id;
+        	else pages += ','+temp.Id;
+        }
+        
+        MBK_Bulk_Message__c temp = new MBK_Bulk_Message__c();
+		temp.channel__c = 'M';
+		temp.Message__c = '안녕하세요, 벤츠코리아 입니다.\n온라인회원으로 가입해주셔서 감사합니다.\n신차 정보 및 프로모션 정보\n많이 이용해 주세요.\n고맙습니다.\nMBK.....';
+		temp.PageSearchIDs__c = pages;
+		temp.Processed__c = false;
+		temp.Set_Sending_Time__c = system.now().addhours(1);
+		temp.Subject__c = '온라인 회원 가입을 환영 합니다.';
+		temp.Source_Object__c = 'Page';
+		insert temp;
+
+       	Attachment attachment = new Attachment();
+  		attachment.Body = Blob.valueOf('2lj2j3l23j4l3j24lk23j4l2k3j4l2kj34lkj');
+  		attachment.Name = String.valueOf('test.jpg');
+  		attachment.ParentId = temp.Id;
+  		insert attachment;
+
+		MBKBulkMessageCreateKRDFWBatch batch = new MBKBulkMessageCreateKRDFWBatch();
+		batch.batchId = temp.Id;
+		batch.batchType = 'Page';
+		Database.executeBatch(batch);
+    } 
      
 }
