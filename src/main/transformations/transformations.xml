@@ -268,6 +268,11 @@
 		<token tokenonly="true">OBJECT_DM_REQUEST_LEAD_LKID</token>
     </changetext>
 	<changetext>
+		<filename>dashboards/Ideas_Dashboard/Ideas_Dashboard.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
 		<filename>dashboards/MBK_Dashboards/Created_Complaint_Cases.dashboard</filename>
 		<xpath>runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
