@@ -19,7 +19,7 @@ public class TriggerAddressTriggerHandlerMYTest{
     static void setupTestData(){
     
     Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
-       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
+       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
        insert user1;
        System.runAs (user1) {  
        
@@ -91,7 +91,7 @@ public class TriggerAddressTriggerHandlerMYTest{
   */     
      static testMethod void testAccAssignment2() {
     Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
-       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sa1m@usgboral.com.dev01');
+       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sa1m@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
        insert user1;
        System.runAs (user1) {  
         try{          
