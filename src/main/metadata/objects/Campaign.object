@@ -2471,8 +2471,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
 	<fields>
         <fullName>Message__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;)</formula>
-        <label>Message</label>
+        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
+HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
+HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
+		<label>Message</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
