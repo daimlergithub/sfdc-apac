@@ -24,6 +24,9 @@ retcampchild.Parent_Campaign1__c=retcamp.id;
 insert retcampchild;
 
 DataBase.ExecuteBatch(new UpdateChildCampaignStatusToNoResponseTH());
+      UpdateChildCampaignStatusToNoResponseTH abc=new UpdateChildCampaignStatusToNoResponseTH();
+     String sch = '20 30 8 10 2 ?';
+    String jobID = system.schedule('Merge Job', sch, abc);
 retcampchild.Segmentation_Date__c=system.today()+1;
 retcampchild.Auto_Segmentation__c = true;
 retcampchild.IsAutoSegmentationExecuted__c=false;
