@@ -67,7 +67,7 @@ function closeWin() {
                 </apex:pageBlockButtons>
                 <apex:outputText >Page Number {!pageNumber} </apex:outputText>
                 <apex:pageBlockButtons location="bottom">
-                    <apex:commandButton value="Record Share" action="{!ShareRecordd}" oncomplete="closeWin();" />
+                    <apex:commandButton value="Record Share" action="{!ShareRecordd}" oncomplete="window.close();closeWin();" />
                     <apex:commandButton value="{!$Label.Cancel}"  onClick="window.close();" /> 
                     
                     
