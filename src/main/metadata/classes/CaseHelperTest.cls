@@ -15,6 +15,10 @@ public With Sharing class CaseHelperTest {
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
     final static String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+	
+	public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id caseInquiry_RecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+	
     static Account acc = new Account(LastName='acme', Phone='011111222', Area_Code__c = '010' ,MBK_Data_Source__c='Email',RecordTypeId = personRecordtypeid,Dealer_Aftersales_Manager_Email__c = 'Test@test.com');
     static Account acc1 = new Account(Name='acme',MBK_Data_Source__c='Email',RecordTypeId = dealerRecordtypeid);
     static Account acc2 = new Account(Name='acme23',MBK_Data_Source__c='Email',RecordTypeId = dealerRecordtypeid);
