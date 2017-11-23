@@ -120,6 +120,10 @@
         <label>하나의 연락처만 선택 하시기 바랍니다</label>
         <name>KR_Company_Account_Record_Type</name>
     </customLabels>
+	<customLabels>
+        <label>‘중복 고객 확인’  결과를 확인 하시기 바랍니다.</label>
+        <name>MBK_ONLINE_DEDUP_CHECKUP</name>
+    </customLabels>
     <customLabels>
         <label><!-- A6 Personal email --></label>
         <name>A6_Personal_email</name>

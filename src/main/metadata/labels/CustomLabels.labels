@@ -24,6 +24,13 @@
         <value>vehicle Details</value>
     </labels> 
 	<labels>
+        <fullName>MBK_ONLINE_DEDUP_CHECKUP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KR ONLINE DEDUP CHECKUP</shortDescription>
+        <value>‘Online Deduplication’ check is required.</value>
+    </labels>
+	<labels>
         <fullName>Interested_Vehicle_Details</fullName>
         <categories>Merge Lead</categories>
         <language>en_US</language>
