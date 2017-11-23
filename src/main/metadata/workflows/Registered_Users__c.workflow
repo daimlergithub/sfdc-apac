@@ -19,8 +19,7 @@
             <recipient>Community_Management_Queue</recipient>
             <type>group</type>
         </recipients>
-        <senderAddress>chakradhar.boddu@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Rug_Email_Templates/Email_notification_for_User_Creation_in_IdeaExchange_Community</template>
     </alerts>
     <fieldUpdates>
