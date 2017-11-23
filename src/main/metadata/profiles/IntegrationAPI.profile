@@ -5047,9 +5047,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Old_UCID__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -26969,9 +26969,9 @@
         <recordType>Template__c.KakaoTalk</recordType>
 </layoutAssignments>
 <layoutAssignments>
-        <layout>Task-KakaoTalk</layout>
+        <layout>Task-SMS with History Response</layout>
         <recordType>Task.KakaoTalk</recordType>
-</layoutAssignments>
+    </layoutAssignments>
  <layoutAssignments>
         <layout>Account-Company Layout</layout>
         <recordType>Account.Company</recordType>
@@ -27845,10 +27845,6 @@
     <layoutAssignments>
         <layout>Task-SMS</layout>
         <recordType>Task.SMS</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
-        <layout>Task-SMS with History Response</layout>
-        <recordType>Task.KaKao</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-SSI Task</layout>
@@ -30209,11 +30205,6 @@
         <recordType>Task.IB_Call</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Task.KaKao</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.MBDA_Survey</recordType>
@@ -30274,11 +30265,11 @@
         <recordType>Template__c.KakaoTalk</recordType>
         <visible>true</visible>
 </recordTypeVisibilities>
-<recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.KakaoTalk</recordType>
-        <visible>true</visible>
-</recordTypeVisibilities>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>

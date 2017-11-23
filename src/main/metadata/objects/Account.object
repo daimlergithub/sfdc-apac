@@ -12730,6 +12730,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <fullName>Compass</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -60820,7 +60821,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
 	<validationRules>
         <fullName>Email3_Other_EMail</fullName>
-        <active>true</active>
+        <active>false</active>
 		 <description> Changes related to SFDCJP-3139</description>
         <errorConditionFormula>AND(OR( 
 CONTAINS(LOWER(Email3__c), '.@'), 
@@ -61206,7 +61207,8 @@ MD__c = 'JP'
         <description>"ID Type to be created as Picklist with values as National ID, Other. If National ID is selected from the Picklist, system should do character length check. For Thailand it should be 13 characters</description>
         <errorConditionFormula>IF( 
 AND( 
-ISPICKVAL( ID_Type__c, 'National ID'), 
+ISPICKVAL( ID_Type__c, 'National ID'),
+$Profile.Name != 'IntegrationAPI', 
 MD__c=='TH'), 
 IF( 
 AND 
@@ -61216,7 +61218,7 @@ REGEX( ID_Number__c, "[0-9]{13}")
 ),false,true), 
 false)</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
-        <errorMessage>If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number</errorMessage>
+        <errorMessage>If ID Type is National ID, ID Number must not be empty and 13 characters length, containing only numbers</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_NoChar</fullName>

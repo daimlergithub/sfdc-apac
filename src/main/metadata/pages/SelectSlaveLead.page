@@ -44,6 +44,12 @@
                 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.CAC_Lead_Status__c.Label}">
                 <apex:outputField value="{!leads.CAC_Lead_Status__c}" style="width:9%; white-space:nowrap;"/>
                 </apex:Column>
+				 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Dealer_Lead_Status__c.Label}">
+                <apex:outputField value="{!leads.Dealer_Lead_Status__c}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Lead_Latest_Phase__c.Label}">
+                <apex:outputField value="{!leads.Lead_Latest_Phase__c}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
         </apex:pageBlockTable> 
       <!--  <table>
             <tr>

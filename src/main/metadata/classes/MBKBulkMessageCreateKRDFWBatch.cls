@@ -12,7 +12,6 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 	private static Map<String, Schema.SObjectType> sObjectTypes = Schema.getGlobalDescribe() ;
 	
 	global Database.QueryLocator start(Database.BatchableContext BC) {
-		system.debug('batchId : ' + batchId);
 		String query = ' SELECT Id,channel__c,Message__c,PageSearchIDs__c,Processed__c,Set_Sending_Time__c,Template_ID__c,Subject__c, '
 				+' Source_Object_Id__c, Template_Code__c FROM MBK_Bulk_Message__c WHERE Id =\''+batchId+'\'';		
 		return Database.getQueryLocator(query);
@@ -20,7 +19,6 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 
    	global void execute(Database.BatchableContext BC, List<MBK_Bulk_Message__c> scope) {
  		//Page Bulk 처리
-		system.debug('batchType : ' + batchType);
  		if(batchType == 'Page'){
  			for(MBK_Bulk_Message__c temp:scope){
  				if(temp.Set_Sending_Time__c == null) temp.Set_Sending_Time__c = system.now(); 
@@ -54,7 +52,7 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 					    target.UCID__c = lead.Contact__r.UCID__c; 
 					    target.phoneNum__c = lead.Contact__r.PersonMobilePhone;	
 					    
-			    		target.SendTemplate__c = temp.Template_ID__c;
+			    		target.MBKMessageTemplate__c = temp.Template_ID__c;
 						target.templateCode__c = temp.Template_Code__c;	   
 					    target.channel__c = temp.channel__c;
 					    target.Set_Sending_Time__c = temp.Set_Sending_Time__c;
@@ -84,7 +82,7 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 					    target.UCID__c = acc.UCID__c; 
 					    target.phoneNum__c = acc.PersonMobilePhone;	
 					    
-			    		target.SendTemplate__c = temp.Template_ID__c;
+			    		target.MBKMessageTemplate__c = temp.Template_ID__c;
 						target.templateCode__c = temp.Template_Code__c;	   
 					    target.channel__c = temp.channel__c;
 					    target.Set_Sending_Time__c = temp.Set_Sending_Time__c;
@@ -106,7 +104,7 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 					    target.UCID__c = task.UCID__c; 
 					    target.phoneNum__c = task.PersonMobilePhone__c == null ? task.Phone__c : task.PersonMobilePhone__c;	
 					    
-			    		target.SendTemplate__c = temp.Template_ID__c;
+			    		target.MBKMessageTemplate__c = temp.Template_ID__c;
 						target.templateCode__c = temp.Template_Code__c;	   
 					    target.channel__c = temp.channel__c;
 					    target.Set_Sending_Time__c = temp.Set_Sending_Time__c;
@@ -144,47 +142,30 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
  		}
  		else
  		{
- 			//Campaign
-			system.debug('Campaign!');
+ 			//Campaign	
  			for(MBK_Bulk_Message__c temp:scope){
  				if(temp.Set_Sending_Time__c == null) temp.Set_Sending_Time__c = system.now();
-				/*
 				List<Campaign_Member__c> targetResults = [SELECT Id, Contact_Id__c, Contact_Id__r.UCID__c, Contact_Id__r.PersonMobilePhone, 
 																Contact_Id__r.Name, Contact_Id__r.Opt_In_SMS__c, Contact_Id__r.KaKao_Talk_ID__c, 
 																Contact_Id__r.Personal_Agreement__c, Contact_Id__r.Personal_Information_Third_Party_Release__c,
 																Campaign__c, Contact_Id__r.Personal_Abroad_Agreement__c, Contact_Id__r.Agreement_to_commit_info_processing__c
 															FROM Campaign_Member__c WHERE Campaign__c =: temp.Source_Object_Id__c];
-															*/
-				List<CampaignMember> targetResults = [
-						SELECT Id, Contact.AccountId, Contact.Account.UCID__c, Contact.Account.PersonMobilePhone,
-						Contact.Account.Name, Contact.Account.Opt_In_SMS__c, Contact.Account.KaKao_Talk_ID__c,
-						Contact.Account.Personal_Agreement__c, Contact.Account.Personal_Information_Third_Party_Release__c,
-						CampaignId, Contact.Account.Personal_Abroad_Agreement__c, Contact.Account.Agreement_to_commit_info_processing__c
-						FROM CampaignMember
-						WHERE CampaignId =: temp.Source_Object_Id__c
-						AND Contact.Account.Personal_Agreement__c = 'Yes'
-						AND Contact.Account.Personal_Information_Third_Party_Release__c = 'Yes'
-						AND Contact.Account.Personal_Abroad_Agreement__c = 'Yes'
-						AND Contact.Account.Agreement_to_commit_info_processing__c = 'Yes'
-				];
-				system.debug(targetResults.size());
-
  				List<MBK_Messages__c> targetMsgs = new List<MBK_Messages__c>();
- 				for(CampaignMember member:targetResults ){
+ 				for(Campaign_Member__c member:targetResults ){
 					MBK_Messages__c target = new MBK_Messages__c();
-					target.Account__c = member.Contact.AccountId;
-					target.Campaign__c = member.CampaignId;
-					target.Account_Name__c = member.Contact.Account.Name;
-					target.Opt_In_SMS__c  = member.Contact.Account.Opt_In_SMS__c;
-					target.Personal_Agreement__c = member.Contact.Account.Personal_Agreement__c;
-					target.Personal_Information_Third_Party_Release__c = member.Contact.Account.Personal_Information_Third_Party_Release__c;
-					target.Personal_Abroad_Agreement__c = member.Contact.Account.Personal_Abroad_Agreement__c;
-					target.Agreement_to_commit_info_processing__c = member.Contact.Account.Agreement_to_commit_info_processing__c;
-					target.KaKaoTalk_ID__c = member.Contact.Account.KaKao_Talk_ID__c;
-					target.UCID__c = member.Contact.Account.UCID__c;
-					target.phoneNum__c = member.Contact.Account.PersonMobilePhone;
+					target.Account__c = member.Contact_Id__c;
+					target.Campaign__c = member.Campaign__c;
+					target.Account_Name__c = member.Contact_Id__r.Name;
+					target.Opt_In_SMS__c  = member.Contact_Id__r.Opt_In_SMS__c;
+					target.Personal_Agreement__c = member.Contact_Id__r.Personal_Agreement__c;
+					target.Personal_Information_Third_Party_Release__c = member.Contact_Id__r.Personal_Information_Third_Party_Release__c;
+					target.Personal_Abroad_Agreement__c = member.Contact_Id__r.Personal_Abroad_Agreement__c;
+					target.Agreement_to_commit_info_processing__c = member.Contact_Id__r.Agreement_to_commit_info_processing__c;
+					target.KaKaoTalk_ID__c = member.Contact_Id__r.KaKao_Talk_ID__c; 
+					target.UCID__c = member.Contact_Id__r.UCID__c; 
+					target.phoneNum__c = member.Contact_Id__r.PersonMobilePhone;	
 										    
-					target.SendTemplate__c = temp.Template_ID__c;
+					target.MBKMessageTemplate__c = temp.Template_ID__c;
 					target.templateCode__c = temp.Template_Code__c;	   
 					target.channel__c = temp.channel__c;
 					target.Set_Sending_Time__c = temp.Set_Sending_Time__c;
@@ -195,7 +176,6 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 					target.Status__c = 'Reserved';
  					targetMsgs.add(target);		
  				}
-				system.debug(targetMsgs);
  				insert targetMsgs;
  				MBKMessageCampaignLogging(temp);
 		    	//MMS파일 처리(Attachment)
@@ -239,7 +219,7 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 			else if(temp.Leads__c <> null) log.WhatId = temp.Leads__c;
 			
 			String sendType = '';
-			if(temp.channel__c == 'A') sendType = 'kaKao';
+			if(temp.channel__c == 'A') sendType = 'KakaoTalk';
 			else if(temp.channel__c == 'M') sendType = 'MMS';
 			else sendType = 'SMS';
 			RecordType rectype = [SELECT Id FROM RecordType WHERE SobjectType = 'Task' AND Name =: sendType];
@@ -254,7 +234,7 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 	private void MBKMessageCampaignLogging(MBK_Bulk_Message__c target){		 
 		String sendType = '';
 			
-		if(target.channel__c == 'A') sendType = 'kaKao';
+		if(target.channel__c == 'A') sendType = 'KakaoTalk';
 		else if(target.channel__c == 'M') sendType = 'MMS';
 		else sendType = 'SMS';		
 		RecordType rectype = [SELECT Id FROM RecordType WHERE SobjectType = 'Task' AND Name =: sendType];
