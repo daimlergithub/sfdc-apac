@@ -25375,9 +25375,9 @@
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
 	<layoutAssignments>
-        <layout>Template__c-KakaoTalk</layout>
+        <layout>Template__c-Template Layout</layout>
         <recordType>Template__c.KakaoTalk</recordType>
-</layoutAssignments>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Task-SMS with History Response</layout>
         <recordType>Task.KakaoTalk</recordType>
@@ -26194,10 +26194,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-Template Layout</layout>
-    </layoutAssignments>
-	<layoutAssignments>
-        <layout>Template__c-Template Layout</layout>
-        <recordType>Template__c.KaKao</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-eDM Template</layout>
@@ -27876,7 +27872,7 @@
         <default>false</default>
         <recordType>Template__c.KakaoTalk</recordType>
         <visible>true</visible>
-</recordTypeVisibilities>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.KakaoTalk</recordType>
@@ -27891,11 +27887,6 @@
         <default>false</default>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Template__c.KaKao</recordType>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
