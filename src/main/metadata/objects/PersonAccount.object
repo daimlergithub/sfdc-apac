@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEMPersonAccount</compactLayoutAssignment>
     <enableHistory>true</enableHistory>
@@ -3082,6 +3082,34 @@
                 <fullName>Slimming Beauty</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Interior</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Wine%2FCuisine</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Concerts%26Exhibition</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Movies%26Plays</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Hiking</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Beauty%26Skincare</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Childcare</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Home_Phone_Status_2__c</picklist>
@@ -4339,6 +4367,10 @@
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TDS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

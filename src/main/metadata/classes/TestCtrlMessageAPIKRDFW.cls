@@ -21,7 +21,8 @@
  */
 @isTest(SeeAllData=true)
 private class TestCtrlMessageAPIKRDFW {
-	private static final String FAKE_RESPONSE = '{"Out":{"custMsgSn":"benz_20171018090700","altCode":"1003","smsMsg":null}}';
+	private static final String FAKE_RESPONSE = '{"sn": "20171117022834054000122RS01","custMsgSn": "benz_20171018090700","code": "EW","altCode": null,"altMsg": null,"smsCode": null,"smsMsg": "SMS/LMS/MMS Sending","sndDtm": "20171117022834","rcptDtm": null}';
+	private static final String FAKE_RESPONSE_FAIL = '{dasdasdasdasdsadasd}';
 	
 	private class Mock implements HttpCalloutMock {
         public HTTPResponse respond(HTTPRequest req) {
@@ -33,16 +34,25 @@ private class TestCtrlMessageAPIKRDFW {
         }
     }
     
-    private static final String FAKE_RESPONSE_Fail = '{"error":{"code":400,"details":{"extra":["smsMessage","smsKind","smsSndNum"]},"message":"Parameter validation failed"}}';
     private class MockFail implements HttpCalloutMock {
         public HTTPResponse respond(HTTPRequest req) {
             // You could assert the request content here
             HTTPResponse res = new HTTPResponse();
-            res.setBody(FAKE_RESPONSE_Fail);
+            res.setBody(FAKE_RESPONSE);
             res.setStatusCode(500);
             return res;
         }
     }
+
+    private class MockFail2 implements HttpCalloutMock {
+        public HTTPResponse respond(HTTPRequest req) {
+            // You could assert the request content here
+            HTTPResponse res = new HTTPResponse();
+            res.setBody(FAKE_RESPONSE_FAIL);
+            res.setStatusCode(500);
+            return res;
+        }
+    }    
     
     static testMethod void myUnitTest() {
         // TO DO: implement unit test
@@ -85,7 +95,7 @@ private class TestCtrlMessageAPIKRDFW {
 		temp.phoneNum__c = '01055104746';
 		temp.senderKey__c = 'c76dcff9ce0106edc23968bb52bb7728ecc36d25';
 		temp.subject__c = 'test';
-		temp.templateCode__c = 'test';
+		temp.templateCode__c = 'benz05';
         insert temp;
         
        	Attachment attachment = new Attachment();
@@ -99,5 +109,6 @@ private class TestCtrlMessageAPIKRDFW {
 
         Test.setMock(HttpCalloutMock.class, new MockFail());
         CtrlMessageAPIKRDFW.MBKMessageDirectSender(MessageIds);
-    }    
+    }   
+        
 }

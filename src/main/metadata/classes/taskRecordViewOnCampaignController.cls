@@ -23,7 +23,7 @@ public without sharing class taskRecordViewOnCampaignController
         }
         else if(userinfo.getUserType() == 'PowerPartner')
         {
-            currentUser = [Select Id, Name, AccountId, Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
+            currentUser = [Select Id, Name, Contact.AccountId, Contact.Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
 			if(ApexPages.currentPage().getParameters().get('Id') != null)
 			{
 				campMembrList = [Select Id,Contact.AccountId from CampaignMember where CampaignId =: ApexPages.currentPage().getParameters().get('Id')];
@@ -43,7 +43,7 @@ public without sharing class taskRecordViewOnCampaignController
             {
                 for(AccountShare accShr : sharedAccountList)
                 {
-                    if(accountContactIdMap.containsKey(accShr.AccountId) && accShr.UserOrGroup.Name != null && accShr.UserOrGroup.Name != '' && accShr.UserOrGroup.Name == currentUser.Account.Dealer_ND_Code__c)
+                    if(accountContactIdMap.containsKey(accShr.AccountId) && accShr.UserOrGroup.Name != null && accShr.UserOrGroup.Name != '' && accShr.UserOrGroup.Name == currentUser.Contact.Account.Dealer_ND_Code__c)
                     {
                         accountGroupNameMap.put(accountContactIdMap.get(accShr.AccountId), accShr.UserOrGroup.Name);
                     }              
@@ -55,7 +55,7 @@ public without sharing class taskRecordViewOnCampaignController
                 for(Task tsk: taskList)
                 {
                     system.debug(accountGroupNameMap + '  *$*$*$*$*   ' + accountGroupNameMap.get(tsk.WhoId));
-                    if(accountGroupNameMap.get(tsk.WhoId) != null && accountGroupNameMap.get(tsk.WhoId).startsWith('MBK')  && accountGroupNameMap.containsKey(tsk.WhoId) && accountGroupNameMap.get(tsk.WhoId) == currentUser.Account.Dealer_ND_Code__c)
+                    if(accountGroupNameMap.get(tsk.WhoId) != null && accountGroupNameMap.get(tsk.WhoId).startsWith('MBK')  && accountGroupNameMap.containsKey(tsk.WhoId) && accountGroupNameMap.get(tsk.WhoId) == currentUser.Contact.Account.Dealer_ND_Code__c)
                     {
                         showTaskList.add(tsk);
                     }

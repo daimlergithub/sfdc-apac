@@ -2471,8 +2471,10 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
 	<fields>
         <fullName>Message__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;)</formula>
-        <label>Message</label>
+        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
+HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
+HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
+		<label>Message</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -23515,12 +23517,6 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Expected_Outcome_Fields</fullName>
-        <active>false</active>
-        <errorConditionFormula>OR(Expected_Response_Rate__c &gt; 1,Expected_Participation__c &gt; 1,Expected_Registration__c &gt; 1, Expected_Lead__c &gt; 1)</errorConditionFormula>
-        <errorMessage>Expected Outcome fields should not be more than 100.</errorMessage>
-    </validationRules>
 	<validationRules>
         <fullName>Get_OBSMSTemplate_on_Courtesy_Greet</fullName>
         <active>true</active>
@@ -23592,83 +23588,6 @@ $Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,if
         <errorMessage>You cann&apos;t change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Locked_for_MB_BP_when_Published</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND( 
-OR( 
-RecordType.DeveloperName == 'MB_Best_Practice', 
-RecordType.DeveloperName == 'smart_Best_Practice' 
-), 
-ISPICKVAL(Status, 'Published'), 
-!ISCHANGED(Status), 
-OR( ISCHANGED( Campaign_Code__c ), 
-ISCHANGED( Name ), 
-ISCHANGED( Status ), 
-ISCHANGED( Description ), 
-ISCHANGED( Brand__c ), 
-ISCHANGED( BP_Start_Date__c ), 
-ISCHANGED( BP_End_Date__c ), 
-ISCHANGED( Region_Due_Date__c ), 
-ISCHANGED( Retail_Start_Date__c ), 
-ISCHANGED( Retail_Due_Date__c ), 
-ISCHANGED( Region_Recommend_Number__c ), 
-ISCHANGED( Region_Best_Number__c ), 
-ISCHANGED( BP_Quarter__c ) 
-), 
-$Profile.Name != 'IntegrationAPI' 
-)</errorConditionFormula>
-        <errorMessage>You cann't change this record when Status is published.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>MB_BP_fields_are_required_when_Publish</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND( 
-OR( 
-AND( 
-RecordType.DeveloperName == 'MB_Best_Practice', 
-OR( 
-ISNULL( BP_Start_Date__c ), 
-ISNULL( BP_End_Date__c ), 
-ISNULL( Region_Due_Date__c ), 
-ISNULL( Retail_Start_Date__c ), 
-ISNULL( Retail_Due_Date__c ), 
-ISNULL( Region_Recommend_Number__c ), 
-ISNULL( Region_Best_Number__c ) 
-)), 
-AND( 
-RecordType.DeveloperName == 'smart_Best_Practice', 
-OR( 
-ISNULL( BP_Start_Date__c ), 
-ISNULL( BP_End_Date__c ), 
-ISNULL( Region_Due_Date__c ), 
-ISNULL( Retail_Start_Date__c ), 
-ISNULL( Retail_Due_Date__c ), 
-ISNULL( Region_Best_Number__c ) 
-)) 
-), 
-ISPICKVAL(Status, 'Published'), 
-$Profile.Name != 'IntegrationAPI' 
-)</errorConditionFormula>
-        <errorMessage>“BP Start Date”, “BP End Date”, “Retail Start Date”, “Retail Due Date”, “Region Due Date”, “Region Best Number” and “Region Recommend Number” are required.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Make_segementation_date_inactive</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),( Use_Segmentation_Criteria__c = TRUE),(NOT(ISBLANK(Segmentation_Date__c ) )))</errorConditionFormula>
-        <errorMessage>Segmentation criteria is on</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Only_Started_Campaign_can_be_activated</fullName>
-        <active>false</active>
-        <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
-Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
-        <errorConditionFormula>NOT(ISPICKVAL( Status , 'Started')) 
-&amp;&amp; IsActive
-&amp;&amp; (  RecordType.Name = "CAC CRM Campaign" || RecordType.Name = "Central Marketing Campaign" || RecordType.Name = "CAS Marketing Campaign")</errorConditionFormula>
-        <errorDisplayField>IsActive</errorDisplayField>
-        <errorMessage>Only Campaign with "Started" status can be activated.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Parent_Campaign_Status_Ongoing</fullName>
         <active>true</active>
         <description>Parent Campaign Status ongoing you can not change start date</description>
@@ -23704,31 +23623,11 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <errorMessage>Parent Campaign can&apos;t be active if there aren&apos;t any associated campaign execution record.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Previous_Campaign_Execution_Parent</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(
-Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,
-NOT(ISBLANK(Previous_Campaign_Execution__c))
-)</errorConditionFormula>
-        <errorDisplayField>Previous_Campaign_Execution__c</errorDisplayField>
-        <errorMessage>Previous campaign execution only belong to this parent campaign.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Record_lock_on_campaign</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),NOT(ISNEW()), 
 PRIORVALUE(Consolidated_List_Completed__c) = TRUE,NOT(ISCHANGED(Child_Campaign_Status__c)),RecordType.DeveloperName = 'Campaign_Executiono')</errorConditionFormula>
         <errorMessage>Record is Locked</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SMS_Task_Verified_is_True</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(
-SMS_Task_Verified__c  = True,
-NOT(ISPICKVAL(Execution_Type__c,"SMS")),NOT(ISPICKVAL(Execution_Type__c,"MMS"))
-)</errorConditionFormula>
-        <errorDisplayField>SMS_Task_Verified__c</errorDisplayField>
-        <errorMessage>SMS task verified can only be true when Execution Type is SMS</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SMS_eDM_Template_is_Required</fullName>
@@ -23741,33 +23640,12 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Start_Date_And_End_date</fullName>
-        <active>false</active>
-        <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;= EndDate , true, false)))</errorConditionFormula>
-        <errorMessage>Start Date can not be less than Today</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Start_date_can_not_be_equal_to_Today</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;  TODAY() , true, false)))</errorConditionFormula>
-        <errorDisplayField>StartDate</errorDisplayField>
-        <errorMessage>Start Date can not be less than Today</errorMessage>
-    </validationRules>
 	    <validationRules>
         <fullName>TH_publish_Date_Should_be_between_start</fullName>
         <active>true</active>
         <errorConditionFormula>MD__c ='TH' &amp;&amp;(StartDate &gt; Publish_Date__c ||Publish_Date__c&gt; EndDate)</errorConditionFormula>
         <errorDisplayField>Publish_Date__c</errorDisplayField>
         <errorMessage>Campaign Publish Date Should be Between Start  Date And  End Date</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Use_Segmentation_Criteria</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(Use_Segmentation_Criteria__c = false,MD__c = 'JP',$Profile.Name != 'IntegrationAPI', ISBLANK(Segmentation_Date__c),RecordType.DeveloperName = 'Campaign_Executiono'  )</errorConditionFormula>
-        <errorDisplayField>Segmentation_Date__c</errorDisplayField>
-        <errorMessage>Segmentation Date is Required</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>

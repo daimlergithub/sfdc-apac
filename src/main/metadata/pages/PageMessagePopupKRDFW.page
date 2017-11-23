@@ -189,7 +189,7 @@
                 
 				<apex:pageBlockSectionItem rendered="{!Mtype<>'SMS/MMS'}"/>
                 <apex:pageBlockSectionItem rendered="{!Mtype='SMS/MMS'}">
-                    <apex:outputText >MMS Images<br/>(Image Size 200KB Under)<br/>(*.jpg, *.png)</apex:outputText>
+                    <apex:outputText >MMS Images<br/>(Image Size 200KB Under)<br/>(*.jpg)</apex:outputText>
                     <apex:outputPanel >
                     	<apex:inputFile styleClass="mmsfile" value="{!mmsFile1.body}" fileName="{!mmsFile1.Name}" onchange="fileCheck(this);" style="margin-bottom:3px;"/>
 						<apex:inputFile styleClass="mmsfile" value="{!mmsFile2.body}" fileName="{!mmsFile2.Name}" onchange="fileCheck(this);" style="margin-bottom:3px;"/>

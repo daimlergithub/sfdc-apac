@@ -91,7 +91,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 		*/		                										
 		String query = ' SELECT Id, Subject__c, Message_Detail__c, Template_ID__c, RecordType.Name '
 					+ 'FROM Template__c WHERE Active__c = true ';			
-					if(Mtype == 'KaKao') query += 'AND RecordType.Name = \'KaKao\' ';
+					if(Mtype == 'KaKao') query += 'AND RecordType.Name = \'KakaoTalk\' ';
 					else query += 'AND (RecordType.Name = \'SMS\' Or RecordType.Name = \'MMS\') ';
 		List<Template__c> temps = Database.query(query);					 		                										
 		retTemplatesOrg = new map<Id, Template__c>();		                										
@@ -112,26 +112,6 @@ public with sharing class CtrlMessageServiceKRDFW {
     	viewObject.message__c = null;
     	viewObject.Set_Sending_Time__c = null;
     }
-    
-    /*
-    // MBK_Message_Template pagging
-    public List<MBK_Message_Template__c> getTemplates(){
-    	List<MBK_Message_Template__c> lList = new List<MBK_Message_Template__c>();
-    	for(MBK_Message_Template__c l : (List<MBK_Message_Template__c>)MessageStcon.getRecords()){
-    		lList.add(l);
-    	}
-
-    	if(lList.size() < 5){
-    		integer cnt = 5-lList.size();
-    		for(integer i = 0; i < cnt; i++){
-    			MBK_Message_Template__c tempInsert = new MBK_Message_Template__c();
-    			lList.add(tempInsert);
-    		}
-    	}
-    	system.debug(lList.size());
-    	return lList;
-    }
-    */
 
     // Template__c pagging
     public List<Template__c> getTemplatesOrg(){
@@ -316,13 +296,13 @@ public with sharing class CtrlMessageServiceKRDFW {
     
     private void getMBKMessage(){
     	viewObject = [SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, IsModify__c, 
-							Leads__c, SendTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
+							Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 							altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 							processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c,
 							Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, 
 							Agreement_to_commit_info_processing__c, Opt_In_SMS__c  
 						FROM MBK_Messages__c WHERE Id =: TargetID];
-		SendTemplateId = viewObject.SendTemplate__c; 						  		
+		SendTemplateId = viewObject.MBKMessageTemplate__c; 						  		
 		List<Attachment> Attachments;				
 		if(viewObject.AttachmentImages__c){
 			Attachments = [SELECT Id, Body, Name FROM Attachment WHERE ParentId =: TargetID];
@@ -353,7 +333,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 				if(SendTemplateId <> null && SendTemplateId <> ''){					
 		    		//MBK_Message_Template__c setTemplate = retTemplates.get(SendTemplateId);
 		    		Template__c setTemplate = retTemplatesOrg.get(SendTemplateId);
-		    		insertObject.SendTemplate__c = setTemplate.Id;
+		    		insertObject.MBKMessageTemplate__c = setTemplate.Id;
 					insertObject.templateCode__c = setTemplate.Template_ID__c;	    		
 				}
 				if(Mtype == 'KaKao') insertObject.channel__c = system.label.MBK_Message_Channel_KaKao;
@@ -397,7 +377,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 					mmsFile3 = new Attachment();
 				}				
 				insertObject = [SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, IsModify__c, 
-									Leads__c, SendTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
+									Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 									altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 									processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c,
 									Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, 
@@ -490,12 +470,17 @@ public with sharing class CtrlMessageServiceKRDFW {
 					}	
 				}					
 			}
+			//대량발송 전송데이터 생성 Batch 실행
+			MBKBulkMessageCreateKRDFWBatch bulkBatch = new MBKBulkMessageCreateKRDFWBatch();
 			if(BulkMessage.Source_Object__c == 'Page'){
-				MBKBulkMessageCreateKRDFWBatch bulkBatch = new MBKBulkMessageCreateKRDFWBatch();
 				bulkBatch.batchId = BulkMessage.Id;
 				bulkBatch.batchType = 'Page';
-				database.executeBatch(bulkBatch, 1);
-			}
+			}else{
+				bulkBatch.batchId = BulkMessage.Id;
+				bulkBatch.batchType = BulkMessage.Source_Object__c;
+			}		
+			database.executeBatch(bulkBatch);
+			
 			gu.debug('['+Mtype+'] transfer has been requested.');
 			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Info, 'Bulk ['+Mtype+'] transfer has been requested.'));
 			IsSend = true;
@@ -526,7 +511,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 				if(SendTemplateId <> null && SendTemplateId <> ''){					
 		    		//MBK_Message_Template__c setTemplate = retTemplates.get(SendTemplateId);
 		    		Template__c setTemplate = retTemplatesOrg.get(SendTemplateId);
-		    		viewObject.SendTemplate__c = setTemplate.Id;
+		    		viewObject.MBKMessageTemplate__c = setTemplate.Id;
 					viewObject.templateCode__c = setTemplate.Template_ID__c;	    		
 				}
 				
@@ -578,7 +563,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 				}
 				
 				viewObject = [SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, IsModify__c, 
-									Leads__c, SendTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
+									Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 									altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 									processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c,
 									Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, 
