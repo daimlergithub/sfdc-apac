@@ -312,8 +312,7 @@ public with sharing class LeadHelperTest {
         }
     }
     
-    public static void createuserrecord()
-     {
+    public static void createuserrecord() {
          
          user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichaof',
                           Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
@@ -322,6 +321,199 @@ public with sharing class LeadHelperTest {
          insert user1;
          
          
-       }
+    }
+	
+	//---------------------------- Lead Share Test Class - SFDCKR-964 ----------------------------
+	// Added By - Sreenivasareddy
+	
+	static testmethod void Leadsharehierarchytest() {
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+        insert dealer1;
+        Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
+        insert contact;
+        Contact contact1 = new Contact(AccountId = dealer1.Id, LastName = 'c', Phone = '01212313', email = 'c@s.s');
+        insert contact1;
+        Contact contact2 = new Contact(AccountId = dealer1.Id, LastName = 'd', Phone = '01212313', email = 'd@s.s');
+        insert contact2;
+    
+		Profile testProfile = [SELECT Id FROM Profile where Name ='MBK CCC Retail Operator' Limit 1];
+    
+		User smu = new User();
+		smu.FirstName         = 'Test';
+		smu.LastName          = 'SalesManager';
+		smu.Email             = 'Test.SalesManager@sm.com';
+		smu.Alias             = 'sm';
+		smu.Username          = 'Test.SalesManager1@sm.com';
+		smu.ProfileId         =  testProfile.Id;
+		smu.MBK_Partner_Roles__c = 'Sales Manager';
+		smu.TimeZoneSidKey = 'Asia/Shanghai';
+		smu.EmailEncodingKey = 'UTF-8';
+		smu.LanguageLocaleKey = 'en_US';
+		smu.localesidkey='en_US';
+		smu.isActive = true;
+		smu.ContactId=contact.id;
+		Database.insert(smu); 
+		system.debug('@@@@@ User Records smu'+smu); 
 
+		User tlu = new User();
+		tlu.FirstName         = 'Test';
+		tlu.LastName          = 'TeamLeader';
+		tlu.Email             = 'Test.TeamLeader@tl.com';
+		tlu.Alias             = 'tl';
+		tlu.Username          = 'Test.TeamLeader1@tl.com';
+		tlu.ProfileId         =  testProfile.Id;
+		tlu.MBK_Partner_Roles__c = 'Team Leader';
+		tlu.MBK_Reporting_Partner_User__c = smu.id;
+		tlu.TimeZoneSidKey = 'Asia/Shanghai';
+		tlu.EmailEncodingKey = 'UTF-8';
+		tlu.LanguageLocaleKey = 'en_US';
+		tlu.localesidkey='en_US';
+		tlu.isActive = true;
+		tlu.ContactId=contact1.id;
+		Database.insert(tlu); 
+		system.debug('##### User Records tlu'+tlu); 
+		    
+		User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
+		User scu = new User();
+		System.runAs ( runUser ) {
+			scu.FirstName         = 'Test';
+			scu.LastName          = 'SalesConsultant';
+			scu.Email             = 'Test.SalesConsultant@sc.com';
+			scu.Alias             = 'sc';
+			scu.Username          = 'Test.SalesConsultant@sc.com';
+			scu.ProfileId         =  testProfile.Id;
+			scu.MBK_Partner_Roles__c = 'Sales Consultant';
+			scu.MBK_Reporting_Partner_User__c = tlu.id;
+			scu.TimeZoneSidKey = 'Asia/Shanghai';
+			scu.EmailEncodingKey = 'UTF-8';
+			scu.LanguageLocaleKey = 'en_US';
+			scu.localesidkey='en_US';
+			scu.isActive = true;
+			scu.ContactId=contact2.id;
+			Database.insert(scu); 
+			system.debug('***** User Records scu'+scu); 
+		}
+    
+		Account  personAcc=new Account(RecordTypeId = accPerson_RecordTypeId, LastName = 'testacc',MD__C='KR',Data_Source__c='Dealer Outlet',MBK_Data_Source__c='Dealers',Mobile__c='000-0000-9642');
+		insert personAcc;
+    
+		Lead__c la = new Lead__C();
+		la.RecordTypeId = salesleads_RecordTypeId;
+		la.Contact__c = personAcc.Id;
+		la.CAC_Lead_Status__c = 'New';
+		la.MD__c = 'KR';
+		la.OwnerID = scu.id; 
+     
+		system.debug('********************Leads'+la);
+    
+		List<Lead__c> listleads = new List<Lead__c>();  
+		
+		listleads.add(la);
+    
+		insert listleads;
+    
+		system.debug('##############Leads'+listleads);    
+    
+		LeadHelperKR.Leadsharehierarchy(listleads);
+     
+		lead__C listCampaign =[select id,CAC_Lead_Status__c,OwnerID,Contact__c,MD__c from lead__C where id IN:listleads];
+		list<lead__C> oldList = new  list<lead__C>();
+		oldList.add(listCampaign);
+		map<id,lead__C> oldMap = new map<id,lead__C>();
+		oldMap.put(listCampaign.id, listCampaign);
+		system.debug('********************oldLeads'+listCampaign);
+     
+		LeadHelperKR.handleAfterInsertOrUpdate(listleads,oldMap);
+    } 
+    
+    static testmethod void Leadsharehierarchytest1() {
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+        insert dealer1;
+        Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
+        insert contact;
+        Contact contact1 = new Contact(AccountId = dealer1.Id, LastName = 'c', Phone = '01212313', email = 'c@s.s');
+        insert contact1;
+        Contact contact2 = new Contact(AccountId = dealer1.Id, LastName = 'd', Phone = '01212313', email = 'd@s.s');
+        insert contact2;
+    
+		Profile testProfile = [SELECT Id FROM Profile where Name ='MBK CCC Retail Operator' Limit 1];
+    
+		User smu = new User();
+		smu.FirstName         = 'Test';
+		smu.LastName          = 'SalesManager';
+		smu.Email             = 'Test.SalesManager@sm.com';
+		smu.Alias             = 'sm';
+		smu.Username          = 'Test.SalesManager1@sm.com';
+		smu.ProfileId         =  testProfile.Id;
+		smu.MBK_Partner_Roles__c = 'Sales Manager';
+		smu.TimeZoneSidKey = 'Asia/Shanghai';
+		smu.EmailEncodingKey = 'UTF-8';
+		smu.LanguageLocaleKey = 'en_US';
+		smu.localesidkey='en_US';
+		smu.isActive = true;
+		smu.ContactId=contact.id;
+		Database.insert(smu); 
+		system.debug('@@@@@ User Records smu'+smu); 
+
+		User tlu = new User();
+		tlu.FirstName         = 'Test';
+		tlu.LastName          = 'TeamLeader';
+		tlu.Email             = 'Test.TeamLeader@tl.com';
+		tlu.Alias             = 'tl';
+		tlu.Username          = 'Test.TeamLeader1@tl.com';
+		tlu.ProfileId         =  testProfile.Id;
+		tlu.MBK_Partner_Roles__c = 'Team Leader';
+		tlu.MBK_Reporting_Partner_User__c = smu.id;
+		tlu.TimeZoneSidKey = 'Asia/Shanghai';
+		tlu.EmailEncodingKey = 'UTF-8';
+		tlu.LanguageLocaleKey = 'en_US';
+		tlu.localesidkey='en_US';
+		tlu.isActive = true;
+		tlu.ContactId=contact1.id;
+		Database.insert(tlu); 
+		system.debug('##### User Records tlu'+tlu); 
+    
+		User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
+		User scu = new User();
+		System.runAs ( runUser ) {
+			scu.FirstName         = 'Test';
+			scu.LastName          = 'SalesConsultant';
+			scu.Email             = 'Test.SalesConsultant@sc.com';
+			scu.Alias             = 'sc';
+			scu.Username          = 'Test.SalesConsultant@sc.com';
+			scu.ProfileId         =  testProfile.Id;
+			scu.MBK_Partner_Roles__c = 'Sales Consultant';
+			scu.MBK_Reporting_Partner_User__c = tlu.id;
+			scu.TimeZoneSidKey = 'Asia/Shanghai';
+			scu.EmailEncodingKey = 'UTF-8';
+			scu.LanguageLocaleKey = 'en_US';
+			scu.localesidkey='en_US';
+			scu.isActive = true;
+			scu.ContactId=contact2.id;
+			Database.insert(scu); 
+			system.debug('***** User Records scu'+scu); 
+		}
+    
+		Account  personAcc=new Account(RecordTypeId = accPerson_RecordTypeId, LastName = 'testacc',MD__C='KR',Data_Source__c='Dealer Outlet',MBK_Data_Source__c='Dealers',Mobile__c='000-0000-9642');
+		insert personAcc;
+    
+		Lead__c la = new Lead__C();
+		la.RecordTypeId = salesleads_RecordTypeId;
+		la.Contact__c = personAcc.Id;
+		la.CAC_Lead_Status__c = 'New';
+		la.MD__c = 'KR';
+		la.OwnerID = tlu.id;  
+    
+		system.debug('********************Leads'+la);
+		
+		List<Lead__c> listleads = new List<Lead__c>();  
+		
+		listleads.add(la);
+		
+		insert listleads;
+    
+		system.debug('##############Leads'+listleads);
+		
+		LeadHelperKR.Leadsharehierarchy(listleads);
+    }
 }
