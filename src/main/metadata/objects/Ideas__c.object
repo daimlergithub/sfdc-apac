@@ -228,7 +228,7 @@
         <fullName>PointsSummary__c</fullName>
         <description>To display images in the list view based on the points</description>
         <externalId>false</externalId>
-        <formula>true</formula>
+        <formula>"hot"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>PointsSummary</label>
         <required>false</required>
