@@ -43,7 +43,7 @@ public without sharing class taskRecordViewOnCampaignController
             {
                 for(AccountShare accShr : sharedAccountList)
                 {
-                    if(accountContactIdMap.containsKey(accShr.AccountId) && accShr.UserOrGroup.Name != null && accShr.UserOrGroup.Name != '' && accShr.UserOrGroup.Name == currentUser.Account.Dealer_ND_Code__c)
+                    if(accountContactIdMap.containsKey(accShr.AccountId) && accShr.UserOrGroup.Name != null && accShr.UserOrGroup.Name != '' && accShr.UserOrGroup.Name == currentUser.Contact.Account.Dealer_ND_Code__c)
                     {
                         accountGroupNameMap.put(accountContactIdMap.get(accShr.AccountId), accShr.UserOrGroup.Name);
                     }              
@@ -55,7 +55,7 @@ public without sharing class taskRecordViewOnCampaignController
                 for(Task tsk: taskList)
                 {
                     system.debug(accountGroupNameMap + '  *$*$*$*$*   ' + accountGroupNameMap.get(tsk.WhoId));
-                    if(accountGroupNameMap.get(tsk.WhoId) != null && accountGroupNameMap.get(tsk.WhoId).startsWith('MBK')  && accountGroupNameMap.containsKey(tsk.WhoId) && accountGroupNameMap.get(tsk.WhoId) == currentUser.Account.Dealer_ND_Code__c)
+                    if(accountGroupNameMap.get(tsk.WhoId) != null && accountGroupNameMap.get(tsk.WhoId).startsWith('MBK')  && accountGroupNameMap.containsKey(tsk.WhoId) && accountGroupNameMap.get(tsk.WhoId) == currentUser.Contact.Account.Dealer_ND_Code__c)
                     {
                         showTaskList.add(tsk);
                     }
