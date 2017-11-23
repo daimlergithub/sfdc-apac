@@ -26129,10 +26129,6 @@
         <layout>Task-OB Task</layout>
         <recordType>Task.OB_Task</recordType>
     </layoutAssignments>
-	<layoutAssignments>
-        <layout>Task-SMS with History Response</layout>
-        <recordType>Task.KaKao</recordType>
-    </layoutAssignments>
     <layoutAssignments>
         <layout>Task-SMS with History Response</layout>
         <recordType>Task.SMS</recordType>
@@ -26268,7 +26264,7 @@
         <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
 	<layoutAssignments>
-        <layout>Task-KakaoTalk</layout>
+        <layout>Task-SMS with History Response</layout>
         <recordType>Task.KakaoTalk</recordType>
     </layoutAssignments>
     <loginIpRanges>
@@ -27810,11 +27806,6 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Task.IB_Call</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>	
-	<recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Task.KaKao</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

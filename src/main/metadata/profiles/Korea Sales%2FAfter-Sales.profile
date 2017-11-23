@@ -25378,10 +25378,10 @@
         <layout>Template__c-KakaoTalk</layout>
         <recordType>Template__c.KakaoTalk</recordType>
 </layoutAssignments>
-<layoutAssignments>
-        <layout>Task-KakaoTalk</layout>
+    <layoutAssignments>
+        <layout>Task-SMS with History Response</layout>
         <recordType>Task.KakaoTalk</recordType>
-</layoutAssignments>
+    </layoutAssignments>
   <layoutAssignments>
         <layout>Account-Company Layout</layout>
         <recordType>Account.CompanyManualMerge</recordType>
@@ -26140,10 +26140,6 @@
     <layoutAssignments>
         <layout>Task-OB Task</layout>
         <recordType>Task.OB_Task</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
-        <layout>Task-SMS with History Response</layout>
-        <recordType>Task.KaKao</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-SMS with History Response</layout>
@@ -27826,11 +27822,6 @@
         <recordType>Task.IB_Call</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Task.KaKao</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.MBDA_Survey</recordType>
@@ -27886,11 +27877,11 @@
         <recordType>Template__c.KakaoTalk</recordType>
         <visible>true</visible>
 </recordTypeVisibilities>
-<recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.KakaoTalk</recordType>
         <visible>true</visible>
-</recordTypeVisibilities>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.ChildrenMMSTemplate</recordType>
