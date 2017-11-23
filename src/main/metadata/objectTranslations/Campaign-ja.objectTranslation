@@ -2308,28 +2308,8 @@
         <name>DM_Material_is_Required</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Expected Outcome fields should not be more than 100. --></errorMessage>
-        <name>Expected_Outcome_Fields</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- You cann&apos;t change this record when Status is published or closed. --></errorMessage>
         <name>Locked_for_Central_when_Published</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- You cann&apos;t change this record when Status is published. --></errorMessage>
-        <name>Locked_for_MB_BP_when_Published</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- “BP Start Date”, “BP End Date”, “Retail Start Date”, “Retail Due Date”, “Region Due Date”, “Region Best Number” and “Region Recommend Number” are required. --></errorMessage>
-        <name>MB_BP_fields_are_required_when_Publish</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Segmentation criteria is on --></errorMessage>
-        <name>Make_segementation_date_inactive</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage>キャンペーン状況が開始済みでない場合、有効にすることはできません。</errorMessage>
-        <name>Only_Started_Campaign_can_be_activated</name>
     </validationRules>
     <validationRules>
         <errorMessage>キャンペーンステータスが「実施中」の場合、「開始日」を変更できません</errorMessage>
@@ -2344,32 +2324,12 @@
         <name>Parent_Complete_Status_Change</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Previous campaign execution only belong to this parent campaign. --></errorMessage>
-        <name>Previous_Campaign_Execution_Parent</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- Record is Locked --></errorMessage>
         <name>Record_lock_on_campaign</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- SMS task verified can only be true when Execution Type is SMS --></errorMessage>
-        <name>SMS_Task_Verified_is_True</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required. --></errorMessage>
         <name>SMS_eDM_Template_is_Required</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Start Date can not be less than Today --></errorMessage>
-        <name>Start_Date_And_End_date</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Start Date can not be less than Today --></errorMessage>
-        <name>Start_date_can_not_be_equal_to_Today</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Segmentation Date is Required --></errorMessage>
-        <name>Use_Segmentation_Criteria</name>
     </validationRules>
     <validationRules>
         <errorMessage>キャンペーンチャネルは作成時に有効にすることはできません。</errorMessage>

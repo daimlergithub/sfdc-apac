@@ -31,7 +31,7 @@ public class DMRequestHelperKR
 	    	set<string> dealerCompNdCodeSet = new set<string>();
 	    	list<Group> dealerCompGroupList = new list<Group>();
 	    	Id dealerAccountRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	    	User currentUser = [select Id, Account.Dealer_Type__c, Account.Dealer_GC_Code__c, Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
+	    	User currentUser = [select Id, Contact.Account.Dealer_Type__c, Contact.Account.Dealer_GC_Code__c, Contact.Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
 	    	list<Account> dealerAccountList = new list<Account>();
 	    	
 	    	if(currentUser.Account.Dealer_Type__c == 'Outlet')
