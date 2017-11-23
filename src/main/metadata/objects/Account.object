@@ -12732,6 +12732,11 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>TDS</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
