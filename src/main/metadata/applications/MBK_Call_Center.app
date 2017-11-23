@@ -1333,7 +1333,7 @@
     <tab>Account_Link__c</tab>
     <tab>standard-Knowledge</tab>
     <tab>standard-KnowledgePublishing</tab>
-	<tab>Campaign_Member__c</tab>
+	<!--<tab>Campaign_Member__c</tab>-->
     <tab>MBK_Message_Logs</tab>
     <tab>MBK_Customer_Search</tab>
     <workspaceMappings>
@@ -1341,9 +1341,9 @@
             <fieldName>fromRole__c</fieldName>
             <tab>Account_Link__c</tab>
         </mapping>
-		<mapping>
+		<!--<mapping>
             <tab>Campaign_Member__c</tab>
-        </mapping>
+        </mapping>-->
         <mapping>
             <fieldName>Car_Model__c</fieldName>
             <tab>DM_Material__c</tab>
