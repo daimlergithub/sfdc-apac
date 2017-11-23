@@ -308,9 +308,9 @@
                           {!ParAcc.Mobile__c}
                          </a>                         
                        </apex:outputPanel>  
-                       <apex:inputCheckbox rendered="{!IF(AND(ParAcc.Mobile__c!=NULL,ParAcc.RecordType.Name='Person Account'),true,false)}" value="{!mobileCheckbox}" style="float:Right;" disabled="true"/> 
-                      <apex:inputCheckbox rendered="{!IF(ParAcc.RecordType.Name='Company',true,false) && !!editMode}" value="{!ParAcc.Mobile_Phone_Checkbox__c}" style="float:Right;" /> 
-                      <apex:inputCheckbox rendered="{!IF(ParAcc.RecordType.Name='Company',true,false) && !editMode}" value="{!ParAcc.Mobile_Phone_Checkbox__c}" style="float:Right;" disabled="true" />   
+                        
+                      <apex:inputCheckbox rendered="{!IF(OR(ParAcc.RecordType.Name='Company',ParAcc.RecordType.Name='Person Account'),true,false) && !!editMode}" value="{!ParAcc.Mobile_Phone_Checkbox__c}" style="float:Right;" /> 
+                      <apex:inputCheckbox rendered="{!IF(OR(ParAcc.RecordType.Name='Company',ParAcc.RecordType.Name='Person Account'),true,false) && !editMode}" value="{!ParAcc.Mobile_Phone_Checkbox__c}" style="float:Right;" disabled="true" />   
                        </td> 
                        <td>
                        <!--MD changes - Added by Santosh Mohanty -->
@@ -357,8 +357,8 @@
                              {!ParAcc.Individual_Home_Phone__c}
                          </a>
                    </apex:outputPanel> 
-                   <apex:inputCheckbox rendered="{!IF(ParAcc.RecordType.Name='Company',true,false)&& !!editMode}" value="{!ParAcc.home_Phone_Checkbox__c}" style="float:Right;" />    
-                   <apex:inputCheckbox rendered="{!IF(ParAcc.RecordType.Name='Company',true,false) && !editMode}" value="{!ParAcc.home_Phone_Checkbox__c}" style="float:Right;" disabled="true" />   
+                   <apex:inputCheckbox rendered="{!IF(OR(ParAcc.RecordType.Name='Company',ParAcc.RecordType.Name='Person Account'),true,false)&& !!editMode}" value="{!ParAcc.home_Phone_Checkbox__c}" style="float:Right;" />    
+                   <apex:inputCheckbox rendered="{!IF(OR(ParAcc.RecordType.Name='Company',ParAcc.RecordType.Name='Person Account'),true,false) && !editMode}" value="{!ParAcc.home_Phone_Checkbox__c}" style="float:Right;" disabled="true" />   
                        </td> 
                        <td>
                        <!--MD changes - Added by Santosh Mohanty -->
@@ -403,8 +403,8 @@
                         {!ParAcc.Work_Phone__c}
                         </a> 
                        </apex:outputPanel>     
-                       <apex:inputCheckbox rendered="{!IF(ParAcc.RecordType.Name='Company',true,false)&& !!editMode}" value="{!ParAcc.Work_Phone_Checkbox__c}" style="float:Right;"  />
-                       <apex:inputCheckbox rendered="{!IF(ParAcc.RecordType.Name='Company',true,false) && !editMode}" value="{!ParAcc.Work_Phone_Checkbox__c}" style="float:Right;" disabled="true" />          
+                       <apex:inputCheckbox rendered="{!IF(OR(ParAcc.RecordType.Name='Company',ParAcc.RecordType.Name='Person Account'),true,false)&& !!editMode}" value="{!ParAcc.Work_Phone_Checkbox__c}" style="float:Right;"  />
+                       <apex:inputCheckbox rendered="{!IF(OR(ParAcc.RecordType.Name='Company',ParAcc.RecordType.Name='Person Account'),true,false) && !editMode}" value="{!ParAcc.Work_Phone_Checkbox__c}" style="float:Right;" disabled="true" />          
                        </td> 
                        <td>
                        <!--MD changes - Added by Santosh Mohanty -->

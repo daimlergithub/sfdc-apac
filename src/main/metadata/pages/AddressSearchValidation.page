@@ -964,7 +964,8 @@
                     
                    <!-- <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>-->
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
-                    <!--<apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>-->
+                    <apex:commandButton action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!If(market=='KR',true,false)}"/>
+                 <!--Commented sfdckr1464<apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>-->
                     <!--PR20170918--Start-->
                     <!--<apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />-->
                      <apex:outputPanel >
@@ -979,14 +980,14 @@
                     <!--<apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>-->
                     
                     <apex:outputPanel rendered="{!firstsave}" >
-                        <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(OR(Market =='JP',Market =='KR'),True,false)}" onClick="this.disabled=true;" oncomplete="this.disabled=false;" rerender="redirectPanel,msgs" status="actStatusId"/>
+                        <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(Market =='JP',True,false)}" onClick="this.disabled=true;" oncomplete="this.disabled=false;" rerender="redirectPanel,msgs" status="actStatusId"/>
                         <apex:commandButton id="SavebtnTH" action="{!saveAccountTH}" value="{!$Label.Save_Button}" rendered="{!if(Market =='TH',True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     <!--MT20170909- Added Button for Malaysia-->        
                      <apex:commandButton id="SavebtnMY" action="{!saveAccountMY}" value="{!$Label.Save_Button}" rendered="{!if($Permission.MYGeneric,True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>     
                         <!--MT20170909-->
                     </apex:outputPanel>
                     <apex:outputPanel rendered="{!secondsave}">
-                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}"  rendered="{!if(OR(Market =='JP',Market =='KR'),True,false)}"  status="actStatusId"/>
+                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}"  rendered="{!if(Market =='JP',True,false)}"  status="actStatusId"/>
                     </apex:outputPanel>                                  
                     
                     <apex:outputPanel id="redirectPanel">                  
@@ -1123,8 +1124,9 @@
                  <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!IF(( displayAccList.size!=0 && $Permission.MYGeneric), true, false)}" id="frm">     
                      <apex:pageBlockSection columns="1">-->
             <!--PR20170918--Start-- Introduced for Thailand. Shows Customer Search Result from CDM via Informatica-->
-                <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
-                    <apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
+            <!--    <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">-->
+                    <apex:pageBlock title="Match Found" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
+					<apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
                         <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="Th">   
                             <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!($User.ContactId !=null && recordType == 'Person Account')}">  
                                 <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.LastName}</apex:outputLink>    
