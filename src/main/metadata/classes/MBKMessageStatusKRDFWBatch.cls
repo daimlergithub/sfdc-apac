@@ -45,7 +45,7 @@ global class MBKMessageStatusKRDFWBatch implements Database.AllowsCallouts, Data
 			String			errMsg	= '';
 			String dataJson = '{"Data":'+g.getAsString()+'}';
 
-			req.setEndpoint(system.label.MBK_Message_URL);
+			req.setEndpoint(UtilCustomSettings.getWebserviceUrl('EPUrlSfdcMBKMessage'));
 			req.setHeader('Content-Type', system.label.MBK_Message_ContentType);
 			req.setHeader('Accept', system.label.MBK_Message_ContentType);
 			req.setMethod('POST');
@@ -54,44 +54,48 @@ global class MBKMessageStatusKRDFWBatch implements Database.AllowsCallouts, Data
 			res = http.send(req);
 		
 			integer statusCode = res.getStatusCode();
-			Map<String, Object> ReturnDatas = new Map<String, Object>();
+			List<Object> ReturnDatas = new List<Object>();
 			if(statusCode != 200) {
 				//API 전송실패
-				errMsg = res.getStatus();
-				ReturnDatas = (Map<String, Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
-				//step1
-				map<String, Object> error = (map<String, Object>)ReturnDatas.get('error');
-				//step2
-				Integer code = (Integer)error.get('code');
-				String message = (String)error.get('message');
-				map<String, Object> details = (map<String, Object>)error.get('details');
-				//step3
-				String extra = String.valueOf(details.get('extra'));						
+				errMsg = res.getStatus();				
 				for(MBK_Messages__c temp:mbkMessages){
-					temp.code__c = String.valueOf(code);
-					temp.altMsg__c = message+':'+extra;
+					temp.code__c = String.valueOf(statusCode);
+					temp.altMsg__c = errMsg;
 					temp.processed__c = true;
 					temp.Status__c = 'Fail';
 				}
 			}else{
-				ReturnDatas = (Map<String, Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
-				//step1
-				map<String, Object> Out = (map<String, Object>)ReturnDatas.get('Out');
-				String sndDtm = (String)ReturnDatas.get('sndDtm');
-				String rcptDtm = (String)ReturnDatas.get('rcptDtm'); 
-				//Step2
-				Integer altCode = (Integer)Out.get('sndDtm');
-				String altMsg = (String)Out.get('altMsg');
-				for(MBK_Messages__c temp:mbkMessages){
-					temp.sn__c = '';
-					temp.code__c = String.valueOf(statusCode);
-					temp.altCode__c = String.valueOf(altCode);
-					temp.altMsg__c = altMsg;
-					temp.sndDtm__c = sndDtm;
-					temp.rcptDtm__c = rcptDtm;
-					temp.processed__c = true;
-					temp.Status__c = 'Completed';
-				}		
+				ReturnDatas = (List<Object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
+				for(Object rData:ReturnDatas){
+	    			map<String, object> resData = (map<String, object>)rData;
+					String sn = resData.get('sn') == null ? '' : (String)resData.get('sn');
+				    String custMsgSn = resData.get('custMsgSn') == null ? '' : (String)resData.get('custMsgSn');
+					String code = resData.get('code') == null ? '' : (String)resData.get('code');
+				    String altCode = resData.get('altCode') == null ? '' : (String)resData.get('altCode');
+				    String altMsg = resData.get('altMsg') == null ? '' : (String)resData.get('altMsg');
+				    String smsCode = resData.get('smsCode') == null ? '' : (String)resData.get('smsCode');
+				    String smsMsg = resData.get('smsMsg') == null ? '' : (String)resData.get('smsMsg');
+				    String rcptDtm = resData.get('rcptDtm') == null ? '' : (String)resData.get('rcptDtm');
+				    String sndDtm = resData.get('sndDtm') == null ? '' : (String)resData.get('sndDtm');
+					for(MBK_Messages__c temp:mbkMessages){
+						if(custMsgSn == String.valueOf(temp.Id)){
+							temp.sn__c = sn;
+							temp.code__c = code;
+							temp.altCode__c = altCode;
+							temp.altMsg__c = altMsg;
+							temp.sndDtm__c = sndDtm;
+							//temp.smsCode__c = smsCode;
+							temp.smsMsg__c = smsMsg;
+							temp.rcptDtm__c = rcptDtm;
+							temp.processed__c = true;
+							if(code <> 'AS' && code <> 'SS') temp.Status__c = 'Completed';
+							else if(code <> 'EW') temp.Status__c = 'Send';
+							else if(altCode == '0000') temp.Status__c = 'Completed';
+							else temp.Status__c = 'Fail';
+						}
+					}
+	    			
+				}			
 			}
 	        update mbkMessages;	
 
