@@ -678,6 +678,15 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>istestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>istestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Personal_Agreement__c</fullName>
         <defaultValue>false</defaultValue>
