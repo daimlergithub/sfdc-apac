@@ -20,7 +20,7 @@ public class LeadMergeController{
     public Boolean hasSuspectLeads          {get; set;}      
     public String chosenSlaveId             {get; set;}
     public String chosenMasterId            {get; set;}
-    public Lead__c leads                    {get; set;} 
+    public  Lead__c leads                    {get; set;} 
     public set<string> SoqlFieldset;
     public List<LeadWrapperclass> slaves{ get; set; }
     public  List<SurveyTaker__c> surtake{set;get;}
@@ -256,7 +256,8 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
          public pageReference  getSelectedMaster()
          {
          //isMasterSelected=ApexPages.currentPage().getParameters().get('idselecteds');  
-          isMasterSelected=ApexPages.currentPage().getParameters().get('idselecteds');  
+          isMasterSelected=ApexPages.currentPage().getParameters().get('idselecteds'); 
+          system.debug('+++++isMasterSelected++++++++'+isMasterSelected);
           isSlaveSelected=ApexPages.currentPage().getParameters().get('idselected');   
            MastertoChild=true;
            if(isSlaveSelected ==null && isMasterSelected !=null)
@@ -267,6 +268,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
            selectedValue=selectedValue;
            chosenMasterId=chosenMasterId; 
            } 
+           system.debug('+++++++++++++'+master);
          //  MergeLead();
           PageReference pr = new PageReference('/apex/LeadMerge?Id='+chosenMasterId+'&'+System.Label.slaveId+'='+chosenSlaveId+'&retURL=/apex/SelectSlaveLead?Id='+chosenSlaveId+'&selectedValue='+selectedValue);
           pr.setRedirect(true);
@@ -324,6 +326,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
             System.debug('%^%^%^%^%^^%^%^ chosenMasterId'+chosenMasterId);
           System.debug('%^%^%^%^%^^%^%^ chosenSlaveId'+chosenSlaveId);
            System.debug('%^%^%^%^%^^%^%^ selectedValue'+selectedValue);
+           system.debug('+++++mastermastermaster++++++++'+master);
           
           PageReference pr = new PageReference('/apex/LeadMerge?Id='+chosenMasterId+'&'+System.Label.slaveId+'='+chosenSlaveId+'&retURL=/apex/SelectSlaveLead?Id='+chosenSlaveId+'&selectedValue='+selectedValue);
           pr.setRedirect(true);
@@ -347,7 +350,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         soql+='Id';
         System.debug('%^%^%^%^%^%^%^%^%^%^%^% soql query'+soql);
         return Database.query(soql + 
-            ',recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
+            ',Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 
@@ -507,14 +510,17 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         
         public LeadWrapperclass(Lead__c a){
             acc = a;
+            system.debug('++++++acc++++++++'+acc);
         }  
      }
      public PageReference MergeLead() {        
         User usr;
                     
            getSelectedMaster();
+           
         //    getSelected();
-            
+            system.debug('+++AFTER METHOD++++++'+master);
+             
          
         try {
             usr = [SELECT Id FROM User 
@@ -527,11 +533,21 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
             return null;
         }
         // Update Master
+        master = new Lead__c();
+        master =getQueriedLead(leads.id);
+        slave = getQueriedLead(selectedValue);
+        
+        system.debug('++++++AFTERlOOP+++++++'+master);
         for (LeadWrapper wrap : wraps) {           
             if (wrap.isSlaveChecked) {
                 master.put(wrap.fieldAPI, slave.get(wrap.fieldAPI));
+                system.debug('+++++++++++++'+master);
+                
             }
+            
+           
         }
+        system.debug('++++++AFTERfORlOOP+++++++'+master);
          
          if(MasterRecordTypeName== 'Sales Leads'){              
           slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead__c', 
@@ -562,7 +578,8 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
          
         // Set SavePoint, if slave DML failed, master DML should be rollback .
         SavePoint sp = Database.setSavepoint();        
-        try {          
+        try {  
+           system.debug('+++++NearUpdate++++++++++'+master);        
              update master;
             update slave;
            // update dmstr;
@@ -571,9 +588,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         catch (DMLException e) {
             Database.rollback(sp);
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 
-                e.getDMLMessage(0)));
+               e.getDMLMessage(0)));
             return null;
-        }        
+       }    
+       system.debug('+++++Nearreference++++++++++'+master.id);     
         return new PageReference('/' + master.Id);
     }
     /** 
