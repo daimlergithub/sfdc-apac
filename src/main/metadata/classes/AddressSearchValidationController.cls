@@ -64,7 +64,9 @@ public class AddressSearchValidationController
     // KOREA related parameters - End
     Public boolean mbkdatasource {get;set;}
     Public boolean datasource {get;set;}
-    
+    Public boolean MBKrefreshPage {get;set;}
+    public boolean MBKNoMatch{get;set;}
+	
     //Introduced for TH market
     public String requestLabel{get;set;}
     public String LanguageSelected{get; set;}
@@ -139,7 +141,8 @@ public class AddressSearchValidationController
         
         //Introduced for TH market
         IsForeignNational=false;
-        
+        MBKNoMatch=false;
+        MBKrefreshPage= false;   
         // refreshPage = false;        
         u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
@@ -357,7 +360,12 @@ public class AddressSearchValidationController
     
     public pagereference saveAccount(){    
         
-        
+        if( market == System.Label.KR){
+       onLineDeduplication();
+       if(MBKrefreshPage==true&& MBKNoMatch==false){
+       System.debug('------entering Save3'); return null;
+       }
+       }
         if(addresspicklist!=null)
         AddressObj.Address_Type__c = addresspicklist;
         //AddressObj.Province__c = provincepicklist;
@@ -1727,9 +1735,14 @@ If the user is Saving  same address which matches the fields returned by toleran
                    }
                 }
              //   show = true;
-                if(response.CustomerIdentificationResponseMessage ==null)
+                if(response.CustomerIdentificationResponseMessage ==null && market != System.Label.KR)
+                {                                 
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                                
+                }
+                else if(response.CustomerIdentificationResponseMessage ==null && market == System.Label.KR)
                 {
-                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                    MBKNoMatch=true; 
                 }
                 lstAcc = [Select Name,MD__c,DMS_Customer_ID__c,Company_Name__c,FirstName,LastName,Phone ,Email__c,
                          Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c,PersonHasOptedOutOfEmail,
@@ -1743,10 +1756,12 @@ If the user is Saving  same address which matches the fields returned by toleran
                 cResult = lstAcc;  
                 System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );
                 System.debug('@@@@@@@    lstAcc   cResult '+cResult );
-                if(market == System.Label.KR && lstAcc != null && !lstAcc.isEmpty() && Userinfo.getUserType() == 'PowerPartner')
+                if(market == System.Label.KR && lstAcc != null && !lstAcc.isEmpty() )
                 {
                     system.debug('Entered>>>>');
-                    AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                    MBKrefreshPage= true;
+                    //AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.MBK_ONLINE_DEDUP_CHECKUP));
                 }
             }
             if(response == null)
@@ -1921,9 +1936,9 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 
                 
-                if(response.CustomerIdentificationResponseMessage ==null)
-                {
-                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+               if(response.CustomerIdentificationResponseMessage ==null && market != System.Label.KR){
+                
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
                 
                 lstAcc = [Select Name,MD__c,DMS_Customer_ID__c,Company_Name__c,FirstName,LastName,Phone ,Email__c,
@@ -1938,10 +1953,11 @@ If the user is Saving  same address which matches the fields returned by toleran
                 cResult = lstAcc;  
                 System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );
                 System.debug('@@@@@@@    lstAcc   cResult '+cResult );
-                if(market == System.Label.KR && lstAcc != null && !lstAcc.isEmpty() && Userinfo.getUserType() == 'PowerPartner')
+                if(market == System.Label.KR && lstAcc != null && !lstAcc.isEmpty())
                 {
                     system.debug('Entered>>>>');
-                    AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                    //AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.MBK_ONLINE_DEDUP_CHECKUP));
                 }
             }
             if(response == null)
