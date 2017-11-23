@@ -34,12 +34,8 @@ private class TestCtrlMessageServiceKRDFW {
     }
     static testMethod void myUnitTest() {
         // TO DO: implement unit test
-        Account acc = [SELECT Id FROM Account limit 1];
-        acc.Personal_Agreement__c = 'Yes';
-        acc.Personal_Information_Third_Party_Release__c = 'Yes';
-        acc.Personal_Abroad_Agreement__c = 'Yes';
-        acc.Agreement_to_commit_info_processing__c = 'Yes';
-        update acc;
+        Account acc = [SELECT Id FROM Account WHERE Personal_Agreement__c = 'Yes' AND Personal_Information_Third_Party_Release__c = 'Yes'
+        				AND Personal_Abroad_Agreement__c = 'Yes' AND Agreement_to_commit_info_processing__c = 'Yes' limit 1];
         
         Apexpages.currentPage().getParameters().put('id', acc.Id);
         CtrlMessageServiceKRDFW cmsk = new CtrlMessageServiceKRDFW();
@@ -71,14 +67,9 @@ private class TestCtrlMessageServiceKRDFW {
         // TO DO: implement unit test
         Lead__c lead = [SELECT Id, Contact__r.Personal_Agreement__c, Contact__r.Personal_Information_Third_Party_Release__c,
         						Contact__r.Personal_Abroad_Agreement__c, Contact__r.Agreement_to_commit_info_processing__c
-          				FROM Lead__c limit 1];
-		Account acc = lead.Contact__r;
-        acc.Personal_Agreement__c = 'Yes';
-        acc.Personal_Information_Third_Party_Release__c = 'Yes';
-        acc.Personal_Abroad_Agreement__c = 'Yes';
-        acc.Agreement_to_commit_info_processing__c = 'Yes';
-        update acc;     
-        
+          				FROM Lead__c WHERE Contact__r.Personal_Agreement__c = 'Yes' AND Contact__r.Personal_Information_Third_Party_Release__c = 'Yes'
+        				AND Contact__r.Personal_Abroad_Agreement__c = 'Yes' AND Contact__r.Agreement_to_commit_info_processing__c = 'Yes' limit 1];
+
         Apexpages.currentPage().getParameters().put('id', lead.Id);
         CtrlMessageServiceKRDFW cmsk = new CtrlMessageServiceKRDFW();  
 
@@ -87,13 +78,6 @@ private class TestCtrlMessageServiceKRDFW {
     						Account.Personal_Abroad_Agreement__c, Account.Agreement_to_commit_info_processing__c 
     						FROM Contact WHERE Id =: myCase.ContactId];
     					
-		Account acc2 = con.Account;
-        acc2.Personal_Agreement__c = 'Yes';
-        acc2.Personal_Information_Third_Party_Release__c = 'Yes';
-        acc2.Personal_Abroad_Agreement__c = 'Yes';
-        acc2.Agreement_to_commit_info_processing__c = 'Yes';
-        update acc2;  
-
         Apexpages.currentPage().getParameters().put('id', myCase.Id);
         CtrlMessageServiceKRDFW cmsk1 = new CtrlMessageServiceKRDFW();
         
