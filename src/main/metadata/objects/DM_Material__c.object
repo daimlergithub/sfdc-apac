@@ -2154,8 +2154,16 @@ var market = '{!DM_Material__c.MD__c}';
 
 if(market == 'KR') 
 { 
+if('{!User.ContactId}' !='') 
+{ 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/DealerSearchPage?Id={!DM_Material__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+} 
+else if('{!User.ContactId}' =='') 
+{ 
 var myWindow = window.open("/apex/DealerSearchPage?Id={!DM_Material__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
-}else 
+} 
+}
+else 
 { 
 alert('This button is for Korea'); 
 }</url>
