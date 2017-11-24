@@ -14,24 +14,6 @@ Private Static List<String> filterOptions ;
  Private Static  List<SelectOption> RetailSalesSanction;
 Private Static Retail_Campaign__c rc;
 Private Static  List<SelectOption> getItems;
- Private Static List<SelectOption> gender;
- Private Static List<SelectOption> personalAgreement;
- Private Static List<SelectOption> hobbies;
- Private Static List<SelectOption> idType;
- Private Static List<SelectOption> Occupation;
- Private Static List<SelectOption> province;
- Private Static List<SelectOption> nationality;
- 
-        Private Static Account account;
-        Private Static Lead__c lead;
-        Private Static Vehicle__c vehicle;
-        Private Static Vehicle_Relationship__c vehicleRel;
-        Private Static Campaign CampaignRec;
-        Private Static Account_Link__c AlkRec;
-        Private Static Retail_Task__c RatilTask;
-        Private Static Address__c  address;
-        Private Static campaign_member__C camMem;
-        
     public static String filtername = 'Name';
  
     public static testMethod void testRetailCampaignSegmentationController()
@@ -67,10 +49,10 @@ Private Static  List<SelectOption> getItems;
                 
                 String filterString = '[{"name":"Filter One", "content":{"Customer":[{"field":"PersonBirthdate","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"PersonEmail","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Retail_Interested_Vehicle_Class__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Retail_Interested_Vehicle_Class__c","operation":"Not Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"filter two", "content":{"Customer":[{"field":"FileName__c","operation":"Less Than","criteria":"11","logic":"AND","bracket":false},{"field":"Hobby__c","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Lead_Source__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Lead_Type__c","operation":"Greater Than","criteria":"33","logic":"","bracket":false}],"Vehicle":[{"field":"Baumuster__c","operation":"Equals","criteria":"11","logic":"AND","bracket":true},{"field":"Baumuster__c","operation":"Not Equals","criteria":"22","logic":"AND","bracket":false},{"field":"Baumuster__c","operation":"Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"Filter Three", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"","bracket":false}]}}]';
                 
-                PageReference retailCampaignSegmentation = Page.SegmentationCriteria_TH;
+                PageReference retailCampaignSegmentation = Page.SegmentationCriteria;
                 retailCampaignSegmentation.getParameters().put('id',rc.id);
                 Test.setCurrentPage(retailCampaignSegmentation);
-                SegmentationCriteriaController_TH  extension = new SegmentationCriteriaController_TH();
+                SegmentationCriteriaController  extension = new SegmentationCriteriaController ();
                 
                  filterOptions = extension.filterOptions;
                 // hobbyOptions = extension.hobbyOptions;
@@ -84,25 +66,7 @@ Private Static  List<SelectOption> getItems;
                 Customerphase = extension.Customerphase;
                 RetailOptOutContactReason = extension.RetailOptOutContactReason;
                 status = extension.status;
-                gender = extension.gender;
-                personalAgreement = extension.personalAgreement;
-                hobbies = extension.hobbies;
-                idType = extension.idType;
-                province = extension.province;
-                nationality = extension.nationality;
-                
-                account = extension.account;
-                lead = extension.lead;
-                vehicle = extension.vehicle;
-                vehicleRel = extension.vehicleRel;
-                CampaignRec = extension.CampaignRec;
-                AlkRec = extension.AlkRec;
-                RatilTask = extension.RatilTask;
-                address = extension.address;
-                camMem = extension.camMem;
-                
-                Occupation = extension.Occupation;
-                SegmentationCriteriaController_TH.saveFilter(filterString);
+                SegmentationCriteriaController.saveFilter(filterString);
                 extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
                // extension.attendedCampaign = 'testCampaign';
                 extension.searchAccount();
@@ -115,30 +79,14 @@ Private Static  List<SelectOption> getItems;
                  //extension.hasnext = True;
                  //extension.hasPrevious= True;                
                 //extension.leadSoql ='Select id,Retail_Campaign_Name__c from Lead__C ';
-               extension.jsonFilter = '{"name":"filterName", "content":{"VehicleRelation":[{"field":"Customer_Type__c","operation":"Equals","criteria":"Demo Car","logic":"","bracket":false}]}}';
-               extension.searchAccount();
-               extension.jsonFilter = '{"name":"filterName", "content":{"Interest":[{"field":"CAC_Lead_Status__c","operation":"Equals","criteria":"New","logic":"","bracket":false}]}}';
-               extension.searchAccount();
-               extension.jsonFilter = '{"name":"filterName", "content":{"AccountLink":[{"field":"Retail_Sales_Sanction__c","operation":"Equals","criteria":"C","logic":"","bracket":false}]}}';
-               extension.searchAccount();
-               extension.jsonFilter = '{"name":"filterName", "content":{"Vehicle":[{"field":"FirstRegistrationDate__c","operation":"Equals","criteria":"10/18/2017","logic":"","bracket":false}]}}';
-               extension.searchAccount();
-               extension.jsonFilter = '{"name":"filterName", "content":{"Campaign":[{"field":"Status__c","operation":"Equals","criteria":"Bounced","logic":"","bracket":false}]}}';
-               extension.searchAccount();
-               extension.jsonFilter = '{"name":"filterName", "content":{"Address":[{"field":"District__c","operation":"Equals","criteria":"Hyderabad","logic":"","bracket":false}]}}';
-               extension.searchAccount();
-               extension.jsonFilter = '{"name":"filterName", "content":{"VehicleRetailcopy":[{"field":"NextInspectionDate__c","operation":"Equals","criteria":"10/20/2017","logic":"","bracket":false}]}}';
-               extension.searchAccount();
-               extension.jsonFilter = '{"name":"filterName", "content":{"VehicleRelation":[{"field":"New_Used__c","operation":"Equals","criteria":"New","logic":"","bracket":false}]}}';
-               extension.searchAccount();
             try{
-                SegmentationCriteriaController_TH.deleteFilter(filtername);
+                SegmentationCriteriaController.deleteFilter(filtername);
                 }catch(Exception e){}
                // extension.getlimitAccounts();
         
             }
             
-            SegmentationCriteriaController_TH  extension = new SegmentationCriteriaController_TH();
+            SegmentationCriteriaController  extension = new SegmentationCriteriaController ();
              filterOptions = extension.filterOptions;
             extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
             extension.searchAccount();
@@ -146,10 +94,10 @@ Private Static  List<SelectOption> getItems;
        else
        {
             Test.starttest();
-            PageReference retailCampaignSegmentation = Page.SegmentationCriteria_TH;
+            PageReference retailCampaignSegmentation = Page.SegmentationCriteria;
             retailCampaignSegmentation.getParameters().put('id',rc.id);
                 Test.setCurrentPage(retailCampaignSegmentation);
-            SegmentationCriteriaController_TH  extension = new SegmentationCriteriaController_TH();
+            SegmentationCriteriaController  extension = new SegmentationCriteriaController ();
             extension.searchAccount();
             //extension.addToCampaign();
            // extension.getlimitAccounts();
