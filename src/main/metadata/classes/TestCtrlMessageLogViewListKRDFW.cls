@@ -19,10 +19,19 @@
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
-@isTest(SeeAllData=true)
+@isTest
 private class TestCtrlMessageLogViewListKRDFW {
 
     static testMethod void myUnitTest() {
+
+		MBK_Messages__c temp = new MBK_Messages__c();
+		temp.channel__c = 'S';
+		temp.custGubun__c = 'benzkr';
+		temp.subject__c = 'test';
+		temp.phoneNum__c = '01055104746';
+		temp.message__c = 'test';
+    	insert temp;    	
+    	
         // TO DO: implement unit test
         CtrlMessageLogViewListKRDFW cmlvl = new CtrlMessageLogViewListKRDFW();
         cmlvl.pageRefresh();
@@ -35,7 +44,6 @@ private class TestCtrlMessageLogViewListKRDFW {
         Boolean aa = cmlvl.LogsHasNext;
         Boolean bb = cmlvl.LogsHasPrevious;
         
-        MBK_Messages__c temp = [SELECT Id FROM MBK_Messages__c limit 1];
         CtrlMessageLogViewListKRDFW.ScheduleSendCancel(temp.Id);
     }
 }
