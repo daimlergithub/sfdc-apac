@@ -451,7 +451,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.objPersonAccount = objAccount;
         JPAcccontroller.saveAccount();
         JPAcccontroller.AddressSearchbyZipCode();
-        JPAcccontroller.validateAddressByZipCode();
+        //JPAcccontroller.validateAddressByZipCode();
         JPAcccontroller.ValidateAddressCode(addressobj);
         JPAcccontroller.getAreacodeItems();
         JPAcccontroller.getMobileAreacodeItems();
