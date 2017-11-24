@@ -19,9 +19,13 @@
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
-@isTest(SeeAllData=true)
+@isTest
 private class TestCtrlMessageServiceKRDFW {
 	private static final String FAKE_RESPONSE = '{"Out":{"custMsgSn":"benz_20171018090700","altCode":"1003","smsMsg":null}}';
+	public static Id parentCampaign_RecordTypeID = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+	public static Id OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+	final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
+	private static String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
 	
 	private class Mock implements HttpCalloutMock {
         public HTTPResponse respond(HTTPRequest req) {
@@ -33,9 +37,21 @@ private class TestCtrlMessageServiceKRDFW {
         }
     }
     static testMethod void myUnitTest() {
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;     	
         // TO DO: implement unit test
-        Account acc = [SELECT Id FROM Account WHERE Personal_Agreement__c = 'Yes' AND Personal_Information_Third_Party_Release__c = 'Yes'
-        				AND Personal_Abroad_Agreement__c = 'Yes' AND Agreement_to_commit_info_processing__c = 'Yes' limit 1];
+		Account acc = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing', Gender__c = 'Male', Phone = '0801801110', Area_code__c = '0101', LastName = '刈乾冠寒刊勘', FirstName = '刈乾冠寒刊勘',
+                                Salutation = 'Unknown', Province__c = 'Shanghai', ZipCode__c= '1002347', Mobile__c = '023482832', Mobile2__c = '035456232',
+                                Primary_Email__c = 'Email1', Primary_Fax__c = 'FAX2', Primary_Phone__c ='Other2', MD__c = 'JP', Industry = 'Other',
+                                Personal_Agreement__c = 'Yes' ,Personal_Information_Third_Party_Release__c = 'Yes',
+        						Personal_Abroad_Agreement__c = 'Yes' ,Agreement_to_commit_info_processing__c = 'Yes',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+        insert acc;				
         
         Apexpages.currentPage().getParameters().put('id', acc.Id);
         CtrlMessageServiceKRDFW cmsk = new CtrlMessageServiceKRDFW();
@@ -64,52 +80,130 @@ private class TestCtrlMessageServiceKRDFW {
     }
     
     static testMethod void myUnitTest1() {
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;     	
         // TO DO: implement unit test
-        Lead__c lead = [SELECT Id, Contact__r.Personal_Agreement__c, Contact__r.Personal_Information_Third_Party_Release__c,
-        						Contact__r.Personal_Abroad_Agreement__c, Contact__r.Agreement_to_commit_info_processing__c
-          				FROM Lead__c WHERE Contact__r.Personal_Agreement__c = 'Yes' AND Contact__r.Personal_Information_Third_Party_Release__c = 'Yes'
-        				AND Contact__r.Personal_Abroad_Agreement__c = 'Yes' AND Contact__r.Agreement_to_commit_info_processing__c = 'Yes' limit 1];
+		Account acc = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing', Gender__c = 'Male', Phone = '0801801110', Area_code__c = '0101', LastName = '刈乾冠寒刊勘', FirstName = '刈乾冠寒刊勘',
+                                Salutation = 'Unknown', Province__c = 'Shanghai', ZipCode__c= '1002347', Mobile__c = '023482832', Mobile2__c = '035456232',
+                                Primary_Email__c = 'Email1', Primary_Fax__c = 'FAX2', Primary_Phone__c ='Other2', MD__c = 'JP', Industry = 'Other',
+                                Personal_Agreement__c = 'Yes' ,Personal_Information_Third_Party_Release__c = 'Yes',
+        						Personal_Abroad_Agreement__c = 'Yes' ,Agreement_to_commit_info_processing__c = 'Yes',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());        
+		insert acc;               
+		                 
+        Lead__c lead = new Lead__c();
+        lead.Contact__c = acc.Id;
+        lead.recordTypeId =afterSalesRecordTypeId;
+        lead.CAC_Lead_Status__c = 'Qualified';
+        lead.Lead_Type__c = 'New Car';
+        lead.Relation_With_The_Leads__c = 'testR';
+        lead.Lead_Desired_Service__c = 'Trade-In';
+        lead.Purchase_Time__c = '0 - 3 months';
+        lead.Interested_Vehicle_Brand__c = 'testI';
+        lead.Trade_In_MB_Vehicle_Model__c = 'benz';
+        lead.Trade_In_Vehicle_Brand__c = 'c230';
+        lead.Trade_In_Vehicle_Class__c = 'C-CLASS';
+        lead.Trade_In_Other_Vehicle_Model__c = 'testT';
+        lead.Interested_Vehicle_Brand__c = 'Smart';
+        insert lead;
 
         Apexpages.currentPage().getParameters().put('id', lead.Id);
         CtrlMessageServiceKRDFW cmsk = new CtrlMessageServiceKRDFW();  
 
-        Case myCase = [SELECT Id, ContactId FROM Case limit 1];
-    	Contact con = [SELECT Id, Account.Id, Account.Personal_Agreement__c, Account.Personal_Information_Third_Party_Release__c,
-    						Account.Personal_Abroad_Agreement__c, Account.Agreement_to_commit_info_processing__c 
-    						FROM Contact WHERE Id =: myCase.ContactId];
-    					
+        Case myCase = new Case( AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt');
+        insert myCase;         
+            					
         Apexpages.currentPage().getParameters().put('id', myCase.Id);
         CtrlMessageServiceKRDFW cmsk1 = new CtrlMessageServiceKRDFW();
         
     }    
     static testMethod void myUnitTest2() {
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;        	
         // TO DO: implement unit test
-        Campaign camp = [SELECT Id FROM Campaign limit 1];
+       Campaign camp = new Campaign(Name='test par', EndDate=System.Today()+10, StartDate=System.Today(), Segmentation_Date__c=system.today(),
+            						RecordtypeID=parentCampaign_RecordTypeID, Status='Responded');
+		insert camp;            
         
         Apexpages.currentPage().getParameters().put('id', camp.Id);
         CtrlMessageServiceKRDFW cmsk = new CtrlMessageServiceKRDFW();
         
         // TO DO: implement unit test
-        Survey__c sur = [SELECT Id FROM Survey__c limit 1];
+        Survey__c survey = new Survey__c();
+        insert survey;
         
-        Apexpages.currentPage().getParameters().put('id', sur.Id);
+        Apexpages.currentPage().getParameters().put('id', survey.Id);
         CtrlMessageServiceKRDFW cmsk2 = new CtrlMessageServiceKRDFW();
+
+		Account acc = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing', Gender__c = 'Male', Phone = '0801801110', Area_code__c = '0101', LastName = '刈乾冠寒刊勘', FirstName = '刈乾冠寒刊勘',
+                                Salutation = 'Unknown', Province__c = 'Shanghai', ZipCode__c= '1002347', Mobile__c = '023482832', Mobile2__c = '035456232',
+                                Primary_Email__c = 'Email1', Primary_Fax__c = 'FAX2', Primary_Phone__c ='Other2', MD__c = 'JP', Industry = 'Other',
+                                Personal_Agreement__c = 'Yes' ,Personal_Information_Third_Party_Release__c = 'Yes',
+        						Personal_Abroad_Agreement__c = 'Yes' ,Agreement_to_commit_info_processing__c = 'Yes',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());      
        
         // TO DO: implement unit test
-        Task task = [SELECT Id FROM Task limit 1];
+		Task taskobj = new Task();
+	    taskobj.RecordTypeId = OBTaskRecordTypeId ;
+	    taskobj.Status='open';
+	    taskobj.Activity_Status__c='Successful';
+	    taskobj.Generate_QC__c = true;
+	    taskobj.whatId = acc.Id;
+		insert taskobj;
         
-        Apexpages.currentPage().getParameters().put('id', task.Id);
+        Apexpages.currentPage().getParameters().put('id', taskobj.Id);
         CtrlMessageServiceKRDFW cmsk3 = new CtrlMessageServiceKRDFW();          
     }       
     
     static testMethod void myTestOrder(){
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;        	
 		//Page Bulk
-        List<Account> lists = [SELECT Id FROM Account limit 3];        
-        String pages = '';
-        for(Account temp:lists){
-        	if(pages == '') pages = temp.Id;
-        	else pages += ','+temp.Id;
-        }
+		List<Account> acclist = new List<Account>();
+		Account acc1 = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing', Gender__c = 'Male', Phone = '0801801110', Area_code__c = '0101', LastName = '刈乾冠寒刊勘', FirstName = '刈乾冠寒刊勘',
+                                Salutation = 'Unknown', Province__c = 'Shanghai', ZipCode__c= '1002347', Mobile__c = '023482832', Mobile2__c = '035456232',
+                                Primary_Email__c = 'Email1', Primary_Fax__c = 'FAX2', Primary_Phone__c ='Other2', MD__c = 'JP', Industry = 'Other',
+                                Personal_Agreement__c = 'Yes' ,Personal_Information_Third_Party_Release__c = 'Yes',
+        						Personal_Abroad_Agreement__c = 'Yes' ,Agreement_to_commit_info_processing__c = 'Yes',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());   
+		Account acc2 = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing', Gender__c = 'Male', Phone = '0801801110', Area_code__c = '0101', LastName = '刈乾冠寒刊勘', FirstName = '刈乾冠寒刊勘',
+                                Salutation = 'Unknown', Province__c = 'Shanghai', ZipCode__c= '1002347', Mobile__c = '023482832', Mobile2__c = '035456232',
+                                Primary_Email__c = 'Email1', Primary_Fax__c = 'FAX2', Primary_Phone__c ='Other2', MD__c = 'JP', Industry = 'Other',
+                                Personal_Agreement__c = 'Yes' ,Personal_Information_Third_Party_Release__c = 'Yes',
+        						Personal_Abroad_Agreement__c = 'Yes' ,Agreement_to_commit_info_processing__c = 'Yes',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());   
+		Account acc3 = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing', Gender__c = 'Male', Phone = '0801801110', Area_code__c = '0101', LastName = '刈乾冠寒刊勘', FirstName = '刈乾冠寒刊勘',
+                                Salutation = 'Unknown', Province__c = 'Shanghai', ZipCode__c= '1002347', Mobile__c = '023482832', Mobile2__c = '035456232',
+                                Primary_Email__c = 'Email1', Primary_Fax__c = 'FAX2', Primary_Phone__c ='Other2', MD__c = 'JP', Industry = 'Other',
+                                Personal_Agreement__c = 'Yes' ,Personal_Information_Third_Party_Release__c = 'Yes',
+        						Personal_Abroad_Agreement__c = 'Yes' ,Agreement_to_commit_info_processing__c = 'Yes',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+		acclist.add(acc1);
+		acclist.add(acc2);
+		acclist.add(acc3);                                                                                                           
+        insert acclist;      
+        String pages = acc1.Id+','+acc2.Id+','+acc3.Id;
         
         MBK_Bulk_Message__c temp = new MBK_Bulk_Message__c();
 		temp.channel__c = 'M';
@@ -127,9 +221,23 @@ private class TestCtrlMessageServiceKRDFW {
     }
 
     static testMethod void myTestOrder2(){
+		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		cs.Name = 'EPUrlSfdcMBKMessage';
+        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs;        	
         // TO DO: implement unit test
+		Account acc1 = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing', Gender__c = 'Male', Phone = '0801801110', Area_code__c = '0101', LastName = '刈乾冠寒刊勘', FirstName = '刈乾冠寒刊勘',
+                                Salutation = 'Unknown', Province__c = 'Shanghai', ZipCode__c= '1002347', Mobile__c = '023482832', Mobile2__c = '035456232',
+                                Primary_Email__c = 'Email1', Primary_Fax__c = 'FAX2', Primary_Phone__c ='Other2', MD__c = 'JP', Industry = 'Other',
+                                Personal_Agreement__c = 'Yes' ,Personal_Information_Third_Party_Release__c = 'Yes',
+        						Personal_Abroad_Agreement__c = 'Yes' ,Agreement_to_commit_info_processing__c = 'Yes',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());           
+        
 		MBK_Messages__c temp = new MBK_Messages__c();
-		temp.Account__c = [SELECT Id FROM Account limit 1].id; 
+		temp.Account__c = acc1.id; 
 		temp.Account_Name__c = '이정우';
 		temp.Set_Sending_Time__c = system.now().addHours(1);
 		temp.channel__c = 'S'; 
