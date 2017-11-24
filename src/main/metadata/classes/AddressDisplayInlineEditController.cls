@@ -34,12 +34,12 @@ public class AddressDisplayInlineEditController {
     public String province {get;set;}
     public String LanguageSelected{get; set;}
     public boolean IsForeignNational{get; set;}
-	public Boolean AutoFill {get;set;}
+  public Boolean AutoFill {get;set;}
     public Boolean DisplayAutoFill {get;set;}
     public User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;  
-		AutoFill = false; 		
+    AutoFill = false;     
         aid = ApexPages.currentPage().getParameters().get('id');
         Address_Validated_Flag = false;
         IsForeignNational=false;
@@ -298,7 +298,7 @@ public class AddressDisplayInlineEditController {
         If(editadds!=null)
         {                     
             addressobj.id=editadds.id;
-			addressobj.Market__c=editadds.Market__c;
+      addressobj.Market__c=editadds.Market__c;
             addressobj.Address_Type__c = editadds.Address_Type__c;
             addresspicklist=editadds.Address_Type__c;
             
@@ -586,8 +586,8 @@ public class AddressDisplayInlineEditController {
         try     
         {       
             Validation=false;   
-			boolean countPre=false;
-			if(province!='' && province!=System.Label.SelectPicklist)      
+      boolean countPre=false;
+      if(province!='' && province!=System.Label.SelectPicklist)      
                 addressobj.Province__c=province;        
             if(district!='' && district!=System.Label.SelectPicklist)      
                 addressobj.District__c=district;        
@@ -598,8 +598,8 @@ public class AddressDisplayInlineEditController {
             string accountid=ApexPages.currentPage().getParameters().get('id');     
             List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid LIMIT 100];        
              
-			if(addressobj.preferred__c == true) countPre=true;
-				
+      if(addressobj.preferred__c == true) countPre=true;
+        
             for(address__c add:objAddresses)        
             {                       
                 if(add.id!=addressobj.id && add.preferred__c==true && countPre==true)      
@@ -614,7 +614,7 @@ public class AddressDisplayInlineEditController {
                     Validation = true;          
                 }                       
             } 
-			
+      
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));        
@@ -761,14 +761,14 @@ public class AddressDisplayInlineEditController {
             }            
         } 
     } 
-	
-	public void AutoFillAddress(){
+  
+  public void AutoFillAddress(){
         AutoFill = true;
         DisplayAutoFill = true;
         ValidateAddressSearch();
         
     }
-	
+  
     /**  Address Validation based on Zip code.
         After Address is searched using Address Search button and if user enters additional address information, It sends information to 
         EP/Tolerant for Validation.
@@ -843,8 +843,8 @@ public class AddressDisplayInlineEditController {
         //Address__c AddressObjtemp1 = new Address__c();       
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(addressobj,Autofill);
-         if(response != null && response.AutoFillMode && AutoFill){
-             for(Integer i=0;i<response.Addresses.size();i++){                
+         if(response != null && response.Addresses!=null && response.AutoFillMode!=null && response.AutoFillMode && AutoFill){
+             for(Integer i=0;i<response.Addresses.size() && response.Addresses[i]!=null;i++){                
                 Address__c AddressObjtable = new Address__c(); 
                 Address_Validated_Flag = true;
                 if(response.Addresses[i].ZipCode != null && response.Addresses[i].ZipCode != ''){           
@@ -1114,7 +1114,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Province__c = cWrapper.add.Province__c;
                 AddressObj.City__c = cWrapper.add.City__c;
                 AddressObj.District__c = cWrapper.add.District__c;
-				AddressObj.Block__c= cWrapper.add.Block__c;
+        AddressObj.Block__c= cWrapper.add.Block__c;
                 AddressObj.ZipCode__c= cWrapper.add.ZipCode__c; 
                 AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;  
                 AddressObj.Address_Line_2__c= cWrapper.add.Address_Line_2__c;  

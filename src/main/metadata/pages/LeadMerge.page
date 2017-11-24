@@ -117,7 +117,7 @@
     
     
     <apex:sectionHeader title="{!$Label.Leadmerge}" subtitle="{!$Label.Master_Account}: {!master.Name}"/>
-    {!$Label.Leadmergeupdated}
+     <apex:outputText value=" {!$Label.Leadmergeupdated}" escape="false" /> 
     <apex:form id="Formaid">
         <apex:pageBlock >
             <apex:pageMessages Id="message"/>            

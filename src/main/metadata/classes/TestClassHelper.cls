@@ -36,7 +36,7 @@ public class TestClassHelper{
     }
     public static User createUser(String lastName,Profile profileInsert,String Market){
         
-        String user_Name = lastName + '@test.com';
+        String user_Name = lastName +String.valueof(DateTime.now().getTime())+ '@test.com';
         User newUser = new User(Alias = 'test', Email='test@testorg.com', 
                                 EmailEncodingKey='UTF-8', LastName=lastName, LanguageLocaleKey='en_US', 
                                 LocaleSidKey='en_US', ProfileId = profileInsert.Id, 

@@ -12486,8 +12486,14 @@ window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_AFTERSALES_REC
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-
-var myWindow = window.open("/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
+if('{!User.ContactId}' !='') 
+{
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+}
+else if('{!User.ContactId}' =='') 
+{
+var myWindow = window.open("/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Manual_Assign</fullName>

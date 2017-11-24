@@ -10,12 +10,28 @@ public class DMRequestHelperTHTest {
     private static  profile ProfileAdmin = [select Id from Profile where Name = 'System Administrator'];
     public static Map<Id,Address__c> newmap = new Map<Id,Address__c>();
     public static List<Address__c> addresslist =new List<Address__c>();
-    
     public static void createTestData(){
-        
+       SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c();
+        sysObj.Log_Purge__c=10;
+        insert sysObj;
         Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerTH',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='TH');
         upsert TriggerAddress;
+         /*CDM_Integration_URLs__c cdm=new CDM_Integration_URLs__c();
+         cdm.Country__c='TH';
+         cdm.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-TH-SARI-SearchPersonAccount?';
+         cdm.Name='SearchPersonAccount';
+         insert cdm;
+         CDM_Integration_URLs__c cdm1=new CDM_Integration_URLs__c();
+         cdm1.Country__c='TH';
+         cdm1.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-TH-SARI-SearchCompanyAccount?';
+         cdm1.Name='SearchCompanyAccount';
+         insert cdm1;*/
         
+         CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+         cs.DEFAULT_CALLOUT_TIME__c='1000';
+         cs.MAX_CALLOUT_TIME__c='5000';
+         cs.Name='CalloutValues';
+         insert cs;
       Profile taskprofile = [select id from profile where Name='System Administrator' limit 1];
         User user = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='sam@test.com.dev01',Market__c = 'TH');
         insert user;
@@ -35,12 +51,10 @@ public class DMRequestHelperTHTest {
         usr.isActive = true;
         usr.Market__C='TH';    
         insert usr;
-        
         account= new Account();
         account.Phone='09844650654';
         account.Email__c = 'testemail@test.com';
         account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account); 
-        
         address=new Address__c();
         address.Address_Type__c='Home';
         address.Province__c='Tokyo';
@@ -52,7 +66,6 @@ public class DMRequestHelperTHTest {
         address.Address_Line_2__c='testaddress2';
         address.Customer__c=account.id;
         insert address;  
-        
         address1=new Address__c();
         address1.Address_Type__c='Other Address 1';
         address1.Province__c='Tokyo';
@@ -75,7 +88,6 @@ public class DMRequestHelperTHTest {
             Material = new DM_Material__c();
             Material.Name='testname';
             insert Material;
-
             dmr = new  DM_Request__c();
             dmr.Status__c='to be sent'; 
             dmr.Customer_Name__c=account.id;
@@ -93,25 +105,18 @@ public class DMRequestHelperTHTest {
     } 
     
     public static testMethod void UpdateDMRequestTest(){
-        //create test data
-         createTestData();
-         createDMRequest();
-        
-        //start test
+        createTestData();
+        createDMRequest();
         test.startTest();
         dmr.Sending_Address__c='Other Address 1';
         update dmr;        
         test.stopTest();
-        //verify test
         dmr=[select Province__c  from DM_Request__c where id=:dmr.id];
-        system.assertEquals(dmr.Province__c, null);           
-        
+        system.assertEquals(dmr.Province__c, null);            
     }
     public static testMethod void updateStatusTest(){
-        //create test data
         createTestData();
         createDMRequest();
-
         system.runAs(usr){
         DM_Request__c dmr1 = new  DM_Request__c();  
         dmr1.Status__c='to be sent'; 
@@ -125,13 +130,10 @@ public class DMRequestHelperTHTest {
         dmr1.Status2__c='Success';
         dmr1.Status1__c='to be sent';
         insert dmr1;
-       
-        //start test
         test.startTest();
         dmr1.Status2__c='to be sent';
         update dmr1;
         test.stopTest();
-        //verify test
         dmr=[select Status2__c   from DM_Request__c where id=:dmr1.id];
         system.assertEquals(dmr.Status2__c, 'Duplicate');
          }

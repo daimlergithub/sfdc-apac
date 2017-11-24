@@ -21,6 +21,7 @@ global class WSMockAddressValidationRespAddrSucess implements WebServiceMock {
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType responseMsg = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         responseMsg.ValidationStatus  = 'OK';
         responseMsg.Addresses = addresses;
+         responseMsg.AutoFillMode= true;
         
         crmasiaDaimlerApacComValidateaddress.ValidateAddressResponse response_x = new crmasiaDaimlerApacComValidateaddress.ValidateAddressResponse();
         response_x.AddressValidationResponseMessage = responseMsg;

@@ -12732,6 +12732,11 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>TDS</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -61386,7 +61391,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Latest_Consent_Date_is_mandatory</fullName>
         <active>true</active>
         <description>If Personal Agreement value is not blank, then latest Consent Date is mandatory.</description>
-        <errorConditionFormula>AND(NOT(ISPICKVAL(Personal_Agreement__c ,'')),ISNULL(Lastest_Consent_Date__c),MD__c = 'TH')</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Personal_Agreement__c ,'')),ISNULL(Lastest_Consent_Date__c),MD__c = 'TH',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Latest Consent Date is mandatory.</errorMessage>
     </validationRules>
     <validationRules>
