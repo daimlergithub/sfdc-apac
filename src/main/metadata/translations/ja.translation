@@ -2274,47 +2274,55 @@
         <name>Leadmerge</name>
     </customLabels> 
 	<customLabels>
-        <label>選択したレコードがマージ先となり左側に表示されます。</label>
+        <label>選択したリードが統合先となり左側に表示されます。</label>
         <name>Please_Select_only_one_as_a_Master</name>
     </customLabels> 
 	<customLabels>
-        <label>車両情報（全てマージ先の値が反映されます）</label>
+        <label>興味車両等（マスタの値が反映され、右側は削除されます）</label>
         <name>vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>興味車両：マージ先</label>
+        <label>興味車両：マスタ</label>
         <name>Interested_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>競合他社車両：マージ先</label>
+        <label>競合他社車両：マスタ</label>
         <name>Interested_competitor_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>現在保有車両１：マージ先</label>
+        <label>現在保有車両１：マスタ</label>
         <name>Current_Vehicle_Details</name>
     </customLabels> 
 	<customLabels>
-        <label>購入済車両：マージ先</label>
+        <label>購入済車両：マスタ</label>
         <name>Purchased_Vehicle_Details</name>
     </customLabels> 
 	<customLabels>
-        <label>興味車両：マージ元</label>
+        <label>興味車両：</label>
         <name>Ch_Interested_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>競合他社車両：マージ元</label>
+        <label>競合他社車両：</label>
         <name>ch_Interested_competitor_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>現在保有車両１：マージ元</label>
+        <label>現在保有車両１：</label>
         <name>ch_Current_Vehicle_Details</name>
     </customLabels> 
 	<customLabels>
-        <label>購入済車両：マージ元</label>
+        <label>購入済車両：</label>
         <name>ch_Purchased_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>表示されている１６項目（興味車両メーカー～購入済車両車台番号）についてはマージ先レコードの値が反映されます。</label>
+        <label>"表示されている16項目（興味車両メーカー～購入済車両車台番号）については統合先レコードの値が反映されます。<br/>
+<br/>
+左側のリードIDがマスターリードとなります。<br/>
+両リードに値が入っている場合は、どちらを残すか選択してください。<br/>
+ただし、興味車両等（画面下部）はマスターリードの値のみが残りますので、<br/>
+興味車両等をご確認の上、リードIDにチェックを入れてマスターリードを選択してください。<br/>
+なお、以下のリードは、自動的にマスターリードとなり、変更できません。<br/>
+リードステータスが、受注・購入済・請求もしくは満了リード・クロスポイントリード<br/>"
+</label>
         <name>Leadmergeupdated</name>
     </customLabels> 
     <customLabels>
@@ -2442,7 +2450,7 @@
         <name>Mass_Calibration_Page_Block_Title</name>
     </customLabels>
     <customLabels>
-        <label>マージ先アカウント</label>
+        <label>統合時項目選択画面</label>
         <name>Master_Account</name>
     </customLabels>
     <customLabels>
@@ -4465,7 +4473,7 @@
         <name>SlashPDF</name>
     </customLabels>
     <customLabels>
-        <label>マージ元レコード</label>
+        <label>統合候補レコード</label>
         <name>Slave_Record</name>
     </customLabels>
     <customLabels>
