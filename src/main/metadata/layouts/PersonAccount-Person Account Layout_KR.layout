@@ -1034,7 +1034,7 @@
         <fields>Booking_Status__c</fields>
         <fields>Booking_Type__c</fields>
         <fields>Cancellation_Reason__c</fields>
-        <relatedList>Booking__c.Sales_Consultant_ID__c</relatedList>
+        <relatedList>Booking__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Vehicle_ID__c</fields>
