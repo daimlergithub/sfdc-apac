@@ -18907,6 +18907,18 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Vehicle_Registration_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Registration Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Vehicle_Relationship__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
