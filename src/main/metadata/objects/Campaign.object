@@ -1238,6 +1238,17 @@
         <type>LongTextArea</type>
         <visibleLines>15</visibleLines>
     </fields>
+	<fields>
+        <fullName>Count_of_converted_leads__c</fullName>
+        <externalId>false</externalId>
+        <label>Count of converted leads</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Create_Task__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1465,6 +1476,17 @@
     <fields>
         <fullName>ExpectedRevenue</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+	<fields>
+        <fullName>Expected_Cars_Sale__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Cars Sale</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Expected_Lead__c</fullName>
@@ -1878,6 +1900,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Message__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
+HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
+HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
+		<label>Message</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Min_Car_Age__c</fullName>
         <description>Min Car Age of the campaign</description>
@@ -1901,6 +1934,17 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>DateTime</type>
+    </fields>
+	<fields>
+        <fullName>Noof_Car_display__c</fullName>
+        <externalId>false</externalId>
+        <label>No Of Cars  Display</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>NumberOfContacts</fullName>
@@ -2653,6 +2697,16 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Space__c</fullName>
+        <externalId>false</externalId>
+        <label>Space</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>StartDate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2893,6 +2947,17 @@
         <label>Use Segmentation Criteria</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Venue__c</fullName>
+        <description>Venue of the Campaign</description>
+        <externalId>false</externalId>
+        <label>Venue</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <listViews>
         <fullName>AllActiveCACCRMCampaigns</fullName>

@@ -376,6 +376,17 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>RetailDealer_ND_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>fromRole__r.Dealer_ND_Code__c</formula>
+        <label>RetailDealer ND Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Dealer_No__c</fullName>
         <externalId>false</externalId>
@@ -663,6 +674,15 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Abroad Agreement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>istestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>istestRunning</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1312,6 +1332,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <unique>false</unique>
     </fields>
 	<fields>
+        <fullName>RetailID_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>toRole__r.ID_Number__c</formula>
+        <label>RetailID Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
 		<fullName>Retail_ID_Type__c</fullName>
         <externalId>false</externalId>
         <label>Retail ID Type</label>
@@ -1347,6 +1378,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>RetailID_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(toRole__r.ID_Type__c)</formula>
+        <label>RetailID Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Individual_Home_Phone__c</fullName>

@@ -57,6 +57,15 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
 	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
@@ -2507,6 +2516,19 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+		<fullName>Owner_Dealer_ND_Code__c</fullName>
+        <description>Retrieves Owner Dealer ND Code</description>
+        <externalId>false</externalId>
+        <formula>Owner_Dealer__r.Dealer_ND_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+        <label>Owner Dealer ND Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Owner_Dealer__c</fullName>
