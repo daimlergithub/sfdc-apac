@@ -1283,7 +1283,7 @@ system.debug('i am here');
     
     System.debug('getDealerRoleCode---'+getownerId);
    
-    Map<ID, User> usershare = new Map<ID, User>([Select Id,Dealer_ND_Code__c,Contact.Account.Dealer_Type__c,Contact.Account.Dealer_GC_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where id in: getownerId and Market__c = 'KR']);
+    Map<ID, User> usershare = new Map<ID, User>([Select Id,Dealer_ND_Code__c,Contact.Account.Dealer_Type__c,Contact.Account.Dealer_GC_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c, Contact.Dealer_Complaint_Gate_Keeper__c, Contact.Dealer_Lead_Gate_Keeper__c from User where id in: getownerId and Market__c = 'KR']);
     System.debug('ownerlist---'+usershare);
     
     
