@@ -31,12 +31,12 @@ public class DMMaterialHelperKR
 	    	set<string> dealerCompNdCodeSet = new set<string>();
 	    	list<Group> dealerCompGroupList = new list<Group>();
 	    	Id dealerAccountRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	    	User currentUser = [select Id, Contact.Account.Dealer_Type__c, Contact.Account.Dealer_GC_Code__c from User where Id =: UserInfo.getUserId()];
+	    	User currentUser = [select Id, Account.Dealer_Type__c, Account.Dealer_GC_Code__c from User where Id =: UserInfo.getUserId()];
 	    	list<Account> dealerAccountList = new list<Account>();
 	    	
-	    	if(currentUser.Contact.Account.Dealer_Type__c == 'Outlet')
+	    	if(currentUser.Account.Dealer_Type__c == 'Outlet')
 	    	{
-	    		dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccountRecTypId and MD__c = 'KR' and Dealer_Type__c = 'Company' and Dealer_GC_code__c =: currentUser.Contact.Account.Dealer_GC_Code__c];
+	    		dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccountRecTypId and MD__c = 'KR' and Dealer_Type__c = 'Company' and Dealer_GC_code__c =: currentUser.Account.Dealer_GC_Code__c];
 	    		if(!dealerAccountList.isEmpty() && dealerAccountList != null)
 	    		{
 	    			for(Account accnt : dealerAccountList)
@@ -70,6 +70,7 @@ public class DMMaterialHelperKR
 			    	{
 			    		for(DM_Material__c dmMtrl : dmMaterialList)
 			    		{
+			    			ownerIdSet.add(dmMtrl.OwnerId);
 			    			for(Id usrId : userIdList)
 			    			{
 			    				DM_Material__Share dmMtrlShare = new DM_Material__Share();
@@ -83,9 +84,9 @@ public class DMMaterialHelperKR
 		    	}
 		    	
 	    	}
-	    	else if(currentUser.Contact.Account.Dealer_Type__c == 'Company')
+	    	else if(currentUser.Account.Dealer_Type__c == 'Company')
 	    	{
-	    		dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccountRecTypId and MD__c = 'KR' and Dealer_GC_code__c =: currentUser.Contact.Account.Dealer_GC_Code__c];
+	    		dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccountRecTypId and MD__c = 'KR' and Dealer_GC_code__c =: currentUser.Account.Dealer_GC_Code__c];
 	    		if(!dealerAccountList.isEmpty() && dealerAccountList != null)
 	    		{
 	    			for(Account accnt : dealerAccountList)
@@ -97,17 +98,36 @@ public class DMMaterialHelperKR
 			    		dealerCompGroupList = [select Id, Name from Group where Name in : dealerCompNdCodeSet];
 			    	}
 	    		}
-	    		if(!dmMaterialList.isEmpty() && dmMaterialList != null && !dealerCompGroupList.isEmpty() && dealerCompGroupList != null)
-		    	{
-		    		for(DM_Material__c dmMtrl : dmMaterialList)
+	    		if(dmMaterialList != null && !dmMaterialList.isEmpty())
+	    		{
+	    			if(dealerCompGroupList != null && !dealerCompGroupList.isEmpty())
+		    		{
+			    		for(DM_Material__c dmMtrl : dmMaterialList)
+				    	{
+				    		for(group grp : dealerCompGroupList)
+				    		{
+				    			DM_Material__Share dmMtrlShare = new DM_Material__Share();
+			    				dmMtrlShare.ParentId = dmMtrl.Id;
+			    				dmMtrlShare.AccessLevel = 'Edit';
+			    				dmMtrlShare.UserOrGroupId = grp.Id;
+			    				insertDMMaterialShareList.add(dmMtrlShare);
+				    		}
+			    		}
+		    		}
+			    	userIdList = utilDealerLevelRecordShare.shareRecordsWithinDealership(ownerIdSet);
+			    	if(!userIdList.isEmpty() && userIdList != null)
 			    	{
-			    		for(group grp : dealerCompGroupList)
+			    		for(DM_Material__c dmMtrl : dmMaterialList)
 			    		{
-			    			DM_Material__Share dmMtrlShare = new DM_Material__Share();
-		    				dmMtrlShare.ParentId = dmMtrl.Id;
-		    				dmMtrlShare.AccessLevel = 'Edit';
-		    				dmMtrlShare.UserOrGroupId = grp.Id;
-		    				insertDMMaterialShareList.add(dmMtrlShare);
+			    			ownerIdSet.add(dmMtrl.OwnerId);
+			    			for(Id usrId : userIdList)
+			    			{
+			    				DM_Material__Share dmMtrlShare = new DM_Material__Share();
+			    				dmMtrlShare.ParentId = dmMtrl.Id;
+			    				dmMtrlShare.AccessLevel = 'Edit';
+			    				dmMtrlShare.UserOrGroupId = usrId;
+			    				insertDMMaterialShareList.add(dmMtrlShare);
+			    			}
 			    		}
 			    	}
 			    }
