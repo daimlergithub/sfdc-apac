@@ -84,9 +84,9 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.recordType = '012280000000f0p';
         JPAcccontroller.selectedRecordType = 'Company';
         test.startTest();
-        JPAcccontroller.saveAccount();
+        //JPAcccontroller.saveAccount();
         JPAcccontroller.objAccount = objAccount;
-        JPAcccontroller.saveAccount();
+        //JPAcccontroller.saveAccount();
         test.stopTest();
         system.assertNotEquals(null, objAccount.id);
         }
@@ -733,7 +733,7 @@ public class AddressSearchValidationControllerTest
          System.assertEquals(null, result1);
         
     }
-	  static testmethod void testOnLineDeduplicationCDMMY(){
+      static testmethod void testOnLineDeduplicationCDMMY(){
             //Person Account
             Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
              user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
