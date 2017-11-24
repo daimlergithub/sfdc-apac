@@ -54,7 +54,7 @@
         <label>KaKao</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Template_ID__c</field>
             </layoutItems>
         </layoutColumns>

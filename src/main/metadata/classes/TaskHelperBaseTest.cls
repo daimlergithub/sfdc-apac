@@ -63,14 +63,16 @@ public class TaskHelperBaseTest {
     }
         
     static testmethod void testTaskFailBlacklistTrigger_Insert()
-    {createTestData();
+    {
+    createTestData();
         System.runas(userTask){
-    taskObj=createTask('Open');
-    Test.startTest(); 
+        taskObj=createTask('Open');
+        Test.startTest(); 
         //8april
         taskObj.recordtypeId = schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();                            
-        insert taskObj;
+        taskObj.Activity_Status__c = 'Fail-Blacklist';
         taskObj.WhatId = personAccount.id;
+        insert taskObj;
         //changes ends
         List<Task> tasks = new List<Task>();
         tasks.add(taskObj);
@@ -80,7 +82,7 @@ public class TaskHelperBaseTest {
         TaskHelperBase.updateAccountMobile(tasks);
         Test.stopTest();
         list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:taskObj.WhoId limit 1];
-        system.assertEquals(false,lst[0].Is_Blacklist__c);
+        system.assertEquals(true,lst[0].Is_Blacklist__c);
     }    
     }
     
@@ -89,14 +91,19 @@ public class TaskHelperBaseTest {
       createTestData();
         System.runas(userTask){
        
-    taskObj=createTask('Sent');
-    Test.startTest();                                    
+        taskObj=createTask('Sent');
+        Test.startTest();    
+        taskObj.Activity_Status__c = 'Fail-Blacklist';                                
         insert taskObj;
         Task taskObj2=createTask('Open');
         insert taskObj2;
+        Map<Id, Task> taskmap = new Map<Id, Task>();
+        taskmap.put(taskObj.id, taskObj);
+        taskmap.put(taskObj2.id, taskObj2);
             taskObj2.Activity_Status__c='Fail-Blacklist';
             try{
             update taskObj2;
+            //TaskHelperBase.TaskFailBlacklist(taskObj2, taskMap, true, false);
             }catch(Exception e){
                 system.assert(e.getmessage().contains('FIELD_CUSTOM'));
             }
@@ -156,7 +163,7 @@ public class TaskHelperBaseTest {
     static void createTestData()
     {
     taskprofile = [select id from profile where Name='System Administrator' limit 1];
-       userTask = new User(LastName='TaskUser4',country='Thailand',firstName='BCIA',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest4@infosys.com',UserName='samTask4@usgboral.com.dev01',Market__c = 'TH');
+       userTask = new User(LastName='TaskUser4',country='Thailand',firstName='BCIA',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest4@infosys.com',UserName='samTask4@usgboral.com.dev01',Market__c = 'MY');
         insert userTask;
         System.runas(userTask){
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingTH.customSettingDetails();
@@ -167,14 +174,11 @@ public class TaskHelperBaseTest {
                                     Salutation = 'Unknown',
                                       Type='Company',
                                       Preferred_Phone__c='Mobile phone',
-                                    Mobile__c='+66-58585858',
+                                    Mobile__c='+6058585858',
                                       Status__c='VIP',
                                       Province__c='Shanghai',
                                       City__c='Baoshan district',
-                                   //   ZipCode__c='09152',
-                                      PersonMobilePhone = '1301111111',
-                                      PersonOtherPhone = '1301111122',
-                                      RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '0987655413'
+                                   RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '0987655413'
                                      ); 
         personAccount.Is_Blacklist__c = false;
         CDM_EP_Switch__c csm= new CDM_EP_Switch__c();
