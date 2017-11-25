@@ -8,7 +8,7 @@ public static void updateCampaignMemberStatus(List<task> tlst){
     Map<Id,id> taskwithaccount=new map<Id,id>();
     List<Task> taskstoiterate=new List<Task>();
     for(Task tsk:tasklst){
-        if(String.valueOf( tsk.WhatId ).startsWith('701')&&String.valueOf( tsk.whoid).startsWith('003')){
+        if(tsk.WhatId!=null?String.valueOf( tsk.WhatId ).startsWith('701'):false&&tsk.whoid!=null?String.valueOf( tsk.whoid).startsWith('003'):false){
             taskwithaccount.put(tsk.id,tsk.Whoid);
             taskstoiterate.add(tsk);
         }

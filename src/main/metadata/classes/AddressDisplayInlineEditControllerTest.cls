@@ -528,6 +528,10 @@ public class AddressDisplayInlineEditControllerTest
    **/
     public static testMethod void testSaveAddressTHValidation1(){
         //init();
+         CallOutHandlerSettingDFW__c callOutObj=new CallOutHandlerSettingDFW__c(Name='CalloutValues',DEFAULT_CALLOUT_TIME__c='5000',MAX_CALLOUT_TIME__c='10000');       
+  insert callOutObj;        
+   SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+    insert sysObj;
         initUpdated('TH');      
         
         //SN20170511- Added a logic to add a new user for Thailand

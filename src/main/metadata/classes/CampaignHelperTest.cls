@@ -18,7 +18,7 @@
     public static string Published = 'Published';
     public static Set<String> topCampaignIds;
     private static List<Campaign> rclist; 
-	private static map<Id, Campaign> campignMap;
+    private static map<Id, Campaign> campignMap;
      private static Map<id,Campaign> CampaignMap1;
        public static Campaign camobj;
        public static Campaign camobj1;
@@ -48,7 +48,7 @@
     insert camobj;
   
     rclist=new List<Campaign>();
-	campignMap = new map<Id, Campaign>();
+    campignMap = new map<Id, Campaign>();
    // rclist.add(camobj);
      system.debug('rclist---'+rclist);
     
@@ -680,7 +680,7 @@
     insert camobj;
   
     rclist=new List<Campaign>();
-	campignMap = new map<Id, Campaign>();
+    campignMap = new map<Id, Campaign>();
    // rclist.add(camobj);
      system.debug('rclist---'+rclist);
     
@@ -688,8 +688,8 @@
     camobj1.RecordTypeId = camIdExec;
     camobj1.ParentId=camobj.id;
     camobj1.Child_Campaign_Status__c='Completed';
-    camobj1.Consolidated_List_Completed__c= true;
-    camobj1.MD__c='AU';
+    //camobj1.Consolidated_List_Completed__c= true;
+    camobj1.MD__c='JP';
     camobj1.Name = 'camptest1';
     camobj1.Campaign_Type__c='After Sales';
     camobj1.Type = 'Other';
@@ -698,11 +698,11 @@
     camobj1.Execution_Type__c= 'eMail';
     camobj1.Description = 'testdescrip';
     rclist.add(camobj1);
-	campignMap.put(camobj1.Id, camobj1);
+    campignMap.put(camobj1.Id, camobj1);
     insert rclist;
     system.debug('rclist---'+rclist);
-   
-    
+   //camobj1.Consolidated_List_Completed__c= true;
+    //update rclist;
      Test.startTest();
      CampaignHelper.copyCampaignToRetailCampaign(rclist,campignMap);
    
@@ -732,7 +732,7 @@
            preparedTestDataCustomsettings();     
         Test.StartTest();
        listcampaigns=new List<Campaign>();
-	   campignMap = new map<Id,Campaign>();
+       campignMap = new map<Id,Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
      Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342',Dealer_Sales_Manager_Email__c='test1@gmail.com');
      insert dealer;
@@ -806,7 +806,7 @@
 
         CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
         listcampaigns.add(objcampaign);
-		campignMap.put(objcampaign.Id,objcampaign);
+        campignMap.put(objcampaign.Id,objcampaign);
         
         CampaignHelper.copyCampaignToRetailCampaign(listcampaigns,campignMap);
         
@@ -1455,4 +1455,5 @@
        
         
      }
+     
 }
