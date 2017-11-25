@@ -11,8 +11,11 @@ public class RegisteredUsersTriggerHelper{
         for(Registered_Users__c userReq:Reqlist){        
             if(userReq.Request_Status__c=='new'){
                 Approval.ProcessSubmitRequest req=new Approval.ProcessSubmitRequest();
-                req.setObjectId(userReq.Id);
-                Approval.ProcessResult result = Approval.process(req);        
+                req.setObjectId(userReq.Id);        
+				//Approval.ProcessResult result = Approval.process(req);  
+				try{
+                    Approval.ProcessResult result = Approval.process(req); 
+                }catch(Exception e){}  
             } 
         }   
     }   
