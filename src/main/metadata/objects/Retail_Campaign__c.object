@@ -15811,11 +15811,7 @@ $Profile.Name != 'IntegrationAPI'
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 { 
-
-
-window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
-
-
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
 }</url>
     </webLinks>
     <webLinks>

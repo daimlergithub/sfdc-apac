@@ -107,6 +107,11 @@
 						<sf:include name="angularSanitize"/>
 						<sf:include name="GreenLed"/>
 						<sf:include name="RedLed"/>
+						<sf:include name="Rug_low"/>
+						<sf:include name="Rug_max"/>
+						<sf:include name="Rug_med"/>
+						<sf:include name="RugHomeImage"/>
+						<sf:include name="Rugimage"/>
 					</sf:typeset>
 					<sf:typeset name="remoteSiteSettings"/>
 					<sf:typeset name="roles"/>
